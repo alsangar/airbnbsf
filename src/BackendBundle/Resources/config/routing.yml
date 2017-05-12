@@ -1,0 +1,7 @@
+backend_homepage:
+    path:     /
+    defaults: { _controller: BackendBundle:Default:index }
+    
+backend_user_list:
+    path:     /user/list
+    defaults: { _controller: BackendBundle:Default:index }
