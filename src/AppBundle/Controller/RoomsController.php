@@ -25,7 +25,7 @@ class RoomsController extends Controller
      */
     public function roomsMyAction(Request $request)
     {
-        $room = '';
+        $room = 'Esta es mi habitación.';
         return $this->render('app\rooms\view.html.twig', array(
             'room' => $room
         ));
@@ -34,9 +34,9 @@ class RoomsController extends Controller
         /**
      * @Route("/rooms/myrooms/{id}", name="rooms_my_edit", requirements={"id" = "\d+"})
      */
-    public function roomsEditAction(Request $request)
-    {
-        $room = '';
+    public function roomsEditAction(Request $request, $id)
+        {
+        $room = 'Estas editando myrooms ' . $id;
         return $this->render('app\rooms\edit.html.twig', array(
             'room' => $room
         ));

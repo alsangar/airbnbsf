@@ -15,13 +15,16 @@ class __TwigTemplate_2b317ee3fe8d175153253745fe247a2bfd3f16fcd4996bdddcba7760029
 
     protected function doDisplay(array $context, array $blocks = array())
     {
-        $__internal_1d55e12dec4ee611fd70463a028c8fc22e3e8550432089aafd22c02355c1d639 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
-        $__internal_1d55e12dec4ee611fd70463a028c8fc22e3e8550432089aafd22c02355c1d639->enter($__internal_1d55e12dec4ee611fd70463a028c8fc22e3e8550432089aafd22c02355c1d639_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "app\\rooms\\edit.html.twig"));
+        $__internal_c72b5f39d52bc50631e1d1448f4bd51e0622e5db93bd5a6473f9801d3b5601f2 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
+        $__internal_c72b5f39d52bc50631e1d1448f4bd51e0622e5db93bd5a6473f9801d3b5601f2->enter($__internal_c72b5f39d52bc50631e1d1448f4bd51e0622e5db93bd5a6473f9801d3b5601f2_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "app\\rooms\\edit.html.twig"));
 
         // line 1
-        echo "Edit";
+        echo "Edit
+<br> ";
+        // line 2
+        echo twig_escape_filter($this->env, ($context["room"] ?? $this->getContext($context, "room")), "html", null, true);
         
-        $__internal_1d55e12dec4ee611fd70463a028c8fc22e3e8550432089aafd22c02355c1d639->leave($__internal_1d55e12dec4ee611fd70463a028c8fc22e3e8550432089aafd22c02355c1d639_prof);
+        $__internal_c72b5f39d52bc50631e1d1448f4bd51e0622e5db93bd5a6473f9801d3b5601f2->leave($__internal_c72b5f39d52bc50631e1d1448f4bd51e0622e5db93bd5a6473f9801d3b5601f2_prof);
 
     }
 
@@ -30,9 +33,14 @@ class __TwigTemplate_2b317ee3fe8d175153253745fe247a2bfd3f16fcd4996bdddcba7760029
         return "app\\rooms\\edit.html.twig";
     }
 
+    public function isTraitable()
+    {
+        return false;
+    }
+
     public function getDebugInfo()
     {
-        return array (  22 => 1,);
+        return array (  25 => 2,  22 => 1,);
     }
 
     /** @deprecated since 1.27 (to be removed in 2.0). Use getSourceContext() instead */
@@ -45,6 +53,7 @@ class __TwigTemplate_2b317ee3fe8d175153253745fe247a2bfd3f16fcd4996bdddcba7760029
 
     public function getSourceContext()
     {
-        return new Twig_Source("Edit", "app\\rooms\\edit.html.twig", "/var/www/html/airbnbsf/app/Resources/views/app/rooms/edit.html.twig");
+        return new Twig_Source("Edit
+<br> {{room}}", "app\\rooms\\edit.html.twig", "/var/www/html/airbnbsf/app/Resources/views/app/rooms/edit.html.twig");
     }
 }

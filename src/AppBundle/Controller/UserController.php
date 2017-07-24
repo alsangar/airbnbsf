@@ -14,9 +14,9 @@ class UserController extends Controller
      */
     public function userViewAction(Request $request)
     {
-        // replace this example code with whatever you need
-        return $this->render('default/index.html.twig', array(
-            'base_dir' => realpath($this->container->getParameter('kernel.root_dir').'/..').DIRECTORY_SEPARATOR,
+        $users  = ['pepe', 'paco','juan'];
+        return $this->render('user/view.html.twig', array(
+            'users' => $users
         ));
     }
     
@@ -25,9 +25,9 @@ class UserController extends Controller
      */
     public function userProfileAction(Request $request)
     {
-        // replace this example code with whatever you need
-        return $this->render('default/index.html.twig', array(
-            'base_dir' => realpath($this->container->getParameter('kernel.root_dir').'/..').DIRECTORY_SEPARATOR,
+        $user ='';
+        return $this->render('user/profile.html.twig', array(
+            'user' => $user
         ));
     }
     
@@ -36,17 +36,14 @@ class UserController extends Controller
      */
     public function loginAction(Request $request)
     {
-        // replace this example code with whatever you need
-        return $this->render('default/index.html.twig', array(
-            'base_dir' => realpath($this->container->getParameter('kernel.root_dir').'/..').DIRECTORY_SEPARATOR,
+        return $this->render('user/login.html.twig', array(
         ));
     }    /**
      * @Route("/register", name="register")
      */
     public function registerAction(Request $request)
     {
-        // replace this example code with whatever you need
-        return $this->render('default/index.html.twig', array(
+        return $this->render('user/register.html.twig', array(
             'base_dir' => realpath($this->container->getParameter('kernel.root_dir').'/..').DIRECTORY_SEPARATOR,
         ));
     }    /**
@@ -55,7 +52,7 @@ class UserController extends Controller
     public function inboxAction(Request $request)
     {
         // replace this example code with whatever you need
-        return $this->render('default/index.html.twig', array(
+        return $this->render('user/inbox.html.twig', array(
             'base_dir' => realpath($this->container->getParameter('kernel.root_dir').'/..').DIRECTORY_SEPARATOR,
         ));
     }

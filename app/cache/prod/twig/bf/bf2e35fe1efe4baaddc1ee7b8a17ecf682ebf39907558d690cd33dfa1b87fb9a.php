@@ -1,7 +1,7 @@
 <?php
 
-/* BackendBundle:Default:index.html.twig */
-class __TwigTemplate_1c2b7a0d1334e503c34d5061635c3cba07ef4780fc12ebf01fcf99c8caad80b1 extends Twig_Template
+/* @Framework/Form/choice_widget.html.php */
+class __TwigTemplate_33be85dec9405d8ba523b90a53d7ab61161e600d40f1ceeb8498bc4cae38ba74 extends Twig_Template
 {
     public function __construct(Twig_Environment $env)
     {
@@ -16,13 +16,17 @@ class __TwigTemplate_1c2b7a0d1334e503c34d5061635c3cba07ef4780fc12ebf01fcf99c8caa
     protected function doDisplay(array $context, array $blocks = array())
     {
         // line 1
-        echo "Hello World!
+        echo "<?php if (\$expanded): ?>
+<?php echo \$view['form']->block(\$form, 'choice_widget_expanded') ?>
+<?php else: ?>
+<?php echo \$view['form']->block(\$form, 'choice_widget_collapsed') ?>
+<?php endif ?>
 ";
     }
 
     public function getTemplateName()
     {
-        return "BackendBundle:Default:index.html.twig";
+        return "@Framework/Form/choice_widget.html.php";
     }
 
     public function getDebugInfo()
@@ -40,6 +44,6 @@ class __TwigTemplate_1c2b7a0d1334e503c34d5061635c3cba07ef4780fc12ebf01fcf99c8caa
 
     public function getSourceContext()
     {
-        return new Twig_Source("", "BackendBundle:Default:index.html.twig", "/var/www/html/airbnbsf/src/BackendBundle/Resources/views/Default/index.html.twig");
+        return new Twig_Source("", "@Framework/Form/choice_widget.html.php", "/var/www/html/airbnbsf/vendor/symfony/symfony/src/Symfony/Bundle/FrameworkBundle/Resources/views/Form/choice_widget.html.php");
     }
 }

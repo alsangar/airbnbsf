@@ -15,8 +15,8 @@ class __TwigTemplate_b062941c7e2496cc7b3506c313847213e363867a57b746af34764b78bec
 
     protected function doDisplay(array $context, array $blocks = array())
     {
-        $__internal_530eab2b566082770a481bd1c5322da0cc7e420462e553712955f665f46899aa = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
-        $__internal_530eab2b566082770a481bd1c5322da0cc7e420462e553712955f665f46899aa->enter($__internal_530eab2b566082770a481bd1c5322da0cc7e420462e553712955f665f46899aa_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "app\\rooms\\list.html.twig"));
+        $__internal_520bdf93c0752e78432c2f6cbabaa2fbe862da370134a1f53e66a51f78c281e1 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
+        $__internal_520bdf93c0752e78432c2f6cbabaa2fbe862da370134a1f53e66a51f78c281e1->enter($__internal_520bdf93c0752e78432c2f6cbabaa2fbe862da370134a1f53e66a51f78c281e1_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "app\\rooms\\list.html.twig"));
 
         // line 1
         echo "Lista
@@ -33,13 +33,13 @@ class __TwigTemplate_b062941c7e2496cc7b3506c313847213e363867a57b746af34764b78bec
             echo twig_escape_filter($this->env, $context["room"], "html", null, true);
             echo "
 
-    ";
+";
         }
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['room'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
         
-        $__internal_530eab2b566082770a481bd1c5322da0cc7e420462e553712955f665f46899aa->leave($__internal_530eab2b566082770a481bd1c5322da0cc7e420462e553712955f665f46899aa_prof);
+        $__internal_520bdf93c0752e78432c2f6cbabaa2fbe862da370134a1f53e66a51f78c281e1->leave($__internal_520bdf93c0752e78432c2f6cbabaa2fbe862da370134a1f53e66a51f78c281e1_prof);
 
     }
 
@@ -74,6 +74,6 @@ class __TwigTemplate_b062941c7e2496cc7b3506c313847213e363867a57b746af34764b78bec
 
     {{room}}
 
-    {% endfor %}", "app\\rooms\\list.html.twig", "/var/www/html/airbnbsf/app/Resources/views/app/rooms/list.html.twig");
+{% endfor %}", "app\\rooms\\list.html.twig", "/var/www/html/airbnbsf/app/Resources/views/app/rooms/list.html.twig");
     }
 }
