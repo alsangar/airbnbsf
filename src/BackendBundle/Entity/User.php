@@ -32,6 +32,11 @@ class User
     * @ORM\OneToMany(targetEntity="Favorites", mappedBy="user", cascade={"persist"})
     */
     protected $favorites;
+    
+    /**
+    * @ORM\OneToMany(targetEntity="Complaints", mappedBy="user", cascade={"persist"})
+    */
+    protected $complaints;
 
     /**
     * Constructor
@@ -40,6 +45,7 @@ class User
     {
        $this->products = new \Doctrine\Common\Collections\ArrayCollection();
        $this->favorites = new \Doctrine\Common\Collections\ArrayCollection();
+       $this->complaints = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
 
@@ -119,5 +125,38 @@ class User
     public function getFavorites()
     {
         return $this->favorites;
+    }
+
+    /**
+     * Add complaints
+     *
+     * @param \BackendBundle\Entity\Complaints $complaints
+     * @return User
+     */
+    public function addComplaint(\BackendBundle\Entity\Complaints $complaints)
+    {
+        $this->complaints[] = $complaints;
+    
+        return $this;
+    }
+
+    /**
+     * Remove complaints
+     *
+     * @param \BackendBundle\Entity\Complaints $complaints
+     */
+    public function removeComplaint(\BackendBundle\Entity\Complaints $complaints)
+    {
+        $this->complaints->removeElement($complaints);
+    }
+
+    /**
+     * Get complaints
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getComplaints()
+    {
+        return $this->complaints;
     }
 }
