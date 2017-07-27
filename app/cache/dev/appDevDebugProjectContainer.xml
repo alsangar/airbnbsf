@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <container xmlns="http://symfony.com/schema/dic/services" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
   <parameters>
-    <parameter key="kernel.root_dir">C:\Users\alsanchez\Desarrollo\airbnbsf\app</parameter>
+    <parameter key="kernel.root_dir">C:\xampp\htdocs\airbnbsf\app</parameter>
     <parameter key="kernel.environment">dev</parameter>
     <parameter key="kernel.debug">true</parameter>
     <parameter key="kernel.name">app</parameter>
-    <parameter key="kernel.cache_dir">C:\Users\alsanchez\Desarrollo\airbnbsf\app\cache\dev</parameter>
-    <parameter key="kernel.logs_dir">C:\Users\alsanchez\Desarrollo\airbnbsf\app\logs</parameter>
+    <parameter key="kernel.cache_dir">C:\xampp\htdocs\airbnbsf\app\cache\dev</parameter>
+    <parameter key="kernel.logs_dir">C:\xampp\htdocs\airbnbsf\app\logs</parameter>
     <parameter key="kernel.bundles" type="collection">
       <parameter key="FrameworkBundle">Symfony\Bundle\FrameworkBundle\FrameworkBundle</parameter>
       <parameter key="SecurityBundle">Symfony\Bundle\SecurityBundle\SecurityBundle</parameter>
@@ -15,6 +15,11 @@
       <parameter key="SwiftmailerBundle">Symfony\Bundle\SwiftmailerBundle\SwiftmailerBundle</parameter>
       <parameter key="DoctrineBundle">Doctrine\Bundle\DoctrineBundle\DoctrineBundle</parameter>
       <parameter key="SensioFrameworkExtraBundle">Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle</parameter>
+      <parameter key="FOSUserBundle">FOS\UserBundle\FOSUserBundle</parameter>
+      <parameter key="SonataMediaBundle">Sonata\MediaBundle\SonataMediaBundle</parameter>
+      <parameter key="SonataEasyExtendsBundle">Sonata\EasyExtendsBundle\SonataEasyExtendsBundle</parameter>
+      <parameter key="ApplicationSonataMediaBundle">Application\Sonata\MediaBundle\ApplicationSonataMediaBundle</parameter>
+      <parameter key="JMSSerializerBundle">JMS\SerializerBundle\JMSSerializerBundle</parameter>
       <parameter key="AppBundle">AppBundle\AppBundle</parameter>
       <parameter key="BackendBundle">BackendBundle\BackendBundle</parameter>
       <parameter key="DebugBundle">Symfony\Bundle\DebugBundle\DebugBundle</parameter>
@@ -25,67 +30,92 @@
     <parameter key="kernel.bundles_metadata" type="collection">
       <parameter key="FrameworkBundle" type="collection">
         <parameter key="parent">null</parameter>
-        <parameter key="path">C:\Users\alsanchez\Desarrollo\airbnbsf\vendor\symfony\symfony\src\Symfony\Bundle\FrameworkBundle</parameter>
+        <parameter key="path">C:\xampp\htdocs\airbnbsf\vendor\symfony\symfony\src\Symfony\Bundle\FrameworkBundle</parameter>
         <parameter key="namespace">Symfony\Bundle\FrameworkBundle</parameter>
       </parameter>
       <parameter key="SecurityBundle" type="collection">
         <parameter key="parent">null</parameter>
-        <parameter key="path">C:\Users\alsanchez\Desarrollo\airbnbsf\vendor\symfony\symfony\src\Symfony\Bundle\SecurityBundle</parameter>
+        <parameter key="path">C:\xampp\htdocs\airbnbsf\vendor\symfony\symfony\src\Symfony\Bundle\SecurityBundle</parameter>
         <parameter key="namespace">Symfony\Bundle\SecurityBundle</parameter>
       </parameter>
       <parameter key="TwigBundle" type="collection">
         <parameter key="parent">null</parameter>
-        <parameter key="path">C:\Users\alsanchez\Desarrollo\airbnbsf\vendor\symfony\symfony\src\Symfony\Bundle\TwigBundle</parameter>
+        <parameter key="path">C:\xampp\htdocs\airbnbsf\vendor\symfony\symfony\src\Symfony\Bundle\TwigBundle</parameter>
         <parameter key="namespace">Symfony\Bundle\TwigBundle</parameter>
       </parameter>
       <parameter key="MonologBundle" type="collection">
         <parameter key="parent">null</parameter>
-        <parameter key="path">C:\Users\alsanchez\Desarrollo\airbnbsf\vendor\symfony\monolog-bundle</parameter>
+        <parameter key="path">C:\xampp\htdocs\airbnbsf\vendor\symfony\monolog-bundle</parameter>
         <parameter key="namespace">Symfony\Bundle\MonologBundle</parameter>
       </parameter>
       <parameter key="SwiftmailerBundle" type="collection">
         <parameter key="parent">null</parameter>
-        <parameter key="path">C:\Users\alsanchez\Desarrollo\airbnbsf\vendor\symfony\swiftmailer-bundle</parameter>
+        <parameter key="path">C:\xampp\htdocs\airbnbsf\vendor\symfony\swiftmailer-bundle</parameter>
         <parameter key="namespace">Symfony\Bundle\SwiftmailerBundle</parameter>
       </parameter>
       <parameter key="DoctrineBundle" type="collection">
         <parameter key="parent">null</parameter>
-        <parameter key="path">C:\Users\alsanchez\Desarrollo\airbnbsf\vendor\doctrine\doctrine-bundle</parameter>
+        <parameter key="path">C:\xampp\htdocs\airbnbsf\vendor\doctrine\doctrine-bundle</parameter>
         <parameter key="namespace">Doctrine\Bundle\DoctrineBundle</parameter>
       </parameter>
       <parameter key="SensioFrameworkExtraBundle" type="collection">
         <parameter key="parent">null</parameter>
-        <parameter key="path">C:\Users\alsanchez\Desarrollo\airbnbsf\vendor\sensio\framework-extra-bundle</parameter>
+        <parameter key="path">C:\xampp\htdocs\airbnbsf\vendor\sensio\framework-extra-bundle</parameter>
         <parameter key="namespace">Sensio\Bundle\FrameworkExtraBundle</parameter>
+      </parameter>
+      <parameter key="FOSUserBundle" type="collection">
+        <parameter key="parent">null</parameter>
+        <parameter key="path">C:\xampp\htdocs\airbnbsf\vendor\friendsofsymfony\user-bundle</parameter>
+        <parameter key="namespace">FOS\UserBundle</parameter>
+      </parameter>
+      <parameter key="SonataMediaBundle" type="collection">
+        <parameter key="parent">null</parameter>
+        <parameter key="path">C:\xampp\htdocs\airbnbsf\vendor\sonata-project\media-bundle</parameter>
+        <parameter key="namespace">Sonata\MediaBundle</parameter>
+      </parameter>
+      <parameter key="SonataEasyExtendsBundle" type="collection">
+        <parameter key="parent">null</parameter>
+        <parameter key="path">C:\xampp\htdocs\airbnbsf\vendor\sonata-project\easy-extends-bundle</parameter>
+        <parameter key="namespace">Sonata\EasyExtendsBundle</parameter>
+      </parameter>
+      <parameter key="ApplicationSonataMediaBundle" type="collection">
+        <parameter key="parent">SonataMediaBundle</parameter>
+        <parameter key="path">C:\xampp\htdocs\airbnbsf\src\Application\Sonata\MediaBundle</parameter>
+        <parameter key="namespace">Application\Sonata\MediaBundle</parameter>
+      </parameter>
+      <parameter key="JMSSerializerBundle" type="collection">
+        <parameter key="parent">null</parameter>
+        <parameter key="path">C:\xampp\htdocs\airbnbsf\vendor\jms\serializer-bundle\JMS\SerializerBundle</parameter>
+        <parameter key="namespace">JMS\SerializerBundle</parameter>
       </parameter>
       <parameter key="AppBundle" type="collection">
         <parameter key="parent">null</parameter>
-        <parameter key="path">C:\Users\alsanchez\Desarrollo\airbnbsf\src\AppBundle</parameter>
+        <parameter key="path">C:\xampp\htdocs\airbnbsf\src\AppBundle</parameter>
         <parameter key="namespace">AppBundle</parameter>
       </parameter>
       <parameter key="BackendBundle" type="collection">
         <parameter key="parent">null</parameter>
-        <parameter key="path">C:\Users\alsanchez\Desarrollo\airbnbsf\src\BackendBundle</parameter>
+        <parameter key="path">C:\xampp\htdocs\airbnbsf\src\BackendBundle</parameter>
         <parameter key="namespace">BackendBundle</parameter>
       </parameter>
       <parameter key="DebugBundle" type="collection">
         <parameter key="parent">null</parameter>
-        <parameter key="path">C:\Users\alsanchez\Desarrollo\airbnbsf\vendor\symfony\symfony\src\Symfony\Bundle\DebugBundle</parameter>
+        <parameter key="path">C:\xampp\htdocs\airbnbsf\vendor\symfony\symfony\src\Symfony\Bundle\DebugBundle</parameter>
         <parameter key="namespace">Symfony\Bundle\DebugBundle</parameter>
       </parameter>
       <parameter key="WebProfilerBundle" type="collection">
         <parameter key="parent">null</parameter>
-        <parameter key="path">C:\Users\alsanchez\Desarrollo\airbnbsf\vendor\symfony\symfony\src\Symfony\Bundle\WebProfilerBundle</parameter>
+        <parameter key="path">C:\xampp\htdocs\airbnbsf\vendor\symfony\symfony\src\Symfony\Bundle\WebProfilerBundle</parameter>
         <parameter key="namespace">Symfony\Bundle\WebProfilerBundle</parameter>
       </parameter>
       <parameter key="SensioDistributionBundle" type="collection">
         <parameter key="parent">null</parameter>
-        <parameter key="path">C:\Users\alsanchez\Desarrollo\airbnbsf\vendor\sensio\distribution-bundle\Sensio\Bundle\DistributionBundle</parameter>
+        <parameter key="path">C:\xampp\htdocs\airbnbsf\vendor\sensio\distribution-bundle\Sensio\Bundle\DistributionBundle</parameter>
         <parameter key="namespace">Sensio\Bundle\DistributionBundle</parameter>
       </parameter>
       <parameter key="SensioGeneratorBundle" type="collection">
         <parameter key="parent">null</parameter>
-        <parameter key="path">C:\Users\alsanchez\Desarrollo\airbnbsf\vendor\sensio\generator-bundle</parameter>
+        <parameter key="path">C:\xampp\htdocs\airbnbsf\vendor\sensio\generator-bundle</parameter>
         <parameter key="namespace">Sensio\Bundle\GeneratorBundle</parameter>
       </parameter>
     </parameter>
@@ -98,10 +128,10 @@
     <parameter key="database_password">null</parameter>
     <parameter key="mailer_transport">smtp</parameter>
     <parameter key="mailer_host">127.0.0.1</parameter>
-    <parameter key="mailer_user">null</parameter>
-    <parameter key="mailer_password">null</parameter>
+    <parameter key="mailer_user">uno@cualquiera.es</parameter>
+    <parameter key="mailer_password">pass_de_palo</parameter>
     <parameter key="secret">f874d7d915232cf50ab61e1e4e26e224ec70996a</parameter>
-    <parameter key="locale">en</parameter>
+    <parameter key="locale">es</parameter>
     <parameter key="controller_resolver.class">Symfony\Bundle\FrameworkBundle\Controller\ControllerResolver</parameter>
     <parameter key="controller_name_converter.class">Symfony\Bundle\FrameworkBundle\Controller\ControllerNameParser</parameter>
     <parameter key="response_listener.class">Symfony\Component\HttpKernel\EventListener\ResponseListener</parameter>
@@ -154,7 +184,7 @@
     <parameter key="kernel.http_method_override">true</parameter>
     <parameter key="kernel.trusted_hosts" type="collection"/>
     <parameter key="kernel.trusted_proxies" type="collection"/>
-    <parameter key="kernel.default_locale">en</parameter>
+    <parameter key="kernel.default_locale">es</parameter>
     <parameter key="session.class">Symfony\Component\HttpFoundation\Session\Session</parameter>
     <parameter key="session.flashbag.class">Symfony\Component\HttpFoundation\Session\Flash\FlashBag</parameter>
     <parameter key="session.attribute_bag.class">Symfony\Component\HttpFoundation\Session\Attribute\AttributeBag</parameter>
@@ -170,7 +200,7 @@
       <parameter key="cookie_httponly">true</parameter>
       <parameter key="gc_probability">1</parameter>
     </parameter>
-    <parameter key="session.save_path">C:\Users\alsanchez\Desarrollo\airbnbsf\app\cache\dev/sessions</parameter>
+    <parameter key="session.save_path">C:\xampp\htdocs\airbnbsf\app\cache\dev/sessions</parameter>
     <parameter key="session.metadata.update_threshold">0</parameter>
     <parameter key="security.secure_random.class">Symfony\Component\Security\Core\Util\SecureRandom</parameter>
     <parameter key="form.resolved_type_factory.class">Symfony\Component\Form\ResolvedFormTypeFactory</parameter>
@@ -227,7 +257,7 @@
     <parameter key="data_collector.form.extractor.class">Symfony\Component\Form\Extension\DataCollector\FormDataExtractor</parameter>
     <parameter key="profiler_listener.only_exceptions">false</parameter>
     <parameter key="profiler_listener.only_master_requests">false</parameter>
-    <parameter key="profiler.storage.dsn">file:C:\Users\alsanchez\Desarrollo\airbnbsf\app\cache\dev/profiler</parameter>
+    <parameter key="profiler.storage.dsn">file:C:\xampp\htdocs\airbnbsf\app\cache\dev/profiler</parameter>
     <parameter key="profiler.storage.username"></parameter>
     <parameter key="profiler.storage.password"></parameter>
     <parameter key="profiler.storage.lifetime">86400</parameter>
@@ -251,7 +281,7 @@
     <parameter key="router.request_context.host">localhost</parameter>
     <parameter key="router.request_context.scheme">http</parameter>
     <parameter key="router.request_context.base_url"></parameter>
-    <parameter key="router.resource">C:\Users\alsanchez\Desarrollo\airbnbsf\app/config/routing_dev.yml</parameter>
+    <parameter key="router.resource">C:\xampp\htdocs\airbnbsf\app/config/routing_dev.yml</parameter>
     <parameter key="router.cache_class_prefix">appDevDebugProjectContainer</parameter>
     <parameter key="request_listener.http_port">80</parameter>
     <parameter key="request_listener.https_port">443</parameter>
@@ -262,7 +292,7 @@
     <parameter key="debug.stopwatch.class">Symfony\Component\Stopwatch\Stopwatch</parameter>
     <parameter key="debug.error_handler.throw_at">-1</parameter>
     <parameter key="debug.event_dispatcher.class">Symfony\Component\HttpKernel\Debug\TraceableEventDispatcher</parameter>
-    <parameter key="debug.container.dump">C:\Users\alsanchez\Desarrollo\airbnbsf\app\cache\dev/appDevDebugProjectContainer.xml</parameter>
+    <parameter key="debug.container.dump">C:\xampp\htdocs\airbnbsf\app\cache\dev/appDevDebugProjectContainer.xml</parameter>
     <parameter key="debug.controller_resolver.class">Symfony\Component\HttpKernel\Controller\TraceableControllerResolver</parameter>
     <parameter key="security.context.class">Symfony\Component\Security\Core\SecurityContext</parameter>
     <parameter key="security.user_checker.class">Symfony\Component\Security\Core\User\UserChecker</parameter>
@@ -293,7 +323,14 @@
     <parameter key="security.http_utils.class">Symfony\Component\Security\Http\HttpUtils</parameter>
     <parameter key="security.validator.user_password.class">Symfony\Component\Security\Core\Validator\Constraints\UserPasswordValidator</parameter>
     <parameter key="security.expression_language.class">Symfony\Component\Security\Core\Authorization\ExpressionLanguage</parameter>
-    <parameter key="security.role_hierarchy.roles" type="collection"/>
+    <parameter key="security.role_hierarchy.roles" type="collection">
+      <parameter key="ROLE_ADMIN" type="collection">
+        <parameter>ROLE_USER</parameter>
+      </parameter>
+      <parameter key="ROLE_SUPER_ADMIN" type="collection">
+        <parameter>ROLE_ADMIN</parameter>
+      </parameter>
+    </parameter>
     <parameter key="security.authentication.retry_entry_point.class">Symfony\Component\Security\Http\EntryPoint\RetryAuthenticationEntryPoint</parameter>
     <parameter key="security.channel_listener.class">Symfony\Component\Security\Http\Firewall\ChannelListener</parameter>
     <parameter key="security.authentication.form_entry_point.class">Symfony\Component\Security\Http\EntryPoint\FormAuthenticationEntryPoint</parameter>
@@ -397,13 +434,13 @@
     <parameter key="swiftmailer.mailer.default.transport.smtp.encryption">null</parameter>
     <parameter key="swiftmailer.mailer.default.transport.smtp.port">25</parameter>
     <parameter key="swiftmailer.mailer.default.transport.smtp.host">127.0.0.1</parameter>
-    <parameter key="swiftmailer.mailer.default.transport.smtp.username">null</parameter>
-    <parameter key="swiftmailer.mailer.default.transport.smtp.password">null</parameter>
+    <parameter key="swiftmailer.mailer.default.transport.smtp.username">uno@cualquiera.es</parameter>
+    <parameter key="swiftmailer.mailer.default.transport.smtp.password">pass_de_palo</parameter>
     <parameter key="swiftmailer.mailer.default.transport.smtp.auth_mode">null</parameter>
     <parameter key="swiftmailer.mailer.default.transport.smtp.timeout">30</parameter>
     <parameter key="swiftmailer.mailer.default.transport.smtp.source_ip">null</parameter>
     <parameter key="swiftmailer.mailer.default.transport.smtp.local_domain">null</parameter>
-    <parameter key="swiftmailer.spool.default.memory.path">C:\Users\alsanchez\Desarrollo\airbnbsf\app\cache\dev/swiftmailer/spool/default</parameter>
+    <parameter key="swiftmailer.spool.default.memory.path">C:\xampp\htdocs\airbnbsf\app\cache\dev/swiftmailer/spool/default</parameter>
     <parameter key="swiftmailer.mailer.default.spool.enabled">true</parameter>
     <parameter key="swiftmailer.mailer.default.plugin.impersonate">null</parameter>
     <parameter key="swiftmailer.mailer.default.single_address">null</parameter>
@@ -471,7 +508,12 @@
       <parameter key="default">doctrine.orm.default_entity_manager</parameter>
     </parameter>
     <parameter key="doctrine.default_entity_manager">default</parameter>
-    <parameter key="doctrine.dbal.connection_factory.types" type="collection"/>
+    <parameter key="doctrine.dbal.connection_factory.types" type="collection">
+      <parameter key="json" type="collection">
+        <parameter key="class">Sonata\Doctrine\Types\JsonType</parameter>
+        <parameter key="commented">true</parameter>
+      </parameter>
+    </parameter>
     <parameter key="doctrine.connections" type="collection">
       <parameter key="default">doctrine.dbal.default_connection</parameter>
     </parameter>
@@ -522,7 +564,7 @@
     <parameter key="doctrine.orm.second_level_cache.cache_configuration.class">Doctrine\ORM\Cache\CacheConfiguration</parameter>
     <parameter key="doctrine.orm.second_level_cache.regions_configuration.class">Doctrine\ORM\Cache\RegionsConfiguration</parameter>
     <parameter key="doctrine.orm.auto_generate_proxy_classes">true</parameter>
-    <parameter key="doctrine.orm.proxy_dir">C:\Users\alsanchez\Desarrollo\airbnbsf\app\cache\dev/doctrine/orm/Proxies</parameter>
+    <parameter key="doctrine.orm.proxy_dir">C:\xampp\htdocs\airbnbsf\app\cache\dev/doctrine/orm/Proxies</parameter>
     <parameter key="doctrine.orm.proxy_namespace">Proxies</parameter>
     <parameter key="sensio_framework_extra.view.guesser.class">Sensio\Bundle\FrameworkExtraBundle\Templating\TemplateGuesser</parameter>
     <parameter key="sensio_framework_extra.controller.listener.class">Sensio\Bundle\FrameworkExtraBundle\EventListener\ControllerListener</parameter>
@@ -534,6 +576,128 @@
     <parameter key="sensio_framework_extra.converter.doctrine.class">Sensio\Bundle\FrameworkExtraBundle\Request\ParamConverter\DoctrineParamConverter</parameter>
     <parameter key="sensio_framework_extra.converter.datetime.class">Sensio\Bundle\FrameworkExtraBundle\Request\ParamConverter\DateTimeParamConverter</parameter>
     <parameter key="sensio_framework_extra.view.listener.class">Sensio\Bundle\FrameworkExtraBundle\EventListener\TemplateListener</parameter>
+    <parameter key="fos_user.backend_type_orm">true</parameter>
+    <parameter key="fos_user.security.interactive_login_listener.class">FOS\UserBundle\EventListener\LastLoginListener</parameter>
+    <parameter key="fos_user.security.login_manager.class">FOS\UserBundle\Security\LoginManager</parameter>
+    <parameter key="fos_user.resetting.email.template">@FOSUser/Resetting/email.txt.twig</parameter>
+    <parameter key="fos_user.registration.confirmation.template">@FOSUser/Registration/email.txt.twig</parameter>
+    <parameter key="fos_user.storage">orm</parameter>
+    <parameter key="fos_user.firewall_name">main</parameter>
+    <parameter key="fos_user.model_manager_name">null</parameter>
+    <parameter key="fos_user.model.user.class">BackendBundle\Entity\User</parameter>
+    <parameter key="fos_user.profile.form.type">FOS\UserBundle\Form\Type\ProfileFormType</parameter>
+    <parameter key="fos_user.profile.form.name">fos_user_profile_form</parameter>
+    <parameter key="fos_user.profile.form.validation_groups" type="collection">
+      <parameter>Profile</parameter>
+      <parameter>Default</parameter>
+    </parameter>
+    <parameter key="fos_user.registration.confirmation.from_email" type="collection">
+      <parameter key="uno@cualquiera.es">uno@cualquiera.es</parameter>
+    </parameter>
+    <parameter key="fos_user.registration.confirmation.enabled">false</parameter>
+    <parameter key="fos_user.registration.form.type">FOS\UserBundle\Form\Type\RegistrationFormType</parameter>
+    <parameter key="fos_user.registration.form.name">fos_user_registration_form</parameter>
+    <parameter key="fos_user.registration.form.validation_groups" type="collection">
+      <parameter>Registration</parameter>
+      <parameter>Default</parameter>
+    </parameter>
+    <parameter key="fos_user.change_password.form.type">FOS\UserBundle\Form\Type\ChangePasswordFormType</parameter>
+    <parameter key="fos_user.change_password.form.name">fos_user_change_password_form</parameter>
+    <parameter key="fos_user.change_password.form.validation_groups" type="collection">
+      <parameter>ChangePassword</parameter>
+      <parameter>Default</parameter>
+    </parameter>
+    <parameter key="fos_user.resetting.email.from_email" type="collection">
+      <parameter key="uno@cualquiera.es">uno@cualquiera.es</parameter>
+    </parameter>
+    <parameter key="fos_user.resetting.retry_ttl">7200</parameter>
+    <parameter key="fos_user.resetting.token_ttl">86400</parameter>
+    <parameter key="fos_user.resetting.form.type">FOS\UserBundle\Form\Type\ResettingFormType</parameter>
+    <parameter key="fos_user.resetting.form.name">fos_user_resetting_form</parameter>
+    <parameter key="fos_user.resetting.form.validation_groups" type="collection">
+      <parameter>ResetPassword</parameter>
+      <parameter>Default</parameter>
+    </parameter>
+    <parameter key="sonata.media.provider.image.class">Sonata\MediaBundle\Provider\ImageProvider</parameter>
+    <parameter key="sonata.media.provider.file.class">Sonata\MediaBundle\Provider\FileProvider</parameter>
+    <parameter key="sonata.media.provider.youtube.class">Sonata\MediaBundle\Provider\YouTubeProvider</parameter>
+    <parameter key="sonata.media.provider.dailymotion.class">Sonata\MediaBundle\Provider\DailyMotionProvider</parameter>
+    <parameter key="sonata.media.provider.vimeo.class">Sonata\MediaBundle\Provider\VimeoProvider</parameter>
+    <parameter key="sonata.media.thumbnail.format">Sonata\MediaBundle\Thumbnail\FormatThumbnail</parameter>
+    <parameter key="sonata.media.thumbnail.format.default">jpg</parameter>
+    <parameter key="sonata.media.thumbnail.liip_imagine">Sonata\MediaBundle\Thumbnail\LiipImagineThumbnail</parameter>
+    <parameter key="sonata.media.pool.class">Sonata\MediaBundle\Provider\Pool</parameter>
+    <parameter key="sonata.media.resizer.simple.class">Sonata\MediaBundle\Resizer\SimpleResizer</parameter>
+    <parameter key="sonata.media.resizer.square.class">Sonata\MediaBundle\Resizer\SquareResizer</parameter>
+    <parameter key="sonata.media.adapter.image.gd.class">Imagine\Gd\Imagine</parameter>
+    <parameter key="sonata.media.adapter.image.imagick.class">Imagine\Imagick\Imagine</parameter>
+    <parameter key="sonata.media.adapter.image.gmagick.class">Imagine\Gmagick\Imagine</parameter>
+    <parameter key="sonata.media.metadata.proxy.class">Sonata\MediaBundle\Metadata\ProxyMetadataBuilder</parameter>
+    <parameter key="sonata.media.metadata.amazon.class">Sonata\MediaBundle\Metadata\AmazonMetadataBuilder</parameter>
+    <parameter key="sonata.media.metadata.noop.class">Sonata\MediaBundle\Metadata\NoopMetadataBuilder</parameter>
+    <parameter key="sonata.media.adapater.filesystem.opencloud.class"></parameter>
+    <parameter key="sonata.media.manager.media.class">Sonata\MediaBundle\Entity\MediaManager</parameter>
+    <parameter key="sonata.media.manager.gallery.class">Sonata\MediaBundle\Entity\GalleryManager</parameter>
+    <parameter key="sonata.media.admin_format" type="collection">
+      <parameter key="width">200</parameter>
+      <parameter key="height">false</parameter>
+      <parameter key="quality">90</parameter>
+      <parameter key="format">jpg</parameter>
+      <parameter key="constraint">true</parameter>
+    </parameter>
+    <parameter key="sonata.media.resizer.simple.adapter.mode">inset</parameter>
+    <parameter key="sonata.media.resizer.square.adapter.mode">inset</parameter>
+    <parameter key="sonata.media.admin.media.entity">Application\Sonata\MediaBundle\Entity\Media</parameter>
+    <parameter key="sonata.media.admin.gallery.entity">Application\Sonata\MediaBundle\Entity\Gallery</parameter>
+    <parameter key="sonata.media.admin.gallery_has_media.entity">Application\Sonata\MediaBundle\Entity\GalleryHasMedia</parameter>
+    <parameter key="sonata.media.media.class">Application\Sonata\MediaBundle\Entity\Media</parameter>
+    <parameter key="sonata.media.gallery.class">Application\Sonata\MediaBundle\Entity\Gallery</parameter>
+    <parameter key="jms_serializer.metadata.file_locator.class">Metadata\Driver\FileLocator</parameter>
+    <parameter key="jms_serializer.metadata.annotation_driver.class">JMS\Serializer\Metadata\Driver\AnnotationDriver</parameter>
+    <parameter key="jms_serializer.metadata.chain_driver.class">Metadata\Driver\DriverChain</parameter>
+    <parameter key="jms_serializer.metadata.yaml_driver.class">JMS\Serializer\Metadata\Driver\YamlDriver</parameter>
+    <parameter key="jms_serializer.metadata.xml_driver.class">JMS\Serializer\Metadata\Driver\XmlDriver</parameter>
+    <parameter key="jms_serializer.metadata.php_driver.class">JMS\Serializer\Metadata\Driver\PhpDriver</parameter>
+    <parameter key="jms_serializer.metadata.doctrine_type_driver.class">JMS\Serializer\Metadata\Driver\DoctrineTypeDriver</parameter>
+    <parameter key="jms_serializer.metadata.doctrine_phpcr_type_driver.class">JMS\Serializer\Metadata\Driver\DoctrinePHPCRTypeDriver</parameter>
+    <parameter key="jms_serializer.metadata.lazy_loading_driver.class">Metadata\Driver\LazyLoadingDriver</parameter>
+    <parameter key="jms_serializer.metadata.metadata_factory.class">Metadata\MetadataFactory</parameter>
+    <parameter key="jms_serializer.metadata.cache.file_cache.class">Metadata\Cache\FileCache</parameter>
+    <parameter key="jms_serializer.event_dispatcher.class">JMS\Serializer\EventDispatcher\LazyEventDispatcher</parameter>
+    <parameter key="jms_serializer.camel_case_naming_strategy.class">JMS\Serializer\Naming\CamelCaseNamingStrategy</parameter>
+    <parameter key="jms_serializer.identical_property_naming_strategy.class">JMS\Serializer\Naming\IdenticalPropertyNamingStrategy</parameter>
+    <parameter key="jms_serializer.serialized_name_annotation_strategy.class">JMS\Serializer\Naming\SerializedNameAnnotationStrategy</parameter>
+    <parameter key="jms_serializer.cache_naming_strategy.class">JMS\Serializer\Naming\CacheNamingStrategy</parameter>
+    <parameter key="jms_serializer.doctrine_object_constructor.class">JMS\Serializer\Construction\DoctrineObjectConstructor</parameter>
+    <parameter key="jms_serializer.unserialize_object_constructor.class">JMS\Serializer\Construction\UnserializeObjectConstructor</parameter>
+    <parameter key="jms_serializer.version_exclusion_strategy.class">JMS\Serializer\Exclusion\VersionExclusionStrategy</parameter>
+    <parameter key="jms_serializer.serializer.class">JMS\Serializer\Serializer</parameter>
+    <parameter key="jms_serializer.twig_extension.class">JMS\Serializer\Twig\SerializerExtension</parameter>
+    <parameter key="jms_serializer.twig_runtime_extension.class">JMS\Serializer\Twig\SerializerRuntimeExtension</parameter>
+    <parameter key="jms_serializer.twig_runtime_extension_helper.class">JMS\Serializer\Twig\SerializerRuntimeHelper</parameter>
+    <parameter key="jms_serializer.templating.helper.class">JMS\SerializerBundle\Templating\SerializerHelper</parameter>
+    <parameter key="jms_serializer.json_serialization_visitor.class">JMS\Serializer\JsonSerializationVisitor</parameter>
+    <parameter key="jms_serializer.json_serialization_visitor.options">0</parameter>
+    <parameter key="jms_serializer.json_deserialization_visitor.class">JMS\Serializer\JsonDeserializationVisitor</parameter>
+    <parameter key="jms_serializer.xml_serialization_visitor.class">JMS\Serializer\XmlSerializationVisitor</parameter>
+    <parameter key="jms_serializer.xml_deserialization_visitor.class">JMS\Serializer\XmlDeserializationVisitor</parameter>
+    <parameter key="jms_serializer.xml_deserialization_visitor.doctype_whitelist" type="collection"/>
+    <parameter key="jms_serializer.xml_serialization_visitor.format_output">true</parameter>
+    <parameter key="jms_serializer.yaml_serialization_visitor.class">JMS\Serializer\YamlSerializationVisitor</parameter>
+    <parameter key="jms_serializer.handler_registry.class">JMS\Serializer\Handler\LazyHandlerRegistry</parameter>
+    <parameter key="jms_serializer.datetime_handler.class">JMS\Serializer\Handler\DateHandler</parameter>
+    <parameter key="jms_serializer.array_collection_handler.class">JMS\Serializer\Handler\ArrayCollectionHandler</parameter>
+    <parameter key="jms_serializer.php_collection_handler.class">JMS\Serializer\Handler\PhpCollectionHandler</parameter>
+    <parameter key="jms_serializer.form_error_handler.class">JMS\Serializer\Handler\FormErrorHandler</parameter>
+    <parameter key="jms_serializer.constraint_violation_handler.class">JMS\Serializer\Handler\ConstraintViolationHandler</parameter>
+    <parameter key="jms_serializer.doctrine_proxy_subscriber.class">JMS\Serializer\EventDispatcher\Subscriber\DoctrineProxySubscriber</parameter>
+    <parameter key="jms_serializer.stopwatch_subscriber.class">JMS\SerializerBundle\Serializer\StopwatchEventSubscriber</parameter>
+    <parameter key="jms_serializer.configured_context_factory.class">JMS\SerializerBundle\ContextFactory\ConfiguredContextFactory</parameter>
+    <parameter key="jms_serializer.expression_evaluator.class">JMS\Serializer\Expression\ExpressionEvaluator</parameter>
+    <parameter key="jms_serializer.expression_language.class">Symfony\Component\ExpressionLanguage\ExpressionLanguage</parameter>
+    <parameter key="jms_serializer.expression_language.function_provider.class">JMS\SerializerBundle\ExpressionLanguage\BasicSerializerFunctionsProvider</parameter>
+    <parameter key="jms_serializer.accessor_strategy.default.class">JMS\Serializer\Accessor\DefaultAccessorStrategy</parameter>
+    <parameter key="jms_serializer.accessor_strategy.expression.class">JMS\Serializer\Accessor\ExpressionAccessorStrategy</parameter>
     <parameter key="web_profiler.controller.profiler.class">Symfony\Bundle\WebProfilerBundle\Controller\ProfilerController</parameter>
     <parameter key="web_profiler.controller.router.class">Symfony\Bundle\WebProfilerBundle\Controller\RouterController</parameter>
     <parameter key="web_profiler.controller.exception.class">Symfony\Bundle\WebProfilerBundle\Controller\ExceptionController</parameter>
@@ -628,7 +792,7 @@
     <service id="locale_listener" class="Symfony\Component\HttpKernel\EventListener\LocaleListener">
       <tag name="kernel.event_subscriber"/>
       <argument type="service" id="request_stack"/>
-      <argument>en</argument>
+      <argument>es</argument>
       <argument type="service" id="router" on-invalid="ignore"/>
     </service>
     <service id="translator_listener" class="Symfony\Component\HttpKernel\EventListener\TranslatorListener">
@@ -656,7 +820,7 @@
               <service class="Symfony\Bundle\FrameworkBundle\CacheWarmer\TemplateFinder" public="false">
                 <argument type="service" id="kernel"/>
                 <argument type="service" id="templating.filename_parser"/>
-                <argument>C:\Users\alsanchez\Desarrollo\airbnbsf\app/Resources</argument>
+                <argument>C:\xampp\htdocs\airbnbsf\app/Resources</argument>
               </service>
             </argument>
             <argument type="service" id="templating.locator"/>
@@ -683,7 +847,7 @@
               <service class="Symfony\Bundle\FrameworkBundle\CacheWarmer\TemplateFinder" public="false">
                 <argument type="service" id="kernel"/>
                 <argument type="service" id="templating.filename_parser"/>
-                <argument>C:\Users\alsanchez\Desarrollo\airbnbsf\app/Resources</argument>
+                <argument>C:\xampp\htdocs\airbnbsf\app/Resources</argument>
               </service>
             </argument>
             <argument type="collection"/>
@@ -696,7 +860,7 @@
             <argument type="service">
               <service class="Symfony\Bundle\TwigBundle\TemplateIterator" public="false">
                 <argument type="service" id="kernel"/>
-                <argument>C:\Users\alsanchez\Desarrollo\airbnbsf\app</argument>
+                <argument>C:\xampp\htdocs\airbnbsf\app</argument>
                 <argument type="collection"/>
               </service>
             </argument>
@@ -727,7 +891,7 @@
     <service id="filesystem" class="Symfony\Component\Filesystem\Filesystem"/>
     <service id="file_locator" class="Symfony\Component\HttpKernel\Config\FileLocator">
       <argument type="service" id="kernel"/>
-      <argument>C:\Users\alsanchez\Desarrollo\airbnbsf\app/Resources</argument>
+      <argument>C:\xampp\htdocs\airbnbsf\app/Resources</argument>
     </service>
     <service id="uri_signer" class="Symfony\Component\HttpKernel\UriSigner">
       <argument>f874d7d915232cf50ab61e1e4e26e224ec70996a</argument>
@@ -847,7 +1011,7 @@
         </argument>
       </argument>
       <argument type="collection">
-        <argument key="cache_dir">C:\Users\alsanchez\Desarrollo\airbnbsf\app\cache\dev/translations</argument>
+        <argument key="cache_dir">C:\xampp\htdocs\airbnbsf\app\cache\dev/translations</argument>
         <argument key="debug">true</argument>
       </argument>
       <argument type="collection"/>
@@ -1143,6 +1307,18 @@
               <argument key="Symfony\Component\Form\Extension\Core\Type\CurrencyType">form.type.currency</argument>
               <argument key="entity">form.type.entity</argument>
               <argument key="Symfony\Bridge\Doctrine\Form\Type\EntityType">form.type.entity</argument>
+              <argument key="fos_user_username">fos_user.username_form_type</argument>
+              <argument key="FOS\UserBundle\Form\Type\UsernameFormType">fos_user.username_form_type</argument>
+              <argument key="fos_user_profile">fos_user.profile.form.type</argument>
+              <argument key="FOS\UserBundle\Form\Type\ProfileFormType">fos_user.profile.form.type</argument>
+              <argument key="fos_user_registration">fos_user.registration.form.type</argument>
+              <argument key="FOS\UserBundle\Form\Type\RegistrationFormType">fos_user.registration.form.type</argument>
+              <argument key="fos_user_change_password">fos_user.change_password.form.type</argument>
+              <argument key="FOS\UserBundle\Form\Type\ChangePasswordFormType">fos_user.change_password.form.type</argument>
+              <argument key="fos_user_resetting">fos_user.resetting.form.type</argument>
+              <argument key="FOS\UserBundle\Form\Type\ResettingFormType">fos_user.resetting.form.type</argument>
+              <argument key="sonata_media_type">sonata.media.form.type.media</argument>
+              <argument key="Sonata\MediaBundle\Form\Type\MediaType">sonata.media.form.type.media</argument>
             </argument>
             <argument type="collection">
               <argument key="Symfony\Component\Form\Extension\Core\Type\FormType" type="collection">
@@ -1352,7 +1528,7 @@
     <service id="templating.filename_parser" class="Symfony\Bundle\FrameworkBundle\Templating\TemplateFilenameParser"/>
     <service id="templating.locator" class="Symfony\Bundle\FrameworkBundle\Templating\Loader\TemplateLocator" public="false">
       <argument type="service" id="file_locator"/>
-      <argument>C:\Users\alsanchez\Desarrollo\airbnbsf\app\cache\dev</argument>
+      <argument>C:\xampp\htdocs\airbnbsf\app\cache\dev</argument>
     </service>
     <service id="templating.helper.assets" class="Symfony\Bundle\FrameworkBundle\Templating\Helper\AssetsHelper">
       <tag name="templating.helper" alias="assets"/>
@@ -1379,6 +1555,8 @@
               <argument key="Symfony\Component\Security\Core\Validator\Constraints\UserPasswordValidator">security.validator.user_password</argument>
               <argument key="doctrine.orm.validator.unique">doctrine.orm.validator.unique</argument>
               <argument key="Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntityValidator">doctrine.orm.validator.unique</argument>
+              <argument key="sonata.media.validator.format">sonata.media.validator.format</argument>
+              <argument key="Sonata\MediaBundle\Validator\FormatValidator">sonata.media.validator.format</argument>
             </argument>
           </service>
         </argument>
@@ -1391,7 +1569,9 @@
       </call>
       <call method="addXmlMappings">
         <argument type="collection">
-          <argument>C:\Users\alsanchez\Desarrollo\airbnbsf\vendor\symfony\symfony\src\Symfony\Component\Form/Resources/config/validation.xml</argument>
+          <argument>C:\xampp\htdocs\airbnbsf\vendor\symfony\symfony\src\Symfony\Component\Form/Resources/config/validation.xml</argument>
+          <argument>C:\xampp\htdocs\airbnbsf\vendor\friendsofsymfony\user-bundle/Resources/config/validation.xml</argument>
+          <argument>C:\xampp\htdocs\airbnbsf\vendor\sonata-project\media-bundle/Resources/config/validation.xml</argument>
         </argument>
       </call>
       <call method="enableAnnotationMapping">
@@ -1403,7 +1583,16 @@
       <call method="addObjectInitializers">
         <argument type="collection">
           <argument type="service" id="doctrine.orm.validator_initializer"/>
+          <argument type="service">
+            <service class="FOS\UserBundle\Validator\Initializer" public="false">
+              <tag name="validator.initializer"/>
+              <argument type="service" id="fos_user.util.canonical_fields_updater"/>
+            </service>
+          </argument>
         </argument>
+      </call>
+      <call method="addXmlMapping">
+        <argument>C:\xampp\htdocs\airbnbsf\vendor\friendsofsymfony\user-bundle\DependencyInjection\Compiler/../../Resources/config/storage-validation/orm.xml</argument>
       </call>
       <factory class="Symfony\Component\Validator\Validation" method="createValidatorBuilder"/>
     </service>
@@ -1424,7 +1613,7 @@
       <tag name="monolog.logger" channel="profiler"/>
       <argument type="service">
         <service class="Symfony\Component\HttpKernel\Profiler\FileProfilerStorage" public="false">
-          <argument>file:C:\Users\alsanchez\Desarrollo\airbnbsf\app\cache\dev/profiler</argument>
+          <argument>file:C:\xampp\htdocs\airbnbsf\app\cache\dev/profiler</argument>
           <argument></argument>
           <argument></argument>
           <argument>86400</argument>
@@ -1780,6 +1969,22 @@
         <argument>Sensio\Bundle\FrameworkExtraBundle\EventListener\SecurityListener</argument>
       </call>
       <call method="addSubscriberService">
+        <argument>fos_user.security.interactive_login_listener</argument>
+        <argument>FOS\UserBundle\EventListener\LastLoginListener</argument>
+      </call>
+      <call method="addSubscriberService">
+        <argument>fos_user.listener.authentication</argument>
+        <argument>FOS\UserBundle\EventListener\AuthenticationListener</argument>
+      </call>
+      <call method="addSubscriberService">
+        <argument>fos_user.listener.flash</argument>
+        <argument>FOS\UserBundle\EventListener\FlashListener</argument>
+      </call>
+      <call method="addSubscriberService">
+        <argument>fos_user.listener.resetting</argument>
+        <argument>FOS\UserBundle\EventListener\ResettingListener</argument>
+      </call>
+      <call method="addSubscriberService">
         <argument>debug.dump_listener</argument>
         <argument>Symfony\Component\HttpKernel\EventListener\DumpListener</argument>
       </call>
@@ -1814,8 +2019,17 @@
     <service id="security.authentication.manager" class="Symfony\Component\Security\Core\Authentication\AuthenticationProviderManager" public="false">
       <argument type="collection">
         <argument type="service">
+          <service class="Symfony\Component\Security\Core\Authentication\Provider\DaoAuthenticationProvider" public="false">
+            <argument type="service" id="fos_user.user_provider.username"/>
+            <argument type="service" id="security.user_checker.main"/>
+            <argument>main</argument>
+            <argument type="service" id="security.encoder_factory"/>
+            <argument>true</argument>
+          </service>
+        </argument>
+        <argument type="service">
           <service class="Symfony\Component\Security\Core\Authentication\Provider\AnonymousAuthenticationProvider" public="false">
-            <argument>597833340dde05.98153075</argument>
+            <argument>597a3e43924496.13269944</argument>
           </service>
         </argument>
       </argument>
@@ -1827,6 +2041,9 @@
     <service id="security.authentication.trust_resolver" class="Symfony\Component\Security\Core\Authentication\AuthenticationTrustResolver" public="false">
       <argument>Symfony\Component\Security\Core\Authentication\Token\AnonymousToken</argument>
       <argument>Symfony\Component\Security\Core\Authentication\Token\RememberMeToken</argument>
+    </service>
+    <service id="security.authentication.session_strategy" class="Symfony\Component\Security\Http\Session\SessionAuthenticationStrategy" public="false">
+      <argument>migrate</argument>
     </service>
     <service id="security.authentication_utils" class="Symfony\Component\Security\Http\Authentication\AuthenticationUtils">
       <argument type="service" id="request_stack"/>
@@ -1845,8 +2062,9 @@
             </service>
           </argument>
           <argument type="service">
-            <service class="Symfony\Component\Security\Core\Authorization\Voter\RoleVoter" public="false">
+            <service class="Symfony\Component\Security\Core\Authorization\Voter\RoleHierarchyVoter" public="false">
               <tag name="security.voter" priority="245"/>
+              <argument type="service" id="security.role_hierarchy"/>
             </service>
           </argument>
           <argument type="service">
@@ -1863,7 +2081,14 @@
       </call>
     </service>
     <service id="security.role_hierarchy" class="Symfony\Component\Security\Core\Role\RoleHierarchy" public="false">
-      <argument type="collection"/>
+      <argument type="collection">
+        <argument key="ROLE_ADMIN" type="collection">
+          <argument>ROLE_USER</argument>
+        </argument>
+        <argument key="ROLE_SUPER_ADMIN" type="collection">
+          <argument>ROLE_ADMIN</argument>
+        </argument>
+      </argument>
     </service>
     <service id="security.firewall" class="Symfony\Component\Security\Http\Firewall">
       <tag name="kernel.event_subscriber"/>
@@ -1876,7 +2101,11 @@
                 <argument>^/(_(profiler|wdt)|css|images|js)/</argument>
               </service>
             </argument>
-            <argument key="security.firewall.map.context.main">null</argument>
+            <argument key="security.firewall.map.context.main" type="service">
+              <service class="Symfony\Component\HttpFoundation\RequestMatcher" public="false">
+                <argument>^/</argument>
+              </service>
+            </argument>
           </argument>
         </service>
       </argument>
@@ -1886,6 +2115,13 @@
       <argument type="service" id="request_stack" on-invalid="null"/>
       <argument type="service" id="router" on-invalid="null"/>
       <argument type="service" id="security.token_storage" on-invalid="null"/>
+      <call method="registerListener">
+        <argument>main</argument>
+        <argument>/logout</argument>
+        <argument>logout</argument>
+        <argument>_csrf_token</argument>
+        <argument>null</argument>
+      </call>
     </service>
     <service id="security.validator.user_password" class="Symfony\Component\Security\Core\Validator\Constraints\UserPasswordValidator">
       <tag name="validator.constraint_validator" alias="security.validator.user_password"/>
@@ -1917,7 +2153,52 @@
           <service class="Symfony\Component\Security\Http\Firewall\ChannelListener" public="false">
             <tag name="monolog.logger" channel="security"/>
             <argument type="service">
-              <service class="Symfony\Component\Security\Http\AccessMap" public="false"/>
+              <service class="Symfony\Component\Security\Http\AccessMap" public="false">
+                <call method="add">
+                  <argument type="service">
+                    <service class="Symfony\Component\HttpFoundation\RequestMatcher" public="false">
+                      <argument>^/login$</argument>
+                    </service>
+                  </argument>
+                  <argument type="collection">
+                    <argument>IS_AUTHENTICATED_ANONYMOUSLY</argument>
+                  </argument>
+                  <argument>null</argument>
+                </call>
+                <call method="add">
+                  <argument type="service">
+                    <service class="Symfony\Component\HttpFoundation\RequestMatcher" public="false">
+                      <argument>^/register</argument>
+                    </service>
+                  </argument>
+                  <argument type="collection">
+                    <argument>IS_AUTHENTICATED_ANONYMOUSLY</argument>
+                  </argument>
+                  <argument>null</argument>
+                </call>
+                <call method="add">
+                  <argument type="service">
+                    <service class="Symfony\Component\HttpFoundation\RequestMatcher" public="false">
+                      <argument>^/resetting</argument>
+                    </service>
+                  </argument>
+                  <argument type="collection">
+                    <argument>IS_AUTHENTICATED_ANONYMOUSLY</argument>
+                  </argument>
+                  <argument>null</argument>
+                </call>
+                <call method="add">
+                  <argument type="service">
+                    <service class="Symfony\Component\HttpFoundation\RequestMatcher" public="false">
+                      <argument>^/admin/</argument>
+                    </service>
+                  </argument>
+                  <argument type="collection">
+                    <argument>ROLE_ADMIN</argument>
+                  </argument>
+                  <argument>null</argument>
+                </call>
+              </service>
             </argument>
             <argument type="service">
               <service class="Symfony\Component\Security\Http\EntryPoint\RetryAuthenticationEntryPoint" public="false">
@@ -1932,9 +2213,7 @@
           <service class="Symfony\Component\Security\Http\Firewall\ContextListener" public="false">
             <argument type="service" id="security.token_storage"/>
             <argument type="collection">
-              <argument type="service">
-                <service class="Symfony\Component\Security\Core\User\InMemoryUserProvider" public="false"/>
-              </argument>
+              <argument type="service" id="fos_user.user_provider.username"/>
             </argument>
             <argument>main</argument>
             <argument type="service" id="monolog.logger.security" on-invalid="null"/>
@@ -1942,9 +2221,113 @@
           </service>
         </argument>
         <argument type="service">
+          <service class="Symfony\Component\Security\Http\Firewall\LogoutListener" public="false">
+            <argument type="service" id="security.token_storage"/>
+            <argument type="service">
+              <service class="Symfony\Component\Security\Http\HttpUtils" public="false">
+                <argument type="service" id="router" on-invalid="null"/>
+                <argument type="service" id="router" on-invalid="null"/>
+              </service>
+            </argument>
+            <argument type="service">
+              <service class="Symfony\Component\Security\Http\Logout\DefaultLogoutSuccessHandler" public="false">
+                <argument type="service">
+                  <service class="Symfony\Component\Security\Http\HttpUtils" public="false">
+                    <argument type="service" id="router" on-invalid="null"/>
+                    <argument type="service" id="router" on-invalid="null"/>
+                  </service>
+                </argument>
+                <argument>/</argument>
+              </service>
+            </argument>
+            <argument type="collection">
+              <argument key="csrf_parameter">_csrf_token</argument>
+              <argument key="csrf_token_id">logout</argument>
+              <argument key="logout_path">/logout</argument>
+            </argument>
+            <call method="addHandler">
+              <argument type="service">
+                <service class="Symfony\Component\Security\Http\Logout\SessionLogoutHandler" public="false"/>
+              </argument>
+            </call>
+          </service>
+        </argument>
+        <argument type="service">
+          <service class="Symfony\Component\Security\Http\Firewall\UsernamePasswordFormAuthenticationListener" public="false">
+            <tag name="security.remember_me_aware" id="main" provider="security.user.provider.concrete.fos_userbundle"/>
+            <argument type="service" id="security.token_storage"/>
+            <argument type="service" id="security.authentication.manager"/>
+            <argument type="service" id="security.authentication.session_strategy"/>
+            <argument type="service">
+              <service class="Symfony\Component\Security\Http\HttpUtils" public="false">
+                <argument type="service" id="router" on-invalid="null"/>
+                <argument type="service" id="router" on-invalid="null"/>
+              </service>
+            </argument>
+            <argument>main</argument>
+            <argument type="service">
+              <service class="Symfony\Component\Security\Http\Authentication\DefaultAuthenticationSuccessHandler" public="false">
+                <argument type="service">
+                  <service class="Symfony\Component\Security\Http\HttpUtils" public="false">
+                    <argument type="service" id="router" on-invalid="null"/>
+                    <argument type="service" id="router" on-invalid="null"/>
+                  </service>
+                </argument>
+                <argument type="collection"/>
+                <call method="setOptions">
+                  <argument type="collection">
+                    <argument key="always_use_default_target_path">false</argument>
+                    <argument key="default_target_path">/</argument>
+                    <argument key="login_path">/login</argument>
+                    <argument key="target_path_parameter">_target_path</argument>
+                    <argument key="use_referer">false</argument>
+                  </argument>
+                </call>
+                <call method="setProviderKey">
+                  <argument>main</argument>
+                </call>
+              </service>
+            </argument>
+            <argument type="service">
+              <service class="Symfony\Component\Security\Http\Authentication\DefaultAuthenticationFailureHandler" public="false">
+                <argument type="service" id="http_kernel"/>
+                <argument type="service">
+                  <service class="Symfony\Component\Security\Http\HttpUtils" public="false">
+                    <argument type="service" id="router" on-invalid="null"/>
+                    <argument type="service" id="router" on-invalid="null"/>
+                  </service>
+                </argument>
+                <argument type="collection"/>
+                <argument type="service" id="monolog.logger.security" on-invalid="null"/>
+                <call method="setOptions">
+                  <argument type="collection">
+                    <argument key="login_path">/login</argument>
+                    <argument key="failure_path">null</argument>
+                    <argument key="failure_forward">false</argument>
+                    <argument key="failure_path_parameter">_failure_path</argument>
+                  </argument>
+                </call>
+              </service>
+            </argument>
+            <argument type="collection">
+              <argument key="check_path">/login_check</argument>
+              <argument key="use_forward">false</argument>
+              <argument key="require_previous_session">true</argument>
+              <argument key="username_parameter">_username</argument>
+              <argument key="password_parameter">_password</argument>
+              <argument key="csrf_parameter">_csrf_token</argument>
+              <argument key="csrf_token_id">authenticate</argument>
+              <argument key="post_only">true</argument>
+            </argument>
+            <argument type="service" id="monolog.logger.security" on-invalid="null"/>
+            <argument type="service" id="debug.event_dispatcher" on-invalid="null"/>
+            <argument type="service" id="security.csrf.token_manager"/>
+          </service>
+        </argument>
+        <argument type="service">
           <service class="Symfony\Component\Security\Http\Firewall\AnonymousAuthenticationListener" public="false">
             <argument type="service" id="security.token_storage"/>
-            <argument>597833340dde05.98153075</argument>
+            <argument>597a3e43924496.13269944</argument>
             <argument type="service" id="monolog.logger.security" on-invalid="null"/>
             <argument type="service" id="security.authentication.manager"/>
           </service>
@@ -1955,7 +2338,52 @@
             <argument type="service" id="security.token_storage"/>
             <argument type="service" id="security.access.decision_manager"/>
             <argument type="service">
-              <service class="Symfony\Component\Security\Http\AccessMap" public="false"/>
+              <service class="Symfony\Component\Security\Http\AccessMap" public="false">
+                <call method="add">
+                  <argument type="service">
+                    <service class="Symfony\Component\HttpFoundation\RequestMatcher" public="false">
+                      <argument>^/login$</argument>
+                    </service>
+                  </argument>
+                  <argument type="collection">
+                    <argument>IS_AUTHENTICATED_ANONYMOUSLY</argument>
+                  </argument>
+                  <argument>null</argument>
+                </call>
+                <call method="add">
+                  <argument type="service">
+                    <service class="Symfony\Component\HttpFoundation\RequestMatcher" public="false">
+                      <argument>^/register</argument>
+                    </service>
+                  </argument>
+                  <argument type="collection">
+                    <argument>IS_AUTHENTICATED_ANONYMOUSLY</argument>
+                  </argument>
+                  <argument>null</argument>
+                </call>
+                <call method="add">
+                  <argument type="service">
+                    <service class="Symfony\Component\HttpFoundation\RequestMatcher" public="false">
+                      <argument>^/resetting</argument>
+                    </service>
+                  </argument>
+                  <argument type="collection">
+                    <argument>IS_AUTHENTICATED_ANONYMOUSLY</argument>
+                  </argument>
+                  <argument>null</argument>
+                </call>
+                <call method="add">
+                  <argument type="service">
+                    <service class="Symfony\Component\HttpFoundation\RequestMatcher" public="false">
+                      <argument>^/admin/</argument>
+                    </service>
+                  </argument>
+                  <argument type="collection">
+                    <argument>ROLE_ADMIN</argument>
+                  </argument>
+                  <argument>null</argument>
+                </call>
+              </service>
             </argument>
             <argument type="service" id="security.authentication.manager"/>
           </service>
@@ -1972,7 +2400,19 @@
             </service>
           </argument>
           <argument>main</argument>
-          <argument>null</argument>
+          <argument type="service">
+            <service class="Symfony\Component\Security\Http\EntryPoint\FormAuthenticationEntryPoint" public="false">
+              <argument type="service" id="http_kernel"/>
+              <argument type="service">
+                <service class="Symfony\Component\Security\Http\HttpUtils" public="false">
+                  <argument type="service" id="router" on-invalid="null"/>
+                  <argument type="service" id="router" on-invalid="null"/>
+                </service>
+              </argument>
+              <argument>/login</argument>
+              <argument>false</argument>
+            </service>
+          </argument>
           <argument>null</argument>
           <argument>null</argument>
           <argument type="service" id="monolog.logger.security" on-invalid="null"/>
@@ -1990,7 +2430,7 @@
           <argument>form_div_layout.html.twig</argument>
         </argument>
         <argument key="autoescape">name</argument>
-        <argument key="cache">C:\Users\alsanchez\Desarrollo\airbnbsf\app\cache\dev/twig</argument>
+        <argument key="cache">C:\xampp\htdocs\airbnbsf\app\cache\dev/twig</argument>
         <argument key="charset">UTF-8</argument>
         <argument key="paths" type="collection"/>
         <argument key="date" type="collection">
@@ -2065,7 +2505,7 @@
           <service class="Symfony\Bridge\Twig\Extension\CodeExtension" public="false">
             <tag name="twig.extension"/>
             <argument>null</argument>
-            <argument>C:\Users\alsanchez\Desarrollo\airbnbsf\app</argument>
+            <argument>C:\xampp\htdocs\airbnbsf\app</argument>
             <argument>UTF-8</argument>
           </service>
         </argument>
@@ -2152,6 +2592,17 @@
         </argument>
       </call>
       <call method="addExtension">
+        <argument type="service" id="sonata.media.twig.extension"/>
+      </call>
+      <call method="addExtension">
+        <argument type="service">
+          <service class="JMS\Serializer\Twig\SerializerExtension" public="false">
+            <tag name="twig.extension"/>
+            <argument type="service" id="jms_serializer"/>
+          </service>
+        </argument>
+      </call>
+      <call method="addExtension">
         <argument type="service">
           <service class="Symfony\Bridge\Twig\Extension\DumpExtension" public="false">
             <tag name="twig.extension"/>
@@ -2188,6 +2639,10 @@
           </service>
         </argument>
       </call>
+      <call method="addGlobal">
+        <argument>sonata_media</argument>
+        <argument type="service" id="sonata.media.twig.global"/>
+      </call>
       <configurator method="configure">
         <service class="Symfony\Bundle\TwigBundle\DependencyInjection\Configurator\EnvironmentConfigurator" public="false">
           <argument>F j, Y H:i</argument>
@@ -2222,7 +2677,7 @@
     <service id="monolog.handler.fingers_crossed.error_level_activation_strategy" class="Monolog\Handler\FingersCrossed\ErrorLevelActivationStrategy"/>
     <service id="monolog.processor.psr_log_message" class="Monolog\Processor\PsrLogMessageProcessor" public="false"/>
     <service id="monolog.handler.main" class="Monolog\Handler\StreamHandler">
-      <argument>C:\Users\alsanchez\Desarrollo\airbnbsf\app\logs/dev.log</argument>
+      <argument>C:\xampp\htdocs\airbnbsf\app\logs/dev.log</argument>
       <argument>100</argument>
       <argument>true</argument>
       <argument>null</argument>
@@ -2252,7 +2707,12 @@
       <tag name="swiftmailer.default.plugin"/>
     </service>
     <service id="doctrine.dbal.connection_factory" class="Doctrine\Bundle\DoctrineBundle\ConnectionFactory">
-      <argument type="collection"/>
+      <argument type="collection">
+        <argument key="json" type="collection">
+          <argument key="class">Sonata\Doctrine\Types\JsonType</argument>
+          <argument key="commented">true</argument>
+        </argument>
+      </argument>
     </service>
     <service id="doctrine" class="Doctrine\Bundle\DoctrineBundle\Registry">
       <argument type="service" id="service_container"/>
@@ -2303,6 +2763,21 @@
       <argument type="service">
         <service class="Symfony\Bridge\Doctrine\ContainerAwareEventManager" public="false">
           <argument type="service" id="service_container"/>
+          <call method="addEventSubscriber">
+            <argument type="service">
+              <service class="FOS\UserBundle\Doctrine\UserListener" public="false">
+                <tag name="doctrine.event_subscriber"/>
+                <argument type="service" id="fos_user.util.password_updater"/>
+                <argument type="service" id="fos_user.util.canonical_fields_updater"/>
+              </service>
+            </argument>
+          </call>
+          <call method="addEventSubscriber">
+            <argument type="service" id="sonata.media.doctrine.event_subscriber"/>
+          </call>
+          <call method="addEventSubscriber">
+            <argument type="service" id="sonata.easy_extends.doctrine.mapper"/>
+          </call>
         </service>
       </argument>
       <argument type="collection"/>
@@ -2326,17 +2801,17 @@
     </service>
     <service id="doctrine_cache.providers.doctrine.orm.default_metadata_cache" class="Doctrine\Common\Cache\ArrayCache">
       <call method="setNamespace">
-        <argument>sf2orm_default_273e7867cf332110c0dd1fdfac3e0587ebc76de7093fe879455c6a520e977736</argument>
+        <argument>sf2orm_default_6bf77784a56d6c7a3248359d154afaf7631d17f8f0557db2fe20202b546a15b9</argument>
       </call>
     </service>
     <service id="doctrine_cache.providers.doctrine.orm.default_result_cache" class="Doctrine\Common\Cache\ArrayCache">
       <call method="setNamespace">
-        <argument>sf2orm_default_273e7867cf332110c0dd1fdfac3e0587ebc76de7093fe879455c6a520e977736</argument>
+        <argument>sf2orm_default_6bf77784a56d6c7a3248359d154afaf7631d17f8f0557db2fe20202b546a15b9</argument>
       </call>
     </service>
     <service id="doctrine_cache.providers.doctrine.orm.default_query_cache" class="Doctrine\Common\Cache\ArrayCache">
       <call method="setNamespace">
-        <argument>sf2orm_default_273e7867cf332110c0dd1fdfac3e0587ebc76de7093fe879455c6a520e977736</argument>
+        <argument>sf2orm_default_6bf77784a56d6c7a3248359d154afaf7631d17f8f0557db2fe20202b546a15b9</argument>
       </call>
     </service>
     <service id="doctrine.orm.default_entity_listener_resolver" class="Doctrine\ORM\Mapping\DefaultEntityListenerResolver"/>
@@ -2350,6 +2825,9 @@
         <service class="Doctrine\ORM\Configuration" public="false">
           <call method="setEntityNamespaces">
             <argument type="collection">
+              <argument key="payum">Payum\Core\Model</argument>
+              <argument key="ApplicationSonataMediaBundle">Application\Sonata\MediaBundle\Entity</argument>
+              <argument key="SonataMediaBundle">Sonata\MediaBundle\Entity</argument>
               <argument key="BackendBundle">BackendBundle\Entity</argument>
             </argument>
           </call>
@@ -2367,20 +2845,80 @@
               <service class="Doctrine\Common\Persistence\Mapping\Driver\MappingDriverChain" public="false">
                 <call method="addDriver">
                   <argument type="service">
+                    <service class="Doctrine\ORM\Mapping\Driver\SimplifiedXmlDriver" public="false">
+                      <argument type="collection">
+                        <argument key="C:\xampp\htdocs\airbnbsf\vendor\payum\core\Payum\Core\Bridge\Doctrine\Resources\mapping">Payum\Core\Model</argument>
+                        <argument key="C:\xampp\htdocs\airbnbsf\src\Application\Sonata\MediaBundle\Resources\config\doctrine">Application\Sonata\MediaBundle\Entity</argument>
+                        <argument key="C:\xampp\htdocs\airbnbsf\vendor\sonata-project\media-bundle\Resources\config\doctrine">Sonata\MediaBundle\Entity</argument>
+                      </argument>
+                      <call method="setGlobalBasename">
+                        <argument>mapping</argument>
+                      </call>
+                    </service>
+                  </argument>
+                  <argument>Payum\Core\Model</argument>
+                </call>
+                <call method="addDriver">
+                  <argument type="service">
+                    <service class="Doctrine\ORM\Mapping\Driver\SimplifiedXmlDriver" public="false">
+                      <argument type="collection">
+                        <argument key="C:\xampp\htdocs\airbnbsf\vendor\payum\core\Payum\Core\Bridge\Doctrine\Resources\mapping">Payum\Core\Model</argument>
+                        <argument key="C:\xampp\htdocs\airbnbsf\src\Application\Sonata\MediaBundle\Resources\config\doctrine">Application\Sonata\MediaBundle\Entity</argument>
+                        <argument key="C:\xampp\htdocs\airbnbsf\vendor\sonata-project\media-bundle\Resources\config\doctrine">Sonata\MediaBundle\Entity</argument>
+                      </argument>
+                      <call method="setGlobalBasename">
+                        <argument>mapping</argument>
+                      </call>
+                    </service>
+                  </argument>
+                  <argument>Application\Sonata\MediaBundle\Entity</argument>
+                </call>
+                <call method="addDriver">
+                  <argument type="service">
+                    <service class="Doctrine\ORM\Mapping\Driver\SimplifiedXmlDriver" public="false">
+                      <argument type="collection">
+                        <argument key="C:\xampp\htdocs\airbnbsf\vendor\payum\core\Payum\Core\Bridge\Doctrine\Resources\mapping">Payum\Core\Model</argument>
+                        <argument key="C:\xampp\htdocs\airbnbsf\src\Application\Sonata\MediaBundle\Resources\config\doctrine">Application\Sonata\MediaBundle\Entity</argument>
+                        <argument key="C:\xampp\htdocs\airbnbsf\vendor\sonata-project\media-bundle\Resources\config\doctrine">Sonata\MediaBundle\Entity</argument>
+                      </argument>
+                      <call method="setGlobalBasename">
+                        <argument>mapping</argument>
+                      </call>
+                    </service>
+                  </argument>
+                  <argument>Sonata\MediaBundle\Entity</argument>
+                </call>
+                <call method="addDriver">
+                  <argument type="service">
                     <service class="Doctrine\ORM\Mapping\Driver\AnnotationDriver" public="false">
                       <argument type="service" id="annotation_reader"/>
                       <argument type="collection">
-                        <argument>C:\Users\alsanchez\Desarrollo\airbnbsf\src\BackendBundle\Entity</argument>
+                        <argument>C:\xampp\htdocs\airbnbsf\src\BackendBundle\Entity</argument>
                       </argument>
                     </service>
                   </argument>
                   <argument>BackendBundle\Entity</argument>
                 </call>
+                <call method="addDriver">
+                  <argument type="service">
+                    <service class="Doctrine\ORM\Mapping\Driver\XmlDriver">
+                      <argument type="service">
+                        <service class="Doctrine\Common\Persistence\Mapping\Driver\SymfonyFileLocator">
+                          <argument type="collection">
+                            <argument key="C:\xampp\htdocs\airbnbsf\vendor\friendsofsymfony\user-bundle\Resources\config\doctrine-mapping">FOS\UserBundle\Model</argument>
+                          </argument>
+                          <argument>.orm.xml</argument>
+                        </service>
+                      </argument>
+                    </service>
+                  </argument>
+                  <argument>FOS\UserBundle\Model</argument>
+                </call>
               </service>
             </argument>
           </call>
           <call method="setProxyDir">
-            <argument>C:\Users\alsanchez\Desarrollo\airbnbsf\app\cache\dev/doctrine/orm/Proxies</argument>
+            <argument>C:\xampp\htdocs\airbnbsf\app\cache\dev/doctrine/orm/Proxies</argument>
           </call>
           <call method="setProxyNamespace">
             <argument>Proxies</argument>
@@ -2396,7 +2934,7 @@
           </call>
           <call method="setNamingStrategy">
             <argument type="service">
-              <service class="Doctrine\ORM\Mapping\UnderscoreNamingStrategy" public="false"/>
+              <service class="Doctrine\ORM\Mapping\DefaultNamingStrategy" public="false"/>
             </argument>
           </call>
           <call method="setQuoteStrategy">
@@ -2469,6 +3007,1175 @@
       <argument type="service" id="security.role_hierarchy" on-invalid="null"/>
       <argument type="service" id="security.token_storage" on-invalid="null"/>
       <argument type="service" id="security.authorization_checker" on-invalid="null"/>
+    </service>
+    <service id="fos_user.security.interactive_login_listener" class="FOS\UserBundle\EventListener\LastLoginListener">
+      <tag name="kernel.event_subscriber"/>
+      <argument type="service" id="fos_user.user_manager"/>
+    </service>
+    <service id="fos_user.security.login_manager" class="FOS\UserBundle\Security\LoginManager">
+      <argument type="service" id="security.token_storage"/>
+      <argument type="service" id="security.user_checker.main"/>
+      <argument type="service" id="security.authentication.session_strategy"/>
+      <argument type="service" id="request_stack"/>
+      <argument>null</argument>
+    </service>
+    <service id="fos_user.user_provider.username" class="FOS\UserBundle\Security\UserProvider" public="false">
+      <argument type="service" id="fos_user.user_manager"/>
+    </service>
+    <service id="fos_user.util.user_manipulator" class="FOS\UserBundle\Util\UserManipulator">
+      <argument type="service" id="fos_user.user_manager"/>
+      <argument type="service" id="debug.event_dispatcher"/>
+      <argument type="service" id="request_stack"/>
+    </service>
+    <service id="fos_user.util.password_updater" class="FOS\UserBundle\Util\PasswordUpdater" public="false">
+      <argument type="service" id="security.encoder_factory"/>
+    </service>
+    <service id="fos_user.util.canonical_fields_updater" class="FOS\UserBundle\Util\CanonicalFieldsUpdater" public="false">
+      <argument type="service" id="fos_user.util.email_canonicalizer"/>
+      <argument type="service" id="fos_user.util.email_canonicalizer"/>
+    </service>
+    <service id="fos_user.listener.authentication" class="FOS\UserBundle\EventListener\AuthenticationListener">
+      <tag name="kernel.event_subscriber"/>
+      <argument type="service" id="fos_user.security.login_manager"/>
+      <argument>main</argument>
+    </service>
+    <service id="fos_user.listener.flash" class="FOS\UserBundle\EventListener\FlashListener">
+      <tag name="kernel.event_subscriber"/>
+      <argument type="service" id="session"/>
+      <argument type="service" id="translator"/>
+    </service>
+    <service id="fos_user.username_form_type" class="FOS\UserBundle\Form\Type\UsernameFormType">
+      <tag name="form.type" alias="fos_user_username"/>
+      <argument type="service">
+        <service class="FOS\UserBundle\Form\DataTransformer\UserToUsernameTransformer" public="false">
+          <argument type="service" id="fos_user.user_manager"/>
+        </service>
+      </argument>
+    </service>
+    <service id="fos_user.profile.form.factory" class="FOS\UserBundle\Form\Factory\FormFactory">
+      <argument type="service" id="form.factory"/>
+      <argument>fos_user_profile_form</argument>
+      <argument>FOS\UserBundle\Form\Type\ProfileFormType</argument>
+      <argument type="collection">
+        <argument>Profile</argument>
+        <argument>Default</argument>
+      </argument>
+    </service>
+    <service id="fos_user.profile.form.type" class="FOS\UserBundle\Form\Type\ProfileFormType">
+      <tag name="form.type" alias="fos_user_profile"/>
+      <argument>BackendBundle\Entity\User</argument>
+    </service>
+    <service id="fos_user.registration.form.factory" class="FOS\UserBundle\Form\Factory\FormFactory">
+      <argument type="service" id="form.factory"/>
+      <argument>fos_user_registration_form</argument>
+      <argument>FOS\UserBundle\Form\Type\RegistrationFormType</argument>
+      <argument type="collection">
+        <argument>Registration</argument>
+        <argument>Default</argument>
+      </argument>
+    </service>
+    <service id="fos_user.registration.form.type" class="FOS\UserBundle\Form\Type\RegistrationFormType">
+      <tag name="form.type" alias="fos_user_registration"/>
+      <argument>BackendBundle\Entity\User</argument>
+    </service>
+    <service id="fos_user.change_password.form.factory" class="FOS\UserBundle\Form\Factory\FormFactory">
+      <argument type="service" id="form.factory"/>
+      <argument>fos_user_change_password_form</argument>
+      <argument>FOS\UserBundle\Form\Type\ChangePasswordFormType</argument>
+      <argument type="collection">
+        <argument>ChangePassword</argument>
+        <argument>Default</argument>
+      </argument>
+    </service>
+    <service id="fos_user.change_password.form.type" class="FOS\UserBundle\Form\Type\ChangePasswordFormType">
+      <tag name="form.type" alias="fos_user_change_password"/>
+      <argument>BackendBundle\Entity\User</argument>
+    </service>
+    <service id="fos_user.resetting.form.factory" class="FOS\UserBundle\Form\Factory\FormFactory">
+      <argument type="service" id="form.factory"/>
+      <argument>fos_user_resetting_form</argument>
+      <argument>FOS\UserBundle\Form\Type\ResettingFormType</argument>
+      <argument type="collection">
+        <argument>ResetPassword</argument>
+        <argument>Default</argument>
+      </argument>
+    </service>
+    <service id="fos_user.resetting.form.type" class="FOS\UserBundle\Form\Type\ResettingFormType">
+      <tag name="form.type" alias="fos_user_resetting"/>
+      <argument>BackendBundle\Entity\User</argument>
+    </service>
+    <service id="fos_user.listener.resetting" class="FOS\UserBundle\EventListener\ResettingListener">
+      <tag name="kernel.event_subscriber"/>
+      <argument type="service" id="router"/>
+      <argument>86400</argument>
+    </service>
+    <service id="sonata.media.pool" class="Sonata\MediaBundle\Provider\Pool">
+      <argument>default</argument>
+      <call method="addContext">
+        <argument>default</argument>
+        <argument type="collection">
+          <argument>sonata.media.provider.dailymotion</argument>
+          <argument>sonata.media.provider.youtube</argument>
+          <argument>sonata.media.provider.image</argument>
+          <argument>sonata.media.provider.file</argument>
+          <argument>sonata.media.provider.vimeo</argument>
+        </argument>
+        <argument type="collection">
+          <argument key="default_small" type="collection">
+            <argument key="width">100</argument>
+            <argument key="quality">70</argument>
+            <argument key="height">false</argument>
+            <argument key="format">jpg</argument>
+            <argument key="constraint">true</argument>
+          </argument>
+          <argument key="default_big" type="collection">
+            <argument key="width">500</argument>
+            <argument key="quality">70</argument>
+            <argument key="height">false</argument>
+            <argument key="format">jpg</argument>
+            <argument key="constraint">true</argument>
+          </argument>
+        </argument>
+        <argument type="collection">
+          <argument key="strategy">sonata.media.security.superadmin_strategy</argument>
+          <argument key="mode">http</argument>
+        </argument>
+      </call>
+      <call method="addDownloadStrategy">
+        <argument>sonata.media.security.superadmin_strategy</argument>
+        <argument type="service" id="sonata.media.security.superadmin_strategy"/>
+      </call>
+      <call method="addProvider">
+        <argument>sonata.media.provider.image</argument>
+        <argument type="service" id="sonata.media.provider.image"/>
+      </call>
+      <call method="addProvider">
+        <argument>sonata.media.provider.file</argument>
+        <argument type="service" id="sonata.media.provider.file"/>
+      </call>
+      <call method="addProvider">
+        <argument>sonata.media.provider.youtube</argument>
+        <argument type="service" id="sonata.media.provider.youtube"/>
+      </call>
+      <call method="addProvider">
+        <argument>sonata.media.provider.dailymotion</argument>
+        <argument type="service" id="sonata.media.provider.dailymotion"/>
+      </call>
+      <call method="addProvider">
+        <argument>sonata.media.provider.vimeo</argument>
+        <argument type="service" id="sonata.media.provider.vimeo"/>
+      </call>
+    </service>
+    <service id="sonata.media.thumbnail.format" class="Sonata\MediaBundle\Thumbnail\FormatThumbnail">
+      <argument>jpg</argument>
+    </service>
+    <service id="sonata.media.provider.image" class="Sonata\MediaBundle\Provider\ImageProvider">
+      <tag name="sonata.media.provider"/>
+      <argument>sonata.media.provider.image</argument>
+      <argument type="service" id="sonata.media.filesystem.local"/>
+      <argument type="service" id="sonata.media.cdn.server"/>
+      <argument type="service" id="sonata.media.generator.default"/>
+      <argument type="service" id="sonata.media.thumbnail.format"/>
+      <argument type="collection">
+        <argument>jpg</argument>
+        <argument>png</argument>
+        <argument>jpeg</argument>
+      </argument>
+      <argument type="collection">
+        <argument>image/pjpeg</argument>
+        <argument>image/jpeg</argument>
+        <argument>image/png</argument>
+        <argument>image/x-png</argument>
+      </argument>
+      <argument type="service" id="sonata.media.adapter.image.gd"/>
+      <argument type="service" id="sonata.media.metadata.proxy"/>
+      <call method="setTemplates">
+        <argument type="collection">
+          <argument key="helper_thumbnail">SonataMediaBundle:Provider:thumbnail.html.twig</argument>
+          <argument key="helper_view">SonataMediaBundle:Provider:view_image.html.twig</argument>
+        </argument>
+      </call>
+      <call method="addFormat">
+        <argument>default_small</argument>
+        <argument type="collection">
+          <argument key="width">100</argument>
+          <argument key="quality">70</argument>
+          <argument key="height">false</argument>
+          <argument key="format">jpg</argument>
+          <argument key="constraint">true</argument>
+        </argument>
+      </call>
+      <call method="addFormat">
+        <argument>default_big</argument>
+        <argument type="collection">
+          <argument key="width">500</argument>
+          <argument key="quality">70</argument>
+          <argument key="height">false</argument>
+          <argument key="format">jpg</argument>
+          <argument key="constraint">true</argument>
+        </argument>
+      </call>
+      <call method="setResizer">
+        <argument type="service" id="sonata.media.resizer.simple"/>
+      </call>
+      <call method="addFormat">
+        <argument>admin</argument>
+        <argument type="collection">
+          <argument key="width">200</argument>
+          <argument key="height">false</argument>
+          <argument key="quality">90</argument>
+          <argument key="format">jpg</argument>
+          <argument key="constraint">true</argument>
+        </argument>
+      </call>
+    </service>
+    <service id="sonata.media.provider.file" class="Sonata\MediaBundle\Provider\FileProvider">
+      <tag name="sonata.media.provider"/>
+      <argument>sonata.media.provider.file</argument>
+      <argument type="service" id="sonata.media.filesystem.local"/>
+      <argument type="service" id="sonata.media.cdn.server"/>
+      <argument type="service" id="sonata.media.generator.default"/>
+      <argument type="service" id="sonata.media.thumbnail.format"/>
+      <argument type="collection">
+        <argument>pdf</argument>
+        <argument>txt</argument>
+        <argument>rtf</argument>
+        <argument>doc</argument>
+        <argument>docx</argument>
+        <argument>xls</argument>
+        <argument>xlsx</argument>
+        <argument>ppt</argument>
+        <argument>pptx</argument>
+        <argument>odt</argument>
+        <argument>odg</argument>
+        <argument>odp</argument>
+        <argument>ods</argument>
+        <argument>odc</argument>
+        <argument>odf</argument>
+        <argument>odb</argument>
+        <argument>csv</argument>
+        <argument>xml</argument>
+      </argument>
+      <argument type="collection">
+        <argument>application/pdf</argument>
+        <argument>application/x-pdf</argument>
+        <argument>application/rtf</argument>
+        <argument>text/html</argument>
+        <argument>text/rtf</argument>
+        <argument>text/plain</argument>
+        <argument>application/excel</argument>
+        <argument>application/msword</argument>
+        <argument>application/vnd.ms-excel</argument>
+        <argument>application/vnd.ms-powerpoint</argument>
+        <argument>application/vnd.ms-powerpoint</argument>
+        <argument>application/vnd.oasis.opendocument.text</argument>
+        <argument>application/vnd.oasis.opendocument.graphics</argument>
+        <argument>application/vnd.oasis.opendocument.presentation</argument>
+        <argument>application/vnd.oasis.opendocument.spreadsheet</argument>
+        <argument>application/vnd.oasis.opendocument.chart</argument>
+        <argument>application/vnd.oasis.opendocument.formula</argument>
+        <argument>application/vnd.oasis.opendocument.database</argument>
+        <argument>application/vnd.oasis.opendocument.image</argument>
+        <argument>text/comma-separated-values</argument>
+        <argument>text/xml</argument>
+        <argument>application/xml</argument>
+        <argument>application/zip</argument>
+      </argument>
+      <argument type="service" id="sonata.media.metadata.proxy"/>
+      <call method="setTemplates">
+        <argument type="collection">
+          <argument key="helper_thumbnail">SonataMediaBundle:Provider:thumbnail.html.twig</argument>
+          <argument key="helper_view">SonataMediaBundle:Provider:view_file.html.twig</argument>
+        </argument>
+      </call>
+      <call method="addFormat">
+        <argument>default_small</argument>
+        <argument type="collection">
+          <argument key="width">100</argument>
+          <argument key="quality">70</argument>
+          <argument key="height">false</argument>
+          <argument key="format">jpg</argument>
+          <argument key="constraint">true</argument>
+        </argument>
+      </call>
+      <call method="addFormat">
+        <argument>default_big</argument>
+        <argument type="collection">
+          <argument key="width">500</argument>
+          <argument key="quality">70</argument>
+          <argument key="height">false</argument>
+          <argument key="format">jpg</argument>
+          <argument key="constraint">true</argument>
+        </argument>
+      </call>
+      <call method="addFormat">
+        <argument>admin</argument>
+        <argument type="collection">
+          <argument key="width">200</argument>
+          <argument key="height">false</argument>
+          <argument key="quality">90</argument>
+          <argument key="format">jpg</argument>
+          <argument key="constraint">true</argument>
+        </argument>
+      </call>
+    </service>
+    <service id="sonata.media.provider.youtube" class="Sonata\MediaBundle\Provider\YouTubeProvider">
+      <tag name="sonata.media.provider"/>
+      <argument>sonata.media.provider.youtube</argument>
+      <argument type="service" id="sonata.media.filesystem.local"/>
+      <argument type="service" id="sonata.media.cdn.server"/>
+      <argument type="service" id="sonata.media.generator.default"/>
+      <argument type="service" id="sonata.media.thumbnail.format"/>
+      <argument type="service" id="sonata.media.buzz.browser"/>
+      <argument type="service" id="sonata.media.metadata.proxy"/>
+      <argument>false</argument>
+      <call method="setTemplates">
+        <argument type="collection">
+          <argument key="helper_thumbnail">SonataMediaBundle:Provider:thumbnail.html.twig</argument>
+          <argument key="helper_view">SonataMediaBundle:Provider:view_youtube.html.twig</argument>
+        </argument>
+      </call>
+      <call method="addFormat">
+        <argument>default_small</argument>
+        <argument type="collection">
+          <argument key="width">100</argument>
+          <argument key="quality">70</argument>
+          <argument key="height">false</argument>
+          <argument key="format">jpg</argument>
+          <argument key="constraint">true</argument>
+        </argument>
+      </call>
+      <call method="addFormat">
+        <argument>default_big</argument>
+        <argument type="collection">
+          <argument key="width">500</argument>
+          <argument key="quality">70</argument>
+          <argument key="height">false</argument>
+          <argument key="format">jpg</argument>
+          <argument key="constraint">true</argument>
+        </argument>
+      </call>
+      <call method="setResizer">
+        <argument type="service" id="sonata.media.resizer.simple"/>
+      </call>
+      <call method="addFormat">
+        <argument>admin</argument>
+        <argument type="collection">
+          <argument key="width">200</argument>
+          <argument key="height">false</argument>
+          <argument key="quality">90</argument>
+          <argument key="format">jpg</argument>
+          <argument key="constraint">true</argument>
+        </argument>
+      </call>
+    </service>
+    <service id="sonata.media.provider.dailymotion" class="Sonata\MediaBundle\Provider\DailyMotionProvider">
+      <tag name="sonata.media.provider"/>
+      <argument>sonata.media.provider.dailymotion</argument>
+      <argument type="service" id="sonata.media.filesystem.local"/>
+      <argument type="service" id="sonata.media.cdn.server"/>
+      <argument type="service" id="sonata.media.generator.default"/>
+      <argument type="service" id="sonata.media.thumbnail.format"/>
+      <argument type="service" id="sonata.media.buzz.browser"/>
+      <argument type="service" id="sonata.media.metadata.proxy"/>
+      <call method="setTemplates">
+        <argument type="collection">
+          <argument key="helper_thumbnail">SonataMediaBundle:Provider:thumbnail.html.twig</argument>
+          <argument key="helper_view">SonataMediaBundle:Provider:view_dailymotion.html.twig</argument>
+        </argument>
+      </call>
+      <call method="addFormat">
+        <argument>default_small</argument>
+        <argument type="collection">
+          <argument key="width">100</argument>
+          <argument key="quality">70</argument>
+          <argument key="height">false</argument>
+          <argument key="format">jpg</argument>
+          <argument key="constraint">true</argument>
+        </argument>
+      </call>
+      <call method="addFormat">
+        <argument>default_big</argument>
+        <argument type="collection">
+          <argument key="width">500</argument>
+          <argument key="quality">70</argument>
+          <argument key="height">false</argument>
+          <argument key="format">jpg</argument>
+          <argument key="constraint">true</argument>
+        </argument>
+      </call>
+      <call method="setResizer">
+        <argument type="service" id="sonata.media.resizer.simple"/>
+      </call>
+      <call method="addFormat">
+        <argument>admin</argument>
+        <argument type="collection">
+          <argument key="width">200</argument>
+          <argument key="height">false</argument>
+          <argument key="quality">90</argument>
+          <argument key="format">jpg</argument>
+          <argument key="constraint">true</argument>
+        </argument>
+      </call>
+    </service>
+    <service id="sonata.media.provider.vimeo" class="Sonata\MediaBundle\Provider\VimeoProvider">
+      <tag name="sonata.media.provider"/>
+      <argument>sonata.media.provider.vimeo</argument>
+      <argument type="service" id="sonata.media.filesystem.local"/>
+      <argument type="service" id="sonata.media.cdn.server"/>
+      <argument type="service" id="sonata.media.generator.default"/>
+      <argument type="service" id="sonata.media.thumbnail.format"/>
+      <argument type="service" id="sonata.media.buzz.browser"/>
+      <argument type="service" id="sonata.media.metadata.proxy"/>
+      <call method="setTemplates">
+        <argument type="collection">
+          <argument key="helper_thumbnail">SonataMediaBundle:Provider:thumbnail.html.twig</argument>
+          <argument key="helper_view">SonataMediaBundle:Provider:view_vimeo.html.twig</argument>
+        </argument>
+      </call>
+      <call method="addFormat">
+        <argument>default_small</argument>
+        <argument type="collection">
+          <argument key="width">100</argument>
+          <argument key="quality">70</argument>
+          <argument key="height">false</argument>
+          <argument key="format">jpg</argument>
+          <argument key="constraint">true</argument>
+        </argument>
+      </call>
+      <call method="addFormat">
+        <argument>default_big</argument>
+        <argument type="collection">
+          <argument key="width">500</argument>
+          <argument key="quality">70</argument>
+          <argument key="height">false</argument>
+          <argument key="format">jpg</argument>
+          <argument key="constraint">true</argument>
+        </argument>
+      </call>
+      <call method="setResizer">
+        <argument type="service" id="sonata.media.resizer.simple"/>
+      </call>
+      <call method="addFormat">
+        <argument>admin</argument>
+        <argument type="collection">
+          <argument key="width">200</argument>
+          <argument key="height">false</argument>
+          <argument key="quality">90</argument>
+          <argument key="format">jpg</argument>
+          <argument key="constraint">true</argument>
+        </argument>
+      </call>
+    </service>
+    <service id="sonata.media.buzz.connector.file_get_contents" class="Buzz\Client\FileGetContents">
+      <call method="setIgnoreErrors">
+        <argument>true</argument>
+      </call>
+      <call method="setMaxRedirects">
+        <argument>5</argument>
+      </call>
+      <call method="setTimeout">
+        <argument>5</argument>
+      </call>
+      <call method="setVerifyPeer">
+        <argument>true</argument>
+      </call>
+      <call method="setProxy">
+        <argument>null</argument>
+      </call>
+    </service>
+    <service id="sonata.media.buzz.connector.curl" class="Buzz\Client\Curl">
+      <call method="setIgnoreErrors">
+        <argument>true</argument>
+      </call>
+      <call method="setMaxRedirects">
+        <argument>5</argument>
+      </call>
+      <call method="setTimeout">
+        <argument>5</argument>
+      </call>
+      <call method="setVerifyPeer">
+        <argument>true</argument>
+      </call>
+      <call method="setProxy">
+        <argument>null</argument>
+      </call>
+    </service>
+    <service id="sonata.media.buzz.browser" class="Buzz\Browser">
+      <argument type="service" id="sonata.media.buzz.connector.curl"/>
+    </service>
+    <service id="sonata.media.cdn.server" class="Sonata\MediaBundle\CDN\Server">
+      <argument>/uploads/media</argument>
+    </service>
+    <service id="sonata.media.twig.extension" class="Sonata\MediaBundle\Twig\Extension\MediaExtension">
+      <tag name="twig.extension"/>
+      <argument type="service" id="sonata.media.pool"/>
+      <argument type="service" id="sonata.media.manager.media"/>
+    </service>
+    <service id="sonata.media.twig.global" class="Sonata\MediaBundle\Twig\GlobalVariables">
+      <argument type="service" id="service_container"/>
+    </service>
+    <service id="sonata.media.security.public_strategy" class="Sonata\MediaBundle\Security\PublicDownloadStrategy">
+      <argument type="service" id="translator"/>
+    </service>
+    <service id="sonata.media.security.forbidden_strategy" class="Sonata\MediaBundle\Security\ForbiddenDownloadStrategy">
+      <argument type="service" id="translator"/>
+    </service>
+    <service id="sonata.media.security.superadmin_strategy" class="Sonata\MediaBundle\Security\RolesDownloadStrategy">
+      <argument type="service" id="translator"/>
+      <argument type="service">
+        <service class="Symfony\Component\Security\Core\Authorization\AuthorizationChecker">
+          <argument type="service" id="security.token_storage"/>
+          <argument type="service" id="security.authentication.manager"/>
+          <argument type="service" id="security.access.decision_manager"/>
+          <argument>false</argument>
+        </service>
+      </argument>
+      <argument type="collection">
+        <argument>ROLE_SUPER_ADMIN</argument>
+        <argument>ROLE_ADMIN</argument>
+      </argument>
+    </service>
+    <service id="sonata.media.security.session_strategy" class="Sonata\MediaBundle\Security\SessionDownloadStrategy">
+      <argument type="service" id="translator"/>
+      <argument type="service" id="session"/>
+      <argument>1</argument>
+    </service>
+    <service id="sonata.media.security.connected_strategy" class="Sonata\MediaBundle\Security\RolesDownloadStrategy">
+      <argument type="service" id="translator"/>
+      <argument type="service">
+        <service class="Symfony\Component\Security\Core\Authorization\AuthorizationChecker">
+          <argument type="service" id="security.token_storage"/>
+          <argument type="service" id="security.authentication.manager"/>
+          <argument type="service" id="security.access.decision_manager"/>
+          <argument>false</argument>
+        </service>
+      </argument>
+      <argument type="collection">
+        <argument>IS_AUTHENTICATED_FULLY</argument>
+        <argument>IS_AUTHENTICATED_REMEMBERED</argument>
+      </argument>
+    </service>
+    <service id="sonata.media.form.type.media" class="Sonata\MediaBundle\Form\Type\MediaType">
+      <tag name="form.type" alias="sonata_media_type"/>
+      <argument type="service" id="sonata.media.pool"/>
+      <argument>Application\Sonata\MediaBundle\Entity\Media</argument>
+    </service>
+    <service id="sonata.media.adapter.filesystem.local" class="Sonata\MediaBundle\Filesystem\Local">
+      <argument>C:\xampp\htdocs\airbnbsf\app/../web/uploads/media</argument>
+      <argument>false</argument>
+    </service>
+    <service id="sonata.media.adapter.service.s3" class="Aws\S3\S3Client">
+      <argument type="collection"/>
+      <factory class="Aws\S3\S3Client" method="factory"/>
+    </service>
+    <service id="sonata.media.filesystem.local" class="Gaufrette\Filesystem">
+      <argument type="service" id="sonata.media.adapter.filesystem.local"/>
+    </service>
+    <service id="sonata.media.metadata.proxy" class="Sonata\MediaBundle\Metadata\ProxyMetadataBuilder">
+      <argument type="service" id="service_container"/>
+    </service>
+    <service id="sonata.media.metadata.amazon" class="Sonata\MediaBundle\Metadata\AmazonMetadataBuilder"/>
+    <service id="sonata.media.metadata.noop" class="Sonata\MediaBundle\Metadata\NoopMetadataBuilder"/>
+    <service id="sonata.media.validator.format" class="Sonata\MediaBundle\Validator\FormatValidator">
+      <tag name="validator.constraint_validator" alias="sonata.media.validator.format"/>
+      <argument type="service" id="sonata.media.pool"/>
+    </service>
+    <service id="sonata.media.serializer.handler.media" class="Sonata\MediaBundle\Serializer\MediaSerializerHandler">
+      <tag name="jms_serializer.subscribing_handler"/>
+      <argument type="service" id="sonata.media.manager.media"/>
+    </service>
+    <service id="sonata.media.serializer.handler.gallery" class="Sonata\MediaBundle\Serializer\GallerySerializerHandler">
+      <tag name="jms_serializer.subscribing_handler"/>
+      <argument type="service" id="sonata.media.manager.gallery"/>
+    </service>
+    <service id="sonata.media.manager.media" class="Sonata\MediaBundle\Entity\MediaManager">
+      <argument>Application\Sonata\MediaBundle\Entity\Media</argument>
+      <argument type="service" id="doctrine"/>
+    </service>
+    <service id="sonata.media.manager.gallery" class="Sonata\MediaBundle\Entity\GalleryManager">
+      <argument>Application\Sonata\MediaBundle\Entity\Gallery</argument>
+      <argument type="service" id="doctrine"/>
+    </service>
+    <service id="sonata.media.generator.default" class="Sonata\MediaBundle\Generator\DefaultGenerator"/>
+    <service id="sonata.media.doctrine.event_subscriber" class="Sonata\MediaBundle\Listener\ORM\MediaEventSubscriber">
+      <tag name="doctrine.event_subscriber"/>
+      <argument type="service" id="service_container"/>
+    </service>
+    <service id="sonata.media.adapter.image.gd" class="Imagine\Gd\Imagine"/>
+    <service id="sonata.media.adapter.image.imagick" class="Imagine\Imagick\Imagine"/>
+    <service id="sonata.media.adapter.image.gmagick" class="Imagine\Gmagick\Imagine"/>
+    <service id="sonata.media.resizer.simple" class="Sonata\MediaBundle\Resizer\SimpleResizer">
+      <argument type="service" id="sonata.media.adapter.image.gd"/>
+      <argument>inset</argument>
+      <argument type="service" id="sonata.media.metadata.proxy"/>
+    </service>
+    <service id="sonata.media.resizer.square" class="Sonata\MediaBundle\Resizer\SquareResizer">
+      <argument type="service" id="sonata.media.adapter.image.gd"/>
+      <argument>inset</argument>
+      <argument type="service" id="sonata.media.metadata.proxy"/>
+    </service>
+    <service id="sonata.easy_extends.generator.bundle" class="Sonata\EasyExtendsBundle\Generator\BundleGenerator"/>
+    <service id="sonata.easy_extends.generator.orm" class="Sonata\EasyExtendsBundle\Generator\OrmGenerator"/>
+    <service id="sonata.easy_extends.generator.odm" class="Sonata\EasyExtendsBundle\Generator\OdmGenerator"/>
+    <service id="sonata.easy_extends.generator.phpcr" class="Sonata\EasyExtendsBundle\Generator\PHPCRGenerator"/>
+    <service id="sonata.easy_extends.generator.serializer" class="Sonata\EasyExtendsBundle\Generator\SerializerGenerator"/>
+    <service id="sonata.easy_extends.doctrine.mapper" class="Sonata\EasyExtendsBundle\Mapper\DoctrineORMMapper">
+      <tag name="doctrine.event_subscriber"/>
+      <argument type="service" id="doctrine"/>
+      <argument type="collection"/>
+      <call method="addAssociation">
+        <argument>Application\Sonata\MediaBundle\Entity\Media</argument>
+        <argument>mapOneToMany</argument>
+        <argument type="collection">
+          <argument type="collection">
+            <argument key="fieldName">galleryHasMedias</argument>
+            <argument key="targetEntity">Application\Sonata\MediaBundle\Entity\GalleryHasMedia</argument>
+            <argument key="cascade" type="collection">
+              <argument>persist</argument>
+            </argument>
+            <argument key="mappedBy">media</argument>
+            <argument key="orphanRemoval">false</argument>
+          </argument>
+        </argument>
+      </call>
+      <call method="addAssociation">
+        <argument>Application\Sonata\MediaBundle\Entity\GalleryHasMedia</argument>
+        <argument>mapManyToOne</argument>
+        <argument type="collection">
+          <argument type="collection">
+            <argument key="fieldName">gallery</argument>
+            <argument key="targetEntity">Application\Sonata\MediaBundle\Entity\Gallery</argument>
+            <argument key="cascade" type="collection">
+              <argument>persist</argument>
+            </argument>
+            <argument key="mappedBy">null</argument>
+            <argument key="inversedBy">galleryHasMedias</argument>
+            <argument key="joinColumns" type="collection">
+              <argument type="collection">
+                <argument key="name">gallery_id</argument>
+                <argument key="referencedColumnName">id</argument>
+              </argument>
+            </argument>
+            <argument key="orphanRemoval">false</argument>
+          </argument>
+          <argument type="collection">
+            <argument key="fieldName">media</argument>
+            <argument key="targetEntity">Application\Sonata\MediaBundle\Entity\Media</argument>
+            <argument key="cascade" type="collection">
+              <argument>persist</argument>
+            </argument>
+            <argument key="mappedBy">null</argument>
+            <argument key="inversedBy">galleryHasMedias</argument>
+            <argument key="joinColumns" type="collection">
+              <argument type="collection">
+                <argument key="name">media_id</argument>
+                <argument key="referencedColumnName">id</argument>
+              </argument>
+            </argument>
+            <argument key="orphanRemoval">false</argument>
+          </argument>
+        </argument>
+      </call>
+      <call method="addAssociation">
+        <argument>Application\Sonata\MediaBundle\Entity\Gallery</argument>
+        <argument>mapOneToMany</argument>
+        <argument type="collection">
+          <argument type="collection">
+            <argument key="fieldName">galleryHasMedias</argument>
+            <argument key="targetEntity">Application\Sonata\MediaBundle\Entity\GalleryHasMedia</argument>
+            <argument key="cascade" type="collection">
+              <argument>persist</argument>
+            </argument>
+            <argument key="mappedBy">gallery</argument>
+            <argument key="orphanRemoval">true</argument>
+            <argument key="orderBy" type="collection">
+              <argument key="position">ASC</argument>
+            </argument>
+          </argument>
+        </argument>
+      </call>
+    </service>
+    <service id="jms_serializer.doctrine_proxy_subscriber" class="JMS\Serializer\EventDispatcher\Subscriber\DoctrineProxySubscriber">
+      <tag name="jms_serializer.event_subscriber"/>
+      <argument>false</argument>
+      <argument>true</argument>
+    </service>
+    <service id="jms_serializer.stopwatch_subscriber" class="JMS\SerializerBundle\Serializer\StopwatchEventSubscriber">
+      <tag name="jms_serializer.event_subscriber"/>
+      <argument type="service" id="debug.stopwatch"/>
+    </service>
+    <service id="jms_serializer.handler_registry" class="JMS\Serializer\Handler\LazyHandlerRegistry">
+      <argument type="service" id="service_container"/>
+      <argument type="collection">
+        <argument key="1" type="collection">
+          <argument key="sonata_media_media_id" type="collection">
+            <argument key="json" type="collection">
+              <argument>sonata.media.serializer.handler.media</argument>
+              <argument>serializeObjectToId</argument>
+            </argument>
+            <argument key="xml" type="collection">
+              <argument>sonata.media.serializer.handler.media</argument>
+              <argument>serializeObjectToId</argument>
+            </argument>
+            <argument key="yml" type="collection">
+              <argument>sonata.media.serializer.handler.media</argument>
+              <argument>serializeObjectToId</argument>
+            </argument>
+          </argument>
+          <argument key="sonata_media_gallery_id" type="collection">
+            <argument key="json" type="collection">
+              <argument>sonata.media.serializer.handler.gallery</argument>
+              <argument>serializeObjectToId</argument>
+            </argument>
+            <argument key="xml" type="collection">
+              <argument>sonata.media.serializer.handler.gallery</argument>
+              <argument>serializeObjectToId</argument>
+            </argument>
+            <argument key="yml" type="collection">
+              <argument>sonata.media.serializer.handler.gallery</argument>
+              <argument>serializeObjectToId</argument>
+            </argument>
+          </argument>
+          <argument key="DateTime" type="collection">
+            <argument key="json" type="collection">
+              <argument>jms_serializer.datetime_handler</argument>
+              <argument>serializeDateTime</argument>
+            </argument>
+            <argument key="xml" type="collection">
+              <argument>jms_serializer.datetime_handler</argument>
+              <argument>serializeDateTime</argument>
+            </argument>
+            <argument key="yml" type="collection">
+              <argument>jms_serializer.datetime_handler</argument>
+              <argument>serializeDateTime</argument>
+            </argument>
+          </argument>
+          <argument key="DateTimeImmutable" type="collection">
+            <argument key="json" type="collection">
+              <argument>jms_serializer.datetime_handler</argument>
+              <argument>serializeDateTimeImmutable</argument>
+            </argument>
+            <argument key="xml" type="collection">
+              <argument>jms_serializer.datetime_handler</argument>
+              <argument>serializeDateTimeImmutable</argument>
+            </argument>
+            <argument key="yml" type="collection">
+              <argument>jms_serializer.datetime_handler</argument>
+              <argument>serializeDateTimeImmutable</argument>
+            </argument>
+          </argument>
+          <argument key="DateInterval" type="collection">
+            <argument key="json" type="collection">
+              <argument>jms_serializer.datetime_handler</argument>
+              <argument>serializeDateInterval</argument>
+            </argument>
+            <argument key="xml" type="collection">
+              <argument>jms_serializer.datetime_handler</argument>
+              <argument>serializeDateInterval</argument>
+            </argument>
+            <argument key="yml" type="collection">
+              <argument>jms_serializer.datetime_handler</argument>
+              <argument>serializeDateInterval</argument>
+            </argument>
+          </argument>
+          <argument key="ArrayCollection" type="collection">
+            <argument key="json" type="collection">
+              <argument>jms_serializer.array_collection_handler</argument>
+              <argument>serializeCollection</argument>
+            </argument>
+            <argument key="xml" type="collection">
+              <argument>jms_serializer.array_collection_handler</argument>
+              <argument>serializeCollection</argument>
+            </argument>
+            <argument key="yml" type="collection">
+              <argument>jms_serializer.array_collection_handler</argument>
+              <argument>serializeCollection</argument>
+            </argument>
+          </argument>
+          <argument key="Doctrine\Common\Collections\ArrayCollection" type="collection">
+            <argument key="json" type="collection">
+              <argument>jms_serializer.array_collection_handler</argument>
+              <argument>serializeCollection</argument>
+            </argument>
+            <argument key="xml" type="collection">
+              <argument>jms_serializer.array_collection_handler</argument>
+              <argument>serializeCollection</argument>
+            </argument>
+            <argument key="yml" type="collection">
+              <argument>jms_serializer.array_collection_handler</argument>
+              <argument>serializeCollection</argument>
+            </argument>
+          </argument>
+          <argument key="Doctrine\ORM\PersistentCollection" type="collection">
+            <argument key="json" type="collection">
+              <argument>jms_serializer.array_collection_handler</argument>
+              <argument>serializeCollection</argument>
+            </argument>
+            <argument key="xml" type="collection">
+              <argument>jms_serializer.array_collection_handler</argument>
+              <argument>serializeCollection</argument>
+            </argument>
+            <argument key="yml" type="collection">
+              <argument>jms_serializer.array_collection_handler</argument>
+              <argument>serializeCollection</argument>
+            </argument>
+          </argument>
+          <argument key="Doctrine\ODM\MongoDB\PersistentCollection" type="collection">
+            <argument key="json" type="collection">
+              <argument>jms_serializer.array_collection_handler</argument>
+              <argument>serializeCollection</argument>
+            </argument>
+            <argument key="xml" type="collection">
+              <argument>jms_serializer.array_collection_handler</argument>
+              <argument>serializeCollection</argument>
+            </argument>
+            <argument key="yml" type="collection">
+              <argument>jms_serializer.array_collection_handler</argument>
+              <argument>serializeCollection</argument>
+            </argument>
+          </argument>
+          <argument key="Doctrine\ODM\PHPCR\PersistentCollection" type="collection">
+            <argument key="json" type="collection">
+              <argument>jms_serializer.array_collection_handler</argument>
+              <argument>serializeCollection</argument>
+            </argument>
+            <argument key="xml" type="collection">
+              <argument>jms_serializer.array_collection_handler</argument>
+              <argument>serializeCollection</argument>
+            </argument>
+            <argument key="yml" type="collection">
+              <argument>jms_serializer.array_collection_handler</argument>
+              <argument>serializeCollection</argument>
+            </argument>
+          </argument>
+          <argument key="PhpCollection\Sequence" type="collection">
+            <argument key="json" type="collection">
+              <argument>jms_serializer.php_collection_handler</argument>
+              <argument>serializeSequence</argument>
+            </argument>
+            <argument key="xml" type="collection">
+              <argument>jms_serializer.php_collection_handler</argument>
+              <argument>serializeSequence</argument>
+            </argument>
+            <argument key="yml" type="collection">
+              <argument>jms_serializer.php_collection_handler</argument>
+              <argument>serializeSequence</argument>
+            </argument>
+          </argument>
+          <argument key="PhpCollection\Map" type="collection">
+            <argument key="json" type="collection">
+              <argument>jms_serializer.php_collection_handler</argument>
+              <argument>serializeMap</argument>
+            </argument>
+            <argument key="xml" type="collection">
+              <argument>jms_serializer.php_collection_handler</argument>
+              <argument>serializeMap</argument>
+            </argument>
+            <argument key="yml" type="collection">
+              <argument>jms_serializer.php_collection_handler</argument>
+              <argument>serializeMap</argument>
+            </argument>
+          </argument>
+          <argument key="Symfony\Component\Form\Form" type="collection">
+            <argument key="xml" type="collection">
+              <argument>jms_serializer.form_error_handler</argument>
+              <argument>serializeFormToxml</argument>
+            </argument>
+            <argument key="json" type="collection">
+              <argument>jms_serializer.form_error_handler</argument>
+              <argument>serializeFormTojson</argument>
+            </argument>
+            <argument key="yml" type="collection">
+              <argument>jms_serializer.form_error_handler</argument>
+              <argument>serializeFormToyml</argument>
+            </argument>
+          </argument>
+          <argument key="Symfony\Component\Form\FormError" type="collection">
+            <argument key="xml" type="collection">
+              <argument>jms_serializer.form_error_handler</argument>
+              <argument>serializeFormErrorToxml</argument>
+            </argument>
+            <argument key="json" type="collection">
+              <argument>jms_serializer.form_error_handler</argument>
+              <argument>serializeFormErrorTojson</argument>
+            </argument>
+            <argument key="yml" type="collection">
+              <argument>jms_serializer.form_error_handler</argument>
+              <argument>serializeFormErrorToyml</argument>
+            </argument>
+          </argument>
+          <argument key="Symfony\Component\Validator\ConstraintViolationList" type="collection">
+            <argument key="xml" type="collection">
+              <argument>jms_serializer.constraint_violation_handler</argument>
+              <argument>serializeListToxml</argument>
+            </argument>
+            <argument key="json" type="collection">
+              <argument>jms_serializer.constraint_violation_handler</argument>
+              <argument>serializeListTojson</argument>
+            </argument>
+            <argument key="yml" type="collection">
+              <argument>jms_serializer.constraint_violation_handler</argument>
+              <argument>serializeListToyml</argument>
+            </argument>
+          </argument>
+          <argument key="Symfony\Component\Validator\ConstraintViolation" type="collection">
+            <argument key="xml" type="collection">
+              <argument>jms_serializer.constraint_violation_handler</argument>
+              <argument>serializeViolationToxml</argument>
+            </argument>
+            <argument key="json" type="collection">
+              <argument>jms_serializer.constraint_violation_handler</argument>
+              <argument>serializeViolationTojson</argument>
+            </argument>
+            <argument key="yml" type="collection">
+              <argument>jms_serializer.constraint_violation_handler</argument>
+              <argument>serializeViolationToyml</argument>
+            </argument>
+          </argument>
+        </argument>
+        <argument key="2" type="collection">
+          <argument key="sonata_media_media_id" type="collection">
+            <argument key="json" type="collection">
+              <argument>sonata.media.serializer.handler.media</argument>
+              <argument>deserializeObjectFromId</argument>
+            </argument>
+            <argument key="xml" type="collection">
+              <argument>sonata.media.serializer.handler.media</argument>
+              <argument>deserializeObjectFromId</argument>
+            </argument>
+            <argument key="yml" type="collection">
+              <argument>sonata.media.serializer.handler.media</argument>
+              <argument>deserializeObjectFromId</argument>
+            </argument>
+          </argument>
+          <argument key="sonata_media_gallery_id" type="collection">
+            <argument key="json" type="collection">
+              <argument>sonata.media.serializer.handler.gallery</argument>
+              <argument>deserializeObjectFromId</argument>
+            </argument>
+            <argument key="xml" type="collection">
+              <argument>sonata.media.serializer.handler.gallery</argument>
+              <argument>deserializeObjectFromId</argument>
+            </argument>
+            <argument key="yml" type="collection">
+              <argument>sonata.media.serializer.handler.gallery</argument>
+              <argument>deserializeObjectFromId</argument>
+            </argument>
+          </argument>
+          <argument key="DateTime" type="collection">
+            <argument key="json" type="collection">
+              <argument>jms_serializer.datetime_handler</argument>
+              <argument>deserializeDateTimeFromjson</argument>
+            </argument>
+            <argument key="xml" type="collection">
+              <argument>jms_serializer.datetime_handler</argument>
+              <argument>deserializeDateTimeFromxml</argument>
+            </argument>
+            <argument key="yml" type="collection">
+              <argument>jms_serializer.datetime_handler</argument>
+              <argument>deserializeDateTimeFromyml</argument>
+            </argument>
+          </argument>
+          <argument key="DateTimeImmutable" type="collection">
+            <argument key="json" type="collection">
+              <argument>jms_serializer.datetime_handler</argument>
+              <argument>deserializeDateTimeImmutableFromjson</argument>
+            </argument>
+            <argument key="xml" type="collection">
+              <argument>jms_serializer.datetime_handler</argument>
+              <argument>deserializeDateTimeImmutableFromxml</argument>
+            </argument>
+            <argument key="yml" type="collection">
+              <argument>jms_serializer.datetime_handler</argument>
+              <argument>deserializeDateTimeImmutableFromyml</argument>
+            </argument>
+          </argument>
+          <argument key="DateInterval" type="collection">
+            <argument key="json" type="collection">
+              <argument>jms_serializer.datetime_handler</argument>
+              <argument>deserializeDateIntervalFromjson</argument>
+            </argument>
+            <argument key="xml" type="collection">
+              <argument>jms_serializer.datetime_handler</argument>
+              <argument>deserializeDateIntervalFromxml</argument>
+            </argument>
+            <argument key="yml" type="collection">
+              <argument>jms_serializer.datetime_handler</argument>
+              <argument>deserializeDateIntervalFromyml</argument>
+            </argument>
+          </argument>
+          <argument key="ArrayCollection" type="collection">
+            <argument key="json" type="collection">
+              <argument>jms_serializer.array_collection_handler</argument>
+              <argument>deserializeCollection</argument>
+            </argument>
+            <argument key="xml" type="collection">
+              <argument>jms_serializer.array_collection_handler</argument>
+              <argument>deserializeCollection</argument>
+            </argument>
+            <argument key="yml" type="collection">
+              <argument>jms_serializer.array_collection_handler</argument>
+              <argument>deserializeCollection</argument>
+            </argument>
+          </argument>
+          <argument key="Doctrine\Common\Collections\ArrayCollection" type="collection">
+            <argument key="json" type="collection">
+              <argument>jms_serializer.array_collection_handler</argument>
+              <argument>deserializeCollection</argument>
+            </argument>
+            <argument key="xml" type="collection">
+              <argument>jms_serializer.array_collection_handler</argument>
+              <argument>deserializeCollection</argument>
+            </argument>
+            <argument key="yml" type="collection">
+              <argument>jms_serializer.array_collection_handler</argument>
+              <argument>deserializeCollection</argument>
+            </argument>
+          </argument>
+          <argument key="Doctrine\ORM\PersistentCollection" type="collection">
+            <argument key="json" type="collection">
+              <argument>jms_serializer.array_collection_handler</argument>
+              <argument>deserializeCollection</argument>
+            </argument>
+            <argument key="xml" type="collection">
+              <argument>jms_serializer.array_collection_handler</argument>
+              <argument>deserializeCollection</argument>
+            </argument>
+            <argument key="yml" type="collection">
+              <argument>jms_serializer.array_collection_handler</argument>
+              <argument>deserializeCollection</argument>
+            </argument>
+          </argument>
+          <argument key="Doctrine\ODM\MongoDB\PersistentCollection" type="collection">
+            <argument key="json" type="collection">
+              <argument>jms_serializer.array_collection_handler</argument>
+              <argument>deserializeCollection</argument>
+            </argument>
+            <argument key="xml" type="collection">
+              <argument>jms_serializer.array_collection_handler</argument>
+              <argument>deserializeCollection</argument>
+            </argument>
+            <argument key="yml" type="collection">
+              <argument>jms_serializer.array_collection_handler</argument>
+              <argument>deserializeCollection</argument>
+            </argument>
+          </argument>
+          <argument key="Doctrine\ODM\PHPCR\PersistentCollection" type="collection">
+            <argument key="json" type="collection">
+              <argument>jms_serializer.array_collection_handler</argument>
+              <argument>deserializeCollection</argument>
+            </argument>
+            <argument key="xml" type="collection">
+              <argument>jms_serializer.array_collection_handler</argument>
+              <argument>deserializeCollection</argument>
+            </argument>
+            <argument key="yml" type="collection">
+              <argument>jms_serializer.array_collection_handler</argument>
+              <argument>deserializeCollection</argument>
+            </argument>
+          </argument>
+          <argument key="PhpCollection\Sequence" type="collection">
+            <argument key="json" type="collection">
+              <argument>jms_serializer.php_collection_handler</argument>
+              <argument>deserializeSequence</argument>
+            </argument>
+            <argument key="xml" type="collection">
+              <argument>jms_serializer.php_collection_handler</argument>
+              <argument>deserializeSequence</argument>
+            </argument>
+            <argument key="yml" type="collection">
+              <argument>jms_serializer.php_collection_handler</argument>
+              <argument>deserializeSequence</argument>
+            </argument>
+          </argument>
+          <argument key="PhpCollection\Map" type="collection">
+            <argument key="json" type="collection">
+              <argument>jms_serializer.php_collection_handler</argument>
+              <argument>deserializeMap</argument>
+            </argument>
+            <argument key="xml" type="collection">
+              <argument>jms_serializer.php_collection_handler</argument>
+              <argument>deserializeMap</argument>
+            </argument>
+            <argument key="yml" type="collection">
+              <argument>jms_serializer.php_collection_handler</argument>
+              <argument>deserializeMap</argument>
+            </argument>
+          </argument>
+        </argument>
+      </argument>
+    </service>
+    <service id="jms_serializer.datetime_handler" class="JMS\Serializer\Handler\DateHandler">
+      <tag name="jms_serializer.subscribing_handler"/>
+      <argument>Y-m-d\TH:i:sO</argument>
+      <argument>Europe/Berlin</argument>
+      <argument>true</argument>
+    </service>
+    <service id="jms_serializer.array_collection_handler" class="JMS\Serializer\Handler\ArrayCollectionHandler">
+      <tag name="jms_serializer.subscribing_handler"/>
+      <argument>true</argument>
+    </service>
+    <service id="jms_serializer.php_collection_handler" class="JMS\Serializer\Handler\PhpCollectionHandler">
+      <tag name="jms_serializer.subscribing_handler"/>
+    </service>
+    <service id="jms_serializer.form_error_handler" class="JMS\Serializer\Handler\FormErrorHandler">
+      <tag name="jms_serializer.subscribing_handler"/>
+      <argument type="service" id="translator"/>
+    </service>
+    <service id="jms_serializer.constraint_violation_handler" class="JMS\Serializer\Handler\ConstraintViolationHandler">
+      <tag name="jms_serializer.subscribing_handler"/>
+    </service>
+    <service id="jms_serializer.unserialize_object_constructor" class="JMS\Serializer\Construction\UnserializeObjectConstructor" public="false"/>
+    <service id="jms_serializer.expression_evaluator" class="JMS\Serializer\Expression\ExpressionEvaluator">
+      <argument type="service">
+        <service class="Symfony\Component\ExpressionLanguage\ExpressionLanguage" public="false">
+          <call method="registerProvider">
+            <argument type="service">
+              <service class="JMS\SerializerBundle\ExpressionLanguage\BasicSerializerFunctionsProvider" public="false"/>
+            </argument>
+          </call>
+        </service>
+      </argument>
+      <argument type="collection">
+        <argument key="container" type="service" id="service_container"/>
+      </argument>
+    </service>
+    <service id="jms_serializer.templating.helper.serializer" class="JMS\SerializerBundle\Templating\SerializerHelper">
+      <tag name="templating.helper" alias="jms_serializer"/>
+      <argument type="service" id="jms_serializer"/>
+    </service>
+    <service id="jms_serializer.json_serialization_visitor" class="JMS\Serializer\JsonSerializationVisitor">
+      <tag name="jms_serializer.serialization_visitor" format="json"/>
+      <argument type="service" id="jms_serializer.naming_strategy"/>
+      <argument type="service" id="jms_serializer.accessor_strategy"/>
+      <call method="setOptions">
+        <argument>0</argument>
+      </call>
+    </service>
+    <service id="jms_serializer.json_deserialization_visitor" class="JMS\Serializer\JsonDeserializationVisitor">
+      <tag name="jms_serializer.deserialization_visitor" format="json"/>
+      <argument type="service" id="jms_serializer.naming_strategy"/>
+    </service>
+    <service id="jms_serializer.xml_serialization_visitor" class="JMS\Serializer\XmlSerializationVisitor">
+      <tag name="jms_serializer.serialization_visitor" format="xml"/>
+      <argument type="service" id="jms_serializer.naming_strategy"/>
+      <argument type="service" id="jms_serializer.accessor_strategy"/>
+      <call method="setFormatOutput">
+        <argument>true</argument>
+      </call>
+    </service>
+    <service id="jms_serializer.xml_deserialization_visitor" class="JMS\Serializer\XmlDeserializationVisitor">
+      <tag name="jms_serializer.deserialization_visitor" format="xml"/>
+      <argument type="service" id="jms_serializer.naming_strategy"/>
+      <call method="setDoctypeWhitelist">
+        <argument type="collection"/>
+      </call>
+    </service>
+    <service id="jms_serializer.yaml_serialization_visitor" class="JMS\Serializer\YamlSerializationVisitor">
+      <tag name="jms_serializer.serialization_visitor" format="yml"/>
+      <argument type="service" id="jms_serializer.naming_strategy"/>
+      <argument type="service" id="jms_serializer.accessor_strategy"/>
     </service>
     <service id="data_collector.dump" class="Symfony\Component\HttpKernel\DataCollector\DumpDataCollector">
       <tag name="data_collector" id="dump" template="@Debug/Profiler/dump.html.twig" priority="240"/>
@@ -2583,7 +4290,7 @@
       <argument>^/(app(_[\w]+)?\.php/)?_wdt</argument>
     </service>
     <service id="sensio_distribution.webconfigurator" class="Sensio\Bundle\DistributionBundle\Configurator\Configurator">
-      <argument>C:\Users\alsanchez\Desarrollo\airbnbsf\app</argument>
+      <argument>C:\xampp\htdocs\airbnbsf\app</argument>
       <call method="addStep">
         <argument type="service">
           <service class="Sensio\Bundle\DistributionBundle\Configurator\Step\DoctrineStep" public="false">
@@ -2711,7 +4418,7 @@
     </service>
     <service id="monolog.handler.null_internal" class="Monolog\Handler\NullHandler"/>
     <service id="session.storage.filesystem" class="Symfony\Component\HttpFoundation\Session\Storage\MockFileSessionStorage">
-      <argument>C:\Users\alsanchez\Desarrollo\airbnbsf\app\cache\dev/sessions</argument>
+      <argument>C:\xampp\htdocs\airbnbsf\app\cache\dev/sessions</argument>
       <argument>MOCKSESSID</argument>
       <argument type="service" id="session.storage.metadata_bag"/>
     </service>
@@ -2726,9 +4433,9 @@
     <service id="router" class="Symfony\Bundle\FrameworkBundle\Routing\Router">
       <tag name="monolog.logger" channel="router"/>
       <argument type="service" id="service_container"/>
-      <argument>C:\Users\alsanchez\Desarrollo\airbnbsf\app/config/routing_dev.yml</argument>
+      <argument>C:\xampp\htdocs\airbnbsf\app/config/routing_dev.yml</argument>
       <argument type="collection">
-        <argument key="cache_dir">C:\Users\alsanchez\Desarrollo\airbnbsf\app\cache\dev</argument>
+        <argument key="cache_dir">C:\xampp\htdocs\airbnbsf\app\cache\dev</argument>
         <argument key="debug">true</argument>
         <argument key="generator_class">Symfony\Component\Routing\Generator\UrlGenerator</argument>
         <argument key="generator_base_class">Symfony\Component\Routing\Generator\UrlGenerator</argument>
@@ -2752,13 +4459,20 @@
       </argument>
       <argument type="service">
         <service class="Doctrine\Common\Cache\FilesystemCache" public="false">
-          <argument>C:\Users\alsanchez\Desarrollo\airbnbsf\app\cache\dev/annotations</argument>
+          <argument>C:\xampp\htdocs\airbnbsf\app\cache\dev/annotations</argument>
         </service>
       </argument>
       <argument>true</argument>
     </service>
     <service id="security.encoder_factory" class="Symfony\Component\Security\Core\Encoder\EncoderFactory">
-      <argument type="collection"/>
+      <argument type="collection">
+        <argument key="FOS\UserBundle\Model\UserInterface" type="collection">
+          <argument key="class">%security.encoder.bcrypt.class%</argument>
+          <argument key="arguments" type="collection">
+            <argument>13</argument>
+          </argument>
+        </argument>
+      </argument>
     </service>
     <service id="security.password_encoder" class="Symfony\Component\Security\Core\Encoder\UserPasswordEncoder">
       <argument type="service" id="security.encoder_factory"/>
@@ -2811,10 +4525,10 @@
               </argument>
             </argument>
             <call method="setUsername">
-              <argument>null</argument>
+              <argument>uno@cualquiera.es</argument>
             </call>
             <call method="setPassword">
-              <argument>null</argument>
+              <argument>pass_de_palo</argument>
             </call>
             <call method="setAuthMode">
               <argument>null</argument>
@@ -2845,51 +4559,313 @@
         </service>
       </configurator>
     </service>
+    <service id="fos_user.mailer" class="FOS\UserBundle\Mailer\Mailer">
+      <argument type="service" id="swiftmailer.mailer.default"/>
+      <argument type="service" id="router"/>
+      <argument type="service" id="templating"/>
+      <argument type="collection">
+        <argument key="confirmation.template">@FOSUser/Registration/email.txt.twig</argument>
+        <argument key="resetting.template">@FOSUser/Resetting/email.txt.twig</argument>
+        <argument key="from_email" type="collection">
+          <argument key="confirmation" type="collection">
+            <argument key="uno@cualquiera.es">uno@cualquiera.es</argument>
+          </argument>
+          <argument key="resetting" type="collection">
+            <argument key="uno@cualquiera.es">uno@cualquiera.es</argument>
+          </argument>
+        </argument>
+      </argument>
+    </service>
+    <service id="fos_user.util.email_canonicalizer" class="FOS\UserBundle\Util\Canonicalizer"/>
+    <service id="fos_user.util.token_generator" class="FOS\UserBundle\Util\TokenGenerator"/>
+    <service id="fos_user.user_manager" class="FOS\UserBundle\Doctrine\UserManager">
+      <argument type="service" id="fos_user.util.password_updater"/>
+      <argument type="service" id="fos_user.util.canonical_fields_updater"/>
+      <argument type="service">
+        <service class="Doctrine\Common\Persistence\ObjectManager" public="false">
+          <argument>null</argument>
+          <factory service="doctrine" method="getManager"/>
+        </service>
+      </argument>
+      <argument>BackendBundle\Entity\User</argument>
+    </service>
+    <service id="jms_serializer.metadata_driver" class="JMS\Serializer\Metadata\Driver\DoctrineTypeDriver">
+      <argument type="service">
+        <service class="Metadata\Driver\DriverChain" public="false">
+          <argument type="collection">
+            <argument type="service">
+              <service class="JMS\Serializer\Metadata\Driver\YamlDriver" public="false">
+                <argument type="service">
+                  <service class="Metadata\Driver\FileLocator" public="false">
+                    <argument type="collection">
+                      <argument key="Symfony\Bundle\FrameworkBundle">C:\xampp\htdocs\airbnbsf\vendor\symfony\symfony\src\Symfony\Bundle\FrameworkBundle/Resources/config/serializer</argument>
+                      <argument key="Symfony\Bundle\SecurityBundle">C:\xampp\htdocs\airbnbsf\vendor\symfony\symfony\src\Symfony\Bundle\SecurityBundle/Resources/config/serializer</argument>
+                      <argument key="Symfony\Bundle\TwigBundle">C:\xampp\htdocs\airbnbsf\vendor\symfony\symfony\src\Symfony\Bundle\TwigBundle/Resources/config/serializer</argument>
+                      <argument key="Symfony\Bundle\MonologBundle">C:\xampp\htdocs\airbnbsf\vendor\symfony\monolog-bundle/Resources/config/serializer</argument>
+                      <argument key="Symfony\Bundle\SwiftmailerBundle">C:\xampp\htdocs\airbnbsf\vendor\symfony\swiftmailer-bundle/Resources/config/serializer</argument>
+                      <argument key="Doctrine\Bundle\DoctrineBundle">C:\xampp\htdocs\airbnbsf\vendor\doctrine\doctrine-bundle/Resources/config/serializer</argument>
+                      <argument key="Sensio\Bundle\FrameworkExtraBundle">C:\xampp\htdocs\airbnbsf\vendor\sensio\framework-extra-bundle/Resources/config/serializer</argument>
+                      <argument key="FOS\UserBundle">C:\xampp\htdocs\airbnbsf\vendor\friendsofsymfony\user-bundle/Resources/config/serializer</argument>
+                      <argument key="Sonata\MediaBundle">C:\xampp\htdocs\airbnbsf\vendor\sonata-project\media-bundle/Resources/config/serializer</argument>
+                      <argument key="Sonata\EasyExtendsBundle">C:\xampp\htdocs\airbnbsf\vendor\sonata-project\easy-extends-bundle/Resources/config/serializer</argument>
+                      <argument key="Application\Sonata\MediaBundle">C:\xampp\htdocs\airbnbsf\src\Application\Sonata\MediaBundle/Resources/config/serializer</argument>
+                      <argument key="JMS\SerializerBundle">C:\xampp\htdocs\airbnbsf\vendor\jms\serializer-bundle\JMS\SerializerBundle/Resources/config/serializer</argument>
+                      <argument key="AppBundle">C:\xampp\htdocs\airbnbsf\src\AppBundle/Resources/config/serializer</argument>
+                      <argument key="BackendBundle">C:\xampp\htdocs\airbnbsf\src\BackendBundle/Resources/config/serializer</argument>
+                      <argument key="Symfony\Bundle\DebugBundle">C:\xampp\htdocs\airbnbsf\vendor\symfony\symfony\src\Symfony\Bundle\DebugBundle/Resources/config/serializer</argument>
+                      <argument key="Symfony\Bundle\WebProfilerBundle">C:\xampp\htdocs\airbnbsf\vendor\symfony\symfony\src\Symfony\Bundle\WebProfilerBundle/Resources/config/serializer</argument>
+                      <argument key="Sensio\Bundle\DistributionBundle">C:\xampp\htdocs\airbnbsf\vendor\sensio\distribution-bundle\Sensio\Bundle\DistributionBundle/Resources/config/serializer</argument>
+                      <argument key="Sensio\Bundle\GeneratorBundle">C:\xampp\htdocs\airbnbsf\vendor\sensio\generator-bundle/Resources/config/serializer</argument>
+                    </argument>
+                  </service>
+                </argument>
+              </service>
+            </argument>
+            <argument type="service">
+              <service class="JMS\Serializer\Metadata\Driver\XmlDriver" public="false">
+                <argument type="service">
+                  <service class="Metadata\Driver\FileLocator" public="false">
+                    <argument type="collection">
+                      <argument key="Symfony\Bundle\FrameworkBundle">C:\xampp\htdocs\airbnbsf\vendor\symfony\symfony\src\Symfony\Bundle\FrameworkBundle/Resources/config/serializer</argument>
+                      <argument key="Symfony\Bundle\SecurityBundle">C:\xampp\htdocs\airbnbsf\vendor\symfony\symfony\src\Symfony\Bundle\SecurityBundle/Resources/config/serializer</argument>
+                      <argument key="Symfony\Bundle\TwigBundle">C:\xampp\htdocs\airbnbsf\vendor\symfony\symfony\src\Symfony\Bundle\TwigBundle/Resources/config/serializer</argument>
+                      <argument key="Symfony\Bundle\MonologBundle">C:\xampp\htdocs\airbnbsf\vendor\symfony\monolog-bundle/Resources/config/serializer</argument>
+                      <argument key="Symfony\Bundle\SwiftmailerBundle">C:\xampp\htdocs\airbnbsf\vendor\symfony\swiftmailer-bundle/Resources/config/serializer</argument>
+                      <argument key="Doctrine\Bundle\DoctrineBundle">C:\xampp\htdocs\airbnbsf\vendor\doctrine\doctrine-bundle/Resources/config/serializer</argument>
+                      <argument key="Sensio\Bundle\FrameworkExtraBundle">C:\xampp\htdocs\airbnbsf\vendor\sensio\framework-extra-bundle/Resources/config/serializer</argument>
+                      <argument key="FOS\UserBundle">C:\xampp\htdocs\airbnbsf\vendor\friendsofsymfony\user-bundle/Resources/config/serializer</argument>
+                      <argument key="Sonata\MediaBundle">C:\xampp\htdocs\airbnbsf\vendor\sonata-project\media-bundle/Resources/config/serializer</argument>
+                      <argument key="Sonata\EasyExtendsBundle">C:\xampp\htdocs\airbnbsf\vendor\sonata-project\easy-extends-bundle/Resources/config/serializer</argument>
+                      <argument key="Application\Sonata\MediaBundle">C:\xampp\htdocs\airbnbsf\src\Application\Sonata\MediaBundle/Resources/config/serializer</argument>
+                      <argument key="JMS\SerializerBundle">C:\xampp\htdocs\airbnbsf\vendor\jms\serializer-bundle\JMS\SerializerBundle/Resources/config/serializer</argument>
+                      <argument key="AppBundle">C:\xampp\htdocs\airbnbsf\src\AppBundle/Resources/config/serializer</argument>
+                      <argument key="BackendBundle">C:\xampp\htdocs\airbnbsf\src\BackendBundle/Resources/config/serializer</argument>
+                      <argument key="Symfony\Bundle\DebugBundle">C:\xampp\htdocs\airbnbsf\vendor\symfony\symfony\src\Symfony\Bundle\DebugBundle/Resources/config/serializer</argument>
+                      <argument key="Symfony\Bundle\WebProfilerBundle">C:\xampp\htdocs\airbnbsf\vendor\symfony\symfony\src\Symfony\Bundle\WebProfilerBundle/Resources/config/serializer</argument>
+                      <argument key="Sensio\Bundle\DistributionBundle">C:\xampp\htdocs\airbnbsf\vendor\sensio\distribution-bundle\Sensio\Bundle\DistributionBundle/Resources/config/serializer</argument>
+                      <argument key="Sensio\Bundle\GeneratorBundle">C:\xampp\htdocs\airbnbsf\vendor\sensio\generator-bundle/Resources/config/serializer</argument>
+                    </argument>
+                  </service>
+                </argument>
+              </service>
+            </argument>
+            <argument type="service">
+              <service class="JMS\Serializer\Metadata\Driver\PhpDriver" public="false">
+                <argument type="service">
+                  <service class="Metadata\Driver\FileLocator" public="false">
+                    <argument type="collection">
+                      <argument key="Symfony\Bundle\FrameworkBundle">C:\xampp\htdocs\airbnbsf\vendor\symfony\symfony\src\Symfony\Bundle\FrameworkBundle/Resources/config/serializer</argument>
+                      <argument key="Symfony\Bundle\SecurityBundle">C:\xampp\htdocs\airbnbsf\vendor\symfony\symfony\src\Symfony\Bundle\SecurityBundle/Resources/config/serializer</argument>
+                      <argument key="Symfony\Bundle\TwigBundle">C:\xampp\htdocs\airbnbsf\vendor\symfony\symfony\src\Symfony\Bundle\TwigBundle/Resources/config/serializer</argument>
+                      <argument key="Symfony\Bundle\MonologBundle">C:\xampp\htdocs\airbnbsf\vendor\symfony\monolog-bundle/Resources/config/serializer</argument>
+                      <argument key="Symfony\Bundle\SwiftmailerBundle">C:\xampp\htdocs\airbnbsf\vendor\symfony\swiftmailer-bundle/Resources/config/serializer</argument>
+                      <argument key="Doctrine\Bundle\DoctrineBundle">C:\xampp\htdocs\airbnbsf\vendor\doctrine\doctrine-bundle/Resources/config/serializer</argument>
+                      <argument key="Sensio\Bundle\FrameworkExtraBundle">C:\xampp\htdocs\airbnbsf\vendor\sensio\framework-extra-bundle/Resources/config/serializer</argument>
+                      <argument key="FOS\UserBundle">C:\xampp\htdocs\airbnbsf\vendor\friendsofsymfony\user-bundle/Resources/config/serializer</argument>
+                      <argument key="Sonata\MediaBundle">C:\xampp\htdocs\airbnbsf\vendor\sonata-project\media-bundle/Resources/config/serializer</argument>
+                      <argument key="Sonata\EasyExtendsBundle">C:\xampp\htdocs\airbnbsf\vendor\sonata-project\easy-extends-bundle/Resources/config/serializer</argument>
+                      <argument key="Application\Sonata\MediaBundle">C:\xampp\htdocs\airbnbsf\src\Application\Sonata\MediaBundle/Resources/config/serializer</argument>
+                      <argument key="JMS\SerializerBundle">C:\xampp\htdocs\airbnbsf\vendor\jms\serializer-bundle\JMS\SerializerBundle/Resources/config/serializer</argument>
+                      <argument key="AppBundle">C:\xampp\htdocs\airbnbsf\src\AppBundle/Resources/config/serializer</argument>
+                      <argument key="BackendBundle">C:\xampp\htdocs\airbnbsf\src\BackendBundle/Resources/config/serializer</argument>
+                      <argument key="Symfony\Bundle\DebugBundle">C:\xampp\htdocs\airbnbsf\vendor\symfony\symfony\src\Symfony\Bundle\DebugBundle/Resources/config/serializer</argument>
+                      <argument key="Symfony\Bundle\WebProfilerBundle">C:\xampp\htdocs\airbnbsf\vendor\symfony\symfony\src\Symfony\Bundle\WebProfilerBundle/Resources/config/serializer</argument>
+                      <argument key="Sensio\Bundle\DistributionBundle">C:\xampp\htdocs\airbnbsf\vendor\sensio\distribution-bundle\Sensio\Bundle\DistributionBundle/Resources/config/serializer</argument>
+                      <argument key="Sensio\Bundle\GeneratorBundle">C:\xampp\htdocs\airbnbsf\vendor\sensio\generator-bundle/Resources/config/serializer</argument>
+                    </argument>
+                  </service>
+                </argument>
+              </service>
+            </argument>
+            <argument type="service">
+              <service class="JMS\Serializer\Metadata\Driver\AnnotationDriver" public="false">
+                <argument type="service" id="annotation_reader"/>
+              </service>
+            </argument>
+          </argument>
+        </service>
+      </argument>
+      <argument type="service" id="doctrine"/>
+    </service>
+    <service id="jms_serializer.naming_strategy" class="JMS\Serializer\Naming\CacheNamingStrategy">
+      <argument type="service">
+        <service class="JMS\Serializer\Naming\SerializedNameAnnotationStrategy" public="false">
+          <argument type="service">
+            <service class="JMS\Serializer\Naming\CamelCaseNamingStrategy" public="false">
+              <argument>_</argument>
+              <argument>true</argument>
+            </service>
+          </argument>
+        </service>
+      </argument>
+    </service>
+    <service id="jms_serializer.object_constructor" class="JMS\Serializer\Construction\DoctrineObjectConstructor">
+      <argument type="service" id="doctrine"/>
+      <argument type="service" id="jms_serializer.unserialize_object_constructor"/>
+      <argument type="string">null</argument>
+    </service>
+    <service id="jms_serializer.deserialization_context_factory" class="JMS\SerializerBundle\ContextFactory\ConfiguredContextFactory"/>
+    <service id="jms_serializer.serialization_context_factory" class="JMS\SerializerBundle\ContextFactory\ConfiguredContextFactory"/>
+    <service id="jms_serializer" class="JMS\Serializer\Serializer">
+      <argument type="service">
+        <service class="Metadata\MetadataFactory" public="false">
+          <argument type="service">
+            <service class="Metadata\Driver\LazyLoadingDriver" public="false">
+              <argument type="service" id="service_container"/>
+              <argument>jms_serializer.metadata_driver</argument>
+            </service>
+          </argument>
+          <argument>Metadata\ClassHierarchyMetadata</argument>
+          <argument>true</argument>
+          <call method="setCache">
+            <argument type="service">
+              <service class="Metadata\Cache\FileCache" public="false">
+                <argument>C:\xampp\htdocs\airbnbsf\app\cache\dev/jms_serializer</argument>
+              </service>
+            </argument>
+          </call>
+        </service>
+      </argument>
+      <argument type="service" id="jms_serializer.handler_registry"/>
+      <argument type="service" id="jms_serializer.unserialize_object_constructor"/>
+      <argument type="service">
+        <service class="PhpCollection\Map">
+          <argument type="collection">
+            <argument key="json" type="service" id="jms_serializer.json_serialization_visitor"/>
+            <argument key="xml" type="service" id="jms_serializer.xml_serialization_visitor"/>
+            <argument key="yml" type="service" id="jms_serializer.yaml_serialization_visitor"/>
+          </argument>
+        </service>
+      </argument>
+      <argument type="service">
+        <service class="PhpCollection\Map">
+          <argument type="collection">
+            <argument key="json" type="service" id="jms_serializer.json_deserialization_visitor"/>
+            <argument key="xml" type="service" id="jms_serializer.xml_deserialization_visitor"/>
+          </argument>
+        </service>
+      </argument>
+      <argument type="service">
+        <service class="JMS\Serializer\EventDispatcher\LazyEventDispatcher" public="false">
+          <argument type="service" id="service_container"/>
+          <call method="setListeners">
+            <argument type="collection">
+              <argument key="serializer.pre_serialize" type="collection">
+                <argument type="collection">
+                  <argument type="collection">
+                    <argument>jms_serializer.stopwatch_subscriber</argument>
+                    <argument>onPreSerialize</argument>
+                  </argument>
+                  <argument>null</argument>
+                  <argument>null</argument>
+                </argument>
+                <argument type="collection">
+                  <argument type="collection">
+                    <argument>jms_serializer.doctrine_proxy_subscriber</argument>
+                    <argument>onPreSerializeTypedProxy</argument>
+                  </argument>
+                  <argument>null</argument>
+                  <argument>null</argument>
+                </argument>
+                <argument type="collection">
+                  <argument type="collection">
+                    <argument>jms_serializer.doctrine_proxy_subscriber</argument>
+                    <argument>onPreSerialize</argument>
+                  </argument>
+                  <argument>null</argument>
+                  <argument>null</argument>
+                </argument>
+              </argument>
+              <argument key="serializer.post_serialize" type="collection">
+                <argument type="collection">
+                  <argument type="collection">
+                    <argument>jms_serializer.stopwatch_subscriber</argument>
+                    <argument>onPostSerialize</argument>
+                  </argument>
+                  <argument>null</argument>
+                  <argument>null</argument>
+                </argument>
+              </argument>
+            </argument>
+          </call>
+        </service>
+      </argument>
+      <argument>null</argument>
+      <argument type="service" id="jms_serializer.expression_evaluator"/>
+      <call method="setSerializationContextFactory">
+        <argument type="service" id="jms_serializer.serialization_context_factory"/>
+      </call>
+      <call method="setDeserializationContextFactory">
+        <argument type="service" id="jms_serializer.deserialization_context_factory"/>
+      </call>
+    </service>
+    <service id="jms_serializer.accessor_strategy" class="JMS\Serializer\Accessor\ExpressionAccessorStrategy">
+      <argument type="service" id="jms_serializer.expression_evaluator"/>
+      <argument type="service">
+        <service class="JMS\Serializer\Accessor\DefaultAccessorStrategy" public="false"/>
+      </argument>
+    </service>
     <service id="twig.loader" class="Symfony\Bundle\TwigBundle\Loader\FilesystemLoader">
       <tag name="twig.loader"/>
       <argument type="service" id="templating.locator"/>
       <argument type="service" id="templating.name_parser"/>
       <call method="addPath">
-        <argument>C:\Users\alsanchez\Desarrollo\airbnbsf\vendor\symfony\symfony\src\Symfony\Bundle\FrameworkBundle/Resources/views</argument>
+        <argument>C:\xampp\htdocs\airbnbsf\vendor\symfony\symfony\src\Symfony\Bundle\FrameworkBundle/Resources/views</argument>
         <argument>Framework</argument>
       </call>
       <call method="addPath">
-        <argument>C:\Users\alsanchez\Desarrollo\airbnbsf\vendor\symfony\symfony\src\Symfony\Bundle\SecurityBundle/Resources/views</argument>
+        <argument>C:\xampp\htdocs\airbnbsf\vendor\symfony\symfony\src\Symfony\Bundle\SecurityBundle/Resources/views</argument>
         <argument>Security</argument>
       </call>
       <call method="addPath">
-        <argument>C:\Users\alsanchez\Desarrollo\airbnbsf\vendor\symfony\symfony\src\Symfony\Bundle\TwigBundle/Resources/views</argument>
+        <argument>C:\xampp\htdocs\airbnbsf\vendor\symfony\symfony\src\Symfony\Bundle\TwigBundle/Resources/views</argument>
         <argument>Twig</argument>
       </call>
       <call method="addPath">
-        <argument>C:\Users\alsanchez\Desarrollo\airbnbsf\vendor\symfony\swiftmailer-bundle/Resources/views</argument>
+        <argument>C:\xampp\htdocs\airbnbsf\vendor\symfony\swiftmailer-bundle/Resources/views</argument>
         <argument>Swiftmailer</argument>
       </call>
       <call method="addPath">
-        <argument>C:\Users\alsanchez\Desarrollo\airbnbsf\vendor\doctrine\doctrine-bundle/Resources/views</argument>
+        <argument>C:\xampp\htdocs\airbnbsf\vendor\doctrine\doctrine-bundle/Resources/views</argument>
         <argument>Doctrine</argument>
       </call>
       <call method="addPath">
-        <argument>C:\Users\alsanchez\Desarrollo\airbnbsf\src\BackendBundle/Resources/views</argument>
+        <argument>C:\xampp\htdocs\airbnbsf\vendor\friendsofsymfony\user-bundle/Resources/views</argument>
+        <argument>FOSUser</argument>
+      </call>
+      <call method="addPath">
+        <argument>C:\xampp\htdocs\airbnbsf\src\Application\Sonata\MediaBundle/Resources/views</argument>
+        <argument>SonataMedia</argument>
+      </call>
+      <call method="addPath">
+        <argument>C:\xampp\htdocs\airbnbsf\vendor\sonata-project\media-bundle/Resources/views</argument>
+        <argument>SonataMedia</argument>
+      </call>
+      <call method="addPath">
+        <argument>C:\xampp\htdocs\airbnbsf\src\Application\Sonata\MediaBundle/Resources/views</argument>
+        <argument>ApplicationSonataMedia</argument>
+      </call>
+      <call method="addPath">
+        <argument>C:\xampp\htdocs\airbnbsf\src\BackendBundle/Resources/views</argument>
         <argument>Backend</argument>
       </call>
       <call method="addPath">
-        <argument>C:\Users\alsanchez\Desarrollo\airbnbsf\vendor\symfony\symfony\src\Symfony\Bundle\DebugBundle/Resources/views</argument>
+        <argument>C:\xampp\htdocs\airbnbsf\vendor\symfony\symfony\src\Symfony\Bundle\DebugBundle/Resources/views</argument>
         <argument>Debug</argument>
       </call>
       <call method="addPath">
-        <argument>C:\Users\alsanchez\Desarrollo\airbnbsf\vendor\symfony\symfony\src\Symfony\Bundle\WebProfilerBundle/Resources/views</argument>
+        <argument>C:\xampp\htdocs\airbnbsf\vendor\symfony\symfony\src\Symfony\Bundle\WebProfilerBundle/Resources/views</argument>
         <argument>WebProfiler</argument>
       </call>
       <call method="addPath">
-        <argument>C:\Users\alsanchez\Desarrollo\airbnbsf\vendor\sensio\distribution-bundle\Sensio\Bundle\DistributionBundle/Resources/views</argument>
+        <argument>C:\xampp\htdocs\airbnbsf\vendor\sensio\distribution-bundle\Sensio\Bundle\DistributionBundle/Resources/views</argument>
         <argument>SensioDistribution</argument>
       </call>
       <call method="addPath">
-        <argument>C:\Users\alsanchez\Desarrollo\airbnbsf\app/Resources/views</argument>
+        <argument>C:\xampp\htdocs\airbnbsf\app/Resources/views</argument>
       </call>
       <call method="addPath">
-        <argument>C:\Users\alsanchez\Desarrollo\airbnbsf\vendor\symfony\symfony\src\Symfony\Bridge\Twig/Resources/views/Form</argument>
+        <argument>C:\xampp\htdocs\airbnbsf\vendor\symfony\symfony\src\Symfony\Bridge\Twig/Resources/views/Form</argument>
       </call>
     </service>
     <service id="session.storage" alias="session.storage.native"/>
@@ -2905,6 +4881,12 @@
     <service id="doctrine.orm.default_metadata_cache" alias="doctrine_cache.providers.doctrine.orm.default_metadata_cache"/>
     <service id="doctrine.orm.default_result_cache" alias="doctrine_cache.providers.doctrine.orm.default_result_cache"/>
     <service id="doctrine.orm.default_query_cache" alias="doctrine_cache.providers.doctrine.orm.default_query_cache"/>
+    <service id="fos_user.util.username_canonicalizer" alias="fos_user.util.email_canonicalizer"/>
+    <service id="sonata.media.adapter.image.default" alias="sonata.media.adapter.image.gd"/>
+    <service id="sonata.media.resizer.default" alias="sonata.media.resizer.simple"/>
+    <service id="jms\serializer\serializerinterface" alias="jms_serializer"/>
+    <service id="jms\serializer\arraytransformerinterface" alias="jms_serializer"/>
+    <service id="serializer" alias="jms_serializer"/>
     <service id="sensio.distribution.webconfigurator" alias="sensio_distribution.webconfigurator"/>
     <service id="console.command.sensiolabs_security_command_securitycheckercommand" alias="sensio_distribution.security_checker.command"/>
   </services>

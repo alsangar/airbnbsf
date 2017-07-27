@@ -1,16 +1,16 @@
 <?php
-
 namespace BackendBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use FOS\UserBundle\Model\User as BaseUser;
+
 
 /**
- * User
+ * @ORM\Entity
+ * @ORM\Table(name="fos_user")
  *
- * @ORM\Table(name="user")
- * @ORM\Entity(repositoryClass="BackendBundle\Repository\UserRepository")
  */
-class User
+class User extends BaseUser
 {
     /**
      * @var int
@@ -19,79 +19,47 @@ class User
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="AUTO")
      */
-    private $id;
-    
-    
-    
-    /**
-    * @ORM\OneToMany(targetEntity="Products", mappedBy="user", cascade={"persist"})
-    */
-    protected $products;
-    
-    /**
-    * @ORM\OneToMany(targetEntity="Favorites", mappedBy="user", cascade={"persist"})
-    */
-    protected $favorites;
-    
-    /**
-    * @ORM\OneToMany(targetEntity="Complaints", mappedBy="user", cascade={"persist"})
-    */
-    protected $complaints;
+    protected $id;
 
     /**
-    * Constructor
-    */
+     * @var string
+     *
+     * @ORM\Column(name="first_name", type="string", length=255, nullable=true)
+     */
+    private $firstName;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="last_name", type="string", length=255, nullable=true)
+     */
+    private $lastName;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="phone", type="integer", length=15, nullable=true)
+     */
+    private $phone;
+
+    /**
+     * @ORM\OneToMany(targetEntity="Favorites", mappedBy="user", cascade={"persist"}, orphanRemoval=true)
+     */
+    protected $favorites;
+
     public function __construct()
     {
-       $this->products = new \Doctrine\Common\Collections\ArrayCollection();
-       $this->favorites = new \Doctrine\Common\Collections\ArrayCollection();
-       $this->complaints = new \Doctrine\Common\Collections\ArrayCollection();
+        parent::__construct();
+
+        $this->favorites = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
-
-    
-
-    /**
-     * Get id
-     *
-     * @return integer 
-     */
-    public function getId()
+    public function __toString()
     {
-        return $this->id;
-    }
-
-    /**
-     * Add products
-     *
-     * @param \BackendBundle\Entity\Products $products
-     * @return User
-     */
-    public function addProduct(\BackendBundle\Entity\Products $products)
-    {
-        $this->products[] = $products;
-    
-        return $this;
-    }
-
-    /**
-     * Remove products
-     *
-     * @param \BackendBundle\Entity\Products $products
-     */
-    public function removeProduct(\BackendBundle\Entity\Products $products)
-    {
-        $this->products->removeElement($products);
-    }
-
-    /**
-     * Get products
-     *
-     * @return \Doctrine\Common\Collections\Collection 
-     */
-    public function getProducts()
-    {
-        return $this->products;
+        if ($this->firstname != "")
+            return $this->firstName." ".$this->lastName;
+        else
+            return '';
     }
 
     /**
@@ -103,7 +71,7 @@ class User
     public function addFavorite(\BackendBundle\Entity\Favorites $favorites)
     {
         $this->favorites[] = $favorites;
-    
+
         return $this;
     }
 
@@ -128,35 +96,74 @@ class User
     }
 
     /**
-     * Add complaints
+     * Set firstName
      *
-     * @param \BackendBundle\Entity\Complaints $complaints
+     * @param string $firstName
+     *
      * @return User
      */
-    public function addComplaint(\BackendBundle\Entity\Complaints $complaints)
+    public function setFirstName($firstName)
     {
-        $this->complaints[] = $complaints;
-    
+        $this->firstName = $firstName;
+
         return $this;
     }
 
     /**
-     * Remove complaints
+     * Get firstName
      *
-     * @param \BackendBundle\Entity\Complaints $complaints
+     * @return string
      */
-    public function removeComplaint(\BackendBundle\Entity\Complaints $complaints)
+    public function getFirstName()
     {
-        $this->complaints->removeElement($complaints);
+        return $this->firstName;
     }
 
     /**
-     * Get complaints
+     * Set lastName
      *
-     * @return \Doctrine\Common\Collections\Collection 
+     * @param string $lastName
+     *
+     * @return User
      */
-    public function getComplaints()
+    public function setLastName($lastName)
     {
-        return $this->complaints;
+        $this->lastName = $lastName;
+
+        return $this;
+    }
+
+    /**
+     * Get lastName
+     *
+     * @return string
+     */
+    public function getLastName()
+    {
+        return $this->lastName;
+    }
+
+    /**
+     * Set phone
+     *
+     * @param integer $phone
+     *
+     * @return User
+     */
+    public function setPhone($phone)
+    {
+        $this->phone = $phone;
+
+        return $this;
+    }
+
+    /**
+     * Get phone
+     *
+     * @return integer
+     */
+    public function getPhone()
+    {
+        return $this->phone;
     }
 }

@@ -3,68 +3,46 @@
 namespace BackendBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-use Symfony\Component\Validator\Constraints as Assert;
-use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 
 /**
  * Categories
  *
  * @ORM\Table(name="categories")
- * @ORM\Entity(repositoryClass="BackendBundle\Repository\CategoriesRepository")
+ * @ORM\Entity
  */
 class Categories
 {
     /**
-     * @var int
+     * @var integer
      *
-     * @ORM\Column(name="id", type="integer")
+     * @ORM\Column(name="id", type="integer", nullable=false)
      * @ORM\Id
-     * @ORM\GeneratedValue(strategy="AUTO")
+     * @ORM\GeneratedValue(strategy="IDENTITY")
      */
     private $id;
 
     /**
-    * @var integer
-    *
-    * @Assert\Length(
-    *      min = "1",
-    *      max = "2",
-    * )
-    * 
-    * @ORM\Column(name="parent_id", type="integer", length=2, nullable=true)
-    */
-    private $parent_id; 
-    
+     * @var integer
+     *
+     * @ORM\Column(name="parent_id", type="integer", nullable=false)
+     */
+    private $parentId;
+
     /**
      * @var string
-     * @Assert\Length(
-     *      min = "1",
-     *      max = "255",
-     * ) 
-     * @ORM\Column(name="name", type="string", length=255, nullable=true)
-     */    
+     *
+     * @ORM\Column(name="name", type="string", length=255, nullable=false)
+     */
     private $name;
-    
+
     /**
-    * @var boolean
-    *
-    * @ORM\Column(name="active", type="boolean", nullable=true)
-    */
+     * @var boolean
+     *
+     * @ORM\Column(name="active", type="boolean", nullable=true)
+     */
     private $active;
-    
-    
-    /**
-    * @ORM\OneToMany(targetEntity="Products", mappedBy="categories", cascade={"persist"})
-    */
-    protected $products;
-    
-    /**
-    * Constructor
-    */
-    public function __construct()
-    {
-       $this->products = new \Doctrine\Common\Collections\ArrayCollection();
-    }
+
+
 
     /**
      * Get id
@@ -77,26 +55,26 @@ class Categories
     }
 
     /**
-     * Set parent_id
+     * Set parentId
      *
      * @param integer $parentId
      * @return Categories
      */
     public function setParentId($parentId)
     {
-        $this->parent_id = $parentId;
-    
+        $this->parentId = $parentId;
+
         return $this;
     }
 
     /**
-     * Get parent_id
+     * Get parentId
      *
      * @return integer 
      */
     public function getParentId()
     {
-        return $this->parent_id;
+        return $this->parentId;
     }
 
     /**
@@ -108,7 +86,7 @@ class Categories
     public function setName($name)
     {
         $this->name = $name;
-    
+
         return $this;
     }
 
@@ -131,7 +109,7 @@ class Categories
     public function setActive($active)
     {
         $this->active = $active;
-    
+
         return $this;
     }
 
@@ -143,38 +121,5 @@ class Categories
     public function getActive()
     {
         return $this->active;
-    }
-
-    /**
-     * Add products
-     *
-     * @param \BackendBundle\Entity\Products $products
-     * @return Categories
-     */
-    public function addProduct(\BackendBundle\Entity\Products $products)
-    {
-        $this->products[] = $products;
-    
-        return $this;
-    }
-
-    /**
-     * Remove products
-     *
-     * @param \BackendBundle\Entity\Products $products
-     */
-    public function removeProduct(\BackendBundle\Entity\Products $products)
-    {
-        $this->products->removeElement($products);
-    }
-
-    /**
-     * Get products
-     *
-     * @return \Doctrine\Common\Collections\Collection 
-     */
-    public function getProducts()
-    {
-        return $this->products;
     }
 }

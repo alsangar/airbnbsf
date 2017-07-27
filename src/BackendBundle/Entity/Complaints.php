@@ -3,73 +3,67 @@
 namespace BackendBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-use Symfony\Component\Validator\Constraints as Assert;
-use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 
 /**
  * Complaints
  *
  * @ORM\Table(name="complaints")
- * @ORM\Entity(repositoryClass="BackendBundle\Repository\ComplaintsRepository")
+ * @ORM\Entity
  */
 class Complaints
 {
     /**
-     * @var int
+     * @var integer
      *
-     * @ORM\Column(name="id", type="integer")
+     * @ORM\Column(name="id", type="integer", nullable=false)
      * @ORM\Id
-     * @ORM\GeneratedValue(strategy="AUTO")
+     * @ORM\GeneratedValue(strategy="IDENTITY")
      */
     private $id;
-    
-    /**
-    * @var \DateTime
-    *
-    * @Assert\NotNull()
-    * @ORM\Column(name="dateAdd", type="datetime", nullable=false)
-    */
-    private $dateAdd;
 
-     /**
-    * @var \DateTime
-    *
-    * @ORM\Column(name="dateViewed", type="datetime", nullable=true)
-    */
-    private $dateViewed;
-    
     /**
-    * @var boolean
-    *
-    * @ORM\Column(name="active", type="boolean", nullable=true)
-    */
+     * @var \DateTime
+     *
+     * @ORM\Column(name="dateadd", type="datetime", nullable=false)
+     */
+    private $dateadd;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="dateviewed", type="datetime", nullable=true)
+     */
+    private $dateviewed;
+
+    /**
+     * @var boolean
+     *
+     * @ORM\Column(name="active", type="boolean", nullable=false)
+     */
     private $active;
-    
-    /**
-    * @ORM\ManyToOne(targetEntity="User", inversedBy="complaints", cascade={"persist"})
-    * @ORM\JoinColumn(name="user_id", referencedColumnName="id")
-    */
-    protected $user;
 
     /**
-    * @ORM\ManyToOne(targetEntity="Products", inversedBy="complaints", cascade={"persist"})
-    * @ORM\JoinColumn(name="product_id", referencedColumnName="id")
-    */
-    protected $products;
-    
-    
+     * @var \User
+     *
+     * @ORM\ManyToOne(targetEntity="User")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="userFrom_id", referencedColumnName="id")
+     * })
+     */
+    private $userfrom;
+
     /**
-    * Constructor
-    */
-    public function __construct()
-    {
-       //$this->device = new \Doctrine\Common\Collections\ArrayCollection();
+     * @var \Products
+     *
+     * @ORM\ManyToOne(targetEntity="Products")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="product_id", referencedColumnName="id")
+     * })
+     */
+    private $product;
 
-       $this->dateAdd = new \DateTime();
-    }
 
-    
-    
+
     /**
      * Get id
      *
@@ -81,49 +75,49 @@ class Complaints
     }
 
     /**
-     * Set dateAdd
+     * Set dateadd
      *
-     * @param \DateTime $dateAdd
+     * @param \DateTime $dateadd
      * @return Complaints
      */
-    public function setDateAdd($dateAdd)
+    public function setDateadd($dateadd)
     {
-        $this->dateAdd = $dateAdd;
-    
+        $this->dateadd = $dateadd;
+
         return $this;
     }
 
     /**
-     * Get dateAdd
+     * Get dateadd
      *
      * @return \DateTime 
      */
-    public function getDateAdd()
+    public function getDateadd()
     {
-        return $this->dateAdd;
+        return $this->dateadd;
     }
 
     /**
-     * Set dateViewed
+     * Set dateviewed
      *
-     * @param \DateTime $dateViewed
+     * @param \DateTime $dateviewed
      * @return Complaints
      */
-    public function setDateViewed($dateViewed)
+    public function setDateviewed($dateviewed)
     {
-        $this->dateViewed = $dateViewed;
-    
+        $this->dateviewed = $dateviewed;
+
         return $this;
     }
 
     /**
-     * Get dateViewed
+     * Get dateviewed
      *
      * @return \DateTime 
      */
-    public function getDateViewed()
+    public function getDateviewed()
     {
-        return $this->dateViewed;
+        return $this->dateviewed;
     }
 
     /**
@@ -135,7 +129,7 @@ class Complaints
     public function setActive($active)
     {
         $this->active = $active;
-    
+
         return $this;
     }
 
@@ -150,48 +144,48 @@ class Complaints
     }
 
     /**
-     * Set user
+     * Set userfrom
      *
-     * @param \BackendBundle\Entity\User $user
+     * @param \BackendBundle\Entity\User $userfrom
      * @return Complaints
      */
-    public function setUser(\BackendBundle\Entity\User $user = null)
+    public function setUserfrom(\BackendBundle\Entity\User $userfrom = null)
     {
-        $this->user = $user;
-    
+        $this->userfrom = $userfrom;
+
         return $this;
     }
 
     /**
-     * Get user
+     * Get userfrom
      *
      * @return \BackendBundle\Entity\User 
      */
-    public function getUser()
+    public function getUserfrom()
     {
-        return $this->user;
+        return $this->userfrom;
     }
 
     /**
-     * Set products
+     * Set product
      *
-     * @param \BackendBundle\Entity\Products $products
+     * @param \BackendBundle\Entity\Products $product
      * @return Complaints
      */
-    public function setProducts(\BackendBundle\Entity\Products $products = null)
+    public function setProduct(\BackendBundle\Entity\Products $product = null)
     {
-        $this->products = $products;
-    
+        $this->product = $product;
+
         return $this;
     }
 
     /**
-     * Get products
+     * Get product
      *
      * @return \BackendBundle\Entity\Products 
      */
-    public function getProducts()
+    public function getProduct()
     {
-        return $this->products;
+        return $this->product;
     }
 }

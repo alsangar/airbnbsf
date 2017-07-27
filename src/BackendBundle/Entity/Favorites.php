@@ -8,45 +8,44 @@ use Doctrine\ORM\Mapping as ORM;
  * Favorites
  *
  * @ORM\Table(name="favorites")
- * @ORM\Entity(repositoryClass="BackendBundle\Repository\FavoritesRepository")
+ * @ORM\Entity
  */
 class Favorites
 {
     /**
-     * @var int
+     * @var integer
      *
-     * @ORM\Column(name="id", type="integer")
+     * @ORM\Column(name="id", type="integer", nullable=false)
      * @ORM\Id
-     * @ORM\GeneratedValue(strategy="AUTO")
+     * @ORM\GeneratedValue(strategy="IDENTITY")
      */
     private $id;
-    
-    /**
-    * @var string
-    *
-    * @ORM\Column(name="description", type="text", nullable=true)
-    */    
-    
-    private $description;
-
-   
-    
-    /**
-    * @ORM\ManyToOne(targetEntity="User", inversedBy="favorites", cascade={"persist"})
-    * @ORM\JoinColumn(name="user_id", referencedColumnName="id")
-    */
-    protected $user;
 
     /**
-    * @ORM\ManyToOne(targetEntity="Products", inversedBy="favorites", cascade={"persist"})
-    * @ORM\JoinColumn(name="product_id", referencedColumnName="id")
-    */
-    protected $products;
-    
-    
-    
-    
-    
+     * @var \DateTime
+     *
+     * @ORM\Column(name="dateadd", type="datetime", nullable=false)
+     */
+    private $dateadd;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="Products")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="product_id", referencedColumnName="id")
+     * })
+     */
+    private $product;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="User")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="user_id", referencedColumnName="id")
+     * })
+     */
+    private $user;
+
+
+
     /**
      * Get id
      *
@@ -58,71 +57,71 @@ class Favorites
     }
 
     /**
-     * Set description
+     * Set dateadd
      *
-     * @param string $description
+     * @param \DateTime $dateadd
      * @return Favorites
      */
-    public function setDescription($description)
+    public function setDateadd($dateadd)
     {
-        $this->description = $description;
-    
+        $this->dateadd = $dateadd;
+
         return $this;
     }
 
     /**
-     * Get description
+     * Get dateadd
      *
-     * @return string 
+     * @return \DateTime 
      */
-    public function getDescription()
+    public function getDateadd()
     {
-        return $this->description;
+        return $this->dateadd;
+    }
+
+    /**
+     * Set product
+     *
+     * @param \BackendBundle\Entity\Products $product
+     * @return Favorites
+     */
+    public function setProduct(\BackendBundle\Entity\Products $product = null)
+    {
+        $this->product = $product;
+
+        return $this;
+    }
+
+    /**
+     * Get product
+     *
+     * @return \BackendBundle\Entity\Products 
+     */
+    public function getProduct()
+    {
+        return $this->product;
     }
 
     /**
      * Set user
      *
-     * @param \BackendBundle\Entity\Users $user
+     * @param \BackendBundle\Entity\User $user
      * @return Favorites
      */
-    public function setUser(\BackendBundle\Entity\Users $user = null)
+    public function setUser(\BackendBundle\Entity\User $user = null)
     {
         $this->user = $user;
-    
+
         return $this;
     }
 
     /**
      * Get user
      *
-     * @return \BackendBundle\Entity\Users 
+     * @return \BackendBundle\Entity\User 
      */
     public function getUser()
     {
         return $this->user;
-    }
-
-    /**
-     * Set products
-     *
-     * @param \BackendBundle\Entity\Products $products
-     * @return Favorites
-     */
-    public function setProducts(\BackendBundle\Entity\Products $products = null)
-    {
-        $this->products = $products;
-    
-        return $this;
-    }
-
-    /**
-     * Get products
-     *
-     * @return \BackendBundle\Entity\Products 
-     */
-    public function getProducts()
-    {
-        return $this->products;
     }
 }

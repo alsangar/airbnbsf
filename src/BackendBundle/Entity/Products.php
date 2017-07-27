@@ -3,234 +3,228 @@
 namespace BackendBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-use Symfony\Component\Validator\Constraints as Assert;
-use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
+
 /**
  * Products
  *
  * @ORM\Table(name="products")
  * @ORM\Entity(repositoryClass="BackendBundle\Repository\ProductsRepository")
- * 
- * @UniqueEntity("name")
  */
 class Products
 {
     /**
-     * @var int
+     * @var integer
      *
-     * @ORM\Column(name="id", type="integer")
+     * @ORM\Column(name="id", type="integer", nullable=false)
      * @ORM\Id
-     * @ORM\GeneratedValue(strategy="AUTO")
+     * @ORM\GeneratedValue(strategy="IDENTITY")
      */
     private $id;
 
     /**
      * @var string
-     * 
-     * @Assert\Length(
-     *      min = "10",
-     *      max = "255",
-     * )
-     * @Assert\NotBlank()
-     * @Assert\NotNull()
      *
-     * @ORM\Column(name="name", type="string", length=255, nullable=false, unique=true)
+     * @ORM\Column(name="title", type="string", length=255, nullable=true)
      */
-    private $name;
-    
+    private $title;
+
     /**
      * @var string
-     * 
+     *
      * @ORM\Column(name="description", type="text", nullable=true)
-     */    
+     */
     private $description;
-    
+
     /**
      * @var string
-     * @Assert\Length(
-     *      min = "1",
-     *      max = "255",
-     * ) 
+     *
      * @ORM\Column(name="reference", type="string", length=255, nullable=true)
-     */    
-    private $reference;
-    
-    /**
-     * @var decimal
-     * 
-     * @ORM\Column(name="room_price", type="decimal", scale=2)
      */
-    private $room_price;
-    
+    private $reference;
+
     /**
-    * @var integer
-    *
-    * @Assert\Length(
-    *      min = "1",
-    *      max = "2",
-    * )
-    * 
-    * @ORM\Column(name="wc_independents", type="integer", length=2, nullable=true)
-    */
-    private $wc_independents;
-    
+     * @var string
+     *
+     * @ORM\Column(name="room_price", type="decimal", precision=7, scale=2, nullable=true)
+     */
+    private $roomPrice;
+
     /**
-    * @var integer
-    *
-    * @Assert\Length(
-    *      min = "1",
-    *      max = "2",
-    * )
-    * 
-    * @ORM\Column(name="wc_shared", type="integer", length=2, nullable=true)
-    */
-    private $wc_shared;
-    
+     * @var integer
+     *
+     * @ORM\Column(name="wc_independents", type="integer", nullable=true)
+     */
+    private $wcIndependents;
+
     /**
-    * @var integer
-    *
-    * @Assert\Length(
-    *      min = "1",
-    *      max = "2",
-    * )
-    * 
-    * @ORM\Column(name="bedrooms", type="integer", length=2, nullable=true)
-    */
+     * @var integer
+     *
+     * @ORM\Column(name="wc_shared", type="integer", nullable=true)
+     */
+    private $wcShared;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="bedrooms", type="integer", nullable=true)
+     */
     private $bedrooms;
-    
+
     /**
-    * @var integer
-    *
-    * @Assert\Length(
-    *      min = "1",
-    *      max = "2",
-    * )
-    * 
-    * @ORM\Column(name="beds", type="integer", length=2, nullable=true)
-    */
+     * @var integer
+     *
+     * @ORM\Column(name="beds", type="integer", nullable=true)
+     */
     private $beds;
-    
+
     /**
-    * @var integer
-    *
-    * @Assert\Length(
-    *      min = "1",
-    *      max = "2",
-    * )
-    * 
-    * @Assert\NotBlank()
-    * @Assert\NotNull()
-    *
-    * @ORM\Column(name="capacity", type="integer", length=2, nullable=true)
-    */
+     * @var integer
+     *
+     * @ORM\Column(name="capacity", type="integer", nullable=true)
+     */
     private $capacity;
 
     /**
-    * @var \DateTime
-    *
-    * @Assert\NotNull()
-    * @ORM\Column(name="regDate", type="datetime", nullable=false)
-    */
-    private $regDate;
-
+     * @var string
+     *
+     * @ORM\Column(name="person_auto", type="string", length=255, nullable=false)
+     */
+    private $personAuto;
 
     /**
-    * @var boolean
-    *
-    * @ORM\Column(name="published", type="boolean", nullable=true)
-    */
+     * @var boolean
+     *
+     * @ORM\Column(name="signed", type="boolean", nullable=false)
+     */
+    private $signed;
+
+    /**
+     * @var boolean
+     *
+     * @ORM\Column(name="high_standing", type="boolean", nullable=true)
+     */
+    private $highStanding;
+
+    /**
+     * @var boolean
+     *
+     * @ORM\Column(name="approved", type="boolean", nullable=false)
+     */
+    private $approved;
+
+    /**
+     * @var boolean
+     *
+     * @ORM\Column(name="published", type="boolean", nullable=false)
+     */
     private $published;
-    
+
     /**
-    * @var boolean
-    *
-    * @ORM\Column(name="approved", type="boolean", nullable=true)
-    */
-    private $approved;    
-    
+     * @var boolean
+     *
+     * @ORM\Column(name="featured", type="boolean", nullable=false)
+     */
+    private $featured;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="deletedAt", type="datetime", nullable=true)
+     */
+    private $deletedat;
+
     /**
      * @var string
-     * @Assert\Length(
-     *      min = "1",
-     *      max = "255",
-     * ) 
-     * @ORM\Column(name="person_auto", type="string", length=255, nullable=true)
-     */    
-    private $person_auto;
-    
-    /**
-    * @var boolean
-    *
-    * @ORM\Column(name="signed", type="boolean", nullable=true)
-    */
-    private $signed; 
-    
-    /**
-    * @var boolean
-    *
-    * @ORM\Column(name="high_standing", type="boolean", nullable=true)
-    */
-    private $high_standing;
-    
-    /**
-    * @var boolean
-    *
-    * @ORM\Column(name="featured", type="boolean", nullable=true)
-    */
-    private $featured;
-    
-    /**
-    * @var \DateTime
-    *
-    * @ORM\Column(name="deletedAt", type="datetime", nullable=true)
-    */
-    private $deletedAt;
-    
-    /**
-     * @var decimal
-     * 
-     * @ORM\Column(name="room_price_out_season", type="decimal", scale=2)
+     *
+     * @ORM\Column(name="room_price_out_season", type="decimal", precision=7, scale=2, nullable=true)
      */
-    private $room_price_out_season;
-    
-    /**
-    * @ORM\ManyToOne(targetEntity="User", inversedBy="products", cascade={"persist"})
-    * @ORM\JoinColumn(name="user_id", referencedColumnName="id")
-    */
-    protected $user;
-    
-    /**
-    * @ORM\OneToMany(targetEntity="Favorites", mappedBy="products", cascade={"persist"})
-    */
-    protected $favorites;
-    
-    /**
-    * @ORM\OneToMany(targetEntity="Complaints", mappedBy="products", cascade={"persist"})
-    */
-    protected $complaints;
+    private $roomPriceOutSeason;
 
     /**
-    * @ORM\ManyToOne(targetEntity="Categories", inversedBy="products", cascade={"persist"})
-    * @ORM\JoinColumn(name="category_id", referencedColumnName="id")
-    */
-    protected $categories;
+     * @ORM\ManyToOne(targetEntity="Categories")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="category_id", referencedColumnName="id")
+     * })
+     */
+    private $category;
+
+//    /**
+//     * @var \MediaGallery
+//     *
+//     * @ORM\ManyToOne(targetEntity="MediaGallery")
+//     * @ORM\JoinColumns({
+//     *   @ORM\JoinColumn(name="gallery_id", referencedColumnName="id")
+//     * })
+//     */
+//    private $gallery;
 
     /**
-    * Constructor
-    */
+     * @ORM\ManyToOne(targetEntity="Location")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="location_id", referencedColumnName="id")
+     * })
+     */
+    private $location;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="ProductType")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="productType_id", referencedColumnName="id")
+     * })
+     */
+    private $producttype;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="User")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="user_id", referencedColumnName="id")
+     * })
+     */
+    private $user;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="RoomType")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="roomType_id", referencedColumnName="id")
+     * })
+     */
+    private $roomtype;
+
+    /**
+    *
+     * @ORM\ManyToOne(targetEntity="Application\Sonata\MediaBundle\Entity\Gallery")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="gallery_id", referencedColumnName="id")
+     * })
+     */
+    private $gallery;
+
+    /**
+     * @ORM\OneToMany(targetEntity="ProductDescription", mappedBy="product", cascade={"persist"})
+     */
+    protected $langDescription;
+
+    /**
+     * @ORM\OneToMany(targetEntity="ProductServices", mappedBy="product", cascade={"persist"})
+     */
+    protected $service;
+
+    /**
+     * @ORM\OneToMany(targetEntity="ProductFeatures", mappedBy="product", cascade={"persist"})
+     */
+    protected $feature;
+
+    /**
+     * Constructor
+     */
     public function __construct()
     {
-       $this->user = new \Doctrine\Common\Collections\ArrayCollection();
-       $this->favorites = new \Doctrine\Common\Collections\ArrayCollection();
-       $this->categories = new \Doctrine\Common\Collections\ArrayCollection();
-       $this->complaints = new \Doctrine\Common\Collections\ArrayCollection();
-       
-       $this->regDate = new \DateTime();
+        $this->langDescription = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->service = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->feature = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
 
-    
-    
     /**
      * Get id
      *
@@ -242,174 +236,26 @@ class Products
     }
 
     /**
-     * Set name
+     * Set title
      *
-     * @param string $name
+     * @param string $title
      * @return Products
      */
-    public function setName($name)
+    public function setTitle($title)
     {
-        $this->name = $name;
-    
+        $this->title = $title;
+
         return $this;
     }
 
     /**
-     * Get name
+     * Get title
      *
      * @return string 
      */
-    public function getName()
+    public function getTitle()
     {
-        return $this->name;
-    }
-
-    /**
-     * Set user
-     *
-     * @param \BackendBundle\Entity\User $user
-     * @return Products
-     */
-    public function setUser(\BackendBundle\Entity\User $user = null)
-    {
-        $this->user = $user;
-    
-        return $this;
-    }
-
-    /**
-     * Get user
-     *
-     * @return \BackendBundle\Entity\User 
-     */
-    public function getUser()
-    {
-        return $this->user;
-    }
-
-    /**
-     * Add favorites
-     *
-     * @param \BackendBundle\Entity\Favorites $favorites
-     * @return Products
-     */
-    public function addFavorite(\BackendBundle\Entity\Favorites $favorites)
-    {
-        $this->favorites[] = $favorites;
-    
-        return $this;
-    }
-
-    /**
-     * Remove favorites
-     *
-     * @param \BackendBundle\Entity\Favorites $favorites
-     */
-    public function removeFavorite(\BackendBundle\Entity\Favorites $favorites)
-    {
-        $this->favorites->removeElement($favorites);
-    }
-
-    /**
-     * Get favorites
-     *
-     * @return \Doctrine\Common\Collections\Collection 
-     */
-    public function getFavorites()
-    {
-        return $this->favorites;
-    }
-
-    /**
-     * Set capacity
-     *
-     * @param integer $capacity
-     * @return Products
-     */
-    public function setCapacity($capacity)
-    {
-        $this->capacity = $capacity;
-    
-        return $this;
-    }
-
-    /**
-     * Get capacity
-     *
-     * @return integer 
-     */
-    public function getCapacity()
-    {
-        return $this->capacity;
-    }
-
-    /**
-     * Set regDate
-     *
-     * @param \DateTime $regDate
-     * @return Products
-     */
-    public function setRegDate($regDate)
-    {
-        $this->regDate = $regDate;
-    
-        return $this;
-    }
-
-    /**
-     * Get regDate
-     *
-     * @return \DateTime 
-     */
-    public function getRegDate()
-    {
-        return $this->regDate;
-    }
-
-    /**
-     * Set published
-     *
-     * @param boolean $published
-     * @return Products
-     */
-    public function setPublished($published)
-    {
-        $this->published = $published;
-    
-        return $this;
-    }
-
-    /**
-     * Get published
-     *
-     * @return boolean 
-     */
-    public function getPublished()
-    {
-        return $this->published;
-    }
-
-    /**
-     * Set approved
-     *
-     * @param boolean $approved
-     * @return Products
-     */
-    public function setApproved($approved)
-    {
-        $this->approved = $approved;
-    
-        return $this;
-    }
-
-    /**
-     * Get approved
-     *
-     * @return boolean 
-     */
-    public function getApproved()
-    {
-        return $this->approved;
+        return $this->title;
     }
 
     /**
@@ -421,7 +267,7 @@ class Products
     public function setDescription($description)
     {
         $this->description = $description;
-    
+
         return $this;
     }
 
@@ -444,7 +290,7 @@ class Products
     public function setReference($reference)
     {
         $this->reference = $reference;
-    
+
         return $this;
     }
 
@@ -459,72 +305,72 @@ class Products
     }
 
     /**
-     * Set room_price
+     * Set roomPrice
      *
      * @param string $roomPrice
      * @return Products
      */
     public function setRoomPrice($roomPrice)
     {
-        $this->room_price = $roomPrice;
-    
+        $this->roomPrice = $roomPrice;
+
         return $this;
     }
 
     /**
-     * Get room_price
+     * Get roomPrice
      *
      * @return string 
      */
     public function getRoomPrice()
     {
-        return $this->room_price;
+        return $this->roomPrice;
     }
 
     /**
-     * Set wc_independents
+     * Set wcIndependents
      *
      * @param integer $wcIndependents
      * @return Products
      */
     public function setWcIndependents($wcIndependents)
     {
-        $this->wc_independents = $wcIndependents;
-    
+        $this->wcIndependents = $wcIndependents;
+
         return $this;
     }
 
     /**
-     * Get wc_independents
+     * Get wcIndependents
      *
      * @return integer 
      */
     public function getWcIndependents()
     {
-        return $this->wc_independents;
+        return $this->wcIndependents;
     }
 
     /**
-     * Set wc_shared
+     * Set wcShared
      *
      * @param integer $wcShared
      * @return Products
      */
     public function setWcShared($wcShared)
     {
-        $this->wc_shared = $wcShared;
-    
+        $this->wcShared = $wcShared;
+
         return $this;
     }
 
     /**
-     * Get wc_shared
+     * Get wcShared
      *
      * @return integer 
      */
     public function getWcShared()
     {
-        return $this->wc_shared;
+        return $this->wcShared;
     }
 
     /**
@@ -536,7 +382,7 @@ class Products
     public function setBedrooms($bedrooms)
     {
         $this->bedrooms = $bedrooms;
-    
+
         return $this;
     }
 
@@ -559,7 +405,7 @@ class Products
     public function setBeds($beds)
     {
         $this->beds = $beds;
-    
+
         return $this;
     }
 
@@ -574,26 +420,49 @@ class Products
     }
 
     /**
-     * Set person_auto
+     * Set capacity
+     *
+     * @param integer $capacity
+     * @return Products
+     */
+    public function setCapacity($capacity)
+    {
+        $this->capacity = $capacity;
+
+        return $this;
+    }
+
+    /**
+     * Get capacity
+     *
+     * @return integer 
+     */
+    public function getCapacity()
+    {
+        return $this->capacity;
+    }
+
+    /**
+     * Set personAuto
      *
      * @param string $personAuto
      * @return Products
      */
     public function setPersonAuto($personAuto)
     {
-        $this->person_auto = $personAuto;
-    
+        $this->personAuto = $personAuto;
+
         return $this;
     }
 
     /**
-     * Get person_auto
+     * Get personAuto
      *
      * @return string 
      */
     public function getPersonAuto()
     {
-        return $this->person_auto;
+        return $this->personAuto;
     }
 
     /**
@@ -605,7 +474,7 @@ class Products
     public function setSigned($signed)
     {
         $this->signed = $signed;
-    
+
         return $this;
     }
 
@@ -620,26 +489,72 @@ class Products
     }
 
     /**
-     * Set high_standing
+     * Set highStanding
      *
      * @param boolean $highStanding
      * @return Products
      */
     public function setHighStanding($highStanding)
     {
-        $this->high_standing = $highStanding;
-    
+        $this->highStanding = $highStanding;
+
         return $this;
     }
 
     /**
-     * Get high_standing
+     * Get highStanding
      *
      * @return boolean 
      */
     public function getHighStanding()
     {
-        return $this->high_standing;
+        return $this->highStanding;
+    }
+
+    /**
+     * Set approved
+     *
+     * @param boolean $approved
+     * @return Products
+     */
+    public function setApproved($approved)
+    {
+        $this->approved = $approved;
+
+        return $this;
+    }
+
+    /**
+     * Get approved
+     *
+     * @return boolean 
+     */
+    public function getApproved()
+    {
+        return $this->approved;
+    }
+
+    /**
+     * Set published
+     *
+     * @param boolean $published
+     * @return Products
+     */
+    public function setPublished($published)
+    {
+        $this->published = $published;
+
+        return $this;
+    }
+
+    /**
+     * Get published
+     *
+     * @return boolean 
+     */
+    public function getPublished()
+    {
+        return $this->published;
     }
 
     /**
@@ -651,7 +566,7 @@ class Products
     public function setFeatured($featured)
     {
         $this->featured = $featured;
-    
+
         return $this;
     }
 
@@ -666,104 +581,289 @@ class Products
     }
 
     /**
-     * Set deletedAt
+     * Set deletedat
      *
-     * @param \DateTime $deletedAt
+     * @param \DateTime $deletedat
      * @return Products
      */
-    public function setDeletedAt($deletedAt)
+    public function setDeletedat($deletedat)
     {
-        $this->deletedAt = $deletedAt;
-    
+        $this->deletedat = $deletedat;
+
         return $this;
     }
 
     /**
-     * Get deletedAt
+     * Get deletedat
      *
      * @return \DateTime 
      */
-    public function getDeletedAt()
+    public function getDeletedat()
     {
-        return $this->deletedAt;
+        return $this->deletedat;
     }
 
     /**
-     * Set room_price_out_season
+     * Set roomPriceOutSeason
      *
      * @param string $roomPriceOutSeason
      * @return Products
      */
     public function setRoomPriceOutSeason($roomPriceOutSeason)
     {
-        $this->room_price_out_season = $roomPriceOutSeason;
-    
+        $this->roomPriceOutSeason = $roomPriceOutSeason;
+
         return $this;
     }
 
     /**
-     * Get room_price_out_season
+     * Get roomPriceOutSeason
      *
      * @return string 
      */
     public function getRoomPriceOutSeason()
     {
-        return $this->room_price_out_season;
+        return $this->roomPriceOutSeason;
     }
 
     /**
-     * Set categories
+     * Set category
      *
-     * @param \BackendBundle\Entity\Categories $categories
+     * @param \BackendBundle\Entity\Categories $category
      * @return Products
      */
-    public function setCategories(\BackendBundle\Entity\Categories $categories = null)
+    public function setCategory(\BackendBundle\Entity\Categories $category = null)
     {
-        $this->categories = $categories;
-    
+        $this->category = $category;
+
         return $this;
     }
 
     /**
-     * Get categories
+     * Get category
      *
      * @return \BackendBundle\Entity\Categories 
      */
-    public function getCategories()
+    public function getCategory()
     {
-        return $this->categories;
+        return $this->category;
     }
 
     /**
-     * Add complaints
+     * Set location
      *
-     * @param \BackendBundle\Entity\Complaints $complaints
+     * @param \BackendBundle\Entity\Location $location
      * @return Products
      */
-    public function addComplaint(\BackendBundle\Entity\Complaints $complaints)
+    public function setLocation(\BackendBundle\Entity\Location $location = null)
     {
-        $this->complaints[] = $complaints;
-    
+        $this->location = $location;
+
         return $this;
     }
 
     /**
-     * Remove complaints
+     * Get location
      *
-     * @param \BackendBundle\Entity\Complaints $complaints
+     * @return \BackendBundle\Entity\Location 
      */
-    public function removeComplaint(\BackendBundle\Entity\Complaints $complaints)
+    public function getLocation()
     {
-        $this->complaints->removeElement($complaints);
+        return $this->location;
     }
 
     /**
-     * Get complaints
+     * Set producttype
      *
-     * @return \Doctrine\Common\Collections\Collection 
+     * @param \BackendBundle\Entity\ProductType $producttype
+     * @return Products
      */
-    public function getComplaints()
+    public function setProducttype(\BackendBundle\Entity\ProductType $producttype = null)
     {
-        return $this->complaints;
+        $this->producttype = $producttype;
+
+        return $this;
+    }
+
+    /**
+     * Get producttype
+     *
+     * @return \BackendBundle\Entity\ProductType 
+     */
+    public function getProducttype()
+    {
+        return $this->producttype;
+    }
+
+    /**
+     * Set user
+     *
+     * @param \BackendBundle\Entity\User $user
+     * @return Products
+     */
+    public function setUser(\BackendBundle\Entity\User $user = null)
+    {
+        $this->user = $user;
+
+        return $this;
+    }
+
+    /**
+     * Get user
+     *
+     * @return \BackendBundle\Entity\User 
+     */
+    public function getUser()
+    {
+        return $this->user;
+    }
+
+    /**
+     * Set roomtype
+     *
+     * @param \BackendBundle\Entity\RoomType $roomtype
+     * @return Products
+     */
+    public function setRoomtype(\BackendBundle\Entity\RoomType $roomtype = null)
+    {
+        $this->roomtype = $roomtype;
+
+        return $this;
+    }
+
+    /**
+     * Get roomtype
+     *
+     * @return \BackendBundle\Entity\RoomType 
+     */
+    public function getRoomtype()
+    {
+        return $this->roomtype;
+    }
+
+    /**
+     * Add langDescription
+     *
+     * @param \BackendBundle\Entity\ProductDescription $langDescription
+     *
+     * @return Products
+     */
+    public function addLangDescription(\BackendBundle\Entity\ProductDescription $langDescription)
+    {
+        $this->langDescription[] = $langDescription;
+
+        return $this;
+    }
+
+    /**
+     * Remove langDescription
+     *
+     * @param \BackendBundle\Entity\ProductDescription $langDescription
+     */
+    public function removeLangDescription(\BackendBundle\Entity\ProductDescription $langDescription)
+    {
+        $this->langDescription->removeElement($langDescription);
+    }
+
+    /**
+     * Get langDescription
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getLangDescription()
+    {
+        return $this->langDescription;
+    }
+
+    /**
+     * Set gallery
+     *
+     * @param \Application\Sonata\MediaBundle\Entity\Gallery $gallery
+     *
+     * @return Products
+     */
+    public function setGallery(\Application\Sonata\MediaBundle\Entity\Gallery $gallery = null)
+    {
+        $this->gallery = $gallery;
+
+        return $this;
+    }
+
+    /**
+     * Get gallery
+     *
+     * @return \Application\Sonata\MediaBundle\Entity\Gallery
+     */
+    public function getGallery()
+    {
+        return $this->gallery;
+    }
+
+    /**
+     * Add service
+     *
+     * @param \BackendBundle\Entity\ProductServices $service
+     *
+     * @return Products
+     */
+    public function addService(\BackendBundle\Entity\ProductServices $service)
+    {
+        $this->service[] = $service;
+
+        return $this;
+    }
+
+    /**
+     * Remove service
+     *
+     * @param \BackendBundle\Entity\ProductServices $service
+     */
+    public function removeService(\BackendBundle\Entity\ProductServices $service)
+    {
+        $this->service->removeElement($service);
+    }
+
+    /**
+     * Get service
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getService()
+    {
+        return $this->service;
+    }
+
+    /**
+     * Add feature
+     *
+     * @param \BackendBundle\Entity\ProductFeatures $feature
+     *
+     * @return Products
+     */
+    public function addFeature(\BackendBundle\Entity\ProductFeatures $feature)
+    {
+        $this->feature[] = $feature;
+
+        return $this;
+    }
+
+    /**
+     * Remove feature
+     *
+     * @param \BackendBundle\Entity\ProductFeatures $feature
+     */
+    public function removeFeature(\BackendBundle\Entity\ProductFeatures $feature)
+    {
+        $this->feature->removeElement($feature);
+    }
+
+    /**
+     * Get feature
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getFeature()
+    {
+        return $this->feature;
     }
 }

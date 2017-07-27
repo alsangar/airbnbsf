@@ -7,6 +7,6 @@ parameters:
     database_password: null
     mailer_transport: smtp
     mailer_host: 127.0.0.1
-    mailer_user: null
-    mailer_password: null
+    mailer_user: uno@cualquiera.es
+    mailer_password: pass_de_palo
     secret: f874d7d915232cf50ab61e1e4e26e224ec70996a
