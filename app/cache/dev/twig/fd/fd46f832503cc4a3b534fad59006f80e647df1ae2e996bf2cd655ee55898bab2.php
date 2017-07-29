@@ -22,20 +22,20 @@ class __TwigTemplate_bdbf57d2a5336252622335a8b094587ce2cf2a658c1e475ca6922f809bc
 
     protected function doDisplay(array $context, array $blocks = array())
     {
-        $__internal_b3e84dd978a3ccc911836a4a1abdae96c71dcc80abdb94c274bd916c661960c7 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
-        $__internal_b3e84dd978a3ccc911836a4a1abdae96c71dcc80abdb94c274bd916c661960c7->enter($__internal_b3e84dd978a3ccc911836a4a1abdae96c71dcc80abdb94c274bd916c661960c7_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "app\\rooms\\view.html.twig"));
+        $__internal_403b2a271a762f1c5662851c668b632da2385b388b367bbadf47358dc74342f2 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
+        $__internal_403b2a271a762f1c5662851c668b632da2385b388b367bbadf47358dc74342f2->enter($__internal_403b2a271a762f1c5662851c668b632da2385b388b367bbadf47358dc74342f2_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "app\\rooms\\view.html.twig"));
 
         $this->parent->display($context, array_merge($this->blocks, $blocks));
         
-        $__internal_b3e84dd978a3ccc911836a4a1abdae96c71dcc80abdb94c274bd916c661960c7->leave($__internal_b3e84dd978a3ccc911836a4a1abdae96c71dcc80abdb94c274bd916c661960c7_prof);
+        $__internal_403b2a271a762f1c5662851c668b632da2385b388b367bbadf47358dc74342f2->leave($__internal_403b2a271a762f1c5662851c668b632da2385b388b367bbadf47358dc74342f2_prof);
 
     }
 
     // line 3
     public function block_pageContent($context, array $blocks = array())
     {
-        $__internal_8c05ed4f9e552cce7ab6699798a6ecbae275c9aef4f0c3cadb935597144d21c0 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
-        $__internal_8c05ed4f9e552cce7ab6699798a6ecbae275c9aef4f0c3cadb935597144d21c0->enter($__internal_8c05ed4f9e552cce7ab6699798a6ecbae275c9aef4f0c3cadb935597144d21c0_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "pageContent"));
+        $__internal_1d109b08531eb8d14ad8ead35a8e7425edee3341633084d3b8040a846f96775e = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
+        $__internal_1d109b08531eb8d14ad8ead35a8e7425edee3341633084d3b8040a846f96775e->enter($__internal_1d109b08531eb8d14ad8ead35a8e7425edee3341633084d3b8040a846f96775e_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "pageContent"));
 
         // line 4
         echo "    <!-- *****************************************************************************************************************
@@ -94,66 +94,81 @@ class __TwigTemplate_bdbf57d2a5336252622335a8b094587ce2cf2a658c1e475ca6922f809bc
                     </div>
                 </div><! --/Carousel -->
             </div>
-
-            <div class=\"col-lg-5 col-lg-offset-1\">
-                <div class=\"spacing\"></div>
-                <h4>DESCRIPCION</h4>
-                <p>";
-        // line 48
+        </div>
+        <div class=\"row\">
+            <div class=\"container-fluid\">
+                <div class=\"col-lg-5 col-lg-offset-1 main\">
+                    <div class=\"spacing\"></div>
+                    <h4>DESCRIPCION</h4>
+                    <p>";
+        // line 50
         echo twig_escape_filter($this->env, $this->getAttribute(($context["room"] ?? $this->getContext($context, "room")), "description", array()), "html", null, true);
         echo "</p>
-                <h4>Our Proposal</h4>
-                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</p>
-                <h4>Our Proposal</h4>
-                <p>It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
-                <h4>Our Proposal</h4>
-                <p>It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
-            </div>
-
-            <div class=\"col-lg-4 col-lg-offset-1\">
-                <div class=\"spacing\"></div>
-                <h4>Detalles de la propiedad</h4>
-                <div class=\"hline\"></div>
-                <p><b>Tipo:</b> ";
-        // line 61
+                    <div class=\"spacing\"></div>
+                    <h4>CARACTERISTICAS</h4>
+                    <p><ul>
+                        ";
+        // line 54
+        $context['_parent'] = $context;
+        $context['_seq'] = twig_ensure_traversable($this->getAttribute(($context["room"] ?? $this->getContext($context, "room")), "feature", array()));
+        foreach ($context['_seq'] as $context["_key"] => $context["featurelist"]) {
+            // line 55
+            echo "                            <li>";
+            echo twig_escape_filter($this->env, $this->getAttribute($this->getAttribute($context["featurelist"], "feature", array()), "feature", array()), "html", null, true);
+            echo "</li>
+                            ";
+        }
+        $_parent = $context['_parent'];
+        unset($context['_seq'], $context['_iterated'], $context['_key'], $context['featurelist'], $context['_parent'], $context['loop']);
+        $context = array_intersect_key($context, $_parent) + $_parent;
+        // line 57
+        echo "                    </ul></p>
+                </div>
+                <div class=\"col-lg-4 col-lg-offset-1 sidebar\">
+                    <div class=\"\">
+                        <div class=\"spacing\"></div>
+                        <h4>Detalles de la propiedad</h4>
+                        <div class=\"hline\"></div>
+                        <p><b>Tipo:</b> ";
+        // line 64
         echo twig_escape_filter($this->env, $this->getAttribute(($context["room"] ?? $this->getContext($context, "room")), "roomType", array()), "html", null, true);
         echo "</p>
-                <p><b>Categoria:</b> ";
-        // line 62
+                        <p><b>Categoria:</b> ";
+        // line 65
         echo twig_escape_filter($this->env, $this->getAttribute(($context["room"] ?? $this->getContext($context, "room")), "category", array()), "html", null, true);
         echo "</p>
-                <p><b>Precio:</b> ";
-        // line 63
+                        <p><b>Precio:</b> ";
+        // line 66
         echo twig_escape_filter($this->env, $this->getAttribute(($context["room"] ?? $this->getContext($context, "room")), "roomPrice", array()), "html", null, true);
         echo "</p>
-                <p><b>WC independientes:</b> ";
-        // line 64
+                        <p><b>WC independientes:</b> ";
+        // line 67
         echo twig_escape_filter($this->env, $this->getAttribute(($context["room"] ?? $this->getContext($context, "room")), "wcIndependents", array()), "html", null, true);
         echo "</p>
-                <p><b>WC compartidos:</b> ";
-        // line 65
+                        <p><b>WC compartidos:</b> ";
+        // line 68
         echo twig_escape_filter($this->env, $this->getAttribute(($context["room"] ?? $this->getContext($context, "room")), "wcShared", array()), "html", null, true);
         echo "</p>
-                <p><b>Capacidad:</b> ";
-        // line 66
+                        <p><b>Capacidad:</b> ";
+        // line 69
         echo twig_escape_filter($this->env, $this->getAttribute(($context["room"] ?? $this->getContext($context, "room")), "capacity", array()), "html", null, true);
         echo "</p>
-                <p><b>Habitaciones:</b> ";
-        // line 67
+                        <p><b>Habitaciones:</b> ";
+        // line 70
         echo twig_escape_filter($this->env, $this->getAttribute(($context["room"] ?? $this->getContext($context, "room")), "bedrooms", array()), "html", null, true);
         echo "</p>
-                <p><b>Camas:</b> ";
-        // line 68
+                        <p><b>Camas:</b> ";
+        // line 71
         echo twig_escape_filter($this->env, $this->getAttribute(($context["room"] ?? $this->getContext($context, "room")), "beds", array()), "html", null, true);
         echo "</p>                
-            </div>
+                    </div>
 
-            <div class=\"col-lg-4 col-lg-offset-1\">
-                <div class=\"spacing\"></div>
-                <h4>Ubicación de la propiedad</h4>
-                <div class=\"hline\"></div>
-                <p><b>Dirección:</b> ";
-        // line 75
+                    <div class=\"\">
+                        <div class=\"spacing\"></div>
+                        <h4>Ubicación de la propiedad</h4>
+                        <div class=\"hline\"></div>
+                        <p><b>Dirección:</b> ";
+        // line 78
         echo twig_escape_filter($this->env, $this->getAttribute($this->getAttribute(($context["room"] ?? $this->getContext($context, "room")), "location", array()), "address", array()), "html", null, true);
         echo ", ";
         echo twig_escape_filter($this->env, $this->getAttribute($this->getAttribute(($context["room"] ?? $this->getContext($context, "room")), "location", array()), "number", array()), "html", null, true);
@@ -162,79 +177,79 @@ class __TwigTemplate_bdbf57d2a5336252622335a8b094587ce2cf2a658c1e475ca6922f809bc
         echo ".";
         echo twig_escape_filter($this->env, $this->getAttribute($this->getAttribute(($context["room"] ?? $this->getContext($context, "room")), "location", array()), "city", array()), "html", null, true);
         echo ".</p>
-                <p><b>Código postal:</b> ";
-        // line 76
+                        <p><b>Código postal:</b> ";
+        // line 79
         echo twig_escape_filter($this->env, $this->getAttribute($this->getAttribute(($context["room"] ?? $this->getContext($context, "room")), "location", array()), "zip", array()), "html", null, true);
         echo "</p>                
-                <p><b>Longitud:</b> ";
-        // line 77
+                        <p><b>Longitud:</b> ";
+        // line 80
         echo twig_escape_filter($this->env, $this->getAttribute($this->getAttribute(($context["room"] ?? $this->getContext($context, "room")), "location", array()), "longitude", array()), "html", null, true);
         echo "</p>
-                <p><b>Latitud:</b> ";
-        // line 78
+                        <p><b>Latitud:</b> ";
+        // line 81
         echo twig_escape_filter($this->env, $this->getAttribute($this->getAttribute(($context["room"] ?? $this->getContext($context, "room")), "location", array()), "latitude", array()), "html", null, true);
         echo "</p>
 
-            </div>
+                    </div>
 
-            <div class=\"col-lg-4 col-lg-offset-1\">
-                <div class=\"spacing\"></div>
-                <h4>Detalles del propietario</h4>
-                <div class=\"hline\"></div>
-                <p><b>Nombre:</b> Pepito Grillo</p>
-            </div>
-
-        </div><! --/row -->
-    </div><! --/container -->
-
+                    <div class=\"\">
+                        <div class=\"spacing\"></div>
+                        <h4>Detalles del propietario</h4>
+                        <div class=\"hline\"></div>
+                        <p><b>Nombre:</b> Pepito Grillo</p>
+                    </div>
+                </div>
+            </div><! --/row -->
+        </div><! --/container -->
+    </div>
     <!-- *****************************************************************************************************************
         SECCION DE RELACIONADOS
         ***************************************************************************************************************** -->
     <div id=\"portfoliowrap\">
         <h3>Tambien en ";
-        // line 96
+        // line 99
         echo twig_escape_filter($this->env, $this->getAttribute($this->getAttribute(($context["room"] ?? $this->getContext($context, "room")), "location", array()), "city", array()), "html", null, true);
         echo "...</h3>
 
         <div class=\"portfolio-centered\">
             <div class=\"recentitems portfolio\">
                 ";
-        // line 100
+        // line 103
         $context['_parent'] = $context;
         $context['_seq'] = twig_ensure_traversable(($context["room_city"] ?? $this->getContext($context, "room_city")));
         $context['_iterated'] = false;
         foreach ($context['_seq'] as $context["_key"] => $context["rc"]) {
-            // line 101
+            // line 104
             echo "                    <div class=\"portfolio-item graphic-design\">
                         <div class=\"he-wrap tpl6\">
                             <img src=\"";
-            // line 103
+            // line 106
             echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\AssetExtension')->getAssetUrl("themes/app/assets/img/portfolio/portfolio_09.jpg"), "html", null, true);
             echo "\" alt=\"\">
                             <div class=\"he-view\">
                                 <div class=\"bg a0\" data-animate=\"fadeIn\">
                                     <h3 class=\"a1\" data-animate=\"fadeInDown\">";
-            // line 106
+            // line 109
             echo twig_escape_filter($this->env, $this->getAttribute($context["rc"], "name", array()), "html", null, true);
             echo "</h3>
                                     <h4 class=\"a1\" data-animate=\"fadeInDown\"><span class=\"label label-danger\">";
-            // line 107
+            // line 110
             echo twig_escape_filter($this->env, $this->getAttribute($context["rc"], "roomPrice", array()), "html", null, true);
             echo " €</span></h4>
                                     <p class=\"a1\" data-animate=\"fadeInDown\">";
-            // line 108
+            // line 111
             echo twig_escape_filter($this->env, $this->getAttribute($context["rc"], "title", array()), "html", null, true);
             echo "</p>
                                     <h4 class=\"a1\" data-animate=\"fadeInDown\">";
-            // line 109
+            // line 112
             echo twig_escape_filter($this->env, $this->getAttribute($context["rc"], "city", array()), "html", null, true);
             echo "</h4>
                                     <a data-rel=\"prettyPhoto\" <link href=\"";
-            // line 110
+            // line 113
             echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\AssetExtension')->getAssetUrl("themes/app/assets/img/portfolio/portfolio_09.jpg"), "html", null, true);
             echo "\" class=\"dmbutton a2\" data-animate=\"fadeInUp\"><i class=\"fa fa-search\"></i></a>
                                     <a href=\"";
-            // line 111
+            // line 114
             echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\RoutingExtension')->getPath("rooms_view", array("name" => $this->getAttribute($context["rc"], "name", array()))), "html", null, true);
             echo "\" class=\"dmbutton a2\" data-animate=\"fadeInUp\"><i class=\"fa fa-link\"></i></a>
                                 </div><!-- he bg -->
@@ -245,11 +260,11 @@ class __TwigTemplate_bdbf57d2a5336252622335a8b094587ce2cf2a658c1e475ca6922f809bc
             $context['_iterated'] = true;
         }
         if (!$context['_iterated']) {
-            // line 117
+            // line 120
             echo "                    <div class=\"portfolio-item graphic-design\">
                         <div class=\"he-wrap tpl6\">
                             <img src=\"";
-            // line 119
+            // line 122
             echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\AssetExtension')->getAssetUrl("themes/app/assets/img/portfolio/portfolio_09.jpg"), "html", null, true);
             echo "\" alt=\"\">
                             <div class=\"he-view\">
@@ -257,7 +272,7 @@ class __TwigTemplate_bdbf57d2a5336252622335a8b094587ce2cf2a658c1e475ca6922f809bc
                                     <h3 class=\"a1\" data-animate=\"fadeInDown\"><i class=\"fa fa-frown-o\"></i> No se han encontrado datos</h3>
                                     <h4 class=\"a1\" data-animate=\"fadeInDown\">!Agrega tu habitación!</h4>
                                     <a href=\"";
-            // line 124
+            // line 127
             echo $this->env->getExtension('Symfony\Bridge\Twig\Extension\RoutingExtension')->getPath("register");
             echo "\" class=\"dmbutton a2\" data-animate=\"fadeInUp\"><i class=\"fa fa-plus-circle\"></i></a>
                                 </div><!-- he bg -->
@@ -269,7 +284,7 @@ class __TwigTemplate_bdbf57d2a5336252622335a8b094587ce2cf2a658c1e475ca6922f809bc
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['rc'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 130
+        // line 133
         echo "
             </div><!-- portfolio -->
         </div><!-- portfolio container -->
@@ -277,49 +292,49 @@ class __TwigTemplate_bdbf57d2a5336252622335a8b094587ce2cf2a658c1e475ca6922f809bc
 
 ";
         
-        $__internal_8c05ed4f9e552cce7ab6699798a6ecbae275c9aef4f0c3cadb935597144d21c0->leave($__internal_8c05ed4f9e552cce7ab6699798a6ecbae275c9aef4f0c3cadb935597144d21c0_prof);
+        $__internal_1d109b08531eb8d14ad8ead35a8e7425edee3341633084d3b8040a846f96775e->leave($__internal_1d109b08531eb8d14ad8ead35a8e7425edee3341633084d3b8040a846f96775e_prof);
 
     }
 
-    // line 136
+    // line 139
     public function block_javascripts($context, array $blocks = array())
     {
-        $__internal_0f64f8f4874082777924d486fc1ec6492048384326f377ad987ee8244053dead = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
-        $__internal_0f64f8f4874082777924d486fc1ec6492048384326f377ad987ee8244053dead->enter($__internal_0f64f8f4874082777924d486fc1ec6492048384326f377ad987ee8244053dead_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "javascripts"));
+        $__internal_521c6dce21b801effcf9f7e4d73471524c8091fdc1bae1c3192b605a1c75d09b = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
+        $__internal_521c6dce21b801effcf9f7e4d73471524c8091fdc1bae1c3192b605a1c75d09b->enter($__internal_521c6dce21b801effcf9f7e4d73471524c8091fdc1bae1c3192b605a1c75d09b_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "javascripts"));
 
-        // line 137
+        // line 140
         echo "
     <script src=\"https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js\"></script>
     <script src=\"";
-        // line 139
+        // line 142
         echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\AssetExtension')->getAssetUrl("themes/app/assets/js/bootstrap.min.js"), "html", null, true);
         echo "\"></script>
     <script src=\"";
-        // line 140
+        // line 143
         echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\AssetExtension')->getAssetUrl("themes/app/assets/js/retina-1.1.0.js"), "html", null, true);
         echo "\"></script>
     <script src=\"";
-        // line 141
+        // line 144
         echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\AssetExtension')->getAssetUrl("themes/app/assets/js/jquery.hoverdir.js"), "html", null, true);
         echo "\"></script>
     <script src=\"";
-        // line 142
+        // line 145
         echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\AssetExtension')->getAssetUrl("themes/app/assets/js/jquery.hoverex.min.js"), "html", null, true);
         echo "\"></script>
     <script src=\"";
-        // line 143
+        // line 146
         echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\AssetExtension')->getAssetUrl("themes/app/assets/js/jquery.prettyPhoto.js"), "html", null, true);
         echo "\"></script>
     <script src=\"";
-        // line 144
+        // line 147
         echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\AssetExtension')->getAssetUrl("themes/app/assets/js/jquery.isotope.min.js"), "html", null, true);
         echo "\"></script>
     <script src=\"";
-        // line 145
+        // line 148
         echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\AssetExtension')->getAssetUrl("themes/app/assets/js/custom.js"), "html", null, true);
         echo "\"></script>
     <script>
-// Portfolio
+        // Portfolio
         (function (\$) {
             \"use strict\";
             var \$container = \$('.portfolio'),
@@ -399,7 +414,7 @@ class __TwigTemplate_bdbf57d2a5336252622335a8b094587ce2cf2a658c1e475ca6922f809bc
 
 ";
         
-        $__internal_0f64f8f4874082777924d486fc1ec6492048384326f377ad987ee8244053dead->leave($__internal_0f64f8f4874082777924d486fc1ec6492048384326f377ad987ee8244053dead_prof);
+        $__internal_521c6dce21b801effcf9f7e4d73471524c8091fdc1bae1c3192b605a1c75d09b->leave($__internal_521c6dce21b801effcf9f7e4d73471524c8091fdc1bae1c3192b605a1c75d09b_prof);
 
     }
 
@@ -415,7 +430,7 @@ class __TwigTemplate_bdbf57d2a5336252622335a8b094587ce2cf2a658c1e475ca6922f809bc
 
     public function getDebugInfo()
     {
-        return array (  319 => 145,  315 => 144,  311 => 143,  307 => 142,  303 => 141,  299 => 140,  295 => 139,  291 => 137,  285 => 136,  273 => 130,  261 => 124,  253 => 119,  249 => 117,  238 => 111,  234 => 110,  230 => 109,  226 => 108,  222 => 107,  218 => 106,  212 => 103,  208 => 101,  203 => 100,  196 => 96,  175 => 78,  171 => 77,  167 => 76,  157 => 75,  147 => 68,  143 => 67,  139 => 66,  135 => 65,  131 => 64,  127 => 63,  123 => 62,  119 => 61,  103 => 48,  91 => 39,  85 => 36,  79 => 33,  49 => 10,  41 => 4,  35 => 3,  11 => 1,);
+        return array (  334 => 148,  330 => 147,  326 => 146,  322 => 145,  318 => 144,  314 => 143,  310 => 142,  306 => 140,  300 => 139,  288 => 133,  276 => 127,  268 => 122,  264 => 120,  253 => 114,  249 => 113,  245 => 112,  241 => 111,  237 => 110,  233 => 109,  227 => 106,  223 => 104,  218 => 103,  211 => 99,  190 => 81,  186 => 80,  182 => 79,  172 => 78,  162 => 71,  158 => 70,  154 => 69,  150 => 68,  146 => 67,  142 => 66,  138 => 65,  134 => 64,  125 => 57,  116 => 55,  112 => 54,  105 => 50,  91 => 39,  85 => 36,  79 => 33,  49 => 10,  41 => 4,  35 => 3,  11 => 1,);
     }
 
     /** @deprecated since 1.27 (to be removed in 2.0). Use getSourceContext() instead */
@@ -471,54 +486,57 @@ class __TwigTemplate_bdbf57d2a5336252622335a8b094587ce2cf2a658c1e475ca6922f809bc
                     </div>
                 </div><! --/Carousel -->
             </div>
+        </div>
+        <div class=\"row\">
+            <div class=\"container-fluid\">
+                <div class=\"col-lg-5 col-lg-offset-1 main\">
+                    <div class=\"spacing\"></div>
+                    <h4>DESCRIPCION</h4>
+                    <p>{{room.description}}</p>
+                    <div class=\"spacing\"></div>
+                    <h4>CARACTERISTICAS</h4>
+                    <p><ul>
+                        {% for featurelist in room.feature %}
+                            <li>{{ featurelist.feature.feature }}</li>
+                            {% endfor %}
+                    </ul></p>
+                </div>
+                <div class=\"col-lg-4 col-lg-offset-1 sidebar\">
+                    <div class=\"\">
+                        <div class=\"spacing\"></div>
+                        <h4>Detalles de la propiedad</h4>
+                        <div class=\"hline\"></div>
+                        <p><b>Tipo:</b> {{room.roomType}}</p>
+                        <p><b>Categoria:</b> {{room.category}}</p>
+                        <p><b>Precio:</b> {{room.roomPrice}}</p>
+                        <p><b>WC independientes:</b> {{room.wcIndependents}}</p>
+                        <p><b>WC compartidos:</b> {{room.wcShared}}</p>
+                        <p><b>Capacidad:</b> {{room.capacity}}</p>
+                        <p><b>Habitaciones:</b> {{room.bedrooms}}</p>
+                        <p><b>Camas:</b> {{room.beds}}</p>                
+                    </div>
 
-            <div class=\"col-lg-5 col-lg-offset-1\">
-                <div class=\"spacing\"></div>
-                <h4>DESCRIPCION</h4>
-                <p>{{room.description}}</p>
-                <h4>Our Proposal</h4>
-                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</p>
-                <h4>Our Proposal</h4>
-                <p>It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
-                <h4>Our Proposal</h4>
-                <p>It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
-            </div>
+                    <div class=\"\">
+                        <div class=\"spacing\"></div>
+                        <h4>Ubicación de la propiedad</h4>
+                        <div class=\"hline\"></div>
+                        <p><b>Dirección:</b> {{room.location.address}}, {{room.location.number}}, {{room.location.other}}.{{room.location.city}}.</p>
+                        <p><b>Código postal:</b> {{room.location.zip}}</p>                
+                        <p><b>Longitud:</b> {{room.location.longitude}}</p>
+                        <p><b>Latitud:</b> {{room.location.latitude}}</p>
 
-            <div class=\"col-lg-4 col-lg-offset-1\">
-                <div class=\"spacing\"></div>
-                <h4>Detalles de la propiedad</h4>
-                <div class=\"hline\"></div>
-                <p><b>Tipo:</b> {{room.roomType}}</p>
-                <p><b>Categoria:</b> {{room.category}}</p>
-                <p><b>Precio:</b> {{room.roomPrice}}</p>
-                <p><b>WC independientes:</b> {{room.wcIndependents}}</p>
-                <p><b>WC compartidos:</b> {{room.wcShared}}</p>
-                <p><b>Capacidad:</b> {{room.capacity}}</p>
-                <p><b>Habitaciones:</b> {{room.bedrooms}}</p>
-                <p><b>Camas:</b> {{room.beds}}</p>                
-            </div>
+                    </div>
 
-            <div class=\"col-lg-4 col-lg-offset-1\">
-                <div class=\"spacing\"></div>
-                <h4>Ubicación de la propiedad</h4>
-                <div class=\"hline\"></div>
-                <p><b>Dirección:</b> {{room.location.address}}, {{room.location.number}}, {{room.location.other}}.{{room.location.city}}.</p>
-                <p><b>Código postal:</b> {{room.location.zip}}</p>                
-                <p><b>Longitud:</b> {{room.location.longitude}}</p>
-                <p><b>Latitud:</b> {{room.location.latitude}}</p>
-
-            </div>
-
-            <div class=\"col-lg-4 col-lg-offset-1\">
-                <div class=\"spacing\"></div>
-                <h4>Detalles del propietario</h4>
-                <div class=\"hline\"></div>
-                <p><b>Nombre:</b> Pepito Grillo</p>
-            </div>
-
-        </div><! --/row -->
-    </div><! --/container -->
-
+                    <div class=\"\">
+                        <div class=\"spacing\"></div>
+                        <h4>Detalles del propietario</h4>
+                        <div class=\"hline\"></div>
+                        <p><b>Nombre:</b> Pepito Grillo</p>
+                    </div>
+                </div>
+            </div><! --/row -->
+        </div><! --/container -->
+    </div>
     <!-- *****************************************************************************************************************
         SECCION DE RELACIONADOS
         ***************************************************************************************************************** -->
@@ -574,7 +592,7 @@ class __TwigTemplate_bdbf57d2a5336252622335a8b094587ce2cf2a658c1e475ca6922f809bc
     <script src=\"{{ asset('themes/app/assets/js/jquery.isotope.min.js') }}\"></script>
     <script src=\"{{ asset('themes/app/assets/js/custom.js') }}\"></script>
     <script>
-// Portfolio
+        // Portfolio
         (function (\$) {
             \"use strict\";
             var \$container = \$('.portfolio'),

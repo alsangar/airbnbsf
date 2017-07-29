@@ -41,54 +41,57 @@
                     </div>
                 </div><! --/Carousel -->
             </div>
+        </div>
+        <div class="row">
+            <div class="container-fluid">
+                <div class="col-lg-5 col-lg-offset-1 main">
+                    <div class="spacing"></div>
+                    <h4>DESCRIPCION</h4>
+                    <p>{{room.description}}</p>
+                    <div class="spacing"></div>
+                    <h4>CARACTERISTICAS</h4>
+                    <p><ul>
+                        {% for featurelist in room.feature %}
+                            <li>{{ featurelist.feature.feature }}</li>
+                            {% endfor %}
+                    </ul></p>
+                </div>
+                <div class="col-lg-4 col-lg-offset-1 sidebar">
+                    <div class="">
+                        <div class="spacing"></div>
+                        <h4>Detalles de la propiedad</h4>
+                        <div class="hline"></div>
+                        <p><b>Tipo:</b> {{room.roomType}}</p>
+                        <p><b>Categoria:</b> {{room.category}}</p>
+                        <p><b>Precio:</b> {{room.roomPrice}}</p>
+                        <p><b>WC independientes:</b> {{room.wcIndependents}}</p>
+                        <p><b>WC compartidos:</b> {{room.wcShared}}</p>
+                        <p><b>Capacidad:</b> {{room.capacity}}</p>
+                        <p><b>Habitaciones:</b> {{room.bedrooms}}</p>
+                        <p><b>Camas:</b> {{room.beds}}</p>                
+                    </div>
 
-            <div class="col-lg-5 col-lg-offset-1">
-                <div class="spacing"></div>
-                <h4>DESCRIPCION</h4>
-                <p>{{room.description}}</p>
-                <h4>Our Proposal</h4>
-                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</p>
-                <h4>Our Proposal</h4>
-                <p>It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
-                <h4>Our Proposal</h4>
-                <p>It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
-            </div>
+                    <div class="">
+                        <div class="spacing"></div>
+                        <h4>Ubicación de la propiedad</h4>
+                        <div class="hline"></div>
+                        <p><b>Dirección:</b> {{room.location.address}}, {{room.location.number}}, {{room.location.other}}.{{room.location.city}}.</p>
+                        <p><b>Código postal:</b> {{room.location.zip}}</p>                
+                        <p><b>Longitud:</b> {{room.location.longitude}}</p>
+                        <p><b>Latitud:</b> {{room.location.latitude}}</p>
 
-            <div class="col-lg-4 col-lg-offset-1">
-                <div class="spacing"></div>
-                <h4>Detalles de la propiedad</h4>
-                <div class="hline"></div>
-                <p><b>Tipo:</b> {{room.roomType}}</p>
-                <p><b>Categoria:</b> {{room.category}}</p>
-                <p><b>Precio:</b> {{room.roomPrice}}</p>
-                <p><b>WC independientes:</b> {{room.wcIndependents}}</p>
-                <p><b>WC compartidos:</b> {{room.wcShared}}</p>
-                <p><b>Capacidad:</b> {{room.capacity}}</p>
-                <p><b>Habitaciones:</b> {{room.bedrooms}}</p>
-                <p><b>Camas:</b> {{room.beds}}</p>                
-            </div>
+                    </div>
 
-            <div class="col-lg-4 col-lg-offset-1">
-                <div class="spacing"></div>
-                <h4>Ubicación de la propiedad</h4>
-                <div class="hline"></div>
-                <p><b>Dirección:</b> {{room.location.address}}, {{room.location.number}}, {{room.location.other}}.{{room.location.city}}.</p>
-                <p><b>Código postal:</b> {{room.location.zip}}</p>                
-                <p><b>Longitud:</b> {{room.location.longitude}}</p>
-                <p><b>Latitud:</b> {{room.location.latitude}}</p>
-
-            </div>
-
-            <div class="col-lg-4 col-lg-offset-1">
-                <div class="spacing"></div>
-                <h4>Detalles del propietario</h4>
-                <div class="hline"></div>
-                <p><b>Nombre:</b> Pepito Grillo</p>
-            </div>
-
-        </div><! --/row -->
-    </div><! --/container -->
-
+                    <div class="">
+                        <div class="spacing"></div>
+                        <h4>Detalles del propietario</h4>
+                        <div class="hline"></div>
+                        <p><b>Nombre:</b> Pepito Grillo</p>
+                    </div>
+                </div>
+            </div><! --/row -->
+        </div><! --/container -->
+    </div>
     <!-- *****************************************************************************************************************
         SECCION DE RELACIONADOS
         ***************************************************************************************************************** -->
@@ -144,7 +147,7 @@
     <script src="{{ asset('themes/app/assets/js/jquery.isotope.min.js') }}"></script>
     <script src="{{ asset('themes/app/assets/js/custom.js') }}"></script>
     <script>
-// Portfolio
+        // Portfolio
         (function ($) {
             "use strict";
             var $container = $('.portfolio'),

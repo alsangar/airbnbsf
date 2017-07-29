@@ -22,20 +22,20 @@ class __TwigTemplate_be66d08adb01309dd57332b04c22d1386a6eb804876296100a014c82be9
 
     protected function doDisplay(array $context, array $blocks = array())
     {
-        $__internal_1616e8fc04aacaba0fe190fa70c0161987d6729bf1f34a3180f5bbf4cccea174 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
-        $__internal_1616e8fc04aacaba0fe190fa70c0161987d6729bf1f34a3180f5bbf4cccea174->enter($__internal_1616e8fc04aacaba0fe190fa70c0161987d6729bf1f34a3180f5bbf4cccea174_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "app\\rooms\\list.html.twig"));
+        $__internal_f5d4a3d9c11bbac85e69d142dc24c3b98d3228f35f14be5f3190c9f22af6c243 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
+        $__internal_f5d4a3d9c11bbac85e69d142dc24c3b98d3228f35f14be5f3190c9f22af6c243->enter($__internal_f5d4a3d9c11bbac85e69d142dc24c3b98d3228f35f14be5f3190c9f22af6c243_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "app\\rooms\\list.html.twig"));
 
         $this->parent->display($context, array_merge($this->blocks, $blocks));
         
-        $__internal_1616e8fc04aacaba0fe190fa70c0161987d6729bf1f34a3180f5bbf4cccea174->leave($__internal_1616e8fc04aacaba0fe190fa70c0161987d6729bf1f34a3180f5bbf4cccea174_prof);
+        $__internal_f5d4a3d9c11bbac85e69d142dc24c3b98d3228f35f14be5f3190c9f22af6c243->leave($__internal_f5d4a3d9c11bbac85e69d142dc24c3b98d3228f35f14be5f3190c9f22af6c243_prof);
 
     }
 
     // line 3
     public function block_pageContent($context, array $blocks = array())
     {
-        $__internal_c8255d18ad50653668c1d15859c9eee88c6bd75ddfdfada0e9e3dd1d4e728112 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
-        $__internal_c8255d18ad50653668c1d15859c9eee88c6bd75ddfdfada0e9e3dd1d4e728112->enter($__internal_c8255d18ad50653668c1d15859c9eee88c6bd75ddfdfada0e9e3dd1d4e728112_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "pageContent"));
+        $__internal_2a6d1277c3fb453ab625cbda37b4b55d0122882dd1346a2baf754c57a983a5c3 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
+        $__internal_2a6d1277c3fb453ab625cbda37b4b55d0122882dd1346a2baf754c57a983a5c3->enter($__internal_2a6d1277c3fb453ab625cbda37b4b55d0122882dd1346a2baf754c57a983a5c3_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "pageContent"));
 
         // line 4
         echo "    <!-- *****************************************************************************************************************
@@ -97,7 +97,10 @@ class __TwigTemplate_be66d08adb01309dd57332b04c22d1386a6eb804876296100a014c82be9
             // line 36
             echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\AssetExtension')->getAssetUrl("themes/app/assets/img/portfolio/portfolio_09.jpg"), "html", null, true);
             echo "\" class=\"dmbutton a2\" data-animate=\"fadeInUp\"><i class=\"fa fa-search\"></i></a>
-                                                <a href=\"single-project.html\" class=\"dmbutton a2\" data-animate=\"fadeInUp\"><i class=\"fa fa-link\"></i></a>
+                                                <a href=\"";
+            // line 37
+            echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\RoutingExtension')->getPath("rooms_view", array("name" => $this->getAttribute($context["room"], "name", array()))), "html", null, true);
+            echo "\" class=\"dmbutton a2\" data-animate=\"fadeInUp\"><i class=\"fa fa-link\"></i></a>
                                             </div><!-- he bg -->
                                         </div><!-- he view -->\t\t
                                     </div><!-- he wrap -->
@@ -121,15 +124,15 @@ class __TwigTemplate_be66d08adb01309dd57332b04c22d1386a6eb804876296100a014c82be9
 
 ";
         
-        $__internal_c8255d18ad50653668c1d15859c9eee88c6bd75ddfdfada0e9e3dd1d4e728112->leave($__internal_c8255d18ad50653668c1d15859c9eee88c6bd75ddfdfada0e9e3dd1d4e728112_prof);
+        $__internal_2a6d1277c3fb453ab625cbda37b4b55d0122882dd1346a2baf754c57a983a5c3->leave($__internal_2a6d1277c3fb453ab625cbda37b4b55d0122882dd1346a2baf754c57a983a5c3_prof);
 
     }
 
     // line 56
     public function block_javascripts($context, array $blocks = array())
     {
-        $__internal_8f884df1d5e768d660d92268a2c4876acf7d93ab8b035cccbe91635fd3eaccaa = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
-        $__internal_8f884df1d5e768d660d92268a2c4876acf7d93ab8b035cccbe91635fd3eaccaa->enter($__internal_8f884df1d5e768d660d92268a2c4876acf7d93ab8b035cccbe91635fd3eaccaa_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "javascripts"));
+        $__internal_3659ca2fbfb27efcdce8049d6ddf72f2f88e747514456223f1f964e4afeb937b = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
+        $__internal_3659ca2fbfb27efcdce8049d6ddf72f2f88e747514456223f1f964e4afeb937b->enter($__internal_3659ca2fbfb27efcdce8049d6ddf72f2f88e747514456223f1f964e4afeb937b_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "javascripts"));
 
         // line 57
         echo "    <script src=\"https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js\"></script>
@@ -236,7 +239,7 @@ class __TwigTemplate_be66d08adb01309dd57332b04c22d1386a6eb804876296100a014c82be9
 
 ";
         
-        $__internal_8f884df1d5e768d660d92268a2c4876acf7d93ab8b035cccbe91635fd3eaccaa->leave($__internal_8f884df1d5e768d660d92268a2c4876acf7d93ab8b035cccbe91635fd3eaccaa_prof);
+        $__internal_3659ca2fbfb27efcdce8049d6ddf72f2f88e747514456223f1f964e4afeb937b->leave($__internal_3659ca2fbfb27efcdce8049d6ddf72f2f88e747514456223f1f964e4afeb937b_prof);
 
     }
 
@@ -252,7 +255,7 @@ class __TwigTemplate_be66d08adb01309dd57332b04c22d1386a6eb804876296100a014c82be9
 
     public function getDebugInfo()
     {
-        return array (  162 => 64,  158 => 63,  154 => 62,  150 => 61,  146 => 60,  142 => 59,  138 => 58,  135 => 57,  129 => 56,  111 => 43,  98 => 36,  94 => 35,  90 => 34,  86 => 33,  82 => 32,  76 => 29,  72 => 27,  68 => 26,  49 => 10,  41 => 4,  35 => 3,  11 => 1,);
+        return array (  165 => 64,  161 => 63,  157 => 62,  153 => 61,  149 => 60,  145 => 59,  141 => 58,  138 => 57,  132 => 56,  114 => 43,  102 => 37,  98 => 36,  94 => 35,  90 => 34,  86 => 33,  82 => 32,  76 => 29,  72 => 27,  68 => 26,  49 => 10,  41 => 4,  35 => 3,  11 => 1,);
     }
 
     /** @deprecated since 1.27 (to be removed in 2.0). Use getSourceContext() instead */
@@ -301,7 +304,7 @@ class __TwigTemplate_be66d08adb01309dd57332b04c22d1386a6eb804876296100a014c82be9
                                                 <p class=\"a1\" data-animate=\"fadeInDown\">{{ room.description  }}</p>
                                                 <h4 class=\"a1\" data-animate=\"fadeInDown\">{{ room.city }}</h4>
                                                 <a data-rel=\"prettyPhoto\" <link href=\"{{ asset('themes/app/assets/img/portfolio/portfolio_09.jpg') }}\" class=\"dmbutton a2\" data-animate=\"fadeInUp\"><i class=\"fa fa-search\"></i></a>
-                                                <a href=\"single-project.html\" class=\"dmbutton a2\" data-animate=\"fadeInUp\"><i class=\"fa fa-link\"></i></a>
+                                                <a href=\"{{ path('rooms_view', {'name':room.name}) }}\" class=\"dmbutton a2\" data-animate=\"fadeInUp\"><i class=\"fa fa-link\"></i></a>
                                             </div><!-- he bg -->
                                         </div><!-- he view -->\t\t
                                     </div><!-- he wrap -->

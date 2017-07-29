@@ -34,7 +34,7 @@
                                                 <p class="a1" data-animate="fadeInDown">{{ room.description  }}</p>
                                                 <h4 class="a1" data-animate="fadeInDown">{{ room.city }}</h4>
                                                 <a data-rel="prettyPhoto" <link href="{{ asset('themes/app/assets/img/portfolio/portfolio_09.jpg') }}" class="dmbutton a2" data-animate="fadeInUp"><i class="fa fa-search"></i></a>
-                                                <a href="single-project.html" class="dmbutton a2" data-animate="fadeInUp"><i class="fa fa-link"></i></a>
+                                                <a href="{{ path('rooms_view', {'name':room.name}) }}" class="dmbutton a2" data-animate="fadeInUp"><i class="fa fa-link"></i></a>
                                             </div><!-- he bg -->
                                         </div><!-- he view -->		
                                     </div><!-- he wrap -->
