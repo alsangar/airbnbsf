@@ -1,7 +1,6 @@
 {% extends "app/layout.html.twig" %}
 
 {% block pageContent %}
-
     <!-- *****************************************************************************************************************
          BLUE WRAP
          ***************************************************************************************************************** -->
@@ -91,80 +90,136 @@
     </div><! --/container -->
 
     <!-- *****************************************************************************************************************
-     PORTFOLIO SECTION
-     ***************************************************************************************************************** -->
+        SECCION DE RELACIONADOS
+        ***************************************************************************************************************** -->
     <div id="portfoliowrap">
+        <h3>Tambien en {{room.location.city}}...</h3>
+
         <div class="portfolio-centered">
-            <h3>Related Works.</h3>
             <div class="recentitems portfolio">
-                <div class="portfolio-item graphic-design">
-                    <div class="he-wrap tpl6">
-                        <img src="{{ asset('themes/app/assets/img/portfolio/portfolio_09.jpg')}}" alt="">
-                        <div class="he-view">
-                            <div class="bg a0" data-animate="fadeIn">
-                                <h3 class="a1" data-animate="fadeInDown">A Graphic Design Item</h3>
-                                <a data-rel="prettyPhoto" href="{{ asset('themes/app/assets/img/portfolio/portfolio_09.jpg')}}" class="dmbutton a2" data-animate="fadeInUp"><i class="fa fa-search"></i></a>
-                                <a href="single-project.html" class="dmbutton a2" data-animate="fadeInUp"><i class="fa fa-link"></i></a>
-                            </div><!-- he bg -->
-                        </div><!-- he view -->		
-                    </div><!-- he wrap -->
-                </div><!-- end col-12 -->
-
-                <div class="portfolio-item web-design">
-                    <div class="he-wrap tpl6">
-                        <img src="{{ asset('themes/app/assets/img/portfolio/portfolio_02.jpg')}}" alt="">
-                        <div class="he-view">
-                            <div class="bg a0" data-animate="fadeIn">
-                                <h3 class="a1" data-animate="fadeInDown">A Web Design Item</h3>
-                                <a data-rel="prettyPhoto" href="{{ asset('themes/app/assets/img/portfolio/portfolio_02.jpg')}}" class="dmbutton a2" data-animate="fadeInUp"><i class="fa fa-search"></i></a>
-                                <a href="single-project.html" class="dmbutton a2" data-animate="fadeInUp"><i class="fa fa-link"></i></a>
-                            </div><!-- he bg -->
-                        </div><!-- he view -->		
-                    </div><!-- he wrap -->
-                </div><!-- end col-12 -->
-
-                <div class="portfolio-item graphic-design">
-                    <div class="he-wrap tpl6">
-                        <img src="{{ asset('themes/app/assets/img/portfolio/portfolio_03.jpg')}}" alt="">
-                        <div class="he-view">
-                            <div class="bg a0" data-animate="fadeIn">
-                                <h3 class="a1" data-animate="fadeInDown">A Graphic Design Item</h3>
-                                <a data-rel="prettyPhoto" href="{{ asset('themes/app/assets/img/portfolio/portfolio_03.jpg')}}" class="dmbutton a2" data-animate="fadeInUp"><i class="fa fa-search"></i></a>
-                                <a href="single-project.html" class="dmbutton a2" data-animate="fadeInUp"><i class="fa fa-link"></i></a>
-                            </div><!-- he bg -->
-                        </div><!-- he view -->		
-                    </div><!-- he wrap -->
-                </div><!-- end col-12 -->
-
-                <div class="portfolio-item graphic-design">
-                    <div class="he-wrap tpl6">
-                        <img src="{{ asset('themes/app/assets/img/portfolio/portfolio_04.jpg')}}" alt="">
-                        <div class="he-view">
-                            <div class="bg a0" data-animate="fadeIn">
-                                <h3 class="a1" data-animate="fadeInDown">A Graphic Design Item</h3>
-                                <a data-rel="prettyPhoto" href="{{ asset('themes/app/assets/img/portfolio/portfolio_04.jpg')}}" class="dmbutton a2" data-animate="fadeInUp"><i class="fa fa-search"></i></a>
-                                <a href="single-project.html" class="dmbutton a2" data-animate="fadeInUp"><i class="fa fa-link"></i></a>
-                            </div><!-- he bg -->
-                        </div><!-- he view -->		
-                    </div><!-- he wrap -->
-                </div><!-- end col-12 -->
-
-                <div class="portfolio-item graphic-design">
-                    <div class="he-wrap tpl6">
-                        <img src="{{ asset('themes/app/assets/img/portfolio/portfolio_05.jpg')}}" alt="">
-                        <div class="he-view">
-                            <div class="bg a0" data-animate="fadeIn">
-                                <h3 class="a1" data-animate="fadeInDown">A Graphic Design Item</h3>
-                                <a data-rel="prettyPhoto" href="{{ asset('themes/app/assets/img/portfolio/portfolio_04.jpg')}}" class="dmbutton a2" data-animate="fadeInUp"><i class="fa fa-search"></i></a>
-                                <a href="single-project.html" class="dmbutton a2" data-animate="fadeInUp"><i class="fa fa-link"></i></a>
-                            </div><!-- he bg -->
-                        </div><!-- he view -->		
-                    </div><!-- he wrap -->
-                </div><!-- end col-12 -->
-
+                {% for rc in room_city %}
+                    <div class="portfolio-item graphic-design">
+                        <div class="he-wrap tpl6">
+                            <img src="{{ asset('themes/app/assets/img/portfolio/portfolio_09.jpg') }}" alt="">
+                            <div class="he-view">
+                                <div class="bg a0" data-animate="fadeIn">
+                                    <h3 class="a1" data-animate="fadeInDown">{{ rc.name}}</h3>
+                                    <h4 class="a1" data-animate="fadeInDown"><span class="label label-danger">{{ rc.roomPrice  }} €</span></h4>
+                                    <p class="a1" data-animate="fadeInDown">{{ rc.title }}</p>
+                                    <h4 class="a1" data-animate="fadeInDown">{{ rc.city }}</h4>
+                                    <a data-rel="prettyPhoto" <link href="{{ asset('themes/app/assets/img/portfolio/portfolio_09.jpg') }}" class="dmbutton a2" data-animate="fadeInUp"><i class="fa fa-search"></i></a>
+                                    <a href="{{ path('rooms_view', {'name':rc.name}) }}" class="dmbutton a2" data-animate="fadeInUp"><i class="fa fa-link"></i></a>
+                                </div><!-- he bg -->
+                            </div><!-- he view -->		
+                        </div><!-- he wrap -->
+                    </div><!-- end col-12 -->
+                {% else %}
+                    <div class="portfolio-item graphic-design">
+                        <div class="he-wrap tpl6">
+                            <img src="{{ asset('themes/app/assets/img/portfolio/portfolio_09.jpg') }}" alt="">
+                            <div class="he-view">
+                                <div class="bg a0" data-animate="fadeIn">
+                                    <h3 class="a1" data-animate="fadeInDown"><i class="fa fa-frown-o"></i> No se han encontrado datos</h3>
+                                    <h4 class="a1" data-animate="fadeInDown">!Agrega tu habitación!</h4>
+                                    <a href="{{ path('register')}}" class="dmbutton a2" data-animate="fadeInUp"><i class="fa fa-plus-circle"></i></a>
+                                </div><!-- he bg -->
+                            </div><!-- he view -->		
+                        </div><!-- he wrap -->
+                    </div><!-- end col-12 -->
+                {% endfor %}
 
             </div><!-- portfolio -->
         </div><!-- portfolio container -->
     </div><!--/Portfoliowrap -->
 
 {% endblock%}
+{% block javascripts %}
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script src="{{ asset('themes/app/assets/js/bootstrap.min.js') }}"></script>
+    <script src="{{ asset('themes/app/assets/js/retina-1.1.0.js') }}"></script>
+    <script src="{{ asset('themes/app/assets/js/jquery.hoverdir.js') }}"></script>
+    <script src="{{ asset('themes/app/assets/js/jquery.hoverex.min.js') }}"></script>
+    <script src="{{ asset('themes/app/assets/js/jquery.prettyPhoto.js') }}"></script>
+    <script src="{{ asset('themes/app/assets/js/jquery.isotope.min.js') }}"></script>
+    <script src="{{ asset('themes/app/assets/js/custom.js') }}"></script>
+    <script>
+// Portfolio
+        (function ($) {
+            "use strict";
+            var $container = $('.portfolio'),
+                    $items = $container.find('.portfolio-item'),
+                    portfolioLayout = 'fitRows';
+
+            if ($container.hasClass('portfolio-centered')) {
+                portfolioLayout = 'masonry';
+            }
+
+            $container.isotope({
+                filter: '*',
+                animationEngine: 'best-available',
+                layoutMode: portfolioLayout,
+                animationOptions: {
+                    duration: 750,
+                    easing: 'linear',
+                    queue: false
+                },
+                masonry: {
+                }
+            }, refreshWaypoints());
+
+            function refreshWaypoints() {
+                setTimeout(function () {
+                }, 1000);
+            }
+
+            $('nav.portfolio-filter ul a').on('click', function () {
+                var selector = $(this).attr('data-filter');
+                $container.isotope({filter: selector}, refreshWaypoints());
+                $('nav.portfolio-filter ul a').removeClass('active');
+                $(this).addClass('active');
+                return false;
+            });
+
+            function getColumnNumber() {
+                var winWidth = $(window).width(),
+                        columnNumber = 1;
+
+                if (winWidth > 1200) {
+                    columnNumber = 4;
+                } else if (winWidth > 950) {
+                    columnNumber = 2;
+                } else if (winWidth > 250) {
+                    columnNumber = 1;
+                }
+                return columnNumber;
+            }
+
+            function setColumns() {
+                var winWidth = $(window).width(),
+                        columnNumber = getColumnNumber(),
+                        itemWidth = Math.floor(winWidth / columnNumber);
+
+                $container.find('.portfolio-item').each(function () {
+                    $(this).css({
+                        width: itemWidth + 'px'
+                    });
+                });
+            }
+
+            function setPortfolio() {
+                setColumns();
+                $container.isotope('reLayout');
+            }
+
+            $container.imagesLoaded(function () {
+                setPortfolio();
+            });
+
+            $(window).on('resize', function () {
+                setPortfolio();
+            });
+        })(jQuery);
+    </script>
+
+{% endblock %}

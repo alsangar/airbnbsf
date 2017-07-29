@@ -61,7 +61,7 @@ class ProductsRepository extends \Doctrine\ORM\EntityRepository {
 
         $q = $this->createQueryBuilder("e");
         $q
-                ->select('c.name as city', 'd.title as title', 'd.description as description', 'e.title as name')
+                ->select('c.name as city', 'd.title as title', 'd.description as description', 'e.title as name', 'e.roomPrice')
                 ->join('\BackendBundle\Entity\ProductDescription', 'd', 'WITH', 'e = d.product')
                 ->join('\BackendBundle\Entity\Languages', 'ln', 'WITH', 'd.language = ln')
                 ->join('\BackendBundle\Entity\Location', 'lo', 'WITH', 'e.location = lo')
@@ -71,7 +71,7 @@ class ProductsRepository extends \Doctrine\ORM\EntityRepository {
                 ->setParameter('lang', $locale)
                 ->setParameter('pub', '1')
         ;
-        
+
         if ($limit != null) {
             $q
                     ->setMaxResults($limit)
@@ -81,6 +81,43 @@ class ProductsRepository extends \Doctrine\ORM\EntityRepository {
             $q
                     ->andWhere("c = :city")
                     ->setParameter('city', $city)
+            ;
+        }
+
+        $result = $q->getQuery()->getResult();
+        return $result;
+    }
+
+    public function findOthersIndexRoomByCity($locale, $limit = null, $city = null, $name = null) {
+
+        $q = $this->createQueryBuilder("e");
+        $q
+                ->select('c.name as city', 'd.title as title', 'd.description as description', 'e.title as name', 'e.roomPrice')
+                ->join('\BackendBundle\Entity\ProductDescription', 'd', 'WITH', 'e = d.product')
+                ->join('\BackendBundle\Entity\Languages', 'ln', 'WITH', 'd.language = ln')
+                ->join('\BackendBundle\Entity\Location', 'lo', 'WITH', 'e.location = lo')
+                ->join('\BackendBundle\Entity\City', 'c', 'WITH', 'lo.city = c')
+                ->where('e.published = :pub')
+                ->andWhere('ln.iso = :lang')
+                ->setParameter('lang', $locale)
+                ->setParameter('pub', '1')
+        ;
+
+        if ($limit != null) {
+            $q
+                    ->setMaxResults($limit)
+            ;
+        }
+        if ($city != null) {
+            $q
+                    ->andWhere("c = :city")
+                    ->setParameter('city', $city)
+            ;
+        }
+        if ($name != null) {
+            $q
+                    ->andWhere('e.title NOT LIKE :nam')
+                    ->setParameter('nam', $name)
             ;
         }
 

@@ -12,21 +12,21 @@
                     <h1>Clonando Airbnb</h1>
                     <h4>Descubre cada destino como un habitante más.</h4>
                     <p>
-                        
+
                         {{ form_start(form, {'method': 'POST', 'action': path('rooms_list'), 'name': 'reserva', 'attr': {'id': 'searchForm', 'role':'form', 'class' :'form-horizontal'} }) }}
                         {{ form_errors(form) }}
 
-                        <div class="form-group">
-                            <label class="col-sm-2 control-label">{{ form_label(form.city) }}</label>
-                            <div class="col-sm-8">
-                                {{ form_errors(form.city) }}
-                                {{ form_widget(form.city) }}
-                            </div>
-                            <button type="button" class="col-sm-1 btn btn-default" aria-label="Search">
-                                <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
-                            </button>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">{{ form_label(form.city) }}</label>
+                        <div class="col-sm-8">
+                            {{ form_errors(form.city) }}
+                            {{ form_widget(form.city) }}
                         </div>
-                        {{ form_end(form) }}
+                        <button type="submit" class="col-sm-1 btn btn-default" aria-label="Search">
+                            <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                        </button>
+                    </div>
+                    {{ form_end(form) }}
                     </p>				
                 </div>
                 <div class="col-lg-8 col-lg-offset-2 himg">
@@ -51,6 +51,7 @@
                             <div class="he-view">
                                 <div class="bg a0" data-animate="fadeIn">
                                     <h3 class="a1" data-animate="fadeInDown">{{ room.name}}</h3>
+                                    <h4 class="a1" data-animate="fadeInDown"><span class="label label-danger">{{ room.roomPrice  }} €</span></h4>
                                     <p class="a1" data-animate="fadeInDown">{{ room.title }}</p>
                                     <h4 class="a1" data-animate="fadeInDown">{{ room.city }}</h4>
                                     <a data-rel="prettyPhoto" <link href="{{ asset('themes/app/assets/img/portfolio/portfolio_09.jpg') }}" class="dmbutton a2" data-animate="fadeInUp"><i class="fa fa-search"></i></a>
@@ -168,5 +169,94 @@
         </div><!-- /container -->
     </div><!-- /cwrap -->
 
+
+{% endblock %}
+{% block javascripts %}
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script src="{{ asset('themes/app/assets/js/bootstrap.min.js') }}"></script>
+    <script src="{{ asset('themes/app/assets/js/retina-1.1.0.js') }}"></script>
+    <script src="{{ asset('themes/app/assets/js/jquery.hoverdir.js') }}"></script>
+    <script src="{{ asset('themes/app/assets/js/jquery.hoverex.min.js') }}"></script>
+    <script src="{{ asset('themes/app/assets/js/jquery.prettyPhoto.js') }}"></script>
+    <script src="{{ asset('themes/app/assets/js/jquery.isotope.min.js') }}"></script>
+    <script src="{{ asset('themes/app/assets/js/custom.js') }}"></script>
+    <script>
+// Portfolio
+        (function ($) {
+            "use strict";
+            var $container = $('.portfolio'),
+                    $items = $container.find('.portfolio-item'),
+                    portfolioLayout = 'fitRows';
+
+            if ($container.hasClass('portfolio-centered')) {
+                portfolioLayout = 'masonry';
+            }
+
+            $container.isotope({
+                filter: '*',
+                animationEngine: 'best-available',
+                layoutMode: portfolioLayout,
+                animationOptions: {
+                    duration: 750,
+                    easing: 'linear',
+                    queue: false
+                },
+                masonry: {
+                }
+            }, refreshWaypoints());
+
+            function refreshWaypoints() {
+                setTimeout(function () {
+                }, 1000);
+            }
+
+            $('nav.portfolio-filter ul a').on('click', function () {
+                var selector = $(this).attr('data-filter');
+                $container.isotope({filter: selector}, refreshWaypoints());
+                $('nav.portfolio-filter ul a').removeClass('active');
+                $(this).addClass('active');
+                return false;
+            });
+
+            function getColumnNumber() {
+                var winWidth = $(window).width(),
+                        columnNumber = 1;
+
+                if (winWidth > 1200) {
+                    columnNumber = 4;
+                } else if (winWidth > 950) {
+                    columnNumber = 2;
+                } else if (winWidth > 250) {
+                    columnNumber = 1;
+                }
+                return columnNumber;
+            }
+
+            function setColumns() {
+                var winWidth = $(window).width(),
+                        columnNumber = getColumnNumber(),
+                        itemWidth = Math.floor(winWidth / columnNumber);
+
+                $container.find('.portfolio-item').each(function () {
+                    $(this).css({
+                        width: itemWidth + 'px'
+                    });
+                });
+            }
+
+            function setPortfolio() {
+                setColumns();
+                $container.isotope('reLayout');
+            }
+
+            $container.imagesLoaded(function () {
+                setPortfolio();
+            });
+
+            $(window).on('resize', function () {
+                setPortfolio();
+            });
+        })(jQuery);
+    </script>
 
 {% endblock %}

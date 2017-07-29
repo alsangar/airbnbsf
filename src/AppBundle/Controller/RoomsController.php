@@ -6,6 +6,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Component\HttpFoundation\Request;
 use BackendBundle\Form\SearchType;
+use BackendBundle\Entity\City;
 
 class RoomsController extends Controller {
 
@@ -62,8 +63,11 @@ class RoomsController extends Controller {
         $rooms_repo = $em->getRepository('BackendBundle:Products');
         
         $room = $rooms_repo->findOneByTitle($name);
+        $room_city =  $rooms_repo->findOthersIndexRoomByCity('es',null,$room->getLocation()->getCity(), $room->getTitle());
+        
         return $this->render('app\rooms\view.html.twig', array(
-                    'room' => $room
+                    'room' => $room,
+                    'room_city' => $room_city
         ));
     }
 

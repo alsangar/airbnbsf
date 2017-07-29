@@ -11,6 +11,7 @@ class __TwigTemplate_be66d08adb01309dd57332b04c22d1386a6eb804876296100a014c82be9
         $this->parent = $this->loadTemplate("app/layout.html.twig", "app\\rooms\\list.html.twig", 1);
         $this->blocks = array(
             'pageContent' => array($this, 'block_pageContent'),
+            'javascripts' => array($this, 'block_javascripts'),
         );
     }
 
@@ -21,33 +22,32 @@ class __TwigTemplate_be66d08adb01309dd57332b04c22d1386a6eb804876296100a014c82be9
 
     protected function doDisplay(array $context, array $blocks = array())
     {
-        $__internal_f6bf8892fab8f9aac132da14e7c27f8835531f4571d4cf022705956659a01d0f = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
-        $__internal_f6bf8892fab8f9aac132da14e7c27f8835531f4571d4cf022705956659a01d0f->enter($__internal_f6bf8892fab8f9aac132da14e7c27f8835531f4571d4cf022705956659a01d0f_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "app\\rooms\\list.html.twig"));
+        $__internal_1616e8fc04aacaba0fe190fa70c0161987d6729bf1f34a3180f5bbf4cccea174 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
+        $__internal_1616e8fc04aacaba0fe190fa70c0161987d6729bf1f34a3180f5bbf4cccea174->enter($__internal_1616e8fc04aacaba0fe190fa70c0161987d6729bf1f34a3180f5bbf4cccea174_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "app\\rooms\\list.html.twig"));
 
         $this->parent->display($context, array_merge($this->blocks, $blocks));
         
-        $__internal_f6bf8892fab8f9aac132da14e7c27f8835531f4571d4cf022705956659a01d0f->leave($__internal_f6bf8892fab8f9aac132da14e7c27f8835531f4571d4cf022705956659a01d0f_prof);
+        $__internal_1616e8fc04aacaba0fe190fa70c0161987d6729bf1f34a3180f5bbf4cccea174->leave($__internal_1616e8fc04aacaba0fe190fa70c0161987d6729bf1f34a3180f5bbf4cccea174_prof);
 
     }
 
     // line 3
     public function block_pageContent($context, array $blocks = array())
     {
-        $__internal_8cbc1ab13be83a271e434e2977355ee63bf2c9e7f0e686e2bd4597687433f74e = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
-        $__internal_8cbc1ab13be83a271e434e2977355ee63bf2c9e7f0e686e2bd4597687433f74e->enter($__internal_8cbc1ab13be83a271e434e2977355ee63bf2c9e7f0e686e2bd4597687433f74e_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "pageContent"));
+        $__internal_c8255d18ad50653668c1d15859c9eee88c6bd75ddfdfada0e9e3dd1d4e728112 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
+        $__internal_c8255d18ad50653668c1d15859c9eee88c6bd75ddfdfada0e9e3dd1d4e728112->enter($__internal_c8255d18ad50653668c1d15859c9eee88c6bd75ddfdfada0e9e3dd1d4e728112_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "pageContent"));
 
         // line 4
-        echo "    ";
-        echo $this->env->getExtension('Symfony\Bridge\Twig\Extension\DumpExtension')->dump($this->env, $context, ($context["rooms"] ?? $this->getContext($context, "rooms")));
-        echo "
-
-    <!-- *****************************************************************************************************************
+        echo "    <!-- *****************************************************************************************************************
          BLUE WRAP
          ***************************************************************************************************************** -->
     <div id=\"blue\">
         <div class=\"container\">
             <div class=\"row\">
-                <h3>Listado.</h3>
+                <h3>Listando habitaciones en ";
+        // line 10
+        echo twig_escape_filter($this->env, $this->getAttribute($this->getAttribute($this->getAttribute(($context["form"] ?? $this->getContext($context, "form")), "viewData", array()), "city", array()), "name", array()), "html", null, true);
+        echo "</h3>
             </div><!-- /row -->
         </div> <!-- /container -->
     </div><!-- /blue -->
@@ -64,33 +64,37 @@ class __TwigTemplate_be66d08adb01309dd57332b04c22d1386a6eb804876296100a014c82be9
                     <div class=\"portfolio-centered\">
                         <div class=\"recentitems portfolio\">
                             ";
-        // line 28
+        // line 26
         $context['_parent'] = $context;
         $context['_seq'] = twig_ensure_traversable(($context["rooms"] ?? $this->getContext($context, "rooms")));
         foreach ($context['_seq'] as $context["_key"] => $context["room"]) {
-            // line 29
+            // line 27
             echo "                                <div class=\"portfolio-item graphic-design\">
                                     <div class=\"he-wrap tpl6\">
                                         <img src=\"";
-            // line 31
+            // line 29
             echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\AssetExtension')->getAssetUrl("themes/app/assets/img/portfolio/portfolio_09.jpg"), "html", null, true);
             echo "\" alt=\"\">
                                         <div class=\"he-view\">
                                             <div class=\"bg a0\" data-animate=\"fadeIn\">
                                                 <h3 class=\"a1\" data-animate=\"fadeInDown\">";
-            // line 34
+            // line 32
             echo twig_escape_filter($this->env, $this->getAttribute($context["room"], "name", array()), "html", null, true);
             echo "</h3>
+                                                <h4 class=\"a1\" data-animate=\"fadeInDown\"><span class=\"label label-danger\">";
+            // line 33
+            echo twig_escape_filter($this->env, $this->getAttribute($context["room"], "roomPrice", array()), "html", null, true);
+            echo " €</span></h4>
                                                 <p class=\"a1\" data-animate=\"fadeInDown\">";
-            // line 35
-            echo twig_escape_filter($this->env, $this->getAttribute($context["room"], "title", array()), "html", null, true);
+            // line 34
+            echo twig_escape_filter($this->env, $this->getAttribute($context["room"], "description", array()), "html", null, true);
             echo "</p>
                                                 <h4 class=\"a1\" data-animate=\"fadeInDown\">";
-            // line 36
+            // line 35
             echo twig_escape_filter($this->env, $this->getAttribute($context["room"], "city", array()), "html", null, true);
             echo "</h4>
                                                 <a data-rel=\"prettyPhoto\" <link href=\"";
-            // line 37
+            // line 36
             echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\AssetExtension')->getAssetUrl("themes/app/assets/img/portfolio/portfolio_09.jpg"), "html", null, true);
             echo "\" class=\"dmbutton a2\" data-animate=\"fadeInUp\"><i class=\"fa fa-search\"></i></a>
                                                 <a href=\"single-project.html\" class=\"dmbutton a2\" data-animate=\"fadeInUp\"><i class=\"fa fa-link\"></i></a>
@@ -103,7 +107,7 @@ class __TwigTemplate_be66d08adb01309dd57332b04c22d1386a6eb804876296100a014c82be9
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['room'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 44
+        // line 43
         echo "                        </div><!-- portfolio -->
                     </div><!-- portfolio container -->
                 </div>
@@ -117,7 +121,122 @@ class __TwigTemplate_be66d08adb01309dd57332b04c22d1386a6eb804876296100a014c82be9
 
 ";
         
-        $__internal_8cbc1ab13be83a271e434e2977355ee63bf2c9e7f0e686e2bd4597687433f74e->leave($__internal_8cbc1ab13be83a271e434e2977355ee63bf2c9e7f0e686e2bd4597687433f74e_prof);
+        $__internal_c8255d18ad50653668c1d15859c9eee88c6bd75ddfdfada0e9e3dd1d4e728112->leave($__internal_c8255d18ad50653668c1d15859c9eee88c6bd75ddfdfada0e9e3dd1d4e728112_prof);
+
+    }
+
+    // line 56
+    public function block_javascripts($context, array $blocks = array())
+    {
+        $__internal_8f884df1d5e768d660d92268a2c4876acf7d93ab8b035cccbe91635fd3eaccaa = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
+        $__internal_8f884df1d5e768d660d92268a2c4876acf7d93ab8b035cccbe91635fd3eaccaa->enter($__internal_8f884df1d5e768d660d92268a2c4876acf7d93ab8b035cccbe91635fd3eaccaa_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "javascripts"));
+
+        // line 57
+        echo "    <script src=\"https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js\"></script>
+    <script src=\"";
+        // line 58
+        echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\AssetExtension')->getAssetUrl("themes/app/assets/js/bootstrap.min.js"), "html", null, true);
+        echo "\"></script>
+    <script src=\"";
+        // line 59
+        echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\AssetExtension')->getAssetUrl("themes/app/assets/js/retina-1.1.0.js"), "html", null, true);
+        echo "\"></script>
+    <script src=\"";
+        // line 60
+        echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\AssetExtension')->getAssetUrl("themes/app/assets/js/jquery.hoverdir.js"), "html", null, true);
+        echo "\"></script>
+    <script src=\"";
+        // line 61
+        echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\AssetExtension')->getAssetUrl("themes/app/assets/js/jquery.hoverex.min.js"), "html", null, true);
+        echo "\"></script>
+    <script src=\"";
+        // line 62
+        echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\AssetExtension')->getAssetUrl("themes/app/assets/js/jquery.prettyPhoto.js"), "html", null, true);
+        echo "\"></script>
+    <script src=\"";
+        // line 63
+        echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\AssetExtension')->getAssetUrl("themes/app/assets/js/jquery.isotope.min.js"), "html", null, true);
+        echo "\"></script>
+    <script src=\"";
+        // line 64
+        echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\AssetExtension')->getAssetUrl("themes/app/assets/js/custom.js"), "html", null, true);
+        echo "\"></script>
+
+    <script>
+        // Portfolio
+        (function (\$) {
+            \"use strict\";
+            var \$container = \$('.portfolio'),
+                    \$items = \$container.find('.portfolio-item'),
+                    portfolioLayout = 'fitRows';
+
+            if (\$container.hasClass('portfolio-centered')) {
+                portfolioLayout = 'masonry';
+            }
+
+            \$container.isotope({
+                filter: '*',
+                animationEngine: 'best-available',
+                layoutMode: portfolioLayout,
+                animationOptions: {
+                    duration: 750,
+                    easing: 'linear',
+                    queue: false
+                },
+                masonry: {
+                }
+            }, refreshWaypoints());
+
+            function refreshWaypoints() {
+                setTimeout(function () {
+                }, 1000);
+            }
+
+            \$('nav.portfolio-filter ul a').on('click', function () {
+                var selector = \$(this).attr('data-filter');
+                \$container.isotope({filter: selector}, refreshWaypoints());
+                \$('nav.portfolio-filter ul a').removeClass('active');
+                \$(this).addClass('active');
+                return false;
+            });
+
+            function getColumnNumber() {
+                var winWidth = \$(window).width(),
+                        columnNumber = 1;
+
+                return columnNumber;
+            }
+
+            function setColumns() {
+
+                itemWidth = 300;
+
+                \$container.find('.portfolio-item').each(function () {
+                    \$(this).css({
+                        width: itemWidth + 'px'
+                    });
+                });
+            }
+
+            function setPortfolio() {
+                setColumns();
+                \$container.isotope('reLayout');
+            }
+
+            \$container.imagesLoaded(function () {
+                setPortfolio();
+            });
+
+            \$(window).on('resize', function () {
+                setPortfolio();
+            });
+        })(jQuery);
+    </script>
+
+
+";
+        
+        $__internal_8f884df1d5e768d660d92268a2c4876acf7d93ab8b035cccbe91635fd3eaccaa->leave($__internal_8f884df1d5e768d660d92268a2c4876acf7d93ab8b035cccbe91635fd3eaccaa_prof);
 
     }
 
@@ -133,7 +252,7 @@ class __TwigTemplate_be66d08adb01309dd57332b04c22d1386a6eb804876296100a014c82be9
 
     public function getDebugInfo()
     {
-        return array (  107 => 44,  94 => 37,  90 => 36,  86 => 35,  82 => 34,  76 => 31,  72 => 29,  68 => 28,  40 => 4,  34 => 3,  11 => 1,);
+        return array (  162 => 64,  158 => 63,  154 => 62,  150 => 61,  146 => 60,  142 => 59,  138 => 58,  135 => 57,  129 => 56,  111 => 43,  98 => 36,  94 => 35,  90 => 34,  86 => 33,  82 => 32,  76 => 29,  72 => 27,  68 => 26,  49 => 10,  41 => 4,  35 => 3,  11 => 1,);
     }
 
     /** @deprecated since 1.27 (to be removed in 2.0). Use getSourceContext() instead */
@@ -149,15 +268,13 @@ class __TwigTemplate_be66d08adb01309dd57332b04c22d1386a6eb804876296100a014c82be9
         return new Twig_Source("{% extends \"app/layout.html.twig\" %}
 
 {% block pageContent%}
-    {{ dump(rooms) }}
-
     <!-- *****************************************************************************************************************
          BLUE WRAP
          ***************************************************************************************************************** -->
     <div id=\"blue\">
         <div class=\"container\">
             <div class=\"row\">
-                <h3>Listado.</h3>
+                <h3>Listando habitaciones en {{form.viewData.city.name}}</h3>
             </div><!-- /row -->
         </div> <!-- /container -->
     </div><!-- /blue -->
@@ -180,7 +297,8 @@ class __TwigTemplate_be66d08adb01309dd57332b04c22d1386a6eb804876296100a014c82be9
                                         <div class=\"he-view\">
                                             <div class=\"bg a0\" data-animate=\"fadeIn\">
                                                 <h3 class=\"a1\" data-animate=\"fadeInDown\">{{ room.name}}</h3>
-                                                <p class=\"a1\" data-animate=\"fadeInDown\">{{ room.title }}</p>
+                                                <h4 class=\"a1\" data-animate=\"fadeInDown\"><span class=\"label label-danger\">{{ room.roomPrice  }} €</span></h4>
+                                                <p class=\"a1\" data-animate=\"fadeInDown\">{{ room.description  }}</p>
                                                 <h4 class=\"a1\" data-animate=\"fadeInDown\">{{ room.city }}</h4>
                                                 <a data-rel=\"prettyPhoto\" <link href=\"{{ asset('themes/app/assets/img/portfolio/portfolio_09.jpg') }}\" class=\"dmbutton a2\" data-animate=\"fadeInUp\"><i class=\"fa fa-search\"></i></a>
                                                 <a href=\"single-project.html\" class=\"dmbutton a2\" data-animate=\"fadeInUp\"><i class=\"fa fa-link\"></i></a>
@@ -199,6 +317,90 @@ class __TwigTemplate_be66d08adb01309dd57332b04c22d1386a6eb804876296100a014c82be9
             </div>
         </div>
     </div>
+
+{% endblock %}
+
+{% block javascripts %}
+    <script src=\"https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js\"></script>
+    <script src=\"{{ asset('themes/app/assets/js/bootstrap.min.js') }}\"></script>
+    <script src=\"{{ asset('themes/app/assets/js/retina-1.1.0.js') }}\"></script>
+    <script src=\"{{ asset('themes/app/assets/js/jquery.hoverdir.js') }}\"></script>
+    <script src=\"{{ asset('themes/app/assets/js/jquery.hoverex.min.js') }}\"></script>
+    <script src=\"{{ asset('themes/app/assets/js/jquery.prettyPhoto.js') }}\"></script>
+    <script src=\"{{ asset('themes/app/assets/js/jquery.isotope.min.js') }}\"></script>
+    <script src=\"{{ asset('themes/app/assets/js/custom.js') }}\"></script>
+
+    <script>
+        // Portfolio
+        (function (\$) {
+            \"use strict\";
+            var \$container = \$('.portfolio'),
+                    \$items = \$container.find('.portfolio-item'),
+                    portfolioLayout = 'fitRows';
+
+            if (\$container.hasClass('portfolio-centered')) {
+                portfolioLayout = 'masonry';
+            }
+
+            \$container.isotope({
+                filter: '*',
+                animationEngine: 'best-available',
+                layoutMode: portfolioLayout,
+                animationOptions: {
+                    duration: 750,
+                    easing: 'linear',
+                    queue: false
+                },
+                masonry: {
+                }
+            }, refreshWaypoints());
+
+            function refreshWaypoints() {
+                setTimeout(function () {
+                }, 1000);
+            }
+
+            \$('nav.portfolio-filter ul a').on('click', function () {
+                var selector = \$(this).attr('data-filter');
+                \$container.isotope({filter: selector}, refreshWaypoints());
+                \$('nav.portfolio-filter ul a').removeClass('active');
+                \$(this).addClass('active');
+                return false;
+            });
+
+            function getColumnNumber() {
+                var winWidth = \$(window).width(),
+                        columnNumber = 1;
+
+                return columnNumber;
+            }
+
+            function setColumns() {
+
+                itemWidth = 300;
+
+                \$container.find('.portfolio-item').each(function () {
+                    \$(this).css({
+                        width: itemWidth + 'px'
+                    });
+                });
+            }
+
+            function setPortfolio() {
+                setColumns();
+                \$container.isotope('reLayout');
+            }
+
+            \$container.imagesLoaded(function () {
+                setPortfolio();
+            });
+
+            \$(window).on('resize', function () {
+                setPortfolio();
+            });
+        })(jQuery);
+    </script>
+
 
 {% endblock %}", "app\\rooms\\list.html.twig", "C:\\xampp\\htdocs\\airbnbsf\\app\\Resources\\views\\app\\rooms\\list.html.twig");
     }
