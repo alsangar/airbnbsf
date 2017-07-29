@@ -1,0 +1,37 @@
+{% trans_default_domain 'FOSUserBundle' %}
+
+{% for type, messages in app.session.flashBag.all %}
+    {% for message in messages %}
+        <div class="{{ type }}">
+            {{ message|trans({}, 'FOSUserBundle') }}
+        </div>
+    {% endfor %}
+{% endfor %}
+
+{{form_start(form, {'method': 'POST', 'attr':{'id': 'form-register','role': 'form','class': 'form-signin'}})}}
+<div class="form-group">
+    <label for="fos_user_registration_form[username]">Your Name</label>
+    {{ form_widget(form.username, { 'attr': {'class': 'form-control'} }) }}
+</div>
+<div class="form-group">
+    <label for="InputEmail" >Email address</label>
+    {{ form_widget(form.email, { 'attr': {'class': 'form-control'} }) }}
+</div>
+<div class="form-group">
+    <label for="inputPassword">Password</label>
+    {{ form_widget(form.plainPassword.first, { 'attr': {'class': 'form-control'} }) }}
+</div>
+<div class="form-group">
+    <label for="inputPassword2" >Repeat password</label>
+    {{ form_widget(form.plainPassword.second, { 'attr': {'class': 'form-control'} }) }}
+</div>
+{#<div class="form-group">
+    <div class="checkbox">
+        <label>
+            <input type="checkbox" value="remember-me"> Newsletter
+        </label>
+    </div>
+</div>#}
+<button class="btn btn-lg btn-theme btn-block" type="submit">Create an account</button>
+
+{{ form_end(form) }}

@@ -1,0 +1,10 @@
+{% extends "app/layout.html.twig"%}
+{% block pageContent%}
+    <div class="container mtb">
+        <h3 class="">Please login</h3>
+        <div class="hline"></div>
+        {% include "FOSUserBundle:Security:login_content.html.twig" %}
+        <div class="hline"></div>
+    </div> <!-- /container -->
+
+{% endblock %}

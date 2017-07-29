@@ -1,0 +1,12 @@
+{% extends "app/layout.html.twig"%}
+{% block pageContent%}
+    <div class="container mtb">
+        <h3 class="">Please register</h3>
+        <div class="hline"></div>
+        {% include "FOSUserBundle:Registration:register_content.html.twig" %}
+        <div class="hline"></div>
+        <p>By clicking the "Create an account" button you agree with our <a href="#">terms and conditions</a>.</p>
+
+    </div> <!-- /container -->
+
+{% endblock %}

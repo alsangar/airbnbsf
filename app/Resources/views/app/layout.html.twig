@@ -64,7 +64,21 @@
                             <li><a href="single-project.html">SINGLE PROJECT</a></li>
                         </ul>
                     </li>
-                    <li><button type="button" class="btn btn-default navbar-btn">Sign in</button></li>
+                    <li role="separator" class="divider"></li>
+                        {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+                        <li><a href="{{ path('fos_user_profile_show') }}">
+                                <strong>{{ app.user.username }}</strong>
+                            </a>
+                        </li>
+                        <li><a href="{{ path('fos_user_security_logout') }}">
+                                LOGOUT
+                            </a>
+                        </li>
+                    {% else %}
+                        <li><a href="{{ path('fos_user_security_login') }}">SIGN IN</a></li>
+                        <li><a href="{{ path('fos_user_registration_register') }}"><strong>REGISTER</strong></a></li>
+                        {% endif %}
+
                 </ul>
             </div><!--/.nav-collapse -->
         </div>
