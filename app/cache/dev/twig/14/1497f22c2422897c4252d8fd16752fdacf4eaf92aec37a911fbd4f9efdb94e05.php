@@ -21,20 +21,20 @@ class __TwigTemplate_7579cc71f4910a5dabfb80b3639a150d6df2104a154d2d4b2c1a6e8c122
 
     protected function doDisplay(array $context, array $blocks = array())
     {
-        $__internal_93fe69dcb9ec01c88cfed3be3f35a0e72aef4122d921bfda9afc07c5409817f3 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
-        $__internal_93fe69dcb9ec01c88cfed3be3f35a0e72aef4122d921bfda9afc07c5409817f3->enter($__internal_93fe69dcb9ec01c88cfed3be3f35a0e72aef4122d921bfda9afc07c5409817f3_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "app/default/index.html.twig"));
+        $__internal_9c02df1557b338b85ca4ef0b10503d9f85c405eeafe2aa455a9cdafd96b361ae = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
+        $__internal_9c02df1557b338b85ca4ef0b10503d9f85c405eeafe2aa455a9cdafd96b361ae->enter($__internal_9c02df1557b338b85ca4ef0b10503d9f85c405eeafe2aa455a9cdafd96b361ae_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "app/default/index.html.twig"));
 
         $this->parent->display($context, array_merge($this->blocks, $blocks));
         
-        $__internal_93fe69dcb9ec01c88cfed3be3f35a0e72aef4122d921bfda9afc07c5409817f3->leave($__internal_93fe69dcb9ec01c88cfed3be3f35a0e72aef4122d921bfda9afc07c5409817f3_prof);
+        $__internal_9c02df1557b338b85ca4ef0b10503d9f85c405eeafe2aa455a9cdafd96b361ae->leave($__internal_9c02df1557b338b85ca4ef0b10503d9f85c405eeafe2aa455a9cdafd96b361ae_prof);
 
     }
 
     // line 3
     public function block_pageContent($context, array $blocks = array())
     {
-        $__internal_a043bdd539c9594361e4ed6ba19f4bbb857c92bf6ba1f351acaedc7f9fa8710c = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
-        $__internal_a043bdd539c9594361e4ed6ba19f4bbb857c92bf6ba1f351acaedc7f9fa8710c->enter($__internal_a043bdd539c9594361e4ed6ba19f4bbb857c92bf6ba1f351acaedc7f9fa8710c_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "pageContent"));
+        $__internal_8686d930410e523508b09598b4174d98e186292205355e6a5d0b9fbe055e175d = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
+        $__internal_8686d930410e523508b09598b4174d98e186292205355e6a5d0b9fbe055e175d->enter($__internal_8686d930410e523508b09598b4174d98e186292205355e6a5d0b9fbe055e175d_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "pageContent"));
 
         // line 4
         echo "    <!-- *****************************************************************************************************************
@@ -48,28 +48,44 @@ class __TwigTemplate_7579cc71f4910a5dabfb80b3639a150d6df2104a154d2d4b2c1a6e8c122
                     <h1>Clonando Airbnb</h1>
                     <h4>Descubre cada destino como un habitante más.</h4>
                     <p>
-                    <form class=\"form-horizontal\">
+                        
+                        ";
+        // line 16
+        echo         $this->env->getExtension('Symfony\Bridge\Twig\Extension\FormExtension')->renderer->renderBlock(($context["form"] ?? $this->getContext($context, "form")), 'form_start', array("method" => "POST", "action" => $this->env->getExtension('Symfony\Bridge\Twig\Extension\RoutingExtension')->getPath("rooms_list"), "name" => "reserva", "attr" => array("id" => "searchForm", "role" => "form", "class" => "form-horizontal")));
+        echo "
+                        ";
+        // line 17
+        echo $this->env->getExtension('Symfony\Bridge\Twig\Extension\FormExtension')->renderer->searchAndRenderBlock(($context["form"] ?? $this->getContext($context, "form")), 'errors');
+        echo "
+
                         <div class=\"form-group\">
-                            <label class=\"col-sm-2 control-label\">City</label>
+                            <label class=\"col-sm-2 control-label\">";
+        // line 20
+        echo $this->env->getExtension('Symfony\Bridge\Twig\Extension\FormExtension')->renderer->searchAndRenderBlock($this->getAttribute(($context["form"] ?? $this->getContext($context, "form")), "city", array()), 'label');
+        echo "</label>
                             <div class=\"col-sm-8\">
-                                <select class=\"form-control\">
-                                    <option>Salamanca</option>
-                                    <option>Madrid</option>
-                                    <option>Paris</option>
-                                    <option>Venecia</option>
-                                    <option>New York</option>
-                                </select>
+                                ";
+        // line 22
+        echo $this->env->getExtension('Symfony\Bridge\Twig\Extension\FormExtension')->renderer->searchAndRenderBlock($this->getAttribute(($context["form"] ?? $this->getContext($context, "form")), "city", array()), 'errors');
+        echo "
+                                ";
+        // line 23
+        echo $this->env->getExtension('Symfony\Bridge\Twig\Extension\FormExtension')->renderer->searchAndRenderBlock($this->getAttribute(($context["form"] ?? $this->getContext($context, "form")), "city", array()), 'widget');
+        echo "
                             </div>
                             <button type=\"button\" class=\"col-sm-1 btn btn-default\" aria-label=\"Search\">
                                 <span class=\"glyphicon glyphicon-search\" aria-hidden=\"true\"></span>
                             </button>
-                        </div>                        
-                    </form>
+                        </div>
+                        ";
+        // line 29
+        echo         $this->env->getExtension('Symfony\Bridge\Twig\Extension\FormExtension')->renderer->renderBlock(($context["form"] ?? $this->getContext($context, "form")), 'form_end');
+        echo "
                     </p>\t\t\t\t
                 </div>
                 <div class=\"col-lg-8 col-lg-offset-2 himg\">
                     <img src=\"";
-        // line 35
+        // line 33
         echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\AssetExtension')->getAssetUrl("themes/app/assets/img/browser.png"), "html", null, true);
         echo "\" class=\"img-responsive\">
                 </div>
@@ -86,51 +102,54 @@ class __TwigTemplate_7579cc71f4910a5dabfb80b3639a150d6df2104a154d2d4b2c1a6e8c122
         <div class=\"portfolio-centered\">
             <div class=\"recentitems portfolio\">
                 ";
-        // line 49
+        // line 47
         $context['_parent'] = $context;
         $context['_seq'] = twig_ensure_traversable(($context["rooms"] ?? $this->getContext($context, "rooms")));
         foreach ($context['_seq'] as $context["_key"] => $context["room"]) {
+            // line 48
+            echo "                    <div class=\"portfolio-item graphic-design\">
+                        <div class=\"he-wrap tpl6\">
+                            <img src=\"";
             // line 50
-            echo "                <div class=\"portfolio-item graphic-design\">
-                    <div class=\"he-wrap tpl6\">
-                        <img src=\"";
-            // line 52
             echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\AssetExtension')->getAssetUrl("themes/app/assets/img/portfolio/portfolio_09.jpg"), "html", null, true);
             echo "\" alt=\"\">
-                        <div class=\"he-view\">
-                            <div class=\"bg a0\" data-animate=\"fadeIn\">
-                                <h3 class=\"a1\" data-animate=\"fadeInDown\">";
-            // line 55
-            echo twig_escape_filter($this->env, $this->getAttribute(($context["rooms"] ?? $this->getContext($context, "rooms")), "name", array()), "html", null, true);
+                            <div class=\"he-view\">
+                                <div class=\"bg a0\" data-animate=\"fadeIn\">
+                                    <h3 class=\"a1\" data-animate=\"fadeInDown\">";
+            // line 53
+            echo twig_escape_filter($this->env, $this->getAttribute($context["room"], "name", array()), "html", null, true);
             echo "</h3>
-                                <p class=\"a1\" data-animate=\"fadeInDown\">";
+                                    <p class=\"a1\" data-animate=\"fadeInDown\">";
+            // line 54
+            echo twig_escape_filter($this->env, $this->getAttribute($context["room"], "title", array()), "html", null, true);
+            echo "</p>
+                                    <h4 class=\"a1\" data-animate=\"fadeInDown\">";
+            // line 55
+            echo twig_escape_filter($this->env, $this->getAttribute($context["room"], "city", array()), "html", null, true);
+            echo "</h4>
+                                    <a data-rel=\"prettyPhoto\" <link href=\"";
             // line 56
-            echo twig_escape_filter($this->env, $this->getAttribute(($context["rooms"] ?? $this->getContext($context, "rooms")), "description", array()), "html", null, true);
-            echo "</p>
-                                <p class=\"a1\" data-animate=\"fadeInDown\">";
-            // line 57
-            echo twig_escape_filter($this->env, $this->getAttribute(($context["rooms"] ?? $this->getContext($context, "rooms")), "city", array()), "html", null, true);
-            echo "</p>
-                                <a data-rel=\"prettyPhoto\" <link href=\"";
-            // line 58
             echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\AssetExtension')->getAssetUrl("themes/app/assets/img/portfolio/portfolio_09.jpg"), "html", null, true);
             echo "\" class=\"dmbutton a2\" data-animate=\"fadeInUp\"><i class=\"fa fa-search\"></i></a>
-                                <a href=\"single-project.html\" class=\"dmbutton a2\" data-animate=\"fadeInUp\"><i class=\"fa fa-link\"></i></a>
-                            </div><!-- he bg -->
-                        </div><!-- he view -->\t\t
-                    </div><!-- he wrap -->
-                </div><!-- end col-12 -->
+                                    <a href=\"";
+            // line 57
+            echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\RoutingExtension')->getPath("rooms_view", array("name" => $this->getAttribute($context["room"], "name", array()))), "html", null, true);
+            echo "\" class=\"dmbutton a2\" data-animate=\"fadeInUp\"><i class=\"fa fa-link\"></i></a>
+                                </div><!-- he bg -->
+                            </div><!-- he view -->\t\t
+                        </div><!-- he wrap -->
+                    </div><!-- end col-12 -->
                 ";
         }
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['room'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 65
+        // line 63
         echo "            </div><!-- portfolio -->
         </div><!-- portfolio container -->
     </div><!--/Portfoliowrap -->
 
-    
+
     <!-- *****************************************************************************************************************
      SERVICE LOGOS
      ***************************************************************************************************************** -->
@@ -220,25 +239,25 @@ class __TwigTemplate_7579cc71f4910a5dabfb80b3639a150d6df2104a154d2d4b2c1a6e8c122
                 <h3>OUR CLIENTS</h3>
                 <div class=\"col-lg-3 col-md-3 col-sm-3\">
                     <img src=\"";
-        // line 158
+        // line 156
         echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\AssetExtension')->getAssetUrl("themes/app/assets/img/clients/client01.png"), "html", null, true);
         echo "\" class=\"img-responsive\">
                 </div>
                 <div class=\"col-lg-3 col-md-3 col-sm-3\">
                     <img src=\"";
-        // line 161
+        // line 159
         echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\AssetExtension')->getAssetUrl("themes/app/assets/img/clients/client02.png"), "html", null, true);
         echo "\" class=\"img-responsive\">
                 </div>
                 <div class=\"col-lg-3 col-md-3 col-sm-3\">
                     <img src=\"";
-        // line 164
+        // line 162
         echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\AssetExtension')->getAssetUrl("themes/app/assets/img/clients/client03.png"), "html", null, true);
         echo "\" class=\"img-responsive\">
                 </div>
                 <div class=\"col-lg-3 col-md-3 col-sm-3\">
                     <img src=\"";
-        // line 167
+        // line 165
         echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\AssetExtension')->getAssetUrl("themes/app/assets/img/clients/client04.png"), "html", null, true);
         echo "\" class=\"img-responsive\">
                 </div>
@@ -249,7 +268,7 @@ class __TwigTemplate_7579cc71f4910a5dabfb80b3639a150d6df2104a154d2d4b2c1a6e8c122
 
 ";
         
-        $__internal_a043bdd539c9594361e4ed6ba19f4bbb857c92bf6ba1f351acaedc7f9fa8710c->leave($__internal_a043bdd539c9594361e4ed6ba19f4bbb857c92bf6ba1f351acaedc7f9fa8710c_prof);
+        $__internal_8686d930410e523508b09598b4174d98e186292205355e6a5d0b9fbe055e175d->leave($__internal_8686d930410e523508b09598b4174d98e186292205355e6a5d0b9fbe055e175d_prof);
 
     }
 
@@ -265,7 +284,7 @@ class __TwigTemplate_7579cc71f4910a5dabfb80b3639a150d6df2104a154d2d4b2c1a6e8c122
 
     public function getDebugInfo()
     {
-        return array (  242 => 167,  236 => 164,  230 => 161,  224 => 158,  129 => 65,  116 => 58,  112 => 57,  108 => 56,  104 => 55,  98 => 52,  94 => 50,  90 => 49,  73 => 35,  40 => 4,  34 => 3,  11 => 1,);
+        return array (  261 => 165,  255 => 162,  249 => 159,  243 => 156,  148 => 63,  136 => 57,  132 => 56,  128 => 55,  124 => 54,  120 => 53,  114 => 50,  110 => 48,  106 => 47,  89 => 33,  82 => 29,  73 => 23,  69 => 22,  64 => 20,  58 => 17,  54 => 16,  40 => 4,  34 => 3,  11 => 1,);
     }
 
     /** @deprecated since 1.27 (to be removed in 2.0). Use getSourceContext() instead */
@@ -292,23 +311,21 @@ class __TwigTemplate_7579cc71f4910a5dabfb80b3639a150d6df2104a154d2d4b2c1a6e8c122
                     <h1>Clonando Airbnb</h1>
                     <h4>Descubre cada destino como un habitante más.</h4>
                     <p>
-                    <form class=\"form-horizontal\">
+                        
+                        {{ form_start(form, {'method': 'POST', 'action': path('rooms_list'), 'name': 'reserva', 'attr': {'id': 'searchForm', 'role':'form', 'class' :'form-horizontal'} }) }}
+                        {{ form_errors(form) }}
+
                         <div class=\"form-group\">
-                            <label class=\"col-sm-2 control-label\">City</label>
+                            <label class=\"col-sm-2 control-label\">{{ form_label(form.city) }}</label>
                             <div class=\"col-sm-8\">
-                                <select class=\"form-control\">
-                                    <option>Salamanca</option>
-                                    <option>Madrid</option>
-                                    <option>Paris</option>
-                                    <option>Venecia</option>
-                                    <option>New York</option>
-                                </select>
+                                {{ form_errors(form.city) }}
+                                {{ form_widget(form.city) }}
                             </div>
                             <button type=\"button\" class=\"col-sm-1 btn btn-default\" aria-label=\"Search\">
                                 <span class=\"glyphicon glyphicon-search\" aria-hidden=\"true\"></span>
                             </button>
-                        </div>                        
-                    </form>
+                        </div>
+                        {{ form_end(form) }}
                     </p>\t\t\t\t
                 </div>
                 <div class=\"col-lg-8 col-lg-offset-2 himg\">
@@ -327,26 +344,26 @@ class __TwigTemplate_7579cc71f4910a5dabfb80b3639a150d6df2104a154d2d4b2c1a6e8c122
         <div class=\"portfolio-centered\">
             <div class=\"recentitems portfolio\">
                 {% for room in rooms %}
-                <div class=\"portfolio-item graphic-design\">
-                    <div class=\"he-wrap tpl6\">
-                        <img src=\"{{ asset('themes/app/assets/img/portfolio/portfolio_09.jpg') }}\" alt=\"\">
-                        <div class=\"he-view\">
-                            <div class=\"bg a0\" data-animate=\"fadeIn\">
-                                <h3 class=\"a1\" data-animate=\"fadeInDown\">{{ rooms.name }}</h3>
-                                <p class=\"a1\" data-animate=\"fadeInDown\">{{ rooms.description }}</p>
-                                <p class=\"a1\" data-animate=\"fadeInDown\">{{ rooms.city }}</p>
-                                <a data-rel=\"prettyPhoto\" <link href=\"{{ asset('themes/app/assets/img/portfolio/portfolio_09.jpg') }}\" class=\"dmbutton a2\" data-animate=\"fadeInUp\"><i class=\"fa fa-search\"></i></a>
-                                <a href=\"single-project.html\" class=\"dmbutton a2\" data-animate=\"fadeInUp\"><i class=\"fa fa-link\"></i></a>
-                            </div><!-- he bg -->
-                        </div><!-- he view -->\t\t
-                    </div><!-- he wrap -->
-                </div><!-- end col-12 -->
+                    <div class=\"portfolio-item graphic-design\">
+                        <div class=\"he-wrap tpl6\">
+                            <img src=\"{{ asset('themes/app/assets/img/portfolio/portfolio_09.jpg') }}\" alt=\"\">
+                            <div class=\"he-view\">
+                                <div class=\"bg a0\" data-animate=\"fadeIn\">
+                                    <h3 class=\"a1\" data-animate=\"fadeInDown\">{{ room.name}}</h3>
+                                    <p class=\"a1\" data-animate=\"fadeInDown\">{{ room.title }}</p>
+                                    <h4 class=\"a1\" data-animate=\"fadeInDown\">{{ room.city }}</h4>
+                                    <a data-rel=\"prettyPhoto\" <link href=\"{{ asset('themes/app/assets/img/portfolio/portfolio_09.jpg') }}\" class=\"dmbutton a2\" data-animate=\"fadeInUp\"><i class=\"fa fa-search\"></i></a>
+                                    <a href=\"{{ path('rooms_view', {'name':room.name}) }}\" class=\"dmbutton a2\" data-animate=\"fadeInUp\"><i class=\"fa fa-link\"></i></a>
+                                </div><!-- he bg -->
+                            </div><!-- he view -->\t\t
+                        </div><!-- he wrap -->
+                    </div><!-- end col-12 -->
                 {% endfor %}
             </div><!-- portfolio -->
         </div><!-- portfolio container -->
     </div><!--/Portfoliowrap -->
 
-    
+
     <!-- *****************************************************************************************************************
      SERVICE LOGOS
      ***************************************************************************************************************** -->

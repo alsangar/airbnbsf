@@ -57,7 +57,7 @@ class ProductsRepository extends \Doctrine\ORM\EntityRepository {
         return $result;
     }
 
-    public function findIndexRoom($locale, $limit) {
+    public function findIndexRoom($locale, $limit = null, $city = null) {
 
         $q = $this->createQueryBuilder("e");
         $q
@@ -69,10 +69,23 @@ class ProductsRepository extends \Doctrine\ORM\EntityRepository {
                 ->where('e.published = :pub')
                 ->andWhere('ln.iso = :lang')
                 ->setParameter('lang', $locale)
-                ->setParameter('pub','1')
-                ->setMaxResults($limit)
+                ->setParameter('pub', '1')
         ;
-        $query = $q->getQuery()->getResult();
+        
+        if ($limit != null) {
+            $q
+                    ->setMaxResults($limit)
+            ;
+        }
+        if ($city != null) {
+            $q
+                    ->andWhere("c = :city")
+                    ->setParameter('city', $city)
+            ;
+        }
+
+        $result = $q->getQuery()->getResult();
+        return $result;
     }
 
 }

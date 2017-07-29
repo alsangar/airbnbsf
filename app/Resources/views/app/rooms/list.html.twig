@@ -1,7 +1,55 @@
-Lista
+{% extends "app/layout.html.twig" %}
 
-{% for room in rooms %}
+{% block pageContent%}
+    {{ dump(rooms) }}
 
-    {{room}}
+    <!-- *****************************************************************************************************************
+         BLUE WRAP
+         ***************************************************************************************************************** -->
+    <div id="blue">
+        <div class="container">
+            <div class="row">
+                <h3>Listado.</h3>
+            </div><!-- /row -->
+        </div> <!-- /container -->
+    </div><!-- /blue -->
 
-{% endfor %}
+    <!-- *****************************************************************************************************************
+         CONTENT
+    ***************************************************************************************************************** -->     
+
+
+    <div class="container-fluid">
+        <div class="row">            
+            <div class="col-sm-6 col-md-4 sidebar">
+                <div class="portfoliowrap">
+                    <div class="portfolio-centered">
+                        <div class="recentitems portfolio">
+                            {% for room in rooms %}
+                                <div class="portfolio-item graphic-design">
+                                    <div class="he-wrap tpl6">
+                                        <img src="{{ asset('themes/app/assets/img/portfolio/portfolio_09.jpg') }}" alt="">
+                                        <div class="he-view">
+                                            <div class="bg a0" data-animate="fadeIn">
+                                                <h3 class="a1" data-animate="fadeInDown">{{ room.name}}</h3>
+                                                <p class="a1" data-animate="fadeInDown">{{ room.title }}</p>
+                                                <h4 class="a1" data-animate="fadeInDown">{{ room.city }}</h4>
+                                                <a data-rel="prettyPhoto" <link href="{{ asset('themes/app/assets/img/portfolio/portfolio_09.jpg') }}" class="dmbutton a2" data-animate="fadeInUp"><i class="fa fa-search"></i></a>
+                                                <a href="single-project.html" class="dmbutton a2" data-animate="fadeInUp"><i class="fa fa-link"></i></a>
+                                            </div><!-- he bg -->
+                                        </div><!-- he view -->		
+                                    </div><!-- he wrap -->
+                                </div><!-- end col-12 -->
+                            {% endfor %}
+                        </div><!-- portfolio -->
+                    </div><!-- portfolio container -->
+                </div>
+            </div><!-- /sidebar -->
+
+            <div class="col-sm-6 col-md-8 main">
+                <div id="contactwrap"></div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
