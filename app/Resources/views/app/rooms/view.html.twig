@@ -1,6 +1,29 @@
 {% extends "app/layout.html.twig" %}
 
+{% block tilte %}{{room.title}}{% endblock %}
+
+
 {% block pageContent %}
+
+{#    {{ dump(room) }}
+
+    <!-- informacion en formato fisno -->
+
+
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3 class="panel-title">Información fisna</h3>
+        </div>
+        <div class="panel-body">
+            {{ dump(room) }}
+        </div>
+    </div>
+#}
+
+
+
+
+
     <!-- *****************************************************************************************************************
          BLUE WRAP
          ***************************************************************************************************************** -->
@@ -57,6 +80,48 @@
                     </ul></p>
                 </div>
                 <div class="col-lg-4 col-lg-offset-1 sidebar">
+                    {{ form_start(form, {'method':'POST', 'name':'reserva', 'attr':{'id':'formReserva'} }) }}
+                        <div class="">
+                            <div class="spacing"></div>
+                            <h4>Detalles de la reserva</h4>
+                            <div class="hline"></div>
+                            <div clss="form-group">
+                                {{ form_widget(form.checkin) }}
+                                {{ form_widget(form.checkout) }}
+                                <a href="#" name="daterange" id="daterange" class="btn btn-block btn-theme">Fechas de la reserva</a>
+                            </div>
+                            <div class="form-group">
+                                <label for="num_personas">Número de personas</label>
+                                {{ form_widget(form.pax) }}
+                            </div>
+                            <div class="form-group">
+                                <label for="precio_unitario">Precio unitario</label>
+                                <div class="input-group">
+                                    <input type="text" class="form-control" id="precio_unitario" value="{{room.roomPrice}}" readonly>
+                                    <span class="input-group-addon">€</span>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="tarifa_servicio">Tarifa de servicio</label>
+                                <div class="input-group">
+                                    <input type="text" class="form-control" id="tarifa_servicio" value="-" readonly>
+                                    <span class="input-group-addon">€</span>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="preico_total">Total</label>
+                                <div class="input-group">
+                                    <input type="text" class="form-control" id="precio_total" readonly>
+                                    <span class="input-group-addon">€</span>
+                                </div>
+                            </div>
+                            {% if(is_granted('ROLE_USER')) %}
+                            <button type="submit" class="btn btn-block btn-large btn-success">Reservar</button>
+                            {% else %}
+                            <a href="{{ path('login') }}" class="btn btn-block btn-large btn-warning">Inicia sesión para reservar</a>
+                            {% endif %}
+                        </div>
+                        {{ form_end(form) }}
                     <div class="">
                         <div class="spacing"></div>
                         <h4>Detalles de la propiedad</h4>
@@ -146,6 +211,59 @@
     <script src="{{ asset('themes/app/assets/js/jquery.prettyPhoto.js') }}"></script>
     <script src="{{ asset('themes/app/assets/js/jquery.isotope.min.js') }}"></script>
     <script src="{{ asset('themes/app/assets/js/custom.js') }}"></script>
+    <script type="text/javascript" src="//cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+    <script type="text/javascript" src="//cdn.jsdelivr.net/bootstrap.daterangepicker/2/daterangepicker.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            $('#daterange').on('click', function (event) {
+                event.preventDefault(); // To prevent following the link (optional) ...
+            });
+            var today = moment(moment(), "DD-MM-YY");
+            $('#daterange').daterangepicker({
+                "locale": {
+                    "format": "DD/MM/YYYY",
+                    "separator": " - ",
+                    "applyLabel": "Aplicar",
+                    "cancelLabel": "Cancelar",
+                    "fromLabel": "Desde",
+                    "toLabel": "Hasta",
+                    "customRangeLabel": "Personalizado",
+                    "weekLabel": "Sem",
+                    "daysOfWeek": [
+                        "L",
+                        "M",
+                        "X",
+                        "J",
+                        "V",
+                        "S",
+                        "D"
+                    ],
+                    "monthNames": [
+                        "Enero",
+                        "Febrero",
+                        "Marzo",
+                        "Abril",
+                        "Mayo",
+                        "Junio",
+                        "Julio",
+                        "Agosto",
+                        "Septiembre",
+                        "Octubre",
+                        "Noviembre",
+                        "Deciembre"
+                    ],
+                    "firstDay": 0,
+                    "minDate": today
+                },
+                "opens": "center",
+                "drops": "down"
+            }, function (start, end, label) {
+                $('#daterange').text("Del " + start.format('DD-MM-YYYY') + " al " + end.format('DD-MM-YYYY'));
+            });
+        });
+    </script>
+
     <script>
         // Portfolio
         (function ($) {

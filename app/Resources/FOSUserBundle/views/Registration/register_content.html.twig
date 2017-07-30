@@ -10,19 +10,19 @@
 
 {{form_start(form, {'method': 'POST', 'attr':{'id': 'form-register','role': 'form','class': 'form-signin'}})}}
 <div class="form-group">
-    <label for="fos_user_registration_form[username]">Your Name</label>
+    <label for="fos_user_registration_form[username]">Nombre</label>
     {{ form_widget(form.username, { 'attr': {'class': 'form-control'} }) }}
 </div>
 <div class="form-group">
-    <label for="InputEmail" >Email address</label>
+    <label for="InputEmail" >Dirección de correo electrónico</label>
     {{ form_widget(form.email, { 'attr': {'class': 'form-control'} }) }}
 </div>
 <div class="form-group">
-    <label for="inputPassword">Password</label>
+    <label for="inputPassword">Contraseña</label>
     {{ form_widget(form.plainPassword.first, { 'attr': {'class': 'form-control'} }) }}
 </div>
 <div class="form-group">
-    <label for="inputPassword2" >Repeat password</label>
+    <label for="inputPassword2" >Repetir contraseña</label>
     {{ form_widget(form.plainPassword.second, { 'attr': {'class': 'form-control'} }) }}
 </div>
 {#<div class="form-group">
@@ -32,6 +32,6 @@
         </label>
     </div>
 </div>#}
-<button class="btn btn-lg btn-theme btn-block" type="submit">Create an account</button>
+<button class="btn btn-lg btn-theme btn-block" type="submit">Crear cuenta</button>
 
 {{ form_end(form) }}

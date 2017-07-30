@@ -6002,6 +6002,1743 @@ return $this->getManagerForClass($class);
 }
 }
 }
+namespace Symfony\Component\Form
+{
+use Symfony\Component\OptionsResolver\OptionsResolverInterface;
+interface FormTypeInterface
+{
+public function buildForm(FormBuilderInterface $builder, array $options);
+public function buildView(FormView $view, FormInterface $form, array $options);
+public function finishView(FormView $view, FormInterface $form, array $options);
+public function setDefaultOptions(OptionsResolverInterface $resolver);
+public function getParent();
+public function getName();
+}
+}
+namespace Symfony\Component\Form
+{
+use Symfony\Component\Form\Util\StringUtil;
+use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\OptionsResolver\OptionsResolverInterface;
+abstract class AbstractType implements FormTypeInterface
+{
+public function buildForm(FormBuilderInterface $builder, array $options)
+{
+}
+public function buildView(FormView $view, FormInterface $form, array $options)
+{
+}
+public function finishView(FormView $view, FormInterface $form, array $options)
+{
+}
+public function setDefaultOptions(OptionsResolverInterface $resolver)
+{
+if (!$resolver instanceof OptionsResolver) {
+throw new \InvalidArgumentException(sprintf('Custom resolver "%s" must extend "Symfony\Component\OptionsResolver\OptionsResolver".', get_class($resolver)));
+}
+$this->configureOptions($resolver);
+}
+public function configureOptions(OptionsResolver $resolver)
+{
+}
+public function getName()
+{
+return get_class($this);
+}
+public function getBlockPrefix()
+{
+$fqcn = get_class($this);
+$name = $this->getName();
+return $name !== $fqcn ? $name : StringUtil::fqcnToBlockPrefix($fqcn);
+}
+public function getParent()
+{
+return'Symfony\Component\Form\Extension\Core\Type\FormType';
+}
+}
+}
+namespace Sonata\CoreBundle\Form\Type
+{
+use Sonata\CoreBundle\Form\DataTransformer\BooleanTypeToBooleanTransformer;
+use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\FormBuilderInterface;
+use Symfony\Component\OptionsResolver\Options;
+use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\OptionsResolver\OptionsResolverInterface;
+class BooleanType extends AbstractType
+{
+const TYPE_YES = 1;
+const TYPE_NO = 2;
+public function buildForm(FormBuilderInterface $builder, array $options)
+{
+if ($options['transform']) {
+$builder->addModelTransformer(new BooleanTypeToBooleanTransformer());
+}
+if ($options['catalogue'] !=='SonataCoreBundle') {
+@trigger_error('Option "catalogue" is deprecated since SonataCoreBundle 2.3.10 and will be removed in 4.0.'.' Use option "translation_domain" instead.',
+E_USER_DEPRECATED
+);
+}
+}
+public function setDefaultOptions(OptionsResolverInterface $resolver)
+{
+$this->configureOptions($resolver);
+}
+public function configureOptions(OptionsResolver $resolver)
+{
+$choices = array(
+self::TYPE_YES =>'label_type_yes',
+self::TYPE_NO =>'label_type_no',
+);
+$defaultOptions = array('transform'=> false,'catalogue'=>'SonataCoreBundle','translation_domain'=> function (Options $options) {
+if ($options['catalogue']) {
+return $options['catalogue'];
+}
+return $options['translation_domain'];
+},
+);
+if (method_exists('Symfony\Component\Form\AbstractType','configureOptions')) {
+$choices = array_flip($choices);
+$defaultOptions['choice_translation_domain'] ='SonataCoreBundle';
+if (method_exists('Symfony\Component\Form\FormTypeInterface','setDefaultOptions')) {
+$defaultOptions['choices_as_values'] = true;
+}
+}
+$defaultOptions['choices'] = $choices;
+$resolver->setDefaults($defaultOptions);
+}
+public function getParent()
+{
+return method_exists('Symfony\Component\Form\AbstractType','getBlockPrefix') ?'Symfony\Component\Form\Extension\Core\Type\ChoiceType':'choice';
+}
+public function getName()
+{
+return $this->getBlockPrefix();
+}
+public function getBlockPrefix()
+{
+return'sonata_type_boolean';
+}
+}
+}
+namespace Sonata\CoreBundle\Form\Type
+{
+use Sonata\CoreBundle\Form\EventListener\ResizeFormListener;
+use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\FormBuilderInterface;
+use Symfony\Component\Form\FormInterface;
+use Symfony\Component\Form\FormView;
+use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\OptionsResolver\OptionsResolverInterface;
+class CollectionType extends AbstractType
+{
+public function buildForm(FormBuilderInterface $builder, array $options)
+{
+$listener = new ResizeFormListener(
+$options['type'],
+$options['type_options'],
+$options['modifiable'],
+$options['pre_bind_data_callback']
+);
+$builder->addEventSubscriber($listener);
+}
+public function buildView(FormView $view, FormInterface $form, array $options)
+{
+$view->vars['btn_add'] = $options['btn_add'];
+$view->vars['btn_catalogue'] = $options['btn_catalogue'];
+}
+public function setDefaultOptions(OptionsResolverInterface $resolver)
+{
+$this->configureOptions($resolver);
+}
+public function configureOptions(OptionsResolver $resolver)
+{
+$resolver->setDefaults(array('modifiable'=> false,'type'=> method_exists('Symfony\Component\Form\AbstractType','getBlockPrefix')
+?'Symfony\Component\Form\Extension\Core\Type\TextType':'text','type_options'=> array(),'pre_bind_data_callback'=> null,'btn_add'=>'link_add','btn_catalogue'=>'SonataCoreBundle',
+));
+}
+public function getBlockPrefix()
+{
+return'sonata_type_collection';
+}
+public function getName()
+{
+return $this->getBlockPrefix();
+}
+}
+}
+namespace Sonata\CoreBundle\Form\Type
+{
+use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\FormBuilderInterface;
+use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\OptionsResolver\OptionsResolverInterface;
+use Symfony\Component\Translation\TranslatorInterface;
+class DateRangeType extends AbstractType
+{
+protected $translator;
+public function __construct(TranslatorInterface $translator = null)
+{
+if ($translator !== null && get_class($this) !== get_class() && get_class($this) !=='Sonata\CoreBundle\Form\Type\DateRangePickerType') {
+@trigger_error('The translator dependency in '.__CLASS__.' is deprecated since 3.1 and will be removed in 4.0. '.'Please prepare your dependencies for this change.',
+E_USER_DEPRECATED
+);
+}
+$this->translator = $translator;
+}
+public function buildForm(FormBuilderInterface $builder, array $options)
+{
+$options['field_options_start'] = array_merge(
+array('label'=>'date_range_start','translation_domain'=>'SonataCoreBundle',
+),
+$options['field_options_start']
+);
+$options['field_options_end'] = array_merge(
+array('label'=>'date_range_end','translation_domain'=>'SonataCoreBundle',
+),
+$options['field_options_end']
+);
+$builder->add('start', $options['field_type'], array_merge(array('required'=> false), $options['field_options'], $options['field_options_start']));
+$builder->add('end', $options['field_type'], array_merge(array('required'=> false), $options['field_options'], $options['field_options_end']));
+}
+public function getBlockPrefix()
+{
+return'sonata_type_date_range';
+}
+public function getName()
+{
+return $this->getBlockPrefix();
+}
+public function setDefaultOptions(OptionsResolverInterface $resolver)
+{
+$this->configureOptions($resolver);
+}
+public function configureOptions(OptionsResolver $resolver)
+{
+$resolver->setDefaults(array('field_options'=> array(),'field_options_start'=> array(),'field_options_end'=> array(),'field_type'=> method_exists('Symfony\Component\Form\AbstractType','getBlockPrefix')
+?'Symfony\Component\Form\Extension\Core\Type\DateType':'date',
+));
+}
+}
+}
+namespace Sonata\CoreBundle\Form\Type
+{
+use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\FormBuilderInterface;
+use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\OptionsResolver\OptionsResolverInterface;
+use Symfony\Component\Translation\TranslatorInterface;
+class DateTimeRangeType extends AbstractType
+{
+protected $translator;
+public function __construct(TranslatorInterface $translator = null)
+{
+if ($translator !== null && get_class($this) !== get_class() && get_class($this) !=='Sonata\CoreBundle\Form\Type\DateTimeRangePickerType') {
+@trigger_error('The translator dependency in '.__CLASS__.' is deprecated since 3.1 and will be removed in 4.0. '.'Please prepare your dependencies for this change.',
+E_USER_DEPRECATED
+);
+}
+$this->translator = $translator;
+}
+public function buildForm(FormBuilderInterface $builder, array $options)
+{
+$options['field_options_start'] = array_merge(
+array('label'=>'date_range_start','translation_domain'=>'SonataCoreBundle',
+),
+$options['field_options_start']
+);
+$options['field_options_end'] = array_merge(
+array('label'=>'date_range_end','translation_domain'=>'SonataCoreBundle',
+),
+$options['field_options_end']
+);
+$builder->add('start', $options['field_type'], array_merge(array('required'=> false), $options['field_options'], $options['field_options_start']));
+$builder->add('end', $options['field_type'], array_merge(array('required'=> false), $options['field_options'], $options['field_options_end']));
+}
+public function getBlockPrefix()
+{
+return'sonata_type_datetime_range';
+}
+public function getName()
+{
+return $this->getBlockPrefix();
+}
+public function setDefaultOptions(OptionsResolverInterface $resolver)
+{
+$this->configureOptions($resolver);
+}
+public function configureOptions(OptionsResolver $resolver)
+{
+$resolver->setDefaults(array('field_options'=> array(),'field_options_start'=> array(),'field_options_end'=> array(),'field_type'=> method_exists('Symfony\Component\Form\AbstractType','getBlockPrefix')
+?'Symfony\Component\Form\Extension\Core\Type\DateTimeType':'datetime',
+));
+}
+}
+}
+namespace Sonata\CoreBundle\Form\Type
+{
+use Symfony\Component\Form\AbstractType;
+use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\OptionsResolver\OptionsResolverInterface;
+use Symfony\Component\Translation\TranslatorInterface;
+class EqualType extends AbstractType
+{
+const TYPE_IS_EQUAL = 1;
+const TYPE_IS_NOT_EQUAL = 2;
+protected $translator;
+public function __construct(TranslatorInterface $translator = null)
+{
+if ($translator !== null && get_class($this) !== get_class()) {
+@trigger_error('The translator dependency in '.__CLASS__.' is deprecated since 3.1 and will be removed in 4.0. '.'Please prepare your dependencies for this change.',
+E_USER_DEPRECATED
+);
+}
+$this->translator = $translator;
+}
+public function setDefaultOptions(OptionsResolverInterface $resolver)
+{
+$this->configureOptions($resolver);
+}
+public function configureOptions(OptionsResolver $resolver)
+{
+$choices = array(
+self::TYPE_IS_EQUAL =>'label_type_equals',
+self::TYPE_IS_NOT_EQUAL =>'label_type_not_equals',
+);
+$defaultOptions = array('choice_translation_domain'=>'SonataCoreBundle',
+);
+if (method_exists('Symfony\Component\Form\AbstractType','configureOptions')) {
+$choices = array_flip($choices);
+if (method_exists('Symfony\Component\Form\FormTypeInterface','setDefaultOptions')) {
+$defaultOptions['choices_as_values'] = true;
+}
+}
+$defaultOptions['choices'] = $choices;
+$resolver->setDefaults($defaultOptions);
+}
+public function getParent()
+{
+return method_exists('Symfony\Component\Form\AbstractType','getBlockPrefix') ?'Symfony\Component\Form\Extension\Core\Type\ChoiceType':'choice';
+}
+public function getBlockPrefix()
+{
+return'sonata_type_equal';
+}
+public function getName()
+{
+return $this->getBlockPrefix();
+}
+}
+}
+namespace Sonata\CoreBundle\Form\Type
+{
+use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\FormBuilderInterface;
+use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\OptionsResolver\OptionsResolverInterface;
+class ImmutableArrayType extends AbstractType
+{
+public function buildForm(FormBuilderInterface $builder, array $options)
+{
+foreach ($options['keys'] as $infos) {
+if ($infos instanceof FormBuilderInterface) {
+$builder->add($infos);
+} else {
+list($name, $type, $options) = $infos;
+if (is_callable($options)) {
+$extra = array_slice($infos, 3);
+$options = $options($builder, $name, $type, $extra);
+if ($options === null) {
+$options = array();
+} elseif (!is_array($options)) {
+throw new \RuntimeException('the closure must return null or an array');
+}
+}
+$builder->add($name, $type, $options);
+}
+}
+}
+public function setDefaultOptions(OptionsResolverInterface $resolver)
+{
+$this->configureOptions($resolver);
+}
+public function configureOptions(OptionsResolver $resolver)
+{
+$resolver->setDefaults(array('keys'=> array(),
+));
+if (!method_exists('Symfony\Component\OptionsResolver\OptionsResolver','setDefault')) {
+return;
+}
+$resolver->setAllowedValues('keys', function ($value) {
+foreach ($value as $subValue) {
+if (!$subValue instanceof FormBuilderInterface && (!is_array($subValue) || count($subValue) !== 3)) {
+return false;
+}
+}
+return true;
+});
+}
+public function getBlockPrefix()
+{
+return'sonata_type_immutable_array';
+}
+public function getName()
+{
+return $this->getBlockPrefix();
+}
+}
+}
+namespace Sonata\CoreBundle\Form\Type
+{
+use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\FormInterface;
+use Symfony\Component\Form\FormView;
+use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\OptionsResolver\OptionsResolverInterface;
+use Symfony\Component\Translation\TranslatorInterface;
+class TranslatableChoiceType extends AbstractType
+{
+protected $translator;
+public function __construct(TranslatorInterface $translator)
+{
+@trigger_error('Form type "sonata_type_translatable_choice" is deprecated since SonataCoreBundle 2.2.0 and will be'.' removed in 4.0. Use form type "choice" with "translation_domain" option instead.',
+E_USER_DEPRECATED
+);
+$this->translator = $translator;
+}
+public function setDefaultOptions(OptionsResolverInterface $resolver)
+{
+$this->configureOptions($resolver);
+}
+public function configureOptions(OptionsResolver $resolver)
+{
+$resolver->setDefaults(array('catalogue'=>'messages',
+));
+}
+public function buildView(FormView $view, FormInterface $form, array $options)
+{
+$view->vars['translation_domain'] = $options['catalogue'];
+}
+public function getParent()
+{
+return method_exists('Symfony\Component\Form\AbstractType','getBlockPrefix') ?'Symfony\Component\Form\Extension\Core\Type\ChoiceType':'choice';
+}
+public function getBlockPrefix()
+{
+return'sonata_type_translatable_choice';
+}
+public function getName()
+{
+return $this->getBlockPrefix();
+}
+}
+}
+namespace Sonata\BlockBundle\Block
+{
+use Sonata\BlockBundle\Exception\BlockNotFoundException;
+interface BlockLoaderInterface
+{
+public function load($name);
+public function support($name);
+}
+}
+namespace Sonata\BlockBundle\Block
+{
+use Sonata\BlockBundle\Exception\BlockNotFoundException;
+class BlockLoaderChain implements BlockLoaderInterface
+{
+protected $loaders;
+public function __construct(array $loaders)
+{
+$this->loaders = $loaders;
+}
+public function exists($type)
+{
+foreach ($this->loaders as $loader) {
+if ($loader->exists($type)) {
+return true;
+}
+}
+return false;
+}
+public function load($block)
+{
+foreach ($this->loaders as $loader) {
+if ($loader->support($block)) {
+return $loader->load($block);
+}
+}
+throw new BlockNotFoundException();
+}
+public function support($name)
+{
+return true;
+}
+}
+}
+namespace Sonata\BlockBundle\Block
+{
+use Symfony\Component\HttpFoundation\Response;
+interface BlockRendererInterface
+{
+public function render(BlockContextInterface $name, Response $response = null);
+}
+}
+namespace Sonata\BlockBundle\Block
+{
+use Psr\Log\LoggerInterface;
+use Sonata\BlockBundle\Exception\Strategy\StrategyManagerInterface;
+use Symfony\Component\HttpFoundation\Response;
+class BlockRenderer implements BlockRendererInterface
+{
+protected $blockServiceManager;
+protected $exceptionStrategyManager;
+protected $logger;
+protected $debug;
+private $lastResponse;
+public function __construct(BlockServiceManagerInterface $blockServiceManager, StrategyManagerInterface $exceptionStrategyManager, LoggerInterface $logger = null, $debug = false)
+{
+$this->blockServiceManager = $blockServiceManager;
+$this->exceptionStrategyManager = $exceptionStrategyManager;
+$this->logger = $logger;
+$this->debug = $debug;
+}
+public function render(BlockContextInterface $blockContext, Response $response = null)
+{
+$block = $blockContext->getBlock();
+if ($this->logger) {
+$this->logger->info(sprintf('[cms::renderBlock] block.id=%d, block.type=%s ', $block->getId(), $block->getType()));
+}
+try {
+$service = $this->blockServiceManager->get($block);
+$service->load($block);
+$response = $service->execute($blockContext, $this->createResponse($blockContext, $response));
+if (!$response instanceof Response) {
+$response = null;
+throw new \RuntimeException('A block service must return a Response object');
+}
+$response = $this->addMetaInformation($response, $blockContext, $service);
+} catch (\Exception $exception) {
+if ($this->logger) {
+$this->logger->error(sprintf('[cms::renderBlock] block.id=%d - error while rendering block - %s',
+$block->getId(),
+$exception->getMessage()
+), compact('exception'));
+}
+$this->lastResponse = null;
+$response = $this->exceptionStrategyManager->handleException($exception, $blockContext->getBlock(), $response);
+}
+return $response;
+}
+protected function createResponse(BlockContextInterface $blockContext, Response $response = null)
+{
+if (null === $response) {
+$response = new Response();
+}
+if (($ttl = $blockContext->getBlock()->getTtl()) > 0) {
+$response->setTtl($ttl);
+}
+return $response;
+}
+protected function addMetaInformation(Response $response, BlockContextInterface $blockContext, BlockServiceInterface $service)
+{
+if ($this->lastResponse && $this->lastResponse->isCacheable()) {
+$response->setTtl($this->lastResponse->getTtl());
+$response->setPublic();
+} elseif ($this->lastResponse) { $response->setPrivate();
+$response->setTtl(0);
+$response->headers->removeCacheControlDirective('s-maxage');
+$response->headers->removeCacheControlDirective('maxage');
+}
+if (!$blockContext->getBlock()->hasParent()) {
+$this->lastResponse = null;
+} else { $this->lastResponse = $response;
+}
+return $response;
+}
+}
+}
+namespace Sonata\BlockBundle\Block
+{
+use Sonata\BlockBundle\Model\BlockInterface;
+use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\OptionsResolver\OptionsResolverInterface;
+interface BlockServiceInterface
+{
+public function execute(BlockContextInterface $blockContext, Response $response = null);
+public function getName();
+public function setDefaultSettings(OptionsResolverInterface $resolver);
+public function load(BlockInterface $block);
+public function getJavascripts($media);
+public function getStylesheets($media);
+public function getCacheKeys(BlockInterface $block);
+}
+}
+namespace Sonata\BlockBundle\Block
+{
+use Sonata\BlockBundle\Model\BlockInterface;
+use Sonata\CoreBundle\Validator\ErrorElement;
+interface BlockServiceManagerInterface
+{
+public function add($name, $service, $contexts = array());
+public function get(BlockInterface $block);
+public function setServices(array $blockServices);
+public function getServices();
+public function getServicesByContext($name, $includeContainers = true);
+public function has($name);
+public function getService($name);
+public function getLoadedServices();
+public function validate(ErrorElement $errorElement, BlockInterface $block);
+}
+}
+namespace Sonata\BlockBundle\Block
+{
+use Psr\Log\LoggerInterface;
+use Sonata\BlockBundle\Model\BlockInterface;
+use Sonata\CoreBundle\Validator\ErrorElement;
+use Symfony\Component\DependencyInjection\ContainerInterface;
+class BlockServiceManager implements BlockServiceManagerInterface
+{
+protected $services;
+protected $container;
+protected $inValidate;
+protected $contexts;
+public function __construct(ContainerInterface $container, $debug, LoggerInterface $logger = null)
+{
+$this->services = array();
+$this->contexts = array();
+$this->container = $container;
+}
+public function get(BlockInterface $block)
+{
+$this->load($block->getType());
+return $this->services[$block->getType()];
+}
+public function getService($id)
+{
+return $this->load($id);
+}
+public function has($id)
+{
+return isset($this->services[$id]) ? true : false;
+}
+public function add($name, $service, $contexts = array())
+{
+$this->services[$name] = $service;
+foreach ($contexts as $context) {
+if (!array_key_exists($context, $this->contexts)) {
+$this->contexts[$context] = array();
+}
+$this->contexts[$context][] = $name;
+}
+}
+public function setServices(array $blockServices)
+{
+foreach ($blockServices as $name => $service) {
+$this->add($name, $service);
+}
+}
+public function getServices()
+{
+foreach ($this->services as $name => $id) {
+if (is_string($id)) {
+$this->load($id);
+}
+}
+return $this->sortServices($this->services);
+}
+public function getServicesByContext($context, $includeContainers = true)
+{
+if (!array_key_exists($context, $this->contexts)) {
+return array();
+}
+$services = array();
+$containers = $this->container->getParameter('sonata.block.container.types');
+foreach ($this->contexts[$context] as $name) {
+if (!$includeContainers && in_array($name, $containers)) {
+continue;
+}
+$services[$name] = $this->getService($name);
+}
+return $this->sortServices($services);
+}
+public function getLoadedServices()
+{
+$services = array();
+foreach ($this->services as $service) {
+if (!$service instanceof BlockServiceInterface) {
+continue;
+}
+$services[] = $service;
+}
+return $services;
+}
+public function validate(ErrorElement $errorElement, BlockInterface $block)
+{
+if (!$block->getId() && !$block->getType()) {
+return;
+}
+if ($this->inValidate) {
+return;
+}
+try {
+$this->inValidate = true;
+$this->get($block)->validateBlock($errorElement, $block);
+$this->inValidate = false;
+} catch (\Exception $e) {
+$this->inValidate = false;
+}
+}
+private function load($type)
+{
+if (!$this->has($type)) {
+throw new \RuntimeException(sprintf('The block service `%s` does not exist', $type));
+}
+if (!$this->services[$type] instanceof BlockServiceInterface) {
+$this->services[$type] = $this->container->get($type);
+}
+if (!$this->services[$type] instanceof BlockServiceInterface) {
+throw new \RuntimeException(sprintf('The service %s does not implement BlockServiceInterface', $type));
+}
+return $this->services[$type];
+}
+private function sortServices($services)
+{
+uasort($services, function ($a, $b) {
+if ($a->getName() == $b->getName()) {
+return 0;
+}
+return ($a->getName() < $b->getName()) ? -1 : 1;
+});
+return $services;
+}
+}
+}
+namespace Sonata\BlockBundle\Block\Loader
+{
+use Sonata\BlockBundle\Block\BlockLoaderInterface;
+use Sonata\BlockBundle\Model\Block;
+class ServiceLoader implements BlockLoaderInterface
+{
+protected $types;
+public function __construct(array $types)
+{
+$this->types = $types;
+}
+public function exists($type)
+{
+return in_array($type, $this->types, true);
+}
+public function load($configuration)
+{
+if (!in_array($configuration['type'], $this->types)) {
+throw new \RuntimeException(sprintf('The block type "%s" does not exist',
+$configuration['type']
+));
+}
+$block = new Block();
+$block->setId(uniqid());
+$block->setType($configuration['type']);
+$block->setEnabled(true);
+$block->setCreatedAt(new \DateTime());
+$block->setUpdatedAt(new \DateTime());
+$block->setSettings(isset($configuration['settings']) ? $configuration['settings'] : array());
+return $block;
+}
+public function support($configuration)
+{
+if (!is_array($configuration)) {
+return false;
+}
+if (!isset($configuration['type'])) {
+return false;
+}
+return true;
+}
+}
+}
+namespace Sonata\BlockBundle\Block\Service
+{
+interface BlockServiceInterface extends \Sonata\BlockBundle\Block\BlockServiceInterface
+{
+}
+}
+namespace Sonata\BlockBundle\Block\Service
+{
+use Sonata\BlockBundle\Block\BlockContextInterface;
+use Sonata\BlockBundle\Model\BlockInterface;
+use Symfony\Bundle\FrameworkBundle\Templating\EngineInterface;
+use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\OptionsResolver\OptionsResolverInterface;
+abstract class AbstractBlockService implements BlockServiceInterface
+{
+protected $name;
+protected $templating;
+public function __construct($name = null, EngineInterface $templating = null)
+{
+if (null === $name || null === $templating) {
+@trigger_error('The $name and $templating parameters will be required fields with the 4.0 release.',
+E_USER_DEPRECATED
+);
+}
+$this->name = $name;
+$this->templating = $templating;
+}
+public function renderResponse($view, array $parameters = array(), Response $response = null)
+{
+return $this->getTemplating()->renderResponse($view, $parameters, $response);
+}
+public function renderPrivateResponse($view, array $parameters = array(), Response $response = null)
+{
+return $this->renderResponse($view, $parameters, $response)
+->setTtl(0)
+->setPrivate()
+;
+}
+public function setDefaultSettings(OptionsResolverInterface $resolver)
+{
+$this->configureSettings($resolver);
+}
+public function configureSettings(OptionsResolver $resolver)
+{
+}
+public function getCacheKeys(BlockInterface $block)
+{
+return array('block_id'=> $block->getId(),'updated_at'=> $block->getUpdatedAt() ? $block->getUpdatedAt()->format('U') : strtotime('now'),
+);
+}
+public function load(BlockInterface $block)
+{
+}
+public function getJavascripts($media)
+{
+return array();
+}
+public function getStylesheets($media)
+{
+return array();
+}
+public function execute(BlockContextInterface $blockContext, Response $response = null)
+{
+return $this->renderResponse($blockContext->getTemplate(), array('block_context'=> $blockContext,'block'=> $blockContext->getBlock(),
+), $response);
+}
+public function getName()
+{
+return $this->name;
+}
+public function getTemplating()
+{
+return $this->templating;
+}
+}
+}
+namespace Sonata\BlockBundle\Block\Service
+{
+use Sonata\AdminBundle\Form\FormMapper;
+use Sonata\BlockBundle\Block\BlockContextInterface;
+use Sonata\BlockBundle\Model\BlockInterface;
+use Sonata\CoreBundle\Validator\ErrorElement;
+use Symfony\Component\HttpFoundation\Response;
+class EmptyBlockService extends AbstractBlockService
+{
+public function buildEditForm(FormMapper $form, BlockInterface $block)
+{
+throw new \RuntimeException('Not used, this block renders an empty result if no block document can be found');
+}
+public function validateBlock(ErrorElement $errorElement, BlockInterface $block)
+{
+throw new \RuntimeException('Not used, this block renders an empty result if no block document can be found');
+}
+public function execute(BlockContextInterface $blockContext, Response $response = null)
+{
+return new Response();
+}
+}
+}
+namespace Sonata\BlockBundle\Block\Service
+{
+use Sonata\AdminBundle\Form\FormMapper;
+use Sonata\BlockBundle\Model\BlockInterface;
+use Sonata\CoreBundle\Model\MetadataInterface;
+use Sonata\CoreBundle\Validator\ErrorElement;
+interface AdminBlockServiceInterface extends BlockServiceInterface
+{
+public function buildEditForm(FormMapper $form, BlockInterface $block);
+public function buildCreateForm(FormMapper $form, BlockInterface $block);
+public function validateBlock(ErrorElement $errorElement, BlockInterface $block);
+public function getBlockMetadata($code = null);
+}
+}
+namespace Sonata\BlockBundle\Block\Service
+{
+use Sonata\AdminBundle\Form\FormMapper;
+use Sonata\BlockBundle\Model\BlockInterface;
+use Sonata\CoreBundle\Model\Metadata;
+use Sonata\CoreBundle\Validator\ErrorElement;
+use Symfony\Bundle\FrameworkBundle\Templating\EngineInterface;
+abstract class AbstractAdminBlockService extends AbstractBlockService implements AdminBlockServiceInterface
+{
+public function __construct($name, EngineInterface $templating)
+{
+parent::__construct($name, $templating);
+}
+public function buildCreateForm(FormMapper $formMapper, BlockInterface $block)
+{
+$this->buildEditForm($formMapper, $block);
+}
+public function prePersist(BlockInterface $block)
+{
+}
+public function postPersist(BlockInterface $block)
+{
+}
+public function preUpdate(BlockInterface $block)
+{
+}
+public function postUpdate(BlockInterface $block)
+{
+}
+public function preRemove(BlockInterface $block)
+{
+}
+public function postRemove(BlockInterface $block)
+{
+}
+public function buildEditForm(FormMapper $form, BlockInterface $block)
+{
+}
+public function validateBlock(ErrorElement $errorElement, BlockInterface $block)
+{
+}
+public function getBlockMetadata($code = null)
+{
+return new Metadata($this->getName(), (!is_null($code) ? $code : $this->getName()), false,'SonataBlockBundle', array('class'=>'fa fa-file'));
+}
+}
+}
+namespace Sonata\BlockBundle\Block\Service
+{
+use Sonata\AdminBundle\Form\FormMapper;
+use Sonata\BlockBundle\Block\BlockContextInterface;
+use Sonata\BlockBundle\Model\BlockInterface;
+use Sonata\CoreBundle\Model\Metadata;
+use Sonata\CoreBundle\Validator\ErrorElement;
+use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\OptionsResolver\OptionsResolver;
+class RssBlockService extends AbstractAdminBlockService
+{
+public function configureSettings(OptionsResolver $resolver)
+{
+$resolver->setDefaults(array('url'=> false,'title'=>'Insert the rss title','template'=>'SonataBlockBundle:Block:block_core_rss.html.twig',
+));
+}
+public function buildEditForm(FormMapper $formMapper, BlockInterface $block)
+{
+$formMapper->add('settings','sonata_type_immutable_array', array('keys'=> array(
+array('url','url', array('required'=> false)),
+array('title','text', array('required'=> false)),
+),
+));
+}
+public function validateBlock(ErrorElement $errorElement, BlockInterface $block)
+{
+$errorElement
+->with('settings[url]')
+->assertNotNull(array())
+->assertNotBlank()
+->end()
+->with('settings[title]')
+->assertNotNull(array())
+->assertNotBlank()
+->assertLength(array('max'=> 50))
+->end();
+}
+public function execute(BlockContextInterface $blockContext, Response $response = null)
+{
+$settings = $blockContext->getSettings();
+$feeds = false;
+if ($settings['url']) {
+$options = array('http'=> array('user_agent'=>'Sonata/RSS Reader','timeout'=> 2,
+),
+);
+$content = @file_get_contents($settings['url'], false, stream_context_create($options));
+if ($content) {
+try {
+$feeds = new \SimpleXMLElement($content);
+$feeds = $feeds->channel->item;
+} catch (\Exception $e) {
+}
+}
+}
+return $this->renderResponse($blockContext->getTemplate(), array('feeds'=> $feeds,'block'=> $blockContext->getBlock(),'settings'=> $settings,
+), $response);
+}
+public function getBlockMetadata($code = null)
+{
+return new Metadata($this->getName(), (!is_null($code) ? $code : $this->getName()), false,'SonataBlockBundle', array('class'=>'fa fa-rss-square',
+));
+}
+}
+}
+namespace Sonata\BlockBundle\Block\Service
+{
+use Knp\Menu\ItemInterface;
+use Knp\Menu\Provider\MenuProviderInterface;
+use Sonata\AdminBundle\Form\FormMapper;
+use Sonata\BlockBundle\Block\BlockContextInterface;
+use Sonata\BlockBundle\Menu\MenuRegistryInterface;
+use Sonata\BlockBundle\Model\BlockInterface;
+use Sonata\CoreBundle\Model\Metadata;
+use Sonata\CoreBundle\Validator\ErrorElement;
+use Symfony\Bundle\FrameworkBundle\Templating\EngineInterface;
+use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\OptionsResolver\OptionsResolver;
+class MenuBlockService extends AbstractAdminBlockService
+{
+protected $menuProvider;
+protected $menus;
+protected $menuRegistry;
+public function __construct($name, EngineInterface $templating, MenuProviderInterface $menuProvider, $menuRegistry)
+{
+parent::__construct($name, $templating);
+$this->menuProvider = $menuProvider;
+if ($menuRegistry instanceof MenuRegistryInterface) {
+$this->menuRegistry = $menuRegistry;
+} else {
+@trigger_error('Initializing '.__CLASS__.' with an array parameter is deprecated since 3.x and will be removed in 4.0.',
+E_USER_DEPRECATED
+);
+$this->menus = $menuRegistry;
+}
+}
+public function execute(BlockContextInterface $blockContext, Response $response = null)
+{
+$responseSettings = array('menu'=> $this->getMenu($blockContext),'menu_options'=> $this->getMenuOptions($blockContext->getSettings()),'block'=> $blockContext->getBlock(),'context'=> $blockContext,
+);
+if ('private'=== $blockContext->getSettings('cache_policy')) {
+return $this->renderPrivateResponse($blockContext->getTemplate(), $responseSettings, $response);
+}
+return $this->renderResponse($blockContext->getTemplate(), $responseSettings, $response);
+}
+public function buildEditForm(FormMapper $form, BlockInterface $block)
+{
+$form->add('settings','sonata_type_immutable_array', array('keys'=> $this->getFormSettingsKeys(),
+));
+}
+public function validateBlock(ErrorElement $errorElement, BlockInterface $block)
+{
+if (($name = $block->getSetting('menu_name')) && $name !==''&& !$this->menuProvider->has($name)) {
+$errorElement->with('menu_name')
+->addViolation('sonata.block.menu.not_existing', array('name'=> $name))
+->end();
+}
+}
+public function configureSettings(OptionsResolver $resolver)
+{
+$resolver->setDefaults(array('title'=> $this->getName(),'cache_policy'=>'public','template'=>'SonataBlockBundle:Block:block_core_menu.html.twig','menu_name'=>'','safe_labels'=> false,'current_class'=>'active','first_class'=> false,'last_class'=> false,'current_uri'=> null,'menu_class'=>'list-group','children_class'=>'list-group-item','menu_template'=> null,
+));
+}
+public function getBlockMetadata($code = null)
+{
+return new Metadata($this->getName(), (!is_null($code) ? $code : $this->getName()), false,'SonataBlockBundle', array('class'=>'fa fa-bars',
+));
+}
+protected function getFormSettingsKeys()
+{
+$choiceOptions = array('required'=> false,
+);
+$choices = $this->menus;
+if (count($choices) == 0) {
+$choices = $this->menuRegistry->getAliasNames();
+}
+if (method_exists('Symfony\Component\Form\AbstractType','configureOptions')) {
+$choices = array_flip($choices);
+if (method_exists('Symfony\Component\Form\FormTypeInterface','setDefaultOptions')) {
+$choiceOptions['choices_as_values'] = true;
+}
+}
+$choiceOptions['choices'] = $choices;
+return array(
+array('title','text', array('required'=> false)),
+array('cache_policy','choice', array('choices'=> array('public','private'))),
+array('menu_name','choice', $choiceOptions),
+array('safe_labels','checkbox', array('required'=> false)),
+array('current_class','text', array('required'=> false)),
+array('first_class','text', array('required'=> false)),
+array('last_class','text', array('required'=> false)),
+array('menu_class','text', array('required'=> false)),
+array('children_class','text', array('required'=> false)),
+array('menu_template','text', array('required'=> false)),
+);
+}
+protected function getMenu(BlockContextInterface $blockContext)
+{
+$settings = $blockContext->getSettings();
+return $settings['menu_name'];
+}
+protected function getMenuOptions(array $settings)
+{
+$mapping = array('current_class'=>'currentClass','first_class'=>'firstClass','last_class'=>'lastClass','safe_labels'=>'allow_safe_labels','menu_template'=>'template',
+);
+$options = array();
+foreach ($settings as $key => $value) {
+if (array_key_exists($key, $mapping) && null !== $value) {
+$options[$mapping[$key]] = $value;
+}
+}
+return $options;
+}
+}
+}
+namespace Sonata\BlockBundle\Block\Service
+{
+use Sonata\AdminBundle\Form\FormMapper;
+use Sonata\BlockBundle\Block\BlockContextInterface;
+use Sonata\BlockBundle\Model\BlockInterface;
+use Sonata\CoreBundle\Model\Metadata;
+use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\OptionsResolver\OptionsResolver;
+class TextBlockService extends AbstractAdminBlockService
+{
+public function execute(BlockContextInterface $blockContext, Response $response = null)
+{
+return $this->renderResponse($blockContext->getTemplate(), array('block'=> $blockContext->getBlock(),'settings'=> $blockContext->getSettings(),
+), $response);
+}
+public function buildEditForm(FormMapper $formMapper, BlockInterface $block)
+{
+$formMapper->add('settings','sonata_type_immutable_array', array('keys'=> array(
+array('content','textarea', array()),
+),
+));
+}
+public function configureSettings(OptionsResolver $resolver)
+{
+$resolver->setDefaults(array('content'=>'Insert your custom content here','template'=>'SonataBlockBundle:Block:block_core_text.html.twig',
+));
+}
+public function getBlockMetadata($code = null)
+{
+return new Metadata($this->getName(), (!is_null($code) ? $code : $this->getName()), false,'SonataBlockBundle', array('class'=>'fa fa-file-text-o',
+));
+}
+}
+}
+namespace Sonata\BlockBundle\Exception
+{
+interface BlockExceptionInterface
+{
+}
+}
+namespace Symfony\Component\HttpKernel\Exception
+{
+interface HttpExceptionInterface
+{
+public function getStatusCode();
+public function getHeaders();
+}
+}
+namespace Symfony\Component\HttpKernel\Exception
+{
+class HttpException extends \RuntimeException implements HttpExceptionInterface
+{
+private $statusCode;
+private $headers;
+public function __construct($statusCode, $message = null, \Exception $previous = null, array $headers = array(), $code = 0)
+{
+$this->statusCode = $statusCode;
+$this->headers = $headers;
+parent::__construct($message, $code, $previous);
+}
+public function getStatusCode()
+{
+return $this->statusCode;
+}
+public function getHeaders()
+{
+return $this->headers;
+}
+}
+}
+namespace Symfony\Component\HttpKernel\Exception
+{
+class NotFoundHttpException extends HttpException
+{
+public function __construct($message = null, \Exception $previous = null, $code = 0)
+{
+parent::__construct(404, $message, $previous, array(), $code);
+}
+}
+}
+namespace Sonata\BlockBundle\Exception
+{
+use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
+class BlockNotFoundException extends NotFoundHttpException
+{
+}
+}
+namespace Sonata\BlockBundle\Exception\Filter
+{
+use Sonata\BlockBundle\Model\BlockInterface;
+interface FilterInterface
+{
+public function handle(\Exception $exception, BlockInterface $block);
+}
+}
+namespace Sonata\BlockBundle\Exception\Filter
+{
+use Sonata\BlockBundle\Model\BlockInterface;
+class DebugOnlyFilter implements FilterInterface
+{
+protected $debug;
+public function __construct($debug)
+{
+$this->debug = $debug;
+}
+public function handle(\Exception $exception, BlockInterface $block)
+{
+return $this->debug ? true : false;
+}
+}
+}
+namespace Sonata\BlockBundle\Exception\Filter
+{
+use Sonata\BlockBundle\Model\BlockInterface;
+class IgnoreClassFilter implements FilterInterface
+{
+protected $class;
+public function __construct($class)
+{
+$this->class = $class;
+}
+public function handle(\Exception $exception, BlockInterface $block)
+{
+return !$exception instanceof $this->class;
+}
+}
+}
+namespace Sonata\BlockBundle\Exception\Filter
+{
+use Sonata\BlockBundle\Model\BlockInterface;
+class KeepAllFilter implements FilterInterface
+{
+public function handle(\Exception $exception, BlockInterface $block)
+{
+return true;
+}
+}
+}
+namespace Sonata\BlockBundle\Exception\Filter
+{
+use Sonata\BlockBundle\Model\BlockInterface;
+class KeepNoneFilter implements FilterInterface
+{
+public function handle(\Exception $exception, BlockInterface $block)
+{
+return false;
+}
+}
+}
+namespace Sonata\BlockBundle\Exception\Renderer
+{
+use Sonata\BlockBundle\Model\BlockInterface;
+use Symfony\Component\HttpFoundation\Response;
+interface RendererInterface
+{
+public function render(\Exception $exception, BlockInterface $block, Response $response = null);
+}
+}
+namespace Sonata\BlockBundle\Exception\Renderer
+{
+use Sonata\BlockBundle\Model\BlockInterface;
+use Symfony\Component\Debug\Exception\FlattenException;
+use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\Templating\EngineInterface;
+class InlineDebugRenderer implements RendererInterface
+{
+protected $templating;
+protected $template;
+protected $forceStyle;
+protected $debug;
+public function __construct(EngineInterface $templating, $template, $debug, $forceStyle = true)
+{
+$this->templating = $templating;
+$this->template = $template;
+$this->debug = $debug;
+$this->forceStyle = $forceStyle;
+}
+public function render(\Exception $exception, BlockInterface $block, Response $response = null)
+{
+$response = $response ?: new Response();
+if (!$this->debug) {
+return $response;
+}
+$flattenException = FlattenException::create($exception);
+$code = $flattenException->getStatusCode();
+$parameters = array('exception'=> $flattenException,'status_code'=> $code,'status_text'=> isset(Response::$statusTexts[$code]) ? Response::$statusTexts[$code] :'','logger'=> false,'currentContent'=> false,'block'=> $block,'forceStyle'=> $this->forceStyle,
+);
+$content = $this->templating->render($this->template, $parameters);
+$response->setContent($content);
+return $response;
+}
+}
+}
+namespace Sonata\BlockBundle\Exception\Renderer
+{
+use Sonata\BlockBundle\Model\BlockInterface;
+use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\Templating\EngineInterface;
+class InlineRenderer implements RendererInterface
+{
+protected $templating;
+protected $template;
+public function __construct(EngineInterface $templating, $template)
+{
+$this->templating = $templating;
+$this->template = $template;
+}
+public function render(\Exception $exception, BlockInterface $block, Response $response = null)
+{
+$parameters = array('exception'=> $exception,'block'=> $block,
+);
+$content = $this->templating->render($this->template, $parameters);
+$response = $response ?: new Response();
+$response->setContent($content);
+return $response;
+}
+}
+}
+namespace Sonata\BlockBundle\Exception\Renderer
+{
+use Sonata\BlockBundle\Model\BlockInterface;
+use Symfony\Component\HttpFoundation\Response;
+class MonkeyThrowRenderer implements RendererInterface
+{
+public function render(\Exception $banana, BlockInterface $block, Response $response = null)
+{
+throw $banana;
+}
+}
+}
+namespace Sonata\BlockBundle\Exception\Strategy
+{
+use Sonata\BlockBundle\Model\BlockInterface;
+use Symfony\Component\HttpFoundation\Response;
+interface StrategyManagerInterface
+{
+public function handleException(\Exception $exception, BlockInterface $block, Response $response = null);
+}
+}
+namespace Sonata\BlockBundle\Exception\Strategy
+{
+use Sonata\BlockBundle\Exception\Filter\FilterInterface;
+use Sonata\BlockBundle\Exception\Renderer\RendererInterface;
+use Sonata\BlockBundle\Model\BlockInterface;
+use Symfony\Component\DependencyInjection\ContainerInterface;
+use Symfony\Component\HttpFoundation\Response;
+class StrategyManager implements StrategyManagerInterface
+{
+protected $container;
+protected $filters;
+protected $renderers;
+protected $blockFilters;
+protected $blockRenderers;
+protected $defaultFilter;
+protected $defaultRenderer;
+public function __construct(ContainerInterface $container, array $filters, array $renderers, array $blockFilters, array $blockRenderers)
+{
+$this->container = $container;
+$this->filters = $filters;
+$this->renderers = $renderers;
+$this->blockFilters = $blockFilters;
+$this->blockRenderers = $blockRenderers;
+}
+public function setDefaultFilter($name)
+{
+if (!array_key_exists($name, $this->filters)) {
+throw new \InvalidArgumentException(sprintf('Cannot set default exception filter "%s". It does not exist.', $name));
+}
+$this->defaultFilter = $name;
+}
+public function setDefaultRenderer($name)
+{
+if (!array_key_exists($name, $this->renderers)) {
+throw new \InvalidArgumentException(sprintf('Cannot set default exception renderer "%s". It does not exist.', $name));
+}
+$this->defaultRenderer = $name;
+}
+public function handleException(\Exception $exception, BlockInterface $block, Response $response = null)
+{
+$response = $response ?: new Response();
+$response->setPrivate();
+$filter = $this->getBlockFilter($block);
+if ($filter->handle($exception, $block)) {
+$renderer = $this->getBlockRenderer($block);
+$response = $renderer->render($exception, $block, $response);
+}
+return $response;
+}
+public function getBlockRenderer(BlockInterface $block)
+{
+$type = $block->getType();
+$name = isset($this->blockRenderers[$type]) ? $this->blockRenderers[$type] : $this->defaultRenderer;
+$service = $this->getRendererService($name);
+if (!$service instanceof RendererInterface) {
+throw new \RuntimeException(sprintf('The service "%s" is not an exception renderer', $name));
+}
+return $service;
+}
+public function getBlockFilter(BlockInterface $block)
+{
+$type = $block->getType();
+$name = isset($this->blockFilters[$type]) ? $this->blockFilters[$type] : $this->defaultFilter;
+$service = $this->getFilterService($name);
+if (!$service instanceof FilterInterface) {
+throw new \RuntimeException(sprintf('The service "%s" is not an exception filter', $name));
+}
+return $service;
+}
+protected function getFilterService($name)
+{
+if (!isset($this->filters[$name])) {
+throw new \RuntimeException('The filter "%s" does not exist.');
+}
+return $this->container->get($this->filters[$name]);
+}
+protected function getRendererService($name)
+{
+if (!isset($this->renderers[$name])) {
+throw new \RuntimeException('The renderer "%s" does not exist.');
+}
+return $this->container->get($this->renderers[$name]);
+}
+}
+}
+namespace Sonata\BlockBundle\Form\Type
+{
+use Sonata\BlockBundle\Block\BlockServiceManagerInterface;
+use Symfony\Component\Form\AbstractType;
+use Symfony\Component\OptionsResolver\Options;
+use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\OptionsResolver\OptionsResolverInterface;
+class ServiceListType extends AbstractType
+{
+protected $manager;
+public function __construct(BlockServiceManagerInterface $manager)
+{
+$this->manager = $manager;
+}
+public function getBlockPrefix()
+{
+return'sonata_block_service_choice';
+}
+public function getName()
+{
+return $this->getBlockPrefix();
+}
+public function getParent()
+{
+return'choice';
+}
+public function setDefaultOptions(OptionsResolverInterface $resolver)
+{
+$this->configureOptions($resolver);
+}
+public function configureOptions(OptionsResolver $resolver)
+{
+$manager = $this->manager;
+$resolver->setRequired(array('context',
+));
+$resolver->setDefaults(array('multiple'=> false,'expanded'=> false,'choices'=> function (Options $options, $previousValue) use ($manager) {
+$types = array();
+foreach ($manager->getServicesByContext($options['context'], $options['include_containers']) as $code => $service) {
+$types[$code] = sprintf('%s - %s', $service->getName(), $code);
+}
+return $types;
+},'preferred_choices'=> array(),'empty_data'=> function (Options $options) {
+$multiple = isset($options['multiple']) && $options['multiple'];
+$expanded = isset($options['expanded']) && $options['expanded'];
+return $multiple || $expanded ? array() :'';
+},'empty_value'=> function (Options $options, $previousValue) {
+$multiple = isset($options['multiple']) && $options['multiple'];
+$expanded = isset($options['expanded']) && $options['expanded'];
+return $multiple || $expanded || !isset($previousValue) ? null :'';
+},'error_bubbling'=> false,'include_containers'=> false,
+));
+}
+}
+}
+namespace Sonata\BlockBundle\Model
+{
+use Doctrine\Common\Collections\Collection;
+interface BlockInterface
+{
+public function setId($id);
+public function getId();
+public function setName($name);
+public function getName();
+public function setType($type);
+public function getType();
+public function setEnabled($enabled);
+public function getEnabled();
+public function setPosition($position);
+public function getPosition();
+public function setCreatedAt(\DateTime $createdAt = null);
+public function getCreatedAt();
+public function setUpdatedAt(\DateTime $updatedAt = null);
+public function getUpdatedAt();
+public function getTtl();
+public function setSettings(array $settings = array());
+public function getSettings();
+public function setSetting($name, $value);
+public function getSetting($name, $default = null);
+public function addChildren(BlockInterface $children);
+public function getChildren();
+public function hasChildren();
+public function setParent(BlockInterface $parent = null);
+public function getParent();
+public function hasParent();
+}
+}
+namespace Sonata\BlockBundle\Model
+{
+abstract class BaseBlock implements BlockInterface
+{
+protected $name;
+protected $settings;
+protected $enabled;
+protected $position;
+protected $parent;
+protected $children;
+protected $createdAt;
+protected $updatedAt;
+protected $type;
+protected $ttl;
+public function __construct()
+{
+$this->settings = array();
+$this->enabled = false;
+$this->children = array();
+}
+public function __toString()
+{
+return sprintf('%s ~ #%s', $this->getname(), $this->getId());
+}
+public function setName($name)
+{
+$this->name = $name;
+}
+public function getName()
+{
+return $this->name;
+}
+public function setType($type)
+{
+$this->type = $type;
+}
+public function getType()
+{
+return $this->type;
+}
+public function setSettings(array $settings = array())
+{
+$this->settings = $settings;
+}
+public function getSettings()
+{
+return $this->settings;
+}
+public function setSetting($name, $value)
+{
+$this->settings[$name] = $value;
+}
+public function getSetting($name, $default = null)
+{
+return isset($this->settings[$name]) ? $this->settings[$name] : $default;
+}
+public function setEnabled($enabled)
+{
+$this->enabled = $enabled;
+}
+public function getEnabled()
+{
+return $this->enabled;
+}
+public function setPosition($position)
+{
+$this->position = $position;
+}
+public function getPosition()
+{
+return $this->position;
+}
+public function setCreatedAt(\DateTime $createdAt = null)
+{
+$this->createdAt = $createdAt;
+}
+public function getCreatedAt()
+{
+return $this->createdAt;
+}
+public function setUpdatedAt(\DateTime $updatedAt = null)
+{
+$this->updatedAt = $updatedAt;
+}
+public function getUpdatedAt()
+{
+return $this->updatedAt;
+}
+public function addChildren(BlockInterface $child)
+{
+$this->children[] = $child;
+$child->setParent($this);
+}
+public function getChildren()
+{
+return $this->children;
+}
+public function setParent(BlockInterface $parent = null)
+{
+$this->parent = $parent;
+}
+public function getParent()
+{
+return $this->parent;
+}
+public function hasParent()
+{
+return $this->getParent() instanceof self;
+}
+public function getTtl()
+{
+if (!$this->getSetting('use_cache', true)) {
+return 0;
+}
+$ttl = $this->getSetting('ttl', 86400);
+foreach ($this->getChildren() as $block) {
+$blockTtl = $block->getTtl();
+$ttl = ($blockTtl < $ttl) ? $blockTtl : $ttl;
+}
+$this->ttl = $ttl;
+return $this->ttl;
+}
+public function hasChildren()
+{
+return count($this->children) > 0;
+}
+}
+}
+namespace Sonata\BlockBundle\Model
+{
+class Block extends BaseBlock
+{
+protected $id;
+public function setId($id)
+{
+$this->id = $id;
+}
+public function getId()
+{
+return $this->id;
+}
+}
+}
+namespace Sonata\CoreBundle\Model
+{
+use Doctrine\DBAL\Connection;
+interface ManagerInterface
+{
+public function getClass();
+public function findAll();
+public function findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null);
+public function findOneBy(array $criteria, array $orderBy = null);
+public function find($id);
+public function create();
+public function save($entity, $andFlush = true);
+public function delete($entity, $andFlush = true);
+public function getTableName();
+public function getConnection();
+}
+}
+namespace Sonata\CoreBundle\Model
+{
+use Sonata\DatagridBundle\Pager\PagerInterface;
+interface PageableManagerInterface
+{
+public function getPager(array $criteria, $page, $limit = 10, array $sort = array());
+}
+}
+namespace Sonata\BlockBundle\Model
+{
+use Sonata\CoreBundle\Model\ManagerInterface;
+use Sonata\CoreBundle\Model\PageableManagerInterface;
+interface BlockManagerInterface extends ManagerInterface, PageableManagerInterface
+{
+}
+}
+namespace Sonata\BlockBundle\Model
+{
+class EmptyBlock extends Block
+{
+}
+}
+namespace Sonata\BlockBundle\Twig\Extension
+{
+use Sonata\BlockBundle\Templating\Helper\BlockHelper;
+class BlockExtension extends \Twig_Extension
+{
+protected $blockHelper;
+public function __construct(BlockHelper $blockHelper)
+{
+$this->blockHelper = $blockHelper;
+}
+public function getFunctions()
+{
+return array(
+new \Twig_SimpleFunction('sonata_block_exists',
+array($this->blockHelper,'exists')
+),
+new \Twig_SimpleFunction('sonata_block_render',
+array($this->blockHelper,'render'),
+array('is_safe'=> array('html'))
+),
+new \Twig_SimpleFunction('sonata_block_render_event',
+array($this->blockHelper,'renderEvent'),
+array('is_safe'=> array('html'))
+),
+new \Twig_SimpleFunction('sonata_block_include_javascripts',
+array($this->blockHelper,'includeJavascripts'),
+array('is_safe'=> array('html'))
+),
+new \Twig_SimpleFunction('sonata_block_include_stylesheets',
+array($this->blockHelper,'includeStylesheets'),
+array('is_safe'=> array('html'))
+),
+);
+}
+public function getName()
+{
+return'sonata_block';
+}
+}
+}
+namespace Sonata\BlockBundle\Twig
+{
+class GlobalVariables
+{
+protected $templates;
+public function __construct(array $templates)
+{
+$this->templates = $templates;
+}
+public function getTemplates()
+{
+return $this->templates;
+}
+}
+}
 namespace Sonata\MediaBundle\CDN
 {
 interface CDNInterface
@@ -7057,31 +8794,6 @@ public function getUpdatedAt()
 {
 return $this->updatedAt;
 }
-}
-}
-namespace Sonata\CoreBundle\Model
-{
-use Doctrine\DBAL\Connection;
-interface ManagerInterface
-{
-public function getClass();
-public function findAll();
-public function findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null);
-public function findOneBy(array $criteria, array $orderBy = null);
-public function find($id);
-public function create();
-public function save($entity, $andFlush = true);
-public function delete($entity, $andFlush = true);
-public function getTableName();
-public function getConnection();
-}
-}
-namespace Sonata\CoreBundle\Model
-{
-use Sonata\DatagridBundle\Pager\PagerInterface;
-interface PageableManagerInterface
-{
-public function getPager(array $criteria, $page, $limit = 10, array $sort = array());
 }
 }
 namespace Sonata\MediaBundle\Model

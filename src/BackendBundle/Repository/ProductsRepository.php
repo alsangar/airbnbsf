@@ -87,8 +87,28 @@ class ProductsRepository extends \Doctrine\ORM\EntityRepository {
         $result = $q->getQuery()->getResult();
         return $result;
     }
+    public function findOneRoom($name, $locale) {
 
-    public function findOthersIndexRoomByCity($locale, $limit = null, $city = null, $name = null) {
+        $q = $this->createQueryBuilder("e");
+        $q
+                ->select('c.name as city', 'd.title as title', 'd.description as description', 'e.title as name', 'e.roomPrice')
+                ->join('\BackendBundle\Entity\ProductDescription', 'd', 'WITH', 'e = d.product')
+                ->join('\BackendBundle\Entity\Languages', 'ln', 'WITH', 'd.language = ln')
+                ->join('\BackendBundle\Entity\Location', 'lo', 'WITH', 'e.location = lo')
+                ->join('\BackendBundle\Entity\City', 'c', 'WITH', 'lo.city = c')
+                ->join('\BackendBundle\Entity\ProductPrices', 'pp', 'WITH', 'e = pp.product')
+                ->where('e.title = :name')
+                ->andWhere('ln.iso = :lang')
+                ->setParameter('lang', $locale)
+                ->setParameter('name', $name)
+                ->setMaxResults('1' )
+        ;
+
+        $result = $q->getQuery()->getOneOrNullResult();
+        return $result;
+    }
+
+    public function findOthersRoomsByCityContext($locale, $limit = null, $city = null, $name = null) {
 
         $q = $this->createQueryBuilder("e");
         $q

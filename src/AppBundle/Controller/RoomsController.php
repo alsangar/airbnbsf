@@ -7,6 +7,9 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Component\HttpFoundation\Request;
 use BackendBundle\Form\SearchType;
 use BackendBundle\Entity\City;
+use BackendBundle\Entity\Product;
+use BackendBundle\Entity\Bookings;
+use BackendBundle\Form\BookingsType;
 
 class RoomsController extends Controller {
 
@@ -16,17 +19,18 @@ class RoomsController extends Controller {
     public function roomsListAction(Request $request) {
 
         $em = $this->getDoctrine()->getManager();
-        $rooms_repo = $em->getRepository('BackendBundle:Products');        
+        $rooms_repo = $em->getRepository('BackendBundle:Products');
 
         //Llamada al form type
         $form = $this->createForm(SearchType::class);
-        
+
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
             $rooms = $rooms_repo->findIndexRoom('es', null, $form['city']->getData());
-        }else{
+        } else {
             $rooms = $rooms_repo->findIndexRoom('es');
         }
+
 
 
         return $this->render('app\rooms\list.html.twig', array(
@@ -63,11 +67,40 @@ class RoomsController extends Controller {
         $rooms_repo = $em->getRepository('BackendBundle:Products');
         
         $room = $rooms_repo->findOneByTitle($name);
-        $room_city =  $rooms_repo->findOthersIndexRoomByCity('es',null,$room->getLocation()->getCity(), $room->getTitle());
-        
+//        $room = $rooms_repo->findOneRoom($name, 'ES');
+//        if (is_empty(room())) {
+//            $this->redirect('homepage');
+//        }
+//
+//        $room = $description = $location = null;
+//        $feauters = [];
+//
+//        foreach ($room as $key) {
+//            foreach ($key as $entity => $value) {
+//                if ($entity == 'features') {
+//                    $feautres [] = $value;
+//                } elseif ($entity == 'room') {
+//                    $room = $value;
+//                } elseif ($entity == 'description') {
+//                    $description = $value;
+//                } elseif ($entity == 'location') {
+//                    $location = $value;
+//                }
+//            }
+//        }
+
+        $room_city = $rooms_repo->findOthersRoomsByCityContext('es', null, $room->getLocation()->getCity(), $room->getTitle());
+
+        $booking = new Bookings();
+        $form = $this->createForm(BookingsType::class, $booking);
+
         return $this->render('app\rooms\view.html.twig', array(
                     'room' => $room,
-                    'room_city' => $room_city
+//                    'description' => $description,
+//                    'location' => $location,
+//                    'features' => $features,
+                    'room_city' => $room_city,
+                    'form' => $form->createView(),
         ));
     }
 
