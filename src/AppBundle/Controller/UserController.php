@@ -5,6 +5,8 @@ namespace AppBundle\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Component\HttpFoundation\Request;
+use BackendBundle\Entity\User;
+use BackendBundle\Form\UserType;
 
 class UserController extends Controller
 {
@@ -31,6 +33,7 @@ class UserController extends Controller
         ));
     }
     
+
     /**
      * @Route("/login", name="login")
      */
@@ -38,7 +41,9 @@ class UserController extends Controller
     {
         return $this->render('user/login.html.twig', array(
         ));
-    }    /**
+    }    
+    
+    /**
      * @Route("/register", name="register")
      */
     public function registerAction(Request $request)

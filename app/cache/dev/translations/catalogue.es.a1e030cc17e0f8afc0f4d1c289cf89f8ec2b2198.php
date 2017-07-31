@@ -399,69 +399,6 @@ $catalogue = new MessageCatalogue('es', array (
     'read_more' => 'Leer más',
     'read_less' => 'Cerrar',
   ),
-  'FOSUserBundle' => 
-  array (
-    'group.edit.submit' => 'Actualizar grupo',
-    'group.show.name' => 'Nombre de grupo',
-    'group.new.submit' => 'Crear grupo',
-    'group.flash.updated' => 'El grupo ha sido actualizado.',
-    'group.flash.created' => 'El grupo ha sido creado.',
-    'group.flash.deleted' => 'El grupo ha sido borrado.',
-    'security.login.username' => 'Nombre de usuario',
-    'security.login.password' => 'Contraseña',
-    'security.login.remember_me' => 'Recordar',
-    'security.login.submit' => 'Entrar',
-    'profile.show.username' => 'Nombre de usuario',
-    'profile.show.email' => 'Email',
-    'profile.edit.submit' => 'Actualizar usuario',
-    'profile.flash.updated' => 'El perfil ha sido actualizado.',
-    'change_password.submit' => 'Cambiar contraseña',
-    'change_password.flash.success' => 'La contraseña se ha cambiado con éxito.',
-    'registration.check_email' => 'Se ha enviado un email a %email%. Contiene un enlace de activación que debes presionar para activar tu cuenta.',
-    'registration.confirmed' => 'Felicidades %username%, tu cuenta está ahora confirmada.',
-    'registration.back' => 'Volver a la página original.',
-    'registration.submit' => 'Registrar',
-    'registration.flash.user_created' => 'El usuario se ha creado satisfactoriamente.',
-    'registration.email.subject' => 'Bienvenido %username%!',
-    'registration.email.message' => 'Hola %username%!
-
-Para completar la validación de tu cuenta - por favor visita %confirmationUrl%
-
-Este enlace sólo puede utilizarse una vez para validar tu cuenta.
-
-Atentamente,
-el Equipo.
-',
-    'resetting.check_email' => 'Un email ha sido enviado. Contiene un enlace de activación que debes presionar para restablecer tu contraseña.
- Nota: Solo se puede solicitar una nueva contraseña dentro %tokenLifetime% horas.
-
-Si no recibe un correo electrónico, comprueba tu carpeta de correo no deseado o inténtelo de nuevo.
-',
-    'resetting.request.username' => 'Nombre de usuario o correo electrónico',
-    'resetting.request.submit' => 'Restablecer contraseña',
-    'resetting.reset.submit' => 'Cambiar contraseña',
-    'resetting.flash.success' => 'La contraseña se ha cambiado con éxito.',
-    'resetting.email.subject' => 'Restablecer Contraseña',
-    'resetting.email.message' => 'Hola %username%!
-
-Para restablecer tu contraseña - por favor visita %confirmationUrl%
-
-Atentamente,
-el Equipo.
-',
-    'layout.logout' => 'Salir',
-    'layout.login' => 'Entrar',
-    'layout.register' => 'Registrar',
-    'layout.logged_in_as' => 'Identificado como %username%',
-    'form.group_name' => 'Nombre de grupo',
-    'form.username' => 'Nombre de usuario',
-    'form.email' => 'Email',
-    'form.current_password' => 'Contraseña actual',
-    'form.password' => 'Contraseña',
-    'form.password_confirmation' => 'Repita la contraseña',
-    'form.new_password' => 'Nueva contraseña',
-    'form.new_password_confirmation' => 'Repita la contraseña',
-  ),
   'SonataMediaBundle' => 
   array (
     'default' => 'Por defecto',
@@ -605,6 +542,69 @@ el Equipo.
     'form.label_mode_public' => 'form.label_mode_public',
     'form.label_mode_admin' => 'form.label_mode_admin',
     'form.label_class' => 'form.label_class',
+  ),
+  'FOSUserBundle' => 
+  array (
+    'group.edit.submit' => 'Actualizar grupo',
+    'group.show.name' => 'Nombre de grupo',
+    'group.new.submit' => 'Crear grupo',
+    'group.flash.updated' => 'El grupo ha sido actualizado.',
+    'group.flash.created' => 'El grupo ha sido creado.',
+    'group.flash.deleted' => 'El grupo ha sido borrado.',
+    'security.login.username' => 'Nombre de usuario',
+    'security.login.password' => 'Contraseña',
+    'security.login.remember_me' => 'Recordar',
+    'security.login.submit' => 'Entrar',
+    'profile.show.username' => 'Nombre de usuario',
+    'profile.show.email' => 'Email',
+    'profile.edit.submit' => 'Actualizar usuario',
+    'profile.flash.updated' => 'El perfil ha sido actualizado.',
+    'change_password.submit' => 'Cambiar contraseña',
+    'change_password.flash.success' => 'La contraseña se ha cambiado con éxito.',
+    'registration.check_email' => 'Se ha enviado un email a %email%. Contiene un enlace de activación que debes presionar para activar tu cuenta.',
+    'registration.confirmed' => 'Felicidades %username%, tu cuenta está ahora confirmada.',
+    'registration.back' => 'Volver a la página original.',
+    'registration.submit' => 'Registrar',
+    'registration.flash.user_created' => 'El usuario se ha creado satisfactoriamente.',
+    'registration.email.subject' => 'Bienvenido %username%!',
+    'registration.email.message' => 'Hola %username%!
+
+Para completar la validación de tu cuenta - por favor visita %confirmationUrl%
+
+Este enlace sólo puede utilizarse una vez para validar tu cuenta.
+
+Atentamente,
+el Equipo.
+',
+    'resetting.check_email' => 'Un email ha sido enviado. Contiene un enlace de activación que debes presionar para restablecer tu contraseña.
+ Nota: Solo se puede solicitar una nueva contraseña en periodos de %tokenLifetime% horas.
+
+Si no recibes el correo electrónico, comprueba la carpeta de correo no deseado o inténtalo de nuevo.
+',
+    'resetting.request.username' => 'Nombre de usuario o correo electrónico',
+    'resetting.request.submit' => 'Restablecer contraseña',
+    'resetting.reset.submit' => 'Cambiar contraseña',
+    'resetting.flash.success' => 'La contraseña se ha cambiado con éxito.',
+    'resetting.email.subject' => 'Restablecer Contraseña',
+    'resetting.email.message' => 'Hola %username%!
+
+Para restablecer tu contraseña - por favor visita %confirmationUrl%
+
+Atentamente,
+el Equipo.
+',
+    'layout.logout' => 'Salir',
+    'layout.login' => 'Entrar',
+    'layout.register' => 'Registrar',
+    'layout.logged_in_as' => 'Identificado como %username%',
+    'form.group_name' => 'Nombre de grupo',
+    'form.username' => 'Nombre de usuario',
+    'form.email' => 'Email',
+    'form.current_password' => 'Contraseña actual',
+    'form.password' => 'Contraseña',
+    'form.password_confirmation' => 'Repita la contraseña',
+    'form.new_password' => 'Nueva contraseña',
+    'form.new_password_confirmation' => 'Repita la contraseña',
   ),
   'SonataClassificationBundle' => 
   array (

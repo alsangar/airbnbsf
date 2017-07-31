@@ -29,10 +29,30 @@ class BookingsType extends AbstractType {
                     'label' => false
                     )
                 )
-                ->add('nights')
-                ->add('priceNight')
-                ->add('priceTotal')
-                ->add('pax')
+                ->add('nights',null, array(
+                        'attr' => array(
+                        'class' => 'form-control'
+                        ),
+                    'label' => false
+                    ))
+                ->add('priceNight',null, array(
+                        'attr' => array(
+                        'class' => 'form-control'
+                        ),
+                    'label' => false
+                    ))
+                ->add('priceTotal',null, array(
+                        'attr' => array(
+                        'class' => 'form-control'
+                        ),
+                    'label' => false
+                    ))
+                ->add('pax',null, array(
+                        'attr' => array(
+                        'class' => 'form-control'
+                        ),
+                    'label' => false
+                    ))
         ;
     }
 

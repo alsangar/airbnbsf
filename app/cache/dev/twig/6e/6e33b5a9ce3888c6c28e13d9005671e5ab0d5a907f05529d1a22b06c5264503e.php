@@ -23,32 +23,32 @@ class __TwigTemplate_9ed60ff38cb14ac2dbc2211d916b6a84357e339a0464f12673426ae8813
 
     protected function doDisplay(array $context, array $blocks = array())
     {
-        $__internal_a7fc68c737a2b4f330bf859706daee055d33a80582a307c0f12d981d437ad889 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
-        $__internal_a7fc68c737a2b4f330bf859706daee055d33a80582a307c0f12d981d437ad889->enter($__internal_a7fc68c737a2b4f330bf859706daee055d33a80582a307c0f12d981d437ad889_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "app\\rooms\\view.html.twig"));
+        $__internal_6eaa942f94c2612613fc7f90af685ce5061cf77420cbb358fe9be8e853ea81de = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
+        $__internal_6eaa942f94c2612613fc7f90af685ce5061cf77420cbb358fe9be8e853ea81de->enter($__internal_6eaa942f94c2612613fc7f90af685ce5061cf77420cbb358fe9be8e853ea81de_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "app\\rooms\\view.html.twig"));
 
         $this->parent->display($context, array_merge($this->blocks, $blocks));
         
-        $__internal_a7fc68c737a2b4f330bf859706daee055d33a80582a307c0f12d981d437ad889->leave($__internal_a7fc68c737a2b4f330bf859706daee055d33a80582a307c0f12d981d437ad889_prof);
+        $__internal_6eaa942f94c2612613fc7f90af685ce5061cf77420cbb358fe9be8e853ea81de->leave($__internal_6eaa942f94c2612613fc7f90af685ce5061cf77420cbb358fe9be8e853ea81de_prof);
 
     }
 
     // line 3
     public function block_tilte($context, array $blocks = array())
     {
-        $__internal_0a378e5e508362066ab2f43b08f8e5376d88398eeb1a608d59807fd739572cf0 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
-        $__internal_0a378e5e508362066ab2f43b08f8e5376d88398eeb1a608d59807fd739572cf0->enter($__internal_0a378e5e508362066ab2f43b08f8e5376d88398eeb1a608d59807fd739572cf0_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "tilte"));
+        $__internal_e64281d41b999327f6d99234b566bb7801a074c0787c905a11b43adb8966dfb3 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
+        $__internal_e64281d41b999327f6d99234b566bb7801a074c0787c905a11b43adb8966dfb3->enter($__internal_e64281d41b999327f6d99234b566bb7801a074c0787c905a11b43adb8966dfb3_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "tilte"));
 
         echo twig_escape_filter($this->env, $this->getAttribute(($context["room"] ?? $this->getContext($context, "room")), "title", array()), "html", null, true);
         
-        $__internal_0a378e5e508362066ab2f43b08f8e5376d88398eeb1a608d59807fd739572cf0->leave($__internal_0a378e5e508362066ab2f43b08f8e5376d88398eeb1a608d59807fd739572cf0_prof);
+        $__internal_e64281d41b999327f6d99234b566bb7801a074c0787c905a11b43adb8966dfb3->leave($__internal_e64281d41b999327f6d99234b566bb7801a074c0787c905a11b43adb8966dfb3_prof);
 
     }
 
     // line 6
     public function block_pageContent($context, array $blocks = array())
     {
-        $__internal_e7211bf3fd64f8149b0d6ce9ea382216a8a8993fb0c356bd763a1458935a0b71 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
-        $__internal_e7211bf3fd64f8149b0d6ce9ea382216a8a8993fb0c356bd763a1458935a0b71->enter($__internal_e7211bf3fd64f8149b0d6ce9ea382216a8a8993fb0c356bd763a1458935a0b71_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "pageContent"));
+        $__internal_f043cc7fb5fa47e84019c8dade613ff3327b94a141383e08bb6003ab1d68c54f = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
+        $__internal_f043cc7fb5fa47e84019c8dade613ff3327b94a141383e08bb6003ab1d68c54f->enter($__internal_f043cc7fb5fa47e84019c8dade613ff3327b94a141383e08bb6003ab1d68c54f_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "pageContent"));
 
         // line 7
         echo "
@@ -175,10 +175,17 @@ class __TwigTemplate_9ed60ff38cb14ac2dbc2211d916b6a84357e339a0464f12673426ae8813
                             <div class=\"form-group\">
                                 <label for=\"precio_unitario\">Precio unitario</label>
                                 <div class=\"input-group\">
-                                    <input type=\"text\" class=\"form-control\" id=\"precio_unitario\" value=\"";
+                                    ";
         // line 100
-        echo twig_escape_filter($this->env, $this->getAttribute(($context["room"] ?? $this->getContext($context, "room")), "roomPrice", array()), "html", null, true);
-        echo "\" readonly>
+        echo $this->env->getExtension('Symfony\Bridge\Twig\Extension\FormExtension')->renderer->searchAndRenderBlock($this->getAttribute(($context["form"] ?? $this->getContext($context, "form")), "priceNight", array()), 'widget');
+        echo "
+                                    <span class=\"input-group-addon\">€</span>
+                                </div>
+                                <div class=\"input-group\">
+                                    ";
+        // line 104
+        echo $this->env->getExtension('Symfony\Bridge\Twig\Extension\FormExtension')->renderer->searchAndRenderBlock($this->getAttribute(($context["form"] ?? $this->getContext($context, "form")), "nights", array()), 'widget');
+        echo "
                                     <span class=\"input-group-addon\">€</span>
                                 </div>
                             </div>
@@ -192,27 +199,30 @@ class __TwigTemplate_9ed60ff38cb14ac2dbc2211d916b6a84357e339a0464f12673426ae8813
                             <div class=\"form-group\">
                                 <label for=\"preico_total\">Total</label>
                                 <div class=\"input-group\">
-                                    <input type=\"text\" class=\"form-control\" id=\"precio_total\" readonly>
+                                    ";
+        // line 118
+        echo $this->env->getExtension('Symfony\Bridge\Twig\Extension\FormExtension')->renderer->searchAndRenderBlock($this->getAttribute(($context["form"] ?? $this->getContext($context, "form")), "priceTotal", array()), 'widget');
+        echo "
                                     <span class=\"input-group-addon\">€</span>
                                 </div>
                             </div>
                             ";
-        // line 118
+        // line 122
         if ($this->env->getExtension('Symfony\Bridge\Twig\Extension\SecurityExtension')->isGranted("ROLE_USER")) {
-            // line 119
+            // line 123
             echo "                            <button type=\"submit\" class=\"btn btn-block btn-large btn-success\">Reservar</button>
                             ";
         } else {
-            // line 121
+            // line 125
             echo "                            <a href=\"";
             echo $this->env->getExtension('Symfony\Bridge\Twig\Extension\RoutingExtension')->getPath("login");
             echo "\" class=\"btn btn-block btn-large btn-warning\">Inicia sesión para reservar</a>
                             ";
         }
-        // line 123
+        // line 127
         echo "                        </div>
                         ";
-        // line 124
+        // line 128
         echo         $this->env->getExtension('Symfony\Bridge\Twig\Extension\FormExtension')->renderer->renderBlock(($context["form"] ?? $this->getContext($context, "form")), 'form_end');
         echo "
                     <div class=\"\">
@@ -220,35 +230,35 @@ class __TwigTemplate_9ed60ff38cb14ac2dbc2211d916b6a84357e339a0464f12673426ae8813
                         <h4>Detalles de la propiedad</h4>
                         <div class=\"hline\"></div>
                         <p><b>Tipo:</b> ";
-        // line 129
+        // line 133
         echo twig_escape_filter($this->env, $this->getAttribute(($context["room"] ?? $this->getContext($context, "room")), "roomType", array()), "html", null, true);
         echo "</p>
                         <p><b>Categoria:</b> ";
-        // line 130
+        // line 134
         echo twig_escape_filter($this->env, $this->getAttribute(($context["room"] ?? $this->getContext($context, "room")), "category", array()), "html", null, true);
         echo "</p>
                         <p><b>Precio:</b> ";
-        // line 131
+        // line 135
         echo twig_escape_filter($this->env, $this->getAttribute(($context["room"] ?? $this->getContext($context, "room")), "roomPrice", array()), "html", null, true);
         echo "</p>
                         <p><b>WC independientes:</b> ";
-        // line 132
+        // line 136
         echo twig_escape_filter($this->env, $this->getAttribute(($context["room"] ?? $this->getContext($context, "room")), "wcIndependents", array()), "html", null, true);
         echo "</p>
                         <p><b>WC compartidos:</b> ";
-        // line 133
+        // line 137
         echo twig_escape_filter($this->env, $this->getAttribute(($context["room"] ?? $this->getContext($context, "room")), "wcShared", array()), "html", null, true);
         echo "</p>
                         <p><b>Capacidad:</b> ";
-        // line 134
+        // line 138
         echo twig_escape_filter($this->env, $this->getAttribute(($context["room"] ?? $this->getContext($context, "room")), "capacity", array()), "html", null, true);
         echo "</p>
                         <p><b>Habitaciones:</b> ";
-        // line 135
+        // line 139
         echo twig_escape_filter($this->env, $this->getAttribute(($context["room"] ?? $this->getContext($context, "room")), "bedrooms", array()), "html", null, true);
         echo "</p>
                         <p><b>Camas:</b> ";
-        // line 136
+        // line 140
         echo twig_escape_filter($this->env, $this->getAttribute(($context["room"] ?? $this->getContext($context, "room")), "beds", array()), "html", null, true);
         echo "</p>                
                     </div>
@@ -258,7 +268,7 @@ class __TwigTemplate_9ed60ff38cb14ac2dbc2211d916b6a84357e339a0464f12673426ae8813
                         <h4>Ubicación de la propiedad</h4>
                         <div class=\"hline\"></div>
                         <p><b>Dirección:</b> ";
-        // line 143
+        // line 147
         echo twig_escape_filter($this->env, $this->getAttribute($this->getAttribute(($context["room"] ?? $this->getContext($context, "room")), "location", array()), "address", array()), "html", null, true);
         echo ", ";
         echo twig_escape_filter($this->env, $this->getAttribute($this->getAttribute(($context["room"] ?? $this->getContext($context, "room")), "location", array()), "number", array()), "html", null, true);
@@ -268,15 +278,15 @@ class __TwigTemplate_9ed60ff38cb14ac2dbc2211d916b6a84357e339a0464f12673426ae8813
         echo twig_escape_filter($this->env, $this->getAttribute($this->getAttribute(($context["room"] ?? $this->getContext($context, "room")), "location", array()), "city", array()), "html", null, true);
         echo ".</p>
                         <p><b>Código postal:</b> ";
-        // line 144
+        // line 148
         echo twig_escape_filter($this->env, $this->getAttribute($this->getAttribute(($context["room"] ?? $this->getContext($context, "room")), "location", array()), "zip", array()), "html", null, true);
         echo "</p>                
                         <p><b>Longitud:</b> ";
-        // line 145
+        // line 149
         echo twig_escape_filter($this->env, $this->getAttribute($this->getAttribute(($context["room"] ?? $this->getContext($context, "room")), "location", array()), "longitude", array()), "html", null, true);
         echo "</p>
                         <p><b>Latitud:</b> ";
-        // line 146
+        // line 150
         echo twig_escape_filter($this->env, $this->getAttribute($this->getAttribute(($context["room"] ?? $this->getContext($context, "room")), "location", array()), "latitude", array()), "html", null, true);
         echo "</p>
 
@@ -297,49 +307,49 @@ class __TwigTemplate_9ed60ff38cb14ac2dbc2211d916b6a84357e339a0464f12673426ae8813
         ***************************************************************************************************************** -->
     <div id=\"portfoliowrap\">
         <h3>Tambien en ";
-        // line 164
+        // line 168
         echo twig_escape_filter($this->env, $this->getAttribute($this->getAttribute(($context["room"] ?? $this->getContext($context, "room")), "location", array()), "city", array()), "html", null, true);
         echo "...</h3>
 
         <div class=\"portfolio-centered\">
             <div class=\"recentitems portfolio\">
                 ";
-        // line 168
+        // line 172
         $context['_parent'] = $context;
         $context['_seq'] = twig_ensure_traversable(($context["room_city"] ?? $this->getContext($context, "room_city")));
         $context['_iterated'] = false;
         foreach ($context['_seq'] as $context["_key"] => $context["rc"]) {
-            // line 169
+            // line 173
             echo "                    <div class=\"portfolio-item graphic-design\">
                         <div class=\"he-wrap tpl6\">
                             <img src=\"";
-            // line 171
+            // line 175
             echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\AssetExtension')->getAssetUrl("themes/app/assets/img/portfolio/portfolio_09.jpg"), "html", null, true);
             echo "\" alt=\"\">
                             <div class=\"he-view\">
                                 <div class=\"bg a0\" data-animate=\"fadeIn\">
                                     <h3 class=\"a1\" data-animate=\"fadeInDown\">";
-            // line 174
+            // line 178
             echo twig_escape_filter($this->env, $this->getAttribute($context["rc"], "name", array()), "html", null, true);
             echo "</h3>
                                     <h4 class=\"a1\" data-animate=\"fadeInDown\"><span class=\"label label-danger\">";
-            // line 175
+            // line 179
             echo twig_escape_filter($this->env, $this->getAttribute($context["rc"], "roomPrice", array()), "html", null, true);
             echo " €</span></h4>
                                     <p class=\"a1\" data-animate=\"fadeInDown\">";
-            // line 176
+            // line 180
             echo twig_escape_filter($this->env, $this->getAttribute($context["rc"], "title", array()), "html", null, true);
             echo "</p>
                                     <h4 class=\"a1\" data-animate=\"fadeInDown\">";
-            // line 177
+            // line 181
             echo twig_escape_filter($this->env, $this->getAttribute($context["rc"], "city", array()), "html", null, true);
             echo "</h4>
                                     <a data-rel=\"prettyPhoto\" <link href=\"";
-            // line 178
+            // line 182
             echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\AssetExtension')->getAssetUrl("themes/app/assets/img/portfolio/portfolio_09.jpg"), "html", null, true);
             echo "\" class=\"dmbutton a2\" data-animate=\"fadeInUp\"><i class=\"fa fa-search\"></i></a>
                                     <a href=\"";
-            // line 179
+            // line 183
             echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\RoutingExtension')->getPath("rooms_view", array("name" => $this->getAttribute($context["rc"], "name", array()))), "html", null, true);
             echo "\" class=\"dmbutton a2\" data-animate=\"fadeInUp\"><i class=\"fa fa-link\"></i></a>
                                 </div><!-- he bg -->
@@ -350,11 +360,11 @@ class __TwigTemplate_9ed60ff38cb14ac2dbc2211d916b6a84357e339a0464f12673426ae8813
             $context['_iterated'] = true;
         }
         if (!$context['_iterated']) {
-            // line 185
+            // line 189
             echo "                    <div class=\"portfolio-item graphic-design\">
                         <div class=\"he-wrap tpl6\">
                             <img src=\"";
-            // line 187
+            // line 191
             echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\AssetExtension')->getAssetUrl("themes/app/assets/img/portfolio/portfolio_09.jpg"), "html", null, true);
             echo "\" alt=\"\">
                             <div class=\"he-view\">
@@ -362,7 +372,7 @@ class __TwigTemplate_9ed60ff38cb14ac2dbc2211d916b6a84357e339a0464f12673426ae8813
                                     <h3 class=\"a1\" data-animate=\"fadeInDown\"><i class=\"fa fa-frown-o\"></i> No se han encontrado datos</h3>
                                     <h4 class=\"a1\" data-animate=\"fadeInDown\">!Agrega tu habitación!</h4>
                                     <a href=\"";
-            // line 192
+            // line 196
             echo $this->env->getExtension('Symfony\Bridge\Twig\Extension\RoutingExtension')->getPath("register");
             echo "\" class=\"dmbutton a2\" data-animate=\"fadeInUp\"><i class=\"fa fa-plus-circle\"></i></a>
                                 </div><!-- he bg -->
@@ -374,7 +384,7 @@ class __TwigTemplate_9ed60ff38cb14ac2dbc2211d916b6a84357e339a0464f12673426ae8813
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['rc'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 198
+        // line 202
         echo "
             </div><!-- portfolio -->
         </div><!-- portfolio container -->
@@ -382,45 +392,45 @@ class __TwigTemplate_9ed60ff38cb14ac2dbc2211d916b6a84357e339a0464f12673426ae8813
 
 ";
         
-        $__internal_e7211bf3fd64f8149b0d6ce9ea382216a8a8993fb0c356bd763a1458935a0b71->leave($__internal_e7211bf3fd64f8149b0d6ce9ea382216a8a8993fb0c356bd763a1458935a0b71_prof);
+        $__internal_f043cc7fb5fa47e84019c8dade613ff3327b94a141383e08bb6003ab1d68c54f->leave($__internal_f043cc7fb5fa47e84019c8dade613ff3327b94a141383e08bb6003ab1d68c54f_prof);
 
     }
 
-    // line 204
+    // line 208
     public function block_javascripts($context, array $blocks = array())
     {
-        $__internal_de9b8d1f543bbe8ac4192524bb010ab05dd95fba28f3dabfb8db4c1f81a46a80 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
-        $__internal_de9b8d1f543bbe8ac4192524bb010ab05dd95fba28f3dabfb8db4c1f81a46a80->enter($__internal_de9b8d1f543bbe8ac4192524bb010ab05dd95fba28f3dabfb8db4c1f81a46a80_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "javascripts"));
+        $__internal_d5b9d0f6938a9320fe2bee2496da365f7cd430e5aeac2aa70e5b1ed6ba7733a9 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
+        $__internal_d5b9d0f6938a9320fe2bee2496da365f7cd430e5aeac2aa70e5b1ed6ba7733a9->enter($__internal_d5b9d0f6938a9320fe2bee2496da365f7cd430e5aeac2aa70e5b1ed6ba7733a9_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "javascripts"));
 
-        // line 205
+        // line 209
         echo "
     <script src=\"https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js\"></script>
     <script src=\"";
-        // line 207
+        // line 211
         echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\AssetExtension')->getAssetUrl("themes/app/assets/js/bootstrap.min.js"), "html", null, true);
         echo "\"></script>
     <script src=\"";
-        // line 208
+        // line 212
         echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\AssetExtension')->getAssetUrl("themes/app/assets/js/retina-1.1.0.js"), "html", null, true);
         echo "\"></script>
     <script src=\"";
-        // line 209
+        // line 213
         echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\AssetExtension')->getAssetUrl("themes/app/assets/js/jquery.hoverdir.js"), "html", null, true);
         echo "\"></script>
     <script src=\"";
-        // line 210
+        // line 214
         echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\AssetExtension')->getAssetUrl("themes/app/assets/js/jquery.hoverex.min.js"), "html", null, true);
         echo "\"></script>
     <script src=\"";
-        // line 211
+        // line 215
         echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\AssetExtension')->getAssetUrl("themes/app/assets/js/jquery.prettyPhoto.js"), "html", null, true);
         echo "\"></script>
     <script src=\"";
-        // line 212
+        // line 216
         echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\AssetExtension')->getAssetUrl("themes/app/assets/js/jquery.isotope.min.js"), "html", null, true);
         echo "\"></script>
     <script src=\"";
-        // line 213
+        // line 217
         echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\AssetExtension')->getAssetUrl("themes/app/assets/js/custom.js"), "html", null, true);
         echo "\"></script>
     <script type=\"text/javascript\" src=\"//cdn.jsdelivr.net/momentjs/latest/moment.min.js\"></script>
@@ -557,7 +567,7 @@ class __TwigTemplate_9ed60ff38cb14ac2dbc2211d916b6a84357e339a0464f12673426ae8813
 
 ";
         
-        $__internal_de9b8d1f543bbe8ac4192524bb010ab05dd95fba28f3dabfb8db4c1f81a46a80->leave($__internal_de9b8d1f543bbe8ac4192524bb010ab05dd95fba28f3dabfb8db4c1f81a46a80_prof);
+        $__internal_d5b9d0f6938a9320fe2bee2496da365f7cd430e5aeac2aa70e5b1ed6ba7733a9->leave($__internal_d5b9d0f6938a9320fe2bee2496da365f7cd430e5aeac2aa70e5b1ed6ba7733a9_prof);
 
     }
 
@@ -573,7 +583,7 @@ class __TwigTemplate_9ed60ff38cb14ac2dbc2211d916b6a84357e339a0464f12673426ae8813
 
     public function getDebugInfo()
     {
-        return array (  424 => 213,  420 => 212,  416 => 211,  412 => 210,  408 => 209,  404 => 208,  400 => 207,  396 => 205,  390 => 204,  378 => 198,  366 => 192,  358 => 187,  354 => 185,  343 => 179,  339 => 178,  335 => 177,  331 => 176,  327 => 175,  323 => 174,  317 => 171,  313 => 169,  308 => 168,  301 => 164,  280 => 146,  276 => 145,  272 => 144,  262 => 143,  252 => 136,  248 => 135,  244 => 134,  240 => 133,  236 => 132,  232 => 131,  228 => 130,  224 => 129,  216 => 124,  213 => 123,  207 => 121,  203 => 119,  201 => 118,  180 => 100,  172 => 95,  164 => 90,  160 => 89,  151 => 83,  146 => 80,  137 => 78,  133 => 77,  126 => 73,  112 => 62,  106 => 59,  100 => 56,  70 => 33,  57 => 22,  54 => 7,  48 => 6,  36 => 3,  11 => 1,);
+        return array (  434 => 217,  430 => 216,  426 => 215,  422 => 214,  418 => 213,  414 => 212,  410 => 211,  406 => 209,  400 => 208,  388 => 202,  376 => 196,  368 => 191,  364 => 189,  353 => 183,  349 => 182,  345 => 181,  341 => 180,  337 => 179,  333 => 178,  327 => 175,  323 => 173,  318 => 172,  311 => 168,  290 => 150,  286 => 149,  282 => 148,  272 => 147,  262 => 140,  258 => 139,  254 => 138,  250 => 137,  246 => 136,  242 => 135,  238 => 134,  234 => 133,  226 => 128,  223 => 127,  217 => 125,  213 => 123,  211 => 122,  204 => 118,  187 => 104,  180 => 100,  172 => 95,  164 => 90,  160 => 89,  151 => 83,  146 => 80,  137 => 78,  133 => 77,  126 => 73,  112 => 62,  106 => 59,  100 => 56,  70 => 33,  57 => 22,  54 => 7,  48 => 6,  36 => 3,  11 => 1,);
     }
 
     /** @deprecated since 1.27 (to be removed in 2.0). Use getSourceContext() instead */
@@ -685,7 +695,11 @@ class __TwigTemplate_9ed60ff38cb14ac2dbc2211d916b6a84357e339a0464f12673426ae8813
                             <div class=\"form-group\">
                                 <label for=\"precio_unitario\">Precio unitario</label>
                                 <div class=\"input-group\">
-                                    <input type=\"text\" class=\"form-control\" id=\"precio_unitario\" value=\"{{room.roomPrice}}\" readonly>
+                                    {{ form_widget(form.priceNight) }}
+                                    <span class=\"input-group-addon\">€</span>
+                                </div>
+                                <div class=\"input-group\">
+                                    {{ form_widget(form.nights) }}
                                     <span class=\"input-group-addon\">€</span>
                                 </div>
                             </div>
@@ -699,7 +713,7 @@ class __TwigTemplate_9ed60ff38cb14ac2dbc2211d916b6a84357e339a0464f12673426ae8813
                             <div class=\"form-group\">
                                 <label for=\"preico_total\">Total</label>
                                 <div class=\"input-group\">
-                                    <input type=\"text\" class=\"form-control\" id=\"precio_total\" readonly>
+                                    {{ form_widget(form.priceTotal) }}
                                     <span class=\"input-group-addon\">€</span>
                                 </div>
                             </div>

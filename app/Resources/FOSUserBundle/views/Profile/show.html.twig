@@ -1,0 +1,17 @@
+{% extends "app/layout.html.twig"%}
+{% block pageContent%}
+    <div id="blue">
+        <div class="container">
+            <div class="row">
+                <h3>Perfil.</h3>
+            </div><!-- /row -->
+        </div> <!-- /container -->
+    </div><!-- /blue -->
+    <div class="container mtb">
+        {% block fos_user_content %}
+            {% include "@FOSUser/Profile/show_content.html.twig" %}
+        {% endblock fos_user_content %}
+        <div class="hline"></div>
+    </div> <!-- /container -->
+
+{% endblock %}

@@ -21,35 +21,43 @@ class __TwigTemplate_d7447361688f3caacb845c417fea1dec889aa6914b3a52ea240c3691d3c
 
     protected function doDisplay(array $context, array $blocks = array())
     {
-        $__internal_cdf8d806c6ad88a4b4f351286dbf02e06e0d1d5bdccb2912be52a0583cc75e72 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
-        $__internal_cdf8d806c6ad88a4b4f351286dbf02e06e0d1d5bdccb2912be52a0583cc75e72->enter($__internal_cdf8d806c6ad88a4b4f351286dbf02e06e0d1d5bdccb2912be52a0583cc75e72_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "@FOSUser/Security/login.html.twig"));
+        $__internal_85eb861964efad35d47936ac50950d16e3780c20ee17e02d58b6976f8ae8afdf = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
+        $__internal_85eb861964efad35d47936ac50950d16e3780c20ee17e02d58b6976f8ae8afdf->enter($__internal_85eb861964efad35d47936ac50950d16e3780c20ee17e02d58b6976f8ae8afdf_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "@FOSUser/Security/login.html.twig"));
 
         $this->parent->display($context, array_merge($this->blocks, $blocks));
         
-        $__internal_cdf8d806c6ad88a4b4f351286dbf02e06e0d1d5bdccb2912be52a0583cc75e72->leave($__internal_cdf8d806c6ad88a4b4f351286dbf02e06e0d1d5bdccb2912be52a0583cc75e72_prof);
+        $__internal_85eb861964efad35d47936ac50950d16e3780c20ee17e02d58b6976f8ae8afdf->leave($__internal_85eb861964efad35d47936ac50950d16e3780c20ee17e02d58b6976f8ae8afdf_prof);
 
     }
 
     // line 2
     public function block_pageContent($context, array $blocks = array())
     {
-        $__internal_4bd1fbbe3426302670d98bf0fcd1b8cdd51a391e82e51c92bc9c95165f49e770 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
-        $__internal_4bd1fbbe3426302670d98bf0fcd1b8cdd51a391e82e51c92bc9c95165f49e770->enter($__internal_4bd1fbbe3426302670d98bf0fcd1b8cdd51a391e82e51c92bc9c95165f49e770_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "pageContent"));
+        $__internal_b0d957a843a3350bdca76fd99f30d391f855b6a83244a6fff589cd1067373fab = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
+        $__internal_b0d957a843a3350bdca76fd99f30d391f855b6a83244a6fff589cd1067373fab->enter($__internal_b0d957a843a3350bdca76fd99f30d391f855b6a83244a6fff589cd1067373fab_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "pageContent"));
 
         // line 3
-        echo "    <div class=\"container mtb\">
+        echo "    <div id=\"blue\">
+        <div class=\"container\">
+            <div class=\"row\">
+                <h3>Acceso.</h3>
+            </div><!-- /row -->
+        </div> <!-- /container -->
+    </div><!-- /blue -->
+    <div class=\"container mtb\">
+
         <h3 class=\"\">Por favor, introduce tus datos</h3>
         <div class=\"hline\"></div>
         ";
-        // line 6
-        $this->loadTemplate("FOSUserBundle:Security:login_content.html.twig", "@FOSUser/Security/login.html.twig", 6)->display($context);
-        // line 7
+        // line 14
+        $this->loadTemplate("FOSUserBundle:Security:login_content.html.twig", "@FOSUser/Security/login.html.twig", 14)->display($context);
+        // line 15
         echo "        <div class=\"hline\"></div>
     </div> <!-- /container -->
 
 ";
         
-        $__internal_4bd1fbbe3426302670d98bf0fcd1b8cdd51a391e82e51c92bc9c95165f49e770->leave($__internal_4bd1fbbe3426302670d98bf0fcd1b8cdd51a391e82e51c92bc9c95165f49e770_prof);
+        $__internal_b0d957a843a3350bdca76fd99f30d391f855b6a83244a6fff589cd1067373fab->leave($__internal_b0d957a843a3350bdca76fd99f30d391f855b6a83244a6fff589cd1067373fab_prof);
 
     }
 
@@ -65,7 +73,7 @@ class __TwigTemplate_d7447361688f3caacb845c417fea1dec889aa6914b3a52ea240c3691d3c
 
     public function getDebugInfo()
     {
-        return array (  47 => 7,  45 => 6,  40 => 3,  34 => 2,  11 => 1,);
+        return array (  55 => 15,  53 => 14,  40 => 3,  34 => 2,  11 => 1,);
     }
 
     /** @deprecated since 1.27 (to be removed in 2.0). Use getSourceContext() instead */
@@ -80,7 +88,15 @@ class __TwigTemplate_d7447361688f3caacb845c417fea1dec889aa6914b3a52ea240c3691d3c
     {
         return new Twig_Source("{% extends \"app/layout.html.twig\"%}
 {% block pageContent%}
+    <div id=\"blue\">
+        <div class=\"container\">
+            <div class=\"row\">
+                <h3>Acceso.</h3>
+            </div><!-- /row -->
+        </div> <!-- /container -->
+    </div><!-- /blue -->
     <div class=\"container mtb\">
+
         <h3 class=\"\">Por favor, introduce tus datos</h3>
         <div class=\"hline\"></div>
         {% include \"FOSUserBundle:Security:login_content.html.twig\" %}

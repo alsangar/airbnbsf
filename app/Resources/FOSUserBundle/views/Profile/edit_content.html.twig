@@ -1,0 +1,37 @@
+{% trans_default_domain 'FOSUserBundle' %}
+
+<div class="container mtb">
+    <div class="row centered">
+        
+        {{ form_start(form, { 'action': path('fos_user_profile_edit'),'method':'POST', 'name':'editProfile', 'attr': { 'class': 'fos_user_profile_edit form-horizontal' , 'id':'formEditProfile'} }) 
+        }}
+        {{ form_errors(form) }}
+        <div class="form-group">
+            <label for="" class="col-sm-offset-2 col-sm-2  control-label">Usuario</label>
+            <div class="col-sm-4">
+                {{ form_widget(form.username) }} 
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="" class="col-sm-offset-2 col-sm-2 control-label">Email</label>
+            <div class="col-sm-4">
+                {{ form_widget(form.email) }}
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="" class="col-sm-offset-2 col-sm-2 control-label">Contraseña actual</label>
+            <div class="col-sm-4">
+                {{ form_widget(form.current_password) }}
+            </div>
+        </div>    
+        <div class="form-group">
+            <div class="col-sm-offset-4 col-sm-4">
+                <button type="submit" class="btn btn-block btn-theme" value="{{ 'profile.edit.submit'|trans }}">Actualizar usuario</button>
+            </div>
+        </div>
+
+        {{ form_end(form) }}        
+    </div><! --/row -->
+</div><! --/container -->
+
+
