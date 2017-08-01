@@ -74,6 +74,7 @@ class appDevDebugProjectContainerUrlGenerator extends Symfony\Component\Routing\
         'inbox' => array (  0 =>   array (  ),  1 =>   array (    '_controller' => 'AppBundle\\Controller\\UserController::inboxAction',  ),  2 =>   array (  ),  3 =>   array (    0 =>     array (      0 => 'text',      1 => '/inbox',    ),  ),  4 =>   array (  ),  5 =>   array (  ),),
         'backend_homepage' => array (  0 =>   array (  ),  1 =>   array (    '_controller' => 'BackendBundle\\Controller\\DefaultController::indexAction',  ),  2 =>   array (  ),  3 =>   array (    0 =>     array (      0 => 'text',      1 => '/back/',    ),  ),  4 =>   array (  ),  5 =>   array (  ),),
         'backend_user_list' => array (  0 =>   array (  ),  1 =>   array (    '_controller' => 'BackendBundle\\Controller\\DefaultController::indexAction',  ),  2 =>   array (  ),  3 =>   array (    0 =>     array (      0 => 'text',      1 => '/back/user/list',    ),  ),  4 =>   array (  ),  5 =>   array (  ),),
+        'calculate_room_price' => array (  0 =>   array (    0 => 'id',  ),  1 =>   array (    '_controller' => 'BackendBundle\\Controller\\RoomsController::calculatePriceAction',  ),  2 =>   array (  ),  3 =>   array (    0 =>     array (      0 => 'variable',      1 => '/',      2 => '[^/]++',      3 => 'id',    ),    1 =>     array (      0 => 'text',      1 => '/back/room/calculate/price',    ),  ),  4 =>   array (  ),  5 =>   array (  ),),
     );
         }
     }

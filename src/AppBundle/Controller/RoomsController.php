@@ -65,7 +65,7 @@ class RoomsController extends Controller {
     public function roomsViewAction(Request $request, $name) {
         $em = $this->getDoctrine()->getManager();
         $rooms_repo = $em->getRepository('BackendBundle:Products');
-        
+
         $room = $rooms_repo->findOneByTitle($name);
 //        $room = $rooms_repo->findOneRoom($name, 'ES');
 //        if (is_empty(room())) {
@@ -103,5 +103,6 @@ class RoomsController extends Controller {
                     'form' => $form->createView(),
         ));
     }
+
 
 }

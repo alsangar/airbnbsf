@@ -5,20 +5,20 @@
 
 {% block pageContent %}
 
-{#    {{ dump(room) }}
-
-    <!-- informacion en formato fisno -->
-
-
-    <div class="panel panel-default">
-        <div class="panel-heading">
-            <h3 class="panel-title">Información fisna</h3>
+    {#    {{ dump(room) }}
+    
+        <!-- informacion en formato fisno -->
+    
+    
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title">Información fisna</h3>
+            </div>
+            <div class="panel-body">
+                {{ dump(room) }}
+            </div>
         </div>
-        <div class="panel-body">
-            {{ dump(room) }}
-        </div>
-    </div>
-#}
+    #}
 
 
 
@@ -81,51 +81,65 @@
                 </div>
                 <div class="col-lg-4 col-lg-offset-1 sidebar">
                     {{ form_start(form, {'method':'POST', 'name':'reserva', 'attr':{'id':'formReserva'} }) }}
-                        <div class="">
-                            <div class="spacing"></div>
-                            <h4>Detalles de la reserva</h4>
-                            <div class="hline"></div>
-                            <div clss="form-group">
-                                {{ form_widget(form.checkin) }}
-                                {{ form_widget(form.checkout) }}
-                                <a href="#" name="daterange" id="daterange" class="btn btn-block btn-theme">Fechas de la reserva</a>
+                    <div class="">
+                        <div class="spacing"></div>
+                        <h4>Detalles de la reserva</h4>
+                        <div class="hline"></div>
+                        <div clss="form-group">
+                            {{ form_widget(form.checkin) }}
+                            {{ form_widget(form.checkout) }}
+                            <a href="#" name="daterange" id="daterange" class="btn btn-block btn-theme"><span class="glyphicon glyphicon-calendar" aria-hidden="true"></span> Fechas de la reserva</a>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-lg-6">
+                                <label for="num_personas">Personas</label>
+                                <div class="input-group">
+                                    {{ form_widget(form.pax) }}
+                                    <span class="input-group-addon"><i class="fa fa-users" aria-hidden="true"></i></span>
+                                </div>     
                             </div>
-                            <div class="form-group">
-                                <label for="num_personas">Número de personas</label>
-                                {{ form_widget(form.pax) }}
+                            <div class="col-lg-6">
+                                <label for="tarifa_servicio">Noches</label>
+                                <div class="input-group">
+                                    {{ form_widget(form.nights) }}                                      
+                                    <span class="input-group-addon"><i class="fa fa-moon-o" aria-hidden="true"></i></span>
+                                </div>
                             </div>
-                            <div class="form-group">
-                                <label for="precio_unitario">Precio unitario</label>
+                        </div>
+                        <div class="form-group">                            
+                            <div  class=" col-lg-offset-6 col-lg-6">
+                                <label for="tarifa_servicio">Precio/Noche</label>
                                 <div class="input-group">
                                     {{ form_widget(form.priceNight) }}
                                     <span class="input-group-addon">€</span>
-                                </div>
-                                <div class="input-group">
-                                    {{ form_widget(form.nights) }}
-                                    <span class="input-group-addon">€</span>
-                                </div>
+                                </div>    
                             </div>
-                            <div class="form-group">
+                        </div>
+                        <div class="form-group">
+                            <div class=" col-lg-offset-6 col-lg-6">
                                 <label for="tarifa_servicio">Tarifa de servicio</label>
                                 <div class="input-group">
                                     <input type="text" class="form-control" id="tarifa_servicio" value="-" readonly>
                                     <span class="input-group-addon">€</span>
                                 </div>
                             </div>
-                            <div class="form-group">
+                        </div>
+                        <div class="form-group">
+                            <div  class="col-lg-offset-6 col-lg-6">
                                 <label for="precio_total">Total</label>
                                 <div class="input-group">
                                     {{ form_widget(form.priceTotal) }}
                                     <span class="input-group-addon">€</span>
                                 </div>
                             </div>
-                            {% if(is_granted('ROLE_USER')) %}
+                        </div>                        
+                        {% if(is_granted('ROLE_USER')) %}
                             <button type="submit" class="btn btn-block btn-large btn-success">Reservar</button>
-                            {% else %}
+                        {% else %}
                             <a href="{{ path('login') }}" class="btn btn-block btn-large btn-warning">Inicia sesión para reservar</a>
-                            {% endif %}
-                        </div>
-                        {{ form_end(form) }}
+                        {% endif %}
+                    </div>
+                    {{ form_end(form) }}
                     <div class="">
                         <div class="spacing"></div>
                         <h4>Detalles de la propiedad</h4>
@@ -192,7 +206,7 @@
                             <div class="he-view">
                                 <div class="bg a0" data-animate="fadeIn">
                                     <h3 class="a1" data-animate="fadeInDown"><i class="fa fa-frown-o"></i> No se han encontrado datos</h3>
-                                    <h4 class="a1" data-animate="fadeInDown">!Agrega tu habitación!</h4>
+                                    <h4 class="a1" data-animate="fadeInDown">¡Agrega tu habitación!</h4>
                                     <a href="{{ path('register')}}" class="dmbutton a2" data-animate="fadeInUp"><i class="fa fa-plus-circle"></i></a>
                                 </div><!-- he bg -->
                             </div><!-- he view -->		
@@ -207,22 +221,46 @@
 {% endblock%}
 {% block javascripts %}
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-    <script src="{{ asset('themes/app/assets/js/bootstrap.min.js') }}"></script>
-    <script src="{{ asset('themes/app/assets/js/retina-1.1.0.js') }}"></script>
-    <script src="{{ asset('themes/app/assets/js/jquery.hoverdir.js') }}"></script>
-    <script src="{{ asset('themes/app/assets/js/jquery.hoverex.min.js') }}"></script>
-    <script src="{{ asset('themes/app/assets/js/jquery.prettyPhoto.js') }}"></script>
-    <script src="{{ asset('themes/app/assets/js/jquery.isotope.min.js') }}"></script>
-    <script src="{{ asset('themes/app/assets/js/custom.js') }}"></script>
+    {{ parent() }}
     <script type="text/javascript" src="//cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
     <script type="text/javascript" src="//cdn.jsdelivr.net/bootstrap.daterangepicker/2/daterangepicker.js"></script>
 
     <script>
+        var fechaIni, fechaFin;
+
         $(document).ready(function () {
+
             $('#daterange').on('click', function (event) {
-                event.preventDefault(); // To prevent following the link (optional) ...
+                event.preventDefault();
             });
+
+            //Lo ideal sería controlar el evento para el cambio de fechas del
+            //calendario desde aqui pero no consigo que JQuery aplique el handler
+            //a #daterange por lo que disparo el evento 'change' sobre #backendbundle_bookings_pax
+            //cuando se cambia la fecha en #daterange
+            $('#backendbundle_bookings_pax').on('change', function () {
+                //var data = $('#formReserva').serialize();
+                //Javascript no soporta la inclusión de variables Twig por lo que se busca un workaround
+                var aux = "{{ path('calculate_room_price', {'id':'PLACEHOLDER'}) }}";
+                var url = aux.replace('PLACEHOLDER', {{ room.id }});
+                $.ajax({
+                    type: 'POST',
+                    url: url,
+                    data: {
+                        'checkin': fechaIni,
+                        'checkout': fechaFin,
+                        'pax': $('#backendbundle_bookings_pax').val()
+                    },
+                    dataType: 'json',
+                    enconde: true
+                }).done(function (data) {
+                    $('#backendbundle_bookings_pax').val(data.pax);
+                    $('#backendbundle_bookings_nights').val(data.nights);
+                    $('#backendbundle_bookings_priceNight').val(data.nightPrice.price);
+                    $('#backendbundle_bookings_priceTotal').val(data.total);
+                });
+            });
+
             var today = moment(moment(), "DD-MM-YY");
             $('#daterange').daterangepicker({
                 "locale": {
@@ -263,7 +301,10 @@
                 "opens": "center",
                 "drops": "down"
             }, function (start, end, label) {
-                $('#daterange').text("Del " + start.format('DD-MM-YYYY') + " al " + end.format('DD-MM-YYYY'));
+                fechaIni = start.format('DD-MM-YYYY');
+                fechaFin = end.format('DD-MM-YYYY');
+                $('#daterange').html("<span class='glyphicon glyphicon-calendar' aria-hidden='true'></span> Del " + start.format('DD-MM-YYYY') + " al " + end.format('DD-MM-YYYY'));
+                $('#backendbundle_bookings_pax').trigger('change');
             });
         });
     </script>

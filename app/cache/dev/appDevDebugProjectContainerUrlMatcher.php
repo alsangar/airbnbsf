@@ -449,6 +449,11 @@ class appDevDebugProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBund
                 return array (  '_controller' => 'BackendBundle\\Controller\\DefaultController::indexAction',  '_route' => 'backend_user_list',);
             }
 
+            // calculate_room_price
+            if (0 === strpos($pathinfo, '/back/room/calculate/price') && preg_match('#^/back/room/calculate/price/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'calculate_room_price')), array (  '_controller' => 'BackendBundle\\Controller\\RoomsController::calculatePriceAction',));
+            }
+
         }
 
         throw 0 < count($allow) ? new MethodNotAllowedException(array_unique($allow)) : new ResourceNotFoundException();

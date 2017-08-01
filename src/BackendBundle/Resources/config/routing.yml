@@ -5,3 +5,7 @@ backend_homepage:
 backend_user_list:
     path:     /user/list
     defaults: { _controller: BackendBundle:Default:index }
+
+calculate_room_price:
+    path: /room/calculate/price/{id}
+    defaults: { _controller: BackendBundle:Rooms:calculatePrice }

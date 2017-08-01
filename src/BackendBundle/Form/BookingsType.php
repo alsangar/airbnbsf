@@ -17,42 +17,46 @@ class BookingsType extends AbstractType {
                     'format' => 'ddMMyyyy',
                     'attr' => array(
                         'style' => 'display:none;'
-                        ),
+                    ),
                     'label' => false
-                    )
+                        )
                 )
                 ->add('checkout', 'date', array(
                     'format' => 'ddMMyyyy',
                     'attr' => array(
                         'style' => 'display:none;'
-                        ),
+                    ),
                     'label' => false
-                    )
+                        )
                 )
-                ->add('nights',null, array(
-                        'attr' => array(
-                        'class' => 'form-control'
-                        ),
+                ->add('nights', null, array(
+                    'attr' => array(
+                        'class' => 'form-control',
+                        'readonly' => 'readonly'
+                    ),
                     'label' => false
-                    ))
-                ->add('priceNight',null, array(
-                        'attr' => array(
-                        'class' => 'form-control'
-                        ),
+                ))
+                ->add('priceNight', null, array(
+                    'attr' => array(
+                        'class' => 'form-control',
+                        'readonly' => 'readonly'
+                    ),
                     'label' => false
-                    ))
-                ->add('priceTotal',null, array(
-                        'attr' => array(
-                        'class' => 'form-control'
-                        ),
+                ))
+                ->add('priceTotal', null, array(
+                    'attr' => array(
+                        'class' => 'form-control',
+                        'readonly' => 'readonly',
+                    ),
                     'label' => false
-                    ))
-                ->add('pax',null, array(
-                        'attr' => array(
-                        'class' => 'form-control'
-                        ),
+                ))
+                ->add('pax', null, array(
+                    'attr' => array(
+                        'class' => 'form-control',
+                        'min' => '0'
+                    ),
                     'label' => false
-                    ))
+                ))
         ;
     }
 
