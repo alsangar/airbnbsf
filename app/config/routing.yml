@@ -11,8 +11,13 @@ media:
 
 admin_area:
     resource: "@SonataAdminBundle/Resources/config/routing/sonata_admin.xml"
-    prefix: /admin
-    
+    prefix: /adminSonata
+
+easy_admin_bundle:
+    resource: "@EasyAdminBundle/Controller/"
+    type:     annotation
+    prefix:   /adminPanel
+
 app:
     resource: '@AppBundle/Controller/'
     type: annotation

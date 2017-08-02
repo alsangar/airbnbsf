@@ -117,3 +117,29 @@ swiftmailer:
     username: '%mailer_user%'
     password: '%mailer_password%'
     spool: { type: memory }
+
+# Easy admin Configuration
+easy_admin:
+    site_name: 'Eerbianbí'
+    design:
+        menu: 
+        - { entity: 'User', label: 'Usuarios', icon: 'group' }
+        - label: 'Productos'
+          icon: 'rocket'
+          children:
+            - { entity: 'Products', label: 'Productos', icon: 'briefcase' }
+            - { entity: 'ProductDescription', label: 'Descripciones', icon: 'pencil' }
+            - { entity: 'ProductPrices', label: 'Precios', icon: 'eur' }
+            - { entity: 'Features', label: 'Características', icon: 'gears' }
+            - { entity: 'Location', label: 'Tags', icon: 'map-marker' }
+        - label: 'Acerca de'
+          icon: 'info'
+          children:          
+                - { label: 'Docs', url: 'http://example.com/external-docs' }
+    entities:
+        - BackendBundle\Entity\Products
+        - BackendBundle\Entity\ProductDescription
+        - BackendBundle\Entity\ProductPrices
+        - BackendBundle\Entity\Features
+        - BackendBundle\Entity\Location
+        - BackendBundle\Entity\User

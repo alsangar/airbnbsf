@@ -29,6 +29,7 @@
       <parameter key="BackendBundle">BackendBundle\BackendBundle</parameter>
       <parameter key="SonataClassificationBundle">Sonata\ClassificationBundle\SonataClassificationBundle</parameter>
       <parameter key="ApplicationSonataClassificationBundle">Application\Sonata\ClassificationBundle\ApplicationSonataClassificationBundle</parameter>
+      <parameter key="EasyAdminBundle">JavierEguiluz\Bundle\EasyAdminBundle\EasyAdminBundle</parameter>
       <parameter key="DebugBundle">Symfony\Bundle\DebugBundle\DebugBundle</parameter>
       <parameter key="WebProfilerBundle">Symfony\Bundle\WebProfilerBundle\WebProfilerBundle</parameter>
       <parameter key="SensioDistributionBundle">Sensio\Bundle\DistributionBundle\SensioDistributionBundle</parameter>
@@ -139,6 +140,11 @@
         <parameter key="parent">SonataClassificationBundle</parameter>
         <parameter key="path">C:\xampp\htdocs\airbnbsf\src\Application\Sonata\ClassificationBundle</parameter>
         <parameter key="namespace">Application\Sonata\ClassificationBundle</parameter>
+      </parameter>
+      <parameter key="EasyAdminBundle" type="collection">
+        <parameter key="parent">null</parameter>
+        <parameter key="path">C:\xampp\htdocs\airbnbsf\vendor\javiereguiluz\easyadmin-bundle</parameter>
+        <parameter key="namespace">JavierEguiluz\Bundle\EasyAdminBundle</parameter>
       </parameter>
       <parameter key="DebugBundle" type="collection">
         <parameter key="parent">null</parameter>
@@ -1016,6 +1022,121 @@
     <parameter key="sonata.classification.admin.context.class">Sonata\ClassificationBundle\Admin\ContextAdmin</parameter>
     <parameter key="sonata.classification.admin.context.controller">SonataAdminBundle:CRUD</parameter>
     <parameter key="sonata.classification.admin.context.translation_domain">SonataClassificationBundle</parameter>
+    <parameter key="easyadmin.config" type="collection">
+      <parameter key="site_name">Eerbianbí</parameter>
+      <parameter key="design" type="collection">
+        <parameter key="menu" type="collection">
+          <parameter type="collection">
+            <parameter key="entity">User</parameter>
+            <parameter key="label">Usuarios</parameter>
+            <parameter key="icon">group</parameter>
+          </parameter>
+          <parameter type="collection">
+            <parameter key="label">Productos</parameter>
+            <parameter key="icon">rocket</parameter>
+            <parameter key="children" type="collection">
+              <parameter type="collection">
+                <parameter key="entity">Products</parameter>
+                <parameter key="label">Productos</parameter>
+                <parameter key="icon">briefcase</parameter>
+              </parameter>
+              <parameter type="collection">
+                <parameter key="entity">ProductDescription</parameter>
+                <parameter key="label">Descripciones</parameter>
+                <parameter key="icon">pencil</parameter>
+              </parameter>
+              <parameter type="collection">
+                <parameter key="entity">ProductPrices</parameter>
+                <parameter key="label">Precios</parameter>
+                <parameter key="icon">eur</parameter>
+              </parameter>
+              <parameter type="collection">
+                <parameter key="entity">Features</parameter>
+                <parameter key="label">Características</parameter>
+                <parameter key="icon">gears</parameter>
+              </parameter>
+              <parameter type="collection">
+                <parameter key="entity">Location</parameter>
+                <parameter key="label">Tags</parameter>
+                <parameter key="icon">map-marker</parameter>
+              </parameter>
+            </parameter>
+          </parameter>
+          <parameter type="collection">
+            <parameter key="label">Acerca de</parameter>
+            <parameter key="icon">info</parameter>
+            <parameter key="children" type="collection">
+              <parameter type="collection">
+                <parameter key="label">Docs</parameter>
+                <parameter key="url">http://example.com/external-docs</parameter>
+              </parameter>
+            </parameter>
+          </parameter>
+        </parameter>
+        <parameter key="theme">default</parameter>
+        <parameter key="color_scheme">dark</parameter>
+        <parameter key="brand_color">#205081</parameter>
+        <parameter key="form_theme" type="collection">
+          <parameter>@EasyAdmin/form/bootstrap_3_horizontal_layout.html.twig</parameter>
+        </parameter>
+        <parameter key="assets" type="collection">
+          <parameter key="css" type="collection"/>
+          <parameter key="js" type="collection"/>
+          <parameter key="favicon" type="collection">
+            <parameter key="path">favicon.ico</parameter>
+            <parameter key="mime_type">image/x-icon</parameter>
+          </parameter>
+        </parameter>
+      </parameter>
+      <parameter key="entities" type="collection">
+        <parameter key="Products" type="collection">
+          <parameter key="class">BackendBundle\Entity\Products</parameter>
+          <parameter key="name">Products</parameter>
+        </parameter>
+        <parameter key="ProductDescription" type="collection">
+          <parameter key="class">BackendBundle\Entity\ProductDescription</parameter>
+          <parameter key="name">ProductDescription</parameter>
+        </parameter>
+        <parameter key="ProductPrices" type="collection">
+          <parameter key="class">BackendBundle\Entity\ProductPrices</parameter>
+          <parameter key="name">ProductPrices</parameter>
+        </parameter>
+        <parameter key="Features" type="collection">
+          <parameter key="class">BackendBundle\Entity\Features</parameter>
+          <parameter key="name">Features</parameter>
+        </parameter>
+        <parameter key="Location" type="collection">
+          <parameter key="class">BackendBundle\Entity\Location</parameter>
+          <parameter key="name">Location</parameter>
+        </parameter>
+        <parameter key="User" type="collection">
+          <parameter key="class">BackendBundle\Entity\User</parameter>
+          <parameter key="name">User</parameter>
+        </parameter>
+      </parameter>
+      <parameter key="formats" type="collection">
+        <parameter key="date">Y-m-d</parameter>
+        <parameter key="time">H:i:s</parameter>
+        <parameter key="datetime">F j, Y H:i</parameter>
+      </parameter>
+      <parameter key="disabled_actions" type="collection"/>
+      <parameter key="translation_domain">messages</parameter>
+      <parameter key="list" type="collection">
+        <parameter key="actions" type="collection"/>
+        <parameter key="max_results">15</parameter>
+      </parameter>
+      <parameter key="edit" type="collection">
+        <parameter key="actions" type="collection"/>
+      </parameter>
+      <parameter key="new" type="collection">
+        <parameter key="actions" type="collection"/>
+      </parameter>
+      <parameter key="show" type="collection">
+        <parameter key="actions" type="collection"/>
+        <parameter key="max_results">10</parameter>
+      </parameter>
+    </parameter>
+    <parameter key="easyadmin.cache.dir">C:\xampp\htdocs\airbnbsf\app\cache\dev/easy_admin</parameter>
     <parameter key="web_profiler.controller.profiler.class">Symfony\Bundle\WebProfilerBundle\Controller\ProfilerController</parameter>
     <parameter key="web_profiler.controller.router.class">Symfony\Bundle\WebProfilerBundle\Controller\RouterController</parameter>
     <parameter key="web_profiler.controller.exception.class">Symfony\Bundle\WebProfilerBundle\Controller\ExceptionController</parameter>
@@ -1094,6 +1215,10 @@
         <parameter>block</parameter>
         <parameter>SonataBlockBundle:Profiler:block.html.twig</parameter>
       </parameter>
+      <parameter key="easyadmin.data_collector" type="collection">
+        <parameter>easyadmin</parameter>
+        <parameter>@EasyAdmin/data_collector/easyadmin.html.twig</parameter>
+      </parameter>
       <parameter key="data_collector.config" type="collection">
         <parameter>config</parameter>
         <parameter>@WebProfiler/Collector/config.html.twig</parameter>
@@ -1171,6 +1296,11 @@
       <parameter>fos_user.resetting.form.type</parameter>
       <parameter>sonata.media.form.type.media</parameter>
       <parameter>sonata.classification.form.type.category_selector</parameter>
+      <parameter>easyadmin.form.type</parameter>
+      <parameter>easyadmin.form.type.autocomplete</parameter>
+      <parameter>easyadmin.form.type.divider</parameter>
+      <parameter>easyadmin.form.type.section</parameter>
+      <parameter>easyadmin.form.type.group</parameter>
     </parameter>
     <parameter key="sonata.core.form.type_extensions" type="collection">
       <parameter>form.type_extension.form.http_foundation</parameter>
@@ -1183,12 +1313,19 @@
       <parameter>sonata.admin.form.extension.field</parameter>
       <parameter>sonata.admin.form.extension.field.mopa</parameter>
       <parameter>sonata.admin.form.extension.choice</parameter>
+      <parameter>easyadmin.form.type.extension</parameter>
     </parameter>
   </parameters>
   <services>
     <service id="controller_name_converter" class="Symfony\Bundle\FrameworkBundle\Controller\ControllerNameParser" public="false">
       <tag name="monolog.logger" channel="request"/>
       <argument type="service" id="kernel"/>
+    </service>
+    <service id="controller_resolver" class="Symfony\Bundle\FrameworkBundle\Controller\ControllerResolver" public="false">
+      <tag name="monolog.logger" channel="request"/>
+      <argument type="service" id="service_container"/>
+      <argument type="service" id="controller_name_converter"/>
+      <argument type="service" id="monolog.logger.request" on-invalid="ignore"/>
     </service>
     <service id="response_listener" class="Symfony\Component\HttpKernel\EventListener\ResponseListener">
       <tag name="kernel.event_subscriber"/>
@@ -1281,6 +1418,12 @@
           </service>
         </argument>
         <argument type="service" id="sonata.admin.route.cache_warmup"/>
+        <argument type="service">
+          <service class="JavierEguiluz\Bundle\EasyAdminBundle\Cache\ConfigWarmer" public="false">
+            <tag name="kernel.cache_warmer" priority="-2048"/>
+            <argument type="service" id="easyadmin.config.manager"/>
+          </service>
+        </argument>
       </argument>
     </service>
     <service id="kernel.class_cache.cache_warmer" class="Symfony\Bundle\FrameworkBundle\CacheWarmer\ClassCacheCacheWarmer">
@@ -1437,6 +1580,8 @@
             <argument>C:\xampp\htdocs\airbnbsf\vendor\sonata-project\admin-bundle/Resources/translations\SonataAdminBundle.ar.xliff</argument>
             <argument>C:\xampp\htdocs\airbnbsf\vendor\friendsofsymfony\user-bundle/Resources/translations\FOSUserBundle.ar.yml</argument>
             <argument>C:\xampp\htdocs\airbnbsf\vendor\friendsofsymfony\user-bundle/Resources/translations\validators.ar.yml</argument>
+            <argument>C:\xampp\htdocs\airbnbsf\vendor\javiereguiluz\easyadmin-bundle/Resources/translations\EasyAdminBundle.ar.xlf</argument>
+            <argument>C:\xampp\htdocs\airbnbsf\vendor\javiereguiluz\easyadmin-bundle/Resources/translations\messages.ar.xlf</argument>
           </argument>
           <argument key="az" type="collection">
             <argument>C:\xampp\htdocs\airbnbsf\vendor\symfony\symfony\src\Symfony\Component\Validator/Resources/translations\validators.az.xlf</argument>
@@ -1452,6 +1597,8 @@
             <argument>C:\xampp\htdocs\airbnbsf\vendor\friendsofsymfony\user-bundle/Resources/translations\FOSUserBundle.bg.yml</argument>
             <argument>C:\xampp\htdocs\airbnbsf\vendor\friendsofsymfony\user-bundle/Resources/translations\validators.bg.yml</argument>
             <argument>C:\xampp\htdocs\airbnbsf\vendor\sonata-project\media-bundle/Resources/translations\SonataMediaBundle.bg.xliff</argument>
+            <argument>C:\xampp\htdocs\airbnbsf\vendor\javiereguiluz\easyadmin-bundle/Resources/translations\EasyAdminBundle.bg.xlf</argument>
+            <argument>C:\xampp\htdocs\airbnbsf\vendor\javiereguiluz\easyadmin-bundle/Resources/translations\messages.bg.xlf</argument>
           </argument>
           <argument key="ca" type="collection">
             <argument>C:\xampp\htdocs\airbnbsf\vendor\symfony\symfony\src\Symfony\Component\Validator/Resources/translations\validators.ca.xlf</argument>
@@ -1461,6 +1608,8 @@
             <argument>C:\xampp\htdocs\airbnbsf\vendor\sonata-project\admin-bundle/Resources/translations\SonataAdminBundle.ca.xliff</argument>
             <argument>C:\xampp\htdocs\airbnbsf\vendor\friendsofsymfony\user-bundle/Resources/translations\FOSUserBundle.ca.yml</argument>
             <argument>C:\xampp\htdocs\airbnbsf\vendor\friendsofsymfony\user-bundle/Resources/translations\validators.ca.yml</argument>
+            <argument>C:\xampp\htdocs\airbnbsf\vendor\javiereguiluz\easyadmin-bundle/Resources/translations\EasyAdminBundle.ca.xlf</argument>
+            <argument>C:\xampp\htdocs\airbnbsf\vendor\javiereguiluz\easyadmin-bundle/Resources/translations\messages.ca.xlf</argument>
           </argument>
           <argument key="cs" type="collection">
             <argument>C:\xampp\htdocs\airbnbsf\vendor\symfony\symfony\src\Symfony\Component\Validator/Resources/translations\validators.cs.xlf</argument>
@@ -1470,6 +1619,8 @@
             <argument>C:\xampp\htdocs\airbnbsf\vendor\sonata-project\admin-bundle/Resources/translations\SonataAdminBundle.cs.xliff</argument>
             <argument>C:\xampp\htdocs\airbnbsf\vendor\friendsofsymfony\user-bundle/Resources/translations\FOSUserBundle.cs.yml</argument>
             <argument>C:\xampp\htdocs\airbnbsf\vendor\friendsofsymfony\user-bundle/Resources/translations\validators.cs.yml</argument>
+            <argument>C:\xampp\htdocs\airbnbsf\vendor\javiereguiluz\easyadmin-bundle/Resources/translations\EasyAdminBundle.cs.xlf</argument>
+            <argument>C:\xampp\htdocs\airbnbsf\vendor\javiereguiluz\easyadmin-bundle/Resources/translations\messages.cs.xlf</argument>
           </argument>
           <argument key="cy" type="collection">
             <argument>C:\xampp\htdocs\airbnbsf\vendor\symfony\symfony\src\Symfony\Component\Validator/Resources/translations\validators.cy.xlf</argument>
@@ -1492,6 +1643,8 @@
             <argument>C:\xampp\htdocs\airbnbsf\vendor\friendsofsymfony\user-bundle/Resources/translations\validators.de.yml</argument>
             <argument>C:\xampp\htdocs\airbnbsf\vendor\sonata-project\media-bundle/Resources/translations\SonataMediaBundle.de.xliff</argument>
             <argument>C:\xampp\htdocs\airbnbsf\vendor\sonata-project\classification-bundle/Resources/translations\SonataClassificationBundle.de.xliff</argument>
+            <argument>C:\xampp\htdocs\airbnbsf\vendor\javiereguiluz\easyadmin-bundle/Resources/translations\EasyAdminBundle.de.xlf</argument>
+            <argument>C:\xampp\htdocs\airbnbsf\vendor\javiereguiluz\easyadmin-bundle/Resources/translations\messages.de.xlf</argument>
           </argument>
           <argument key="el" type="collection">
             <argument>C:\xampp\htdocs\airbnbsf\vendor\symfony\symfony\src\Symfony\Component\Validator/Resources/translations\validators.el.xlf</argument>
@@ -1510,7 +1663,10 @@
             <argument>C:\xampp\htdocs\airbnbsf\vendor\friendsofsymfony\user-bundle/Resources/translations\validators.en.yml</argument>
             <argument>C:\xampp\htdocs\airbnbsf\vendor\sonata-project\media-bundle/Resources/translations\SonataMediaBundle.en.xliff</argument>
             <argument>C:\xampp\htdocs\airbnbsf\src\BackendBundle/Resources/translations\FOSUserBundle.en.yml</argument>
+            <argument>C:\xampp\htdocs\airbnbsf\src\BackendBundle/Resources/translations\messages.en.yml</argument>
             <argument>C:\xampp\htdocs\airbnbsf\vendor\sonata-project\classification-bundle/Resources/translations\SonataClassificationBundle.en.xliff</argument>
+            <argument>C:\xampp\htdocs\airbnbsf\vendor\javiereguiluz\easyadmin-bundle/Resources/translations\EasyAdminBundle.en.xlf</argument>
+            <argument>C:\xampp\htdocs\airbnbsf\vendor\javiereguiluz\easyadmin-bundle/Resources/translations\messages.en.xlf</argument>
           </argument>
           <argument key="es" type="collection">
             <argument>C:\xampp\htdocs\airbnbsf\vendor\symfony\symfony\src\Symfony\Component\Validator/Resources/translations\validators.es.xlf</argument>
@@ -1521,7 +1677,10 @@
             <argument>C:\xampp\htdocs\airbnbsf\vendor\friendsofsymfony\user-bundle/Resources/translations\validators.es.yml</argument>
             <argument>C:\xampp\htdocs\airbnbsf\vendor\sonata-project\media-bundle/Resources/translations\SonataMediaBundle.es.xliff</argument>
             <argument>C:\xampp\htdocs\airbnbsf\src\BackendBundle/Resources/translations\FOSUserBundle.es.yml</argument>
+            <argument>C:\xampp\htdocs\airbnbsf\src\BackendBundle/Resources/translations\messages.es.yml</argument>
             <argument>C:\xampp\htdocs\airbnbsf\vendor\sonata-project\classification-bundle/Resources/translations\SonataClassificationBundle.es.xliff</argument>
+            <argument>C:\xampp\htdocs\airbnbsf\vendor\javiereguiluz\easyadmin-bundle/Resources/translations\EasyAdminBundle.es.xlf</argument>
+            <argument>C:\xampp\htdocs\airbnbsf\vendor\javiereguiluz\easyadmin-bundle/Resources/translations\messages.es.xlf</argument>
           </argument>
           <argument key="et" type="collection">
             <argument>C:\xampp\htdocs\airbnbsf\vendor\symfony\symfony\src\Symfony\Component\Validator/Resources/translations\validators.et.xlf</argument>
@@ -1535,6 +1694,8 @@
             <argument>C:\xampp\htdocs\airbnbsf\vendor\sonata-project\admin-bundle/Resources/translations\SonataAdminBundle.eu.xliff</argument>
             <argument>C:\xampp\htdocs\airbnbsf\vendor\friendsofsymfony\user-bundle/Resources/translations\FOSUserBundle.eu.yml</argument>
             <argument>C:\xampp\htdocs\airbnbsf\vendor\friendsofsymfony\user-bundle/Resources/translations\validators.eu.yml</argument>
+            <argument>C:\xampp\htdocs\airbnbsf\vendor\javiereguiluz\easyadmin-bundle/Resources/translations\EasyAdminBundle.eu.xlf</argument>
+            <argument>C:\xampp\htdocs\airbnbsf\vendor\javiereguiluz\easyadmin-bundle/Resources/translations\messages.eu.xlf</argument>
           </argument>
           <argument key="fa" type="collection">
             <argument>C:\xampp\htdocs\airbnbsf\vendor\symfony\symfony\src\Symfony\Component\Validator/Resources/translations\validators.fa.xlf</argument>
@@ -1554,6 +1715,8 @@
             <argument>C:\xampp\htdocs\airbnbsf\vendor\friendsofsymfony\user-bundle/Resources/translations\FOSUserBundle.fi.yml</argument>
             <argument>C:\xampp\htdocs\airbnbsf\vendor\friendsofsymfony\user-bundle/Resources/translations\validators.fi.yml</argument>
             <argument>C:\xampp\htdocs\airbnbsf\vendor\sonata-project\media-bundle/Resources/translations\SonataMediaBundle.fi.xliff</argument>
+            <argument>C:\xampp\htdocs\airbnbsf\vendor\javiereguiluz\easyadmin-bundle/Resources/translations\EasyAdminBundle.fi.xlf</argument>
+            <argument>C:\xampp\htdocs\airbnbsf\vendor\javiereguiluz\easyadmin-bundle/Resources/translations\messages.fi.xlf</argument>
           </argument>
           <argument key="fr" type="collection">
             <argument>C:\xampp\htdocs\airbnbsf\vendor\symfony\symfony\src\Symfony\Component\Validator/Resources/translations\validators.fr.xlf</argument>
@@ -1566,6 +1729,8 @@
             <argument>C:\xampp\htdocs\airbnbsf\vendor\friendsofsymfony\user-bundle/Resources/translations\validators.fr.yml</argument>
             <argument>C:\xampp\htdocs\airbnbsf\vendor\sonata-project\media-bundle/Resources/translations\SonataMediaBundle.fr.xliff</argument>
             <argument>C:\xampp\htdocs\airbnbsf\vendor\sonata-project\classification-bundle/Resources/translations\SonataClassificationBundle.fr.xliff</argument>
+            <argument>C:\xampp\htdocs\airbnbsf\vendor\javiereguiluz\easyadmin-bundle/Resources/translations\EasyAdminBundle.fr.xlf</argument>
+            <argument>C:\xampp\htdocs\airbnbsf\vendor\javiereguiluz\easyadmin-bundle/Resources/translations\messages.fr.xlf</argument>
           </argument>
           <argument key="gl" type="collection">
             <argument>C:\xampp\htdocs\airbnbsf\vendor\symfony\symfony\src\Symfony\Component\Validator/Resources/translations\validators.gl.xlf</argument>
@@ -1622,6 +1787,8 @@
             <argument>C:\xampp\htdocs\airbnbsf\vendor\friendsofsymfony\user-bundle/Resources/translations\validators.it.yml</argument>
             <argument>C:\xampp\htdocs\airbnbsf\vendor\sonata-project\media-bundle/Resources/translations\SonataMediaBundle.it.xliff</argument>
             <argument>C:\xampp\htdocs\airbnbsf\vendor\sonata-project\classification-bundle/Resources/translations\SonataClassificationBundle.it.xliff</argument>
+            <argument>C:\xampp\htdocs\airbnbsf\vendor\javiereguiluz\easyadmin-bundle/Resources/translations\EasyAdminBundle.it.xlf</argument>
+            <argument>C:\xampp\htdocs\airbnbsf\vendor\javiereguiluz\easyadmin-bundle/Resources/translations\messages.it.xlf</argument>
           </argument>
           <argument key="ja" type="collection">
             <argument>C:\xampp\htdocs\airbnbsf\vendor\symfony\symfony\src\Symfony\Component\Validator/Resources/translations\validators.ja.xlf</argument>
@@ -1673,6 +1840,8 @@
             <argument>C:\xampp\htdocs\airbnbsf\vendor\friendsofsymfony\user-bundle/Resources/translations\validators.nl.yml</argument>
             <argument>C:\xampp\htdocs\airbnbsf\vendor\sonata-project\media-bundle/Resources/translations\SonataMediaBundle.nl.xliff</argument>
             <argument>C:\xampp\htdocs\airbnbsf\vendor\sonata-project\classification-bundle/Resources/translations\SonataClassificationBundle.nl.xliff</argument>
+            <argument>C:\xampp\htdocs\airbnbsf\vendor\javiereguiluz\easyadmin-bundle/Resources/translations\EasyAdminBundle.nl.xlf</argument>
+            <argument>C:\xampp\htdocs\airbnbsf\vendor\javiereguiluz\easyadmin-bundle/Resources/translations\messages.nl.xlf</argument>
           </argument>
           <argument key="nn" type="collection">
             <argument>C:\xampp\htdocs\airbnbsf\vendor\symfony\symfony\src\Symfony\Component\Validator/Resources/translations\validators.nn.xlf</argument>
@@ -1692,6 +1861,8 @@
             <argument>C:\xampp\htdocs\airbnbsf\vendor\friendsofsymfony\user-bundle/Resources/translations\FOSUserBundle.pl.yml</argument>
             <argument>C:\xampp\htdocs\airbnbsf\vendor\friendsofsymfony\user-bundle/Resources/translations\validators.pl.yml</argument>
             <argument>C:\xampp\htdocs\airbnbsf\vendor\sonata-project\media-bundle/Resources/translations\SonataMediaBundle.pl.xliff</argument>
+            <argument>C:\xampp\htdocs\airbnbsf\vendor\javiereguiluz\easyadmin-bundle/Resources/translations\EasyAdminBundle.pl.xlf</argument>
+            <argument>C:\xampp\htdocs\airbnbsf\vendor\javiereguiluz\easyadmin-bundle/Resources/translations\messages.pl.xlf</argument>
           </argument>
           <argument key="pt" type="collection">
             <argument>C:\xampp\htdocs\airbnbsf\vendor\symfony\symfony\src\Symfony\Component\Validator/Resources/translations\validators.pt.xlf</argument>
@@ -1700,6 +1871,8 @@
             <argument>C:\xampp\htdocs\airbnbsf\vendor\sonata-project\admin-bundle/Resources/translations\SonataAdminBundle.pt.xliff</argument>
             <argument>C:\xampp\htdocs\airbnbsf\vendor\friendsofsymfony\user-bundle/Resources/translations\FOSUserBundle.pt.yml</argument>
             <argument>C:\xampp\htdocs\airbnbsf\vendor\friendsofsymfony\user-bundle/Resources/translations\validators.pt.yml</argument>
+            <argument>C:\xampp\htdocs\airbnbsf\vendor\javiereguiluz\easyadmin-bundle/Resources/translations\EasyAdminBundle.pt.xlf</argument>
+            <argument>C:\xampp\htdocs\airbnbsf\vendor\javiereguiluz\easyadmin-bundle/Resources/translations\messages.pt.xlf</argument>
           </argument>
           <argument key="pt_BR" type="collection">
             <argument>C:\xampp\htdocs\airbnbsf\vendor\symfony\symfony\src\Symfony\Component\Validator/Resources/translations\validators.pt_BR.xlf</argument>
@@ -1722,6 +1895,8 @@
             <argument>C:\xampp\htdocs\airbnbsf\vendor\friendsofsymfony\user-bundle/Resources/translations\validators.ro.yml</argument>
             <argument>C:\xampp\htdocs\airbnbsf\vendor\sonata-project\media-bundle/Resources/translations\SonataMediaBundle.ro.xliff</argument>
             <argument>C:\xampp\htdocs\airbnbsf\vendor\sonata-project\classification-bundle/Resources/translations\SonataClassificationBundle.ro.xliff</argument>
+            <argument>C:\xampp\htdocs\airbnbsf\vendor\javiereguiluz\easyadmin-bundle/Resources/translations\EasyAdminBundle.ro.xlf</argument>
+            <argument>C:\xampp\htdocs\airbnbsf\vendor\javiereguiluz\easyadmin-bundle/Resources/translations\messages.ro.xlf</argument>
           </argument>
           <argument key="ru" type="collection">
             <argument>C:\xampp\htdocs\airbnbsf\vendor\symfony\symfony\src\Symfony\Component\Validator/Resources/translations\validators.ru.xlf</argument>
@@ -1733,6 +1908,8 @@
             <argument>C:\xampp\htdocs\airbnbsf\vendor\friendsofsymfony\user-bundle/Resources/translations\validators.ru.yml</argument>
             <argument>C:\xampp\htdocs\airbnbsf\vendor\sonata-project\media-bundle/Resources/translations\SonataMediaBundle.ru.xliff</argument>
             <argument>C:\xampp\htdocs\airbnbsf\vendor\sonata-project\classification-bundle/Resources/translations\SonataClassificationBundle.ru.xliff</argument>
+            <argument>C:\xampp\htdocs\airbnbsf\vendor\javiereguiluz\easyadmin-bundle/Resources/translations\EasyAdminBundle.ru.xlf</argument>
+            <argument>C:\xampp\htdocs\airbnbsf\vendor\javiereguiluz\easyadmin-bundle/Resources/translations\messages.ru.xlf</argument>
           </argument>
           <argument key="sk" type="collection">
             <argument>C:\xampp\htdocs\airbnbsf\vendor\symfony\symfony\src\Symfony\Component\Validator/Resources/translations\validators.sk.xlf</argument>
@@ -1752,6 +1929,8 @@
             <argument>C:\xampp\htdocs\airbnbsf\vendor\friendsofsymfony\user-bundle/Resources/translations\FOSUserBundle.sl.yml</argument>
             <argument>C:\xampp\htdocs\airbnbsf\vendor\friendsofsymfony\user-bundle/Resources/translations\validators.sl.yml</argument>
             <argument>C:\xampp\htdocs\airbnbsf\vendor\sonata-project\media-bundle/Resources/translations\SonataMediaBundle.sl.xliff</argument>
+            <argument>C:\xampp\htdocs\airbnbsf\vendor\javiereguiluz\easyadmin-bundle/Resources/translations\EasyAdminBundle.sl.xlf</argument>
+            <argument>C:\xampp\htdocs\airbnbsf\vendor\javiereguiluz\easyadmin-bundle/Resources/translations\messages.sl.xlf</argument>
           </argument>
           <argument key="sq" type="collection">
             <argument>C:\xampp\htdocs\airbnbsf\vendor\symfony\symfony\src\Symfony\Component\Validator/Resources/translations\validators.sq.xlf</argument>
@@ -1774,6 +1953,8 @@
             <argument>C:\xampp\htdocs\airbnbsf\vendor\symfony\symfony\src\Symfony\Component\Security\Core/Resources/translations\security.sv.xlf</argument>
             <argument>C:\xampp\htdocs\airbnbsf\vendor\friendsofsymfony\user-bundle/Resources/translations\FOSUserBundle.sv.yml</argument>
             <argument>C:\xampp\htdocs\airbnbsf\vendor\friendsofsymfony\user-bundle/Resources/translations\validators.sv.yml</argument>
+            <argument>C:\xampp\htdocs\airbnbsf\vendor\javiereguiluz\easyadmin-bundle/Resources/translations\EasyAdminBundle.sv.xlf</argument>
+            <argument>C:\xampp\htdocs\airbnbsf\vendor\javiereguiluz\easyadmin-bundle/Resources/translations\messages.sv.xlf</argument>
           </argument>
           <argument key="th" type="collection">
             <argument>C:\xampp\htdocs\airbnbsf\vendor\symfony\symfony\src\Symfony\Component\Validator/Resources/translations\validators.th.xlf</argument>
@@ -1786,6 +1967,8 @@
             <argument>C:\xampp\htdocs\airbnbsf\vendor\symfony\symfony\src\Symfony\Component\Security\Core/Resources/translations\security.tr.xlf</argument>
             <argument>C:\xampp\htdocs\airbnbsf\vendor\friendsofsymfony\user-bundle/Resources/translations\FOSUserBundle.tr.yml</argument>
             <argument>C:\xampp\htdocs\airbnbsf\vendor\friendsofsymfony\user-bundle/Resources/translations\validators.tr.yml</argument>
+            <argument>C:\xampp\htdocs\airbnbsf\vendor\javiereguiluz\easyadmin-bundle/Resources/translations\EasyAdminBundle.tr.xlf</argument>
+            <argument>C:\xampp\htdocs\airbnbsf\vendor\javiereguiluz\easyadmin-bundle/Resources/translations\messages.tr.xlf</argument>
           </argument>
           <argument key="uk" type="collection">
             <argument>C:\xampp\htdocs\airbnbsf\vendor\symfony\symfony\src\Symfony\Component\Validator/Resources/translations\validators.uk.xlf</argument>
@@ -1795,6 +1978,8 @@
             <argument>C:\xampp\htdocs\airbnbsf\vendor\friendsofsymfony\user-bundle/Resources/translations\FOSUserBundle.uk.yml</argument>
             <argument>C:\xampp\htdocs\airbnbsf\vendor\friendsofsymfony\user-bundle/Resources/translations\validators.uk.yml</argument>
             <argument>C:\xampp\htdocs\airbnbsf\vendor\sonata-project\media-bundle/Resources/translations\SonataMediaBundle.uk.xliff</argument>
+            <argument>C:\xampp\htdocs\airbnbsf\vendor\javiereguiluz\easyadmin-bundle/Resources/translations\EasyAdminBundle.uk.xlf</argument>
+            <argument>C:\xampp\htdocs\airbnbsf\vendor\javiereguiluz\easyadmin-bundle/Resources/translations\messages.uk.xlf</argument>
           </argument>
           <argument key="vi" type="collection">
             <argument>C:\xampp\htdocs\airbnbsf\vendor\symfony\symfony\src\Symfony\Component\Validator/Resources/translations\validators.vi.xlf</argument>
@@ -1810,6 +1995,8 @@
             <argument>C:\xampp\htdocs\airbnbsf\vendor\sonata-project\admin-bundle/Resources/translations\SonataAdminBundle.zh_CN.xliff</argument>
             <argument>C:\xampp\htdocs\airbnbsf\vendor\friendsofsymfony\user-bundle/Resources/translations\FOSUserBundle.zh_CN.yml</argument>
             <argument>C:\xampp\htdocs\airbnbsf\vendor\friendsofsymfony\user-bundle/Resources/translations\validators.zh_CN.yml</argument>
+            <argument>C:\xampp\htdocs\airbnbsf\vendor\javiereguiluz\easyadmin-bundle/Resources/translations\EasyAdminBundle.zh_CN.xlf</argument>
+            <argument>C:\xampp\htdocs\airbnbsf\vendor\javiereguiluz\easyadmin-bundle/Resources/translations\messages.zh_CN.xlf</argument>
           </argument>
           <argument key="zh_TW" type="collection">
             <argument>C:\xampp\htdocs\airbnbsf\vendor\symfony\symfony\src\Symfony\Component\Validator/Resources/translations\validators.zh_TW.xlf</argument>
@@ -2463,6 +2650,14 @@
       </call>
       <call method="add">
         <argument type="service">
+          <service class="JavierEguiluz\Bundle\EasyAdminBundle\DataCollector\EasyAdminDataCollector" public="false">
+            <tag name="data_collector" template="@EasyAdmin/data_collector/easyadmin.html.twig" id="easyadmin"/>
+            <argument type="service" id="easyadmin.config.manager"/>
+          </service>
+        </argument>
+      </call>
+      <call method="add">
+        <argument type="service">
           <service class="Symfony\Component\HttpKernel\DataCollector\ConfigDataCollector" public="false">
             <tag name="data_collector" template="@WebProfiler/Collector/config.html.twig" id="config" priority="-255"/>
             <call method="setKernel">
@@ -2647,6 +2842,22 @@
         </argument>
         <argument>0</argument>
       </call>
+      <call method="addListenerService">
+        <argument>kernel.controller</argument>
+        <argument type="collection">
+          <argument>easyadmin.listener.controller</argument>
+          <argument>onKernelController</argument>
+        </argument>
+        <argument>0</argument>
+      </call>
+      <call method="addListenerService">
+        <argument>easy_admin.post_initialize</argument>
+        <argument type="collection">
+          <argument>easyadmin.listener.request_post_initialize</argument>
+          <argument>initializeRequest</argument>
+        </argument>
+        <argument>0</argument>
+      </call>
       <call method="addSubscriberService">
         <argument>response_listener</argument>
         <argument>Symfony\Component\HttpKernel\EventListener\ResponseListener</argument>
@@ -2761,14 +2972,7 @@
       </call>
     </service>
     <service id="debug.controller_resolver" class="Symfony\Component\HttpKernel\Controller\TraceableControllerResolver">
-      <argument type="service">
-        <service class="Symfony\Bundle\FrameworkBundle\Controller\ControllerResolver" public="false">
-          <tag name="monolog.logger" channel="request"/>
-          <argument type="service" id="service_container"/>
-          <argument type="service" id="controller_name_converter"/>
-          <argument type="service" id="monolog.logger.request" on-invalid="ignore"/>
-        </service>
-      </argument>
+      <argument type="service" id="controller_resolver"/>
       <argument type="service" id="debug.stopwatch"/>
     </service>
     <service id="security.context" class="Symfony\Component\Security\Core\SecurityContext">
@@ -2796,7 +3000,7 @@
         </argument>
         <argument type="service">
           <service class="Symfony\Component\Security\Core\Authentication\Provider\AnonymousAuthenticationProvider" public="false">
-            <argument>597f7cf70271a2.92152354</argument>
+            <argument>5981b5cc0e5055.48025523</argument>
           </service>
         </argument>
       </argument>
@@ -2965,6 +3169,28 @@
                   </argument>
                   <argument>null</argument>
                 </call>
+                <call method="add">
+                  <argument type="service">
+                    <service class="Symfony\Component\HttpFoundation\RequestMatcher" public="false">
+                      <argument>^/adminSonata/</argument>
+                    </service>
+                  </argument>
+                  <argument type="collection">
+                    <argument>ROLE_ADMIN</argument>
+                  </argument>
+                  <argument>null</argument>
+                </call>
+                <call method="add">
+                  <argument type="service">
+                    <service class="Symfony\Component\HttpFoundation\RequestMatcher" public="false">
+                      <argument>^/adminPanel/</argument>
+                    </service>
+                  </argument>
+                  <argument type="collection">
+                    <argument>ROLE_ADMIN</argument>
+                  </argument>
+                  <argument>null</argument>
+                </call>
               </service>
             </argument>
             <argument type="service">
@@ -3094,7 +3320,7 @@
         <argument type="service">
           <service class="Symfony\Component\Security\Http\Firewall\AnonymousAuthenticationListener" public="false">
             <argument type="service" id="security.token_storage"/>
-            <argument>597f7cf70271a2.92152354</argument>
+            <argument>5981b5cc0e5055.48025523</argument>
             <argument type="service" id="monolog.logger.security" on-invalid="null"/>
             <argument type="service" id="security.authentication.manager"/>
           </service>
@@ -3143,6 +3369,28 @@
                   <argument type="service">
                     <service class="Symfony\Component\HttpFoundation\RequestMatcher" public="false">
                       <argument>^/admin/</argument>
+                    </service>
+                  </argument>
+                  <argument type="collection">
+                    <argument>ROLE_ADMIN</argument>
+                  </argument>
+                  <argument>null</argument>
+                </call>
+                <call method="add">
+                  <argument type="service">
+                    <service class="Symfony\Component\HttpFoundation\RequestMatcher" public="false">
+                      <argument>^/adminSonata/</argument>
+                    </service>
+                  </argument>
+                  <argument type="collection">
+                    <argument>ROLE_ADMIN</argument>
+                  </argument>
+                  <argument>null</argument>
+                </call>
+                <call method="add">
+                  <argument type="service">
+                    <service class="Symfony\Component\HttpFoundation\RequestMatcher" public="false">
+                      <argument>^/adminPanel/</argument>
                     </service>
                   </argument>
                   <argument type="collection">
@@ -3413,6 +3661,17 @@
           <service class="JMS\Serializer\Twig\SerializerExtension" public="false">
             <tag name="twig.extension"/>
             <argument type="service" id="jms_serializer"/>
+          </service>
+        </argument>
+      </call>
+      <call method="addExtension">
+        <argument type="service">
+          <service class="JavierEguiluz\Bundle\EasyAdminBundle\Twig\EasyAdminTwigExtension" public="false">
+            <tag name="twig.extension"/>
+            <argument type="service" id="easyadmin.config.manager"/>
+            <argument type="service" id="property_accessor"/>
+            <argument>true</argument>
+            <argument type="service" id="security.logout_url_generator" on-invalid="null"/>
           </service>
         </argument>
       </call>
@@ -7427,6 +7686,100 @@
         <argument type="service" id="sonata.admin.event.extension"/>
       </call>
     </service>
+    <service id="easyadmin.cache.manager" class="JavierEguiluz\Bundle\EasyAdminBundle\Cache\CacheManager">
+      <argument>C:\xampp\htdocs\airbnbsf\app\cache\dev/easy_admin</argument>
+    </service>
+    <service id="easyadmin.config.manager" class="JavierEguiluz\Bundle\EasyAdminBundle\Configuration\ConfigManager">
+      <argument type="service" id="service_container"/>
+    </service>
+    <service id="easyadmin.query_builder" class="JavierEguiluz\Bundle\EasyAdminBundle\Search\QueryBuilder">
+      <argument type="service" id="doctrine"/>
+    </service>
+    <service id="easyadmin.autocomplete" class="JavierEguiluz\Bundle\EasyAdminBundle\Search\Autocomplete">
+      <argument type="service" id="easyadmin.config.manager"/>
+      <argument type="service">
+        <service class="JavierEguiluz\Bundle\EasyAdminBundle\Search\Finder" public="false">
+          <argument type="service" id="easyadmin.query_builder"/>
+          <argument type="service" id="easyadmin.paginator"/>
+        </service>
+      </argument>
+      <argument type="service" id="property_accessor"/>
+    </service>
+    <service id="easyadmin.paginator" class="JavierEguiluz\Bundle\EasyAdminBundle\Search\Paginator"/>
+    <service id="easyadmin.listener.controller" class="JavierEguiluz\Bundle\EasyAdminBundle\EventListener\ControllerListener">
+      <tag name="kernel.event_listener" event="kernel.controller" method="onKernelController"/>
+      <argument type="service" id="easyadmin.config.manager"/>
+      <argument type="service" id="controller_resolver"/>
+    </service>
+    <service id="easyadmin.listener.request_post_initialize" class="JavierEguiluz\Bundle\EasyAdminBundle\EventListener\RequestPostInitializeListener">
+      <tag name="kernel.event_listener" event="easy_admin.post_initialize" method="initializeRequest"/>
+      <argument type="service" id="doctrine"/>
+      <argument type="service" id="request_stack" on-invalid="null"/>
+    </service>
+    <service id="easyadmin.form.type" class="JavierEguiluz\Bundle\EasyAdminBundle\Form\Type\EasyAdminFormType">
+      <tag name="form.type"/>
+      <argument type="service" id="easyadmin.config.manager"/>
+      <argument type="collection">
+        <argument key="4" type="service">
+          <service class="JavierEguiluz\Bundle\EasyAdminBundle\Form\Type\Configurator\AutocompleteTypeConfigurator" public="false">
+            <tag name="easyadmin.form.type.configurator" priority="30"/>
+          </service>
+        </argument>
+        <argument key="3" type="service">
+          <service class="JavierEguiluz\Bundle\EasyAdminBundle\Form\Type\Configurator\CollectionTypeConfigurator" public="false">
+            <tag name="easyadmin.form.type.configurator" priority="20"/>
+          </service>
+        </argument>
+        <argument key="2" type="service">
+          <service class="JavierEguiluz\Bundle\EasyAdminBundle\Form\Type\Configurator\CheckboxTypeConfigurator" public="false">
+            <tag name="easyadmin.form.type.configurator" priority="10"/>
+          </service>
+        </argument>
+        <argument key="1" type="service">
+          <service class="JavierEguiluz\Bundle\EasyAdminBundle\Form\Type\Configurator\RequiredOptionConfigurator" public="false">
+            <tag name="easyadmin.form.type.configurator" priority="-10"/>
+            <argument type="service">
+              <service class="Symfony\Component\Form\FormTypeGuesserChain" public="false">
+                <argument type="collection">
+                  <argument type="service" id="form.type_guesser.validator"/>
+                  <argument type="service" id="form.type_guesser.doctrine"/>
+                </argument>
+              </service>
+            </argument>
+          </service>
+        </argument>
+        <argument key="0" type="service">
+          <service class="JavierEguiluz\Bundle\EasyAdminBundle\Form\Type\Configurator\EntityTypeConfigurator" public="false">
+            <tag name="easyadmin.form.type.configurator" priority="-20"/>
+            <argument type="service">
+              <service class="Symfony\Component\Form\FormTypeGuesserChain" public="false">
+                <argument type="collection">
+                  <argument type="service" id="form.type_guesser.validator"/>
+                  <argument type="service" id="form.type_guesser.doctrine"/>
+                </argument>
+              </service>
+            </argument>
+          </service>
+        </argument>
+      </argument>
+    </service>
+    <service id="easyadmin.form.type.autocomplete" class="JavierEguiluz\Bundle\EasyAdminBundle\Form\Type\EasyAdminAutocompleteType">
+      <tag name="form.type" alias="easyadmin_autocomplete"/>
+      <argument type="service" id="easyadmin.config.manager"/>
+    </service>
+    <service id="easyadmin.form.type.divider" class="JavierEguiluz\Bundle\EasyAdminBundle\Form\Type\EasyAdminDividerType">
+      <tag name="form.type" alias="easyadmin_divider"/>
+    </service>
+    <service id="easyadmin.form.type.section" class="JavierEguiluz\Bundle\EasyAdminBundle\Form\Type\EasyAdminSectionType">
+      <tag name="form.type" alias="easyadmin_section"/>
+    </service>
+    <service id="easyadmin.form.type.group" class="JavierEguiluz\Bundle\EasyAdminBundle\Form\Type\EasyAdminGroupType">
+      <tag name="form.type" alias="easyadmin_group"/>
+    </service>
+    <service id="easyadmin.form.type.extension" class="JavierEguiluz\Bundle\EasyAdminBundle\Form\Extension\EasyAdminExtension">
+      <tag name="form.type_extension" alias="form" extended_type="Symfony\Component\Form\Extension\Core\Type\FormType" extended-type="Symfony\Component\Form\Extension\Core\Type\FormType"/>
+      <argument type="service" id="request_stack" on-invalid="null"/>
+    </service>
     <service id="data_collector.dump" class="Symfony\Component\HttpKernel\DataCollector\DumpDataCollector">
       <tag name="data_collector" id="dump" template="@Debug/Profiler/dump.html.twig" priority="240"/>
       <argument type="service" id="debug.stopwatch" on-invalid="ignore"/>
@@ -7520,6 +7873,10 @@
         <argument key="sonata.block.data_collector" type="collection">
           <argument>block</argument>
           <argument>SonataBlockBundle:Profiler:block.html.twig</argument>
+        </argument>
+        <argument key="easyadmin.data_collector" type="collection">
+          <argument>easyadmin</argument>
+          <argument>@EasyAdmin/data_collector/easyadmin.html.twig</argument>
         </argument>
         <argument key="data_collector.config" type="collection">
           <argument>config</argument>
@@ -7814,6 +8171,16 @@
         <argument key="Sonata\MediaBundle\Form\Type\MediaType">sonata.media.form.type.media</argument>
         <argument key="sonata_category_selector">sonata.classification.form.type.category_selector</argument>
         <argument key="Sonata\ClassificationBundle\Form\Type\CategorySelectorType">sonata.classification.form.type.category_selector</argument>
+        <argument key="easyadmin.form.type">easyadmin.form.type</argument>
+        <argument key="JavierEguiluz\Bundle\EasyAdminBundle\Form\Type\EasyAdminFormType">easyadmin.form.type</argument>
+        <argument key="easyadmin_autocomplete">easyadmin.form.type.autocomplete</argument>
+        <argument key="JavierEguiluz\Bundle\EasyAdminBundle\Form\Type\EasyAdminAutocompleteType">easyadmin.form.type.autocomplete</argument>
+        <argument key="easyadmin_divider">easyadmin.form.type.divider</argument>
+        <argument key="JavierEguiluz\Bundle\EasyAdminBundle\Form\Type\EasyAdminDividerType">easyadmin.form.type.divider</argument>
+        <argument key="easyadmin_section">easyadmin.form.type.section</argument>
+        <argument key="JavierEguiluz\Bundle\EasyAdminBundle\Form\Type\EasyAdminSectionType">easyadmin.form.type.section</argument>
+        <argument key="easyadmin_group">easyadmin.form.type.group</argument>
+        <argument key="JavierEguiluz\Bundle\EasyAdminBundle\Form\Type\EasyAdminGroupType">easyadmin.form.type.group</argument>
       </argument>
       <argument type="collection">
         <argument key="Symfony\Component\Form\Extension\Core\Type\FormType" type="collection">
@@ -7824,6 +8191,7 @@
           <argument>form.type_extension.form.data_collector</argument>
           <argument>sonata.admin.form.extension.field</argument>
           <argument>sonata.admin.form.extension.field.mopa</argument>
+          <argument>easyadmin.form.type.extension</argument>
         </argument>
         <argument key="Symfony\Component\Form\Extension\Core\Type\RepeatedType" type="collection">
           <argument>form.type_extension.repeated.validator</argument>
@@ -8157,6 +8525,7 @@
                       <argument key="BackendBundle">C:\xampp\htdocs\airbnbsf\src\BackendBundle/Resources/config/serializer</argument>
                       <argument key="Sonata\ClassificationBundle">C:\xampp\htdocs\airbnbsf\vendor\sonata-project\classification-bundle/Resources/config/serializer</argument>
                       <argument key="Application\Sonata\ClassificationBundle">C:\xampp\htdocs\airbnbsf\src\Application\Sonata\ClassificationBundle/Resources/config/serializer</argument>
+                      <argument key="JavierEguiluz\Bundle\EasyAdminBundle">C:\xampp\htdocs\airbnbsf\vendor\javiereguiluz\easyadmin-bundle/Resources/config/serializer</argument>
                       <argument key="Symfony\Bundle\DebugBundle">C:\xampp\htdocs\airbnbsf\vendor\symfony\symfony\src\Symfony\Bundle\DebugBundle/Resources/config/serializer</argument>
                       <argument key="Symfony\Bundle\WebProfilerBundle">C:\xampp\htdocs\airbnbsf\vendor\symfony\symfony\src\Symfony\Bundle\WebProfilerBundle/Resources/config/serializer</argument>
                       <argument key="Sensio\Bundle\DistributionBundle">C:\xampp\htdocs\airbnbsf\vendor\sensio\distribution-bundle\Sensio\Bundle\DistributionBundle/Resources/config/serializer</argument>
@@ -8192,6 +8561,7 @@
                       <argument key="BackendBundle">C:\xampp\htdocs\airbnbsf\src\BackendBundle/Resources/config/serializer</argument>
                       <argument key="Sonata\ClassificationBundle">C:\xampp\htdocs\airbnbsf\vendor\sonata-project\classification-bundle/Resources/config/serializer</argument>
                       <argument key="Application\Sonata\ClassificationBundle">C:\xampp\htdocs\airbnbsf\src\Application\Sonata\ClassificationBundle/Resources/config/serializer</argument>
+                      <argument key="JavierEguiluz\Bundle\EasyAdminBundle">C:\xampp\htdocs\airbnbsf\vendor\javiereguiluz\easyadmin-bundle/Resources/config/serializer</argument>
                       <argument key="Symfony\Bundle\DebugBundle">C:\xampp\htdocs\airbnbsf\vendor\symfony\symfony\src\Symfony\Bundle\DebugBundle/Resources/config/serializer</argument>
                       <argument key="Symfony\Bundle\WebProfilerBundle">C:\xampp\htdocs\airbnbsf\vendor\symfony\symfony\src\Symfony\Bundle\WebProfilerBundle/Resources/config/serializer</argument>
                       <argument key="Sensio\Bundle\DistributionBundle">C:\xampp\htdocs\airbnbsf\vendor\sensio\distribution-bundle\Sensio\Bundle\DistributionBundle/Resources/config/serializer</argument>
@@ -8227,6 +8597,7 @@
                       <argument key="BackendBundle">C:\xampp\htdocs\airbnbsf\src\BackendBundle/Resources/config/serializer</argument>
                       <argument key="Sonata\ClassificationBundle">C:\xampp\htdocs\airbnbsf\vendor\sonata-project\classification-bundle/Resources/config/serializer</argument>
                       <argument key="Application\Sonata\ClassificationBundle">C:\xampp\htdocs\airbnbsf\src\Application\Sonata\ClassificationBundle/Resources/config/serializer</argument>
+                      <argument key="JavierEguiluz\Bundle\EasyAdminBundle">C:\xampp\htdocs\airbnbsf\vendor\javiereguiluz\easyadmin-bundle/Resources/config/serializer</argument>
                       <argument key="Symfony\Bundle\DebugBundle">C:\xampp\htdocs\airbnbsf\vendor\symfony\symfony\src\Symfony\Bundle\DebugBundle/Resources/config/serializer</argument>
                       <argument key="Symfony\Bundle\WebProfilerBundle">C:\xampp\htdocs\airbnbsf\vendor\symfony\symfony\src\Symfony\Bundle\WebProfilerBundle/Resources/config/serializer</argument>
                       <argument key="Sensio\Bundle\DistributionBundle">C:\xampp\htdocs\airbnbsf\vendor\sensio\distribution-bundle\Sensio\Bundle\DistributionBundle/Resources/config/serializer</argument>
@@ -8443,6 +8814,10 @@
       <call method="addPath">
         <argument>C:\xampp\htdocs\airbnbsf\src\Application\Sonata\ClassificationBundle/Resources/views</argument>
         <argument>ApplicationSonataClassification</argument>
+      </call>
+      <call method="addPath">
+        <argument>C:\xampp\htdocs\airbnbsf\vendor\javiereguiluz\easyadmin-bundle/Resources/views</argument>
+        <argument>EasyAdmin</argument>
       </call>
       <call method="addPath">
         <argument>C:\xampp\htdocs\airbnbsf\vendor\symfony\symfony\src\Symfony\Bundle\DebugBundle/Resources/views</argument>

@@ -254,4 +254,15 @@ class Features extends \BackendBundle\Entity\Features implements \Doctrine\ORM\P
         return parent::getActive();
     }
 
+    /**
+     * {@inheritDoc}
+     */
+    public function __toString()
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, '__toString', array());
+
+        return parent::__toString();
+    }
+
 }

@@ -866,4 +866,8 @@ class Products
     {
         return $this->feature;
     }
+    
+    public function __toString(){
+        return (string) $this->getTitle();
+    }
 }

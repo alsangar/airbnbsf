@@ -1,17 +1,17 @@
 <?php
+
 namespace BackendBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use FOS\UserBundle\Model\User as BaseUser;
-
 
 /**
  * @ORM\Entity
  * @ORM\Table(name="fos_user")
  *
  */
-class User extends BaseUser
-{
+class User extends BaseUser {
+
     /**
      * @var int
      *
@@ -26,40 +26,35 @@ class User extends BaseUser
      *
      * @ORM\Column(name="first_name", type="string", length=255, nullable=true)
      */
-    private $firstName;
+    protected $firstName;
 
     /**
      * @var string
      *
      * @ORM\Column(name="last_name", type="string", length=255, nullable=true)
      */
-    private $lastName;
+    protected $lastName;
 
     /**
      * @var integer
      *
      * @ORM\Column(name="phone", type="integer", length=15, nullable=true)
      */
-    private $phone;
+    protected $phone;
 
     /**
      * @ORM\OneToMany(targetEntity="Favorites", mappedBy="user", cascade={"persist"}, orphanRemoval=true)
      */
     protected $favorites;
 
-    public function __construct()
-    {
+    public function __construct() {
         parent::__construct();
 
         $this->favorites = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
-    public function __toString()
-    {
-        if ($this->firstname != "")
-            return $this->firstName." ".$this->lastName;
-        else
-            return '';
+    public function __toString() {
+        return (string) $this->getUsername();
     }
 
     /**
@@ -68,8 +63,7 @@ class User extends BaseUser
      * @param \BackendBundle\Entity\Favorites $favorites
      * @return User
      */
-    public function addFavorite(\BackendBundle\Entity\Favorites $favorites)
-    {
+    public function addFavorite(\BackendBundle\Entity\Favorites $favorites) {
         $this->favorites[] = $favorites;
 
         return $this;
@@ -80,8 +74,7 @@ class User extends BaseUser
      *
      * @param \BackendBundle\Entity\Favorites $favorites
      */
-    public function removeFavorite(\BackendBundle\Entity\Favorites $favorites)
-    {
+    public function removeFavorite(\BackendBundle\Entity\Favorites $favorites) {
         $this->favorites->removeElement($favorites);
     }
 
@@ -90,8 +83,7 @@ class User extends BaseUser
      *
      * @return \Doctrine\Common\Collections\Collection 
      */
-    public function getFavorites()
-    {
+    public function getFavorites() {
         return $this->favorites;
     }
 
@@ -102,8 +94,7 @@ class User extends BaseUser
      *
      * @return User
      */
-    public function setFirstName($firstName)
-    {
+    public function setFirstName($firstName) {
         $this->firstName = $firstName;
 
         return $this;
@@ -114,8 +105,7 @@ class User extends BaseUser
      *
      * @return string
      */
-    public function getFirstName()
-    {
+    public function getFirstName() {
         return $this->firstName;
     }
 
@@ -126,8 +116,7 @@ class User extends BaseUser
      *
      * @return User
      */
-    public function setLastName($lastName)
-    {
+    public function setLastName($lastName) {
         $this->lastName = $lastName;
 
         return $this;
@@ -138,8 +127,7 @@ class User extends BaseUser
      *
      * @return string
      */
-    public function getLastName()
-    {
+    public function getLastName() {
         return $this->lastName;
     }
 
@@ -150,8 +138,7 @@ class User extends BaseUser
      *
      * @return User
      */
-    public function setPhone($phone)
-    {
+    public function setPhone($phone) {
         $this->phone = $phone;
 
         return $this;
@@ -162,8 +149,8 @@ class User extends BaseUser
      *
      * @return integer
      */
-    public function getPhone()
-    {
+    public function getPhone() {
         return $this->phone;
     }
+
 }

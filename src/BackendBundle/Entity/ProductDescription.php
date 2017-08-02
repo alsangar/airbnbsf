@@ -214,4 +214,8 @@ class ProductDescription
     {
         return $this->language;
     }
+    
+    public function __toString(){
+        return (string) $this->getTitle();
+    }
 }

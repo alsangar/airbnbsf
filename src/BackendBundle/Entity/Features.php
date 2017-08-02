@@ -122,4 +122,8 @@ class Features
     {
         return $this->active;
     }
+    
+    public function __toString(){
+        return (string) $this->getFeature();
+    }
 }
