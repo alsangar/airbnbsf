@@ -36,6 +36,8 @@ class AppKernel extends Kernel {
             new Application\Sonata\ClassificationBundle\ApplicationSonataClassificationBundle(),
             //Backoffice bundle
             new JavierEguiluz\Bundle\EasyAdminBundle\EasyAdminBundle(),
+            //Bundle para sobreescribir formularios de FOSUserBundle
+            //new UserBundle\UserBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'), true)) {

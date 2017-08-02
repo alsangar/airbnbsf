@@ -404,6 +404,11 @@ class appDevDebugProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBund
             return array (  '_controller' => 'AppBundle\\Controller\\DefaultController::indexAction',  '_route' => 'homepage',);
         }
 
+        // admin_panel
+        if ($pathinfo === '/adminPanel') {
+            return array (  '_controller' => 'AppBundle\\Controller\\DefaultController::adminAction',  '_route' => 'admin_panel',);
+        }
+
         if (0 === strpos($pathinfo, '/rooms')) {
             // rooms_list
             if ($pathinfo === '/rooms/list') {

@@ -26,5 +26,13 @@ class DefaultController extends Controller {
                     'form' => $form->createView()
         ));
     }
+    
+    /**
+     * @Route("/adminPanel", name="admin_panel")
+     */
+    public function adminAction(Request $request) {
+
+        return $this->render('app/default/adminPanel/', array());
+    }
 
 }

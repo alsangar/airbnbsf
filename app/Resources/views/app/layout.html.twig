@@ -67,11 +67,17 @@
                     </li>
                     <li role="separator" class="divider"></li>
                         {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
-                        <li><a href="{{ path('fos_user_profile_show') }}">
+                        <li>
+                            <a href="{{ path('fos_user_profile_show') }}">
                                 <strong>{{ app.user.username }}</strong>
                             </a>
                         </li>
-                        <li><a href="{{ path('fos_user_security_logout') }}">
+                        {% if is_granted('ROLE_ADMIN') %}
+                            <li><a href="{{ path("admin_panel") }}"><i class="fa fa-key" aria-hidden="true"></i> Backoffice
+</a></li>
+                        {% endif %}
+                        <li>
+                            <a href="{{ path('fos_user_security_logout') }}">
                                 Salir
                             </a>
                         </li>
@@ -138,6 +144,6 @@
     <script src="{{ asset('themes/app/assets/js/jquery.prettyPhoto.js') }}"></script>
     <script src="{{ asset('themes/app/assets/js/jquery.isotope.min.js') }}"></script>
     <script src="{{ asset('themes/app/assets/js/custom.js') }}"></script>
-    
-    
+
+
 {% endblock %}
