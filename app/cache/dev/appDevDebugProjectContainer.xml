@@ -868,7 +868,7 @@
     <parameter key="fos_user.firewall_name">main</parameter>
     <parameter key="fos_user.model_manager_name">null</parameter>
     <parameter key="fos_user.model.user.class">BackendBundle\Entity\User</parameter>
-    <parameter key="fos_user.profile.form.type">FOS\UserBundle\Form\Type\ProfileFormType</parameter>
+    <parameter key="fos_user.profile.form.type">BackendBundle\Form\fos_user\ProfileFormType</parameter>
     <parameter key="fos_user.profile.form.name">fos_user_profile_form</parameter>
     <parameter key="fos_user.profile.form.validation_groups" type="collection">
       <parameter>Profile</parameter>
@@ -878,7 +878,7 @@
       <parameter key="uno@cualquiera.es">uno@cualquiera.es</parameter>
     </parameter>
     <parameter key="fos_user.registration.confirmation.enabled">false</parameter>
-    <parameter key="fos_user.registration.form.type">FOS\UserBundle\Form\Type\RegistrationFormType</parameter>
+    <parameter key="fos_user.registration.form.type">BackendBundle\Form\fos_user\RegistrationFormType</parameter>
     <parameter key="fos_user.registration.form.name">fos_user_registration_form</parameter>
     <parameter key="fos_user.registration.form.validation_groups" type="collection">
       <parameter>Registration</parameter>
@@ -1228,6 +1228,8 @@
       <parameter>sensio_distribution.security_checker.command</parameter>
     </parameter>
     <parameter key="sonata.core.form.types" type="collection">
+      <parameter>app.form.profile</parameter>
+      <parameter>app.form.registration</parameter>
       <parameter>form.type.form</parameter>
       <parameter>form.type.birthday</parameter>
       <parameter>form.type.checkbox</parameter>
@@ -1317,6 +1319,14 @@
     </parameter>
   </parameters>
   <services>
+    <service id="app.form.profile" class="BackendBundle\Form\fos_user\ProfileFormType">
+      <tag name="form.type" alias="fos_user_profile_edit"/>
+      <argument>BackendBundle\Entity\User</argument>
+    </service>
+    <service id="app.form.registration" class="BackendBundle\Form\fos_user\RegistrationFormType">
+      <tag name="form.type" alias="fos_user_registration"/>
+      <argument>BackendBundle\Entity\User</argument>
+    </service>
     <service id="controller_name_converter" class="Symfony\Bundle\FrameworkBundle\Controller\ControllerNameParser" public="false">
       <tag name="monolog.logger" channel="request"/>
       <argument type="service" id="kernel"/>
@@ -3000,7 +3010,7 @@
         </argument>
         <argument type="service">
           <service class="Symfony\Component\Security\Core\Authentication\Provider\AnonymousAuthenticationProvider" public="false">
-            <argument>59824571ab9b06.71051562</argument>
+            <argument>5982d2a19540b8.48665684</argument>
           </service>
         </argument>
       </argument>
@@ -3320,7 +3330,7 @@
         <argument type="service">
           <service class="Symfony\Component\Security\Http\Firewall\AnonymousAuthenticationListener" public="false">
             <argument type="service" id="security.token_storage"/>
-            <argument>59824571ab9b06.71051562</argument>
+            <argument>5982d2a19540b8.48665684</argument>
             <argument type="service" id="monolog.logger.security" on-invalid="null"/>
             <argument type="service" id="security.authentication.manager"/>
           </service>
@@ -5224,7 +5234,7 @@
     <service id="fos_user.profile.form.factory" class="FOS\UserBundle\Form\Factory\FormFactory">
       <argument type="service" id="form.factory"/>
       <argument>fos_user_profile_form</argument>
-      <argument>FOS\UserBundle\Form\Type\ProfileFormType</argument>
+      <argument>BackendBundle\Form\fos_user\ProfileFormType</argument>
       <argument type="collection">
         <argument>Profile</argument>
         <argument>Default</argument>
@@ -5237,7 +5247,7 @@
     <service id="fos_user.registration.form.factory" class="FOS\UserBundle\Form\Factory\FormFactory">
       <argument type="service" id="form.factory"/>
       <argument>fos_user_registration_form</argument>
-      <argument>FOS\UserBundle\Form\Type\RegistrationFormType</argument>
+      <argument>BackendBundle\Form\fos_user\RegistrationFormType</argument>
       <argument type="collection">
         <argument>Registration</argument>
         <argument>Default</argument>
@@ -8035,6 +8045,10 @@
     <service id="form.extension" class="Sonata\CoreBundle\Form\Extension\DependencyInjectionExtension">
       <argument type="service" id="service_container"/>
       <argument type="collection">
+        <argument key="fos_user_profile_edit">app.form.profile</argument>
+        <argument key="BackendBundle\Form\fos_user\ProfileFormType">app.form.profile</argument>
+        <argument key="fos_user_registration">fos_user.registration.form.type</argument>
+        <argument key="BackendBundle\Form\fos_user\RegistrationFormType">app.form.registration</argument>
         <argument key="form">form.type.form</argument>
         <argument key="Symfony\Component\Form\Extension\Core\Type\FormType">form.type.form</argument>
         <argument key="birthday">form.type.birthday</argument>
@@ -8161,7 +8175,6 @@
         <argument key="FOS\UserBundle\Form\Type\UsernameFormType">fos_user.username_form_type</argument>
         <argument key="fos_user_profile">fos_user.profile.form.type</argument>
         <argument key="FOS\UserBundle\Form\Type\ProfileFormType">fos_user.profile.form.type</argument>
-        <argument key="fos_user_registration">fos_user.registration.form.type</argument>
         <argument key="FOS\UserBundle\Form\Type\RegistrationFormType">fos_user.registration.form.type</argument>
         <argument key="fos_user_change_password">fos_user.change_password.form.type</argument>
         <argument key="FOS\UserBundle\Form\Type\ChangePasswordFormType">fos_user.change_password.form.type</argument>

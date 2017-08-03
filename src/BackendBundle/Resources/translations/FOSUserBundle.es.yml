@@ -19,6 +19,9 @@ profile:
     show:
         username: 'Nombre de usuario'
         email: Email
+        firstName: Nombre
+        lastName: Apellido
+        phone: Teléfono
     edit:
         submit: 'Actualizar usuario'
     flash:

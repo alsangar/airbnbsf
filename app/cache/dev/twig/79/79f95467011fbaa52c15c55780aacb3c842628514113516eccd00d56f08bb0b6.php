@@ -15,8 +15,8 @@ class __TwigTemplate_b3a11fdfb854d3998dc59baaa9f3de3a54b9a0b80b7c644612f26a10510
 
     protected function doDisplay(array $context, array $blocks = array())
     {
-        $__internal_8ea9a0e9441640762286abf2376663b87928b6b5c2dda110b8a445682e0e9ebf = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
-        $__internal_8ea9a0e9441640762286abf2376663b87928b6b5c2dda110b8a445682e0e9ebf->enter($__internal_8ea9a0e9441640762286abf2376663b87928b6b5c2dda110b8a445682e0e9ebf_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "@FOSUser/Profile/show_content.html.twig"));
+        $__internal_b77fc576529b226029f4b35200e1db9250156163e7d021e831d6294333463c08 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
+        $__internal_b77fc576529b226029f4b35200e1db9250156163e7d021e831d6294333463c08->enter($__internal_b77fc576529b226029f4b35200e1db9250156163e7d021e831d6294333463c08_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "@FOSUser/Profile/show_content.html.twig"));
 
         // line 2
         echo "
@@ -49,12 +49,30 @@ class __TwigTemplate_b3a11fdfb854d3998dc59baaa9f3de3a54b9a0b80b7c644612f26a10510
         echo "</p>                
                 <p>";
         // line 19
+        echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\TranslationExtension')->trans("profile.show.firstName", array(), "FOSUserBundle"), "html", null, true);
+        echo ": ";
+        echo twig_escape_filter($this->env, $this->getAttribute(($context["user"] ?? $this->getContext($context, "user")), "firstName", array()), "html", null, true);
+        echo "</p>
+                <p>";
+        // line 20
+        echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\TranslationExtension')->trans("profile.show.lastName", array(), "FOSUserBundle"), "html", null, true);
+        echo ": ";
+        echo twig_escape_filter($this->env, $this->getAttribute(($context["user"] ?? $this->getContext($context, "user")), "lastName", array()), "html", null, true);
+        echo "</p>
+                <p>";
+        // line 21
+        echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\TranslationExtension')->trans("profile.show.phone", array(), "FOSUserBundle"), "html", null, true);
+        echo ": ";
+        echo twig_escape_filter($this->env, $this->getAttribute(($context["user"] ?? $this->getContext($context, "user")), "phone", array()), "html", null, true);
+        echo "</p>
+                <p>";
+        // line 22
         echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\TranslationExtension')->trans("profile.show.email", array(), "FOSUserBundle"), "html", null, true);
         echo ": ";
         echo twig_escape_filter($this->env, $this->getAttribute(($context["user"] ?? $this->getContext($context, "user")), "email", array()), "html", null, true);
         echo "</p>
                 <p><a href=\"";
-        // line 20
+        // line 23
         echo $this->env->getExtension('Symfony\Bridge\Twig\Extension\RoutingExtension')->getPath("fos_user_profile_edit");
         echo "\" class=\"btn btn-block btn-theme\" >Editar</button></a>
             </div><! --/col-lg-4 -->
@@ -65,7 +83,7 @@ class __TwigTemplate_b3a11fdfb854d3998dc59baaa9f3de3a54b9a0b80b7c644612f26a10510
 
 ";
         
-        $__internal_8ea9a0e9441640762286abf2376663b87928b6b5c2dda110b8a445682e0e9ebf->leave($__internal_8ea9a0e9441640762286abf2376663b87928b6b5c2dda110b8a445682e0e9ebf_prof);
+        $__internal_b77fc576529b226029f4b35200e1db9250156163e7d021e831d6294333463c08->leave($__internal_b77fc576529b226029f4b35200e1db9250156163e7d021e831d6294333463c08_prof);
 
     }
 
@@ -81,7 +99,7 @@ class __TwigTemplate_b3a11fdfb854d3998dc59baaa9f3de3a54b9a0b80b7c644612f26a10510
 
     public function getDebugInfo()
     {
-        return array (  58 => 20,  52 => 19,  46 => 18,  35 => 10,  28 => 6,  22 => 2,);
+        return array (  76 => 23,  70 => 22,  64 => 21,  58 => 20,  52 => 19,  46 => 18,  35 => 10,  28 => 6,  22 => 2,);
     }
 
     /** @deprecated since 1.27 (to be removed in 2.0). Use getSourceContext() instead */
@@ -112,6 +130,9 @@ class __TwigTemplate_b3a11fdfb854d3998dc59baaa9f3de3a54b9a0b80b7c644612f26a10510
                 </div><!-- he wrap -->
 
                 <p>{{ 'profile.show.username'|trans }}: {{ user.username }}</p>                
+                <p>{{ 'profile.show.firstName'|trans }}: {{ user.firstName }}</p>
+                <p>{{ 'profile.show.lastName'|trans }}: {{ user.lastName }}</p>
+                <p>{{ 'profile.show.phone'|trans }}: {{ user.phone }}</p>
                 <p>{{ 'profile.show.email'|trans }}: {{ user.email }}</p>
                 <p><a href=\"{{ path('fos_user_profile_edit') }}\" class=\"btn btn-block btn-theme\" >Editar</button></a>
             </div><! --/col-lg-4 -->

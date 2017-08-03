@@ -21,6 +21,9 @@ profile:
     show:
         username: Username
         email: Email
+        firstName: Name
+        lastName: Last
+        phone: Phone
     edit:
         submit: Update
     flash:

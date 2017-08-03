@@ -9,29 +9,46 @@
 {% endfor %}
 
 {{form_start(form, {'method': 'POST', 'attr':{'id': 'form-register','role': 'form','class': 'form-signin'}})}}
+
+{% if not form.vars.valid %}
+    <div class="alert alert-error" role="alert">
+        {% for child in form.children %}
+            {# Display the errors of the form item #}
+            {%for error in child.vars.errors%}                
+                    {{error.message}}
+                {%endfor%}
+            {%endfor%}
+    </div>
+{% endif %}
+
 <div class="form-group">
-    <label for="fos_user_registration_form[username]">Nombre</label>
+    <label for="fos_user_registration_form[username]">Usuario</label>
     {{ form_widget(form.username, { 'attr': {'class': 'form-control'} }) }}
 </div>
 <div class="form-group">
-    <label for="InputEmail" >Dirección de correo electrónico</label>
+    <label for="fos_user_registration_form[firstName]">Nombre</label>
+    {{ form_widget(form.firstName, { 'attr': {'class': 'form-control'} }) }}
+</div>
+<div class="form-group">
+    <label for="fos_user_registration_form[lastName]">Apellido</label>
+    {{ form_widget(form.lastName, { 'attr': {'class': 'form-control'} }) }}
+</div>
+<div class="form-group">
+    <label for="fos_user_registration_form[phone]">Teléfono</label>
+    {{ form_widget(form.phone, { 'attr': {'class': 'form-control'} }) }}
+</div>
+<div class="form-group">
+    <label for="fos_user_registration_form[email]" >Dirección de correo electrónico</label>
     {{ form_widget(form.email, { 'attr': {'class': 'form-control'} }) }}
 </div>
 <div class="form-group">
-    <label for="inputPassword">Contraseña</label>
+    <label for="fos_user_registration_form[plainPassword.first]">Contraseña</label>
     {{ form_widget(form.plainPassword.first, { 'attr': {'class': 'form-control'} }) }}
 </div>
 <div class="form-group">
-    <label for="inputPassword2" >Repetir contraseña</label>
+    <label for="plainPassword.second" >Repetir contraseña</label>
     {{ form_widget(form.plainPassword.second, { 'attr': {'class': 'form-control'} }) }}
 </div>
-{#<div class="form-group">
-    <div class="checkbox">
-        <label>
-            <input type="checkbox" value="remember-me"> Newsletter
-        </label>
-    </div>
-</div>#}
 <button class="btn btn-lg btn-theme btn-block" type="submit">Crear cuenta</button>
 
 {{ form_end(form) }}

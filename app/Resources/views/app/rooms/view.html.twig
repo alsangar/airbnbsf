@@ -30,7 +30,7 @@
     <div id="blue">
         <div class="container">
             <div class="row">
-                <h3>{{room.title}} - {{room.location.city}} - <span class="label label-danger">{{room.roomPrice}} €</span></h3></h3>
+                <h3>{{room.title}} - {{room.location.city}} <span class="label label-danger">{{room.roomPrice}} €</span></h3></h3>
             </div><!-- /row -->
         </div> <!-- /container -->
     </div><!-- /blue -->
@@ -120,18 +120,19 @@
                                 <label for="tarifa_servicio">Tarifa de servicio</label>
                                 <div class="input-group">
                                     <input type="text" class="form-control" id="tarifa_servicio" value="-" readonly>
-                                    <span class="input-group-addon">€</span>
+                                    <span class="input-group-addon"> €</span>
                                 </div>
                             </div>
                         </div>
                         <div class="form-group">
-                            <div  class="col-lg-offset-6 col-lg-6">
+                            
                                 <label for="precio_total">Total</label>
-                                <div class="input-group">
+                                <div class="input-group col-lg-12">
+                                    
                                     {{ form_widget(form.priceTotal) }}
-                                    <span class="input-group-addon">€</span>
+                                    <span class="input-group-addon"> €</span>
                                 </div>
-                            </div>
+                          
                         </div>                        
                         {% if(is_granted('ROLE_USER')) %}
                             <button type="submit" class="btn btn-block btn-large btn-success">Reservar</button>

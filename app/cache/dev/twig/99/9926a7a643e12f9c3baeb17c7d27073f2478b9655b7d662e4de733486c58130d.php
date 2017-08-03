@@ -15,73 +15,106 @@ class __TwigTemplate_b428911938c042d9078831964b7ca68222335a6ef175b460ff8755993bc
 
     protected function doDisplay(array $context, array $blocks = array())
     {
-        $__internal_cba50142eea04cb01ef04e1152e392b233c24986353cdb6e5814c039fa5d14c1 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
-        $__internal_cba50142eea04cb01ef04e1152e392b233c24986353cdb6e5814c039fa5d14c1->enter($__internal_cba50142eea04cb01ef04e1152e392b233c24986353cdb6e5814c039fa5d14c1_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "@FOSUser/Profile/edit_content.html.twig"));
+        $__internal_bde22532a5195639364fe1f2f4f65b325bc01ced462fbe1a817c8530eaccd7c6 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
+        $__internal_bde22532a5195639364fe1f2f4f65b325bc01ced462fbe1a817c8530eaccd7c6->enter($__internal_bde22532a5195639364fe1f2f4f65b325bc01ced462fbe1a817c8530eaccd7c6_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "@FOSUser/Profile/edit_content.html.twig"));
 
         // line 2
         echo "
 <div class=\"container mtb\">
     <div class=\"row centered\">
-        
         ";
-        // line 6
+        // line 5
         echo         $this->env->getExtension('Symfony\Bridge\Twig\Extension\FormExtension')->renderer->renderBlock(($context["form"] ?? $this->getContext($context, "form")), 'form_start', array("action" => $this->env->getExtension('Symfony\Bridge\Twig\Extension\RoutingExtension')->getPath("fos_user_profile_edit"), "method" => "POST", "name" => "editProfile", "attr" => array("class" => "fos_user_profile_edit form-horizontal", "id" => "formEditProfile")));
-        // line 7
+        // line 6
         echo "
         ";
-        // line 8
-        echo $this->env->getExtension('Symfony\Bridge\Twig\Extension\FormExtension')->renderer->searchAndRenderBlock(($context["form"] ?? $this->getContext($context, "form")), 'errors');
-        echo "
-        <div class=\"form-group\">
-            <label for=\"\" class=\"col-sm-offset-2 col-sm-2  control-label\">Usuario</label>
+        // line 7
+        if ( !$this->getAttribute($this->getAttribute(($context["form"] ?? $this->getContext($context, "form")), "vars", array()), "valid", array())) {
+            // line 8
+            echo "            <div class=\"alert alert-error\" role=\"alert\">
+                ";
+            // line 9
+            $context['_parent'] = $context;
+            $context['_seq'] = twig_ensure_traversable($this->getAttribute(($context["form"] ?? $this->getContext($context, "form")), "children", array()));
+            foreach ($context['_seq'] as $context["_key"] => $context["child"]) {
+                // line 10
+                echo "                    ";
+                // line 11
+                echo "                    ";
+                $context['_parent'] = $context;
+                $context['_seq'] = twig_ensure_traversable($this->getAttribute($this->getAttribute($context["child"], "vars", array()), "errors", array()));
+                foreach ($context['_seq'] as $context["_key"] => $context["error"]) {
+                    echo "                
+                        ";
+                    // line 12
+                    echo twig_escape_filter($this->env, $this->getAttribute($context["error"], "message", array()), "html", null, true);
+                    echo "
+                    ";
+                }
+                $_parent = $context['_parent'];
+                unset($context['_seq'], $context['_iterated'], $context['_key'], $context['error'], $context['_parent'], $context['loop']);
+                $context = array_intersect_key($context, $_parent) + $_parent;
+                // line 14
+                echo "                ";
+            }
+            $_parent = $context['_parent'];
+            unset($context['_seq'], $context['_iterated'], $context['_key'], $context['child'], $context['_parent'], $context['loop']);
+            $context = array_intersect_key($context, $_parent) + $_parent;
+            // line 15
+            echo "            </div>
+        ";
+        }
+        // line 17
+        echo "        <div class=\"form-group\">
+            <label for=\"fos_user_profile_form[username]\" class=\"col-sm-offset-2 col-sm-2  control-label\">Usuario</label>
             <div class=\"col-sm-4\">
                 ";
-        // line 12
+        // line 20
         echo $this->env->getExtension('Symfony\Bridge\Twig\Extension\FormExtension')->renderer->searchAndRenderBlock($this->getAttribute(($context["form"] ?? $this->getContext($context, "form")), "username", array()), 'widget');
         echo " 
             </div>
         </div>
         <div class=\"form-group\">
-            <label for=\"\" class=\"col-sm-offset-2 col-sm-2 control-label\">Email</label>
+            <label for=\"fos_user_profile_form[firstName]\" class=\"col-sm-offset-2 col-sm-2 control-label\">Nombre</label>
             <div class=\"col-sm-4\">
                 ";
-        // line 18
-        echo $this->env->getExtension('Symfony\Bridge\Twig\Extension\FormExtension')->renderer->searchAndRenderBlock($this->getAttribute(($context["form"] ?? $this->getContext($context, "form")), "email", array()), 'widget');
-        echo "
-            </div>
-        </div>
-        <div class=\"form-group\">
-            <label for=\"\" class=\"col-sm-offset-2 col-sm-2 control-label\">Email</label>
-            <div class=\"col-sm-4\">
-                ";
-        // line 24
+        // line 26
         echo $this->env->getExtension('Symfony\Bridge\Twig\Extension\FormExtension')->renderer->searchAndRenderBlock($this->getAttribute(($context["form"] ?? $this->getContext($context, "form")), "firstName", array()), 'widget');
         echo "
             </div>
         </div>
         <div class=\"form-group\">
-            <label for=\"\" class=\"col-sm-offset-2 col-sm-2 control-label\">Email</label>
+            <label for=\"fos_user_profile_form[lastName]\" class=\"col-sm-offset-2 col-sm-2 control-label\">Apellido</label>
             <div class=\"col-sm-4\">
                 ";
-        // line 30
+        // line 32
         echo $this->env->getExtension('Symfony\Bridge\Twig\Extension\FormExtension')->renderer->searchAndRenderBlock($this->getAttribute(($context["form"] ?? $this->getContext($context, "form")), "lastName", array()), 'widget');
         echo "
             </div>
         </div>
         <div class=\"form-group\">
-            <label for=\"\" class=\"col-sm-offset-2 col-sm-2 control-label\">Email</label>
+            <label for=\"fos_user_profile_form[phone]\" class=\"col-sm-offset-2 col-sm-2 control-label\">Teléfono</label>
             <div class=\"col-sm-4\">
                 ";
-        // line 36
+        // line 38
         echo $this->env->getExtension('Symfony\Bridge\Twig\Extension\FormExtension')->renderer->searchAndRenderBlock($this->getAttribute(($context["form"] ?? $this->getContext($context, "form")), "phone", array()), 'widget');
         echo "
             </div>
         </div>
         <div class=\"form-group\">
-            <label for=\"\" class=\"col-sm-offset-2 col-sm-2 control-label\">Contraseña actual</label>
+            <label for=\"fos_user_profile_form[email]\" class=\"col-sm-offset-2 col-sm-2 control-label\">Email</label>
             <div class=\"col-sm-4\">
                 ";
-        // line 42
+        // line 44
+        echo $this->env->getExtension('Symfony\Bridge\Twig\Extension\FormExtension')->renderer->searchAndRenderBlock($this->getAttribute(($context["form"] ?? $this->getContext($context, "form")), "email", array()), 'widget');
+        echo "
+            </div>
+        </div>
+        <div class=\"form-group\">
+            <label for=\"fos_user_profile_form[current_password]\" class=\"col-sm-offset-2 col-sm-2 control-label\">Contraseña actual</label>
+            <div class=\"col-sm-4\">
+                ";
+        // line 50
         echo $this->env->getExtension('Symfony\Bridge\Twig\Extension\FormExtension')->renderer->searchAndRenderBlock($this->getAttribute(($context["form"] ?? $this->getContext($context, "form")), "current_password", array()), 'widget');
         echo "
             </div>
@@ -89,14 +122,14 @@ class __TwigTemplate_b428911938c042d9078831964b7ca68222335a6ef175b460ff8755993bc
         <div class=\"form-group\">
             <div class=\"col-sm-offset-4 col-sm-4\">
                 <button type=\"submit\" class=\"btn btn-block btn-theme\" value=\"";
-        // line 47
+        // line 55
         echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\TranslationExtension')->trans("profile.edit.submit", array(), "FOSUserBundle"), "html", null, true);
         echo "\">Actualizar usuario</button>
             </div>
         </div>
 
         ";
-        // line 51
+        // line 59
         echo         $this->env->getExtension('Symfony\Bridge\Twig\Extension\FormExtension')->renderer->renderBlock(($context["form"] ?? $this->getContext($context, "form")), 'form_end');
         echo "        
     </div><! --/row -->
@@ -105,7 +138,7 @@ class __TwigTemplate_b428911938c042d9078831964b7ca68222335a6ef175b460ff8755993bc
 
 ";
         
-        $__internal_cba50142eea04cb01ef04e1152e392b233c24986353cdb6e5814c039fa5d14c1->leave($__internal_cba50142eea04cb01ef04e1152e392b233c24986353cdb6e5814c039fa5d14c1_prof);
+        $__internal_bde22532a5195639364fe1f2f4f65b325bc01ced462fbe1a817c8530eaccd7c6->leave($__internal_bde22532a5195639364fe1f2f4f65b325bc01ced462fbe1a817c8530eaccd7c6_prof);
 
     }
 
@@ -121,7 +154,7 @@ class __TwigTemplate_b428911938c042d9078831964b7ca68222335a6ef175b460ff8755993bc
 
     public function getDebugInfo()
     {
-        return array (  100 => 51,  93 => 47,  85 => 42,  76 => 36,  67 => 30,  58 => 24,  49 => 18,  40 => 12,  33 => 8,  30 => 7,  28 => 6,  22 => 2,);
+        return array (  133 => 59,  126 => 55,  118 => 50,  109 => 44,  100 => 38,  91 => 32,  82 => 26,  73 => 20,  68 => 17,  64 => 15,  58 => 14,  50 => 12,  43 => 11,  41 => 10,  37 => 9,  34 => 8,  32 => 7,  29 => 6,  27 => 5,  22 => 2,);
     }
 
     /** @deprecated since 1.27 (to be removed in 2.0). Use getSourceContext() instead */
@@ -138,42 +171,50 @@ class __TwigTemplate_b428911938c042d9078831964b7ca68222335a6ef175b460ff8755993bc
 
 <div class=\"container mtb\">
     <div class=\"row centered\">
-        
         {{ form_start(form, { 'action': path('fos_user_profile_edit'),'method':'POST', 'name':'editProfile', 'attr': { 'class': 'fos_user_profile_edit form-horizontal' , 'id':'formEditProfile'} }) 
         }}
-        {{ form_errors(form) }}
+        {% if not form.vars.valid %}
+            <div class=\"alert alert-error\" role=\"alert\">
+                {% for child in form.children %}
+                    {# Display the errors of the form item #}
+                    {%for error in child.vars.errors%}                
+                        {{error.message}}
+                    {%endfor%}
+                {%endfor%}
+            </div>
+        {% endif %}
         <div class=\"form-group\">
-            <label for=\"\" class=\"col-sm-offset-2 col-sm-2  control-label\">Usuario</label>
+            <label for=\"fos_user_profile_form[username]\" class=\"col-sm-offset-2 col-sm-2  control-label\">Usuario</label>
             <div class=\"col-sm-4\">
                 {{ form_widget(form.username) }} 
             </div>
         </div>
         <div class=\"form-group\">
-            <label for=\"\" class=\"col-sm-offset-2 col-sm-2 control-label\">Email</label>
-            <div class=\"col-sm-4\">
-                {{ form_widget(form.email) }}
-            </div>
-        </div>
-        <div class=\"form-group\">
-            <label for=\"\" class=\"col-sm-offset-2 col-sm-2 control-label\">Email</label>
+            <label for=\"fos_user_profile_form[firstName]\" class=\"col-sm-offset-2 col-sm-2 control-label\">Nombre</label>
             <div class=\"col-sm-4\">
                 {{ form_widget(form.firstName) }}
             </div>
         </div>
         <div class=\"form-group\">
-            <label for=\"\" class=\"col-sm-offset-2 col-sm-2 control-label\">Email</label>
+            <label for=\"fos_user_profile_form[lastName]\" class=\"col-sm-offset-2 col-sm-2 control-label\">Apellido</label>
             <div class=\"col-sm-4\">
                 {{ form_widget(form.lastName) }}
             </div>
         </div>
         <div class=\"form-group\">
-            <label for=\"\" class=\"col-sm-offset-2 col-sm-2 control-label\">Email</label>
+            <label for=\"fos_user_profile_form[phone]\" class=\"col-sm-offset-2 col-sm-2 control-label\">Teléfono</label>
             <div class=\"col-sm-4\">
                 {{ form_widget(form.phone) }}
             </div>
         </div>
         <div class=\"form-group\">
-            <label for=\"\" class=\"col-sm-offset-2 col-sm-2 control-label\">Contraseña actual</label>
+            <label for=\"fos_user_profile_form[email]\" class=\"col-sm-offset-2 col-sm-2 control-label\">Email</label>
+            <div class=\"col-sm-4\">
+                {{ form_widget(form.email) }}
+            </div>
+        </div>
+        <div class=\"form-group\">
+            <label for=\"fos_user_profile_form[current_password]\" class=\"col-sm-offset-2 col-sm-2 control-label\">Contraseña actual</label>
             <div class=\"col-sm-4\">
                 {{ form_widget(form.current_password) }}
             </div>

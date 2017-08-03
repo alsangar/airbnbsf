@@ -20,7 +20,7 @@ class SearchType extends AbstractType {
                     'attr' => array(
                         'class' => 'form-control',
                         'id' => 'location',
-                        'label' => 'City',
+                        'label' => 'Ciudad',
                     ),
                 ))
         ;
