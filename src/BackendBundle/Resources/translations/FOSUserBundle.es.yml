@@ -13,7 +13,7 @@ security:
     login:
         username: 'Nombre de usuario'
         password: Contraseña
-        remember_me: Recordar
+        remember_me: 'Recuérdame durante 30 días'
         submit: Entrar
 profile:
     show:

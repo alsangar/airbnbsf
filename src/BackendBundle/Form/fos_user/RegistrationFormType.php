@@ -34,12 +34,14 @@ class RegistrationFormType extends AbstractType {
      * {@inheritdoc}
      */
     public function buildForm(FormBuilderInterface $builder, array $options) {
+
+
         $builder
-                ->add('email', LegacyFormHelper::getType('Symfony\Component\Form\Extension\Core\Type\EmailType'), array('class' => 'form-control','label' => 'form.email', 'translation_domain' => 'FOSUserBundle'))
-                ->add('username', null, array('class' => 'form-control', 'label' => 'form.username', 'translation_domain' => 'FOSUserBundle'))
+                ->add('email', LegacyFormHelper::getType('Symfony\Component\Form\Extension\Core\Type\EmailType'), array('label' => 'form.email', 'translation_domain' => 'FOSUserBundle'))
+                ->add('username', null, array('label' => 'form.username', 'translation_domain' => 'FOSUserBundle'))
                 ->add('plainPassword', LegacyFormHelper::getType('Symfony\Component\Form\Extension\Core\Type\RepeatedType'), array(
                     'type' => LegacyFormHelper::getType('Symfony\Component\Form\Extension\Core\Type\PasswordType'),
-                    'options' => array('class' => 'form-control','translation_domain' => 'FOSUserBundle'),
+                    'options' => array('translation_domain' => 'FOSUserBundle'),
                     'first_options' => array('label' => 'form.password'),
                     'second_options' => array('label' => 'form.password_confirmation'),
                     'invalid_message' => 'fos_user.password.mismatch',
@@ -47,6 +49,7 @@ class RegistrationFormType extends AbstractType {
                 ->add('firstName', null, array('attr' => array('class' => 'form-control'), 'label' => 'form.firstName'))
                 ->add('lastName', null, array('attr' => array('class' => 'form-control'), 'label' => 'form.lastName'))
                 ->add('phone', null, array('attr' => array('class' => 'form-control'), 'label' => 'form.phone'))
+
         ;
     }
 

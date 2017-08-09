@@ -15,8 +15,8 @@ class __TwigTemplate_c64f06e96a7493df720b6973f975874b1a95f25e7a4f9399609f059f42e
 
     protected function doDisplay(array $context, array $blocks = array())
     {
-        $__internal_56afb6466aa87f3a34f0f4201d9981a8067809f43491a4a0cbe81b794a17b3a8 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
-        $__internal_56afb6466aa87f3a34f0f4201d9981a8067809f43491a4a0cbe81b794a17b3a8->enter($__internal_56afb6466aa87f3a34f0f4201d9981a8067809f43491a4a0cbe81b794a17b3a8_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "FOSUserBundle:Registration:register_content.html.twig"));
+        $__internal_739042e9f4a5cfd483b91e764f10133205a26d74abb6517599cd7c20e8bc300e = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
+        $__internal_739042e9f4a5cfd483b91e764f10133205a26d74abb6517599cd7c20e8bc300e->enter($__internal_739042e9f4a5cfd483b91e764f10133205a26d74abb6517599cd7c20e8bc300e_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "FOSUserBundle:Registration:register_content.html.twig"));
 
         // line 2
         echo "
@@ -93,66 +93,65 @@ class __TwigTemplate_c64f06e96a7493df720b6973f975874b1a95f25e7a4f9399609f059f42e
 ";
         }
         // line 23
-        echo "<div class=\"form-group\">
+        echo "
+<div class=\"form-group\">
     <label for=\"fos_user_registration_form[username]\">Usuario</label>
     ";
-        // line 25
+        // line 26
         echo $this->env->getExtension('Symfony\Bridge\Twig\Extension\FormExtension')->renderer->searchAndRenderBlock($this->getAttribute(($context["form"] ?? $this->getContext($context, "form")), "username", array()), 'widget', array("attr" => array("class" => "form-control")));
         echo "
 </div>
 <div class=\"form-group\">
-    <label for=\"fos_user_registration_form[username]\">Nombre</label>
+    <label for=\"fos_user_registration_form[firstName]\">Nombre</label>
     ";
-        // line 29
+        // line 30
         echo $this->env->getExtension('Symfony\Bridge\Twig\Extension\FormExtension')->renderer->searchAndRenderBlock($this->getAttribute(($context["form"] ?? $this->getContext($context, "form")), "firstName", array()), 'widget', array("attr" => array("class" => "form-control")));
         echo "
 </div>
 <div class=\"form-group\">
-    <label for=\"fos_user_registration_form[username]\">Apellido</label>
+    <label for=\"fos_user_registration_form[lastName]\">Apellido</label>
     ";
-        // line 33
+        // line 34
         echo $this->env->getExtension('Symfony\Bridge\Twig\Extension\FormExtension')->renderer->searchAndRenderBlock($this->getAttribute(($context["form"] ?? $this->getContext($context, "form")), "lastName", array()), 'widget', array("attr" => array("class" => "form-control")));
         echo "
 </div>
 <div class=\"form-group\">
-    <label for=\"fos_user_registration_form[username]\">Teléfono</label>
+    <label for=\"fos_user_registration_form[phone]\">Teléfono</label>
     ";
-        // line 37
+        // line 38
         echo $this->env->getExtension('Symfony\Bridge\Twig\Extension\FormExtension')->renderer->searchAndRenderBlock($this->getAttribute(($context["form"] ?? $this->getContext($context, "form")), "phone", array()), 'widget', array("attr" => array("class" => "form-control")));
         echo "
 </div>
 <div class=\"form-group\">
-    <label for=\"InputEmail\" >Dirección de correo electrónico</label>
+    <label for=\"fos_user_registration_form[email]\" >Dirección de correo electrónico</label>
     ";
-        // line 41
+        // line 42
         echo $this->env->getExtension('Symfony\Bridge\Twig\Extension\FormExtension')->renderer->searchAndRenderBlock($this->getAttribute(($context["form"] ?? $this->getContext($context, "form")), "email", array()), 'widget', array("attr" => array("class" => "form-control")));
         echo "
 </div>
 <div class=\"form-group\">
-    <label for=\"inputPassword\">Contraseña</label>
+    <label for=\"fos_user_registration_form[plainPassword.first]\">Contraseña</label>
     ";
-        // line 45
+        // line 46
         echo $this->env->getExtension('Symfony\Bridge\Twig\Extension\FormExtension')->renderer->searchAndRenderBlock($this->getAttribute($this->getAttribute(($context["form"] ?? $this->getContext($context, "form")), "plainPassword", array()), "first", array()), 'widget', array("attr" => array("class" => "form-control")));
         echo "
 </div>
 <div class=\"form-group\">
-    <label for=\"inputPassword2\" >Repetir contraseña</label>
+    <label for=\"plainPassword.second\" >Repetir contraseña</label>
     ";
-        // line 49
+        // line 50
         echo $this->env->getExtension('Symfony\Bridge\Twig\Extension\FormExtension')->renderer->searchAndRenderBlock($this->getAttribute($this->getAttribute(($context["form"] ?? $this->getContext($context, "form")), "plainPassword", array()), "second", array()), 'widget', array("attr" => array("class" => "form-control")));
         echo "
 </div>
-";
-        // line 58
-        echo "<button class=\"btn btn-lg btn-theme btn-block\" type=\"submit\">Crear cuenta</button>
+<button class=\"btn btn-lg btn-theme btn-block\" type=\"submit\">Crear cuenta</button>
 
 ";
-        // line 60
+        // line 54
         echo         $this->env->getExtension('Symfony\Bridge\Twig\Extension\FormExtension')->renderer->renderBlock(($context["form"] ?? $this->getContext($context, "form")), 'form_end');
         echo "
 ";
         
-        $__internal_56afb6466aa87f3a34f0f4201d9981a8067809f43491a4a0cbe81b794a17b3a8->leave($__internal_56afb6466aa87f3a34f0f4201d9981a8067809f43491a4a0cbe81b794a17b3a8_prof);
+        $__internal_739042e9f4a5cfd483b91e764f10133205a26d74abb6517599cd7c20e8bc300e->leave($__internal_739042e9f4a5cfd483b91e764f10133205a26d74abb6517599cd7c20e8bc300e_prof);
 
     }
 
@@ -168,7 +167,7 @@ class __TwigTemplate_c64f06e96a7493df720b6973f975874b1a95f25e7a4f9399609f059f42e
 
     public function getDebugInfo()
     {
-        return array (  151 => 60,  147 => 58,  142 => 49,  135 => 45,  128 => 41,  121 => 37,  114 => 33,  107 => 29,  100 => 25,  96 => 23,  92 => 21,  86 => 20,  78 => 18,  71 => 17,  69 => 16,  65 => 15,  62 => 14,  60 => 13,  55 => 11,  52 => 10,  39 => 6,  34 => 5,  29 => 4,  25 => 3,  22 => 2,);
+        return array (  150 => 54,  143 => 50,  136 => 46,  129 => 42,  122 => 38,  115 => 34,  108 => 30,  101 => 26,  96 => 23,  92 => 21,  86 => 20,  78 => 18,  71 => 17,  69 => 16,  65 => 15,  62 => 14,  60 => 13,  55 => 11,  52 => 10,  39 => 6,  34 => 5,  29 => 4,  25 => 3,  22 => 2,);
     }
 
     /** @deprecated since 1.27 (to be removed in 2.0). Use getSourceContext() instead */
@@ -203,41 +202,35 @@ class __TwigTemplate_c64f06e96a7493df720b6973f975874b1a95f25e7a4f9399609f059f42e
             {%endfor%}
     </div>
 {% endif %}
+
 <div class=\"form-group\">
     <label for=\"fos_user_registration_form[username]\">Usuario</label>
     {{ form_widget(form.username, { 'attr': {'class': 'form-control'} }) }}
 </div>
 <div class=\"form-group\">
-    <label for=\"fos_user_registration_form[username]\">Nombre</label>
+    <label for=\"fos_user_registration_form[firstName]\">Nombre</label>
     {{ form_widget(form.firstName, { 'attr': {'class': 'form-control'} }) }}
 </div>
 <div class=\"form-group\">
-    <label for=\"fos_user_registration_form[username]\">Apellido</label>
+    <label for=\"fos_user_registration_form[lastName]\">Apellido</label>
     {{ form_widget(form.lastName, { 'attr': {'class': 'form-control'} }) }}
 </div>
 <div class=\"form-group\">
-    <label for=\"fos_user_registration_form[username]\">Teléfono</label>
+    <label for=\"fos_user_registration_form[phone]\">Teléfono</label>
     {{ form_widget(form.phone, { 'attr': {'class': 'form-control'} }) }}
 </div>
 <div class=\"form-group\">
-    <label for=\"InputEmail\" >Dirección de correo electrónico</label>
+    <label for=\"fos_user_registration_form[email]\" >Dirección de correo electrónico</label>
     {{ form_widget(form.email, { 'attr': {'class': 'form-control'} }) }}
 </div>
 <div class=\"form-group\">
-    <label for=\"inputPassword\">Contraseña</label>
+    <label for=\"fos_user_registration_form[plainPassword.first]\">Contraseña</label>
     {{ form_widget(form.plainPassword.first, { 'attr': {'class': 'form-control'} }) }}
 </div>
 <div class=\"form-group\">
-    <label for=\"inputPassword2\" >Repetir contraseña</label>
+    <label for=\"plainPassword.second\" >Repetir contraseña</label>
     {{ form_widget(form.plainPassword.second, { 'attr': {'class': 'form-control'} }) }}
 </div>
-{#<div class=\"form-group\">
-    <div class=\"checkbox\">
-        <label>
-            <input type=\"checkbox\" value=\"remember-me\"> Newsletter
-        </label>
-    </div>
-</div>#}
 <button class=\"btn btn-lg btn-theme btn-block\" type=\"submit\">Crear cuenta</button>
 
 {{ form_end(form) }}
