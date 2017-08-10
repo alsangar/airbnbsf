@@ -36,7 +36,7 @@ class Products extends \BackendBundle\Entity\Products implements \Doctrine\ORM\P
      *
      * @see \Doctrine\Common\Persistence\Proxy::__getLazyProperties
      */
-    public static $lazyPropertiesDefaults = array();
+    public static $lazyPropertiesDefaults = [];
 
 
 
@@ -64,10 +64,10 @@ class Products extends \BackendBundle\Entity\Products implements \Doctrine\ORM\P
     public function __sleep()
     {
         if ($this->__isInitialized__) {
-            return array('__isInitialized__', '' . "\0" . 'BackendBundle\\Entity\\Products' . "\0" . 'id', '' . "\0" . 'BackendBundle\\Entity\\Products' . "\0" . 'title', '' . "\0" . 'BackendBundle\\Entity\\Products' . "\0" . 'description', '' . "\0" . 'BackendBundle\\Entity\\Products' . "\0" . 'reference', '' . "\0" . 'BackendBundle\\Entity\\Products' . "\0" . 'roomPrice', '' . "\0" . 'BackendBundle\\Entity\\Products' . "\0" . 'wcIndependents', '' . "\0" . 'BackendBundle\\Entity\\Products' . "\0" . 'wcShared', '' . "\0" . 'BackendBundle\\Entity\\Products' . "\0" . 'bedrooms', '' . "\0" . 'BackendBundle\\Entity\\Products' . "\0" . 'beds', '' . "\0" . 'BackendBundle\\Entity\\Products' . "\0" . 'capacity', '' . "\0" . 'BackendBundle\\Entity\\Products' . "\0" . 'personAuto', '' . "\0" . 'BackendBundle\\Entity\\Products' . "\0" . 'signed', '' . "\0" . 'BackendBundle\\Entity\\Products' . "\0" . 'highStanding', '' . "\0" . 'BackendBundle\\Entity\\Products' . "\0" . 'approved', '' . "\0" . 'BackendBundle\\Entity\\Products' . "\0" . 'published', '' . "\0" . 'BackendBundle\\Entity\\Products' . "\0" . 'featured', '' . "\0" . 'BackendBundle\\Entity\\Products' . "\0" . 'deletedat', '' . "\0" . 'BackendBundle\\Entity\\Products' . "\0" . 'roomPriceOutSeason', '' . "\0" . 'BackendBundle\\Entity\\Products' . "\0" . 'category', '' . "\0" . 'BackendBundle\\Entity\\Products' . "\0" . 'location', '' . "\0" . 'BackendBundle\\Entity\\Products' . "\0" . 'producttype', '' . "\0" . 'BackendBundle\\Entity\\Products' . "\0" . 'user', '' . "\0" . 'BackendBundle\\Entity\\Products' . "\0" . 'roomtype', '' . "\0" . 'BackendBundle\\Entity\\Products' . "\0" . 'gallery', 'langDescription', 'service', 'feature');
+            return ['__isInitialized__', '' . "\0" . 'BackendBundle\\Entity\\Products' . "\0" . 'id', '' . "\0" . 'BackendBundle\\Entity\\Products' . "\0" . 'title', '' . "\0" . 'BackendBundle\\Entity\\Products' . "\0" . 'description', '' . "\0" . 'BackendBundle\\Entity\\Products' . "\0" . 'reference', '' . "\0" . 'BackendBundle\\Entity\\Products' . "\0" . 'roomPrice', '' . "\0" . 'BackendBundle\\Entity\\Products' . "\0" . 'wcIndependents', '' . "\0" . 'BackendBundle\\Entity\\Products' . "\0" . 'wcShared', '' . "\0" . 'BackendBundle\\Entity\\Products' . "\0" . 'bedrooms', '' . "\0" . 'BackendBundle\\Entity\\Products' . "\0" . 'beds', '' . "\0" . 'BackendBundle\\Entity\\Products' . "\0" . 'capacity', '' . "\0" . 'BackendBundle\\Entity\\Products' . "\0" . 'personAuto', '' . "\0" . 'BackendBundle\\Entity\\Products' . "\0" . 'signed', '' . "\0" . 'BackendBundle\\Entity\\Products' . "\0" . 'highStanding', '' . "\0" . 'BackendBundle\\Entity\\Products' . "\0" . 'approved', '' . "\0" . 'BackendBundle\\Entity\\Products' . "\0" . 'published', '' . "\0" . 'BackendBundle\\Entity\\Products' . "\0" . 'featured', '' . "\0" . 'BackendBundle\\Entity\\Products' . "\0" . 'deletedat', '' . "\0" . 'BackendBundle\\Entity\\Products' . "\0" . 'roomPriceOutSeason', '' . "\0" . 'BackendBundle\\Entity\\Products' . "\0" . 'category', '' . "\0" . 'BackendBundle\\Entity\\Products' . "\0" . 'location', '' . "\0" . 'BackendBundle\\Entity\\Products' . "\0" . 'producttype', '' . "\0" . 'BackendBundle\\Entity\\Products' . "\0" . 'user', '' . "\0" . 'BackendBundle\\Entity\\Products' . "\0" . 'roomtype', '' . "\0" . 'BackendBundle\\Entity\\Products' . "\0" . 'gallery', 'langDescription', 'service', 'feature'];
         }
 
-        return array('__isInitialized__', '' . "\0" . 'BackendBundle\\Entity\\Products' . "\0" . 'id', '' . "\0" . 'BackendBundle\\Entity\\Products' . "\0" . 'title', '' . "\0" . 'BackendBundle\\Entity\\Products' . "\0" . 'description', '' . "\0" . 'BackendBundle\\Entity\\Products' . "\0" . 'reference', '' . "\0" . 'BackendBundle\\Entity\\Products' . "\0" . 'roomPrice', '' . "\0" . 'BackendBundle\\Entity\\Products' . "\0" . 'wcIndependents', '' . "\0" . 'BackendBundle\\Entity\\Products' . "\0" . 'wcShared', '' . "\0" . 'BackendBundle\\Entity\\Products' . "\0" . 'bedrooms', '' . "\0" . 'BackendBundle\\Entity\\Products' . "\0" . 'beds', '' . "\0" . 'BackendBundle\\Entity\\Products' . "\0" . 'capacity', '' . "\0" . 'BackendBundle\\Entity\\Products' . "\0" . 'personAuto', '' . "\0" . 'BackendBundle\\Entity\\Products' . "\0" . 'signed', '' . "\0" . 'BackendBundle\\Entity\\Products' . "\0" . 'highStanding', '' . "\0" . 'BackendBundle\\Entity\\Products' . "\0" . 'approved', '' . "\0" . 'BackendBundle\\Entity\\Products' . "\0" . 'published', '' . "\0" . 'BackendBundle\\Entity\\Products' . "\0" . 'featured', '' . "\0" . 'BackendBundle\\Entity\\Products' . "\0" . 'deletedat', '' . "\0" . 'BackendBundle\\Entity\\Products' . "\0" . 'roomPriceOutSeason', '' . "\0" . 'BackendBundle\\Entity\\Products' . "\0" . 'category', '' . "\0" . 'BackendBundle\\Entity\\Products' . "\0" . 'location', '' . "\0" . 'BackendBundle\\Entity\\Products' . "\0" . 'producttype', '' . "\0" . 'BackendBundle\\Entity\\Products' . "\0" . 'user', '' . "\0" . 'BackendBundle\\Entity\\Products' . "\0" . 'roomtype', '' . "\0" . 'BackendBundle\\Entity\\Products' . "\0" . 'gallery', 'langDescription', 'service', 'feature');
+        return ['__isInitialized__', '' . "\0" . 'BackendBundle\\Entity\\Products' . "\0" . 'id', '' . "\0" . 'BackendBundle\\Entity\\Products' . "\0" . 'title', '' . "\0" . 'BackendBundle\\Entity\\Products' . "\0" . 'description', '' . "\0" . 'BackendBundle\\Entity\\Products' . "\0" . 'reference', '' . "\0" . 'BackendBundle\\Entity\\Products' . "\0" . 'roomPrice', '' . "\0" . 'BackendBundle\\Entity\\Products' . "\0" . 'wcIndependents', '' . "\0" . 'BackendBundle\\Entity\\Products' . "\0" . 'wcShared', '' . "\0" . 'BackendBundle\\Entity\\Products' . "\0" . 'bedrooms', '' . "\0" . 'BackendBundle\\Entity\\Products' . "\0" . 'beds', '' . "\0" . 'BackendBundle\\Entity\\Products' . "\0" . 'capacity', '' . "\0" . 'BackendBundle\\Entity\\Products' . "\0" . 'personAuto', '' . "\0" . 'BackendBundle\\Entity\\Products' . "\0" . 'signed', '' . "\0" . 'BackendBundle\\Entity\\Products' . "\0" . 'highStanding', '' . "\0" . 'BackendBundle\\Entity\\Products' . "\0" . 'approved', '' . "\0" . 'BackendBundle\\Entity\\Products' . "\0" . 'published', '' . "\0" . 'BackendBundle\\Entity\\Products' . "\0" . 'featured', '' . "\0" . 'BackendBundle\\Entity\\Products' . "\0" . 'deletedat', '' . "\0" . 'BackendBundle\\Entity\\Products' . "\0" . 'roomPriceOutSeason', '' . "\0" . 'BackendBundle\\Entity\\Products' . "\0" . 'category', '' . "\0" . 'BackendBundle\\Entity\\Products' . "\0" . 'location', '' . "\0" . 'BackendBundle\\Entity\\Products' . "\0" . 'producttype', '' . "\0" . 'BackendBundle\\Entity\\Products' . "\0" . 'user', '' . "\0" . 'BackendBundle\\Entity\\Products' . "\0" . 'roomtype', '' . "\0" . 'BackendBundle\\Entity\\Products' . "\0" . 'gallery', 'langDescription', 'service', 'feature'];
     }
 
     /**
@@ -97,7 +97,7 @@ class Products extends \BackendBundle\Entity\Products implements \Doctrine\ORM\P
      */
     public function __clone()
     {
-        $this->__cloner__ && $this->__cloner__->__invoke($this, '__clone', array());
+        $this->__cloner__ && $this->__cloner__->__invoke($this, '__clone', []);
     }
 
     /**
@@ -105,7 +105,7 @@ class Products extends \BackendBundle\Entity\Products implements \Doctrine\ORM\P
      */
     public function __load()
     {
-        $this->__initializer__ && $this->__initializer__->__invoke($this, '__load', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, '__load', []);
     }
 
     /**
@@ -183,7 +183,7 @@ class Products extends \BackendBundle\Entity\Products implements \Doctrine\ORM\P
         }
 
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getId', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getId', []);
 
         return parent::getId();
     }
@@ -194,7 +194,7 @@ class Products extends \BackendBundle\Entity\Products implements \Doctrine\ORM\P
     public function setTitle($title)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setTitle', array($title));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setTitle', [$title]);
 
         return parent::setTitle($title);
     }
@@ -205,7 +205,7 @@ class Products extends \BackendBundle\Entity\Products implements \Doctrine\ORM\P
     public function getTitle()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getTitle', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getTitle', []);
 
         return parent::getTitle();
     }
@@ -216,7 +216,7 @@ class Products extends \BackendBundle\Entity\Products implements \Doctrine\ORM\P
     public function setDescription($description)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setDescription', array($description));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setDescription', [$description]);
 
         return parent::setDescription($description);
     }
@@ -227,7 +227,7 @@ class Products extends \BackendBundle\Entity\Products implements \Doctrine\ORM\P
     public function getDescription()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getDescription', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getDescription', []);
 
         return parent::getDescription();
     }
@@ -238,7 +238,7 @@ class Products extends \BackendBundle\Entity\Products implements \Doctrine\ORM\P
     public function setReference($reference)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setReference', array($reference));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setReference', [$reference]);
 
         return parent::setReference($reference);
     }
@@ -249,7 +249,7 @@ class Products extends \BackendBundle\Entity\Products implements \Doctrine\ORM\P
     public function getReference()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getReference', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getReference', []);
 
         return parent::getReference();
     }
@@ -260,7 +260,7 @@ class Products extends \BackendBundle\Entity\Products implements \Doctrine\ORM\P
     public function setRoomPrice($roomPrice)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setRoomPrice', array($roomPrice));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setRoomPrice', [$roomPrice]);
 
         return parent::setRoomPrice($roomPrice);
     }
@@ -271,7 +271,7 @@ class Products extends \BackendBundle\Entity\Products implements \Doctrine\ORM\P
     public function getRoomPrice()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getRoomPrice', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getRoomPrice', []);
 
         return parent::getRoomPrice();
     }
@@ -282,7 +282,7 @@ class Products extends \BackendBundle\Entity\Products implements \Doctrine\ORM\P
     public function setWcIndependents($wcIndependents)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setWcIndependents', array($wcIndependents));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setWcIndependents', [$wcIndependents]);
 
         return parent::setWcIndependents($wcIndependents);
     }
@@ -293,7 +293,7 @@ class Products extends \BackendBundle\Entity\Products implements \Doctrine\ORM\P
     public function getWcIndependents()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getWcIndependents', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getWcIndependents', []);
 
         return parent::getWcIndependents();
     }
@@ -304,7 +304,7 @@ class Products extends \BackendBundle\Entity\Products implements \Doctrine\ORM\P
     public function setWcShared($wcShared)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setWcShared', array($wcShared));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setWcShared', [$wcShared]);
 
         return parent::setWcShared($wcShared);
     }
@@ -315,7 +315,7 @@ class Products extends \BackendBundle\Entity\Products implements \Doctrine\ORM\P
     public function getWcShared()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getWcShared', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getWcShared', []);
 
         return parent::getWcShared();
     }
@@ -326,7 +326,7 @@ class Products extends \BackendBundle\Entity\Products implements \Doctrine\ORM\P
     public function setBedrooms($bedrooms)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setBedrooms', array($bedrooms));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setBedrooms', [$bedrooms]);
 
         return parent::setBedrooms($bedrooms);
     }
@@ -337,7 +337,7 @@ class Products extends \BackendBundle\Entity\Products implements \Doctrine\ORM\P
     public function getBedrooms()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getBedrooms', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getBedrooms', []);
 
         return parent::getBedrooms();
     }
@@ -348,7 +348,7 @@ class Products extends \BackendBundle\Entity\Products implements \Doctrine\ORM\P
     public function setBeds($beds)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setBeds', array($beds));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setBeds', [$beds]);
 
         return parent::setBeds($beds);
     }
@@ -359,7 +359,7 @@ class Products extends \BackendBundle\Entity\Products implements \Doctrine\ORM\P
     public function getBeds()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getBeds', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getBeds', []);
 
         return parent::getBeds();
     }
@@ -370,7 +370,7 @@ class Products extends \BackendBundle\Entity\Products implements \Doctrine\ORM\P
     public function setCapacity($capacity)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setCapacity', array($capacity));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setCapacity', [$capacity]);
 
         return parent::setCapacity($capacity);
     }
@@ -381,7 +381,7 @@ class Products extends \BackendBundle\Entity\Products implements \Doctrine\ORM\P
     public function getCapacity()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getCapacity', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getCapacity', []);
 
         return parent::getCapacity();
     }
@@ -392,7 +392,7 @@ class Products extends \BackendBundle\Entity\Products implements \Doctrine\ORM\P
     public function setPersonAuto($personAuto)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setPersonAuto', array($personAuto));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setPersonAuto', [$personAuto]);
 
         return parent::setPersonAuto($personAuto);
     }
@@ -403,7 +403,7 @@ class Products extends \BackendBundle\Entity\Products implements \Doctrine\ORM\P
     public function getPersonAuto()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getPersonAuto', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getPersonAuto', []);
 
         return parent::getPersonAuto();
     }
@@ -414,7 +414,7 @@ class Products extends \BackendBundle\Entity\Products implements \Doctrine\ORM\P
     public function setSigned($signed)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setSigned', array($signed));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setSigned', [$signed]);
 
         return parent::setSigned($signed);
     }
@@ -425,7 +425,7 @@ class Products extends \BackendBundle\Entity\Products implements \Doctrine\ORM\P
     public function getSigned()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getSigned', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getSigned', []);
 
         return parent::getSigned();
     }
@@ -436,7 +436,7 @@ class Products extends \BackendBundle\Entity\Products implements \Doctrine\ORM\P
     public function setHighStanding($highStanding)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setHighStanding', array($highStanding));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setHighStanding', [$highStanding]);
 
         return parent::setHighStanding($highStanding);
     }
@@ -447,7 +447,7 @@ class Products extends \BackendBundle\Entity\Products implements \Doctrine\ORM\P
     public function getHighStanding()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getHighStanding', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getHighStanding', []);
 
         return parent::getHighStanding();
     }
@@ -458,7 +458,7 @@ class Products extends \BackendBundle\Entity\Products implements \Doctrine\ORM\P
     public function setApproved($approved)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setApproved', array($approved));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setApproved', [$approved]);
 
         return parent::setApproved($approved);
     }
@@ -469,7 +469,7 @@ class Products extends \BackendBundle\Entity\Products implements \Doctrine\ORM\P
     public function getApproved()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getApproved', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getApproved', []);
 
         return parent::getApproved();
     }
@@ -480,7 +480,7 @@ class Products extends \BackendBundle\Entity\Products implements \Doctrine\ORM\P
     public function setPublished($published)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setPublished', array($published));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setPublished', [$published]);
 
         return parent::setPublished($published);
     }
@@ -491,7 +491,7 @@ class Products extends \BackendBundle\Entity\Products implements \Doctrine\ORM\P
     public function getPublished()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getPublished', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getPublished', []);
 
         return parent::getPublished();
     }
@@ -502,7 +502,7 @@ class Products extends \BackendBundle\Entity\Products implements \Doctrine\ORM\P
     public function setFeatured($featured)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setFeatured', array($featured));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setFeatured', [$featured]);
 
         return parent::setFeatured($featured);
     }
@@ -513,7 +513,7 @@ class Products extends \BackendBundle\Entity\Products implements \Doctrine\ORM\P
     public function getFeatured()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getFeatured', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getFeatured', []);
 
         return parent::getFeatured();
     }
@@ -524,7 +524,7 @@ class Products extends \BackendBundle\Entity\Products implements \Doctrine\ORM\P
     public function setDeletedat($deletedat)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setDeletedat', array($deletedat));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setDeletedat', [$deletedat]);
 
         return parent::setDeletedat($deletedat);
     }
@@ -535,7 +535,7 @@ class Products extends \BackendBundle\Entity\Products implements \Doctrine\ORM\P
     public function getDeletedat()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getDeletedat', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getDeletedat', []);
 
         return parent::getDeletedat();
     }
@@ -546,7 +546,7 @@ class Products extends \BackendBundle\Entity\Products implements \Doctrine\ORM\P
     public function setRoomPriceOutSeason($roomPriceOutSeason)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setRoomPriceOutSeason', array($roomPriceOutSeason));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setRoomPriceOutSeason', [$roomPriceOutSeason]);
 
         return parent::setRoomPriceOutSeason($roomPriceOutSeason);
     }
@@ -557,7 +557,7 @@ class Products extends \BackendBundle\Entity\Products implements \Doctrine\ORM\P
     public function getRoomPriceOutSeason()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getRoomPriceOutSeason', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getRoomPriceOutSeason', []);
 
         return parent::getRoomPriceOutSeason();
     }
@@ -568,7 +568,7 @@ class Products extends \BackendBundle\Entity\Products implements \Doctrine\ORM\P
     public function setCategory(\BackendBundle\Entity\Categories $category = NULL)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setCategory', array($category));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setCategory', [$category]);
 
         return parent::setCategory($category);
     }
@@ -579,7 +579,7 @@ class Products extends \BackendBundle\Entity\Products implements \Doctrine\ORM\P
     public function getCategory()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getCategory', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getCategory', []);
 
         return parent::getCategory();
     }
@@ -590,7 +590,7 @@ class Products extends \BackendBundle\Entity\Products implements \Doctrine\ORM\P
     public function setLocation(\BackendBundle\Entity\Location $location = NULL)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setLocation', array($location));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setLocation', [$location]);
 
         return parent::setLocation($location);
     }
@@ -601,7 +601,7 @@ class Products extends \BackendBundle\Entity\Products implements \Doctrine\ORM\P
     public function getLocation()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getLocation', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getLocation', []);
 
         return parent::getLocation();
     }
@@ -612,7 +612,7 @@ class Products extends \BackendBundle\Entity\Products implements \Doctrine\ORM\P
     public function setProducttype(\BackendBundle\Entity\ProductType $producttype = NULL)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setProducttype', array($producttype));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setProducttype', [$producttype]);
 
         return parent::setProducttype($producttype);
     }
@@ -623,7 +623,7 @@ class Products extends \BackendBundle\Entity\Products implements \Doctrine\ORM\P
     public function getProducttype()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getProducttype', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getProducttype', []);
 
         return parent::getProducttype();
     }
@@ -634,7 +634,7 @@ class Products extends \BackendBundle\Entity\Products implements \Doctrine\ORM\P
     public function setUser(\BackendBundle\Entity\User $user = NULL)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setUser', array($user));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setUser', [$user]);
 
         return parent::setUser($user);
     }
@@ -645,7 +645,7 @@ class Products extends \BackendBundle\Entity\Products implements \Doctrine\ORM\P
     public function getUser()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getUser', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getUser', []);
 
         return parent::getUser();
     }
@@ -656,7 +656,7 @@ class Products extends \BackendBundle\Entity\Products implements \Doctrine\ORM\P
     public function setRoomtype(\BackendBundle\Entity\RoomType $roomtype = NULL)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setRoomtype', array($roomtype));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setRoomtype', [$roomtype]);
 
         return parent::setRoomtype($roomtype);
     }
@@ -667,7 +667,7 @@ class Products extends \BackendBundle\Entity\Products implements \Doctrine\ORM\P
     public function getRoomtype()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getRoomtype', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getRoomtype', []);
 
         return parent::getRoomtype();
     }
@@ -678,7 +678,7 @@ class Products extends \BackendBundle\Entity\Products implements \Doctrine\ORM\P
     public function addLangDescription(\BackendBundle\Entity\ProductDescription $langDescription)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'addLangDescription', array($langDescription));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'addLangDescription', [$langDescription]);
 
         return parent::addLangDescription($langDescription);
     }
@@ -689,7 +689,7 @@ class Products extends \BackendBundle\Entity\Products implements \Doctrine\ORM\P
     public function removeLangDescription(\BackendBundle\Entity\ProductDescription $langDescription)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'removeLangDescription', array($langDescription));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'removeLangDescription', [$langDescription]);
 
         return parent::removeLangDescription($langDescription);
     }
@@ -700,7 +700,7 @@ class Products extends \BackendBundle\Entity\Products implements \Doctrine\ORM\P
     public function getLangDescription()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getLangDescription', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getLangDescription', []);
 
         return parent::getLangDescription();
     }
@@ -711,7 +711,7 @@ class Products extends \BackendBundle\Entity\Products implements \Doctrine\ORM\P
     public function setGallery(\Application\Sonata\MediaBundle\Entity\Gallery $gallery = NULL)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setGallery', array($gallery));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setGallery', [$gallery]);
 
         return parent::setGallery($gallery);
     }
@@ -722,7 +722,7 @@ class Products extends \BackendBundle\Entity\Products implements \Doctrine\ORM\P
     public function getGallery()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getGallery', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getGallery', []);
 
         return parent::getGallery();
     }
@@ -733,7 +733,7 @@ class Products extends \BackendBundle\Entity\Products implements \Doctrine\ORM\P
     public function addService(\BackendBundle\Entity\ProductServices $service)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'addService', array($service));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'addService', [$service]);
 
         return parent::addService($service);
     }
@@ -744,7 +744,7 @@ class Products extends \BackendBundle\Entity\Products implements \Doctrine\ORM\P
     public function removeService(\BackendBundle\Entity\ProductServices $service)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'removeService', array($service));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'removeService', [$service]);
 
         return parent::removeService($service);
     }
@@ -755,7 +755,7 @@ class Products extends \BackendBundle\Entity\Products implements \Doctrine\ORM\P
     public function getService()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getService', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getService', []);
 
         return parent::getService();
     }
@@ -766,7 +766,7 @@ class Products extends \BackendBundle\Entity\Products implements \Doctrine\ORM\P
     public function addFeature(\BackendBundle\Entity\ProductFeatures $feature)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'addFeature', array($feature));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'addFeature', [$feature]);
 
         return parent::addFeature($feature);
     }
@@ -777,7 +777,7 @@ class Products extends \BackendBundle\Entity\Products implements \Doctrine\ORM\P
     public function removeFeature(\BackendBundle\Entity\ProductFeatures $feature)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'removeFeature', array($feature));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'removeFeature', [$feature]);
 
         return parent::removeFeature($feature);
     }
@@ -788,7 +788,7 @@ class Products extends \BackendBundle\Entity\Products implements \Doctrine\ORM\P
     public function getFeature()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getFeature', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getFeature', []);
 
         return parent::getFeature();
     }
@@ -799,7 +799,7 @@ class Products extends \BackendBundle\Entity\Products implements \Doctrine\ORM\P
     public function __toString()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, '__toString', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, '__toString', []);
 
         return parent::__toString();
     }

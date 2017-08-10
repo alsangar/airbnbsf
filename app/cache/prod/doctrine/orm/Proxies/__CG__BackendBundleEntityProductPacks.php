@@ -36,7 +36,7 @@ class ProductPacks extends \BackendBundle\Entity\ProductPacks implements \Doctri
      *
      * @see \Doctrine\Common\Persistence\Proxy::__getLazyProperties
      */
-    public static $lazyPropertiesDefaults = array();
+    public static $lazyPropertiesDefaults = [];
 
 
 
@@ -64,10 +64,10 @@ class ProductPacks extends \BackendBundle\Entity\ProductPacks implements \Doctri
     public function __sleep()
     {
         if ($this->__isInitialized__) {
-            return array('__isInitialized__', '' . "\0" . 'BackendBundle\\Entity\\ProductPacks' . "\0" . 'id', '' . "\0" . 'BackendBundle\\Entity\\ProductPacks' . "\0" . 'userId', '' . "\0" . 'BackendBundle\\Entity\\ProductPacks' . "\0" . 'name', '' . "\0" . 'BackendBundle\\Entity\\ProductPacks' . "\0" . 'price', '' . "\0" . 'BackendBundle\\Entity\\ProductPacks' . "\0" . 'description');
+            return ['__isInitialized__', '' . "\0" . 'BackendBundle\\Entity\\ProductPacks' . "\0" . 'id', '' . "\0" . 'BackendBundle\\Entity\\ProductPacks' . "\0" . 'userId', '' . "\0" . 'BackendBundle\\Entity\\ProductPacks' . "\0" . 'name', '' . "\0" . 'BackendBundle\\Entity\\ProductPacks' . "\0" . 'price', '' . "\0" . 'BackendBundle\\Entity\\ProductPacks' . "\0" . 'description'];
         }
 
-        return array('__isInitialized__', '' . "\0" . 'BackendBundle\\Entity\\ProductPacks' . "\0" . 'id', '' . "\0" . 'BackendBundle\\Entity\\ProductPacks' . "\0" . 'userId', '' . "\0" . 'BackendBundle\\Entity\\ProductPacks' . "\0" . 'name', '' . "\0" . 'BackendBundle\\Entity\\ProductPacks' . "\0" . 'price', '' . "\0" . 'BackendBundle\\Entity\\ProductPacks' . "\0" . 'description');
+        return ['__isInitialized__', '' . "\0" . 'BackendBundle\\Entity\\ProductPacks' . "\0" . 'id', '' . "\0" . 'BackendBundle\\Entity\\ProductPacks' . "\0" . 'userId', '' . "\0" . 'BackendBundle\\Entity\\ProductPacks' . "\0" . 'name', '' . "\0" . 'BackendBundle\\Entity\\ProductPacks' . "\0" . 'price', '' . "\0" . 'BackendBundle\\Entity\\ProductPacks' . "\0" . 'description'];
     }
 
     /**
@@ -97,7 +97,7 @@ class ProductPacks extends \BackendBundle\Entity\ProductPacks implements \Doctri
      */
     public function __clone()
     {
-        $this->__cloner__ && $this->__cloner__->__invoke($this, '__clone', array());
+        $this->__cloner__ && $this->__cloner__->__invoke($this, '__clone', []);
     }
 
     /**
@@ -105,7 +105,7 @@ class ProductPacks extends \BackendBundle\Entity\ProductPacks implements \Doctri
      */
     public function __load()
     {
-        $this->__initializer__ && $this->__initializer__->__invoke($this, '__load', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, '__load', []);
     }
 
     /**
@@ -183,7 +183,7 @@ class ProductPacks extends \BackendBundle\Entity\ProductPacks implements \Doctri
         }
 
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getId', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getId', []);
 
         return parent::getId();
     }
@@ -194,7 +194,7 @@ class ProductPacks extends \BackendBundle\Entity\ProductPacks implements \Doctri
     public function setUserId($userId)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setUserId', array($userId));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setUserId', [$userId]);
 
         return parent::setUserId($userId);
     }
@@ -205,7 +205,7 @@ class ProductPacks extends \BackendBundle\Entity\ProductPacks implements \Doctri
     public function getUserId()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getUserId', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getUserId', []);
 
         return parent::getUserId();
     }
@@ -216,7 +216,7 @@ class ProductPacks extends \BackendBundle\Entity\ProductPacks implements \Doctri
     public function setName($name)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setName', array($name));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setName', [$name]);
 
         return parent::setName($name);
     }
@@ -227,7 +227,7 @@ class ProductPacks extends \BackendBundle\Entity\ProductPacks implements \Doctri
     public function getName()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getName', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getName', []);
 
         return parent::getName();
     }
@@ -238,7 +238,7 @@ class ProductPacks extends \BackendBundle\Entity\ProductPacks implements \Doctri
     public function setPrice($price)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setPrice', array($price));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setPrice', [$price]);
 
         return parent::setPrice($price);
     }
@@ -249,7 +249,7 @@ class ProductPacks extends \BackendBundle\Entity\ProductPacks implements \Doctri
     public function getPrice()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getPrice', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getPrice', []);
 
         return parent::getPrice();
     }
@@ -260,7 +260,7 @@ class ProductPacks extends \BackendBundle\Entity\ProductPacks implements \Doctri
     public function setDescription($description)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setDescription', array($description));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setDescription', [$description]);
 
         return parent::setDescription($description);
     }
@@ -271,7 +271,7 @@ class ProductPacks extends \BackendBundle\Entity\ProductPacks implements \Doctri
     public function getDescription()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getDescription', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getDescription', []);
 
         return parent::getDescription();
     }

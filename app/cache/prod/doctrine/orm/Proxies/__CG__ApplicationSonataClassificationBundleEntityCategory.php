@@ -36,7 +36,7 @@ class Category extends \Application\Sonata\ClassificationBundle\Entity\Category 
      *
      * @see \Doctrine\Common\Persistence\Proxy::__getLazyProperties
      */
-    public static $lazyPropertiesDefaults = array();
+    public static $lazyPropertiesDefaults = [];
 
 
 
@@ -64,10 +64,10 @@ class Category extends \Application\Sonata\ClassificationBundle\Entity\Category 
     public function __sleep()
     {
         if ($this->__isInitialized__) {
-            return array('__isInitialized__', 'id', 'name', 'slug', 'enabled', 'description', 'createdAt', 'updatedAt', 'position', 'children', 'parent', 'media', 'context');
+            return ['__isInitialized__', 'id', 'name', 'slug', 'enabled', 'description', 'createdAt', 'updatedAt', 'position', 'children', 'parent', 'media', 'context'];
         }
 
-        return array('__isInitialized__', 'id', 'name', 'slug', 'enabled', 'description', 'createdAt', 'updatedAt', 'position', 'children', 'parent', 'media', 'context');
+        return ['__isInitialized__', 'id', 'name', 'slug', 'enabled', 'description', 'createdAt', 'updatedAt', 'position', 'children', 'parent', 'media', 'context'];
     }
 
     /**
@@ -97,7 +97,7 @@ class Category extends \Application\Sonata\ClassificationBundle\Entity\Category 
      */
     public function __clone()
     {
-        $this->__cloner__ && $this->__cloner__->__invoke($this, '__clone', array());
+        $this->__cloner__ && $this->__cloner__->__invoke($this, '__clone', []);
     }
 
     /**
@@ -105,7 +105,7 @@ class Category extends \Application\Sonata\ClassificationBundle\Entity\Category 
      */
     public function __load()
     {
-        $this->__initializer__ && $this->__initializer__->__invoke($this, '__load', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, '__load', []);
     }
 
     /**
@@ -183,7 +183,7 @@ class Category extends \Application\Sonata\ClassificationBundle\Entity\Category 
         }
 
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getId', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getId', []);
 
         return parent::getId();
     }
@@ -194,7 +194,7 @@ class Category extends \Application\Sonata\ClassificationBundle\Entity\Category 
     public function disableChildrenLazyLoading()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'disableChildrenLazyLoading', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'disableChildrenLazyLoading', []);
 
         return parent::disableChildrenLazyLoading();
     }
@@ -205,7 +205,7 @@ class Category extends \Application\Sonata\ClassificationBundle\Entity\Category 
     public function __toString()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, '__toString', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, '__toString', []);
 
         return parent::__toString();
     }
@@ -216,7 +216,7 @@ class Category extends \Application\Sonata\ClassificationBundle\Entity\Category 
     public function setName($name)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setName', array($name));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setName', [$name]);
 
         return parent::setName($name);
     }
@@ -227,7 +227,7 @@ class Category extends \Application\Sonata\ClassificationBundle\Entity\Category 
     public function getName()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getName', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getName', []);
 
         return parent::getName();
     }
@@ -238,7 +238,7 @@ class Category extends \Application\Sonata\ClassificationBundle\Entity\Category 
     public function setEnabled($enabled)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setEnabled', array($enabled));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setEnabled', [$enabled]);
 
         return parent::setEnabled($enabled);
     }
@@ -249,7 +249,7 @@ class Category extends \Application\Sonata\ClassificationBundle\Entity\Category 
     public function getEnabled()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getEnabled', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getEnabled', []);
 
         return parent::getEnabled();
     }
@@ -260,7 +260,7 @@ class Category extends \Application\Sonata\ClassificationBundle\Entity\Category 
     public function setSlug($slug)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setSlug', array($slug));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setSlug', [$slug]);
 
         return parent::setSlug($slug);
     }
@@ -271,7 +271,7 @@ class Category extends \Application\Sonata\ClassificationBundle\Entity\Category 
     public function getSlug()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getSlug', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getSlug', []);
 
         return parent::getSlug();
     }
@@ -282,7 +282,7 @@ class Category extends \Application\Sonata\ClassificationBundle\Entity\Category 
     public function setDescription($description)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setDescription', array($description));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setDescription', [$description]);
 
         return parent::setDescription($description);
     }
@@ -293,7 +293,7 @@ class Category extends \Application\Sonata\ClassificationBundle\Entity\Category 
     public function getDescription()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getDescription', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getDescription', []);
 
         return parent::getDescription();
     }
@@ -304,7 +304,7 @@ class Category extends \Application\Sonata\ClassificationBundle\Entity\Category 
     public function prePersist()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'prePersist', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'prePersist', []);
 
         return parent::prePersist();
     }
@@ -315,7 +315,7 @@ class Category extends \Application\Sonata\ClassificationBundle\Entity\Category 
     public function preUpdate()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'preUpdate', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'preUpdate', []);
 
         return parent::preUpdate();
     }
@@ -326,7 +326,7 @@ class Category extends \Application\Sonata\ClassificationBundle\Entity\Category 
     public function setCreatedAt(\DateTime $createdAt)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setCreatedAt', array($createdAt));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setCreatedAt', [$createdAt]);
 
         return parent::setCreatedAt($createdAt);
     }
@@ -337,7 +337,7 @@ class Category extends \Application\Sonata\ClassificationBundle\Entity\Category 
     public function getCreatedAt()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getCreatedAt', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getCreatedAt', []);
 
         return parent::getCreatedAt();
     }
@@ -348,7 +348,7 @@ class Category extends \Application\Sonata\ClassificationBundle\Entity\Category 
     public function setUpdatedAt(\DateTime $updatedAt)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setUpdatedAt', array($updatedAt));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setUpdatedAt', [$updatedAt]);
 
         return parent::setUpdatedAt($updatedAt);
     }
@@ -359,7 +359,7 @@ class Category extends \Application\Sonata\ClassificationBundle\Entity\Category 
     public function getUpdatedAt()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getUpdatedAt', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getUpdatedAt', []);
 
         return parent::getUpdatedAt();
     }
@@ -370,7 +370,7 @@ class Category extends \Application\Sonata\ClassificationBundle\Entity\Category 
     public function setPosition($position)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setPosition', array($position));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setPosition', [$position]);
 
         return parent::setPosition($position);
     }
@@ -381,7 +381,7 @@ class Category extends \Application\Sonata\ClassificationBundle\Entity\Category 
     public function getPosition()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getPosition', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getPosition', []);
 
         return parent::getPosition();
     }
@@ -392,7 +392,7 @@ class Category extends \Application\Sonata\ClassificationBundle\Entity\Category 
     public function addChildren(\Sonata\ClassificationBundle\Model\CategoryInterface $child)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'addChildren', array($child));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'addChildren', [$child]);
 
         return parent::addChildren($child);
     }
@@ -403,7 +403,7 @@ class Category extends \Application\Sonata\ClassificationBundle\Entity\Category 
     public function addChild(\Sonata\ClassificationBundle\Model\CategoryInterface $child, $nested = false)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'addChild', array($child, $nested));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'addChild', [$child, $nested]);
 
         return parent::addChild($child, $nested);
     }
@@ -414,7 +414,7 @@ class Category extends \Application\Sonata\ClassificationBundle\Entity\Category 
     public function removeChild(\Sonata\ClassificationBundle\Model\CategoryInterface $childToDelete)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'removeChild', array($childToDelete));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'removeChild', [$childToDelete]);
 
         return parent::removeChild($childToDelete);
     }
@@ -425,7 +425,7 @@ class Category extends \Application\Sonata\ClassificationBundle\Entity\Category 
     public function getChildren()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getChildren', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getChildren', []);
 
         return parent::getChildren();
     }
@@ -436,7 +436,7 @@ class Category extends \Application\Sonata\ClassificationBundle\Entity\Category 
     public function setChildren($children)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setChildren', array($children));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setChildren', [$children]);
 
         return parent::setChildren($children);
     }
@@ -447,7 +447,7 @@ class Category extends \Application\Sonata\ClassificationBundle\Entity\Category 
     public function hasChildren()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'hasChildren', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'hasChildren', []);
 
         return parent::hasChildren();
     }
@@ -458,7 +458,7 @@ class Category extends \Application\Sonata\ClassificationBundle\Entity\Category 
     public function setParent(\Sonata\ClassificationBundle\Model\CategoryInterface $parent = NULL, $nested = false)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setParent', array($parent, $nested));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setParent', [$parent, $nested]);
 
         return parent::setParent($parent, $nested);
     }
@@ -469,7 +469,7 @@ class Category extends \Application\Sonata\ClassificationBundle\Entity\Category 
     public function getParent()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getParent', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getParent', []);
 
         return parent::getParent();
     }
@@ -480,7 +480,7 @@ class Category extends \Application\Sonata\ClassificationBundle\Entity\Category 
     public function setMedia(\Sonata\MediaBundle\Model\MediaInterface $media = NULL)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setMedia', array($media));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setMedia', [$media]);
 
         return parent::setMedia($media);
     }
@@ -491,7 +491,7 @@ class Category extends \Application\Sonata\ClassificationBundle\Entity\Category 
     public function getMedia()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getMedia', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getMedia', []);
 
         return parent::getMedia();
     }
@@ -502,7 +502,7 @@ class Category extends \Application\Sonata\ClassificationBundle\Entity\Category 
     public function setContext(\Sonata\ClassificationBundle\Model\ContextInterface $context)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setContext', array($context));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setContext', [$context]);
 
         return parent::setContext($context);
     }
@@ -513,7 +513,7 @@ class Category extends \Application\Sonata\ClassificationBundle\Entity\Category 
     public function getContext()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getContext', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getContext', []);
 
         return parent::getContext();
     }

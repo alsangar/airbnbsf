@@ -36,7 +36,7 @@ class ContactForm extends \BackendBundle\Entity\ContactForm implements \Doctrine
      *
      * @see \Doctrine\Common\Persistence\Proxy::__getLazyProperties
      */
-    public static $lazyPropertiesDefaults = array();
+    public static $lazyPropertiesDefaults = [];
 
 
 
@@ -64,10 +64,10 @@ class ContactForm extends \BackendBundle\Entity\ContactForm implements \Doctrine
     public function __sleep()
     {
         if ($this->__isInitialized__) {
-            return array('__isInitialized__', '' . "\0" . 'BackendBundle\\Entity\\ContactForm' . "\0" . 'id', '' . "\0" . 'BackendBundle\\Entity\\ContactForm' . "\0" . 'fromName', '' . "\0" . 'BackendBundle\\Entity\\ContactForm' . "\0" . 'fromEmail', '' . "\0" . 'BackendBundle\\Entity\\ContactForm' . "\0" . 'fromPhone', '' . "\0" . 'BackendBundle\\Entity\\ContactForm' . "\0" . 'subject', '' . "\0" . 'BackendBundle\\Entity\\ContactForm' . "\0" . 'message', '' . "\0" . 'BackendBundle\\Entity\\ContactForm' . "\0" . 'dateadd', '' . "\0" . 'BackendBundle\\Entity\\ContactForm' . "\0" . 'viewed');
+            return ['__isInitialized__', '' . "\0" . 'BackendBundle\\Entity\\ContactForm' . "\0" . 'id', '' . "\0" . 'BackendBundle\\Entity\\ContactForm' . "\0" . 'fromName', '' . "\0" . 'BackendBundle\\Entity\\ContactForm' . "\0" . 'fromEmail', '' . "\0" . 'BackendBundle\\Entity\\ContactForm' . "\0" . 'fromPhone', '' . "\0" . 'BackendBundle\\Entity\\ContactForm' . "\0" . 'subject', '' . "\0" . 'BackendBundle\\Entity\\ContactForm' . "\0" . 'message', '' . "\0" . 'BackendBundle\\Entity\\ContactForm' . "\0" . 'dateadd', '' . "\0" . 'BackendBundle\\Entity\\ContactForm' . "\0" . 'viewed'];
         }
 
-        return array('__isInitialized__', '' . "\0" . 'BackendBundle\\Entity\\ContactForm' . "\0" . 'id', '' . "\0" . 'BackendBundle\\Entity\\ContactForm' . "\0" . 'fromName', '' . "\0" . 'BackendBundle\\Entity\\ContactForm' . "\0" . 'fromEmail', '' . "\0" . 'BackendBundle\\Entity\\ContactForm' . "\0" . 'fromPhone', '' . "\0" . 'BackendBundle\\Entity\\ContactForm' . "\0" . 'subject', '' . "\0" . 'BackendBundle\\Entity\\ContactForm' . "\0" . 'message', '' . "\0" . 'BackendBundle\\Entity\\ContactForm' . "\0" . 'dateadd', '' . "\0" . 'BackendBundle\\Entity\\ContactForm' . "\0" . 'viewed');
+        return ['__isInitialized__', '' . "\0" . 'BackendBundle\\Entity\\ContactForm' . "\0" . 'id', '' . "\0" . 'BackendBundle\\Entity\\ContactForm' . "\0" . 'fromName', '' . "\0" . 'BackendBundle\\Entity\\ContactForm' . "\0" . 'fromEmail', '' . "\0" . 'BackendBundle\\Entity\\ContactForm' . "\0" . 'fromPhone', '' . "\0" . 'BackendBundle\\Entity\\ContactForm' . "\0" . 'subject', '' . "\0" . 'BackendBundle\\Entity\\ContactForm' . "\0" . 'message', '' . "\0" . 'BackendBundle\\Entity\\ContactForm' . "\0" . 'dateadd', '' . "\0" . 'BackendBundle\\Entity\\ContactForm' . "\0" . 'viewed'];
     }
 
     /**
@@ -97,7 +97,7 @@ class ContactForm extends \BackendBundle\Entity\ContactForm implements \Doctrine
      */
     public function __clone()
     {
-        $this->__cloner__ && $this->__cloner__->__invoke($this, '__clone', array());
+        $this->__cloner__ && $this->__cloner__->__invoke($this, '__clone', []);
     }
 
     /**
@@ -105,7 +105,7 @@ class ContactForm extends \BackendBundle\Entity\ContactForm implements \Doctrine
      */
     public function __load()
     {
-        $this->__initializer__ && $this->__initializer__->__invoke($this, '__load', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, '__load', []);
     }
 
     /**
@@ -183,7 +183,7 @@ class ContactForm extends \BackendBundle\Entity\ContactForm implements \Doctrine
         }
 
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getId', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getId', []);
 
         return parent::getId();
     }
@@ -194,7 +194,7 @@ class ContactForm extends \BackendBundle\Entity\ContactForm implements \Doctrine
     public function setFromName($fromName)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setFromName', array($fromName));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setFromName', [$fromName]);
 
         return parent::setFromName($fromName);
     }
@@ -205,7 +205,7 @@ class ContactForm extends \BackendBundle\Entity\ContactForm implements \Doctrine
     public function getFromName()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getFromName', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getFromName', []);
 
         return parent::getFromName();
     }
@@ -216,7 +216,7 @@ class ContactForm extends \BackendBundle\Entity\ContactForm implements \Doctrine
     public function setFromEmail($fromEmail)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setFromEmail', array($fromEmail));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setFromEmail', [$fromEmail]);
 
         return parent::setFromEmail($fromEmail);
     }
@@ -227,7 +227,7 @@ class ContactForm extends \BackendBundle\Entity\ContactForm implements \Doctrine
     public function getFromEmail()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getFromEmail', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getFromEmail', []);
 
         return parent::getFromEmail();
     }
@@ -238,7 +238,7 @@ class ContactForm extends \BackendBundle\Entity\ContactForm implements \Doctrine
     public function setFromPhone($fromPhone)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setFromPhone', array($fromPhone));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setFromPhone', [$fromPhone]);
 
         return parent::setFromPhone($fromPhone);
     }
@@ -249,7 +249,7 @@ class ContactForm extends \BackendBundle\Entity\ContactForm implements \Doctrine
     public function getFromPhone()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getFromPhone', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getFromPhone', []);
 
         return parent::getFromPhone();
     }
@@ -260,7 +260,7 @@ class ContactForm extends \BackendBundle\Entity\ContactForm implements \Doctrine
     public function setSubject($subject)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setSubject', array($subject));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setSubject', [$subject]);
 
         return parent::setSubject($subject);
     }
@@ -271,7 +271,7 @@ class ContactForm extends \BackendBundle\Entity\ContactForm implements \Doctrine
     public function getSubject()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getSubject', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getSubject', []);
 
         return parent::getSubject();
     }
@@ -282,7 +282,7 @@ class ContactForm extends \BackendBundle\Entity\ContactForm implements \Doctrine
     public function setMessage($message)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setMessage', array($message));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setMessage', [$message]);
 
         return parent::setMessage($message);
     }
@@ -293,7 +293,7 @@ class ContactForm extends \BackendBundle\Entity\ContactForm implements \Doctrine
     public function getMessage()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getMessage', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getMessage', []);
 
         return parent::getMessage();
     }
@@ -304,7 +304,7 @@ class ContactForm extends \BackendBundle\Entity\ContactForm implements \Doctrine
     public function setDateadd($dateadd)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setDateadd', array($dateadd));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setDateadd', [$dateadd]);
 
         return parent::setDateadd($dateadd);
     }
@@ -315,7 +315,7 @@ class ContactForm extends \BackendBundle\Entity\ContactForm implements \Doctrine
     public function getDateadd()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getDateadd', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getDateadd', []);
 
         return parent::getDateadd();
     }
@@ -326,7 +326,7 @@ class ContactForm extends \BackendBundle\Entity\ContactForm implements \Doctrine
     public function setViewed($viewed)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setViewed', array($viewed));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setViewed', [$viewed]);
 
         return parent::setViewed($viewed);
     }
@@ -337,7 +337,7 @@ class ContactForm extends \BackendBundle\Entity\ContactForm implements \Doctrine
     public function getViewed()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getViewed', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getViewed', []);
 
         return parent::getViewed();
     }

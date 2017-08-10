@@ -36,7 +36,7 @@ class Favorites extends \BackendBundle\Entity\Favorites implements \Doctrine\ORM
      *
      * @see \Doctrine\Common\Persistence\Proxy::__getLazyProperties
      */
-    public static $lazyPropertiesDefaults = array();
+    public static $lazyPropertiesDefaults = [];
 
 
 
@@ -64,10 +64,10 @@ class Favorites extends \BackendBundle\Entity\Favorites implements \Doctrine\ORM
     public function __sleep()
     {
         if ($this->__isInitialized__) {
-            return array('__isInitialized__', '' . "\0" . 'BackendBundle\\Entity\\Favorites' . "\0" . 'id', '' . "\0" . 'BackendBundle\\Entity\\Favorites' . "\0" . 'dateadd', '' . "\0" . 'BackendBundle\\Entity\\Favorites' . "\0" . 'product', '' . "\0" . 'BackendBundle\\Entity\\Favorites' . "\0" . 'user');
+            return ['__isInitialized__', '' . "\0" . 'BackendBundle\\Entity\\Favorites' . "\0" . 'id', '' . "\0" . 'BackendBundle\\Entity\\Favorites' . "\0" . 'dateadd', '' . "\0" . 'BackendBundle\\Entity\\Favorites' . "\0" . 'product', '' . "\0" . 'BackendBundle\\Entity\\Favorites' . "\0" . 'user'];
         }
 
-        return array('__isInitialized__', '' . "\0" . 'BackendBundle\\Entity\\Favorites' . "\0" . 'id', '' . "\0" . 'BackendBundle\\Entity\\Favorites' . "\0" . 'dateadd', '' . "\0" . 'BackendBundle\\Entity\\Favorites' . "\0" . 'product', '' . "\0" . 'BackendBundle\\Entity\\Favorites' . "\0" . 'user');
+        return ['__isInitialized__', '' . "\0" . 'BackendBundle\\Entity\\Favorites' . "\0" . 'id', '' . "\0" . 'BackendBundle\\Entity\\Favorites' . "\0" . 'dateadd', '' . "\0" . 'BackendBundle\\Entity\\Favorites' . "\0" . 'product', '' . "\0" . 'BackendBundle\\Entity\\Favorites' . "\0" . 'user'];
     }
 
     /**
@@ -97,7 +97,7 @@ class Favorites extends \BackendBundle\Entity\Favorites implements \Doctrine\ORM
      */
     public function __clone()
     {
-        $this->__cloner__ && $this->__cloner__->__invoke($this, '__clone', array());
+        $this->__cloner__ && $this->__cloner__->__invoke($this, '__clone', []);
     }
 
     /**
@@ -105,7 +105,7 @@ class Favorites extends \BackendBundle\Entity\Favorites implements \Doctrine\ORM
      */
     public function __load()
     {
-        $this->__initializer__ && $this->__initializer__->__invoke($this, '__load', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, '__load', []);
     }
 
     /**
@@ -183,7 +183,7 @@ class Favorites extends \BackendBundle\Entity\Favorites implements \Doctrine\ORM
         }
 
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getId', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getId', []);
 
         return parent::getId();
     }
@@ -194,7 +194,7 @@ class Favorites extends \BackendBundle\Entity\Favorites implements \Doctrine\ORM
     public function setDateadd($dateadd)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setDateadd', array($dateadd));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setDateadd', [$dateadd]);
 
         return parent::setDateadd($dateadd);
     }
@@ -205,7 +205,7 @@ class Favorites extends \BackendBundle\Entity\Favorites implements \Doctrine\ORM
     public function getDateadd()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getDateadd', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getDateadd', []);
 
         return parent::getDateadd();
     }
@@ -216,7 +216,7 @@ class Favorites extends \BackendBundle\Entity\Favorites implements \Doctrine\ORM
     public function setProduct(\BackendBundle\Entity\Products $product = NULL)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setProduct', array($product));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setProduct', [$product]);
 
         return parent::setProduct($product);
     }
@@ -227,7 +227,7 @@ class Favorites extends \BackendBundle\Entity\Favorites implements \Doctrine\ORM
     public function getProduct()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getProduct', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getProduct', []);
 
         return parent::getProduct();
     }
@@ -238,7 +238,7 @@ class Favorites extends \BackendBundle\Entity\Favorites implements \Doctrine\ORM
     public function setUser(\BackendBundle\Entity\User $user = NULL)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setUser', array($user));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setUser', [$user]);
 
         return parent::setUser($user);
     }
@@ -249,7 +249,7 @@ class Favorites extends \BackendBundle\Entity\Favorites implements \Doctrine\ORM
     public function getUser()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getUser', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getUser', []);
 
         return parent::getUser();
     }

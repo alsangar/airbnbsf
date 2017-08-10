@@ -36,7 +36,7 @@ class Comments extends \BackendBundle\Entity\Comments implements \Doctrine\ORM\P
      *
      * @see \Doctrine\Common\Persistence\Proxy::__getLazyProperties
      */
-    public static $lazyPropertiesDefaults = array();
+    public static $lazyPropertiesDefaults = [];
 
 
 
@@ -64,10 +64,10 @@ class Comments extends \BackendBundle\Entity\Comments implements \Doctrine\ORM\P
     public function __sleep()
     {
         if ($this->__isInitialized__) {
-            return array('__isInitialized__', '' . "\0" . 'BackendBundle\\Entity\\Comments' . "\0" . 'id', '' . "\0" . 'BackendBundle\\Entity\\Comments' . "\0" . 'comment', '' . "\0" . 'BackendBundle\\Entity\\Comments' . "\0" . 'dateadd', '' . "\0" . 'BackendBundle\\Entity\\Comments' . "\0" . 'product', '' . "\0" . 'BackendBundle\\Entity\\Comments' . "\0" . 'user');
+            return ['__isInitialized__', '' . "\0" . 'BackendBundle\\Entity\\Comments' . "\0" . 'id', '' . "\0" . 'BackendBundle\\Entity\\Comments' . "\0" . 'comment', '' . "\0" . 'BackendBundle\\Entity\\Comments' . "\0" . 'dateadd', '' . "\0" . 'BackendBundle\\Entity\\Comments' . "\0" . 'product', '' . "\0" . 'BackendBundle\\Entity\\Comments' . "\0" . 'user'];
         }
 
-        return array('__isInitialized__', '' . "\0" . 'BackendBundle\\Entity\\Comments' . "\0" . 'id', '' . "\0" . 'BackendBundle\\Entity\\Comments' . "\0" . 'comment', '' . "\0" . 'BackendBundle\\Entity\\Comments' . "\0" . 'dateadd', '' . "\0" . 'BackendBundle\\Entity\\Comments' . "\0" . 'product', '' . "\0" . 'BackendBundle\\Entity\\Comments' . "\0" . 'user');
+        return ['__isInitialized__', '' . "\0" . 'BackendBundle\\Entity\\Comments' . "\0" . 'id', '' . "\0" . 'BackendBundle\\Entity\\Comments' . "\0" . 'comment', '' . "\0" . 'BackendBundle\\Entity\\Comments' . "\0" . 'dateadd', '' . "\0" . 'BackendBundle\\Entity\\Comments' . "\0" . 'product', '' . "\0" . 'BackendBundle\\Entity\\Comments' . "\0" . 'user'];
     }
 
     /**
@@ -97,7 +97,7 @@ class Comments extends \BackendBundle\Entity\Comments implements \Doctrine\ORM\P
      */
     public function __clone()
     {
-        $this->__cloner__ && $this->__cloner__->__invoke($this, '__clone', array());
+        $this->__cloner__ && $this->__cloner__->__invoke($this, '__clone', []);
     }
 
     /**
@@ -105,7 +105,7 @@ class Comments extends \BackendBundle\Entity\Comments implements \Doctrine\ORM\P
      */
     public function __load()
     {
-        $this->__initializer__ && $this->__initializer__->__invoke($this, '__load', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, '__load', []);
     }
 
     /**
@@ -183,7 +183,7 @@ class Comments extends \BackendBundle\Entity\Comments implements \Doctrine\ORM\P
         }
 
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getId', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getId', []);
 
         return parent::getId();
     }
@@ -194,7 +194,7 @@ class Comments extends \BackendBundle\Entity\Comments implements \Doctrine\ORM\P
     public function setComment($comment)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setComment', array($comment));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setComment', [$comment]);
 
         return parent::setComment($comment);
     }
@@ -205,7 +205,7 @@ class Comments extends \BackendBundle\Entity\Comments implements \Doctrine\ORM\P
     public function getComment()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getComment', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getComment', []);
 
         return parent::getComment();
     }
@@ -216,7 +216,7 @@ class Comments extends \BackendBundle\Entity\Comments implements \Doctrine\ORM\P
     public function setDateadd($dateadd)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setDateadd', array($dateadd));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setDateadd', [$dateadd]);
 
         return parent::setDateadd($dateadd);
     }
@@ -227,7 +227,7 @@ class Comments extends \BackendBundle\Entity\Comments implements \Doctrine\ORM\P
     public function getDateadd()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getDateadd', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getDateadd', []);
 
         return parent::getDateadd();
     }
@@ -238,7 +238,7 @@ class Comments extends \BackendBundle\Entity\Comments implements \Doctrine\ORM\P
     public function setProduct(\BackendBundle\Entity\Products $product = NULL)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setProduct', array($product));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setProduct', [$product]);
 
         return parent::setProduct($product);
     }
@@ -249,7 +249,7 @@ class Comments extends \BackendBundle\Entity\Comments implements \Doctrine\ORM\P
     public function getProduct()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getProduct', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getProduct', []);
 
         return parent::getProduct();
     }
@@ -260,7 +260,7 @@ class Comments extends \BackendBundle\Entity\Comments implements \Doctrine\ORM\P
     public function setUser(\BackendBundle\Entity\User $user = NULL)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setUser', array($user));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setUser', [$user]);
 
         return parent::setUser($user);
     }
@@ -271,7 +271,7 @@ class Comments extends \BackendBundle\Entity\Comments implements \Doctrine\ORM\P
     public function getUser()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getUser', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getUser', []);
 
         return parent::getUser();
     }

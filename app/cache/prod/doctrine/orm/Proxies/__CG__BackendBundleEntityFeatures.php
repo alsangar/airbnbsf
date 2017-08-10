@@ -36,7 +36,7 @@ class Features extends \BackendBundle\Entity\Features implements \Doctrine\ORM\P
      *
      * @see \Doctrine\Common\Persistence\Proxy::__getLazyProperties
      */
-    public static $lazyPropertiesDefaults = array();
+    public static $lazyPropertiesDefaults = [];
 
 
 
@@ -64,10 +64,10 @@ class Features extends \BackendBundle\Entity\Features implements \Doctrine\ORM\P
     public function __sleep()
     {
         if ($this->__isInitialized__) {
-            return array('__isInitialized__', '' . "\0" . 'BackendBundle\\Entity\\Features' . "\0" . 'id', '' . "\0" . 'BackendBundle\\Entity\\Features' . "\0" . 'feature', '' . "\0" . 'BackendBundle\\Entity\\Features' . "\0" . 'order', '' . "\0" . 'BackendBundle\\Entity\\Features' . "\0" . 'active');
+            return ['__isInitialized__', '' . "\0" . 'BackendBundle\\Entity\\Features' . "\0" . 'id', '' . "\0" . 'BackendBundle\\Entity\\Features' . "\0" . 'feature', '' . "\0" . 'BackendBundle\\Entity\\Features' . "\0" . 'order', '' . "\0" . 'BackendBundle\\Entity\\Features' . "\0" . 'active'];
         }
 
-        return array('__isInitialized__', '' . "\0" . 'BackendBundle\\Entity\\Features' . "\0" . 'id', '' . "\0" . 'BackendBundle\\Entity\\Features' . "\0" . 'feature', '' . "\0" . 'BackendBundle\\Entity\\Features' . "\0" . 'order', '' . "\0" . 'BackendBundle\\Entity\\Features' . "\0" . 'active');
+        return ['__isInitialized__', '' . "\0" . 'BackendBundle\\Entity\\Features' . "\0" . 'id', '' . "\0" . 'BackendBundle\\Entity\\Features' . "\0" . 'feature', '' . "\0" . 'BackendBundle\\Entity\\Features' . "\0" . 'order', '' . "\0" . 'BackendBundle\\Entity\\Features' . "\0" . 'active'];
     }
 
     /**
@@ -97,7 +97,7 @@ class Features extends \BackendBundle\Entity\Features implements \Doctrine\ORM\P
      */
     public function __clone()
     {
-        $this->__cloner__ && $this->__cloner__->__invoke($this, '__clone', array());
+        $this->__cloner__ && $this->__cloner__->__invoke($this, '__clone', []);
     }
 
     /**
@@ -105,7 +105,7 @@ class Features extends \BackendBundle\Entity\Features implements \Doctrine\ORM\P
      */
     public function __load()
     {
-        $this->__initializer__ && $this->__initializer__->__invoke($this, '__load', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, '__load', []);
     }
 
     /**
@@ -183,7 +183,7 @@ class Features extends \BackendBundle\Entity\Features implements \Doctrine\ORM\P
         }
 
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getId', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getId', []);
 
         return parent::getId();
     }
@@ -194,7 +194,7 @@ class Features extends \BackendBundle\Entity\Features implements \Doctrine\ORM\P
     public function setFeature($feature)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setFeature', array($feature));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setFeature', [$feature]);
 
         return parent::setFeature($feature);
     }
@@ -205,7 +205,7 @@ class Features extends \BackendBundle\Entity\Features implements \Doctrine\ORM\P
     public function getFeature()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getFeature', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getFeature', []);
 
         return parent::getFeature();
     }
@@ -216,7 +216,7 @@ class Features extends \BackendBundle\Entity\Features implements \Doctrine\ORM\P
     public function setOrder($order)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setOrder', array($order));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setOrder', [$order]);
 
         return parent::setOrder($order);
     }
@@ -227,7 +227,7 @@ class Features extends \BackendBundle\Entity\Features implements \Doctrine\ORM\P
     public function getOrder()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getOrder', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getOrder', []);
 
         return parent::getOrder();
     }
@@ -238,7 +238,7 @@ class Features extends \BackendBundle\Entity\Features implements \Doctrine\ORM\P
     public function setActive($active)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setActive', array($active));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setActive', [$active]);
 
         return parent::setActive($active);
     }
@@ -249,7 +249,7 @@ class Features extends \BackendBundle\Entity\Features implements \Doctrine\ORM\P
     public function getActive()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getActive', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getActive', []);
 
         return parent::getActive();
     }
@@ -260,7 +260,7 @@ class Features extends \BackendBundle\Entity\Features implements \Doctrine\ORM\P
     public function __toString()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, '__toString', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, '__toString', []);
 
         return parent::__toString();
     }

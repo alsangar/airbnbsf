@@ -36,7 +36,7 @@ class State extends \BackendBundle\Entity\State implements \Doctrine\ORM\Proxy\P
      *
      * @see \Doctrine\Common\Persistence\Proxy::__getLazyProperties
      */
-    public static $lazyPropertiesDefaults = array();
+    public static $lazyPropertiesDefaults = [];
 
 
 
@@ -64,10 +64,10 @@ class State extends \BackendBundle\Entity\State implements \Doctrine\ORM\Proxy\P
     public function __sleep()
     {
         if ($this->__isInitialized__) {
-            return array('__isInitialized__', '' . "\0" . 'BackendBundle\\Entity\\State' . "\0" . 'id', '' . "\0" . 'BackendBundle\\Entity\\State' . "\0" . 'name', '' . "\0" . 'BackendBundle\\Entity\\State' . "\0" . 'canonicalName', '' . "\0" . 'BackendBundle\\Entity\\State' . "\0" . 'code', '' . "\0" . 'BackendBundle\\Entity\\State' . "\0" . 'country');
+            return ['__isInitialized__', '' . "\0" . 'BackendBundle\\Entity\\State' . "\0" . 'id', '' . "\0" . 'BackendBundle\\Entity\\State' . "\0" . 'name', '' . "\0" . 'BackendBundle\\Entity\\State' . "\0" . 'canonicalName', '' . "\0" . 'BackendBundle\\Entity\\State' . "\0" . 'code', '' . "\0" . 'BackendBundle\\Entity\\State' . "\0" . 'country'];
         }
 
-        return array('__isInitialized__', '' . "\0" . 'BackendBundle\\Entity\\State' . "\0" . 'id', '' . "\0" . 'BackendBundle\\Entity\\State' . "\0" . 'name', '' . "\0" . 'BackendBundle\\Entity\\State' . "\0" . 'canonicalName', '' . "\0" . 'BackendBundle\\Entity\\State' . "\0" . 'code', '' . "\0" . 'BackendBundle\\Entity\\State' . "\0" . 'country');
+        return ['__isInitialized__', '' . "\0" . 'BackendBundle\\Entity\\State' . "\0" . 'id', '' . "\0" . 'BackendBundle\\Entity\\State' . "\0" . 'name', '' . "\0" . 'BackendBundle\\Entity\\State' . "\0" . 'canonicalName', '' . "\0" . 'BackendBundle\\Entity\\State' . "\0" . 'code', '' . "\0" . 'BackendBundle\\Entity\\State' . "\0" . 'country'];
     }
 
     /**
@@ -97,7 +97,7 @@ class State extends \BackendBundle\Entity\State implements \Doctrine\ORM\Proxy\P
      */
     public function __clone()
     {
-        $this->__cloner__ && $this->__cloner__->__invoke($this, '__clone', array());
+        $this->__cloner__ && $this->__cloner__->__invoke($this, '__clone', []);
     }
 
     /**
@@ -105,7 +105,7 @@ class State extends \BackendBundle\Entity\State implements \Doctrine\ORM\Proxy\P
      */
     public function __load()
     {
-        $this->__initializer__ && $this->__initializer__->__invoke($this, '__load', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, '__load', []);
     }
 
     /**
@@ -183,7 +183,7 @@ class State extends \BackendBundle\Entity\State implements \Doctrine\ORM\Proxy\P
         }
 
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getId', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getId', []);
 
         return parent::getId();
     }
@@ -194,7 +194,7 @@ class State extends \BackendBundle\Entity\State implements \Doctrine\ORM\Proxy\P
     public function setName($name)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setName', array($name));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setName', [$name]);
 
         return parent::setName($name);
     }
@@ -205,7 +205,7 @@ class State extends \BackendBundle\Entity\State implements \Doctrine\ORM\Proxy\P
     public function getName()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getName', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getName', []);
 
         return parent::getName();
     }
@@ -216,7 +216,7 @@ class State extends \BackendBundle\Entity\State implements \Doctrine\ORM\Proxy\P
     public function setCanonicalName($canonicalName)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setCanonicalName', array($canonicalName));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setCanonicalName', [$canonicalName]);
 
         return parent::setCanonicalName($canonicalName);
     }
@@ -227,7 +227,7 @@ class State extends \BackendBundle\Entity\State implements \Doctrine\ORM\Proxy\P
     public function getCanonicalName()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getCanonicalName', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getCanonicalName', []);
 
         return parent::getCanonicalName();
     }
@@ -238,7 +238,7 @@ class State extends \BackendBundle\Entity\State implements \Doctrine\ORM\Proxy\P
     public function setCode($code)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setCode', array($code));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setCode', [$code]);
 
         return parent::setCode($code);
     }
@@ -249,7 +249,7 @@ class State extends \BackendBundle\Entity\State implements \Doctrine\ORM\Proxy\P
     public function getCode()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getCode', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getCode', []);
 
         return parent::getCode();
     }
@@ -260,7 +260,7 @@ class State extends \BackendBundle\Entity\State implements \Doctrine\ORM\Proxy\P
     public function setCountry(\BackendBundle\Entity\Country $country = NULL)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setCountry', array($country));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setCountry', [$country]);
 
         return parent::setCountry($country);
     }
@@ -271,7 +271,7 @@ class State extends \BackendBundle\Entity\State implements \Doctrine\ORM\Proxy\P
     public function getCountry()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getCountry', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getCountry', []);
 
         return parent::getCountry();
     }

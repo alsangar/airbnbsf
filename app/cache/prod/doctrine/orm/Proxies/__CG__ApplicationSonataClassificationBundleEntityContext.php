@@ -36,7 +36,7 @@ class Context extends \Application\Sonata\ClassificationBundle\Entity\Context im
      *
      * @see \Doctrine\Common\Persistence\Proxy::__getLazyProperties
      */
-    public static $lazyPropertiesDefaults = array();
+    public static $lazyPropertiesDefaults = [];
 
 
 
@@ -64,10 +64,10 @@ class Context extends \Application\Sonata\ClassificationBundle\Entity\Context im
     public function __sleep()
     {
         if ($this->__isInitialized__) {
-            return array('__isInitialized__', 'id', 'name', 'createdAt', 'updatedAt', 'enabled');
+            return ['__isInitialized__', 'id', 'name', 'createdAt', 'updatedAt', 'enabled'];
         }
 
-        return array('__isInitialized__', 'id', 'name', 'createdAt', 'updatedAt', 'enabled');
+        return ['__isInitialized__', 'id', 'name', 'createdAt', 'updatedAt', 'enabled'];
     }
 
     /**
@@ -97,7 +97,7 @@ class Context extends \Application\Sonata\ClassificationBundle\Entity\Context im
      */
     public function __clone()
     {
-        $this->__cloner__ && $this->__cloner__->__invoke($this, '__clone', array());
+        $this->__cloner__ && $this->__cloner__->__invoke($this, '__clone', []);
     }
 
     /**
@@ -105,7 +105,7 @@ class Context extends \Application\Sonata\ClassificationBundle\Entity\Context im
      */
     public function __load()
     {
-        $this->__initializer__ && $this->__initializer__->__invoke($this, '__load', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, '__load', []);
     }
 
     /**
@@ -183,7 +183,7 @@ class Context extends \Application\Sonata\ClassificationBundle\Entity\Context im
         }
 
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getId', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getId', []);
 
         return parent::getId();
     }
@@ -194,7 +194,7 @@ class Context extends \Application\Sonata\ClassificationBundle\Entity\Context im
     public function prePersist()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'prePersist', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'prePersist', []);
 
         return parent::prePersist();
     }
@@ -205,7 +205,7 @@ class Context extends \Application\Sonata\ClassificationBundle\Entity\Context im
     public function __toString()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, '__toString', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, '__toString', []);
 
         return parent::__toString();
     }
@@ -216,7 +216,7 @@ class Context extends \Application\Sonata\ClassificationBundle\Entity\Context im
     public function setName($name)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setName', array($name));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setName', [$name]);
 
         return parent::setName($name);
     }
@@ -227,7 +227,7 @@ class Context extends \Application\Sonata\ClassificationBundle\Entity\Context im
     public function getName()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getName', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getName', []);
 
         return parent::getName();
     }
@@ -238,7 +238,7 @@ class Context extends \Application\Sonata\ClassificationBundle\Entity\Context im
     public function setEnabled($enabled)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setEnabled', array($enabled));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setEnabled', [$enabled]);
 
         return parent::setEnabled($enabled);
     }
@@ -249,7 +249,7 @@ class Context extends \Application\Sonata\ClassificationBundle\Entity\Context im
     public function getEnabled()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getEnabled', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getEnabled', []);
 
         return parent::getEnabled();
     }
@@ -260,7 +260,7 @@ class Context extends \Application\Sonata\ClassificationBundle\Entity\Context im
     public function setCreatedAt(\DateTime $createdAt = NULL)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setCreatedAt', array($createdAt));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setCreatedAt', [$createdAt]);
 
         return parent::setCreatedAt($createdAt);
     }
@@ -271,7 +271,7 @@ class Context extends \Application\Sonata\ClassificationBundle\Entity\Context im
     public function getCreatedAt()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getCreatedAt', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getCreatedAt', []);
 
         return parent::getCreatedAt();
     }
@@ -282,7 +282,7 @@ class Context extends \Application\Sonata\ClassificationBundle\Entity\Context im
     public function setUpdatedAt(\DateTime $updatedAt = NULL)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setUpdatedAt', array($updatedAt));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setUpdatedAt', [$updatedAt]);
 
         return parent::setUpdatedAt($updatedAt);
     }
@@ -293,7 +293,7 @@ class Context extends \Application\Sonata\ClassificationBundle\Entity\Context im
     public function getUpdatedAt()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getUpdatedAt', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getUpdatedAt', []);
 
         return parent::getUpdatedAt();
     }
@@ -304,7 +304,7 @@ class Context extends \Application\Sonata\ClassificationBundle\Entity\Context im
     public function preUpdate()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'preUpdate', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'preUpdate', []);
 
         return parent::preUpdate();
     }
@@ -315,7 +315,7 @@ class Context extends \Application\Sonata\ClassificationBundle\Entity\Context im
     public function setId($id)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setId', array($id));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setId', [$id]);
 
         return parent::setId($id);
     }

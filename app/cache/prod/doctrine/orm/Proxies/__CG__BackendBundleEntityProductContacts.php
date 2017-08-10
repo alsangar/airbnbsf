@@ -36,7 +36,7 @@ class ProductContacts extends \BackendBundle\Entity\ProductContacts implements \
      *
      * @see \Doctrine\Common\Persistence\Proxy::__getLazyProperties
      */
-    public static $lazyPropertiesDefaults = array();
+    public static $lazyPropertiesDefaults = [];
 
 
 
@@ -64,10 +64,10 @@ class ProductContacts extends \BackendBundle\Entity\ProductContacts implements \
     public function __sleep()
     {
         if ($this->__isInitialized__) {
-            return array('__isInitialized__', '' . "\0" . 'BackendBundle\\Entity\\ProductContacts' . "\0" . 'id', '' . "\0" . 'BackendBundle\\Entity\\ProductContacts' . "\0" . 'name', '' . "\0" . 'BackendBundle\\Entity\\ProductContacts' . "\0" . 'mobile', '' . "\0" . 'BackendBundle\\Entity\\ProductContacts' . "\0" . 'phoneland', '' . "\0" . 'BackendBundle\\Entity\\ProductContacts' . "\0" . 'email', '' . "\0" . 'BackendBundle\\Entity\\ProductContacts' . "\0" . 'product');
+            return ['__isInitialized__', '' . "\0" . 'BackendBundle\\Entity\\ProductContacts' . "\0" . 'id', '' . "\0" . 'BackendBundle\\Entity\\ProductContacts' . "\0" . 'name', '' . "\0" . 'BackendBundle\\Entity\\ProductContacts' . "\0" . 'mobile', '' . "\0" . 'BackendBundle\\Entity\\ProductContacts' . "\0" . 'phoneland', '' . "\0" . 'BackendBundle\\Entity\\ProductContacts' . "\0" . 'email', '' . "\0" . 'BackendBundle\\Entity\\ProductContacts' . "\0" . 'product'];
         }
 
-        return array('__isInitialized__', '' . "\0" . 'BackendBundle\\Entity\\ProductContacts' . "\0" . 'id', '' . "\0" . 'BackendBundle\\Entity\\ProductContacts' . "\0" . 'name', '' . "\0" . 'BackendBundle\\Entity\\ProductContacts' . "\0" . 'mobile', '' . "\0" . 'BackendBundle\\Entity\\ProductContacts' . "\0" . 'phoneland', '' . "\0" . 'BackendBundle\\Entity\\ProductContacts' . "\0" . 'email', '' . "\0" . 'BackendBundle\\Entity\\ProductContacts' . "\0" . 'product');
+        return ['__isInitialized__', '' . "\0" . 'BackendBundle\\Entity\\ProductContacts' . "\0" . 'id', '' . "\0" . 'BackendBundle\\Entity\\ProductContacts' . "\0" . 'name', '' . "\0" . 'BackendBundle\\Entity\\ProductContacts' . "\0" . 'mobile', '' . "\0" . 'BackendBundle\\Entity\\ProductContacts' . "\0" . 'phoneland', '' . "\0" . 'BackendBundle\\Entity\\ProductContacts' . "\0" . 'email', '' . "\0" . 'BackendBundle\\Entity\\ProductContacts' . "\0" . 'product'];
     }
 
     /**
@@ -97,7 +97,7 @@ class ProductContacts extends \BackendBundle\Entity\ProductContacts implements \
      */
     public function __clone()
     {
-        $this->__cloner__ && $this->__cloner__->__invoke($this, '__clone', array());
+        $this->__cloner__ && $this->__cloner__->__invoke($this, '__clone', []);
     }
 
     /**
@@ -105,7 +105,7 @@ class ProductContacts extends \BackendBundle\Entity\ProductContacts implements \
      */
     public function __load()
     {
-        $this->__initializer__ && $this->__initializer__->__invoke($this, '__load', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, '__load', []);
     }
 
     /**
@@ -183,7 +183,7 @@ class ProductContacts extends \BackendBundle\Entity\ProductContacts implements \
         }
 
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getId', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getId', []);
 
         return parent::getId();
     }
@@ -194,7 +194,7 @@ class ProductContacts extends \BackendBundle\Entity\ProductContacts implements \
     public function setName($name)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setName', array($name));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setName', [$name]);
 
         return parent::setName($name);
     }
@@ -205,7 +205,7 @@ class ProductContacts extends \BackendBundle\Entity\ProductContacts implements \
     public function getName()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getName', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getName', []);
 
         return parent::getName();
     }
@@ -216,7 +216,7 @@ class ProductContacts extends \BackendBundle\Entity\ProductContacts implements \
     public function setMobile($mobile)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setMobile', array($mobile));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setMobile', [$mobile]);
 
         return parent::setMobile($mobile);
     }
@@ -227,7 +227,7 @@ class ProductContacts extends \BackendBundle\Entity\ProductContacts implements \
     public function getMobile()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getMobile', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getMobile', []);
 
         return parent::getMobile();
     }
@@ -238,7 +238,7 @@ class ProductContacts extends \BackendBundle\Entity\ProductContacts implements \
     public function setPhoneland($phoneland)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setPhoneland', array($phoneland));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setPhoneland', [$phoneland]);
 
         return parent::setPhoneland($phoneland);
     }
@@ -249,7 +249,7 @@ class ProductContacts extends \BackendBundle\Entity\ProductContacts implements \
     public function getPhoneland()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getPhoneland', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getPhoneland', []);
 
         return parent::getPhoneland();
     }
@@ -260,7 +260,7 @@ class ProductContacts extends \BackendBundle\Entity\ProductContacts implements \
     public function setEmail($email)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setEmail', array($email));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setEmail', [$email]);
 
         return parent::setEmail($email);
     }
@@ -271,7 +271,7 @@ class ProductContacts extends \BackendBundle\Entity\ProductContacts implements \
     public function getEmail()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getEmail', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getEmail', []);
 
         return parent::getEmail();
     }
@@ -282,7 +282,7 @@ class ProductContacts extends \BackendBundle\Entity\ProductContacts implements \
     public function setProduct(\BackendBundle\Entity\Products $product = NULL)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setProduct', array($product));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setProduct', [$product]);
 
         return parent::setProduct($product);
     }
@@ -293,7 +293,7 @@ class ProductContacts extends \BackendBundle\Entity\ProductContacts implements \
     public function getProduct()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getProduct', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getProduct', []);
 
         return parent::getProduct();
     }

@@ -36,7 +36,7 @@ class ProductServices extends \BackendBundle\Entity\ProductServices implements \
      *
      * @see \Doctrine\Common\Persistence\Proxy::__getLazyProperties
      */
-    public static $lazyPropertiesDefaults = array();
+    public static $lazyPropertiesDefaults = [];
 
 
 
@@ -64,10 +64,10 @@ class ProductServices extends \BackendBundle\Entity\ProductServices implements \
     public function __sleep()
     {
         if ($this->__isInitialized__) {
-            return array('__isInitialized__', '' . "\0" . 'BackendBundle\\Entity\\ProductServices' . "\0" . 'id', '' . "\0" . 'BackendBundle\\Entity\\ProductServices' . "\0" . 'product', '' . "\0" . 'BackendBundle\\Entity\\ProductServices' . "\0" . 'service');
+            return ['__isInitialized__', '' . "\0" . 'BackendBundle\\Entity\\ProductServices' . "\0" . 'id', '' . "\0" . 'BackendBundle\\Entity\\ProductServices' . "\0" . 'product', '' . "\0" . 'BackendBundle\\Entity\\ProductServices' . "\0" . 'service'];
         }
 
-        return array('__isInitialized__', '' . "\0" . 'BackendBundle\\Entity\\ProductServices' . "\0" . 'id', '' . "\0" . 'BackendBundle\\Entity\\ProductServices' . "\0" . 'product', '' . "\0" . 'BackendBundle\\Entity\\ProductServices' . "\0" . 'service');
+        return ['__isInitialized__', '' . "\0" . 'BackendBundle\\Entity\\ProductServices' . "\0" . 'id', '' . "\0" . 'BackendBundle\\Entity\\ProductServices' . "\0" . 'product', '' . "\0" . 'BackendBundle\\Entity\\ProductServices' . "\0" . 'service'];
     }
 
     /**
@@ -97,7 +97,7 @@ class ProductServices extends \BackendBundle\Entity\ProductServices implements \
      */
     public function __clone()
     {
-        $this->__cloner__ && $this->__cloner__->__invoke($this, '__clone', array());
+        $this->__cloner__ && $this->__cloner__->__invoke($this, '__clone', []);
     }
 
     /**
@@ -105,7 +105,7 @@ class ProductServices extends \BackendBundle\Entity\ProductServices implements \
      */
     public function __load()
     {
-        $this->__initializer__ && $this->__initializer__->__invoke($this, '__load', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, '__load', []);
     }
 
     /**
@@ -183,7 +183,7 @@ class ProductServices extends \BackendBundle\Entity\ProductServices implements \
         }
 
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getId', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getId', []);
 
         return parent::getId();
     }
@@ -194,7 +194,7 @@ class ProductServices extends \BackendBundle\Entity\ProductServices implements \
     public function setProduct(\BackendBundle\Entity\Products $product = NULL)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setProduct', array($product));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setProduct', [$product]);
 
         return parent::setProduct($product);
     }
@@ -205,7 +205,7 @@ class ProductServices extends \BackendBundle\Entity\ProductServices implements \
     public function getProduct()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getProduct', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getProduct', []);
 
         return parent::getProduct();
     }
@@ -216,7 +216,7 @@ class ProductServices extends \BackendBundle\Entity\ProductServices implements \
     public function setService(\BackendBundle\Entity\Services $service = NULL)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setService', array($service));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setService', [$service]);
 
         return parent::setService($service);
     }
@@ -227,7 +227,7 @@ class ProductServices extends \BackendBundle\Entity\ProductServices implements \
     public function getService()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getService', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getService', []);
 
         return parent::getService();
     }

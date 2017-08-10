@@ -36,7 +36,7 @@ class Media extends \Application\Sonata\MediaBundle\Entity\Media implements \Doc
      *
      * @see \Doctrine\Common\Persistence\Proxy::__getLazyProperties
      */
-    public static $lazyPropertiesDefaults = array();
+    public static $lazyPropertiesDefaults = [];
 
 
 
@@ -60,7 +60,7 @@ class Media extends \Application\Sonata\MediaBundle\Entity\Media implements \Doc
      */
     public function __set($name, $value)
     {
-        $this->__initializer__ && $this->__initializer__->__invoke($this, '__set', array($name, $value));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, '__set', [$name, $value]);
 
         return parent::__set($name, $value);
     }
@@ -74,10 +74,10 @@ class Media extends \Application\Sonata\MediaBundle\Entity\Media implements \Doc
     public function __sleep()
     {
         if ($this->__isInitialized__) {
-            return array('__isInitialized__', 'id', 'name', 'description', 'enabled', 'providerName', 'providerStatus', 'providerReference', 'providerMetadata', 'width', 'height', 'length', 'copyright', 'authorName', 'context', 'cdnIsFlushable', 'cdnFlushIdentifier', 'cdnFlushAt', 'cdnStatus', 'updatedAt', 'createdAt', 'binaryContent', 'previousProviderReference', 'contentType', 'size', 'galleryHasMedias', 'category');
+            return ['__isInitialized__', 'id', 'name', 'description', 'enabled', 'providerName', 'providerStatus', 'providerReference', 'providerMetadata', 'width', 'height', 'length', 'copyright', 'authorName', 'context', 'cdnIsFlushable', 'cdnFlushIdentifier', 'cdnFlushAt', 'cdnStatus', 'updatedAt', 'createdAt', 'binaryContent', 'previousProviderReference', 'contentType', 'size', 'galleryHasMedias', 'category'];
         }
 
-        return array('__isInitialized__', 'id', 'name', 'description', 'enabled', 'providerName', 'providerStatus', 'providerReference', 'providerMetadata', 'width', 'height', 'length', 'copyright', 'authorName', 'context', 'cdnIsFlushable', 'cdnFlushIdentifier', 'cdnFlushAt', 'cdnStatus', 'updatedAt', 'createdAt', 'binaryContent', 'previousProviderReference', 'contentType', 'size', 'galleryHasMedias', 'category');
+        return ['__isInitialized__', 'id', 'name', 'description', 'enabled', 'providerName', 'providerStatus', 'providerReference', 'providerMetadata', 'width', 'height', 'length', 'copyright', 'authorName', 'context', 'cdnIsFlushable', 'cdnFlushIdentifier', 'cdnFlushAt', 'cdnStatus', 'updatedAt', 'createdAt', 'binaryContent', 'previousProviderReference', 'contentType', 'size', 'galleryHasMedias', 'category'];
     }
 
     /**
@@ -107,7 +107,7 @@ class Media extends \Application\Sonata\MediaBundle\Entity\Media implements \Doc
      */
     public function __clone()
     {
-        $this->__cloner__ && $this->__cloner__->__invoke($this, '__clone', array());
+        $this->__cloner__ && $this->__cloner__->__invoke($this, '__clone', []);
     }
 
     /**
@@ -115,7 +115,7 @@ class Media extends \Application\Sonata\MediaBundle\Entity\Media implements \Doc
      */
     public function __load()
     {
-        $this->__initializer__ && $this->__initializer__->__invoke($this, '__load', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, '__load', []);
     }
 
     /**
@@ -193,7 +193,7 @@ class Media extends \Application\Sonata\MediaBundle\Entity\Media implements \Doc
         }
 
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getId', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getId', []);
 
         return parent::getId();
     }
@@ -204,7 +204,7 @@ class Media extends \Application\Sonata\MediaBundle\Entity\Media implements \Doc
     public function prePersist()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'prePersist', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'prePersist', []);
 
         return parent::prePersist();
     }
@@ -215,7 +215,7 @@ class Media extends \Application\Sonata\MediaBundle\Entity\Media implements \Doc
     public function preUpdate()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'preUpdate', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'preUpdate', []);
 
         return parent::preUpdate();
     }
@@ -226,7 +226,7 @@ class Media extends \Application\Sonata\MediaBundle\Entity\Media implements \Doc
     public function __toString()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, '__toString', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, '__toString', []);
 
         return parent::__toString();
     }
@@ -237,7 +237,7 @@ class Media extends \Application\Sonata\MediaBundle\Entity\Media implements \Doc
     public function __call($method, $arguments)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, '__call', array($method, $arguments));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, '__call', [$method, $arguments]);
 
         return parent::__call($method, $arguments);
     }
@@ -248,7 +248,7 @@ class Media extends \Application\Sonata\MediaBundle\Entity\Media implements \Doc
     public function setBinaryContent($binaryContent)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setBinaryContent', array($binaryContent));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setBinaryContent', [$binaryContent]);
 
         return parent::setBinaryContent($binaryContent);
     }
@@ -259,7 +259,7 @@ class Media extends \Application\Sonata\MediaBundle\Entity\Media implements \Doc
     public function resetBinaryContent()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'resetBinaryContent', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'resetBinaryContent', []);
 
         return parent::resetBinaryContent();
     }
@@ -270,7 +270,7 @@ class Media extends \Application\Sonata\MediaBundle\Entity\Media implements \Doc
     public function getBinaryContent()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getBinaryContent', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getBinaryContent', []);
 
         return parent::getBinaryContent();
     }
@@ -281,7 +281,7 @@ class Media extends \Application\Sonata\MediaBundle\Entity\Media implements \Doc
     public function getMetadataValue($name, $default = NULL)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getMetadataValue', array($name, $default));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getMetadataValue', [$name, $default]);
 
         return parent::getMetadataValue($name, $default);
     }
@@ -292,7 +292,7 @@ class Media extends \Application\Sonata\MediaBundle\Entity\Media implements \Doc
     public function setMetadataValue($name, $value)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setMetadataValue', array($name, $value));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setMetadataValue', [$name, $value]);
 
         return parent::setMetadataValue($name, $value);
     }
@@ -303,7 +303,7 @@ class Media extends \Application\Sonata\MediaBundle\Entity\Media implements \Doc
     public function unsetMetadataValue($name)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'unsetMetadataValue', array($name));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'unsetMetadataValue', [$name]);
 
         return parent::unsetMetadataValue($name);
     }
@@ -314,7 +314,7 @@ class Media extends \Application\Sonata\MediaBundle\Entity\Media implements \Doc
     public function setName($name)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setName', array($name));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setName', [$name]);
 
         return parent::setName($name);
     }
@@ -325,7 +325,7 @@ class Media extends \Application\Sonata\MediaBundle\Entity\Media implements \Doc
     public function getName()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getName', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getName', []);
 
         return parent::getName();
     }
@@ -336,7 +336,7 @@ class Media extends \Application\Sonata\MediaBundle\Entity\Media implements \Doc
     public function setDescription($description)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setDescription', array($description));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setDescription', [$description]);
 
         return parent::setDescription($description);
     }
@@ -347,7 +347,7 @@ class Media extends \Application\Sonata\MediaBundle\Entity\Media implements \Doc
     public function getDescription()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getDescription', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getDescription', []);
 
         return parent::getDescription();
     }
@@ -358,7 +358,7 @@ class Media extends \Application\Sonata\MediaBundle\Entity\Media implements \Doc
     public function setEnabled($enabled)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setEnabled', array($enabled));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setEnabled', [$enabled]);
 
         return parent::setEnabled($enabled);
     }
@@ -369,7 +369,7 @@ class Media extends \Application\Sonata\MediaBundle\Entity\Media implements \Doc
     public function getEnabled()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getEnabled', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getEnabled', []);
 
         return parent::getEnabled();
     }
@@ -380,7 +380,7 @@ class Media extends \Application\Sonata\MediaBundle\Entity\Media implements \Doc
     public function setProviderName($providerName)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setProviderName', array($providerName));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setProviderName', [$providerName]);
 
         return parent::setProviderName($providerName);
     }
@@ -391,7 +391,7 @@ class Media extends \Application\Sonata\MediaBundle\Entity\Media implements \Doc
     public function getProviderName()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getProviderName', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getProviderName', []);
 
         return parent::getProviderName();
     }
@@ -402,7 +402,7 @@ class Media extends \Application\Sonata\MediaBundle\Entity\Media implements \Doc
     public function setProviderStatus($providerStatus)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setProviderStatus', array($providerStatus));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setProviderStatus', [$providerStatus]);
 
         return parent::setProviderStatus($providerStatus);
     }
@@ -413,7 +413,7 @@ class Media extends \Application\Sonata\MediaBundle\Entity\Media implements \Doc
     public function getProviderStatus()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getProviderStatus', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getProviderStatus', []);
 
         return parent::getProviderStatus();
     }
@@ -424,7 +424,7 @@ class Media extends \Application\Sonata\MediaBundle\Entity\Media implements \Doc
     public function setProviderReference($providerReference)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setProviderReference', array($providerReference));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setProviderReference', [$providerReference]);
 
         return parent::setProviderReference($providerReference);
     }
@@ -435,7 +435,7 @@ class Media extends \Application\Sonata\MediaBundle\Entity\Media implements \Doc
     public function getProviderReference()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getProviderReference', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getProviderReference', []);
 
         return parent::getProviderReference();
     }
@@ -447,7 +447,7 @@ class Media extends \Application\Sonata\MediaBundle\Entity\Media implements \Doc
 ))
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setProviderMetadata', array($providerMetadata));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setProviderMetadata', [$providerMetadata]);
 
         return parent::setProviderMetadata($providerMetadata);
     }
@@ -458,7 +458,7 @@ class Media extends \Application\Sonata\MediaBundle\Entity\Media implements \Doc
     public function getProviderMetadata()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getProviderMetadata', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getProviderMetadata', []);
 
         return parent::getProviderMetadata();
     }
@@ -469,7 +469,7 @@ class Media extends \Application\Sonata\MediaBundle\Entity\Media implements \Doc
     public function setWidth($width)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setWidth', array($width));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setWidth', [$width]);
 
         return parent::setWidth($width);
     }
@@ -480,7 +480,7 @@ class Media extends \Application\Sonata\MediaBundle\Entity\Media implements \Doc
     public function getWidth()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getWidth', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getWidth', []);
 
         return parent::getWidth();
     }
@@ -491,7 +491,7 @@ class Media extends \Application\Sonata\MediaBundle\Entity\Media implements \Doc
     public function setHeight($height)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setHeight', array($height));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setHeight', [$height]);
 
         return parent::setHeight($height);
     }
@@ -502,7 +502,7 @@ class Media extends \Application\Sonata\MediaBundle\Entity\Media implements \Doc
     public function getHeight()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getHeight', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getHeight', []);
 
         return parent::getHeight();
     }
@@ -513,7 +513,7 @@ class Media extends \Application\Sonata\MediaBundle\Entity\Media implements \Doc
     public function setLength($length)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setLength', array($length));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setLength', [$length]);
 
         return parent::setLength($length);
     }
@@ -524,7 +524,7 @@ class Media extends \Application\Sonata\MediaBundle\Entity\Media implements \Doc
     public function getLength()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getLength', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getLength', []);
 
         return parent::getLength();
     }
@@ -535,7 +535,7 @@ class Media extends \Application\Sonata\MediaBundle\Entity\Media implements \Doc
     public function setCopyright($copyright)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setCopyright', array($copyright));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setCopyright', [$copyright]);
 
         return parent::setCopyright($copyright);
     }
@@ -546,7 +546,7 @@ class Media extends \Application\Sonata\MediaBundle\Entity\Media implements \Doc
     public function getCopyright()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getCopyright', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getCopyright', []);
 
         return parent::getCopyright();
     }
@@ -557,7 +557,7 @@ class Media extends \Application\Sonata\MediaBundle\Entity\Media implements \Doc
     public function setAuthorName($authorName)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setAuthorName', array($authorName));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setAuthorName', [$authorName]);
 
         return parent::setAuthorName($authorName);
     }
@@ -568,7 +568,7 @@ class Media extends \Application\Sonata\MediaBundle\Entity\Media implements \Doc
     public function getAuthorName()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getAuthorName', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getAuthorName', []);
 
         return parent::getAuthorName();
     }
@@ -579,7 +579,7 @@ class Media extends \Application\Sonata\MediaBundle\Entity\Media implements \Doc
     public function setContext($context)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setContext', array($context));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setContext', [$context]);
 
         return parent::setContext($context);
     }
@@ -590,7 +590,7 @@ class Media extends \Application\Sonata\MediaBundle\Entity\Media implements \Doc
     public function getContext()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getContext', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getContext', []);
 
         return parent::getContext();
     }
@@ -601,7 +601,7 @@ class Media extends \Application\Sonata\MediaBundle\Entity\Media implements \Doc
     public function setCdnIsFlushable($cdnIsFlushable)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setCdnIsFlushable', array($cdnIsFlushable));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setCdnIsFlushable', [$cdnIsFlushable]);
 
         return parent::setCdnIsFlushable($cdnIsFlushable);
     }
@@ -612,7 +612,7 @@ class Media extends \Application\Sonata\MediaBundle\Entity\Media implements \Doc
     public function getCdnIsFlushable()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getCdnIsFlushable', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getCdnIsFlushable', []);
 
         return parent::getCdnIsFlushable();
     }
@@ -623,7 +623,7 @@ class Media extends \Application\Sonata\MediaBundle\Entity\Media implements \Doc
     public function setCdnFlushIdentifier($cdnFlushIdentifier)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setCdnFlushIdentifier', array($cdnFlushIdentifier));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setCdnFlushIdentifier', [$cdnFlushIdentifier]);
 
         return parent::setCdnFlushIdentifier($cdnFlushIdentifier);
     }
@@ -634,7 +634,7 @@ class Media extends \Application\Sonata\MediaBundle\Entity\Media implements \Doc
     public function getCdnFlushIdentifier()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getCdnFlushIdentifier', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getCdnFlushIdentifier', []);
 
         return parent::getCdnFlushIdentifier();
     }
@@ -645,7 +645,7 @@ class Media extends \Application\Sonata\MediaBundle\Entity\Media implements \Doc
     public function setCdnFlushAt(\DateTime $cdnFlushAt = NULL)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setCdnFlushAt', array($cdnFlushAt));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setCdnFlushAt', [$cdnFlushAt]);
 
         return parent::setCdnFlushAt($cdnFlushAt);
     }
@@ -656,7 +656,7 @@ class Media extends \Application\Sonata\MediaBundle\Entity\Media implements \Doc
     public function getCdnFlushAt()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getCdnFlushAt', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getCdnFlushAt', []);
 
         return parent::getCdnFlushAt();
     }
@@ -667,7 +667,7 @@ class Media extends \Application\Sonata\MediaBundle\Entity\Media implements \Doc
     public function setUpdatedAt(\DateTime $updatedAt = NULL)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setUpdatedAt', array($updatedAt));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setUpdatedAt', [$updatedAt]);
 
         return parent::setUpdatedAt($updatedAt);
     }
@@ -678,7 +678,7 @@ class Media extends \Application\Sonata\MediaBundle\Entity\Media implements \Doc
     public function getUpdatedAt()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getUpdatedAt', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getUpdatedAt', []);
 
         return parent::getUpdatedAt();
     }
@@ -689,7 +689,7 @@ class Media extends \Application\Sonata\MediaBundle\Entity\Media implements \Doc
     public function setCreatedAt(\DateTime $createdAt = NULL)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setCreatedAt', array($createdAt));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setCreatedAt', [$createdAt]);
 
         return parent::setCreatedAt($createdAt);
     }
@@ -700,7 +700,7 @@ class Media extends \Application\Sonata\MediaBundle\Entity\Media implements \Doc
     public function getCreatedAt()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getCreatedAt', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getCreatedAt', []);
 
         return parent::getCreatedAt();
     }
@@ -711,7 +711,7 @@ class Media extends \Application\Sonata\MediaBundle\Entity\Media implements \Doc
     public function setContentType($contentType)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setContentType', array($contentType));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setContentType', [$contentType]);
 
         return parent::setContentType($contentType);
     }
@@ -722,7 +722,7 @@ class Media extends \Application\Sonata\MediaBundle\Entity\Media implements \Doc
     public function getContentType()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getContentType', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getContentType', []);
 
         return parent::getContentType();
     }
@@ -733,7 +733,7 @@ class Media extends \Application\Sonata\MediaBundle\Entity\Media implements \Doc
     public function getExtension()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getExtension', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getExtension', []);
 
         return parent::getExtension();
     }
@@ -744,7 +744,7 @@ class Media extends \Application\Sonata\MediaBundle\Entity\Media implements \Doc
     public function setSize($size)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setSize', array($size));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setSize', [$size]);
 
         return parent::setSize($size);
     }
@@ -755,7 +755,7 @@ class Media extends \Application\Sonata\MediaBundle\Entity\Media implements \Doc
     public function getSize()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getSize', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getSize', []);
 
         return parent::getSize();
     }
@@ -766,7 +766,7 @@ class Media extends \Application\Sonata\MediaBundle\Entity\Media implements \Doc
     public function setCdnStatus($cdnStatus)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setCdnStatus', array($cdnStatus));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setCdnStatus', [$cdnStatus]);
 
         return parent::setCdnStatus($cdnStatus);
     }
@@ -777,7 +777,7 @@ class Media extends \Application\Sonata\MediaBundle\Entity\Media implements \Doc
     public function getCdnStatus()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getCdnStatus', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getCdnStatus', []);
 
         return parent::getCdnStatus();
     }
@@ -788,7 +788,7 @@ class Media extends \Application\Sonata\MediaBundle\Entity\Media implements \Doc
     public function getBox()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getBox', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getBox', []);
 
         return parent::getBox();
     }
@@ -799,7 +799,7 @@ class Media extends \Application\Sonata\MediaBundle\Entity\Media implements \Doc
     public function setGalleryHasMedias($galleryHasMedias)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setGalleryHasMedias', array($galleryHasMedias));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setGalleryHasMedias', [$galleryHasMedias]);
 
         return parent::setGalleryHasMedias($galleryHasMedias);
     }
@@ -810,7 +810,7 @@ class Media extends \Application\Sonata\MediaBundle\Entity\Media implements \Doc
     public function getGalleryHasMedias()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getGalleryHasMedias', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getGalleryHasMedias', []);
 
         return parent::getGalleryHasMedias();
     }
@@ -821,7 +821,7 @@ class Media extends \Application\Sonata\MediaBundle\Entity\Media implements \Doc
     public function getPreviousProviderReference()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getPreviousProviderReference', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getPreviousProviderReference', []);
 
         return parent::getPreviousProviderReference();
     }
@@ -832,7 +832,7 @@ class Media extends \Application\Sonata\MediaBundle\Entity\Media implements \Doc
     public function isStatusErroneous($context)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'isStatusErroneous', array($context));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'isStatusErroneous', [$context]);
 
         return parent::isStatusErroneous($context);
     }
@@ -843,7 +843,7 @@ class Media extends \Application\Sonata\MediaBundle\Entity\Media implements \Doc
     public function getCategory()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getCategory', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getCategory', []);
 
         return parent::getCategory();
     }

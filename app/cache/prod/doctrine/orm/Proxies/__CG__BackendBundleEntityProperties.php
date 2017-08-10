@@ -36,7 +36,7 @@ class Properties extends \BackendBundle\Entity\Properties implements \Doctrine\O
      *
      * @see \Doctrine\Common\Persistence\Proxy::__getLazyProperties
      */
-    public static $lazyPropertiesDefaults = array();
+    public static $lazyPropertiesDefaults = [];
 
 
 
@@ -64,10 +64,10 @@ class Properties extends \BackendBundle\Entity\Properties implements \Doctrine\O
     public function __sleep()
     {
         if ($this->__isInitialized__) {
-            return array('__isInitialized__', '' . "\0" . 'BackendBundle\\Entity\\Properties' . "\0" . 'id', '' . "\0" . 'BackendBundle\\Entity\\Properties' . "\0" . 'reference', '' . "\0" . 'BackendBundle\\Entity\\Properties' . "\0" . 'guesthouse', '' . "\0" . 'BackendBundle\\Entity\\Properties' . "\0" . 'independentapartment', '' . "\0" . 'BackendBundle\\Entity\\Properties' . "\0" . 'numberrooms', '' . "\0" . 'BackendBundle\\Entity\\Properties' . "\0" . 'roomprice', '' . "\0" . 'BackendBundle\\Entity\\Properties' . "\0" . 'roompriceoutseason', '' . "\0" . 'BackendBundle\\Entity\\Properties' . "\0" . 'wcindependents', '' . "\0" . 'BackendBundle\\Entity\\Properties' . "\0" . 'wcshared', '' . "\0" . 'BackendBundle\\Entity\\Properties' . "\0" . 'address', '' . "\0" . 'BackendBundle\\Entity\\Properties' . "\0" . 'addressprivate', '' . "\0" . 'BackendBundle\\Entity\\Properties' . "\0" . 'entrecalleuno', '' . "\0" . 'BackendBundle\\Entity\\Properties' . "\0" . 'entrecalledos', '' . "\0" . 'BackendBundle\\Entity\\Properties' . "\0" . 'barrio', '' . "\0" . 'BackendBundle\\Entity\\Properties' . "\0" . 'city', '' . "\0" . 'BackendBundle\\Entity\\Properties' . "\0" . 'state', '' . "\0" . 'BackendBundle\\Entity\\Properties' . "\0" . 'zipcode', '' . "\0" . 'BackendBundle\\Entity\\Properties' . "\0" . 'lat', '' . "\0" . 'BackendBundle\\Entity\\Properties' . "\0" . 'lon', '' . "\0" . 'BackendBundle\\Entity\\Properties' . "\0" . 'bedrooms', '' . "\0" . 'BackendBundle\\Entity\\Properties' . "\0" . 'beds', '' . "\0" . 'BackendBundle\\Entity\\Properties' . "\0" . 'bathrooms', '' . "\0" . 'BackendBundle\\Entity\\Properties' . "\0" . 'capacity', '' . "\0" . 'BackendBundle\\Entity\\Properties' . "\0" . 'personauto', '' . "\0" . 'BackendBundle\\Entity\\Properties' . "\0" . 'dateauto', '' . "\0" . 'BackendBundle\\Entity\\Properties' . "\0" . 'signed', '' . "\0" . 'BackendBundle\\Entity\\Properties' . "\0" . 'approved', '' . "\0" . 'BackendBundle\\Entity\\Properties' . "\0" . 'dateadd', '' . "\0" . 'BackendBundle\\Entity\\Properties' . "\0" . 'plublished', '' . "\0" . 'BackendBundle\\Entity\\Properties' . "\0" . 'numberVisits', '' . "\0" . 'BackendBundle\\Entity\\Properties' . "\0" . 'featured', '' . "\0" . 'BackendBundle\\Entity\\Properties' . "\0" . 'deleted', '' . "\0" . 'BackendBundle\\Entity\\Properties' . "\0" . 'country', '' . "\0" . 'BackendBundle\\Entity\\Properties' . "\0" . 'roomType', '' . "\0" . 'BackendBundle\\Entity\\Properties' . "\0" . 'user');
+            return ['__isInitialized__', '' . "\0" . 'BackendBundle\\Entity\\Properties' . "\0" . 'id', '' . "\0" . 'BackendBundle\\Entity\\Properties' . "\0" . 'reference', '' . "\0" . 'BackendBundle\\Entity\\Properties' . "\0" . 'guesthouse', '' . "\0" . 'BackendBundle\\Entity\\Properties' . "\0" . 'independentapartment', '' . "\0" . 'BackendBundle\\Entity\\Properties' . "\0" . 'numberrooms', '' . "\0" . 'BackendBundle\\Entity\\Properties' . "\0" . 'roomprice', '' . "\0" . 'BackendBundle\\Entity\\Properties' . "\0" . 'roompriceoutseason', '' . "\0" . 'BackendBundle\\Entity\\Properties' . "\0" . 'wcindependents', '' . "\0" . 'BackendBundle\\Entity\\Properties' . "\0" . 'wcshared', '' . "\0" . 'BackendBundle\\Entity\\Properties' . "\0" . 'address', '' . "\0" . 'BackendBundle\\Entity\\Properties' . "\0" . 'addressprivate', '' . "\0" . 'BackendBundle\\Entity\\Properties' . "\0" . 'entrecalleuno', '' . "\0" . 'BackendBundle\\Entity\\Properties' . "\0" . 'entrecalledos', '' . "\0" . 'BackendBundle\\Entity\\Properties' . "\0" . 'barrio', '' . "\0" . 'BackendBundle\\Entity\\Properties' . "\0" . 'city', '' . "\0" . 'BackendBundle\\Entity\\Properties' . "\0" . 'state', '' . "\0" . 'BackendBundle\\Entity\\Properties' . "\0" . 'zipcode', '' . "\0" . 'BackendBundle\\Entity\\Properties' . "\0" . 'lat', '' . "\0" . 'BackendBundle\\Entity\\Properties' . "\0" . 'lon', '' . "\0" . 'BackendBundle\\Entity\\Properties' . "\0" . 'bedrooms', '' . "\0" . 'BackendBundle\\Entity\\Properties' . "\0" . 'beds', '' . "\0" . 'BackendBundle\\Entity\\Properties' . "\0" . 'bathrooms', '' . "\0" . 'BackendBundle\\Entity\\Properties' . "\0" . 'capacity', '' . "\0" . 'BackendBundle\\Entity\\Properties' . "\0" . 'personauto', '' . "\0" . 'BackendBundle\\Entity\\Properties' . "\0" . 'dateauto', '' . "\0" . 'BackendBundle\\Entity\\Properties' . "\0" . 'signed', '' . "\0" . 'BackendBundle\\Entity\\Properties' . "\0" . 'approved', '' . "\0" . 'BackendBundle\\Entity\\Properties' . "\0" . 'dateadd', '' . "\0" . 'BackendBundle\\Entity\\Properties' . "\0" . 'plublished', '' . "\0" . 'BackendBundle\\Entity\\Properties' . "\0" . 'numberVisits', '' . "\0" . 'BackendBundle\\Entity\\Properties' . "\0" . 'featured', '' . "\0" . 'BackendBundle\\Entity\\Properties' . "\0" . 'deleted', '' . "\0" . 'BackendBundle\\Entity\\Properties' . "\0" . 'country', '' . "\0" . 'BackendBundle\\Entity\\Properties' . "\0" . 'roomType', '' . "\0" . 'BackendBundle\\Entity\\Properties' . "\0" . 'user'];
         }
 
-        return array('__isInitialized__', '' . "\0" . 'BackendBundle\\Entity\\Properties' . "\0" . 'id', '' . "\0" . 'BackendBundle\\Entity\\Properties' . "\0" . 'reference', '' . "\0" . 'BackendBundle\\Entity\\Properties' . "\0" . 'guesthouse', '' . "\0" . 'BackendBundle\\Entity\\Properties' . "\0" . 'independentapartment', '' . "\0" . 'BackendBundle\\Entity\\Properties' . "\0" . 'numberrooms', '' . "\0" . 'BackendBundle\\Entity\\Properties' . "\0" . 'roomprice', '' . "\0" . 'BackendBundle\\Entity\\Properties' . "\0" . 'roompriceoutseason', '' . "\0" . 'BackendBundle\\Entity\\Properties' . "\0" . 'wcindependents', '' . "\0" . 'BackendBundle\\Entity\\Properties' . "\0" . 'wcshared', '' . "\0" . 'BackendBundle\\Entity\\Properties' . "\0" . 'address', '' . "\0" . 'BackendBundle\\Entity\\Properties' . "\0" . 'addressprivate', '' . "\0" . 'BackendBundle\\Entity\\Properties' . "\0" . 'entrecalleuno', '' . "\0" . 'BackendBundle\\Entity\\Properties' . "\0" . 'entrecalledos', '' . "\0" . 'BackendBundle\\Entity\\Properties' . "\0" . 'barrio', '' . "\0" . 'BackendBundle\\Entity\\Properties' . "\0" . 'city', '' . "\0" . 'BackendBundle\\Entity\\Properties' . "\0" . 'state', '' . "\0" . 'BackendBundle\\Entity\\Properties' . "\0" . 'zipcode', '' . "\0" . 'BackendBundle\\Entity\\Properties' . "\0" . 'lat', '' . "\0" . 'BackendBundle\\Entity\\Properties' . "\0" . 'lon', '' . "\0" . 'BackendBundle\\Entity\\Properties' . "\0" . 'bedrooms', '' . "\0" . 'BackendBundle\\Entity\\Properties' . "\0" . 'beds', '' . "\0" . 'BackendBundle\\Entity\\Properties' . "\0" . 'bathrooms', '' . "\0" . 'BackendBundle\\Entity\\Properties' . "\0" . 'capacity', '' . "\0" . 'BackendBundle\\Entity\\Properties' . "\0" . 'personauto', '' . "\0" . 'BackendBundle\\Entity\\Properties' . "\0" . 'dateauto', '' . "\0" . 'BackendBundle\\Entity\\Properties' . "\0" . 'signed', '' . "\0" . 'BackendBundle\\Entity\\Properties' . "\0" . 'approved', '' . "\0" . 'BackendBundle\\Entity\\Properties' . "\0" . 'dateadd', '' . "\0" . 'BackendBundle\\Entity\\Properties' . "\0" . 'plublished', '' . "\0" . 'BackendBundle\\Entity\\Properties' . "\0" . 'numberVisits', '' . "\0" . 'BackendBundle\\Entity\\Properties' . "\0" . 'featured', '' . "\0" . 'BackendBundle\\Entity\\Properties' . "\0" . 'deleted', '' . "\0" . 'BackendBundle\\Entity\\Properties' . "\0" . 'country', '' . "\0" . 'BackendBundle\\Entity\\Properties' . "\0" . 'roomType', '' . "\0" . 'BackendBundle\\Entity\\Properties' . "\0" . 'user');
+        return ['__isInitialized__', '' . "\0" . 'BackendBundle\\Entity\\Properties' . "\0" . 'id', '' . "\0" . 'BackendBundle\\Entity\\Properties' . "\0" . 'reference', '' . "\0" . 'BackendBundle\\Entity\\Properties' . "\0" . 'guesthouse', '' . "\0" . 'BackendBundle\\Entity\\Properties' . "\0" . 'independentapartment', '' . "\0" . 'BackendBundle\\Entity\\Properties' . "\0" . 'numberrooms', '' . "\0" . 'BackendBundle\\Entity\\Properties' . "\0" . 'roomprice', '' . "\0" . 'BackendBundle\\Entity\\Properties' . "\0" . 'roompriceoutseason', '' . "\0" . 'BackendBundle\\Entity\\Properties' . "\0" . 'wcindependents', '' . "\0" . 'BackendBundle\\Entity\\Properties' . "\0" . 'wcshared', '' . "\0" . 'BackendBundle\\Entity\\Properties' . "\0" . 'address', '' . "\0" . 'BackendBundle\\Entity\\Properties' . "\0" . 'addressprivate', '' . "\0" . 'BackendBundle\\Entity\\Properties' . "\0" . 'entrecalleuno', '' . "\0" . 'BackendBundle\\Entity\\Properties' . "\0" . 'entrecalledos', '' . "\0" . 'BackendBundle\\Entity\\Properties' . "\0" . 'barrio', '' . "\0" . 'BackendBundle\\Entity\\Properties' . "\0" . 'city', '' . "\0" . 'BackendBundle\\Entity\\Properties' . "\0" . 'state', '' . "\0" . 'BackendBundle\\Entity\\Properties' . "\0" . 'zipcode', '' . "\0" . 'BackendBundle\\Entity\\Properties' . "\0" . 'lat', '' . "\0" . 'BackendBundle\\Entity\\Properties' . "\0" . 'lon', '' . "\0" . 'BackendBundle\\Entity\\Properties' . "\0" . 'bedrooms', '' . "\0" . 'BackendBundle\\Entity\\Properties' . "\0" . 'beds', '' . "\0" . 'BackendBundle\\Entity\\Properties' . "\0" . 'bathrooms', '' . "\0" . 'BackendBundle\\Entity\\Properties' . "\0" . 'capacity', '' . "\0" . 'BackendBundle\\Entity\\Properties' . "\0" . 'personauto', '' . "\0" . 'BackendBundle\\Entity\\Properties' . "\0" . 'dateauto', '' . "\0" . 'BackendBundle\\Entity\\Properties' . "\0" . 'signed', '' . "\0" . 'BackendBundle\\Entity\\Properties' . "\0" . 'approved', '' . "\0" . 'BackendBundle\\Entity\\Properties' . "\0" . 'dateadd', '' . "\0" . 'BackendBundle\\Entity\\Properties' . "\0" . 'plublished', '' . "\0" . 'BackendBundle\\Entity\\Properties' . "\0" . 'numberVisits', '' . "\0" . 'BackendBundle\\Entity\\Properties' . "\0" . 'featured', '' . "\0" . 'BackendBundle\\Entity\\Properties' . "\0" . 'deleted', '' . "\0" . 'BackendBundle\\Entity\\Properties' . "\0" . 'country', '' . "\0" . 'BackendBundle\\Entity\\Properties' . "\0" . 'roomType', '' . "\0" . 'BackendBundle\\Entity\\Properties' . "\0" . 'user'];
     }
 
     /**
@@ -97,7 +97,7 @@ class Properties extends \BackendBundle\Entity\Properties implements \Doctrine\O
      */
     public function __clone()
     {
-        $this->__cloner__ && $this->__cloner__->__invoke($this, '__clone', array());
+        $this->__cloner__ && $this->__cloner__->__invoke($this, '__clone', []);
     }
 
     /**
@@ -105,7 +105,7 @@ class Properties extends \BackendBundle\Entity\Properties implements \Doctrine\O
      */
     public function __load()
     {
-        $this->__initializer__ && $this->__initializer__->__invoke($this, '__load', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, '__load', []);
     }
 
     /**
@@ -183,7 +183,7 @@ class Properties extends \BackendBundle\Entity\Properties implements \Doctrine\O
         }
 
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getId', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getId', []);
 
         return parent::getId();
     }
@@ -194,7 +194,7 @@ class Properties extends \BackendBundle\Entity\Properties implements \Doctrine\O
     public function setReference($reference)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setReference', array($reference));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setReference', [$reference]);
 
         return parent::setReference($reference);
     }
@@ -205,7 +205,7 @@ class Properties extends \BackendBundle\Entity\Properties implements \Doctrine\O
     public function getReference()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getReference', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getReference', []);
 
         return parent::getReference();
     }
@@ -216,7 +216,7 @@ class Properties extends \BackendBundle\Entity\Properties implements \Doctrine\O
     public function setGuesthouse($guesthouse)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setGuesthouse', array($guesthouse));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setGuesthouse', [$guesthouse]);
 
         return parent::setGuesthouse($guesthouse);
     }
@@ -227,7 +227,7 @@ class Properties extends \BackendBundle\Entity\Properties implements \Doctrine\O
     public function getGuesthouse()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getGuesthouse', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getGuesthouse', []);
 
         return parent::getGuesthouse();
     }
@@ -238,7 +238,7 @@ class Properties extends \BackendBundle\Entity\Properties implements \Doctrine\O
     public function setIndependentapartment($independentapartment)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setIndependentapartment', array($independentapartment));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setIndependentapartment', [$independentapartment]);
 
         return parent::setIndependentapartment($independentapartment);
     }
@@ -249,7 +249,7 @@ class Properties extends \BackendBundle\Entity\Properties implements \Doctrine\O
     public function getIndependentapartment()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getIndependentapartment', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getIndependentapartment', []);
 
         return parent::getIndependentapartment();
     }
@@ -260,7 +260,7 @@ class Properties extends \BackendBundle\Entity\Properties implements \Doctrine\O
     public function setNumberrooms($numberrooms)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setNumberrooms', array($numberrooms));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setNumberrooms', [$numberrooms]);
 
         return parent::setNumberrooms($numberrooms);
     }
@@ -271,7 +271,7 @@ class Properties extends \BackendBundle\Entity\Properties implements \Doctrine\O
     public function getNumberrooms()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getNumberrooms', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getNumberrooms', []);
 
         return parent::getNumberrooms();
     }
@@ -282,7 +282,7 @@ class Properties extends \BackendBundle\Entity\Properties implements \Doctrine\O
     public function setRoomprice($roomprice)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setRoomprice', array($roomprice));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setRoomprice', [$roomprice]);
 
         return parent::setRoomprice($roomprice);
     }
@@ -293,7 +293,7 @@ class Properties extends \BackendBundle\Entity\Properties implements \Doctrine\O
     public function getRoomprice()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getRoomprice', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getRoomprice', []);
 
         return parent::getRoomprice();
     }
@@ -304,7 +304,7 @@ class Properties extends \BackendBundle\Entity\Properties implements \Doctrine\O
     public function setRoompriceoutseason($roompriceoutseason)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setRoompriceoutseason', array($roompriceoutseason));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setRoompriceoutseason', [$roompriceoutseason]);
 
         return parent::setRoompriceoutseason($roompriceoutseason);
     }
@@ -315,7 +315,7 @@ class Properties extends \BackendBundle\Entity\Properties implements \Doctrine\O
     public function getRoompriceoutseason()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getRoompriceoutseason', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getRoompriceoutseason', []);
 
         return parent::getRoompriceoutseason();
     }
@@ -326,7 +326,7 @@ class Properties extends \BackendBundle\Entity\Properties implements \Doctrine\O
     public function setWcindependents($wcindependents)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setWcindependents', array($wcindependents));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setWcindependents', [$wcindependents]);
 
         return parent::setWcindependents($wcindependents);
     }
@@ -337,7 +337,7 @@ class Properties extends \BackendBundle\Entity\Properties implements \Doctrine\O
     public function getWcindependents()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getWcindependents', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getWcindependents', []);
 
         return parent::getWcindependents();
     }
@@ -348,7 +348,7 @@ class Properties extends \BackendBundle\Entity\Properties implements \Doctrine\O
     public function setWcshared($wcshared)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setWcshared', array($wcshared));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setWcshared', [$wcshared]);
 
         return parent::setWcshared($wcshared);
     }
@@ -359,7 +359,7 @@ class Properties extends \BackendBundle\Entity\Properties implements \Doctrine\O
     public function getWcshared()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getWcshared', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getWcshared', []);
 
         return parent::getWcshared();
     }
@@ -370,7 +370,7 @@ class Properties extends \BackendBundle\Entity\Properties implements \Doctrine\O
     public function setAddress($address)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setAddress', array($address));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setAddress', [$address]);
 
         return parent::setAddress($address);
     }
@@ -381,7 +381,7 @@ class Properties extends \BackendBundle\Entity\Properties implements \Doctrine\O
     public function getAddress()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getAddress', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getAddress', []);
 
         return parent::getAddress();
     }
@@ -392,7 +392,7 @@ class Properties extends \BackendBundle\Entity\Properties implements \Doctrine\O
     public function setAddressprivate($addressprivate)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setAddressprivate', array($addressprivate));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setAddressprivate', [$addressprivate]);
 
         return parent::setAddressprivate($addressprivate);
     }
@@ -403,7 +403,7 @@ class Properties extends \BackendBundle\Entity\Properties implements \Doctrine\O
     public function getAddressprivate()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getAddressprivate', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getAddressprivate', []);
 
         return parent::getAddressprivate();
     }
@@ -414,7 +414,7 @@ class Properties extends \BackendBundle\Entity\Properties implements \Doctrine\O
     public function setEntrecalleuno($entrecalleuno)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setEntrecalleuno', array($entrecalleuno));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setEntrecalleuno', [$entrecalleuno]);
 
         return parent::setEntrecalleuno($entrecalleuno);
     }
@@ -425,7 +425,7 @@ class Properties extends \BackendBundle\Entity\Properties implements \Doctrine\O
     public function getEntrecalleuno()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getEntrecalleuno', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getEntrecalleuno', []);
 
         return parent::getEntrecalleuno();
     }
@@ -436,7 +436,7 @@ class Properties extends \BackendBundle\Entity\Properties implements \Doctrine\O
     public function setEntrecalledos($entrecalledos)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setEntrecalledos', array($entrecalledos));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setEntrecalledos', [$entrecalledos]);
 
         return parent::setEntrecalledos($entrecalledos);
     }
@@ -447,7 +447,7 @@ class Properties extends \BackendBundle\Entity\Properties implements \Doctrine\O
     public function getEntrecalledos()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getEntrecalledos', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getEntrecalledos', []);
 
         return parent::getEntrecalledos();
     }
@@ -458,7 +458,7 @@ class Properties extends \BackendBundle\Entity\Properties implements \Doctrine\O
     public function setBarrio($barrio)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setBarrio', array($barrio));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setBarrio', [$barrio]);
 
         return parent::setBarrio($barrio);
     }
@@ -469,7 +469,7 @@ class Properties extends \BackendBundle\Entity\Properties implements \Doctrine\O
     public function getBarrio()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getBarrio', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getBarrio', []);
 
         return parent::getBarrio();
     }
@@ -480,7 +480,7 @@ class Properties extends \BackendBundle\Entity\Properties implements \Doctrine\O
     public function setCity($city)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setCity', array($city));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setCity', [$city]);
 
         return parent::setCity($city);
     }
@@ -491,7 +491,7 @@ class Properties extends \BackendBundle\Entity\Properties implements \Doctrine\O
     public function getCity()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getCity', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getCity', []);
 
         return parent::getCity();
     }
@@ -502,7 +502,7 @@ class Properties extends \BackendBundle\Entity\Properties implements \Doctrine\O
     public function setState($state)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setState', array($state));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setState', [$state]);
 
         return parent::setState($state);
     }
@@ -513,7 +513,7 @@ class Properties extends \BackendBundle\Entity\Properties implements \Doctrine\O
     public function getState()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getState', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getState', []);
 
         return parent::getState();
     }
@@ -524,7 +524,7 @@ class Properties extends \BackendBundle\Entity\Properties implements \Doctrine\O
     public function setZipcode($zipcode)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setZipcode', array($zipcode));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setZipcode', [$zipcode]);
 
         return parent::setZipcode($zipcode);
     }
@@ -535,7 +535,7 @@ class Properties extends \BackendBundle\Entity\Properties implements \Doctrine\O
     public function getZipcode()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getZipcode', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getZipcode', []);
 
         return parent::getZipcode();
     }
@@ -546,7 +546,7 @@ class Properties extends \BackendBundle\Entity\Properties implements \Doctrine\O
     public function setLat($lat)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setLat', array($lat));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setLat', [$lat]);
 
         return parent::setLat($lat);
     }
@@ -557,7 +557,7 @@ class Properties extends \BackendBundle\Entity\Properties implements \Doctrine\O
     public function getLat()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getLat', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getLat', []);
 
         return parent::getLat();
     }
@@ -568,7 +568,7 @@ class Properties extends \BackendBundle\Entity\Properties implements \Doctrine\O
     public function setLon($lon)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setLon', array($lon));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setLon', [$lon]);
 
         return parent::setLon($lon);
     }
@@ -579,7 +579,7 @@ class Properties extends \BackendBundle\Entity\Properties implements \Doctrine\O
     public function getLon()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getLon', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getLon', []);
 
         return parent::getLon();
     }
@@ -590,7 +590,7 @@ class Properties extends \BackendBundle\Entity\Properties implements \Doctrine\O
     public function setBedrooms($bedrooms)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setBedrooms', array($bedrooms));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setBedrooms', [$bedrooms]);
 
         return parent::setBedrooms($bedrooms);
     }
@@ -601,7 +601,7 @@ class Properties extends \BackendBundle\Entity\Properties implements \Doctrine\O
     public function getBedrooms()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getBedrooms', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getBedrooms', []);
 
         return parent::getBedrooms();
     }
@@ -612,7 +612,7 @@ class Properties extends \BackendBundle\Entity\Properties implements \Doctrine\O
     public function setBeds($beds)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setBeds', array($beds));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setBeds', [$beds]);
 
         return parent::setBeds($beds);
     }
@@ -623,7 +623,7 @@ class Properties extends \BackendBundle\Entity\Properties implements \Doctrine\O
     public function getBeds()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getBeds', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getBeds', []);
 
         return parent::getBeds();
     }
@@ -634,7 +634,7 @@ class Properties extends \BackendBundle\Entity\Properties implements \Doctrine\O
     public function setBathrooms($bathrooms)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setBathrooms', array($bathrooms));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setBathrooms', [$bathrooms]);
 
         return parent::setBathrooms($bathrooms);
     }
@@ -645,7 +645,7 @@ class Properties extends \BackendBundle\Entity\Properties implements \Doctrine\O
     public function getBathrooms()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getBathrooms', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getBathrooms', []);
 
         return parent::getBathrooms();
     }
@@ -656,7 +656,7 @@ class Properties extends \BackendBundle\Entity\Properties implements \Doctrine\O
     public function setCapacity($capacity)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setCapacity', array($capacity));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setCapacity', [$capacity]);
 
         return parent::setCapacity($capacity);
     }
@@ -667,7 +667,7 @@ class Properties extends \BackendBundle\Entity\Properties implements \Doctrine\O
     public function getCapacity()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getCapacity', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getCapacity', []);
 
         return parent::getCapacity();
     }
@@ -678,7 +678,7 @@ class Properties extends \BackendBundle\Entity\Properties implements \Doctrine\O
     public function setPersonauto($personauto)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setPersonauto', array($personauto));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setPersonauto', [$personauto]);
 
         return parent::setPersonauto($personauto);
     }
@@ -689,7 +689,7 @@ class Properties extends \BackendBundle\Entity\Properties implements \Doctrine\O
     public function getPersonauto()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getPersonauto', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getPersonauto', []);
 
         return parent::getPersonauto();
     }
@@ -700,7 +700,7 @@ class Properties extends \BackendBundle\Entity\Properties implements \Doctrine\O
     public function setDateauto($dateauto)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setDateauto', array($dateauto));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setDateauto', [$dateauto]);
 
         return parent::setDateauto($dateauto);
     }
@@ -711,7 +711,7 @@ class Properties extends \BackendBundle\Entity\Properties implements \Doctrine\O
     public function getDateauto()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getDateauto', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getDateauto', []);
 
         return parent::getDateauto();
     }
@@ -722,7 +722,7 @@ class Properties extends \BackendBundle\Entity\Properties implements \Doctrine\O
     public function setSigned($signed)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setSigned', array($signed));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setSigned', [$signed]);
 
         return parent::setSigned($signed);
     }
@@ -733,7 +733,7 @@ class Properties extends \BackendBundle\Entity\Properties implements \Doctrine\O
     public function getSigned()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getSigned', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getSigned', []);
 
         return parent::getSigned();
     }
@@ -744,7 +744,7 @@ class Properties extends \BackendBundle\Entity\Properties implements \Doctrine\O
     public function setApproved($approved)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setApproved', array($approved));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setApproved', [$approved]);
 
         return parent::setApproved($approved);
     }
@@ -755,7 +755,7 @@ class Properties extends \BackendBundle\Entity\Properties implements \Doctrine\O
     public function getApproved()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getApproved', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getApproved', []);
 
         return parent::getApproved();
     }
@@ -766,7 +766,7 @@ class Properties extends \BackendBundle\Entity\Properties implements \Doctrine\O
     public function setDateadd($dateadd)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setDateadd', array($dateadd));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setDateadd', [$dateadd]);
 
         return parent::setDateadd($dateadd);
     }
@@ -777,7 +777,7 @@ class Properties extends \BackendBundle\Entity\Properties implements \Doctrine\O
     public function getDateadd()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getDateadd', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getDateadd', []);
 
         return parent::getDateadd();
     }
@@ -788,7 +788,7 @@ class Properties extends \BackendBundle\Entity\Properties implements \Doctrine\O
     public function setPlublished($plublished)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setPlublished', array($plublished));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setPlublished', [$plublished]);
 
         return parent::setPlublished($plublished);
     }
@@ -799,7 +799,7 @@ class Properties extends \BackendBundle\Entity\Properties implements \Doctrine\O
     public function getPlublished()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getPlublished', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getPlublished', []);
 
         return parent::getPlublished();
     }
@@ -810,7 +810,7 @@ class Properties extends \BackendBundle\Entity\Properties implements \Doctrine\O
     public function setNumberVisits($numberVisits)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setNumberVisits', array($numberVisits));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setNumberVisits', [$numberVisits]);
 
         return parent::setNumberVisits($numberVisits);
     }
@@ -821,7 +821,7 @@ class Properties extends \BackendBundle\Entity\Properties implements \Doctrine\O
     public function getNumberVisits()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getNumberVisits', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getNumberVisits', []);
 
         return parent::getNumberVisits();
     }
@@ -832,7 +832,7 @@ class Properties extends \BackendBundle\Entity\Properties implements \Doctrine\O
     public function setFeatured($featured)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setFeatured', array($featured));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setFeatured', [$featured]);
 
         return parent::setFeatured($featured);
     }
@@ -843,7 +843,7 @@ class Properties extends \BackendBundle\Entity\Properties implements \Doctrine\O
     public function getFeatured()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getFeatured', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getFeatured', []);
 
         return parent::getFeatured();
     }
@@ -854,7 +854,7 @@ class Properties extends \BackendBundle\Entity\Properties implements \Doctrine\O
     public function setDeleted($deleted)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setDeleted', array($deleted));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setDeleted', [$deleted]);
 
         return parent::setDeleted($deleted);
     }
@@ -865,7 +865,7 @@ class Properties extends \BackendBundle\Entity\Properties implements \Doctrine\O
     public function getDeleted()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getDeleted', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getDeleted', []);
 
         return parent::getDeleted();
     }
@@ -876,7 +876,7 @@ class Properties extends \BackendBundle\Entity\Properties implements \Doctrine\O
     public function setCountry(\BackendBundle\Entity\Country $country = NULL)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setCountry', array($country));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setCountry', [$country]);
 
         return parent::setCountry($country);
     }
@@ -887,7 +887,7 @@ class Properties extends \BackendBundle\Entity\Properties implements \Doctrine\O
     public function getCountry()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getCountry', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getCountry', []);
 
         return parent::getCountry();
     }
@@ -898,7 +898,7 @@ class Properties extends \BackendBundle\Entity\Properties implements \Doctrine\O
     public function setRoomType(\BackendBundle\Entity\RoomType $roomType = NULL)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setRoomType', array($roomType));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setRoomType', [$roomType]);
 
         return parent::setRoomType($roomType);
     }
@@ -909,7 +909,7 @@ class Properties extends \BackendBundle\Entity\Properties implements \Doctrine\O
     public function getRoomType()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getRoomType', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getRoomType', []);
 
         return parent::getRoomType();
     }
@@ -920,7 +920,7 @@ class Properties extends \BackendBundle\Entity\Properties implements \Doctrine\O
     public function setUser(\BackendBundle\Entity\User $user = NULL)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setUser', array($user));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setUser', [$user]);
 
         return parent::setUser($user);
     }
@@ -931,7 +931,7 @@ class Properties extends \BackendBundle\Entity\Properties implements \Doctrine\O
     public function getUser()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getUser', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getUser', []);
 
         return parent::getUser();
     }

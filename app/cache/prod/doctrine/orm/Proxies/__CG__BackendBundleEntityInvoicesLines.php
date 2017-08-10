@@ -36,7 +36,7 @@ class InvoicesLines extends \BackendBundle\Entity\InvoicesLines implements \Doct
      *
      * @see \Doctrine\Common\Persistence\Proxy::__getLazyProperties
      */
-    public static $lazyPropertiesDefaults = array();
+    public static $lazyPropertiesDefaults = [];
 
 
 
@@ -64,10 +64,10 @@ class InvoicesLines extends \BackendBundle\Entity\InvoicesLines implements \Doct
     public function __sleep()
     {
         if ($this->__isInitialized__) {
-            return array('__isInitialized__', '' . "\0" . 'BackendBundle\\Entity\\InvoicesLines' . "\0" . 'id', '' . "\0" . 'BackendBundle\\Entity\\InvoicesLines' . "\0" . 'productDescription', '' . "\0" . 'BackendBundle\\Entity\\InvoicesLines' . "\0" . 'amountVatExcluded', '' . "\0" . 'BackendBundle\\Entity\\InvoicesLines' . "\0" . 'invoice', '' . "\0" . 'BackendBundle\\Entity\\InvoicesLines' . "\0" . 'product');
+            return ['__isInitialized__', '' . "\0" . 'BackendBundle\\Entity\\InvoicesLines' . "\0" . 'id', '' . "\0" . 'BackendBundle\\Entity\\InvoicesLines' . "\0" . 'productDescription', '' . "\0" . 'BackendBundle\\Entity\\InvoicesLines' . "\0" . 'amountVatExcluded', '' . "\0" . 'BackendBundle\\Entity\\InvoicesLines' . "\0" . 'invoice', '' . "\0" . 'BackendBundle\\Entity\\InvoicesLines' . "\0" . 'product'];
         }
 
-        return array('__isInitialized__', '' . "\0" . 'BackendBundle\\Entity\\InvoicesLines' . "\0" . 'id', '' . "\0" . 'BackendBundle\\Entity\\InvoicesLines' . "\0" . 'productDescription', '' . "\0" . 'BackendBundle\\Entity\\InvoicesLines' . "\0" . 'amountVatExcluded', '' . "\0" . 'BackendBundle\\Entity\\InvoicesLines' . "\0" . 'invoice', '' . "\0" . 'BackendBundle\\Entity\\InvoicesLines' . "\0" . 'product');
+        return ['__isInitialized__', '' . "\0" . 'BackendBundle\\Entity\\InvoicesLines' . "\0" . 'id', '' . "\0" . 'BackendBundle\\Entity\\InvoicesLines' . "\0" . 'productDescription', '' . "\0" . 'BackendBundle\\Entity\\InvoicesLines' . "\0" . 'amountVatExcluded', '' . "\0" . 'BackendBundle\\Entity\\InvoicesLines' . "\0" . 'invoice', '' . "\0" . 'BackendBundle\\Entity\\InvoicesLines' . "\0" . 'product'];
     }
 
     /**
@@ -97,7 +97,7 @@ class InvoicesLines extends \BackendBundle\Entity\InvoicesLines implements \Doct
      */
     public function __clone()
     {
-        $this->__cloner__ && $this->__cloner__->__invoke($this, '__clone', array());
+        $this->__cloner__ && $this->__cloner__->__invoke($this, '__clone', []);
     }
 
     /**
@@ -105,7 +105,7 @@ class InvoicesLines extends \BackendBundle\Entity\InvoicesLines implements \Doct
      */
     public function __load()
     {
-        $this->__initializer__ && $this->__initializer__->__invoke($this, '__load', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, '__load', []);
     }
 
     /**
@@ -183,7 +183,7 @@ class InvoicesLines extends \BackendBundle\Entity\InvoicesLines implements \Doct
         }
 
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getId', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getId', []);
 
         return parent::getId();
     }
@@ -194,7 +194,7 @@ class InvoicesLines extends \BackendBundle\Entity\InvoicesLines implements \Doct
     public function setProductDescription($productDescription)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setProductDescription', array($productDescription));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setProductDescription', [$productDescription]);
 
         return parent::setProductDescription($productDescription);
     }
@@ -205,7 +205,7 @@ class InvoicesLines extends \BackendBundle\Entity\InvoicesLines implements \Doct
     public function getProductDescription()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getProductDescription', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getProductDescription', []);
 
         return parent::getProductDescription();
     }
@@ -216,7 +216,7 @@ class InvoicesLines extends \BackendBundle\Entity\InvoicesLines implements \Doct
     public function setAmountVatExcluded($amountVatExcluded)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setAmountVatExcluded', array($amountVatExcluded));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setAmountVatExcluded', [$amountVatExcluded]);
 
         return parent::setAmountVatExcluded($amountVatExcluded);
     }
@@ -227,7 +227,7 @@ class InvoicesLines extends \BackendBundle\Entity\InvoicesLines implements \Doct
     public function getAmountVatExcluded()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getAmountVatExcluded', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getAmountVatExcluded', []);
 
         return parent::getAmountVatExcluded();
     }
@@ -238,7 +238,7 @@ class InvoicesLines extends \BackendBundle\Entity\InvoicesLines implements \Doct
     public function setInvoice(\BackendBundle\Entity\Invoices $invoice = NULL)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setInvoice', array($invoice));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setInvoice', [$invoice]);
 
         return parent::setInvoice($invoice);
     }
@@ -249,7 +249,7 @@ class InvoicesLines extends \BackendBundle\Entity\InvoicesLines implements \Doct
     public function getInvoice()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getInvoice', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getInvoice', []);
 
         return parent::getInvoice();
     }
@@ -260,7 +260,7 @@ class InvoicesLines extends \BackendBundle\Entity\InvoicesLines implements \Doct
     public function setProduct(\BackendBundle\Entity\Products $product = NULL)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setProduct', array($product));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setProduct', [$product]);
 
         return parent::setProduct($product);
     }
@@ -271,7 +271,7 @@ class InvoicesLines extends \BackendBundle\Entity\InvoicesLines implements \Doct
     public function getProduct()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getProduct', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getProduct', []);
 
         return parent::getProduct();
     }

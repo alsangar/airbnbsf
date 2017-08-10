@@ -371,123 +371,6 @@ class appDevDebugProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBund
                 }
 
                 if (0 === strpos($pathinfo, '/adminSonata/sonata')) {
-                    if (0 === strpos($pathinfo, '/adminSonata/sonata/media')) {
-                        if (0 === strpos($pathinfo, '/adminSonata/sonata/media/media')) {
-                            // admin_sonata_media_media_list
-                            if ($pathinfo === '/adminSonata/sonata/media/media/list') {
-                                return array (  '_controller' => 'Sonata\\MediaBundle\\Controller\\MediaAdminController::listAction',  '_sonata_admin' => 'sonata.media.admin.media',  '_sonata_name' => 'admin_sonata_media_media_list',  '_route' => 'admin_sonata_media_media_list',);
-                            }
-
-                            // admin_sonata_media_media_create
-                            if ($pathinfo === '/adminSonata/sonata/media/media/create') {
-                                return array (  '_controller' => 'Sonata\\MediaBundle\\Controller\\MediaAdminController::createAction',  '_sonata_admin' => 'sonata.media.admin.media',  '_sonata_name' => 'admin_sonata_media_media_create',  '_route' => 'admin_sonata_media_media_create',);
-                            }
-
-                            // admin_sonata_media_media_batch
-                            if ($pathinfo === '/adminSonata/sonata/media/media/batch') {
-                                return array (  '_controller' => 'Sonata\\MediaBundle\\Controller\\MediaAdminController::batchAction',  '_sonata_admin' => 'sonata.media.admin.media',  '_sonata_name' => 'admin_sonata_media_media_batch',  '_route' => 'admin_sonata_media_media_batch',);
-                            }
-
-                            // admin_sonata_media_media_edit
-                            if (preg_match('#^/adminSonata/sonata/media/media/(?P<id>[^/]++)/edit$#s', $pathinfo, $matches)) {
-                                return $this->mergeDefaults(array_replace($matches, array('_route' => 'admin_sonata_media_media_edit')), array (  '_controller' => 'Sonata\\MediaBundle\\Controller\\MediaAdminController::editAction',  '_sonata_admin' => 'sonata.media.admin.media',  '_sonata_name' => 'admin_sonata_media_media_edit',));
-                            }
-
-                            // admin_sonata_media_media_delete
-                            if (preg_match('#^/adminSonata/sonata/media/media/(?P<id>[^/]++)/delete$#s', $pathinfo, $matches)) {
-                                return $this->mergeDefaults(array_replace($matches, array('_route' => 'admin_sonata_media_media_delete')), array (  '_controller' => 'Sonata\\MediaBundle\\Controller\\MediaAdminController::deleteAction',  '_sonata_admin' => 'sonata.media.admin.media',  '_sonata_name' => 'admin_sonata_media_media_delete',));
-                            }
-
-                            // admin_sonata_media_media_show
-                            if (preg_match('#^/adminSonata/sonata/media/media/(?P<id>[^/]++)/show$#s', $pathinfo, $matches)) {
-                                return $this->mergeDefaults(array_replace($matches, array('_route' => 'admin_sonata_media_media_show')), array (  '_controller' => 'Sonata\\MediaBundle\\Controller\\MediaAdminController::showAction',  '_sonata_admin' => 'sonata.media.admin.media',  '_sonata_name' => 'admin_sonata_media_media_show',));
-                            }
-
-                            // admin_sonata_media_media_export
-                            if ($pathinfo === '/adminSonata/sonata/media/media/export') {
-                                return array (  '_controller' => 'Sonata\\MediaBundle\\Controller\\MediaAdminController::exportAction',  '_sonata_admin' => 'sonata.media.admin.media',  '_sonata_name' => 'admin_sonata_media_media_export',  '_route' => 'admin_sonata_media_media_export',);
-                            }
-
-                        }
-
-                        if (0 === strpos($pathinfo, '/adminSonata/sonata/media/gallery')) {
-                            // admin_sonata_media_gallery_list
-                            if ($pathinfo === '/adminSonata/sonata/media/gallery/list') {
-                                return array (  '_controller' => 'Sonata\\MediaBundle\\Controller\\GalleryAdminController::listAction',  '_sonata_admin' => 'sonata.media.admin.gallery',  '_sonata_name' => 'admin_sonata_media_gallery_list',  '_route' => 'admin_sonata_media_gallery_list',);
-                            }
-
-                            // admin_sonata_media_gallery_create
-                            if ($pathinfo === '/adminSonata/sonata/media/gallery/create') {
-                                return array (  '_controller' => 'Sonata\\MediaBundle\\Controller\\GalleryAdminController::createAction',  '_sonata_admin' => 'sonata.media.admin.gallery',  '_sonata_name' => 'admin_sonata_media_gallery_create',  '_route' => 'admin_sonata_media_gallery_create',);
-                            }
-
-                            // admin_sonata_media_gallery_batch
-                            if ($pathinfo === '/adminSonata/sonata/media/gallery/batch') {
-                                return array (  '_controller' => 'Sonata\\MediaBundle\\Controller\\GalleryAdminController::batchAction',  '_sonata_admin' => 'sonata.media.admin.gallery',  '_sonata_name' => 'admin_sonata_media_gallery_batch',  '_route' => 'admin_sonata_media_gallery_batch',);
-                            }
-
-                            // admin_sonata_media_gallery_edit
-                            if (preg_match('#^/adminSonata/sonata/media/gallery/(?P<id>[^/]++)/edit$#s', $pathinfo, $matches)) {
-                                return $this->mergeDefaults(array_replace($matches, array('_route' => 'admin_sonata_media_gallery_edit')), array (  '_controller' => 'Sonata\\MediaBundle\\Controller\\GalleryAdminController::editAction',  '_sonata_admin' => 'sonata.media.admin.gallery',  '_sonata_name' => 'admin_sonata_media_gallery_edit',));
-                            }
-
-                            // admin_sonata_media_gallery_delete
-                            if (preg_match('#^/adminSonata/sonata/media/gallery/(?P<id>[^/]++)/delete$#s', $pathinfo, $matches)) {
-                                return $this->mergeDefaults(array_replace($matches, array('_route' => 'admin_sonata_media_gallery_delete')), array (  '_controller' => 'Sonata\\MediaBundle\\Controller\\GalleryAdminController::deleteAction',  '_sonata_admin' => 'sonata.media.admin.gallery',  '_sonata_name' => 'admin_sonata_media_gallery_delete',));
-                            }
-
-                            // admin_sonata_media_gallery_show
-                            if (preg_match('#^/adminSonata/sonata/media/gallery/(?P<id>[^/]++)/show$#s', $pathinfo, $matches)) {
-                                return $this->mergeDefaults(array_replace($matches, array('_route' => 'admin_sonata_media_gallery_show')), array (  '_controller' => 'Sonata\\MediaBundle\\Controller\\GalleryAdminController::showAction',  '_sonata_admin' => 'sonata.media.admin.gallery',  '_sonata_name' => 'admin_sonata_media_gallery_show',));
-                            }
-
-                            // admin_sonata_media_gallery_export
-                            if ($pathinfo === '/adminSonata/sonata/media/gallery/export') {
-                                return array (  '_controller' => 'Sonata\\MediaBundle\\Controller\\GalleryAdminController::exportAction',  '_sonata_admin' => 'sonata.media.admin.gallery',  '_sonata_name' => 'admin_sonata_media_gallery_export',  '_route' => 'admin_sonata_media_gallery_export',);
-                            }
-
-                            if (0 === strpos($pathinfo, '/adminSonata/sonata/media/galleryhasmedia')) {
-                                // admin_sonata_media_galleryhasmedia_list
-                                if ($pathinfo === '/adminSonata/sonata/media/galleryhasmedia/list') {
-                                    return array (  '_controller' => 'Sonata\\AdminBundle\\Controller\\CRUDController::listAction',  '_sonata_admin' => 'sonata.media.admin.gallery_has_media',  '_sonata_name' => 'admin_sonata_media_galleryhasmedia_list',  '_route' => 'admin_sonata_media_galleryhasmedia_list',);
-                                }
-
-                                // admin_sonata_media_galleryhasmedia_create
-                                if ($pathinfo === '/adminSonata/sonata/media/galleryhasmedia/create') {
-                                    return array (  '_controller' => 'Sonata\\AdminBundle\\Controller\\CRUDController::createAction',  '_sonata_admin' => 'sonata.media.admin.gallery_has_media',  '_sonata_name' => 'admin_sonata_media_galleryhasmedia_create',  '_route' => 'admin_sonata_media_galleryhasmedia_create',);
-                                }
-
-                                // admin_sonata_media_galleryhasmedia_batch
-                                if ($pathinfo === '/adminSonata/sonata/media/galleryhasmedia/batch') {
-                                    return array (  '_controller' => 'Sonata\\AdminBundle\\Controller\\CRUDController::batchAction',  '_sonata_admin' => 'sonata.media.admin.gallery_has_media',  '_sonata_name' => 'admin_sonata_media_galleryhasmedia_batch',  '_route' => 'admin_sonata_media_galleryhasmedia_batch',);
-                                }
-
-                                // admin_sonata_media_galleryhasmedia_edit
-                                if (preg_match('#^/adminSonata/sonata/media/galleryhasmedia/(?P<id>[^/]++)/edit$#s', $pathinfo, $matches)) {
-                                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'admin_sonata_media_galleryhasmedia_edit')), array (  '_controller' => 'Sonata\\AdminBundle\\Controller\\CRUDController::editAction',  '_sonata_admin' => 'sonata.media.admin.gallery_has_media',  '_sonata_name' => 'admin_sonata_media_galleryhasmedia_edit',));
-                                }
-
-                                // admin_sonata_media_galleryhasmedia_delete
-                                if (preg_match('#^/adminSonata/sonata/media/galleryhasmedia/(?P<id>[^/]++)/delete$#s', $pathinfo, $matches)) {
-                                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'admin_sonata_media_galleryhasmedia_delete')), array (  '_controller' => 'Sonata\\AdminBundle\\Controller\\CRUDController::deleteAction',  '_sonata_admin' => 'sonata.media.admin.gallery_has_media',  '_sonata_name' => 'admin_sonata_media_galleryhasmedia_delete',));
-                                }
-
-                                // admin_sonata_media_galleryhasmedia_show
-                                if (preg_match('#^/adminSonata/sonata/media/galleryhasmedia/(?P<id>[^/]++)/show$#s', $pathinfo, $matches)) {
-                                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'admin_sonata_media_galleryhasmedia_show')), array (  '_controller' => 'Sonata\\AdminBundle\\Controller\\CRUDController::showAction',  '_sonata_admin' => 'sonata.media.admin.gallery_has_media',  '_sonata_name' => 'admin_sonata_media_galleryhasmedia_show',));
-                                }
-
-                                // admin_sonata_media_galleryhasmedia_export
-                                if ($pathinfo === '/adminSonata/sonata/media/galleryhasmedia/export') {
-                                    return array (  '_controller' => 'Sonata\\AdminBundle\\Controller\\CRUDController::exportAction',  '_sonata_admin' => 'sonata.media.admin.gallery_has_media',  '_sonata_name' => 'admin_sonata_media_galleryhasmedia_export',  '_route' => 'admin_sonata_media_galleryhasmedia_export',);
-                                }
-
-                            }
-
-                        }
-
-                    }
-
                     if (0 === strpos($pathinfo, '/adminSonata/sonata/classification')) {
                         if (0 === strpos($pathinfo, '/adminSonata/sonata/classification/category')) {
                             // admin_sonata_classification_category_list
@@ -643,6 +526,123 @@ class appDevDebugProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBund
                                 // admin_sonata_classification_context_export
                                 if ($pathinfo === '/adminSonata/sonata/classification/context/export') {
                                     return array (  '_controller' => 'Sonata\\AdminBundle\\Controller\\CRUDController::exportAction',  '_sonata_admin' => 'sonata.classification.admin.context',  '_sonata_name' => 'admin_sonata_classification_context_export',  '_route' => 'admin_sonata_classification_context_export',);
+                                }
+
+                            }
+
+                        }
+
+                    }
+
+                    if (0 === strpos($pathinfo, '/adminSonata/sonata/media')) {
+                        if (0 === strpos($pathinfo, '/adminSonata/sonata/media/media')) {
+                            // admin_sonata_media_media_list
+                            if ($pathinfo === '/adminSonata/sonata/media/media/list') {
+                                return array (  '_controller' => 'Sonata\\MediaBundle\\Controller\\MediaAdminController::listAction',  '_sonata_admin' => 'sonata.media.admin.media',  '_sonata_name' => 'admin_sonata_media_media_list',  '_route' => 'admin_sonata_media_media_list',);
+                            }
+
+                            // admin_sonata_media_media_create
+                            if ($pathinfo === '/adminSonata/sonata/media/media/create') {
+                                return array (  '_controller' => 'Sonata\\MediaBundle\\Controller\\MediaAdminController::createAction',  '_sonata_admin' => 'sonata.media.admin.media',  '_sonata_name' => 'admin_sonata_media_media_create',  '_route' => 'admin_sonata_media_media_create',);
+                            }
+
+                            // admin_sonata_media_media_batch
+                            if ($pathinfo === '/adminSonata/sonata/media/media/batch') {
+                                return array (  '_controller' => 'Sonata\\MediaBundle\\Controller\\MediaAdminController::batchAction',  '_sonata_admin' => 'sonata.media.admin.media',  '_sonata_name' => 'admin_sonata_media_media_batch',  '_route' => 'admin_sonata_media_media_batch',);
+                            }
+
+                            // admin_sonata_media_media_edit
+                            if (preg_match('#^/adminSonata/sonata/media/media/(?P<id>[^/]++)/edit$#s', $pathinfo, $matches)) {
+                                return $this->mergeDefaults(array_replace($matches, array('_route' => 'admin_sonata_media_media_edit')), array (  '_controller' => 'Sonata\\MediaBundle\\Controller\\MediaAdminController::editAction',  '_sonata_admin' => 'sonata.media.admin.media',  '_sonata_name' => 'admin_sonata_media_media_edit',));
+                            }
+
+                            // admin_sonata_media_media_delete
+                            if (preg_match('#^/adminSonata/sonata/media/media/(?P<id>[^/]++)/delete$#s', $pathinfo, $matches)) {
+                                return $this->mergeDefaults(array_replace($matches, array('_route' => 'admin_sonata_media_media_delete')), array (  '_controller' => 'Sonata\\MediaBundle\\Controller\\MediaAdminController::deleteAction',  '_sonata_admin' => 'sonata.media.admin.media',  '_sonata_name' => 'admin_sonata_media_media_delete',));
+                            }
+
+                            // admin_sonata_media_media_show
+                            if (preg_match('#^/adminSonata/sonata/media/media/(?P<id>[^/]++)/show$#s', $pathinfo, $matches)) {
+                                return $this->mergeDefaults(array_replace($matches, array('_route' => 'admin_sonata_media_media_show')), array (  '_controller' => 'Sonata\\MediaBundle\\Controller\\MediaAdminController::showAction',  '_sonata_admin' => 'sonata.media.admin.media',  '_sonata_name' => 'admin_sonata_media_media_show',));
+                            }
+
+                            // admin_sonata_media_media_export
+                            if ($pathinfo === '/adminSonata/sonata/media/media/export') {
+                                return array (  '_controller' => 'Sonata\\MediaBundle\\Controller\\MediaAdminController::exportAction',  '_sonata_admin' => 'sonata.media.admin.media',  '_sonata_name' => 'admin_sonata_media_media_export',  '_route' => 'admin_sonata_media_media_export',);
+                            }
+
+                        }
+
+                        if (0 === strpos($pathinfo, '/adminSonata/sonata/media/gallery')) {
+                            // admin_sonata_media_gallery_list
+                            if ($pathinfo === '/adminSonata/sonata/media/gallery/list') {
+                                return array (  '_controller' => 'Sonata\\MediaBundle\\Controller\\GalleryAdminController::listAction',  '_sonata_admin' => 'sonata.media.admin.gallery',  '_sonata_name' => 'admin_sonata_media_gallery_list',  '_route' => 'admin_sonata_media_gallery_list',);
+                            }
+
+                            // admin_sonata_media_gallery_create
+                            if ($pathinfo === '/adminSonata/sonata/media/gallery/create') {
+                                return array (  '_controller' => 'Sonata\\MediaBundle\\Controller\\GalleryAdminController::createAction',  '_sonata_admin' => 'sonata.media.admin.gallery',  '_sonata_name' => 'admin_sonata_media_gallery_create',  '_route' => 'admin_sonata_media_gallery_create',);
+                            }
+
+                            // admin_sonata_media_gallery_batch
+                            if ($pathinfo === '/adminSonata/sonata/media/gallery/batch') {
+                                return array (  '_controller' => 'Sonata\\MediaBundle\\Controller\\GalleryAdminController::batchAction',  '_sonata_admin' => 'sonata.media.admin.gallery',  '_sonata_name' => 'admin_sonata_media_gallery_batch',  '_route' => 'admin_sonata_media_gallery_batch',);
+                            }
+
+                            // admin_sonata_media_gallery_edit
+                            if (preg_match('#^/adminSonata/sonata/media/gallery/(?P<id>[^/]++)/edit$#s', $pathinfo, $matches)) {
+                                return $this->mergeDefaults(array_replace($matches, array('_route' => 'admin_sonata_media_gallery_edit')), array (  '_controller' => 'Sonata\\MediaBundle\\Controller\\GalleryAdminController::editAction',  '_sonata_admin' => 'sonata.media.admin.gallery',  '_sonata_name' => 'admin_sonata_media_gallery_edit',));
+                            }
+
+                            // admin_sonata_media_gallery_delete
+                            if (preg_match('#^/adminSonata/sonata/media/gallery/(?P<id>[^/]++)/delete$#s', $pathinfo, $matches)) {
+                                return $this->mergeDefaults(array_replace($matches, array('_route' => 'admin_sonata_media_gallery_delete')), array (  '_controller' => 'Sonata\\MediaBundle\\Controller\\GalleryAdminController::deleteAction',  '_sonata_admin' => 'sonata.media.admin.gallery',  '_sonata_name' => 'admin_sonata_media_gallery_delete',));
+                            }
+
+                            // admin_sonata_media_gallery_show
+                            if (preg_match('#^/adminSonata/sonata/media/gallery/(?P<id>[^/]++)/show$#s', $pathinfo, $matches)) {
+                                return $this->mergeDefaults(array_replace($matches, array('_route' => 'admin_sonata_media_gallery_show')), array (  '_controller' => 'Sonata\\MediaBundle\\Controller\\GalleryAdminController::showAction',  '_sonata_admin' => 'sonata.media.admin.gallery',  '_sonata_name' => 'admin_sonata_media_gallery_show',));
+                            }
+
+                            // admin_sonata_media_gallery_export
+                            if ($pathinfo === '/adminSonata/sonata/media/gallery/export') {
+                                return array (  '_controller' => 'Sonata\\MediaBundle\\Controller\\GalleryAdminController::exportAction',  '_sonata_admin' => 'sonata.media.admin.gallery',  '_sonata_name' => 'admin_sonata_media_gallery_export',  '_route' => 'admin_sonata_media_gallery_export',);
+                            }
+
+                            if (0 === strpos($pathinfo, '/adminSonata/sonata/media/galleryhasmedia')) {
+                                // admin_sonata_media_galleryhasmedia_list
+                                if ($pathinfo === '/adminSonata/sonata/media/galleryhasmedia/list') {
+                                    return array (  '_controller' => 'Sonata\\AdminBundle\\Controller\\CRUDController::listAction',  '_sonata_admin' => 'sonata.media.admin.gallery_has_media',  '_sonata_name' => 'admin_sonata_media_galleryhasmedia_list',  '_route' => 'admin_sonata_media_galleryhasmedia_list',);
+                                }
+
+                                // admin_sonata_media_galleryhasmedia_create
+                                if ($pathinfo === '/adminSonata/sonata/media/galleryhasmedia/create') {
+                                    return array (  '_controller' => 'Sonata\\AdminBundle\\Controller\\CRUDController::createAction',  '_sonata_admin' => 'sonata.media.admin.gallery_has_media',  '_sonata_name' => 'admin_sonata_media_galleryhasmedia_create',  '_route' => 'admin_sonata_media_galleryhasmedia_create',);
+                                }
+
+                                // admin_sonata_media_galleryhasmedia_batch
+                                if ($pathinfo === '/adminSonata/sonata/media/galleryhasmedia/batch') {
+                                    return array (  '_controller' => 'Sonata\\AdminBundle\\Controller\\CRUDController::batchAction',  '_sonata_admin' => 'sonata.media.admin.gallery_has_media',  '_sonata_name' => 'admin_sonata_media_galleryhasmedia_batch',  '_route' => 'admin_sonata_media_galleryhasmedia_batch',);
+                                }
+
+                                // admin_sonata_media_galleryhasmedia_edit
+                                if (preg_match('#^/adminSonata/sonata/media/galleryhasmedia/(?P<id>[^/]++)/edit$#s', $pathinfo, $matches)) {
+                                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'admin_sonata_media_galleryhasmedia_edit')), array (  '_controller' => 'Sonata\\AdminBundle\\Controller\\CRUDController::editAction',  '_sonata_admin' => 'sonata.media.admin.gallery_has_media',  '_sonata_name' => 'admin_sonata_media_galleryhasmedia_edit',));
+                                }
+
+                                // admin_sonata_media_galleryhasmedia_delete
+                                if (preg_match('#^/adminSonata/sonata/media/galleryhasmedia/(?P<id>[^/]++)/delete$#s', $pathinfo, $matches)) {
+                                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'admin_sonata_media_galleryhasmedia_delete')), array (  '_controller' => 'Sonata\\AdminBundle\\Controller\\CRUDController::deleteAction',  '_sonata_admin' => 'sonata.media.admin.gallery_has_media',  '_sonata_name' => 'admin_sonata_media_galleryhasmedia_delete',));
+                                }
+
+                                // admin_sonata_media_galleryhasmedia_show
+                                if (preg_match('#^/adminSonata/sonata/media/galleryhasmedia/(?P<id>[^/]++)/show$#s', $pathinfo, $matches)) {
+                                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'admin_sonata_media_galleryhasmedia_show')), array (  '_controller' => 'Sonata\\AdminBundle\\Controller\\CRUDController::showAction',  '_sonata_admin' => 'sonata.media.admin.gallery_has_media',  '_sonata_name' => 'admin_sonata_media_galleryhasmedia_show',));
+                                }
+
+                                // admin_sonata_media_galleryhasmedia_export
+                                if ($pathinfo === '/adminSonata/sonata/media/galleryhasmedia/export') {
+                                    return array (  '_controller' => 'Sonata\\AdminBundle\\Controller\\CRUDController::exportAction',  '_sonata_admin' => 'sonata.media.admin.gallery_has_media',  '_sonata_name' => 'admin_sonata_media_galleryhasmedia_export',  '_route' => 'admin_sonata_media_galleryhasmedia_export',);
                                 }
 
                             }

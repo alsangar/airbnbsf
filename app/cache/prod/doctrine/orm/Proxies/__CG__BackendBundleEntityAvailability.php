@@ -36,7 +36,7 @@ class Availability extends \BackendBundle\Entity\Availability implements \Doctri
      *
      * @see \Doctrine\Common\Persistence\Proxy::__getLazyProperties
      */
-    public static $lazyPropertiesDefaults = array();
+    public static $lazyPropertiesDefaults = [];
 
 
 
@@ -64,10 +64,10 @@ class Availability extends \BackendBundle\Entity\Availability implements \Doctri
     public function __sleep()
     {
         if ($this->__isInitialized__) {
-            return array('__isInitialized__', '' . "\0" . 'BackendBundle\\Entity\\Availability' . "\0" . 'id', '' . "\0" . 'BackendBundle\\Entity\\Availability' . "\0" . 'dateFrom', '' . "\0" . 'BackendBundle\\Entity\\Availability' . "\0" . 'dateTo', '' . "\0" . 'BackendBundle\\Entity\\Availability' . "\0" . 'isBooked', '' . "\0" . 'BackendBundle\\Entity\\Availability' . "\0" . 'isBusy', '' . "\0" . 'BackendBundle\\Entity\\Availability' . "\0" . 'dateadd', '' . "\0" . 'BackendBundle\\Entity\\Availability' . "\0" . 'product');
+            return ['__isInitialized__', '' . "\0" . 'BackendBundle\\Entity\\Availability' . "\0" . 'id', '' . "\0" . 'BackendBundle\\Entity\\Availability' . "\0" . 'dateFrom', '' . "\0" . 'BackendBundle\\Entity\\Availability' . "\0" . 'dateTo', '' . "\0" . 'BackendBundle\\Entity\\Availability' . "\0" . 'isBooked', '' . "\0" . 'BackendBundle\\Entity\\Availability' . "\0" . 'isBusy', '' . "\0" . 'BackendBundle\\Entity\\Availability' . "\0" . 'dateadd', '' . "\0" . 'BackendBundle\\Entity\\Availability' . "\0" . 'product'];
         }
 
-        return array('__isInitialized__', '' . "\0" . 'BackendBundle\\Entity\\Availability' . "\0" . 'id', '' . "\0" . 'BackendBundle\\Entity\\Availability' . "\0" . 'dateFrom', '' . "\0" . 'BackendBundle\\Entity\\Availability' . "\0" . 'dateTo', '' . "\0" . 'BackendBundle\\Entity\\Availability' . "\0" . 'isBooked', '' . "\0" . 'BackendBundle\\Entity\\Availability' . "\0" . 'isBusy', '' . "\0" . 'BackendBundle\\Entity\\Availability' . "\0" . 'dateadd', '' . "\0" . 'BackendBundle\\Entity\\Availability' . "\0" . 'product');
+        return ['__isInitialized__', '' . "\0" . 'BackendBundle\\Entity\\Availability' . "\0" . 'id', '' . "\0" . 'BackendBundle\\Entity\\Availability' . "\0" . 'dateFrom', '' . "\0" . 'BackendBundle\\Entity\\Availability' . "\0" . 'dateTo', '' . "\0" . 'BackendBundle\\Entity\\Availability' . "\0" . 'isBooked', '' . "\0" . 'BackendBundle\\Entity\\Availability' . "\0" . 'isBusy', '' . "\0" . 'BackendBundle\\Entity\\Availability' . "\0" . 'dateadd', '' . "\0" . 'BackendBundle\\Entity\\Availability' . "\0" . 'product'];
     }
 
     /**
@@ -97,7 +97,7 @@ class Availability extends \BackendBundle\Entity\Availability implements \Doctri
      */
     public function __clone()
     {
-        $this->__cloner__ && $this->__cloner__->__invoke($this, '__clone', array());
+        $this->__cloner__ && $this->__cloner__->__invoke($this, '__clone', []);
     }
 
     /**
@@ -105,7 +105,7 @@ class Availability extends \BackendBundle\Entity\Availability implements \Doctri
      */
     public function __load()
     {
-        $this->__initializer__ && $this->__initializer__->__invoke($this, '__load', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, '__load', []);
     }
 
     /**
@@ -183,7 +183,7 @@ class Availability extends \BackendBundle\Entity\Availability implements \Doctri
         }
 
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getId', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getId', []);
 
         return parent::getId();
     }
@@ -194,7 +194,7 @@ class Availability extends \BackendBundle\Entity\Availability implements \Doctri
     public function setDateFrom($dateFrom)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setDateFrom', array($dateFrom));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setDateFrom', [$dateFrom]);
 
         return parent::setDateFrom($dateFrom);
     }
@@ -205,7 +205,7 @@ class Availability extends \BackendBundle\Entity\Availability implements \Doctri
     public function getDateFrom()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getDateFrom', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getDateFrom', []);
 
         return parent::getDateFrom();
     }
@@ -216,7 +216,7 @@ class Availability extends \BackendBundle\Entity\Availability implements \Doctri
     public function setDateTo($dateTo)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setDateTo', array($dateTo));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setDateTo', [$dateTo]);
 
         return parent::setDateTo($dateTo);
     }
@@ -227,7 +227,7 @@ class Availability extends \BackendBundle\Entity\Availability implements \Doctri
     public function getDateTo()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getDateTo', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getDateTo', []);
 
         return parent::getDateTo();
     }
@@ -238,7 +238,7 @@ class Availability extends \BackendBundle\Entity\Availability implements \Doctri
     public function setIsBooked($isBooked)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setIsBooked', array($isBooked));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setIsBooked', [$isBooked]);
 
         return parent::setIsBooked($isBooked);
     }
@@ -249,7 +249,7 @@ class Availability extends \BackendBundle\Entity\Availability implements \Doctri
     public function getIsBooked()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getIsBooked', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getIsBooked', []);
 
         return parent::getIsBooked();
     }
@@ -260,7 +260,7 @@ class Availability extends \BackendBundle\Entity\Availability implements \Doctri
     public function setIsBusy($isBusy)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setIsBusy', array($isBusy));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setIsBusy', [$isBusy]);
 
         return parent::setIsBusy($isBusy);
     }
@@ -271,7 +271,7 @@ class Availability extends \BackendBundle\Entity\Availability implements \Doctri
     public function getIsBusy()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getIsBusy', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getIsBusy', []);
 
         return parent::getIsBusy();
     }
@@ -282,7 +282,7 @@ class Availability extends \BackendBundle\Entity\Availability implements \Doctri
     public function setDateadd($dateadd)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setDateadd', array($dateadd));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setDateadd', [$dateadd]);
 
         return parent::setDateadd($dateadd);
     }
@@ -293,7 +293,7 @@ class Availability extends \BackendBundle\Entity\Availability implements \Doctri
     public function getDateadd()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getDateadd', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getDateadd', []);
 
         return parent::getDateadd();
     }
@@ -304,7 +304,7 @@ class Availability extends \BackendBundle\Entity\Availability implements \Doctri
     public function setProduct(\BackendBundle\Entity\Products $product = NULL)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setProduct', array($product));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setProduct', [$product]);
 
         return parent::setProduct($product);
     }
@@ -315,7 +315,7 @@ class Availability extends \BackendBundle\Entity\Availability implements \Doctri
     public function getProduct()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getProduct', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getProduct', []);
 
         return parent::getProduct();
     }

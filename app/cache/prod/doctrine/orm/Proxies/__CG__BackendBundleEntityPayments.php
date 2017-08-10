@@ -36,7 +36,7 @@ class Payments extends \BackendBundle\Entity\Payments implements \Doctrine\ORM\P
      *
      * @see \Doctrine\Common\Persistence\Proxy::__getLazyProperties
      */
-    public static $lazyPropertiesDefaults = array();
+    public static $lazyPropertiesDefaults = [];
 
 
 
@@ -64,10 +64,10 @@ class Payments extends \BackendBundle\Entity\Payments implements \Doctrine\ORM\P
     public function __sleep()
     {
         if ($this->__isInitialized__) {
-            return array('__isInitialized__', '' . "\0" . 'BackendBundle\\Entity\\Payments' . "\0" . 'id', '' . "\0" . 'BackendBundle\\Entity\\Payments' . "\0" . 'userPay', '' . "\0" . 'BackendBundle\\Entity\\Payments' . "\0" . 'bookingId', '' . "\0" . 'BackendBundle\\Entity\\Payments' . "\0" . 'invoiceId', '' . "\0" . 'BackendBundle\\Entity\\Payments' . "\0" . 'method', '' . "\0" . 'BackendBundle\\Entity\\Payments' . "\0" . 'amount', '' . "\0" . 'BackendBundle\\Entity\\Payments' . "\0" . 'status', '' . "\0" . 'BackendBundle\\Entity\\Payments' . "\0" . 'dateadd', 'number', 'description', 'clientEmail', 'clientId', 'totalAmount', 'currencyCode', 'details', 'creditCard', 'bankAccount');
+            return ['__isInitialized__', '' . "\0" . 'BackendBundle\\Entity\\Payments' . "\0" . 'id', '' . "\0" . 'BackendBundle\\Entity\\Payments' . "\0" . 'userPay', '' . "\0" . 'BackendBundle\\Entity\\Payments' . "\0" . 'bookingId', '' . "\0" . 'BackendBundle\\Entity\\Payments' . "\0" . 'invoiceId', '' . "\0" . 'BackendBundle\\Entity\\Payments' . "\0" . 'method', '' . "\0" . 'BackendBundle\\Entity\\Payments' . "\0" . 'amount', '' . "\0" . 'BackendBundle\\Entity\\Payments' . "\0" . 'status', '' . "\0" . 'BackendBundle\\Entity\\Payments' . "\0" . 'dateadd', 'number', 'description', 'clientEmail', 'clientId', 'totalAmount', 'currencyCode', 'details', 'creditCard', 'bankAccount'];
         }
 
-        return array('__isInitialized__', '' . "\0" . 'BackendBundle\\Entity\\Payments' . "\0" . 'id', '' . "\0" . 'BackendBundle\\Entity\\Payments' . "\0" . 'userPay', '' . "\0" . 'BackendBundle\\Entity\\Payments' . "\0" . 'bookingId', '' . "\0" . 'BackendBundle\\Entity\\Payments' . "\0" . 'invoiceId', '' . "\0" . 'BackendBundle\\Entity\\Payments' . "\0" . 'method', '' . "\0" . 'BackendBundle\\Entity\\Payments' . "\0" . 'amount', '' . "\0" . 'BackendBundle\\Entity\\Payments' . "\0" . 'status', '' . "\0" . 'BackendBundle\\Entity\\Payments' . "\0" . 'dateadd', 'number', 'description', 'clientEmail', 'clientId', 'totalAmount', 'currencyCode', 'details', 'creditCard', 'bankAccount');
+        return ['__isInitialized__', '' . "\0" . 'BackendBundle\\Entity\\Payments' . "\0" . 'id', '' . "\0" . 'BackendBundle\\Entity\\Payments' . "\0" . 'userPay', '' . "\0" . 'BackendBundle\\Entity\\Payments' . "\0" . 'bookingId', '' . "\0" . 'BackendBundle\\Entity\\Payments' . "\0" . 'invoiceId', '' . "\0" . 'BackendBundle\\Entity\\Payments' . "\0" . 'method', '' . "\0" . 'BackendBundle\\Entity\\Payments' . "\0" . 'amount', '' . "\0" . 'BackendBundle\\Entity\\Payments' . "\0" . 'status', '' . "\0" . 'BackendBundle\\Entity\\Payments' . "\0" . 'dateadd', 'number', 'description', 'clientEmail', 'clientId', 'totalAmount', 'currencyCode', 'details', 'creditCard', 'bankAccount'];
     }
 
     /**
@@ -97,7 +97,7 @@ class Payments extends \BackendBundle\Entity\Payments implements \Doctrine\ORM\P
      */
     public function __clone()
     {
-        $this->__cloner__ && $this->__cloner__->__invoke($this, '__clone', array());
+        $this->__cloner__ && $this->__cloner__->__invoke($this, '__clone', []);
     }
 
     /**
@@ -105,7 +105,7 @@ class Payments extends \BackendBundle\Entity\Payments implements \Doctrine\ORM\P
      */
     public function __load()
     {
-        $this->__initializer__ && $this->__initializer__->__invoke($this, '__load', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, '__load', []);
     }
 
     /**
@@ -183,7 +183,7 @@ class Payments extends \BackendBundle\Entity\Payments implements \Doctrine\ORM\P
         }
 
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getId', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getId', []);
 
         return parent::getId();
     }
@@ -194,7 +194,7 @@ class Payments extends \BackendBundle\Entity\Payments implements \Doctrine\ORM\P
     public function setUserPay($userPay)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setUserPay', array($userPay));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setUserPay', [$userPay]);
 
         return parent::setUserPay($userPay);
     }
@@ -205,7 +205,7 @@ class Payments extends \BackendBundle\Entity\Payments implements \Doctrine\ORM\P
     public function getUserPay()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getUserPay', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getUserPay', []);
 
         return parent::getUserPay();
     }
@@ -216,7 +216,7 @@ class Payments extends \BackendBundle\Entity\Payments implements \Doctrine\ORM\P
     public function setBookingId($bookingId)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setBookingId', array($bookingId));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setBookingId', [$bookingId]);
 
         return parent::setBookingId($bookingId);
     }
@@ -227,7 +227,7 @@ class Payments extends \BackendBundle\Entity\Payments implements \Doctrine\ORM\P
     public function getBookingId()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getBookingId', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getBookingId', []);
 
         return parent::getBookingId();
     }
@@ -238,7 +238,7 @@ class Payments extends \BackendBundle\Entity\Payments implements \Doctrine\ORM\P
     public function setInvoiceId($invoiceId)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setInvoiceId', array($invoiceId));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setInvoiceId', [$invoiceId]);
 
         return parent::setInvoiceId($invoiceId);
     }
@@ -249,7 +249,7 @@ class Payments extends \BackendBundle\Entity\Payments implements \Doctrine\ORM\P
     public function getInvoiceId()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getInvoiceId', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getInvoiceId', []);
 
         return parent::getInvoiceId();
     }
@@ -260,7 +260,7 @@ class Payments extends \BackendBundle\Entity\Payments implements \Doctrine\ORM\P
     public function setMethod($method)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setMethod', array($method));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setMethod', [$method]);
 
         return parent::setMethod($method);
     }
@@ -271,7 +271,7 @@ class Payments extends \BackendBundle\Entity\Payments implements \Doctrine\ORM\P
     public function getMethod()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getMethod', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getMethod', []);
 
         return parent::getMethod();
     }
@@ -282,7 +282,7 @@ class Payments extends \BackendBundle\Entity\Payments implements \Doctrine\ORM\P
     public function setAmount($amount)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setAmount', array($amount));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setAmount', [$amount]);
 
         return parent::setAmount($amount);
     }
@@ -293,7 +293,7 @@ class Payments extends \BackendBundle\Entity\Payments implements \Doctrine\ORM\P
     public function getAmount()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getAmount', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getAmount', []);
 
         return parent::getAmount();
     }
@@ -304,7 +304,7 @@ class Payments extends \BackendBundle\Entity\Payments implements \Doctrine\ORM\P
     public function setStatus($status)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setStatus', array($status));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setStatus', [$status]);
 
         return parent::setStatus($status);
     }
@@ -315,7 +315,7 @@ class Payments extends \BackendBundle\Entity\Payments implements \Doctrine\ORM\P
     public function getStatus()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getStatus', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getStatus', []);
 
         return parent::getStatus();
     }
@@ -326,7 +326,7 @@ class Payments extends \BackendBundle\Entity\Payments implements \Doctrine\ORM\P
     public function setDateadd($dateadd)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setDateadd', array($dateadd));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setDateadd', [$dateadd]);
 
         return parent::setDateadd($dateadd);
     }
@@ -337,7 +337,7 @@ class Payments extends \BackendBundle\Entity\Payments implements \Doctrine\ORM\P
     public function getDateadd()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getDateadd', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getDateadd', []);
 
         return parent::getDateadd();
     }
@@ -348,7 +348,7 @@ class Payments extends \BackendBundle\Entity\Payments implements \Doctrine\ORM\P
     public function getNumber()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getNumber', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getNumber', []);
 
         return parent::getNumber();
     }
@@ -359,7 +359,7 @@ class Payments extends \BackendBundle\Entity\Payments implements \Doctrine\ORM\P
     public function setNumber($number)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setNumber', array($number));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setNumber', [$number]);
 
         return parent::setNumber($number);
     }
@@ -370,7 +370,7 @@ class Payments extends \BackendBundle\Entity\Payments implements \Doctrine\ORM\P
     public function getDescription()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getDescription', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getDescription', []);
 
         return parent::getDescription();
     }
@@ -381,7 +381,7 @@ class Payments extends \BackendBundle\Entity\Payments implements \Doctrine\ORM\P
     public function setDescription($description)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setDescription', array($description));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setDescription', [$description]);
 
         return parent::setDescription($description);
     }
@@ -392,7 +392,7 @@ class Payments extends \BackendBundle\Entity\Payments implements \Doctrine\ORM\P
     public function getClientEmail()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getClientEmail', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getClientEmail', []);
 
         return parent::getClientEmail();
     }
@@ -403,7 +403,7 @@ class Payments extends \BackendBundle\Entity\Payments implements \Doctrine\ORM\P
     public function setClientEmail($clientEmail)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setClientEmail', array($clientEmail));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setClientEmail', [$clientEmail]);
 
         return parent::setClientEmail($clientEmail);
     }
@@ -414,7 +414,7 @@ class Payments extends \BackendBundle\Entity\Payments implements \Doctrine\ORM\P
     public function getClientId()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getClientId', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getClientId', []);
 
         return parent::getClientId();
     }
@@ -425,7 +425,7 @@ class Payments extends \BackendBundle\Entity\Payments implements \Doctrine\ORM\P
     public function setClientId($clientId)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setClientId', array($clientId));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setClientId', [$clientId]);
 
         return parent::setClientId($clientId);
     }
@@ -436,7 +436,7 @@ class Payments extends \BackendBundle\Entity\Payments implements \Doctrine\ORM\P
     public function getTotalAmount()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getTotalAmount', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getTotalAmount', []);
 
         return parent::getTotalAmount();
     }
@@ -447,7 +447,7 @@ class Payments extends \BackendBundle\Entity\Payments implements \Doctrine\ORM\P
     public function setTotalAmount($totalAmount)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setTotalAmount', array($totalAmount));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setTotalAmount', [$totalAmount]);
 
         return parent::setTotalAmount($totalAmount);
     }
@@ -458,7 +458,7 @@ class Payments extends \BackendBundle\Entity\Payments implements \Doctrine\ORM\P
     public function getCurrencyCode()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getCurrencyCode', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getCurrencyCode', []);
 
         return parent::getCurrencyCode();
     }
@@ -469,7 +469,7 @@ class Payments extends \BackendBundle\Entity\Payments implements \Doctrine\ORM\P
     public function setCurrencyCode($currencyCode)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setCurrencyCode', array($currencyCode));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setCurrencyCode', [$currencyCode]);
 
         return parent::setCurrencyCode($currencyCode);
     }
@@ -480,7 +480,7 @@ class Payments extends \BackendBundle\Entity\Payments implements \Doctrine\ORM\P
     public function getDetails()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getDetails', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getDetails', []);
 
         return parent::getDetails();
     }
@@ -491,7 +491,7 @@ class Payments extends \BackendBundle\Entity\Payments implements \Doctrine\ORM\P
     public function setDetails($details)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setDetails', array($details));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setDetails', [$details]);
 
         return parent::setDetails($details);
     }
@@ -502,7 +502,7 @@ class Payments extends \BackendBundle\Entity\Payments implements \Doctrine\ORM\P
     public function getCreditCard()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getCreditCard', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getCreditCard', []);
 
         return parent::getCreditCard();
     }
@@ -513,7 +513,7 @@ class Payments extends \BackendBundle\Entity\Payments implements \Doctrine\ORM\P
     public function setCreditCard(\Payum\Core\Model\CreditCardInterface $creditCard = NULL)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setCreditCard', array($creditCard));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setCreditCard', [$creditCard]);
 
         return parent::setCreditCard($creditCard);
     }
@@ -524,7 +524,7 @@ class Payments extends \BackendBundle\Entity\Payments implements \Doctrine\ORM\P
     public function getBankAccount()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getBankAccount', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getBankAccount', []);
 
         return parent::getBankAccount();
     }
@@ -535,7 +535,7 @@ class Payments extends \BackendBundle\Entity\Payments implements \Doctrine\ORM\P
     public function setBankAccount(\Payum\Core\Model\BankAccountInterface $bankAccount = NULL)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setBankAccount', array($bankAccount));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setBankAccount', [$bankAccount]);
 
         return parent::setBankAccount($bankAccount);
     }

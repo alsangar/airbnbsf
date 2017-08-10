@@ -36,7 +36,7 @@ class Categories extends \BackendBundle\Entity\Categories implements \Doctrine\O
      *
      * @see \Doctrine\Common\Persistence\Proxy::__getLazyProperties
      */
-    public static $lazyPropertiesDefaults = array();
+    public static $lazyPropertiesDefaults = [];
 
 
 
@@ -64,10 +64,10 @@ class Categories extends \BackendBundle\Entity\Categories implements \Doctrine\O
     public function __sleep()
     {
         if ($this->__isInitialized__) {
-            return array('__isInitialized__', '' . "\0" . 'BackendBundle\\Entity\\Categories' . "\0" . 'id', '' . "\0" . 'BackendBundle\\Entity\\Categories' . "\0" . 'parentId', '' . "\0" . 'BackendBundle\\Entity\\Categories' . "\0" . 'name', '' . "\0" . 'BackendBundle\\Entity\\Categories' . "\0" . 'active');
+            return ['__isInitialized__', '' . "\0" . 'BackendBundle\\Entity\\Categories' . "\0" . 'id', '' . "\0" . 'BackendBundle\\Entity\\Categories' . "\0" . 'parentId', '' . "\0" . 'BackendBundle\\Entity\\Categories' . "\0" . 'name', '' . "\0" . 'BackendBundle\\Entity\\Categories' . "\0" . 'active'];
         }
 
-        return array('__isInitialized__', '' . "\0" . 'BackendBundle\\Entity\\Categories' . "\0" . 'id', '' . "\0" . 'BackendBundle\\Entity\\Categories' . "\0" . 'parentId', '' . "\0" . 'BackendBundle\\Entity\\Categories' . "\0" . 'name', '' . "\0" . 'BackendBundle\\Entity\\Categories' . "\0" . 'active');
+        return ['__isInitialized__', '' . "\0" . 'BackendBundle\\Entity\\Categories' . "\0" . 'id', '' . "\0" . 'BackendBundle\\Entity\\Categories' . "\0" . 'parentId', '' . "\0" . 'BackendBundle\\Entity\\Categories' . "\0" . 'name', '' . "\0" . 'BackendBundle\\Entity\\Categories' . "\0" . 'active'];
     }
 
     /**
@@ -97,7 +97,7 @@ class Categories extends \BackendBundle\Entity\Categories implements \Doctrine\O
      */
     public function __clone()
     {
-        $this->__cloner__ && $this->__cloner__->__invoke($this, '__clone', array());
+        $this->__cloner__ && $this->__cloner__->__invoke($this, '__clone', []);
     }
 
     /**
@@ -105,7 +105,7 @@ class Categories extends \BackendBundle\Entity\Categories implements \Doctrine\O
      */
     public function __load()
     {
-        $this->__initializer__ && $this->__initializer__->__invoke($this, '__load', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, '__load', []);
     }
 
     /**
@@ -183,7 +183,7 @@ class Categories extends \BackendBundle\Entity\Categories implements \Doctrine\O
         }
 
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getId', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getId', []);
 
         return parent::getId();
     }
@@ -194,7 +194,7 @@ class Categories extends \BackendBundle\Entity\Categories implements \Doctrine\O
     public function setParentId($parentId)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setParentId', array($parentId));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setParentId', [$parentId]);
 
         return parent::setParentId($parentId);
     }
@@ -205,7 +205,7 @@ class Categories extends \BackendBundle\Entity\Categories implements \Doctrine\O
     public function getParentId()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getParentId', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getParentId', []);
 
         return parent::getParentId();
     }
@@ -216,7 +216,7 @@ class Categories extends \BackendBundle\Entity\Categories implements \Doctrine\O
     public function setName($name)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setName', array($name));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setName', [$name]);
 
         return parent::setName($name);
     }
@@ -227,7 +227,7 @@ class Categories extends \BackendBundle\Entity\Categories implements \Doctrine\O
     public function getName()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getName', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getName', []);
 
         return parent::getName();
     }
@@ -238,7 +238,7 @@ class Categories extends \BackendBundle\Entity\Categories implements \Doctrine\O
     public function setActive($active)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setActive', array($active));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setActive', [$active]);
 
         return parent::setActive($active);
     }
@@ -249,7 +249,7 @@ class Categories extends \BackendBundle\Entity\Categories implements \Doctrine\O
     public function getActive()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getActive', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getActive', []);
 
         return parent::getActive();
     }

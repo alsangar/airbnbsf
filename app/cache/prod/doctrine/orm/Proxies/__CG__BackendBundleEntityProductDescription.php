@@ -36,7 +36,7 @@ class ProductDescription extends \BackendBundle\Entity\ProductDescription implem
      *
      * @see \Doctrine\Common\Persistence\Proxy::__getLazyProperties
      */
-    public static $lazyPropertiesDefaults = array();
+    public static $lazyPropertiesDefaults = [];
 
 
 
@@ -64,10 +64,10 @@ class ProductDescription extends \BackendBundle\Entity\ProductDescription implem
     public function __sleep()
     {
         if ($this->__isInitialized__) {
-            return array('__isInitialized__', '' . "\0" . 'BackendBundle\\Entity\\ProductDescription' . "\0" . 'id', '' . "\0" . 'BackendBundle\\Entity\\ProductDescription' . "\0" . 'title', '' . "\0" . 'BackendBundle\\Entity\\ProductDescription' . "\0" . 'description', '' . "\0" . 'BackendBundle\\Entity\\ProductDescription' . "\0" . 'approved', '' . "\0" . 'BackendBundle\\Entity\\ProductDescription' . "\0" . 'dateadd', '' . "\0" . 'BackendBundle\\Entity\\ProductDescription' . "\0" . 'product', '' . "\0" . 'BackendBundle\\Entity\\ProductDescription' . "\0" . 'language');
+            return ['__isInitialized__', '' . "\0" . 'BackendBundle\\Entity\\ProductDescription' . "\0" . 'id', '' . "\0" . 'BackendBundle\\Entity\\ProductDescription' . "\0" . 'title', '' . "\0" . 'BackendBundle\\Entity\\ProductDescription' . "\0" . 'description', '' . "\0" . 'BackendBundle\\Entity\\ProductDescription' . "\0" . 'approved', '' . "\0" . 'BackendBundle\\Entity\\ProductDescription' . "\0" . 'dateadd', '' . "\0" . 'BackendBundle\\Entity\\ProductDescription' . "\0" . 'product', '' . "\0" . 'BackendBundle\\Entity\\ProductDescription' . "\0" . 'language'];
         }
 
-        return array('__isInitialized__', '' . "\0" . 'BackendBundle\\Entity\\ProductDescription' . "\0" . 'id', '' . "\0" . 'BackendBundle\\Entity\\ProductDescription' . "\0" . 'title', '' . "\0" . 'BackendBundle\\Entity\\ProductDescription' . "\0" . 'description', '' . "\0" . 'BackendBundle\\Entity\\ProductDescription' . "\0" . 'approved', '' . "\0" . 'BackendBundle\\Entity\\ProductDescription' . "\0" . 'dateadd', '' . "\0" . 'BackendBundle\\Entity\\ProductDescription' . "\0" . 'product', '' . "\0" . 'BackendBundle\\Entity\\ProductDescription' . "\0" . 'language');
+        return ['__isInitialized__', '' . "\0" . 'BackendBundle\\Entity\\ProductDescription' . "\0" . 'id', '' . "\0" . 'BackendBundle\\Entity\\ProductDescription' . "\0" . 'title', '' . "\0" . 'BackendBundle\\Entity\\ProductDescription' . "\0" . 'description', '' . "\0" . 'BackendBundle\\Entity\\ProductDescription' . "\0" . 'approved', '' . "\0" . 'BackendBundle\\Entity\\ProductDescription' . "\0" . 'dateadd', '' . "\0" . 'BackendBundle\\Entity\\ProductDescription' . "\0" . 'product', '' . "\0" . 'BackendBundle\\Entity\\ProductDescription' . "\0" . 'language'];
     }
 
     /**
@@ -97,7 +97,7 @@ class ProductDescription extends \BackendBundle\Entity\ProductDescription implem
      */
     public function __clone()
     {
-        $this->__cloner__ && $this->__cloner__->__invoke($this, '__clone', array());
+        $this->__cloner__ && $this->__cloner__->__invoke($this, '__clone', []);
     }
 
     /**
@@ -105,7 +105,7 @@ class ProductDescription extends \BackendBundle\Entity\ProductDescription implem
      */
     public function __load()
     {
-        $this->__initializer__ && $this->__initializer__->__invoke($this, '__load', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, '__load', []);
     }
 
     /**
@@ -183,7 +183,7 @@ class ProductDescription extends \BackendBundle\Entity\ProductDescription implem
         }
 
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getId', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getId', []);
 
         return parent::getId();
     }
@@ -194,7 +194,7 @@ class ProductDescription extends \BackendBundle\Entity\ProductDescription implem
     public function setTitle($title)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setTitle', array($title));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setTitle', [$title]);
 
         return parent::setTitle($title);
     }
@@ -205,7 +205,7 @@ class ProductDescription extends \BackendBundle\Entity\ProductDescription implem
     public function getTitle()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getTitle', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getTitle', []);
 
         return parent::getTitle();
     }
@@ -216,7 +216,7 @@ class ProductDescription extends \BackendBundle\Entity\ProductDescription implem
     public function setDescription($description)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setDescription', array($description));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setDescription', [$description]);
 
         return parent::setDescription($description);
     }
@@ -227,7 +227,7 @@ class ProductDescription extends \BackendBundle\Entity\ProductDescription implem
     public function getDescription()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getDescription', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getDescription', []);
 
         return parent::getDescription();
     }
@@ -238,7 +238,7 @@ class ProductDescription extends \BackendBundle\Entity\ProductDescription implem
     public function setApproved($approved)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setApproved', array($approved));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setApproved', [$approved]);
 
         return parent::setApproved($approved);
     }
@@ -249,7 +249,7 @@ class ProductDescription extends \BackendBundle\Entity\ProductDescription implem
     public function getApproved()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getApproved', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getApproved', []);
 
         return parent::getApproved();
     }
@@ -260,7 +260,7 @@ class ProductDescription extends \BackendBundle\Entity\ProductDescription implem
     public function setDateadd($dateadd)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setDateadd', array($dateadd));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setDateadd', [$dateadd]);
 
         return parent::setDateadd($dateadd);
     }
@@ -271,7 +271,7 @@ class ProductDescription extends \BackendBundle\Entity\ProductDescription implem
     public function getDateadd()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getDateadd', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getDateadd', []);
 
         return parent::getDateadd();
     }
@@ -282,7 +282,7 @@ class ProductDescription extends \BackendBundle\Entity\ProductDescription implem
     public function setProduct(\BackendBundle\Entity\Products $product = NULL)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setProduct', array($product));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setProduct', [$product]);
 
         return parent::setProduct($product);
     }
@@ -293,7 +293,7 @@ class ProductDescription extends \BackendBundle\Entity\ProductDescription implem
     public function getProduct()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getProduct', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getProduct', []);
 
         return parent::getProduct();
     }
@@ -304,7 +304,7 @@ class ProductDescription extends \BackendBundle\Entity\ProductDescription implem
     public function setLanguage(\BackendBundle\Entity\Languages $language = NULL)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setLanguage', array($language));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setLanguage', [$language]);
 
         return parent::setLanguage($language);
     }
@@ -315,7 +315,7 @@ class ProductDescription extends \BackendBundle\Entity\ProductDescription implem
     public function getLanguage()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getLanguage', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getLanguage', []);
 
         return parent::getLanguage();
     }
@@ -326,7 +326,7 @@ class ProductDescription extends \BackendBundle\Entity\ProductDescription implem
     public function __toString()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, '__toString', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, '__toString', []);
 
         return parent::__toString();
     }

@@ -11,6 +11,12 @@
 /nbproject/*
 
 # Cache and logs (Symfony2)
+/app/cache/*
+/app/logs/*
+!app/cache/.gitkeep
+!app/logs/.gitkeep
+
+# Cache and logs (Symfony3)
 /bin/cache/*
 /bin/logs/*
 !bin/cache/.gitkeep
@@ -27,9 +33,13 @@
 !var/logs/.gitkeep
 !var/sessions/.gitkeep
 
-# Parameters
-/bin/config/parameters.yml
-/bin/config/parameters.ini
+# Parameters Symfony2
+/app/config/parameters.yml
+/app/config/parameters.ini
+
+# Parameters Symfony3
+/app/config/parameters.yml
+/app/config/parameters.ini
 
 # Managed by Composer
 /bin/bootstrap.php.cache

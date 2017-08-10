@@ -163,3 +163,11 @@ fos_user:
     profile:
         form:
             type: BackendBundle\Form\fos_user\ProfileFormType
+
+vich_uploader:
+    db_driver: orm
+    
+    mappings:
+        profile_image:
+            uri_prefix:         uploads/images/profile
+            upload_destination: '%kernel.root_dir%/../web/uploads/images/profile'

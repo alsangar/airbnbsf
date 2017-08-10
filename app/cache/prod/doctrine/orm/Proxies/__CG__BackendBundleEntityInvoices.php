@@ -36,7 +36,7 @@ class Invoices extends \BackendBundle\Entity\Invoices implements \Doctrine\ORM\P
      *
      * @see \Doctrine\Common\Persistence\Proxy::__getLazyProperties
      */
-    public static $lazyPropertiesDefaults = array();
+    public static $lazyPropertiesDefaults = [];
 
 
 
@@ -64,10 +64,10 @@ class Invoices extends \BackendBundle\Entity\Invoices implements \Doctrine\ORM\P
     public function __sleep()
     {
         if ($this->__isInitialized__) {
-            return array('__isInitialized__', '' . "\0" . 'BackendBundle\\Entity\\Invoices' . "\0" . 'id', '' . "\0" . 'BackendBundle\\Entity\\Invoices' . "\0" . 'name', '' . "\0" . 'BackendBundle\\Entity\\Invoices' . "\0" . 'address', '' . "\0" . 'BackendBundle\\Entity\\Invoices' . "\0" . 'city', '' . "\0" . 'BackendBundle\\Entity\\Invoices' . "\0" . 'state', '' . "\0" . 'BackendBundle\\Entity\\Invoices' . "\0" . 'country', '' . "\0" . 'BackendBundle\\Entity\\Invoices' . "\0" . 'fiscalid', '' . "\0" . 'BackendBundle\\Entity\\Invoices' . "\0" . 'subtotal', '' . "\0" . 'BackendBundle\\Entity\\Invoices' . "\0" . 'vatType', '' . "\0" . 'BackendBundle\\Entity\\Invoices' . "\0" . 'vat', '' . "\0" . 'BackendBundle\\Entity\\Invoices' . "\0" . 'retentionType', '' . "\0" . 'BackendBundle\\Entity\\Invoices' . "\0" . 'retentionVat', '' . "\0" . 'BackendBundle\\Entity\\Invoices' . "\0" . 'amount', '' . "\0" . 'BackendBundle\\Entity\\Invoices' . "\0" . 'dateadd', '' . "\0" . 'BackendBundle\\Entity\\Invoices' . "\0" . 'dateviewed', '' . "\0" . 'BackendBundle\\Entity\\Invoices' . "\0" . 'user');
+            return ['__isInitialized__', '' . "\0" . 'BackendBundle\\Entity\\Invoices' . "\0" . 'id', '' . "\0" . 'BackendBundle\\Entity\\Invoices' . "\0" . 'name', '' . "\0" . 'BackendBundle\\Entity\\Invoices' . "\0" . 'address', '' . "\0" . 'BackendBundle\\Entity\\Invoices' . "\0" . 'city', '' . "\0" . 'BackendBundle\\Entity\\Invoices' . "\0" . 'state', '' . "\0" . 'BackendBundle\\Entity\\Invoices' . "\0" . 'country', '' . "\0" . 'BackendBundle\\Entity\\Invoices' . "\0" . 'fiscalid', '' . "\0" . 'BackendBundle\\Entity\\Invoices' . "\0" . 'subtotal', '' . "\0" . 'BackendBundle\\Entity\\Invoices' . "\0" . 'vatType', '' . "\0" . 'BackendBundle\\Entity\\Invoices' . "\0" . 'vat', '' . "\0" . 'BackendBundle\\Entity\\Invoices' . "\0" . 'retentionType', '' . "\0" . 'BackendBundle\\Entity\\Invoices' . "\0" . 'retentionVat', '' . "\0" . 'BackendBundle\\Entity\\Invoices' . "\0" . 'amount', '' . "\0" . 'BackendBundle\\Entity\\Invoices' . "\0" . 'dateadd', '' . "\0" . 'BackendBundle\\Entity\\Invoices' . "\0" . 'dateviewed', '' . "\0" . 'BackendBundle\\Entity\\Invoices' . "\0" . 'user'];
         }
 
-        return array('__isInitialized__', '' . "\0" . 'BackendBundle\\Entity\\Invoices' . "\0" . 'id', '' . "\0" . 'BackendBundle\\Entity\\Invoices' . "\0" . 'name', '' . "\0" . 'BackendBundle\\Entity\\Invoices' . "\0" . 'address', '' . "\0" . 'BackendBundle\\Entity\\Invoices' . "\0" . 'city', '' . "\0" . 'BackendBundle\\Entity\\Invoices' . "\0" . 'state', '' . "\0" . 'BackendBundle\\Entity\\Invoices' . "\0" . 'country', '' . "\0" . 'BackendBundle\\Entity\\Invoices' . "\0" . 'fiscalid', '' . "\0" . 'BackendBundle\\Entity\\Invoices' . "\0" . 'subtotal', '' . "\0" . 'BackendBundle\\Entity\\Invoices' . "\0" . 'vatType', '' . "\0" . 'BackendBundle\\Entity\\Invoices' . "\0" . 'vat', '' . "\0" . 'BackendBundle\\Entity\\Invoices' . "\0" . 'retentionType', '' . "\0" . 'BackendBundle\\Entity\\Invoices' . "\0" . 'retentionVat', '' . "\0" . 'BackendBundle\\Entity\\Invoices' . "\0" . 'amount', '' . "\0" . 'BackendBundle\\Entity\\Invoices' . "\0" . 'dateadd', '' . "\0" . 'BackendBundle\\Entity\\Invoices' . "\0" . 'dateviewed', '' . "\0" . 'BackendBundle\\Entity\\Invoices' . "\0" . 'user');
+        return ['__isInitialized__', '' . "\0" . 'BackendBundle\\Entity\\Invoices' . "\0" . 'id', '' . "\0" . 'BackendBundle\\Entity\\Invoices' . "\0" . 'name', '' . "\0" . 'BackendBundle\\Entity\\Invoices' . "\0" . 'address', '' . "\0" . 'BackendBundle\\Entity\\Invoices' . "\0" . 'city', '' . "\0" . 'BackendBundle\\Entity\\Invoices' . "\0" . 'state', '' . "\0" . 'BackendBundle\\Entity\\Invoices' . "\0" . 'country', '' . "\0" . 'BackendBundle\\Entity\\Invoices' . "\0" . 'fiscalid', '' . "\0" . 'BackendBundle\\Entity\\Invoices' . "\0" . 'subtotal', '' . "\0" . 'BackendBundle\\Entity\\Invoices' . "\0" . 'vatType', '' . "\0" . 'BackendBundle\\Entity\\Invoices' . "\0" . 'vat', '' . "\0" . 'BackendBundle\\Entity\\Invoices' . "\0" . 'retentionType', '' . "\0" . 'BackendBundle\\Entity\\Invoices' . "\0" . 'retentionVat', '' . "\0" . 'BackendBundle\\Entity\\Invoices' . "\0" . 'amount', '' . "\0" . 'BackendBundle\\Entity\\Invoices' . "\0" . 'dateadd', '' . "\0" . 'BackendBundle\\Entity\\Invoices' . "\0" . 'dateviewed', '' . "\0" . 'BackendBundle\\Entity\\Invoices' . "\0" . 'user'];
     }
 
     /**
@@ -97,7 +97,7 @@ class Invoices extends \BackendBundle\Entity\Invoices implements \Doctrine\ORM\P
      */
     public function __clone()
     {
-        $this->__cloner__ && $this->__cloner__->__invoke($this, '__clone', array());
+        $this->__cloner__ && $this->__cloner__->__invoke($this, '__clone', []);
     }
 
     /**
@@ -105,7 +105,7 @@ class Invoices extends \BackendBundle\Entity\Invoices implements \Doctrine\ORM\P
      */
     public function __load()
     {
-        $this->__initializer__ && $this->__initializer__->__invoke($this, '__load', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, '__load', []);
     }
 
     /**
@@ -183,7 +183,7 @@ class Invoices extends \BackendBundle\Entity\Invoices implements \Doctrine\ORM\P
         }
 
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getId', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getId', []);
 
         return parent::getId();
     }
@@ -194,7 +194,7 @@ class Invoices extends \BackendBundle\Entity\Invoices implements \Doctrine\ORM\P
     public function setName($name)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setName', array($name));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setName', [$name]);
 
         return parent::setName($name);
     }
@@ -205,7 +205,7 @@ class Invoices extends \BackendBundle\Entity\Invoices implements \Doctrine\ORM\P
     public function getName()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getName', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getName', []);
 
         return parent::getName();
     }
@@ -216,7 +216,7 @@ class Invoices extends \BackendBundle\Entity\Invoices implements \Doctrine\ORM\P
     public function setAddress($address)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setAddress', array($address));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setAddress', [$address]);
 
         return parent::setAddress($address);
     }
@@ -227,7 +227,7 @@ class Invoices extends \BackendBundle\Entity\Invoices implements \Doctrine\ORM\P
     public function getAddress()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getAddress', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getAddress', []);
 
         return parent::getAddress();
     }
@@ -238,7 +238,7 @@ class Invoices extends \BackendBundle\Entity\Invoices implements \Doctrine\ORM\P
     public function setCity($city)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setCity', array($city));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setCity', [$city]);
 
         return parent::setCity($city);
     }
@@ -249,7 +249,7 @@ class Invoices extends \BackendBundle\Entity\Invoices implements \Doctrine\ORM\P
     public function getCity()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getCity', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getCity', []);
 
         return parent::getCity();
     }
@@ -260,7 +260,7 @@ class Invoices extends \BackendBundle\Entity\Invoices implements \Doctrine\ORM\P
     public function setState($state)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setState', array($state));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setState', [$state]);
 
         return parent::setState($state);
     }
@@ -271,7 +271,7 @@ class Invoices extends \BackendBundle\Entity\Invoices implements \Doctrine\ORM\P
     public function getState()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getState', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getState', []);
 
         return parent::getState();
     }
@@ -282,7 +282,7 @@ class Invoices extends \BackendBundle\Entity\Invoices implements \Doctrine\ORM\P
     public function setCountry($country)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setCountry', array($country));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setCountry', [$country]);
 
         return parent::setCountry($country);
     }
@@ -293,7 +293,7 @@ class Invoices extends \BackendBundle\Entity\Invoices implements \Doctrine\ORM\P
     public function getCountry()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getCountry', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getCountry', []);
 
         return parent::getCountry();
     }
@@ -304,7 +304,7 @@ class Invoices extends \BackendBundle\Entity\Invoices implements \Doctrine\ORM\P
     public function setFiscalid($fiscalid)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setFiscalid', array($fiscalid));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setFiscalid', [$fiscalid]);
 
         return parent::setFiscalid($fiscalid);
     }
@@ -315,7 +315,7 @@ class Invoices extends \BackendBundle\Entity\Invoices implements \Doctrine\ORM\P
     public function getFiscalid()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getFiscalid', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getFiscalid', []);
 
         return parent::getFiscalid();
     }
@@ -326,7 +326,7 @@ class Invoices extends \BackendBundle\Entity\Invoices implements \Doctrine\ORM\P
     public function setSubtotal($subtotal)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setSubtotal', array($subtotal));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setSubtotal', [$subtotal]);
 
         return parent::setSubtotal($subtotal);
     }
@@ -337,7 +337,7 @@ class Invoices extends \BackendBundle\Entity\Invoices implements \Doctrine\ORM\P
     public function getSubtotal()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getSubtotal', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getSubtotal', []);
 
         return parent::getSubtotal();
     }
@@ -348,7 +348,7 @@ class Invoices extends \BackendBundle\Entity\Invoices implements \Doctrine\ORM\P
     public function setVatType($vatType)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setVatType', array($vatType));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setVatType', [$vatType]);
 
         return parent::setVatType($vatType);
     }
@@ -359,7 +359,7 @@ class Invoices extends \BackendBundle\Entity\Invoices implements \Doctrine\ORM\P
     public function getVatType()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getVatType', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getVatType', []);
 
         return parent::getVatType();
     }
@@ -370,7 +370,7 @@ class Invoices extends \BackendBundle\Entity\Invoices implements \Doctrine\ORM\P
     public function setVat($vat)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setVat', array($vat));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setVat', [$vat]);
 
         return parent::setVat($vat);
     }
@@ -381,7 +381,7 @@ class Invoices extends \BackendBundle\Entity\Invoices implements \Doctrine\ORM\P
     public function getVat()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getVat', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getVat', []);
 
         return parent::getVat();
     }
@@ -392,7 +392,7 @@ class Invoices extends \BackendBundle\Entity\Invoices implements \Doctrine\ORM\P
     public function setRetentionType($retentionType)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setRetentionType', array($retentionType));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setRetentionType', [$retentionType]);
 
         return parent::setRetentionType($retentionType);
     }
@@ -403,7 +403,7 @@ class Invoices extends \BackendBundle\Entity\Invoices implements \Doctrine\ORM\P
     public function getRetentionType()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getRetentionType', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getRetentionType', []);
 
         return parent::getRetentionType();
     }
@@ -414,7 +414,7 @@ class Invoices extends \BackendBundle\Entity\Invoices implements \Doctrine\ORM\P
     public function setRetentionVat($retentionVat)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setRetentionVat', array($retentionVat));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setRetentionVat', [$retentionVat]);
 
         return parent::setRetentionVat($retentionVat);
     }
@@ -425,7 +425,7 @@ class Invoices extends \BackendBundle\Entity\Invoices implements \Doctrine\ORM\P
     public function getRetentionVat()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getRetentionVat', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getRetentionVat', []);
 
         return parent::getRetentionVat();
     }
@@ -436,7 +436,7 @@ class Invoices extends \BackendBundle\Entity\Invoices implements \Doctrine\ORM\P
     public function setAmount($amount)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setAmount', array($amount));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setAmount', [$amount]);
 
         return parent::setAmount($amount);
     }
@@ -447,7 +447,7 @@ class Invoices extends \BackendBundle\Entity\Invoices implements \Doctrine\ORM\P
     public function getAmount()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getAmount', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getAmount', []);
 
         return parent::getAmount();
     }
@@ -458,7 +458,7 @@ class Invoices extends \BackendBundle\Entity\Invoices implements \Doctrine\ORM\P
     public function setDateadd($dateadd)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setDateadd', array($dateadd));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setDateadd', [$dateadd]);
 
         return parent::setDateadd($dateadd);
     }
@@ -469,7 +469,7 @@ class Invoices extends \BackendBundle\Entity\Invoices implements \Doctrine\ORM\P
     public function getDateadd()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getDateadd', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getDateadd', []);
 
         return parent::getDateadd();
     }
@@ -480,7 +480,7 @@ class Invoices extends \BackendBundle\Entity\Invoices implements \Doctrine\ORM\P
     public function setDateviewed($dateviewed)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setDateviewed', array($dateviewed));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setDateviewed', [$dateviewed]);
 
         return parent::setDateviewed($dateviewed);
     }
@@ -491,7 +491,7 @@ class Invoices extends \BackendBundle\Entity\Invoices implements \Doctrine\ORM\P
     public function getDateviewed()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getDateviewed', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getDateviewed', []);
 
         return parent::getDateviewed();
     }
@@ -502,7 +502,7 @@ class Invoices extends \BackendBundle\Entity\Invoices implements \Doctrine\ORM\P
     public function setUser(\BackendBundle\Entity\User $user = NULL)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setUser', array($user));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setUser', [$user]);
 
         return parent::setUser($user);
     }
@@ -513,7 +513,7 @@ class Invoices extends \BackendBundle\Entity\Invoices implements \Doctrine\ORM\P
     public function getUser()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getUser', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getUser', []);
 
         return parent::getUser();
     }

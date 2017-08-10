@@ -54,6 +54,7 @@ class appProdProjectContainer extends Container
             'doctrine.orm.default_entity_listener_resolver' => 'getDoctrine_Orm_DefaultEntityListenerResolverService',
             'doctrine.orm.default_entity_manager' => 'getDoctrine_Orm_DefaultEntityManagerService',
             'doctrine.orm.default_entity_manager.property_info_extractor' => 'getDoctrine_Orm_DefaultEntityManager_PropertyInfoExtractorService',
+            'doctrine.orm.default_listeners.attach_entity_listeners' => 'getDoctrine_Orm_DefaultListeners_AttachEntityListenersService',
             'doctrine.orm.default_manager_configurator' => 'getDoctrine_Orm_DefaultManagerConfiguratorService',
             'doctrine.orm.validator.unique' => 'getDoctrine_Orm_Validator_UniqueService',
             'doctrine.orm.validator_initializer' => 'getDoctrine_Orm_ValidatorInitializerService',
@@ -74,6 +75,7 @@ class appProdProjectContainer extends Container
             'easyadmin.listener.request_post_initialize' => 'getEasyadmin_Listener_RequestPostInitializeService',
             'easyadmin.paginator' => 'getEasyadmin_PaginatorService',
             'easyadmin.query_builder' => 'getEasyadmin_QueryBuilderService',
+            'easyadmin.router' => 'getEasyadmin_RouterService',
             'event_dispatcher' => 'getEventDispatcherService',
             'file_locator' => 'getFileLocatorService',
             'filesystem' => 'getFilesystemService',
@@ -494,6 +496,19 @@ class appProdProjectContainer extends Container
             'validator.email' => 'getValidator_EmailService',
             'validator.expression' => 'getValidator_ExpressionService',
             'validator.validator_factory' => 'getValidator_ValidatorFactoryService',
+            'vich_uploader.directory_namer_subdir' => 'getVichUploader_DirectoryNamerSubdirService',
+            'vich_uploader.download_handler' => 'getVichUploader_DownloadHandlerService',
+            'vich_uploader.form.type.file' => 'getVichUploader_Form_Type_FileService',
+            'vich_uploader.form.type.image' => 'getVichUploader_Form_Type_ImageService',
+            'vich_uploader.metadata_reader' => 'getVichUploader_MetadataReaderService',
+            'vich_uploader.namer_hash' => 'getVichUploader_NamerHashService',
+            'vich_uploader.namer_origname' => 'getVichUploader_NamerOrignameService',
+            'vich_uploader.namer_property' => 'getVichUploader_NamerPropertyService',
+            'vich_uploader.namer_uniqid' => 'getVichUploader_NamerUniqidService',
+            'vich_uploader.property_mapping_factory' => 'getVichUploader_PropertyMappingFactoryService',
+            'vich_uploader.storage' => 'getVichUploader_StorageService',
+            'vich_uploader.templating.helper.uploader_helper' => 'getVichUploader_Templating_Helper_UploaderHelperService',
+            'vich_uploader.upload_handler' => 'getVichUploader_UploadHandlerService',
         );
         $this->aliases = array(
             'database_connection' => 'doctrine.dbal.default_connection',
@@ -505,7 +520,6 @@ class appProdProjectContainer extends Container
             'jms\\serializer\\arraytransformerinterface' => 'jms_serializer',
             'jms\\serializer\\serializerinterface' => 'jms_serializer',
             'mailer' => 'swiftmailer.mailer.default',
-            'serializer' => 'jms_serializer',
             'session.storage' => 'session.storage.native',
             'sonata.block.cache.handler' => 'sonata.block.cache.handler.default',
             'sonata.block.context_manager' => 'sonata.block.context_manager.default',
@@ -538,12 +552,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'annotation_reader' service.
+     * Gets the public 'annotation_reader' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return \Doctrine\Common\Annotations\CachedReader A Doctrine\Common\Annotations\CachedReader instance
+     * @return \Doctrine\Common\Annotations\CachedReader
      */
     protected function getAnnotationReaderService()
     {
@@ -551,12 +562,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'app.form.profile' service.
+     * Gets the public 'app.form.profile' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return \BackendBundle\Form\fos_user\ProfileFormType A BackendBundle\Form\fos_user\ProfileFormType instance
+     * @return \BackendBundle\Form\fos_user\ProfileFormType
      */
     protected function getApp_Form_ProfileService()
     {
@@ -564,12 +572,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'app.form.registration' service.
+     * Gets the public 'app.form.registration' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return \BackendBundle\Form\fos_user\RegistrationFormType A BackendBundle\Form\fos_user\RegistrationFormType instance
+     * @return \BackendBundle\Form\fos_user\RegistrationFormType
      */
     protected function getApp_Form_RegistrationService()
     {
@@ -577,12 +582,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'assets.context' service.
+     * Gets the public 'assets.context' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return \Symfony\Component\Asset\Context\RequestStackContext A Symfony\Component\Asset\Context\RequestStackContext instance
+     * @return \Symfony\Component\Asset\Context\RequestStackContext
      */
     protected function getAssets_ContextService()
     {
@@ -590,12 +592,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'assets.packages' service.
+     * Gets the public 'assets.packages' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return \Symfony\Component\Asset\Packages A Symfony\Component\Asset\Packages instance
+     * @return \Symfony\Component\Asset\Packages
      */
     protected function getAssets_PackagesService()
     {
@@ -603,12 +602,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'cache_clearer' service.
+     * Gets the public 'cache_clearer' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return \Symfony\Component\HttpKernel\CacheClearer\ChainCacheClearer A Symfony\Component\HttpKernel\CacheClearer\ChainCacheClearer instance
+     * @return \Symfony\Component\HttpKernel\CacheClearer\ChainCacheClearer
      */
     protected function getCacheClearerService()
     {
@@ -616,12 +612,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'cache_warmer' service.
+     * Gets the public 'cache_warmer' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return \Symfony\Component\HttpKernel\CacheWarmer\CacheWarmerAggregate A Symfony\Component\HttpKernel\CacheWarmer\CacheWarmerAggregate instance
+     * @return \Symfony\Component\HttpKernel\CacheWarmer\CacheWarmerAggregate
      */
     protected function getCacheWarmerService()
     {
@@ -630,16 +623,13 @@ class appProdProjectContainer extends Container
 
         $c = new \Symfony\Bundle\FrameworkBundle\CacheWarmer\TemplateFinder($a, $b, ($this->targetDirs[2].'/Resources'));
 
-        return $this->services['cache_warmer'] = new \Symfony\Component\HttpKernel\CacheWarmer\CacheWarmerAggregate(array(0 => new \Symfony\Bundle\FrameworkBundle\CacheWarmer\TemplatePathsCacheWarmer($c, $this->get('templating.locator')), 1 => $this->get('kernel.class_cache.cache_warmer'), 2 => new \Symfony\Bundle\FrameworkBundle\CacheWarmer\TranslationsCacheWarmer($this->get('translator.default')), 3 => new \Symfony\Bundle\FrameworkBundle\CacheWarmer\RouterCacheWarmer($this->get('router')), 4 => new \Symfony\Bundle\TwigBundle\CacheWarmer\TemplateCacheCacheWarmer($this, $c, array()), 5 => new \Symfony\Bundle\TwigBundle\CacheWarmer\TemplateCacheWarmer($this->get('twig'), new \Symfony\Bundle\TwigBundle\TemplateIterator($a, $this->targetDirs[2], array())), 6 => new \Symfony\Bridge\Doctrine\CacheWarmer\ProxyCacheWarmer($this->get('doctrine')), 7 => $this->get('sonata.admin.route.cache_warmup'), 8 => new \JavierEguiluz\Bundle\EasyAdminBundle\Cache\ConfigWarmer($this->get('easyadmin.config.manager'))));
+        return $this->services['cache_warmer'] = new \Symfony\Component\HttpKernel\CacheWarmer\CacheWarmerAggregate(array(0 => new \Symfony\Bundle\FrameworkBundle\CacheWarmer\TemplatePathsCacheWarmer($c, $this->get('templating.locator')), 1 => $this->get('kernel.class_cache.cache_warmer'), 2 => new \Symfony\Bundle\FrameworkBundle\CacheWarmer\TranslationsCacheWarmer($this), 3 => new \Symfony\Bundle\FrameworkBundle\CacheWarmer\RouterCacheWarmer($this->get('router')), 4 => new \Symfony\Bundle\TwigBundle\CacheWarmer\TemplateCacheCacheWarmer($this, $c, array()), 5 => new \Symfony\Bundle\TwigBundle\CacheWarmer\TemplateCacheWarmer($this, new \Symfony\Bundle\TwigBundle\TemplateIterator($a, $this->targetDirs[2], array())), 6 => new \Symfony\Bridge\Doctrine\CacheWarmer\ProxyCacheWarmer($this->get('doctrine')), 7 => $this->get('sonata.admin.route.cache_warmup'), 8 => new \JavierEguiluz\Bundle\EasyAdminBundle\Cache\ConfigWarmer($this->get('easyadmin.config.manager'))));
     }
 
     /*
-     * Gets the 'config_cache_factory' service.
+     * Gets the public 'config_cache_factory' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return \Symfony\Component\Config\ResourceCheckerConfigCacheFactory A Symfony\Component\Config\ResourceCheckerConfigCacheFactory instance
+     * @return \Symfony\Component\Config\ResourceCheckerConfigCacheFactory
      */
     protected function getConfigCacheFactoryService()
     {
@@ -647,12 +637,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'debug.debug_handlers_listener' service.
+     * Gets the public 'debug.debug_handlers_listener' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return \Symfony\Component\HttpKernel\EventListener\DebugHandlersListener A Symfony\Component\HttpKernel\EventListener\DebugHandlersListener instance
+     * @return \Symfony\Component\HttpKernel\EventListener\DebugHandlersListener
      */
     protected function getDebug_DebugHandlersListenerService()
     {
@@ -660,12 +647,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'debug.stopwatch' service.
+     * Gets the public 'debug.stopwatch' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return \Symfony\Component\Stopwatch\Stopwatch A Symfony\Component\Stopwatch\Stopwatch instance
+     * @return \Symfony\Component\Stopwatch\Stopwatch
      */
     protected function getDebug_StopwatchService()
     {
@@ -673,12 +657,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'doctrine' service.
+     * Gets the public 'doctrine' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return \Doctrine\Bundle\DoctrineBundle\Registry A Doctrine\Bundle\DoctrineBundle\Registry instance
+     * @return \Doctrine\Bundle\DoctrineBundle\Registry
      */
     protected function getDoctrineService()
     {
@@ -686,12 +667,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'doctrine.dbal.connection_factory' service.
+     * Gets the public 'doctrine.dbal.connection_factory' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return \Doctrine\Bundle\DoctrineBundle\ConnectionFactory A Doctrine\Bundle\DoctrineBundle\ConnectionFactory instance
+     * @return \Doctrine\Bundle\DoctrineBundle\ConnectionFactory
      */
     protected function getDoctrine_Dbal_ConnectionFactoryService()
     {
@@ -699,76 +677,79 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'doctrine.dbal.default_connection' service.
+     * Gets the public 'doctrine.dbal.default_connection' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return \Doctrine\DBAL\Connection A Doctrine\DBAL\Connection instance
+     * @return \Doctrine\DBAL\Connection
      */
     protected function getDoctrine_Dbal_DefaultConnectionService()
     {
-        $a = new \Symfony\Bridge\Doctrine\ContainerAwareEventManager($this);
-        $a->addEventSubscriber(new \FOS\UserBundle\Doctrine\UserListener($this->get('fos_user.util.password_updater'), $this->get('fos_user.util.canonical_fields_updater')));
-        $a->addEventSubscriber($this->get('sonata.media.doctrine.event_subscriber'));
-        $a->addEventSubscriber($this->get('sonata.easy_extends.doctrine.mapper'));
+        $a = $this->get('vich_uploader.metadata_reader');
+        $b = $this->get('vich_uploader.upload_handler');
 
-        return $this->services['doctrine.dbal.default_connection'] = $this->get('doctrine.dbal.connection_factory')->createConnection(array('driver' => 'pdo_mysql', 'host' => '127.0.0.1', 'port' => 3306, 'dbname' => 'airbnbsf', 'user' => 'root', 'password' => NULL, 'charset' => 'UTF8', 'driverOptions' => array(), 'defaultTableOptions' => array()), new \Doctrine\DBAL\Configuration(), $a, array());
+        $c = new \Vich\UploaderBundle\Adapter\ORM\DoctrineORMAdapter();
+
+        $d = new \Symfony\Bridge\Doctrine\ContainerAwareEventManager($this);
+        $d->addEventSubscriber(new \Vich\UploaderBundle\EventListener\Doctrine\CleanListener('profile_image', $c, $a, $b));
+        $d->addEventSubscriber(new \FOS\UserBundle\Doctrine\UserListener($this->get('fos_user.util.password_updater'), $this->get('fos_user.util.canonical_fields_updater')));
+        $d->addEventSubscriber($this->get('sonata.media.doctrine.event_subscriber'));
+        $d->addEventSubscriber($this->get('sonata.easy_extends.doctrine.mapper'));
+        $d->addEventSubscriber(new \Vich\UploaderBundle\EventListener\Doctrine\RemoveListener('profile_image', $c, $a, $b));
+        $d->addEventSubscriber(new \Vich\UploaderBundle\EventListener\Doctrine\UploadListener('profile_image', $c, $a, $b));
+        $d->addEventListener(array(0 => 'loadClassMetadata'), $this->get('doctrine.orm.default_listeners.attach_entity_listeners'));
+
+        return $this->services['doctrine.dbal.default_connection'] = $this->get('doctrine.dbal.connection_factory')->createConnection(array('driver' => 'pdo_mysql', 'host' => '127.0.0.1', 'port' => 3306, 'dbname' => 'airbnbsf', 'user' => 'root', 'password' => NULL, 'charset' => 'UTF8', 'driverOptions' => array(), 'defaultTableOptions' => array()), new \Doctrine\DBAL\Configuration(), $d, array());
     }
 
     /*
-     * Gets the 'doctrine.orm.default_entity_listener_resolver' service.
+     * Gets the public 'doctrine.orm.default_entity_listener_resolver' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return \Doctrine\ORM\Mapping\DefaultEntityListenerResolver A Doctrine\ORM\Mapping\DefaultEntityListenerResolver instance
+     * @return \Doctrine\Bundle\DoctrineBundle\Mapping\ContainerAwareEntityListenerResolver
      */
     protected function getDoctrine_Orm_DefaultEntityListenerResolverService()
     {
-        return $this->services['doctrine.orm.default_entity_listener_resolver'] = new \Doctrine\ORM\Mapping\DefaultEntityListenerResolver();
+        return $this->services['doctrine.orm.default_entity_listener_resolver'] = new \Doctrine\Bundle\DoctrineBundle\Mapping\ContainerAwareEntityListenerResolver($this);
     }
 
     /*
-     * Gets the 'doctrine.orm.default_entity_manager' service.
+     * Gets the public 'doctrine.orm.default_entity_manager' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @param bool    $lazyLoad whether to try lazy-loading the service with a proxy
-     *
-     * @return \Doctrine\ORM\EntityManager A Doctrine\ORM\EntityManager instance
+     * @return \Doctrine\ORM\EntityManager
      */
     protected function getDoctrine_Orm_DefaultEntityManagerService($lazyLoad = true)
     {
-        $a = new \Doctrine\ORM\Mapping\Driver\SimplifiedXmlDriver(array(($this->targetDirs[3].'\\src\\Application\\Sonata\\ClassificationBundle\\Resources\\config\\doctrine') => 'Application\\Sonata\\ClassificationBundle\\Entity', ($this->targetDirs[3].'\\vendor\\sonata-project\\classification-bundle\\Resources\\config\\doctrine') => 'Sonata\\ClassificationBundle\\Entity', ($this->targetDirs[3].'\\src\\Application\\Sonata\\MediaBundle\\Resources\\config\\doctrine') => 'Application\\Sonata\\MediaBundle\\Entity', ($this->targetDirs[3].'\\vendor\\sonata-project\\media-bundle\\Resources\\config\\doctrine') => 'Sonata\\MediaBundle\\Entity', ($this->targetDirs[3].'\\vendor\\payum\\core\\Payum\\Core\\Bridge\\Doctrine\\Resources\\mapping') => 'Payum\\Core\\Model'));
-        $a->setGlobalBasename('mapping');
+        $a = $this->get('annotation_reader');
 
-        $b = new \Doctrine\Common\Persistence\Mapping\Driver\MappingDriverChain();
-        $b->addDriver($a, 'Application\\Sonata\\ClassificationBundle\\Entity');
-        $b->addDriver($a, 'Sonata\\ClassificationBundle\\Entity');
-        $b->addDriver($a, 'Application\\Sonata\\MediaBundle\\Entity');
-        $b->addDriver($a, 'Sonata\\MediaBundle\\Entity');
-        $b->addDriver($a, 'Payum\\Core\\Model');
-        $b->addDriver(new \Doctrine\ORM\Mapping\Driver\AnnotationDriver($this->get('annotation_reader'), array(0 => ($this->targetDirs[3].'\\src\\BackendBundle\\Entity'))), 'BackendBundle\\Entity');
-        $b->addDriver(new \Doctrine\ORM\Mapping\Driver\XmlDriver(new \Doctrine\Common\Persistence\Mapping\Driver\SymfonyFileLocator(array(($this->targetDirs[3].'\\vendor\\friendsofsymfony\\user-bundle\\Resources\\config\\doctrine-mapping') => 'FOS\\UserBundle\\Model'), '.orm.xml')), 'FOS\\UserBundle\\Model');
+        $b = new \Doctrine\ORM\Mapping\Driver\SimplifiedXmlDriver(array(($this->targetDirs[3].'\\src\\Application\\Sonata\\ClassificationBundle\\Resources\\config\\doctrine') => 'Application\\Sonata\\ClassificationBundle\\Entity', ($this->targetDirs[3].'\\vendor\\sonata-project\\classification-bundle\\Resources\\config\\doctrine') => 'Sonata\\ClassificationBundle\\Entity', ($this->targetDirs[3].'\\src\\Application\\Sonata\\MediaBundle\\Resources\\config\\doctrine') => 'Application\\Sonata\\MediaBundle\\Entity', ($this->targetDirs[3].'\\vendor\\sonata-project\\media-bundle\\Resources\\config\\doctrine') => 'Sonata\\MediaBundle\\Entity', ($this->targetDirs[3].'\\vendor\\payum\\core\\Payum\\Core\\Bridge\\Doctrine\\Resources\\mapping') => 'Payum\\Core\\Model'));
+        $b->setGlobalBasename('mapping');
 
-        $c = new \Doctrine\ORM\Configuration();
-        $c->setEntityNamespaces(array('ApplicationSonataClassificationBundle' => 'Application\\Sonata\\ClassificationBundle\\Entity', 'SonataClassificationBundle' => 'Sonata\\ClassificationBundle\\Entity', 'ApplicationSonataMediaBundle' => 'Application\\Sonata\\MediaBundle\\Entity', 'SonataMediaBundle' => 'Sonata\\MediaBundle\\Entity', 'payum' => 'Payum\\Core\\Model', 'BackendBundle' => 'BackendBundle\\Entity'));
-        $c->setMetadataCacheImpl($this->get('doctrine_cache.providers.doctrine.orm.default_metadata_cache'));
-        $c->setQueryCacheImpl($this->get('doctrine_cache.providers.doctrine.orm.default_query_cache'));
-        $c->setResultCacheImpl($this->get('doctrine_cache.providers.doctrine.orm.default_result_cache'));
-        $c->setMetadataDriverImpl($b);
-        $c->setProxyDir((__DIR__.'/doctrine/orm/Proxies'));
-        $c->setProxyNamespace('Proxies');
-        $c->setAutoGenerateProxyClasses(false);
-        $c->setClassMetadataFactoryName('Doctrine\\ORM\\Mapping\\ClassMetadataFactory');
-        $c->setDefaultRepositoryClassName('Doctrine\\ORM\\EntityRepository');
-        $c->setNamingStrategy(new \Doctrine\ORM\Mapping\DefaultNamingStrategy());
-        $c->setQuoteStrategy(new \Doctrine\ORM\Mapping\DefaultQuoteStrategy());
-        $c->setEntityListenerResolver($this->get('doctrine.orm.default_entity_listener_resolver'));
+        $c = new \Doctrine\ORM\Mapping\Driver\AnnotationDriver($a, array(0 => ($this->targetDirs[3].'\\vendor\\vich\\uploader-bundle\\Entity'), 1 => ($this->targetDirs[3].'\\src\\BackendBundle\\Entity')));
 
-        $this->services['doctrine.orm.default_entity_manager'] = $instance = \Doctrine\ORM\EntityManager::create($this->get('doctrine.dbal.default_connection'), $c);
+        $d = new \Doctrine\Common\Persistence\Mapping\Driver\MappingDriverChain();
+        $d->addDriver($b, 'Application\\Sonata\\ClassificationBundle\\Entity');
+        $d->addDriver($b, 'Sonata\\ClassificationBundle\\Entity');
+        $d->addDriver($b, 'Application\\Sonata\\MediaBundle\\Entity');
+        $d->addDriver($b, 'Sonata\\MediaBundle\\Entity');
+        $d->addDriver($b, 'Payum\\Core\\Model');
+        $d->addDriver($c, 'Vich\\UploaderBundle\\Entity');
+        $d->addDriver($c, 'BackendBundle\\Entity');
+        $d->addDriver(new \Doctrine\ORM\Mapping\Driver\XmlDriver(new \Doctrine\Common\Persistence\Mapping\Driver\SymfonyFileLocator(array(($this->targetDirs[3].'\\vendor\\friendsofsymfony\\user-bundle\\Resources\\config\\doctrine-mapping') => 'FOS\\UserBundle\\Model'), '.orm.xml')), 'FOS\\UserBundle\\Model');
+
+        $e = new \Doctrine\ORM\Configuration();
+        $e->setEntityNamespaces(array('ApplicationSonataClassificationBundle' => 'Application\\Sonata\\ClassificationBundle\\Entity', 'SonataClassificationBundle' => 'Sonata\\ClassificationBundle\\Entity', 'ApplicationSonataMediaBundle' => 'Application\\Sonata\\MediaBundle\\Entity', 'SonataMediaBundle' => 'Sonata\\MediaBundle\\Entity', 'payum' => 'Payum\\Core\\Model', 'VichUploaderBundle' => 'Vich\\UploaderBundle\\Entity', 'BackendBundle' => 'BackendBundle\\Entity'));
+        $e->setMetadataCacheImpl($this->get('doctrine_cache.providers.doctrine.orm.default_metadata_cache'));
+        $e->setQueryCacheImpl($this->get('doctrine_cache.providers.doctrine.orm.default_query_cache'));
+        $e->setResultCacheImpl($this->get('doctrine_cache.providers.doctrine.orm.default_result_cache'));
+        $e->setMetadataDriverImpl($d);
+        $e->setProxyDir((__DIR__.'/doctrine/orm/Proxies'));
+        $e->setProxyNamespace('Proxies');
+        $e->setAutoGenerateProxyClasses(false);
+        $e->setClassMetadataFactoryName('Doctrine\\ORM\\Mapping\\ClassMetadataFactory');
+        $e->setDefaultRepositoryClassName('Doctrine\\ORM\\EntityRepository');
+        $e->setNamingStrategy(new \Doctrine\ORM\Mapping\DefaultNamingStrategy());
+        $e->setQuoteStrategy(new \Doctrine\ORM\Mapping\DefaultQuoteStrategy());
+        $e->setEntityListenerResolver($this->get('doctrine.orm.default_entity_listener_resolver'));
+
+        $this->services['doctrine.orm.default_entity_manager'] = $instance = \Doctrine\ORM\EntityManager::create($this->get('doctrine.dbal.default_connection'), $e);
 
         $this->get('doctrine.orm.default_manager_configurator')->configure($instance);
 
@@ -776,12 +757,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'doctrine.orm.default_entity_manager.property_info_extractor' service.
+     * Gets the public 'doctrine.orm.default_entity_manager.property_info_extractor' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return \Symfony\Bridge\Doctrine\PropertyInfo\DoctrineExtractor A Symfony\Bridge\Doctrine\PropertyInfo\DoctrineExtractor instance
+     * @return \Symfony\Bridge\Doctrine\PropertyInfo\DoctrineExtractor
      */
     protected function getDoctrine_Orm_DefaultEntityManager_PropertyInfoExtractorService()
     {
@@ -789,12 +767,19 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'doctrine.orm.default_manager_configurator' service.
+     * Gets the public 'doctrine.orm.default_listeners.attach_entity_listeners' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
+     * @return \Doctrine\ORM\Tools\AttachEntityListenersListener
+     */
+    protected function getDoctrine_Orm_DefaultListeners_AttachEntityListenersService()
+    {
+        return $this->services['doctrine.orm.default_listeners.attach_entity_listeners'] = new \Doctrine\ORM\Tools\AttachEntityListenersListener();
+    }
+
+    /*
+     * Gets the public 'doctrine.orm.default_manager_configurator' shared service.
      *
-     * @return \Doctrine\Bundle\DoctrineBundle\ManagerConfigurator A Doctrine\Bundle\DoctrineBundle\ManagerConfigurator instance
+     * @return \Doctrine\Bundle\DoctrineBundle\ManagerConfigurator
      */
     protected function getDoctrine_Orm_DefaultManagerConfiguratorService()
     {
@@ -802,12 +787,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'doctrine.orm.validator.unique' service.
+     * Gets the public 'doctrine.orm.validator.unique' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return \Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntityValidator A Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntityValidator instance
+     * @return \Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntityValidator
      */
     protected function getDoctrine_Orm_Validator_UniqueService()
     {
@@ -815,12 +797,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'doctrine.orm.validator_initializer' service.
+     * Gets the public 'doctrine.orm.validator_initializer' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return \Symfony\Bridge\Doctrine\Validator\DoctrineInitializer A Symfony\Bridge\Doctrine\Validator\DoctrineInitializer instance
+     * @return \Symfony\Bridge\Doctrine\Validator\DoctrineInitializer
      */
     protected function getDoctrine_Orm_ValidatorInitializerService()
     {
@@ -828,12 +807,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'doctrine_cache.providers.doctrine.orm.default_metadata_cache' service.
+     * Gets the public 'doctrine_cache.providers.doctrine.orm.default_metadata_cache' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return \Doctrine\Common\Cache\ArrayCache A Doctrine\Common\Cache\ArrayCache instance
+     * @return \Doctrine\Common\Cache\ArrayCache
      */
     protected function getDoctrineCache_Providers_Doctrine_Orm_DefaultMetadataCacheService()
     {
@@ -845,12 +821,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'doctrine_cache.providers.doctrine.orm.default_query_cache' service.
+     * Gets the public 'doctrine_cache.providers.doctrine.orm.default_query_cache' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return \Doctrine\Common\Cache\ArrayCache A Doctrine\Common\Cache\ArrayCache instance
+     * @return \Doctrine\Common\Cache\ArrayCache
      */
     protected function getDoctrineCache_Providers_Doctrine_Orm_DefaultQueryCacheService()
     {
@@ -862,12 +835,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'doctrine_cache.providers.doctrine.orm.default_result_cache' service.
+     * Gets the public 'doctrine_cache.providers.doctrine.orm.default_result_cache' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return \Doctrine\Common\Cache\ArrayCache A Doctrine\Common\Cache\ArrayCache instance
+     * @return \Doctrine\Common\Cache\ArrayCache
      */
     protected function getDoctrineCache_Providers_Doctrine_Orm_DefaultResultCacheService()
     {
@@ -879,12 +849,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'easyadmin.autocomplete' service.
+     * Gets the public 'easyadmin.autocomplete' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return \JavierEguiluz\Bundle\EasyAdminBundle\Search\Autocomplete A JavierEguiluz\Bundle\EasyAdminBundle\Search\Autocomplete instance
+     * @return \JavierEguiluz\Bundle\EasyAdminBundle\Search\Autocomplete
      */
     protected function getEasyadmin_AutocompleteService()
     {
@@ -892,12 +859,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'easyadmin.cache.manager' service.
+     * Gets the public 'easyadmin.cache.manager' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return \JavierEguiluz\Bundle\EasyAdminBundle\Cache\CacheManager A JavierEguiluz\Bundle\EasyAdminBundle\Cache\CacheManager instance
+     * @return \JavierEguiluz\Bundle\EasyAdminBundle\Cache\CacheManager
      */
     protected function getEasyadmin_Cache_ManagerService()
     {
@@ -905,25 +869,31 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'easyadmin.config.manager' service.
+     * Gets the public 'easyadmin.config.manager' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return \JavierEguiluz\Bundle\EasyAdminBundle\Configuration\ConfigManager A JavierEguiluz\Bundle\EasyAdminBundle\Configuration\ConfigManager instance
+     * @return \JavierEguiluz\Bundle\EasyAdminBundle\Configuration\ConfigManager
      */
     protected function getEasyadmin_Config_ManagerService()
     {
-        return $this->services['easyadmin.config.manager'] = new \JavierEguiluz\Bundle\EasyAdminBundle\Configuration\ConfigManager($this);
+        $this->services['easyadmin.config.manager'] = $instance = new \JavierEguiluz\Bundle\EasyAdminBundle\Configuration\ConfigManager($this->get('easyadmin.cache.manager'), $this->get('property_accessor'), array('site_name' => 'Eerbianbí', 'design' => array('menu' => array(0 => array('entity' => 'User', 'label' => 'Usuarios', 'icon' => 'group'), 1 => array('label' => 'Productos', 'icon' => 'rocket', 'children' => array(0 => array('entity' => 'Products', 'label' => 'Productos', 'icon' => 'briefcase'), 1 => array('entity' => 'ProductDescription', 'label' => 'Descripciones', 'icon' => 'pencil'), 2 => array('entity' => 'ProductPrices', 'label' => 'Precios', 'icon' => 'eur'), 3 => array('entity' => 'Features', 'label' => 'Características', 'icon' => 'gears'), 4 => array('entity' => 'Location', 'label' => 'Tags', 'icon' => 'map-marker'))), 2 => array('label' => 'Acerca de', 'icon' => 'info', 'children' => array(0 => array('label' => 'Docs', 'url' => 'http://example.com/external-docs')))), 'theme' => 'default', 'color_scheme' => 'dark', 'brand_color' => '#205081', 'form_theme' => array(0 => '@EasyAdmin/form/bootstrap_3_horizontal_layout.html.twig'), 'assets' => array('css' => array(), 'js' => array(), 'favicon' => array('path' => 'favicon.ico', 'mime_type' => 'image/x-icon'))), 'entities' => array('Products' => array('class' => 'BackendBundle\\Entity\\Products', 'name' => 'Products'), 'ProductDescription' => array('class' => 'BackendBundle\\Entity\\ProductDescription', 'name' => 'ProductDescription'), 'ProductPrices' => array('class' => 'BackendBundle\\Entity\\ProductPrices', 'name' => 'ProductPrices'), 'Features' => array('class' => 'BackendBundle\\Entity\\Features', 'name' => 'Features'), 'Location' => array('class' => 'BackendBundle\\Entity\\Location', 'name' => 'Location'), 'User' => array('class' => 'BackendBundle\\Entity\\User', 'name' => 'User')), 'formats' => array('date' => 'Y-m-d', 'time' => 'H:i:s', 'datetime' => 'F j, Y H:i'), 'disabled_actions' => array(), 'translation_domain' => 'messages', 'list' => array('actions' => array(), 'max_results' => 15), 'edit' => array('actions' => array()), 'new' => array('actions' => array()), 'show' => array('actions' => array(), 'max_results' => 10)), false);
+
+        $instance->addConfigPass(new \JavierEguiluz\Bundle\EasyAdminBundle\Configuration\NormalizerConfigPass($this));
+        $instance->addConfigPass(new \JavierEguiluz\Bundle\EasyAdminBundle\Configuration\DesignConfigPass($this, false, 'es'));
+        $instance->addConfigPass(new \JavierEguiluz\Bundle\EasyAdminBundle\Configuration\MenuConfigPass());
+        $instance->addConfigPass(new \JavierEguiluz\Bundle\EasyAdminBundle\Configuration\ActionConfigPass());
+        $instance->addConfigPass(new \JavierEguiluz\Bundle\EasyAdminBundle\Configuration\MetadataConfigPass($this->get('doctrine')));
+        $instance->addConfigPass(new \JavierEguiluz\Bundle\EasyAdminBundle\Configuration\PropertyConfigPass());
+        $instance->addConfigPass(new \JavierEguiluz\Bundle\EasyAdminBundle\Configuration\ViewConfigPass());
+        $instance->addConfigPass(new \JavierEguiluz\Bundle\EasyAdminBundle\Configuration\TemplateConfigPass(($this->targetDirs[2].'/Resources/views')));
+        $instance->addConfigPass(new \JavierEguiluz\Bundle\EasyAdminBundle\Configuration\DefaultConfigPass());
+
+        return $instance;
     }
 
     /*
-     * Gets the 'easyadmin.form.type' service.
+     * Gets the public 'easyadmin.form.type' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return \JavierEguiluz\Bundle\EasyAdminBundle\Form\Type\EasyAdminFormType A JavierEguiluz\Bundle\EasyAdminBundle\Form\Type\EasyAdminFormType instance
+     * @return \JavierEguiluz\Bundle\EasyAdminBundle\Form\Type\EasyAdminFormType
      */
     protected function getEasyadmin_Form_TypeService()
     {
@@ -936,12 +906,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'easyadmin.form.type.autocomplete' service.
+     * Gets the public 'easyadmin.form.type.autocomplete' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return \JavierEguiluz\Bundle\EasyAdminBundle\Form\Type\EasyAdminAutocompleteType A JavierEguiluz\Bundle\EasyAdminBundle\Form\Type\EasyAdminAutocompleteType instance
+     * @return \JavierEguiluz\Bundle\EasyAdminBundle\Form\Type\EasyAdminAutocompleteType
      */
     protected function getEasyadmin_Form_Type_AutocompleteService()
     {
@@ -949,12 +916,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'easyadmin.form.type.divider' service.
+     * Gets the public 'easyadmin.form.type.divider' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return \JavierEguiluz\Bundle\EasyAdminBundle\Form\Type\EasyAdminDividerType A JavierEguiluz\Bundle\EasyAdminBundle\Form\Type\EasyAdminDividerType instance
+     * @return \JavierEguiluz\Bundle\EasyAdminBundle\Form\Type\EasyAdminDividerType
      */
     protected function getEasyadmin_Form_Type_DividerService()
     {
@@ -962,12 +926,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'easyadmin.form.type.extension' service.
+     * Gets the public 'easyadmin.form.type.extension' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return \JavierEguiluz\Bundle\EasyAdminBundle\Form\Extension\EasyAdminExtension A JavierEguiluz\Bundle\EasyAdminBundle\Form\Extension\EasyAdminExtension instance
+     * @return \JavierEguiluz\Bundle\EasyAdminBundle\Form\Extension\EasyAdminExtension
      */
     protected function getEasyadmin_Form_Type_ExtensionService()
     {
@@ -975,12 +936,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'easyadmin.form.type.group' service.
+     * Gets the public 'easyadmin.form.type.group' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return \JavierEguiluz\Bundle\EasyAdminBundle\Form\Type\EasyAdminGroupType A JavierEguiluz\Bundle\EasyAdminBundle\Form\Type\EasyAdminGroupType instance
+     * @return \JavierEguiluz\Bundle\EasyAdminBundle\Form\Type\EasyAdminGroupType
      */
     protected function getEasyadmin_Form_Type_GroupService()
     {
@@ -988,12 +946,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'easyadmin.form.type.section' service.
+     * Gets the public 'easyadmin.form.type.section' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return \JavierEguiluz\Bundle\EasyAdminBundle\Form\Type\EasyAdminSectionType A JavierEguiluz\Bundle\EasyAdminBundle\Form\Type\EasyAdminSectionType instance
+     * @return \JavierEguiluz\Bundle\EasyAdminBundle\Form\Type\EasyAdminSectionType
      */
     protected function getEasyadmin_Form_Type_SectionService()
     {
@@ -1001,12 +956,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'easyadmin.listener.controller' service.
+     * Gets the public 'easyadmin.listener.controller' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return \JavierEguiluz\Bundle\EasyAdminBundle\EventListener\ControllerListener A JavierEguiluz\Bundle\EasyAdminBundle\EventListener\ControllerListener instance
+     * @return \JavierEguiluz\Bundle\EasyAdminBundle\EventListener\ControllerListener
      */
     protected function getEasyadmin_Listener_ControllerService()
     {
@@ -1014,25 +966,19 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'easyadmin.listener.exception' service.
+     * Gets the public 'easyadmin.listener.exception' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return \JavierEguiluz\Bundle\EasyAdminBundle\EventListener\ExceptionListener A JavierEguiluz\Bundle\EasyAdminBundle\EventListener\ExceptionListener instance
+     * @return \JavierEguiluz\Bundle\EasyAdminBundle\EventListener\ExceptionListener
      */
     protected function getEasyadmin_Listener_ExceptionService()
     {
-        return $this->services['easyadmin.listener.exception'] = new \JavierEguiluz\Bundle\EasyAdminBundle\EventListener\ExceptionListener($this->get('templating'), array('site_name' => 'Eerbianbí', 'design' => array('menu' => array(0 => array('entity' => 'User', 'label' => 'Usuarios', 'icon' => 'group'), 1 => array('label' => 'Productos', 'icon' => 'rocket', 'children' => array(0 => array('entity' => 'Products', 'label' => 'Productos', 'icon' => 'briefcase'), 1 => array('entity' => 'ProductDescription', 'label' => 'Descripciones', 'icon' => 'pencil'), 2 => array('entity' => 'ProductPrices', 'label' => 'Precios', 'icon' => 'eur'), 3 => array('entity' => 'Features', 'label' => 'Características', 'icon' => 'gears'), 4 => array('entity' => 'Location', 'label' => 'Tags', 'icon' => 'map-marker'))), 2 => array('label' => 'Acerca de', 'icon' => 'info', 'children' => array(0 => array('label' => 'Docs', 'url' => 'http://example.com/external-docs')))), 'theme' => 'default', 'color_scheme' => 'dark', 'brand_color' => '#205081', 'form_theme' => array(0 => '@EasyAdmin/form/bootstrap_3_horizontal_layout.html.twig'), 'assets' => array('css' => array(), 'js' => array(), 'favicon' => array('path' => 'favicon.ico', 'mime_type' => 'image/x-icon'))), 'entities' => array('Products' => array('class' => 'BackendBundle\\Entity\\Products', 'name' => 'Products'), 'ProductDescription' => array('class' => 'BackendBundle\\Entity\\ProductDescription', 'name' => 'ProductDescription'), 'ProductPrices' => array('class' => 'BackendBundle\\Entity\\ProductPrices', 'name' => 'ProductPrices'), 'Features' => array('class' => 'BackendBundle\\Entity\\Features', 'name' => 'Features'), 'Location' => array('class' => 'BackendBundle\\Entity\\Location', 'name' => 'Location'), 'User' => array('class' => 'BackendBundle\\Entity\\User', 'name' => 'User')), 'formats' => array('date' => 'Y-m-d', 'time' => 'H:i:s', 'datetime' => 'F j, Y H:i'), 'disabled_actions' => array(), 'translation_domain' => 'messages', 'list' => array('actions' => array(), 'max_results' => 15), 'edit' => array('actions' => array()), 'new' => array('actions' => array()), 'show' => array('actions' => array(), 'max_results' => 10)), 'easyadmin.listener.exception:showExceptionPageAction', $this->get('monolog.logger.request', ContainerInterface::NULL_ON_INVALID_REFERENCE));
+        return $this->services['easyadmin.listener.exception'] = new \JavierEguiluz\Bundle\EasyAdminBundle\EventListener\ExceptionListener($this->get('twig'), array('site_name' => 'Eerbianbí', 'design' => array('menu' => array(0 => array('entity' => 'User', 'label' => 'Usuarios', 'icon' => 'group'), 1 => array('label' => 'Productos', 'icon' => 'rocket', 'children' => array(0 => array('entity' => 'Products', 'label' => 'Productos', 'icon' => 'briefcase'), 1 => array('entity' => 'ProductDescription', 'label' => 'Descripciones', 'icon' => 'pencil'), 2 => array('entity' => 'ProductPrices', 'label' => 'Precios', 'icon' => 'eur'), 3 => array('entity' => 'Features', 'label' => 'Características', 'icon' => 'gears'), 4 => array('entity' => 'Location', 'label' => 'Tags', 'icon' => 'map-marker'))), 2 => array('label' => 'Acerca de', 'icon' => 'info', 'children' => array(0 => array('label' => 'Docs', 'url' => 'http://example.com/external-docs')))), 'theme' => 'default', 'color_scheme' => 'dark', 'brand_color' => '#205081', 'form_theme' => array(0 => '@EasyAdmin/form/bootstrap_3_horizontal_layout.html.twig'), 'assets' => array('css' => array(), 'js' => array(), 'favicon' => array('path' => 'favicon.ico', 'mime_type' => 'image/x-icon'))), 'entities' => array('Products' => array('class' => 'BackendBundle\\Entity\\Products', 'name' => 'Products'), 'ProductDescription' => array('class' => 'BackendBundle\\Entity\\ProductDescription', 'name' => 'ProductDescription'), 'ProductPrices' => array('class' => 'BackendBundle\\Entity\\ProductPrices', 'name' => 'ProductPrices'), 'Features' => array('class' => 'BackendBundle\\Entity\\Features', 'name' => 'Features'), 'Location' => array('class' => 'BackendBundle\\Entity\\Location', 'name' => 'Location'), 'User' => array('class' => 'BackendBundle\\Entity\\User', 'name' => 'User')), 'formats' => array('date' => 'Y-m-d', 'time' => 'H:i:s', 'datetime' => 'F j, Y H:i'), 'disabled_actions' => array(), 'translation_domain' => 'messages', 'list' => array('actions' => array(), 'max_results' => 15), 'edit' => array('actions' => array()), 'new' => array('actions' => array()), 'show' => array('actions' => array(), 'max_results' => 10)), 'easyadmin.listener.exception:showExceptionPageAction', $this->get('monolog.logger.request', ContainerInterface::NULL_ON_INVALID_REFERENCE));
     }
 
     /*
-     * Gets the 'easyadmin.listener.request_post_initialize' service.
+     * Gets the public 'easyadmin.listener.request_post_initialize' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return \JavierEguiluz\Bundle\EasyAdminBundle\EventListener\RequestPostInitializeListener A JavierEguiluz\Bundle\EasyAdminBundle\EventListener\RequestPostInitializeListener instance
+     * @return \JavierEguiluz\Bundle\EasyAdminBundle\EventListener\RequestPostInitializeListener
      */
     protected function getEasyadmin_Listener_RequestPostInitializeService()
     {
@@ -1040,12 +986,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'easyadmin.paginator' service.
+     * Gets the public 'easyadmin.paginator' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return \JavierEguiluz\Bundle\EasyAdminBundle\Search\Paginator A JavierEguiluz\Bundle\EasyAdminBundle\Search\Paginator instance
+     * @return \JavierEguiluz\Bundle\EasyAdminBundle\Search\Paginator
      */
     protected function getEasyadmin_PaginatorService()
     {
@@ -1053,12 +996,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'easyadmin.query_builder' service.
+     * Gets the public 'easyadmin.query_builder' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return \JavierEguiluz\Bundle\EasyAdminBundle\Search\QueryBuilder A JavierEguiluz\Bundle\EasyAdminBundle\Search\QueryBuilder instance
+     * @return \JavierEguiluz\Bundle\EasyAdminBundle\Search\QueryBuilder
      */
     protected function getEasyadmin_QueryBuilderService()
     {
@@ -1066,12 +1006,19 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'event_dispatcher' service.
+     * Gets the public 'easyadmin.router' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
+     * @return \JavierEguiluz\Bundle\EasyAdminBundle\Router\EasyAdminRouter
+     */
+    protected function getEasyadmin_RouterService()
+    {
+        return $this->services['easyadmin.router'] = new \JavierEguiluz\Bundle\EasyAdminBundle\Router\EasyAdminRouter($this->get('easyadmin.config.manager'), $this->get('router'), $this->get('property_accessor'), $this->get('request_stack', ContainerInterface::NULL_ON_INVALID_REFERENCE));
+    }
+
+    /*
+     * Gets the public 'event_dispatcher' shared service.
      *
-     * @return \Symfony\Component\EventDispatcher\ContainerAwareEventDispatcher A Symfony\Component\EventDispatcher\ContainerAwareEventDispatcher instance
+     * @return \Symfony\Component\EventDispatcher\ContainerAwareEventDispatcher
      */
     protected function getEventDispatcherService()
     {
@@ -1111,12 +1058,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'file_locator' service.
+     * Gets the public 'file_locator' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return \Symfony\Component\HttpKernel\Config\FileLocator A Symfony\Component\HttpKernel\Config\FileLocator instance
+     * @return \Symfony\Component\HttpKernel\Config\FileLocator
      */
     protected function getFileLocatorService()
     {
@@ -1124,12 +1068,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'filesystem' service.
+     * Gets the public 'filesystem' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return \Symfony\Component\Filesystem\Filesystem A Symfony\Component\Filesystem\Filesystem instance
+     * @return \Symfony\Component\Filesystem\Filesystem
      */
     protected function getFilesystemService()
     {
@@ -1137,12 +1078,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'form.csrf_provider' service.
+     * Gets the public 'form.csrf_provider' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return \Symfony\Component\Form\Extension\Csrf\CsrfProvider\CsrfTokenManagerAdapter A Symfony\Component\Form\Extension\Csrf\CsrfProvider\CsrfTokenManagerAdapter instance
+     * @return \Symfony\Component\Form\Extension\Csrf\CsrfProvider\CsrfTokenManagerAdapter
      *
      * @deprecated The "form.csrf_provider" service is deprecated since Symfony 2.4 and will be removed in 3.0. Use the "security.csrf.token_manager" service instead.
      */
@@ -1154,25 +1092,19 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'form.extension' service.
+     * Gets the public 'form.extension' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return \Sonata\CoreBundle\Form\Extension\DependencyInjectionExtension A Sonata\CoreBundle\Form\Extension\DependencyInjectionExtension instance
+     * @return \Sonata\CoreBundle\Form\Extension\DependencyInjectionExtension
      */
     protected function getForm_ExtensionService()
     {
-        return $this->services['form.extension'] = new \Sonata\CoreBundle\Form\Extension\DependencyInjectionExtension($this, array('fos_user_profile_edit' => 'app.form.profile', 'BackendBundle\\Form\\fos_user\\ProfileFormType' => 'app.form.profile', 'fos_user_registration' => 'fos_user.registration.form.type', 'BackendBundle\\Form\\fos_user\\RegistrationFormType' => 'app.form.registration', 'form' => 'form.type.form', 'Symfony\\Component\\Form\\Extension\\Core\\Type\\FormType' => 'form.type.form', 'birthday' => 'form.type.birthday', 'Symfony\\Component\\Form\\Extension\\Core\\Type\\BirthdayType' => 'form.type.birthday', 'checkbox' => 'form.type.checkbox', 'Symfony\\Component\\Form\\Extension\\Core\\Type\\CheckboxType' => 'form.type.checkbox', 'choice' => 'form.type.choice', 'Symfony\\Component\\Form\\Extension\\Core\\Type\\ChoiceType' => 'form.type.choice', 'collection' => 'form.type.collection', 'Symfony\\Component\\Form\\Extension\\Core\\Type\\CollectionType' => 'form.type.collection', 'country' => 'form.type.country', 'Symfony\\Component\\Form\\Extension\\Core\\Type\\CountryType' => 'form.type.country', 'date' => 'form.type.date', 'Symfony\\Component\\Form\\Extension\\Core\\Type\\DateType' => 'form.type.date', 'datetime' => 'form.type.datetime', 'Symfony\\Component\\Form\\Extension\\Core\\Type\\DateTimeType' => 'form.type.datetime', 'email' => 'form.type.email', 'Symfony\\Component\\Form\\Extension\\Core\\Type\\EmailType' => 'form.type.email', 'file' => 'form.type.file', 'Symfony\\Component\\Form\\Extension\\Core\\Type\\FileType' => 'form.type.file', 'hidden' => 'form.type.hidden', 'Symfony\\Component\\Form\\Extension\\Core\\Type\\HiddenType' => 'form.type.hidden', 'integer' => 'form.type.integer', 'Symfony\\Component\\Form\\Extension\\Core\\Type\\IntegerType' => 'form.type.integer', 'language' => 'form.type.language', 'Symfony\\Component\\Form\\Extension\\Core\\Type\\LanguageType' => 'form.type.language', 'locale' => 'form.type.locale', 'Symfony\\Component\\Form\\Extension\\Core\\Type\\LocaleType' => 'form.type.locale', 'money' => 'form.type.money', 'Symfony\\Component\\Form\\Extension\\Core\\Type\\MoneyType' => 'form.type.money', 'number' => 'form.type.number', 'Symfony\\Component\\Form\\Extension\\Core\\Type\\NumberType' => 'form.type.number', 'password' => 'form.type.password', 'Symfony\\Component\\Form\\Extension\\Core\\Type\\PasswordType' => 'form.type.password', 'percent' => 'form.type.percent', 'Symfony\\Component\\Form\\Extension\\Core\\Type\\PercentType' => 'form.type.percent', 'radio' => 'form.type.radio', 'Symfony\\Component\\Form\\Extension\\Core\\Type\\RadioType' => 'form.type.radio', 'range' => 'form.type.range', 'Symfony\\Component\\Form\\Extension\\Core\\Type\\RangeType' => 'form.type.range', 'repeated' => 'form.type.repeated', 'Symfony\\Component\\Form\\Extension\\Core\\Type\\RepeatedType' => 'form.type.repeated', 'search' => 'form.type.search', 'Symfony\\Component\\Form\\Extension\\Core\\Type\\SearchType' => 'form.type.search', 'textarea' => 'form.type.textarea', 'Symfony\\Component\\Form\\Extension\\Core\\Type\\TextareaType' => 'form.type.textarea', 'text' => 'form.type.text', 'Symfony\\Component\\Form\\Extension\\Core\\Type\\TextType' => 'form.type.text', 'time' => 'form.type.time', 'Symfony\\Component\\Form\\Extension\\Core\\Type\\TimeType' => 'form.type.time', 'timezone' => 'form.type.timezone', 'Symfony\\Component\\Form\\Extension\\Core\\Type\\TimezoneType' => 'form.type.timezone', 'url' => 'form.type.url', 'Symfony\\Component\\Form\\Extension\\Core\\Type\\UrlType' => 'form.type.url', 'button' => 'form.type.button', 'Symfony\\Component\\Form\\Extension\\Core\\Type\\ButtonType' => 'form.type.button', 'submit' => 'form.type.submit', 'Symfony\\Component\\Form\\Extension\\Core\\Type\\SubmitType' => 'form.type.submit', 'reset' => 'form.type.reset', 'Symfony\\Component\\Form\\Extension\\Core\\Type\\ResetType' => 'form.type.reset', 'currency' => 'form.type.currency', 'Symfony\\Component\\Form\\Extension\\Core\\Type\\CurrencyType' => 'form.type.currency', 'entity' => 'form.type.entity', 'Symfony\\Bridge\\Doctrine\\Form\\Type\\EntityType' => 'form.type.entity', 'sonata_type_immutable_array' => 'sonata.core.form.type.array', 'Sonata\\CoreBundle\\Form\\Type\\ImmutableArrayType' => 'sonata.core.form.type.array', 'sonata_type_boolean' => 'sonata.core.form.type.boolean', 'Sonata\\CoreBundle\\Form\\Type\\BooleanType' => 'sonata.core.form.type.boolean', 'sonata_type_collection' => 'sonata.core.form.type.collection', 'Sonata\\CoreBundle\\Form\\Type\\CollectionType' => 'sonata.core.form.type.collection', 'sonata_type_translatable_choice' => 'sonata.core.form.type.translatable_choice', 'Sonata\\CoreBundle\\Form\\Type\\TranslatableChoiceType' => 'sonata.core.form.type.translatable_choice', 'sonata_type_date_range' => 'sonata.core.form.type.date_range', 'Sonata\\CoreBundle\\Form\\Type\\DateRangeType' => 'sonata.core.form.type.date_range', 'sonata_type_datetime_range' => 'sonata.core.form.type.datetime_range', 'Sonata\\CoreBundle\\Form\\Type\\DateTimeRangeType' => 'sonata.core.form.type.datetime_range', 'sonata_type_date_picker' => 'sonata.core.form.type.date_picker', 'Sonata\\CoreBundle\\Form\\Type\\DatePickerType' => 'sonata.core.form.type.date_picker', 'sonata_type_datetime_picker' => 'sonata.core.form.type.datetime_picker', 'Sonata\\CoreBundle\\Form\\Type\\DateTimePickerType' => 'sonata.core.form.type.datetime_picker', 'sonata_type_date_range_picker' => 'sonata.core.form.type.date_range_picker', 'Sonata\\CoreBundle\\Form\\Type\\DateRangePickerType' => 'sonata.core.form.type.date_range_picker', 'sonata_type_datetime_range_picker' => 'sonata.core.form.type.datetime_range_picker', 'Sonata\\CoreBundle\\Form\\Type\\DateTimeRangePickerType' => 'sonata.core.form.type.datetime_range_picker', 'sonata_type_equal' => 'sonata.core.form.type.equal', 'Sonata\\CoreBundle\\Form\\Type\\EqualType' => 'sonata.core.form.type.equal', 'sonata_type_color_selector' => 'sonata.core.form.type.color_selector', 'Sonata\\CoreBundle\\Form\\Type\\ColorSelectorType' => 'sonata.core.form.type.color_selector', 'sonata_block_service_choice' => 'sonata.block.form.type.block', 'Sonata\\BlockBundle\\Form\\Type\\ServiceListType' => 'sonata.block.form.type.block', 'sonata_type_container_template_choice' => 'sonata.block.form.type.container_template', 'Sonata\\BlockBundle\\Form\\Type\\ContainerTemplateType' => 'sonata.block.form.type.container_template', 'sonata_type_admin' => 'sonata.admin.form.type.admin', 'Sonata\\AdminBundle\\Form\\Type\\AdminType' => 'sonata.admin.form.type.admin', 'sonata_type_model' => 'sonata.admin.form.type.model_choice', 'Sonata\\AdminBundle\\Form\\Type\\ModelType' => 'sonata.admin.form.type.model_choice', 'sonata_type_model_list' => 'sonata.admin.form.type.model_list', 'Sonata\\AdminBundle\\Form\\Type\\ModelListType' => 'sonata.admin.form.type.model_list', 'sonata_type_model_reference' => 'sonata.admin.form.type.model_reference', 'Sonata\\AdminBundle\\Form\\Type\\ModelReferenceType' => 'sonata.admin.form.type.model_reference', 'sonata_type_model_hidden' => 'sonata.admin.form.type.model_hidden', 'Sonata\\AdminBundle\\Form\\Type\\ModelHiddenType' => 'sonata.admin.form.type.model_hidden', 'sonata_type_model_autocomplete' => 'sonata.admin.form.type.model_autocomplete', 'Sonata\\AdminBundle\\Form\\Type\\ModelAutocompleteType' => 'sonata.admin.form.type.model_autocomplete', 'sonata_type_native_collection' => 'sonata.admin.form.type.collection', 'Sonata\\AdminBundle\\Form\\Type\\CollectionType' => 'sonata.admin.form.type.collection', 'sonata_type_choice_field_mask' => 'sonata.admin.doctrine_orm.form.type.choice_field_mask', 'Sonata\\AdminBundle\\Form\\Type\\ChoiceFieldMaskType' => 'sonata.admin.doctrine_orm.form.type.choice_field_mask', 'sonata_type_filter_number' => 'sonata.admin.form.filter.type.number', 'Sonata\\AdminBundle\\Form\\Type\\Filter\\NumberType' => 'sonata.admin.form.filter.type.number', 'sonata_type_filter_choice' => 'sonata.admin.form.filter.type.choice', 'Sonata\\AdminBundle\\Form\\Type\\Filter\\ChoiceType' => 'sonata.admin.form.filter.type.choice', 'sonata_type_filter_default' => 'sonata.admin.form.filter.type.default', 'Sonata\\AdminBundle\\Form\\Type\\Filter\\DefaultType' => 'sonata.admin.form.filter.type.default', 'sonata_type_filter_date' => 'sonata.admin.form.filter.type.date', 'Sonata\\AdminBundle\\Form\\Type\\Filter\\DateType' => 'sonata.admin.form.filter.type.date', 'sonata_type_filter_date_range' => 'sonata.admin.form.filter.type.daterange', 'Sonata\\AdminBundle\\Form\\Type\\Filter\\DateRangeType' => 'sonata.admin.form.filter.type.daterange', 'sonata_type_filter_datetime' => 'sonata.admin.form.filter.type.datetime', 'Sonata\\AdminBundle\\Form\\Type\\Filter\\DateTimeType' => 'sonata.admin.form.filter.type.datetime', 'sonata_type_filter_datetime_range' => 'sonata.admin.form.filter.type.datetime_range', 'Sonata\\AdminBundle\\Form\\Type\\Filter\\DateTimeRangeType' => 'sonata.admin.form.filter.type.datetime_range', 'fos_user_username' => 'fos_user.username_form_type', 'FOS\\UserBundle\\Form\\Type\\UsernameFormType' => 'fos_user.username_form_type', 'fos_user_profile' => 'fos_user.profile.form.type', 'FOS\\UserBundle\\Form\\Type\\ProfileFormType' => 'fos_user.profile.form.type', 'FOS\\UserBundle\\Form\\Type\\RegistrationFormType' => 'fos_user.registration.form.type', 'fos_user_change_password' => 'fos_user.change_password.form.type', 'FOS\\UserBundle\\Form\\Type\\ChangePasswordFormType' => 'fos_user.change_password.form.type', 'fos_user_resetting' => 'fos_user.resetting.form.type', 'FOS\\UserBundle\\Form\\Type\\ResettingFormType' => 'fos_user.resetting.form.type', 'sonata_media_type' => 'sonata.media.form.type.media', 'Sonata\\MediaBundle\\Form\\Type\\MediaType' => 'sonata.media.form.type.media', 'sonata_category_selector' => 'sonata.classification.form.type.category_selector', 'Sonata\\ClassificationBundle\\Form\\Type\\CategorySelectorType' => 'sonata.classification.form.type.category_selector', 'easyadmin.form.type' => 'easyadmin.form.type', 'JavierEguiluz\\Bundle\\EasyAdminBundle\\Form\\Type\\EasyAdminFormType' => 'easyadmin.form.type', 'easyadmin_autocomplete' => 'easyadmin.form.type.autocomplete', 'JavierEguiluz\\Bundle\\EasyAdminBundle\\Form\\Type\\EasyAdminAutocompleteType' => 'easyadmin.form.type.autocomplete', 'easyadmin_divider' => 'easyadmin.form.type.divider', 'JavierEguiluz\\Bundle\\EasyAdminBundle\\Form\\Type\\EasyAdminDividerType' => 'easyadmin.form.type.divider', 'easyadmin_section' => 'easyadmin.form.type.section', 'JavierEguiluz\\Bundle\\EasyAdminBundle\\Form\\Type\\EasyAdminSectionType' => 'easyadmin.form.type.section', 'easyadmin_group' => 'easyadmin.form.type.group', 'JavierEguiluz\\Bundle\\EasyAdminBundle\\Form\\Type\\EasyAdminGroupType' => 'easyadmin.form.type.group'), array('Symfony\\Component\\Form\\Extension\\Core\\Type\\FormType' => array(0 => 'form.type_extension.form.http_foundation', 1 => 'form.type_extension.form.validator', 2 => 'form.type_extension.upload.validator', 3 => 'form.type_extension.csrf', 4 => 'sonata.admin.form.extension.field', 5 => 'sonata.admin.form.extension.field.mopa', 6 => 'easyadmin.form.type.extension'), 'Symfony\\Component\\Form\\Extension\\Core\\Type\\RepeatedType' => array(0 => 'form.type_extension.repeated.validator'), 'Symfony\\Component\\Form\\Extension\\Core\\Type\\SubmitType' => array(0 => 'form.type_extension.submit.validator'), 'Symfony\\Component\\Form\\Extension\\Core\\Type\\ChoiceType' => array(0 => 'sonata.admin.form.extension.choice')), array(0 => 'form.type_guesser.validator', 1 => 'form.type_guesser.doctrine'), array('form' => 'Symfony\\Component\\Form\\Extension\\Core\\Type\\FormType', 'birthday' => 'Symfony\\Component\\Form\\Extension\\Core\\Type\\BirthdayType', 'checkbox' => 'Symfony\\Component\\Form\\Extension\\Core\\Type\\CheckboxType', 'choice' => 'Symfony\\Component\\Form\\Extension\\Core\\Type\\ChoiceType', 'collection' => 'Symfony\\Component\\Form\\Extension\\Core\\Type\\CollectionType', 'country' => 'Symfony\\Component\\Form\\Extension\\Core\\Type\\CountryType', 'date' => 'Symfony\\Component\\Form\\Extension\\Core\\Type\\DateType', 'datetime' => 'Symfony\\Component\\Form\\Extension\\Core\\Type\\DateTimeType', 'email' => 'Symfony\\Component\\Form\\Extension\\Core\\Type\\EmailType', 'file' => 'Symfony\\Component\\Form\\Extension\\Core\\Type\\FileType', 'hidden' => 'Symfony\\Component\\Form\\Extension\\Core\\Type\\HiddenType', 'integer' => 'Symfony\\Component\\Form\\Extension\\Core\\Type\\IntegerType', 'language' => 'Symfony\\Component\\Form\\Extension\\Core\\Type\\LanguageType', 'locale' => 'Symfony\\Component\\Form\\Extension\\Core\\Type\\LocaleType', 'money' => 'Symfony\\Component\\Form\\Extension\\Core\\Type\\MoneyType', 'number' => 'Symfony\\Component\\Form\\Extension\\Core\\Type\\NumberType', 'password' => 'Symfony\\Component\\Form\\Extension\\Core\\Type\\PasswordType', 'percent' => 'Symfony\\Component\\Form\\Extension\\Core\\Type\\PercentType', 'radio' => 'Symfony\\Component\\Form\\Extension\\Core\\Type\\RadioType', 'repeated' => 'Symfony\\Component\\Form\\Extension\\Core\\Type\\RepeatedType', 'search' => 'Symfony\\Component\\Form\\Extension\\Core\\Type\\SearchType', 'textarea' => 'Symfony\\Component\\Form\\Extension\\Core\\Type\\TextareaType', 'text' => 'Symfony\\Component\\Form\\Extension\\Core\\Type\\TextType', 'time' => 'Symfony\\Component\\Form\\Extension\\Core\\Type\\TimeType', 'timezone' => 'Symfony\\Component\\Form\\Extension\\Core\\Type\\TimezoneType', 'url' => 'Symfony\\Component\\Form\\Extension\\Core\\Type\\UrlType', 'button' => 'Symfony\\Component\\Form\\Extension\\Core\\Type\\ButtonType', 'submit' => 'Symfony\\Component\\Form\\Extension\\Core\\Type\\SubmitType', 'reset' => 'Symfony\\Component\\Form\\Extension\\Core\\Type\\ResetType', 'currency' => 'Symfony\\Component\\Form\\Extension\\Core\\Type\\CurrencyType', 'entity' => 'Symfony\\Bridge\\Doctrine\\Form\\Type\\EntityType', 'sonata_type_immutable_array' => 'Sonata\\CoreBundle\\Form\\Type\\ImmutableArrayType', 'sonata_type_boolean' => 'Sonata\\CoreBundle\\Form\\Type\\BooleanType', 'sonata_type_collection' => 'Sonata\\CoreBundle\\Form\\Type\\CollectionType', 'sonata_type_translatable_choice' => 'Sonata\\CoreBundle\\Form\\Type\\TranslatableChoiceType', 'sonata_type_date_range' => 'Sonata\\CoreBundle\\Form\\Type\\DateRangeType', 'sonata_type_datetime_range' => 'Sonata\\CoreBundle\\Form\\Type\\DateTimeRangeType', 'sonata_type_date_picker' => 'Sonata\\CoreBundle\\Form\\Type\\DatePickerType', 'sonata_type_datetime_picker' => 'Sonata\\CoreBundle\\Form\\Type\\DateTimePickerType', 'sonata_type_date_range_picker' => 'Sonata\\CoreBundle\\Form\\Type\\DateRangePickerType', 'sonata_type_datetime_range_picker' => 'Sonata\\CoreBundle\\Form\\Type\\DateTimeRangePickerType', 'sonata_type_equal' => 'Sonata\\CoreBundle\\Form\\Type\\EqualType', 'sonata_type_color_selector' => 'Sonata\\CoreBundle\\Form\\Type\\ColorSelectorType', 'sonata_block_service_choice' => 'Sonata\\BlockBundle\\Form\\Type\\ServiceListType', 'sonata_type_container_template_choice' => 'Sonata\\BlockBundle\\Form\\Type\\ContainerTemplateType', 'sonata_type_admin' => 'Sonata\\AdminBundle\\Form\\Type\\AdminType', 'sonata_type_model' => 'Sonata\\AdminBundle\\Form\\Type\\ModelType', 'sonata_type_model_list' => 'Sonata\\AdminBundle\\Form\\Type\\ModelListType', 'sonata_type_model_reference' => 'Sonata\\AdminBundle\\Form\\Type\\ModelReferenceType', 'sonata_type_model_hidden' => 'Sonata\\AdminBundle\\Form\\Type\\ModelHiddenType', 'sonata_type_model_autocomplete' => 'Sonata\\AdminBundle\\Form\\Type\\ModelAutocompleteType', 'sonata_type_native_collection' => 'Sonata\\AdminBundle\\Form\\Type\\CollectionType', 'sonata_type_choice_field_mask' => 'Sonata\\AdminBundle\\Form\\Type\\ChoiceFieldMaskType', 'sonata_type_filter_number' => 'Sonata\\AdminBundle\\Form\\Type\\Filter\\NumberType', 'sonata_type_filter_choice' => 'Sonata\\AdminBundle\\Form\\Type\\Filter\\ChoiceType', 'sonata_type_filter_default' => 'Sonata\\AdminBundle\\Form\\Type\\Filter\\DefaultType', 'sonata_type_filter_date' => 'Sonata\\AdminBundle\\Form\\Type\\Filter\\DateType', 'sonata_type_filter_date_range' => 'Sonata\\AdminBundle\\Form\\Type\\Filter\\DateRangeType', 'sonata_type_filter_datetime' => 'Sonata\\AdminBundle\\Form\\Type\\Filter\\DateTimeType', 'sonata_type_filter_datetime_range' => 'Sonata\\AdminBundle\\Form\\Type\\Filter\\DateTimeRangeType', 'tab' => 'Mopa\\Bundle\\BootstrapBundle\\Form\\Type\\TabType', 'sonata_media_type' => 'Sonata\\MediaBundle\\Form\\Type\\MediaType', 'sonata_media_api_form_media' => 'Sonata\\MediaBundle\\Form\\Type\\ApiMediaType', 'sonata_media_api_form_doctrine_media' => 'Sonata\\MediaBundle\\Form\\Type\\ApiDoctrineMediaType', 'sonata_media_api_form_gallery' => 'Sonata\\MediaBundle\\Form\\Type\\ApiGalleryType', 'sonata_media_api_form_gallery_has_media' => 'Sonata\\MediaBundle\\Form\\Type\\ApiGalleryHasMediaType', 'sonata_classification_api_form_category' => 'Sonata\\ClassificationBundle\\Form\\Type\\ApiCategoryType', 'sonata_classification_api_form_collection' => 'Sonata\\ClassificationBundle\\Form\\Type\\ApiCollectionType', 'sonata_classification_api_form_tag' => 'Sonata\\ClassificationBundle\\Form\\Type\\ApiTagType', 'sonata_classification_api_form_context' => 'Sonata\\ClassificationBundle\\Form\\Type\\ApiContextType', 'sonata_category_selector' => 'Sonata\\ClassificationBundle\\Form\\Type\\CategorySelectorType'), array('form' => array(0 => 'form.type_extension.form.http_foundation', 1 => 'form.type_extension.form.validator', 2 => 'form.type_extension.csrf', 3 => 'form.type_extension.form.data_collector', 4 => 'sonata.admin.form.extension.field', 5 => 'mopa_bootstrap.form.type_extension.help', 6 => 'mopa_bootstrap.form.type_extension.legend', 7 => 'mopa_bootstrap.form.type_extension.error', 8 => 'mopa_bootstrap.form.type_extension.widget', 9 => 'mopa_bootstrap.form.type_extension.horizontal', 10 => 'mopa_bootstrap.form.type_extension.widget_collection', 11 => 'mopa_bootstrap.form.type_extension.tabbed'), 'repeated' => array(0 => 'form.type_extension.repeated.validator'), 'submit' => array(0 => 'form.type_extension.submit.validator'), 'choice' => array(0 => 'sonata.admin.form.extension.choice'), 'button' => array(0 => 'mopa_bootstrap.form.type_extension.button'), 'date' => array(0 => 'mopa_bootstrap.form.type_extension.date')), array());
+        return $this->services['form.extension'] = new \Sonata\CoreBundle\Form\Extension\DependencyInjectionExtension($this, array('fos_user_profile_edit' => 'app.form.profile', 'BackendBundle\\Form\\fos_user\\ProfileFormType' => 'app.form.profile', 'fos_user_registration' => 'fos_user.registration.form.type', 'BackendBundle\\Form\\fos_user\\RegistrationFormType' => 'app.form.registration', 'form' => 'form.type.form', 'Symfony\\Component\\Form\\Extension\\Core\\Type\\FormType' => 'form.type.form', 'birthday' => 'form.type.birthday', 'Symfony\\Component\\Form\\Extension\\Core\\Type\\BirthdayType' => 'form.type.birthday', 'checkbox' => 'form.type.checkbox', 'Symfony\\Component\\Form\\Extension\\Core\\Type\\CheckboxType' => 'form.type.checkbox', 'choice' => 'form.type.choice', 'Symfony\\Component\\Form\\Extension\\Core\\Type\\ChoiceType' => 'form.type.choice', 'collection' => 'form.type.collection', 'Symfony\\Component\\Form\\Extension\\Core\\Type\\CollectionType' => 'form.type.collection', 'country' => 'form.type.country', 'Symfony\\Component\\Form\\Extension\\Core\\Type\\CountryType' => 'form.type.country', 'date' => 'form.type.date', 'Symfony\\Component\\Form\\Extension\\Core\\Type\\DateType' => 'form.type.date', 'datetime' => 'form.type.datetime', 'Symfony\\Component\\Form\\Extension\\Core\\Type\\DateTimeType' => 'form.type.datetime', 'email' => 'form.type.email', 'Symfony\\Component\\Form\\Extension\\Core\\Type\\EmailType' => 'form.type.email', 'file' => 'form.type.file', 'Symfony\\Component\\Form\\Extension\\Core\\Type\\FileType' => 'form.type.file', 'hidden' => 'form.type.hidden', 'Symfony\\Component\\Form\\Extension\\Core\\Type\\HiddenType' => 'form.type.hidden', 'integer' => 'form.type.integer', 'Symfony\\Component\\Form\\Extension\\Core\\Type\\IntegerType' => 'form.type.integer', 'language' => 'form.type.language', 'Symfony\\Component\\Form\\Extension\\Core\\Type\\LanguageType' => 'form.type.language', 'locale' => 'form.type.locale', 'Symfony\\Component\\Form\\Extension\\Core\\Type\\LocaleType' => 'form.type.locale', 'money' => 'form.type.money', 'Symfony\\Component\\Form\\Extension\\Core\\Type\\MoneyType' => 'form.type.money', 'number' => 'form.type.number', 'Symfony\\Component\\Form\\Extension\\Core\\Type\\NumberType' => 'form.type.number', 'password' => 'form.type.password', 'Symfony\\Component\\Form\\Extension\\Core\\Type\\PasswordType' => 'form.type.password', 'percent' => 'form.type.percent', 'Symfony\\Component\\Form\\Extension\\Core\\Type\\PercentType' => 'form.type.percent', 'radio' => 'form.type.radio', 'Symfony\\Component\\Form\\Extension\\Core\\Type\\RadioType' => 'form.type.radio', 'range' => 'form.type.range', 'Symfony\\Component\\Form\\Extension\\Core\\Type\\RangeType' => 'form.type.range', 'repeated' => 'form.type.repeated', 'Symfony\\Component\\Form\\Extension\\Core\\Type\\RepeatedType' => 'form.type.repeated', 'search' => 'form.type.search', 'Symfony\\Component\\Form\\Extension\\Core\\Type\\SearchType' => 'form.type.search', 'textarea' => 'form.type.textarea', 'Symfony\\Component\\Form\\Extension\\Core\\Type\\TextareaType' => 'form.type.textarea', 'text' => 'form.type.text', 'Symfony\\Component\\Form\\Extension\\Core\\Type\\TextType' => 'form.type.text', 'time' => 'form.type.time', 'Symfony\\Component\\Form\\Extension\\Core\\Type\\TimeType' => 'form.type.time', 'timezone' => 'form.type.timezone', 'Symfony\\Component\\Form\\Extension\\Core\\Type\\TimezoneType' => 'form.type.timezone', 'url' => 'form.type.url', 'Symfony\\Component\\Form\\Extension\\Core\\Type\\UrlType' => 'form.type.url', 'button' => 'form.type.button', 'Symfony\\Component\\Form\\Extension\\Core\\Type\\ButtonType' => 'form.type.button', 'submit' => 'form.type.submit', 'Symfony\\Component\\Form\\Extension\\Core\\Type\\SubmitType' => 'form.type.submit', 'reset' => 'form.type.reset', 'Symfony\\Component\\Form\\Extension\\Core\\Type\\ResetType' => 'form.type.reset', 'currency' => 'form.type.currency', 'Symfony\\Component\\Form\\Extension\\Core\\Type\\CurrencyType' => 'form.type.currency', 'entity' => 'form.type.entity', 'Symfony\\Bridge\\Doctrine\\Form\\Type\\EntityType' => 'form.type.entity', 'fos_user_username' => 'fos_user.username_form_type', 'FOS\\UserBundle\\Form\\Type\\UsernameFormType' => 'fos_user.username_form_type', 'fos_user_profile' => 'fos_user.profile.form.type', 'FOS\\UserBundle\\Form\\Type\\ProfileFormType' => 'fos_user.profile.form.type', 'FOS\\UserBundle\\Form\\Type\\RegistrationFormType' => 'fos_user.registration.form.type', 'fos_user_change_password' => 'fos_user.change_password.form.type', 'FOS\\UserBundle\\Form\\Type\\ChangePasswordFormType' => 'fos_user.change_password.form.type', 'fos_user_resetting' => 'fos_user.resetting.form.type', 'FOS\\UserBundle\\Form\\Type\\ResettingFormType' => 'fos_user.resetting.form.type', 'sonata_type_immutable_array' => 'sonata.core.form.type.array', 'Sonata\\CoreBundle\\Form\\Type\\ImmutableArrayType' => 'sonata.core.form.type.array', 'sonata_type_boolean' => 'sonata.core.form.type.boolean', 'Sonata\\CoreBundle\\Form\\Type\\BooleanType' => 'sonata.core.form.type.boolean', 'sonata_type_collection' => 'sonata.core.form.type.collection', 'Sonata\\CoreBundle\\Form\\Type\\CollectionType' => 'sonata.core.form.type.collection', 'sonata_type_translatable_choice' => 'sonata.core.form.type.translatable_choice', 'Sonata\\CoreBundle\\Form\\Type\\TranslatableChoiceType' => 'sonata.core.form.type.translatable_choice', 'sonata_type_date_range' => 'sonata.core.form.type.date_range', 'Sonata\\CoreBundle\\Form\\Type\\DateRangeType' => 'sonata.core.form.type.date_range', 'sonata_type_datetime_range' => 'sonata.core.form.type.datetime_range', 'Sonata\\CoreBundle\\Form\\Type\\DateTimeRangeType' => 'sonata.core.form.type.datetime_range', 'sonata_type_date_picker' => 'sonata.core.form.type.date_picker', 'Sonata\\CoreBundle\\Form\\Type\\DatePickerType' => 'sonata.core.form.type.date_picker', 'sonata_type_datetime_picker' => 'sonata.core.form.type.datetime_picker', 'Sonata\\CoreBundle\\Form\\Type\\DateTimePickerType' => 'sonata.core.form.type.datetime_picker', 'sonata_type_date_range_picker' => 'sonata.core.form.type.date_range_picker', 'Sonata\\CoreBundle\\Form\\Type\\DateRangePickerType' => 'sonata.core.form.type.date_range_picker', 'sonata_type_datetime_range_picker' => 'sonata.core.form.type.datetime_range_picker', 'Sonata\\CoreBundle\\Form\\Type\\DateTimeRangePickerType' => 'sonata.core.form.type.datetime_range_picker', 'sonata_type_equal' => 'sonata.core.form.type.equal', 'Sonata\\CoreBundle\\Form\\Type\\EqualType' => 'sonata.core.form.type.equal', 'sonata_type_color_selector' => 'sonata.core.form.type.color_selector', 'Sonata\\CoreBundle\\Form\\Type\\ColorSelectorType' => 'sonata.core.form.type.color_selector', 'sonata_block_service_choice' => 'sonata.block.form.type.block', 'Sonata\\BlockBundle\\Form\\Type\\ServiceListType' => 'sonata.block.form.type.block', 'sonata_type_container_template_choice' => 'sonata.block.form.type.container_template', 'Sonata\\BlockBundle\\Form\\Type\\ContainerTemplateType' => 'sonata.block.form.type.container_template', 'sonata_category_selector' => 'sonata.classification.form.type.category_selector', 'Sonata\\ClassificationBundle\\Form\\Type\\CategorySelectorType' => 'sonata.classification.form.type.category_selector', 'sonata_type_admin' => 'sonata.admin.form.type.admin', 'Sonata\\AdminBundle\\Form\\Type\\AdminType' => 'sonata.admin.form.type.admin', 'sonata_type_model' => 'sonata.admin.form.type.model_choice', 'Sonata\\AdminBundle\\Form\\Type\\ModelType' => 'sonata.admin.form.type.model_choice', 'sonata_type_model_list' => 'sonata.admin.form.type.model_list', 'Sonata\\AdminBundle\\Form\\Type\\ModelListType' => 'sonata.admin.form.type.model_list', 'sonata_type_model_reference' => 'sonata.admin.form.type.model_reference', 'Sonata\\AdminBundle\\Form\\Type\\ModelReferenceType' => 'sonata.admin.form.type.model_reference', 'sonata_type_model_hidden' => 'sonata.admin.form.type.model_hidden', 'Sonata\\AdminBundle\\Form\\Type\\ModelHiddenType' => 'sonata.admin.form.type.model_hidden', 'sonata_type_model_autocomplete' => 'sonata.admin.form.type.model_autocomplete', 'Sonata\\AdminBundle\\Form\\Type\\ModelAutocompleteType' => 'sonata.admin.form.type.model_autocomplete', 'sonata_type_native_collection' => 'sonata.admin.form.type.collection', 'Sonata\\AdminBundle\\Form\\Type\\CollectionType' => 'sonata.admin.form.type.collection', 'sonata_type_choice_field_mask' => 'sonata.admin.doctrine_orm.form.type.choice_field_mask', 'Sonata\\AdminBundle\\Form\\Type\\ChoiceFieldMaskType' => 'sonata.admin.doctrine_orm.form.type.choice_field_mask', 'sonata_type_filter_number' => 'sonata.admin.form.filter.type.number', 'Sonata\\AdminBundle\\Form\\Type\\Filter\\NumberType' => 'sonata.admin.form.filter.type.number', 'sonata_type_filter_choice' => 'sonata.admin.form.filter.type.choice', 'Sonata\\AdminBundle\\Form\\Type\\Filter\\ChoiceType' => 'sonata.admin.form.filter.type.choice', 'sonata_type_filter_default' => 'sonata.admin.form.filter.type.default', 'Sonata\\AdminBundle\\Form\\Type\\Filter\\DefaultType' => 'sonata.admin.form.filter.type.default', 'sonata_type_filter_date' => 'sonata.admin.form.filter.type.date', 'Sonata\\AdminBundle\\Form\\Type\\Filter\\DateType' => 'sonata.admin.form.filter.type.date', 'sonata_type_filter_date_range' => 'sonata.admin.form.filter.type.daterange', 'Sonata\\AdminBundle\\Form\\Type\\Filter\\DateRangeType' => 'sonata.admin.form.filter.type.daterange', 'sonata_type_filter_datetime' => 'sonata.admin.form.filter.type.datetime', 'Sonata\\AdminBundle\\Form\\Type\\Filter\\DateTimeType' => 'sonata.admin.form.filter.type.datetime', 'sonata_type_filter_datetime_range' => 'sonata.admin.form.filter.type.datetime_range', 'Sonata\\AdminBundle\\Form\\Type\\Filter\\DateTimeRangeType' => 'sonata.admin.form.filter.type.datetime_range', 'sonata_media_type' => 'sonata.media.form.type.media', 'Sonata\\MediaBundle\\Form\\Type\\MediaType' => 'sonata.media.form.type.media', 'easyadmin.form.type' => 'easyadmin.form.type', 'JavierEguiluz\\Bundle\\EasyAdminBundle\\Form\\Type\\EasyAdminFormType' => 'easyadmin.form.type', 'easyadmin_autocomplete' => 'easyadmin.form.type.autocomplete', 'JavierEguiluz\\Bundle\\EasyAdminBundle\\Form\\Type\\EasyAdminAutocompleteType' => 'easyadmin.form.type.autocomplete', 'easyadmin_divider' => 'easyadmin.form.type.divider', 'JavierEguiluz\\Bundle\\EasyAdminBundle\\Form\\Type\\EasyAdminDividerType' => 'easyadmin.form.type.divider', 'easyadmin_section' => 'easyadmin.form.type.section', 'JavierEguiluz\\Bundle\\EasyAdminBundle\\Form\\Type\\EasyAdminSectionType' => 'easyadmin.form.type.section', 'easyadmin_group' => 'easyadmin.form.type.group', 'JavierEguiluz\\Bundle\\EasyAdminBundle\\Form\\Type\\EasyAdminGroupType' => 'easyadmin.form.type.group', 'vich_file' => 'vich_uploader.form.type.file', 'Vich\\UploaderBundle\\Form\\Type\\VichFileType' => 'vich_uploader.form.type.file', 'vich_image' => 'vich_uploader.form.type.image', 'Vich\\UploaderBundle\\Form\\Type\\VichImageType' => 'vich_uploader.form.type.image'), array('Symfony\\Component\\Form\\Extension\\Core\\Type\\FormType' => array(0 => 'form.type_extension.form.http_foundation', 1 => 'form.type_extension.form.validator', 2 => 'form.type_extension.upload.validator', 3 => 'form.type_extension.csrf', 4 => 'sonata.admin.form.extension.field', 5 => 'sonata.admin.form.extension.field.mopa', 6 => 'easyadmin.form.type.extension'), 'Symfony\\Component\\Form\\Extension\\Core\\Type\\RepeatedType' => array(0 => 'form.type_extension.repeated.validator'), 'Symfony\\Component\\Form\\Extension\\Core\\Type\\SubmitType' => array(0 => 'form.type_extension.submit.validator'), 'Symfony\\Component\\Form\\Extension\\Core\\Type\\ChoiceType' => array(0 => 'sonata.admin.form.extension.choice')), array(0 => 'form.type_guesser.validator', 1 => 'form.type_guesser.doctrine'), array('form' => 'Symfony\\Component\\Form\\Extension\\Core\\Type\\FormType', 'birthday' => 'Symfony\\Component\\Form\\Extension\\Core\\Type\\BirthdayType', 'checkbox' => 'Symfony\\Component\\Form\\Extension\\Core\\Type\\CheckboxType', 'choice' => 'Symfony\\Component\\Form\\Extension\\Core\\Type\\ChoiceType', 'collection' => 'Symfony\\Component\\Form\\Extension\\Core\\Type\\CollectionType', 'country' => 'Symfony\\Component\\Form\\Extension\\Core\\Type\\CountryType', 'date' => 'Symfony\\Component\\Form\\Extension\\Core\\Type\\DateType', 'datetime' => 'Symfony\\Component\\Form\\Extension\\Core\\Type\\DateTimeType', 'email' => 'Symfony\\Component\\Form\\Extension\\Core\\Type\\EmailType', 'file' => 'Symfony\\Component\\Form\\Extension\\Core\\Type\\FileType', 'hidden' => 'Symfony\\Component\\Form\\Extension\\Core\\Type\\HiddenType', 'integer' => 'Symfony\\Component\\Form\\Extension\\Core\\Type\\IntegerType', 'language' => 'Symfony\\Component\\Form\\Extension\\Core\\Type\\LanguageType', 'locale' => 'Symfony\\Component\\Form\\Extension\\Core\\Type\\LocaleType', 'money' => 'Symfony\\Component\\Form\\Extension\\Core\\Type\\MoneyType', 'number' => 'Symfony\\Component\\Form\\Extension\\Core\\Type\\NumberType', 'password' => 'Symfony\\Component\\Form\\Extension\\Core\\Type\\PasswordType', 'percent' => 'Symfony\\Component\\Form\\Extension\\Core\\Type\\PercentType', 'radio' => 'Symfony\\Component\\Form\\Extension\\Core\\Type\\RadioType', 'repeated' => 'Symfony\\Component\\Form\\Extension\\Core\\Type\\RepeatedType', 'search' => 'Symfony\\Component\\Form\\Extension\\Core\\Type\\SearchType', 'textarea' => 'Symfony\\Component\\Form\\Extension\\Core\\Type\\TextareaType', 'text' => 'Symfony\\Component\\Form\\Extension\\Core\\Type\\TextType', 'time' => 'Symfony\\Component\\Form\\Extension\\Core\\Type\\TimeType', 'timezone' => 'Symfony\\Component\\Form\\Extension\\Core\\Type\\TimezoneType', 'url' => 'Symfony\\Component\\Form\\Extension\\Core\\Type\\UrlType', 'button' => 'Symfony\\Component\\Form\\Extension\\Core\\Type\\ButtonType', 'submit' => 'Symfony\\Component\\Form\\Extension\\Core\\Type\\SubmitType', 'reset' => 'Symfony\\Component\\Form\\Extension\\Core\\Type\\ResetType', 'currency' => 'Symfony\\Component\\Form\\Extension\\Core\\Type\\CurrencyType', 'entity' => 'Symfony\\Bridge\\Doctrine\\Form\\Type\\EntityType', 'sonata_type_immutable_array' => 'Sonata\\CoreBundle\\Form\\Type\\ImmutableArrayType', 'sonata_type_boolean' => 'Sonata\\CoreBundle\\Form\\Type\\BooleanType', 'sonata_type_collection' => 'Sonata\\CoreBundle\\Form\\Type\\CollectionType', 'sonata_type_translatable_choice' => 'Sonata\\CoreBundle\\Form\\Type\\TranslatableChoiceType', 'sonata_type_date_range' => 'Sonata\\CoreBundle\\Form\\Type\\DateRangeType', 'sonata_type_datetime_range' => 'Sonata\\CoreBundle\\Form\\Type\\DateTimeRangeType', 'sonata_type_date_picker' => 'Sonata\\CoreBundle\\Form\\Type\\DatePickerType', 'sonata_type_datetime_picker' => 'Sonata\\CoreBundle\\Form\\Type\\DateTimePickerType', 'sonata_type_date_range_picker' => 'Sonata\\CoreBundle\\Form\\Type\\DateRangePickerType', 'sonata_type_datetime_range_picker' => 'Sonata\\CoreBundle\\Form\\Type\\DateTimeRangePickerType', 'sonata_type_equal' => 'Sonata\\CoreBundle\\Form\\Type\\EqualType', 'sonata_type_color_selector' => 'Sonata\\CoreBundle\\Form\\Type\\ColorSelectorType', 'sonata_block_service_choice' => 'Sonata\\BlockBundle\\Form\\Type\\ServiceListType', 'sonata_type_container_template_choice' => 'Sonata\\BlockBundle\\Form\\Type\\ContainerTemplateType', 'sonata_classification_api_form_category' => 'Sonata\\ClassificationBundle\\Form\\Type\\ApiCategoryType', 'sonata_classification_api_form_collection' => 'Sonata\\ClassificationBundle\\Form\\Type\\ApiCollectionType', 'sonata_classification_api_form_tag' => 'Sonata\\ClassificationBundle\\Form\\Type\\ApiTagType', 'sonata_classification_api_form_context' => 'Sonata\\ClassificationBundle\\Form\\Type\\ApiContextType', 'sonata_category_selector' => 'Sonata\\ClassificationBundle\\Form\\Type\\CategorySelectorType', 'sonata_type_admin' => 'Sonata\\AdminBundle\\Form\\Type\\AdminType', 'sonata_type_model' => 'Sonata\\AdminBundle\\Form\\Type\\ModelType', 'sonata_type_model_list' => 'Sonata\\AdminBundle\\Form\\Type\\ModelListType', 'sonata_type_model_reference' => 'Sonata\\AdminBundle\\Form\\Type\\ModelReferenceType', 'sonata_type_model_hidden' => 'Sonata\\AdminBundle\\Form\\Type\\ModelHiddenType', 'sonata_type_model_autocomplete' => 'Sonata\\AdminBundle\\Form\\Type\\ModelAutocompleteType', 'sonata_type_native_collection' => 'Sonata\\AdminBundle\\Form\\Type\\CollectionType', 'sonata_type_choice_field_mask' => 'Sonata\\AdminBundle\\Form\\Type\\ChoiceFieldMaskType', 'sonata_type_filter_number' => 'Sonata\\AdminBundle\\Form\\Type\\Filter\\NumberType', 'sonata_type_filter_choice' => 'Sonata\\AdminBundle\\Form\\Type\\Filter\\ChoiceType', 'sonata_type_filter_default' => 'Sonata\\AdminBundle\\Form\\Type\\Filter\\DefaultType', 'sonata_type_filter_date' => 'Sonata\\AdminBundle\\Form\\Type\\Filter\\DateType', 'sonata_type_filter_date_range' => 'Sonata\\AdminBundle\\Form\\Type\\Filter\\DateRangeType', 'sonata_type_filter_datetime' => 'Sonata\\AdminBundle\\Form\\Type\\Filter\\DateTimeType', 'sonata_type_filter_datetime_range' => 'Sonata\\AdminBundle\\Form\\Type\\Filter\\DateTimeRangeType', 'tab' => 'Mopa\\Bundle\\BootstrapBundle\\Form\\Type\\TabType', 'sonata_media_type' => 'Sonata\\MediaBundle\\Form\\Type\\MediaType', 'sonata_media_api_form_media' => 'Sonata\\MediaBundle\\Form\\Type\\ApiMediaType', 'sonata_media_api_form_doctrine_media' => 'Sonata\\MediaBundle\\Form\\Type\\ApiDoctrineMediaType', 'sonata_media_api_form_gallery' => 'Sonata\\MediaBundle\\Form\\Type\\ApiGalleryType', 'sonata_media_api_form_gallery_has_media' => 'Sonata\\MediaBundle\\Form\\Type\\ApiGalleryHasMediaType'), array('form' => array(0 => 'form.type_extension.form.http_foundation', 1 => 'form.type_extension.form.validator', 2 => 'form.type_extension.csrf', 3 => 'form.type_extension.form.data_collector', 4 => 'sonata.admin.form.extension.field', 5 => 'mopa_bootstrap.form.type_extension.help', 6 => 'mopa_bootstrap.form.type_extension.legend', 7 => 'mopa_bootstrap.form.type_extension.error', 8 => 'mopa_bootstrap.form.type_extension.widget', 9 => 'mopa_bootstrap.form.type_extension.horizontal', 10 => 'mopa_bootstrap.form.type_extension.widget_collection', 11 => 'mopa_bootstrap.form.type_extension.tabbed'), 'repeated' => array(0 => 'form.type_extension.repeated.validator'), 'submit' => array(0 => 'form.type_extension.submit.validator'), 'choice' => array(0 => 'sonata.admin.form.extension.choice'), 'button' => array(0 => 'mopa_bootstrap.form.type_extension.button'), 'date' => array(0 => 'mopa_bootstrap.form.type_extension.date')), array());
     }
 
     /*
-     * Gets the 'form.factory' service.
+     * Gets the public 'form.factory' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return \Symfony\Component\Form\FormFactory A Symfony\Component\Form\FormFactory instance
+     * @return \Symfony\Component\Form\FormFactory
      */
     protected function getForm_FactoryService()
     {
@@ -1180,12 +1112,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'form.registry' service.
+     * Gets the public 'form.registry' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return \Symfony\Component\Form\FormRegistry A Symfony\Component\Form\FormRegistry instance
+     * @return \Symfony\Component\Form\FormRegistry
      */
     protected function getForm_RegistryService()
     {
@@ -1193,12 +1122,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'form.resolved_type_factory' service.
+     * Gets the public 'form.resolved_type_factory' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return \Symfony\Component\Form\ResolvedFormTypeFactory A Symfony\Component\Form\ResolvedFormTypeFactory instance
+     * @return \Symfony\Component\Form\ResolvedFormTypeFactory
      */
     protected function getForm_ResolvedTypeFactoryService()
     {
@@ -1206,12 +1132,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'form.type.birthday' service.
+     * Gets the public 'form.type.birthday' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return \Symfony\Component\Form\Extension\Core\Type\BirthdayType A Symfony\Component\Form\Extension\Core\Type\BirthdayType instance
+     * @return \Symfony\Component\Form\Extension\Core\Type\BirthdayType
      */
     protected function getForm_Type_BirthdayService()
     {
@@ -1219,12 +1142,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'form.type.button' service.
+     * Gets the public 'form.type.button' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return \Symfony\Component\Form\Extension\Core\Type\ButtonType A Symfony\Component\Form\Extension\Core\Type\ButtonType instance
+     * @return \Symfony\Component\Form\Extension\Core\Type\ButtonType
      */
     protected function getForm_Type_ButtonService()
     {
@@ -1232,12 +1152,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'form.type.checkbox' service.
+     * Gets the public 'form.type.checkbox' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return \Symfony\Component\Form\Extension\Core\Type\CheckboxType A Symfony\Component\Form\Extension\Core\Type\CheckboxType instance
+     * @return \Symfony\Component\Form\Extension\Core\Type\CheckboxType
      */
     protected function getForm_Type_CheckboxService()
     {
@@ -1245,12 +1162,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'form.type.choice' service.
+     * Gets the public 'form.type.choice' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return \Symfony\Component\Form\Extension\Core\Type\ChoiceType A Symfony\Component\Form\Extension\Core\Type\ChoiceType instance
+     * @return \Symfony\Component\Form\Extension\Core\Type\ChoiceType
      */
     protected function getForm_Type_ChoiceService()
     {
@@ -1258,12 +1172,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'form.type.collection' service.
+     * Gets the public 'form.type.collection' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return \Symfony\Component\Form\Extension\Core\Type\CollectionType A Symfony\Component\Form\Extension\Core\Type\CollectionType instance
+     * @return \Symfony\Component\Form\Extension\Core\Type\CollectionType
      */
     protected function getForm_Type_CollectionService()
     {
@@ -1271,12 +1182,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'form.type.country' service.
+     * Gets the public 'form.type.country' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return \Symfony\Component\Form\Extension\Core\Type\CountryType A Symfony\Component\Form\Extension\Core\Type\CountryType instance
+     * @return \Symfony\Component\Form\Extension\Core\Type\CountryType
      */
     protected function getForm_Type_CountryService()
     {
@@ -1284,12 +1192,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'form.type.currency' service.
+     * Gets the public 'form.type.currency' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return \Symfony\Component\Form\Extension\Core\Type\CurrencyType A Symfony\Component\Form\Extension\Core\Type\CurrencyType instance
+     * @return \Symfony\Component\Form\Extension\Core\Type\CurrencyType
      */
     protected function getForm_Type_CurrencyService()
     {
@@ -1297,12 +1202,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'form.type.date' service.
+     * Gets the public 'form.type.date' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return \Symfony\Component\Form\Extension\Core\Type\DateType A Symfony\Component\Form\Extension\Core\Type\DateType instance
+     * @return \Symfony\Component\Form\Extension\Core\Type\DateType
      */
     protected function getForm_Type_DateService()
     {
@@ -1310,12 +1212,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'form.type.datetime' service.
+     * Gets the public 'form.type.datetime' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return \Symfony\Component\Form\Extension\Core\Type\DateTimeType A Symfony\Component\Form\Extension\Core\Type\DateTimeType instance
+     * @return \Symfony\Component\Form\Extension\Core\Type\DateTimeType
      */
     protected function getForm_Type_DatetimeService()
     {
@@ -1323,12 +1222,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'form.type.email' service.
+     * Gets the public 'form.type.email' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return \Symfony\Component\Form\Extension\Core\Type\EmailType A Symfony\Component\Form\Extension\Core\Type\EmailType instance
+     * @return \Symfony\Component\Form\Extension\Core\Type\EmailType
      */
     protected function getForm_Type_EmailService()
     {
@@ -1336,12 +1232,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'form.type.entity' service.
+     * Gets the public 'form.type.entity' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return \Symfony\Bridge\Doctrine\Form\Type\EntityType A Symfony\Bridge\Doctrine\Form\Type\EntityType instance
+     * @return \Symfony\Bridge\Doctrine\Form\Type\EntityType
      */
     protected function getForm_Type_EntityService()
     {
@@ -1349,12 +1242,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'form.type.file' service.
+     * Gets the public 'form.type.file' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return \Symfony\Component\Form\Extension\Core\Type\FileType A Symfony\Component\Form\Extension\Core\Type\FileType instance
+     * @return \Symfony\Component\Form\Extension\Core\Type\FileType
      */
     protected function getForm_Type_FileService()
     {
@@ -1362,12 +1252,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'form.type.form' service.
+     * Gets the public 'form.type.form' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return \Symfony\Component\Form\Extension\Core\Type\FormType A Symfony\Component\Form\Extension\Core\Type\FormType instance
+     * @return \Symfony\Component\Form\Extension\Core\Type\FormType
      */
     protected function getForm_Type_FormService()
     {
@@ -1375,12 +1262,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'form.type.hidden' service.
+     * Gets the public 'form.type.hidden' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return \Symfony\Component\Form\Extension\Core\Type\HiddenType A Symfony\Component\Form\Extension\Core\Type\HiddenType instance
+     * @return \Symfony\Component\Form\Extension\Core\Type\HiddenType
      */
     protected function getForm_Type_HiddenService()
     {
@@ -1388,12 +1272,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'form.type.integer' service.
+     * Gets the public 'form.type.integer' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return \Symfony\Component\Form\Extension\Core\Type\IntegerType A Symfony\Component\Form\Extension\Core\Type\IntegerType instance
+     * @return \Symfony\Component\Form\Extension\Core\Type\IntegerType
      */
     protected function getForm_Type_IntegerService()
     {
@@ -1401,12 +1282,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'form.type.language' service.
+     * Gets the public 'form.type.language' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return \Symfony\Component\Form\Extension\Core\Type\LanguageType A Symfony\Component\Form\Extension\Core\Type\LanguageType instance
+     * @return \Symfony\Component\Form\Extension\Core\Type\LanguageType
      */
     protected function getForm_Type_LanguageService()
     {
@@ -1414,12 +1292,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'form.type.locale' service.
+     * Gets the public 'form.type.locale' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return \Symfony\Component\Form\Extension\Core\Type\LocaleType A Symfony\Component\Form\Extension\Core\Type\LocaleType instance
+     * @return \Symfony\Component\Form\Extension\Core\Type\LocaleType
      */
     protected function getForm_Type_LocaleService()
     {
@@ -1427,12 +1302,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'form.type.money' service.
+     * Gets the public 'form.type.money' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return \Symfony\Component\Form\Extension\Core\Type\MoneyType A Symfony\Component\Form\Extension\Core\Type\MoneyType instance
+     * @return \Symfony\Component\Form\Extension\Core\Type\MoneyType
      */
     protected function getForm_Type_MoneyService()
     {
@@ -1440,12 +1312,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'form.type.number' service.
+     * Gets the public 'form.type.number' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return \Symfony\Component\Form\Extension\Core\Type\NumberType A Symfony\Component\Form\Extension\Core\Type\NumberType instance
+     * @return \Symfony\Component\Form\Extension\Core\Type\NumberType
      */
     protected function getForm_Type_NumberService()
     {
@@ -1453,12 +1322,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'form.type.password' service.
+     * Gets the public 'form.type.password' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return \Symfony\Component\Form\Extension\Core\Type\PasswordType A Symfony\Component\Form\Extension\Core\Type\PasswordType instance
+     * @return \Symfony\Component\Form\Extension\Core\Type\PasswordType
      */
     protected function getForm_Type_PasswordService()
     {
@@ -1466,12 +1332,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'form.type.percent' service.
+     * Gets the public 'form.type.percent' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return \Symfony\Component\Form\Extension\Core\Type\PercentType A Symfony\Component\Form\Extension\Core\Type\PercentType instance
+     * @return \Symfony\Component\Form\Extension\Core\Type\PercentType
      */
     protected function getForm_Type_PercentService()
     {
@@ -1479,12 +1342,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'form.type.radio' service.
+     * Gets the public 'form.type.radio' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return \Symfony\Component\Form\Extension\Core\Type\RadioType A Symfony\Component\Form\Extension\Core\Type\RadioType instance
+     * @return \Symfony\Component\Form\Extension\Core\Type\RadioType
      */
     protected function getForm_Type_RadioService()
     {
@@ -1492,12 +1352,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'form.type.range' service.
+     * Gets the public 'form.type.range' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return \Symfony\Component\Form\Extension\Core\Type\RangeType A Symfony\Component\Form\Extension\Core\Type\RangeType instance
+     * @return \Symfony\Component\Form\Extension\Core\Type\RangeType
      */
     protected function getForm_Type_RangeService()
     {
@@ -1505,12 +1362,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'form.type.repeated' service.
+     * Gets the public 'form.type.repeated' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return \Symfony\Component\Form\Extension\Core\Type\RepeatedType A Symfony\Component\Form\Extension\Core\Type\RepeatedType instance
+     * @return \Symfony\Component\Form\Extension\Core\Type\RepeatedType
      */
     protected function getForm_Type_RepeatedService()
     {
@@ -1518,12 +1372,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'form.type.reset' service.
+     * Gets the public 'form.type.reset' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return \Symfony\Component\Form\Extension\Core\Type\ResetType A Symfony\Component\Form\Extension\Core\Type\ResetType instance
+     * @return \Symfony\Component\Form\Extension\Core\Type\ResetType
      */
     protected function getForm_Type_ResetService()
     {
@@ -1531,12 +1382,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'form.type.search' service.
+     * Gets the public 'form.type.search' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return \Symfony\Component\Form\Extension\Core\Type\SearchType A Symfony\Component\Form\Extension\Core\Type\SearchType instance
+     * @return \Symfony\Component\Form\Extension\Core\Type\SearchType
      */
     protected function getForm_Type_SearchService()
     {
@@ -1544,12 +1392,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'form.type.submit' service.
+     * Gets the public 'form.type.submit' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return \Symfony\Component\Form\Extension\Core\Type\SubmitType A Symfony\Component\Form\Extension\Core\Type\SubmitType instance
+     * @return \Symfony\Component\Form\Extension\Core\Type\SubmitType
      */
     protected function getForm_Type_SubmitService()
     {
@@ -1557,12 +1402,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'form.type.text' service.
+     * Gets the public 'form.type.text' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return \Symfony\Component\Form\Extension\Core\Type\TextType A Symfony\Component\Form\Extension\Core\Type\TextType instance
+     * @return \Symfony\Component\Form\Extension\Core\Type\TextType
      */
     protected function getForm_Type_TextService()
     {
@@ -1570,12 +1412,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'form.type.textarea' service.
+     * Gets the public 'form.type.textarea' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return \Symfony\Component\Form\Extension\Core\Type\TextareaType A Symfony\Component\Form\Extension\Core\Type\TextareaType instance
+     * @return \Symfony\Component\Form\Extension\Core\Type\TextareaType
      */
     protected function getForm_Type_TextareaService()
     {
@@ -1583,12 +1422,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'form.type.time' service.
+     * Gets the public 'form.type.time' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return \Symfony\Component\Form\Extension\Core\Type\TimeType A Symfony\Component\Form\Extension\Core\Type\TimeType instance
+     * @return \Symfony\Component\Form\Extension\Core\Type\TimeType
      */
     protected function getForm_Type_TimeService()
     {
@@ -1596,12 +1432,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'form.type.timezone' service.
+     * Gets the public 'form.type.timezone' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return \Symfony\Component\Form\Extension\Core\Type\TimezoneType A Symfony\Component\Form\Extension\Core\Type\TimezoneType instance
+     * @return \Symfony\Component\Form\Extension\Core\Type\TimezoneType
      */
     protected function getForm_Type_TimezoneService()
     {
@@ -1609,12 +1442,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'form.type.url' service.
+     * Gets the public 'form.type.url' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return \Symfony\Component\Form\Extension\Core\Type\UrlType A Symfony\Component\Form\Extension\Core\Type\UrlType instance
+     * @return \Symfony\Component\Form\Extension\Core\Type\UrlType
      */
     protected function getForm_Type_UrlService()
     {
@@ -1622,12 +1452,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'form.type_extension.csrf' service.
+     * Gets the public 'form.type_extension.csrf' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return \Symfony\Component\Form\Extension\Csrf\Type\FormTypeCsrfExtension A Symfony\Component\Form\Extension\Csrf\Type\FormTypeCsrfExtension instance
+     * @return \Symfony\Component\Form\Extension\Csrf\Type\FormTypeCsrfExtension
      */
     protected function getForm_TypeExtension_CsrfService()
     {
@@ -1635,12 +1462,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'form.type_extension.form.http_foundation' service.
+     * Gets the public 'form.type_extension.form.http_foundation' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return \Symfony\Component\Form\Extension\HttpFoundation\Type\FormTypeHttpFoundationExtension A Symfony\Component\Form\Extension\HttpFoundation\Type\FormTypeHttpFoundationExtension instance
+     * @return \Symfony\Component\Form\Extension\HttpFoundation\Type\FormTypeHttpFoundationExtension
      */
     protected function getForm_TypeExtension_Form_HttpFoundationService()
     {
@@ -1648,12 +1472,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'form.type_extension.form.validator' service.
+     * Gets the public 'form.type_extension.form.validator' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return \Symfony\Component\Form\Extension\Validator\Type\FormTypeValidatorExtension A Symfony\Component\Form\Extension\Validator\Type\FormTypeValidatorExtension instance
+     * @return \Symfony\Component\Form\Extension\Validator\Type\FormTypeValidatorExtension
      */
     protected function getForm_TypeExtension_Form_ValidatorService()
     {
@@ -1661,12 +1482,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'form.type_extension.repeated.validator' service.
+     * Gets the public 'form.type_extension.repeated.validator' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return \Symfony\Component\Form\Extension\Validator\Type\RepeatedTypeValidatorExtension A Symfony\Component\Form\Extension\Validator\Type\RepeatedTypeValidatorExtension instance
+     * @return \Symfony\Component\Form\Extension\Validator\Type\RepeatedTypeValidatorExtension
      */
     protected function getForm_TypeExtension_Repeated_ValidatorService()
     {
@@ -1674,12 +1492,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'form.type_extension.submit.validator' service.
+     * Gets the public 'form.type_extension.submit.validator' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return \Symfony\Component\Form\Extension\Validator\Type\SubmitTypeValidatorExtension A Symfony\Component\Form\Extension\Validator\Type\SubmitTypeValidatorExtension instance
+     * @return \Symfony\Component\Form\Extension\Validator\Type\SubmitTypeValidatorExtension
      */
     protected function getForm_TypeExtension_Submit_ValidatorService()
     {
@@ -1687,12 +1502,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'form.type_extension.upload.validator' service.
+     * Gets the public 'form.type_extension.upload.validator' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return \Symfony\Component\Form\Extension\Validator\Type\UploadValidatorExtension A Symfony\Component\Form\Extension\Validator\Type\UploadValidatorExtension instance
+     * @return \Symfony\Component\Form\Extension\Validator\Type\UploadValidatorExtension
      */
     protected function getForm_TypeExtension_Upload_ValidatorService()
     {
@@ -1700,12 +1512,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'form.type_guesser.doctrine' service.
+     * Gets the public 'form.type_guesser.doctrine' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return \Symfony\Bridge\Doctrine\Form\DoctrineOrmTypeGuesser A Symfony\Bridge\Doctrine\Form\DoctrineOrmTypeGuesser instance
+     * @return \Symfony\Bridge\Doctrine\Form\DoctrineOrmTypeGuesser
      */
     protected function getForm_TypeGuesser_DoctrineService()
     {
@@ -1713,12 +1522,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'form.type_guesser.validator' service.
+     * Gets the public 'form.type_guesser.validator' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return \Symfony\Component\Form\Extension\Validator\ValidatorTypeGuesser A Symfony\Component\Form\Extension\Validator\ValidatorTypeGuesser instance
+     * @return \Symfony\Component\Form\Extension\Validator\ValidatorTypeGuesser
      */
     protected function getForm_TypeGuesser_ValidatorService()
     {
@@ -1726,12 +1532,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'fos_user.change_password.form.factory' service.
+     * Gets the public 'fos_user.change_password.form.factory' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return \FOS\UserBundle\Form\Factory\FormFactory A FOS\UserBundle\Form\Factory\FormFactory instance
+     * @return \FOS\UserBundle\Form\Factory\FormFactory
      */
     protected function getFosUser_ChangePassword_Form_FactoryService()
     {
@@ -1739,12 +1542,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'fos_user.change_password.form.type' service.
+     * Gets the public 'fos_user.change_password.form.type' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return \FOS\UserBundle\Form\Type\ChangePasswordFormType A FOS\UserBundle\Form\Type\ChangePasswordFormType instance
+     * @return \FOS\UserBundle\Form\Type\ChangePasswordFormType
      */
     protected function getFosUser_ChangePassword_Form_TypeService()
     {
@@ -1752,12 +1552,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'fos_user.listener.authentication' service.
+     * Gets the public 'fos_user.listener.authentication' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return \FOS\UserBundle\EventListener\AuthenticationListener A FOS\UserBundle\EventListener\AuthenticationListener instance
+     * @return \FOS\UserBundle\EventListener\AuthenticationListener
      */
     protected function getFosUser_Listener_AuthenticationService()
     {
@@ -1765,12 +1562,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'fos_user.listener.flash' service.
+     * Gets the public 'fos_user.listener.flash' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return \FOS\UserBundle\EventListener\FlashListener A FOS\UserBundle\EventListener\FlashListener instance
+     * @return \FOS\UserBundle\EventListener\FlashListener
      */
     protected function getFosUser_Listener_FlashService()
     {
@@ -1778,12 +1572,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'fos_user.listener.resetting' service.
+     * Gets the public 'fos_user.listener.resetting' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return \FOS\UserBundle\EventListener\ResettingListener A FOS\UserBundle\EventListener\ResettingListener instance
+     * @return \FOS\UserBundle\EventListener\ResettingListener
      */
     protected function getFosUser_Listener_ResettingService()
     {
@@ -1791,12 +1582,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'fos_user.mailer' service.
+     * Gets the public 'fos_user.mailer' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return \FOS\UserBundle\Mailer\Mailer A FOS\UserBundle\Mailer\Mailer instance
+     * @return \FOS\UserBundle\Mailer\Mailer
      */
     protected function getFosUser_MailerService()
     {
@@ -1804,12 +1592,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'fos_user.profile.form.factory' service.
+     * Gets the public 'fos_user.profile.form.factory' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return \FOS\UserBundle\Form\Factory\FormFactory A FOS\UserBundle\Form\Factory\FormFactory instance
+     * @return \FOS\UserBundle\Form\Factory\FormFactory
      */
     protected function getFosUser_Profile_Form_FactoryService()
     {
@@ -1817,12 +1602,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'fos_user.profile.form.type' service.
+     * Gets the public 'fos_user.profile.form.type' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return \FOS\UserBundle\Form\Type\ProfileFormType A FOS\UserBundle\Form\Type\ProfileFormType instance
+     * @return \FOS\UserBundle\Form\Type\ProfileFormType
      */
     protected function getFosUser_Profile_Form_TypeService()
     {
@@ -1830,12 +1612,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'fos_user.registration.form.factory' service.
+     * Gets the public 'fos_user.registration.form.factory' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return \FOS\UserBundle\Form\Factory\FormFactory A FOS\UserBundle\Form\Factory\FormFactory instance
+     * @return \FOS\UserBundle\Form\Factory\FormFactory
      */
     protected function getFosUser_Registration_Form_FactoryService()
     {
@@ -1843,12 +1622,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'fos_user.registration.form.type' service.
+     * Gets the public 'fos_user.registration.form.type' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return \FOS\UserBundle\Form\Type\RegistrationFormType A FOS\UserBundle\Form\Type\RegistrationFormType instance
+     * @return \FOS\UserBundle\Form\Type\RegistrationFormType
      */
     protected function getFosUser_Registration_Form_TypeService()
     {
@@ -1856,12 +1632,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'fos_user.resetting.form.factory' service.
+     * Gets the public 'fos_user.resetting.form.factory' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return \FOS\UserBundle\Form\Factory\FormFactory A FOS\UserBundle\Form\Factory\FormFactory instance
+     * @return \FOS\UserBundle\Form\Factory\FormFactory
      */
     protected function getFosUser_Resetting_Form_FactoryService()
     {
@@ -1869,12 +1642,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'fos_user.resetting.form.type' service.
+     * Gets the public 'fos_user.resetting.form.type' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return \FOS\UserBundle\Form\Type\ResettingFormType A FOS\UserBundle\Form\Type\ResettingFormType instance
+     * @return \FOS\UserBundle\Form\Type\ResettingFormType
      */
     protected function getFosUser_Resetting_Form_TypeService()
     {
@@ -1882,12 +1652,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'fos_user.security.interactive_login_listener' service.
+     * Gets the public 'fos_user.security.interactive_login_listener' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return \FOS\UserBundle\EventListener\LastLoginListener A FOS\UserBundle\EventListener\LastLoginListener instance
+     * @return \FOS\UserBundle\EventListener\LastLoginListener
      */
     protected function getFosUser_Security_InteractiveLoginListenerService()
     {
@@ -1895,12 +1662,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'fos_user.security.login_manager' service.
+     * Gets the public 'fos_user.security.login_manager' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return \FOS\UserBundle\Security\LoginManager A FOS\UserBundle\Security\LoginManager instance
+     * @return \FOS\UserBundle\Security\LoginManager
      */
     protected function getFosUser_Security_LoginManagerService()
     {
@@ -1908,12 +1672,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'fos_user.user_manager' service.
+     * Gets the public 'fos_user.user_manager' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return \FOS\UserBundle\Doctrine\UserManager A FOS\UserBundle\Doctrine\UserManager instance
+     * @return \FOS\UserBundle\Doctrine\UserManager
      */
     protected function getFosUser_UserManagerService()
     {
@@ -1921,12 +1682,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'fos_user.username_form_type' service.
+     * Gets the public 'fos_user.username_form_type' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return \FOS\UserBundle\Form\Type\UsernameFormType A FOS\UserBundle\Form\Type\UsernameFormType instance
+     * @return \FOS\UserBundle\Form\Type\UsernameFormType
      */
     protected function getFosUser_UsernameFormTypeService()
     {
@@ -1934,12 +1692,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'fos_user.util.email_canonicalizer' service.
+     * Gets the public 'fos_user.util.email_canonicalizer' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return \FOS\UserBundle\Util\Canonicalizer A FOS\UserBundle\Util\Canonicalizer instance
+     * @return \FOS\UserBundle\Util\Canonicalizer
      */
     protected function getFosUser_Util_EmailCanonicalizerService()
     {
@@ -1947,12 +1702,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'fos_user.util.token_generator' service.
+     * Gets the public 'fos_user.util.token_generator' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return \FOS\UserBundle\Util\TokenGenerator A FOS\UserBundle\Util\TokenGenerator instance
+     * @return \FOS\UserBundle\Util\TokenGenerator
      */
     protected function getFosUser_Util_TokenGeneratorService()
     {
@@ -1960,12 +1712,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'fos_user.util.user_manipulator' service.
+     * Gets the public 'fos_user.util.user_manipulator' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return \FOS\UserBundle\Util\UserManipulator A FOS\UserBundle\Util\UserManipulator instance
+     * @return \FOS\UserBundle\Util\UserManipulator
      */
     protected function getFosUser_Util_UserManipulatorService()
     {
@@ -1973,12 +1722,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'fragment.handler' service.
+     * Gets the public 'fragment.handler' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return \Symfony\Component\HttpKernel\DependencyInjection\LazyLoadingFragmentHandler A Symfony\Component\HttpKernel\DependencyInjection\LazyLoadingFragmentHandler instance
+     * @return \Symfony\Component\HttpKernel\DependencyInjection\LazyLoadingFragmentHandler
      */
     protected function getFragment_HandlerService()
     {
@@ -1994,12 +1740,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'fragment.listener' service.
+     * Gets the public 'fragment.listener' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return \Symfony\Component\HttpKernel\EventListener\FragmentListener A Symfony\Component\HttpKernel\EventListener\FragmentListener instance
+     * @return \Symfony\Component\HttpKernel\EventListener\FragmentListener
      */
     protected function getFragment_ListenerService()
     {
@@ -2007,12 +1750,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'fragment.renderer.esi' service.
+     * Gets the public 'fragment.renderer.esi' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return \Symfony\Component\HttpKernel\Fragment\EsiFragmentRenderer A Symfony\Component\HttpKernel\Fragment\EsiFragmentRenderer instance
+     * @return \Symfony\Component\HttpKernel\Fragment\EsiFragmentRenderer
      */
     protected function getFragment_Renderer_EsiService()
     {
@@ -2024,12 +1764,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'fragment.renderer.hinclude' service.
+     * Gets the public 'fragment.renderer.hinclude' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return \Symfony\Component\HttpKernel\Fragment\HIncludeFragmentRenderer A Symfony\Component\HttpKernel\Fragment\HIncludeFragmentRenderer instance
+     * @return \Symfony\Component\HttpKernel\Fragment\HIncludeFragmentRenderer
      */
     protected function getFragment_Renderer_HincludeService()
     {
@@ -2041,12 +1778,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'fragment.renderer.inline' service.
+     * Gets the public 'fragment.renderer.inline' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return \Symfony\Component\HttpKernel\Fragment\InlineFragmentRenderer A Symfony\Component\HttpKernel\Fragment\InlineFragmentRenderer instance
+     * @return \Symfony\Component\HttpKernel\Fragment\InlineFragmentRenderer
      */
     protected function getFragment_Renderer_InlineService()
     {
@@ -2058,12 +1792,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'fragment.renderer.ssi' service.
+     * Gets the public 'fragment.renderer.ssi' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return \Symfony\Component\HttpKernel\Fragment\SsiFragmentRenderer A Symfony\Component\HttpKernel\Fragment\SsiFragmentRenderer instance
+     * @return \Symfony\Component\HttpKernel\Fragment\SsiFragmentRenderer
      */
     protected function getFragment_Renderer_SsiService()
     {
@@ -2075,12 +1806,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'http_kernel' service.
+     * Gets the public 'http_kernel' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return \Symfony\Component\HttpKernel\DependencyInjection\ContainerAwareHttpKernel A Symfony\Component\HttpKernel\DependencyInjection\ContainerAwareHttpKernel instance
+     * @return \Symfony\Component\HttpKernel\DependencyInjection\ContainerAwareHttpKernel
      */
     protected function getHttpKernelService()
     {
@@ -2088,12 +1816,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'jms_serializer' service.
+     * Gets the public 'jms_serializer' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return \JMS\Serializer\Serializer A JMS\Serializer\Serializer instance
+     * @return \JMS\Serializer\Serializer
      */
     protected function getJmsSerializerService()
     {
@@ -2112,12 +1837,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'jms_serializer.accessor_strategy' service.
+     * Gets the public 'jms_serializer.accessor_strategy' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return \JMS\Serializer\Accessor\ExpressionAccessorStrategy A JMS\Serializer\Accessor\ExpressionAccessorStrategy instance
+     * @return \JMS\Serializer\Accessor\ExpressionAccessorStrategy
      */
     protected function getJmsSerializer_AccessorStrategyService()
     {
@@ -2125,25 +1847,19 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'jms_serializer.array_collection_handler' service.
+     * Gets the public 'jms_serializer.array_collection_handler' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return \JMS\Serializer\Handler\ArrayCollectionHandler A JMS\Serializer\Handler\ArrayCollectionHandler instance
+     * @return \JMS\Serializer\Handler\ArrayCollectionHandler
      */
     protected function getJmsSerializer_ArrayCollectionHandlerService()
     {
-        return $this->services['jms_serializer.array_collection_handler'] = new \JMS\Serializer\Handler\ArrayCollectionHandler(true);
+        return $this->services['jms_serializer.array_collection_handler'] = new \JMS\Serializer\Handler\ArrayCollectionHandler(false);
     }
 
     /*
-     * Gets the 'jms_serializer.constraint_violation_handler' service.
+     * Gets the public 'jms_serializer.constraint_violation_handler' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return \JMS\Serializer\Handler\ConstraintViolationHandler A JMS\Serializer\Handler\ConstraintViolationHandler instance
+     * @return \JMS\Serializer\Handler\ConstraintViolationHandler
      */
     protected function getJmsSerializer_ConstraintViolationHandlerService()
     {
@@ -2151,25 +1867,19 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'jms_serializer.datetime_handler' service.
+     * Gets the public 'jms_serializer.datetime_handler' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return \JMS\Serializer\Handler\DateHandler A JMS\Serializer\Handler\DateHandler instance
+     * @return \JMS\Serializer\Handler\DateHandler
      */
     protected function getJmsSerializer_DatetimeHandlerService()
     {
-        return $this->services['jms_serializer.datetime_handler'] = new \JMS\Serializer\Handler\DateHandler('Y-m-d\\TH:i:sO', 'Europe/Berlin', true);
+        return $this->services['jms_serializer.datetime_handler'] = new \JMS\Serializer\Handler\DateHandler('Y-m-d\\TH:i:sP', 'Europe/Berlin', true);
     }
 
     /*
-     * Gets the 'jms_serializer.deserialization_context_factory' service.
+     * Gets the public 'jms_serializer.deserialization_context_factory' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return \JMS\SerializerBundle\ContextFactory\ConfiguredContextFactory A JMS\SerializerBundle\ContextFactory\ConfiguredContextFactory instance
+     * @return \JMS\SerializerBundle\ContextFactory\ConfiguredContextFactory
      */
     protected function getJmsSerializer_DeserializationContextFactoryService()
     {
@@ -2177,25 +1887,19 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'jms_serializer.doctrine_proxy_subscriber' service.
+     * Gets the public 'jms_serializer.doctrine_proxy_subscriber' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return \JMS\Serializer\EventDispatcher\Subscriber\DoctrineProxySubscriber A JMS\Serializer\EventDispatcher\Subscriber\DoctrineProxySubscriber instance
+     * @return \JMS\Serializer\EventDispatcher\Subscriber\DoctrineProxySubscriber
      */
     protected function getJmsSerializer_DoctrineProxySubscriberService()
     {
-        return $this->services['jms_serializer.doctrine_proxy_subscriber'] = new \JMS\Serializer\EventDispatcher\Subscriber\DoctrineProxySubscriber(false, true);
+        return $this->services['jms_serializer.doctrine_proxy_subscriber'] = new \JMS\Serializer\EventDispatcher\Subscriber\DoctrineProxySubscriber(true, false);
     }
 
     /*
-     * Gets the 'jms_serializer.expression_evaluator' service.
+     * Gets the public 'jms_serializer.expression_evaluator' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return \JMS\Serializer\Expression\ExpressionEvaluator A JMS\Serializer\Expression\ExpressionEvaluator instance
+     * @return \JMS\Serializer\Expression\ExpressionEvaluator
      */
     protected function getJmsSerializer_ExpressionEvaluatorService()
     {
@@ -2206,12 +1910,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'jms_serializer.form_error_handler' service.
+     * Gets the public 'jms_serializer.form_error_handler' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return \JMS\Serializer\Handler\FormErrorHandler A JMS\Serializer\Handler\FormErrorHandler instance
+     * @return \JMS\Serializer\Handler\FormErrorHandler
      */
     protected function getJmsSerializer_FormErrorHandlerService()
     {
@@ -2219,25 +1920,19 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'jms_serializer.handler_registry' service.
+     * Gets the public 'jms_serializer.handler_registry' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return \JMS\Serializer\Handler\LazyHandlerRegistry A JMS\Serializer\Handler\LazyHandlerRegistry instance
+     * @return \JMS\Serializer\Handler\LazyHandlerRegistry
      */
     protected function getJmsSerializer_HandlerRegistryService()
     {
-        return $this->services['jms_serializer.handler_registry'] = new \JMS\Serializer\Handler\LazyHandlerRegistry($this, array(1 => array('sonata_media_media_id' => array('json' => array(0 => 'sonata.media.serializer.handler.media', 1 => 'serializeObjectToId'), 'xml' => array(0 => 'sonata.media.serializer.handler.media', 1 => 'serializeObjectToId'), 'yml' => array(0 => 'sonata.media.serializer.handler.media', 1 => 'serializeObjectToId')), 'sonata_media_gallery_id' => array('json' => array(0 => 'sonata.media.serializer.handler.gallery', 1 => 'serializeObjectToId'), 'xml' => array(0 => 'sonata.media.serializer.handler.gallery', 1 => 'serializeObjectToId'), 'yml' => array(0 => 'sonata.media.serializer.handler.gallery', 1 => 'serializeObjectToId')), 'DateTime' => array('json' => array(0 => 'jms_serializer.datetime_handler', 1 => 'serializeDateTime'), 'xml' => array(0 => 'jms_serializer.datetime_handler', 1 => 'serializeDateTime'), 'yml' => array(0 => 'jms_serializer.datetime_handler', 1 => 'serializeDateTime')), 'DateTimeImmutable' => array('json' => array(0 => 'jms_serializer.datetime_handler', 1 => 'serializeDateTimeImmutable'), 'xml' => array(0 => 'jms_serializer.datetime_handler', 1 => 'serializeDateTimeImmutable'), 'yml' => array(0 => 'jms_serializer.datetime_handler', 1 => 'serializeDateTimeImmutable')), 'DateInterval' => array('json' => array(0 => 'jms_serializer.datetime_handler', 1 => 'serializeDateInterval'), 'xml' => array(0 => 'jms_serializer.datetime_handler', 1 => 'serializeDateInterval'), 'yml' => array(0 => 'jms_serializer.datetime_handler', 1 => 'serializeDateInterval')), 'ArrayCollection' => array('json' => array(0 => 'jms_serializer.array_collection_handler', 1 => 'serializeCollection'), 'xml' => array(0 => 'jms_serializer.array_collection_handler', 1 => 'serializeCollection'), 'yml' => array(0 => 'jms_serializer.array_collection_handler', 1 => 'serializeCollection')), 'Doctrine\\Common\\Collections\\ArrayCollection' => array('json' => array(0 => 'jms_serializer.array_collection_handler', 1 => 'serializeCollection'), 'xml' => array(0 => 'jms_serializer.array_collection_handler', 1 => 'serializeCollection'), 'yml' => array(0 => 'jms_serializer.array_collection_handler', 1 => 'serializeCollection')), 'Doctrine\\ORM\\PersistentCollection' => array('json' => array(0 => 'jms_serializer.array_collection_handler', 1 => 'serializeCollection'), 'xml' => array(0 => 'jms_serializer.array_collection_handler', 1 => 'serializeCollection'), 'yml' => array(0 => 'jms_serializer.array_collection_handler', 1 => 'serializeCollection')), 'Doctrine\\ODM\\MongoDB\\PersistentCollection' => array('json' => array(0 => 'jms_serializer.array_collection_handler', 1 => 'serializeCollection'), 'xml' => array(0 => 'jms_serializer.array_collection_handler', 1 => 'serializeCollection'), 'yml' => array(0 => 'jms_serializer.array_collection_handler', 1 => 'serializeCollection')), 'Doctrine\\ODM\\PHPCR\\PersistentCollection' => array('json' => array(0 => 'jms_serializer.array_collection_handler', 1 => 'serializeCollection'), 'xml' => array(0 => 'jms_serializer.array_collection_handler', 1 => 'serializeCollection'), 'yml' => array(0 => 'jms_serializer.array_collection_handler', 1 => 'serializeCollection')), 'PhpCollection\\Sequence' => array('json' => array(0 => 'jms_serializer.php_collection_handler', 1 => 'serializeSequence'), 'xml' => array(0 => 'jms_serializer.php_collection_handler', 1 => 'serializeSequence'), 'yml' => array(0 => 'jms_serializer.php_collection_handler', 1 => 'serializeSequence')), 'PhpCollection\\Map' => array('json' => array(0 => 'jms_serializer.php_collection_handler', 1 => 'serializeMap'), 'xml' => array(0 => 'jms_serializer.php_collection_handler', 1 => 'serializeMap'), 'yml' => array(0 => 'jms_serializer.php_collection_handler', 1 => 'serializeMap')), 'Symfony\\Component\\Form\\Form' => array('xml' => array(0 => 'jms_serializer.form_error_handler', 1 => 'serializeFormToxml'), 'json' => array(0 => 'jms_serializer.form_error_handler', 1 => 'serializeFormTojson'), 'yml' => array(0 => 'jms_serializer.form_error_handler', 1 => 'serializeFormToyml')), 'Symfony\\Component\\Form\\FormError' => array('xml' => array(0 => 'jms_serializer.form_error_handler', 1 => 'serializeFormErrorToxml'), 'json' => array(0 => 'jms_serializer.form_error_handler', 1 => 'serializeFormErrorTojson'), 'yml' => array(0 => 'jms_serializer.form_error_handler', 1 => 'serializeFormErrorToyml')), 'Symfony\\Component\\Validator\\ConstraintViolationList' => array('xml' => array(0 => 'jms_serializer.constraint_violation_handler', 1 => 'serializeListToxml'), 'json' => array(0 => 'jms_serializer.constraint_violation_handler', 1 => 'serializeListTojson'), 'yml' => array(0 => 'jms_serializer.constraint_violation_handler', 1 => 'serializeListToyml')), 'Symfony\\Component\\Validator\\ConstraintViolation' => array('xml' => array(0 => 'jms_serializer.constraint_violation_handler', 1 => 'serializeViolationToxml'), 'json' => array(0 => 'jms_serializer.constraint_violation_handler', 1 => 'serializeViolationTojson'), 'yml' => array(0 => 'jms_serializer.constraint_violation_handler', 1 => 'serializeViolationToyml')), 'sonata_classification_category_id' => array('json' => array(0 => 'sonata.classification.serializer.handler.category', 1 => 'serializeObjectToId'), 'xml' => array(0 => 'sonata.classification.serializer.handler.category', 1 => 'serializeObjectToId'), 'yml' => array(0 => 'sonata.classification.serializer.handler.category', 1 => 'serializeObjectToId')), 'sonata_classification_collection_id' => array('json' => array(0 => 'sonata.classification.serializer.handler.collection', 1 => 'serializeObjectToId'), 'xml' => array(0 => 'sonata.classification.serializer.handler.collection', 1 => 'serializeObjectToId'), 'yml' => array(0 => 'sonata.classification.serializer.handler.collection', 1 => 'serializeObjectToId')), 'sonata_classification_tag_id' => array('json' => array(0 => 'sonata.classification.serializer.handler.tag', 1 => 'serializeObjectToId'), 'xml' => array(0 => 'sonata.classification.serializer.handler.tag', 1 => 'serializeObjectToId'), 'yml' => array(0 => 'sonata.classification.serializer.handler.tag', 1 => 'serializeObjectToId')), 'sonata_classification_context_id' => array('json' => array(0 => 'sonata.classification.serializer.handler.context', 1 => 'serializeObjectToId'), 'xml' => array(0 => 'sonata.classification.serializer.handler.context', 1 => 'serializeObjectToId'), 'yml' => array(0 => 'sonata.classification.serializer.handler.context', 1 => 'serializeObjectToId'))), 2 => array('sonata_media_media_id' => array('json' => array(0 => 'sonata.media.serializer.handler.media', 1 => 'deserializeObjectFromId'), 'xml' => array(0 => 'sonata.media.serializer.handler.media', 1 => 'deserializeObjectFromId'), 'yml' => array(0 => 'sonata.media.serializer.handler.media', 1 => 'deserializeObjectFromId')), 'sonata_media_gallery_id' => array('json' => array(0 => 'sonata.media.serializer.handler.gallery', 1 => 'deserializeObjectFromId'), 'xml' => array(0 => 'sonata.media.serializer.handler.gallery', 1 => 'deserializeObjectFromId'), 'yml' => array(0 => 'sonata.media.serializer.handler.gallery', 1 => 'deserializeObjectFromId')), 'DateTime' => array('json' => array(0 => 'jms_serializer.datetime_handler', 1 => 'deserializeDateTimeFromjson'), 'xml' => array(0 => 'jms_serializer.datetime_handler', 1 => 'deserializeDateTimeFromxml'), 'yml' => array(0 => 'jms_serializer.datetime_handler', 1 => 'deserializeDateTimeFromyml')), 'DateTimeImmutable' => array('json' => array(0 => 'jms_serializer.datetime_handler', 1 => 'deserializeDateTimeImmutableFromjson'), 'xml' => array(0 => 'jms_serializer.datetime_handler', 1 => 'deserializeDateTimeImmutableFromxml'), 'yml' => array(0 => 'jms_serializer.datetime_handler', 1 => 'deserializeDateTimeImmutableFromyml')), 'DateInterval' => array('json' => array(0 => 'jms_serializer.datetime_handler', 1 => 'deserializeDateIntervalFromjson'), 'xml' => array(0 => 'jms_serializer.datetime_handler', 1 => 'deserializeDateIntervalFromxml'), 'yml' => array(0 => 'jms_serializer.datetime_handler', 1 => 'deserializeDateIntervalFromyml')), 'ArrayCollection' => array('json' => array(0 => 'jms_serializer.array_collection_handler', 1 => 'deserializeCollection'), 'xml' => array(0 => 'jms_serializer.array_collection_handler', 1 => 'deserializeCollection'), 'yml' => array(0 => 'jms_serializer.array_collection_handler', 1 => 'deserializeCollection')), 'Doctrine\\Common\\Collections\\ArrayCollection' => array('json' => array(0 => 'jms_serializer.array_collection_handler', 1 => 'deserializeCollection'), 'xml' => array(0 => 'jms_serializer.array_collection_handler', 1 => 'deserializeCollection'), 'yml' => array(0 => 'jms_serializer.array_collection_handler', 1 => 'deserializeCollection')), 'Doctrine\\ORM\\PersistentCollection' => array('json' => array(0 => 'jms_serializer.array_collection_handler', 1 => 'deserializeCollection'), 'xml' => array(0 => 'jms_serializer.array_collection_handler', 1 => 'deserializeCollection'), 'yml' => array(0 => 'jms_serializer.array_collection_handler', 1 => 'deserializeCollection')), 'Doctrine\\ODM\\MongoDB\\PersistentCollection' => array('json' => array(0 => 'jms_serializer.array_collection_handler', 1 => 'deserializeCollection'), 'xml' => array(0 => 'jms_serializer.array_collection_handler', 1 => 'deserializeCollection'), 'yml' => array(0 => 'jms_serializer.array_collection_handler', 1 => 'deserializeCollection')), 'Doctrine\\ODM\\PHPCR\\PersistentCollection' => array('json' => array(0 => 'jms_serializer.array_collection_handler', 1 => 'deserializeCollection'), 'xml' => array(0 => 'jms_serializer.array_collection_handler', 1 => 'deserializeCollection'), 'yml' => array(0 => 'jms_serializer.array_collection_handler', 1 => 'deserializeCollection')), 'PhpCollection\\Sequence' => array('json' => array(0 => 'jms_serializer.php_collection_handler', 1 => 'deserializeSequence'), 'xml' => array(0 => 'jms_serializer.php_collection_handler', 1 => 'deserializeSequence'), 'yml' => array(0 => 'jms_serializer.php_collection_handler', 1 => 'deserializeSequence')), 'PhpCollection\\Map' => array('json' => array(0 => 'jms_serializer.php_collection_handler', 1 => 'deserializeMap'), 'xml' => array(0 => 'jms_serializer.php_collection_handler', 1 => 'deserializeMap'), 'yml' => array(0 => 'jms_serializer.php_collection_handler', 1 => 'deserializeMap')), 'sonata_classification_category_id' => array('json' => array(0 => 'sonata.classification.serializer.handler.category', 1 => 'deserializeObjectFromId'), 'xml' => array(0 => 'sonata.classification.serializer.handler.category', 1 => 'deserializeObjectFromId'), 'yml' => array(0 => 'sonata.classification.serializer.handler.category', 1 => 'deserializeObjectFromId')), 'sonata_classification_collection_id' => array('json' => array(0 => 'sonata.classification.serializer.handler.collection', 1 => 'deserializeObjectFromId'), 'xml' => array(0 => 'sonata.classification.serializer.handler.collection', 1 => 'deserializeObjectFromId'), 'yml' => array(0 => 'sonata.classification.serializer.handler.collection', 1 => 'deserializeObjectFromId')), 'sonata_classification_tag_id' => array('json' => array(0 => 'sonata.classification.serializer.handler.tag', 1 => 'deserializeObjectFromId'), 'xml' => array(0 => 'sonata.classification.serializer.handler.tag', 1 => 'deserializeObjectFromId'), 'yml' => array(0 => 'sonata.classification.serializer.handler.tag', 1 => 'deserializeObjectFromId')), 'sonata_classification_context_id' => array('json' => array(0 => 'sonata.classification.serializer.handler.context', 1 => 'deserializeObjectFromId'), 'xml' => array(0 => 'sonata.classification.serializer.handler.context', 1 => 'deserializeObjectFromId'), 'yml' => array(0 => 'sonata.classification.serializer.handler.context', 1 => 'deserializeObjectFromId')))));
+        return $this->services['jms_serializer.handler_registry'] = new \JMS\Serializer\Handler\LazyHandlerRegistry($this, array(1 => array('sonata_classification_category_id' => array('json' => array(0 => 'sonata.classification.serializer.handler.category', 1 => 'serializeObjectToId'), 'xml' => array(0 => 'sonata.classification.serializer.handler.category', 1 => 'serializeObjectToId'), 'yml' => array(0 => 'sonata.classification.serializer.handler.category', 1 => 'serializeObjectToId')), 'sonata_classification_collection_id' => array('json' => array(0 => 'sonata.classification.serializer.handler.collection', 1 => 'serializeObjectToId'), 'xml' => array(0 => 'sonata.classification.serializer.handler.collection', 1 => 'serializeObjectToId'), 'yml' => array(0 => 'sonata.classification.serializer.handler.collection', 1 => 'serializeObjectToId')), 'sonata_classification_tag_id' => array('json' => array(0 => 'sonata.classification.serializer.handler.tag', 1 => 'serializeObjectToId'), 'xml' => array(0 => 'sonata.classification.serializer.handler.tag', 1 => 'serializeObjectToId'), 'yml' => array(0 => 'sonata.classification.serializer.handler.tag', 1 => 'serializeObjectToId')), 'sonata_classification_context_id' => array('json' => array(0 => 'sonata.classification.serializer.handler.context', 1 => 'serializeObjectToId'), 'xml' => array(0 => 'sonata.classification.serializer.handler.context', 1 => 'serializeObjectToId'), 'yml' => array(0 => 'sonata.classification.serializer.handler.context', 1 => 'serializeObjectToId')), 'sonata_media_media_id' => array('json' => array(0 => 'sonata.media.serializer.handler.media', 1 => 'serializeObjectToId'), 'xml' => array(0 => 'sonata.media.serializer.handler.media', 1 => 'serializeObjectToId'), 'yml' => array(0 => 'sonata.media.serializer.handler.media', 1 => 'serializeObjectToId')), 'sonata_media_gallery_id' => array('json' => array(0 => 'sonata.media.serializer.handler.gallery', 1 => 'serializeObjectToId'), 'xml' => array(0 => 'sonata.media.serializer.handler.gallery', 1 => 'serializeObjectToId'), 'yml' => array(0 => 'sonata.media.serializer.handler.gallery', 1 => 'serializeObjectToId')), 'DateTime' => array('json' => array(0 => 'jms_serializer.datetime_handler', 1 => 'serializeDateTime'), 'xml' => array(0 => 'jms_serializer.datetime_handler', 1 => 'serializeDateTime'), 'yml' => array(0 => 'jms_serializer.datetime_handler', 1 => 'serializeDateTime')), 'DateTimeImmutable' => array('json' => array(0 => 'jms_serializer.datetime_handler', 1 => 'serializeDateTimeImmutable'), 'xml' => array(0 => 'jms_serializer.datetime_handler', 1 => 'serializeDateTimeImmutable'), 'yml' => array(0 => 'jms_serializer.datetime_handler', 1 => 'serializeDateTimeImmutable')), 'DateInterval' => array('json' => array(0 => 'jms_serializer.datetime_handler', 1 => 'serializeDateInterval'), 'xml' => array(0 => 'jms_serializer.datetime_handler', 1 => 'serializeDateInterval'), 'yml' => array(0 => 'jms_serializer.datetime_handler', 1 => 'serializeDateInterval')), 'ArrayCollection' => array('json' => array(0 => 'jms_serializer.array_collection_handler', 1 => 'serializeCollection'), 'xml' => array(0 => 'jms_serializer.array_collection_handler', 1 => 'serializeCollection'), 'yml' => array(0 => 'jms_serializer.array_collection_handler', 1 => 'serializeCollection')), 'Doctrine\\Common\\Collections\\ArrayCollection' => array('json' => array(0 => 'jms_serializer.array_collection_handler', 1 => 'serializeCollection'), 'xml' => array(0 => 'jms_serializer.array_collection_handler', 1 => 'serializeCollection'), 'yml' => array(0 => 'jms_serializer.array_collection_handler', 1 => 'serializeCollection')), 'Doctrine\\ORM\\PersistentCollection' => array('json' => array(0 => 'jms_serializer.array_collection_handler', 1 => 'serializeCollection'), 'xml' => array(0 => 'jms_serializer.array_collection_handler', 1 => 'serializeCollection'), 'yml' => array(0 => 'jms_serializer.array_collection_handler', 1 => 'serializeCollection')), 'Doctrine\\ODM\\MongoDB\\PersistentCollection' => array('json' => array(0 => 'jms_serializer.array_collection_handler', 1 => 'serializeCollection'), 'xml' => array(0 => 'jms_serializer.array_collection_handler', 1 => 'serializeCollection'), 'yml' => array(0 => 'jms_serializer.array_collection_handler', 1 => 'serializeCollection')), 'Doctrine\\ODM\\PHPCR\\PersistentCollection' => array('json' => array(0 => 'jms_serializer.array_collection_handler', 1 => 'serializeCollection'), 'xml' => array(0 => 'jms_serializer.array_collection_handler', 1 => 'serializeCollection'), 'yml' => array(0 => 'jms_serializer.array_collection_handler', 1 => 'serializeCollection')), 'PhpCollection\\Sequence' => array('json' => array(0 => 'jms_serializer.php_collection_handler', 1 => 'serializeSequence'), 'xml' => array(0 => 'jms_serializer.php_collection_handler', 1 => 'serializeSequence'), 'yml' => array(0 => 'jms_serializer.php_collection_handler', 1 => 'serializeSequence')), 'PhpCollection\\Map' => array('json' => array(0 => 'jms_serializer.php_collection_handler', 1 => 'serializeMap'), 'xml' => array(0 => 'jms_serializer.php_collection_handler', 1 => 'serializeMap'), 'yml' => array(0 => 'jms_serializer.php_collection_handler', 1 => 'serializeMap')), 'Symfony\\Component\\Form\\Form' => array('xml' => array(0 => 'jms_serializer.form_error_handler', 1 => 'serializeFormToxml'), 'json' => array(0 => 'jms_serializer.form_error_handler', 1 => 'serializeFormTojson'), 'yml' => array(0 => 'jms_serializer.form_error_handler', 1 => 'serializeFormToyml')), 'Symfony\\Component\\Form\\FormError' => array('xml' => array(0 => 'jms_serializer.form_error_handler', 1 => 'serializeFormErrorToxml'), 'json' => array(0 => 'jms_serializer.form_error_handler', 1 => 'serializeFormErrorTojson'), 'yml' => array(0 => 'jms_serializer.form_error_handler', 1 => 'serializeFormErrorToyml')), 'Symfony\\Component\\Validator\\ConstraintViolationList' => array('xml' => array(0 => 'jms_serializer.constraint_violation_handler', 1 => 'serializeListToxml'), 'json' => array(0 => 'jms_serializer.constraint_violation_handler', 1 => 'serializeListTojson'), 'yml' => array(0 => 'jms_serializer.constraint_violation_handler', 1 => 'serializeListToyml')), 'Symfony\\Component\\Validator\\ConstraintViolation' => array('xml' => array(0 => 'jms_serializer.constraint_violation_handler', 1 => 'serializeViolationToxml'), 'json' => array(0 => 'jms_serializer.constraint_violation_handler', 1 => 'serializeViolationTojson'), 'yml' => array(0 => 'jms_serializer.constraint_violation_handler', 1 => 'serializeViolationToyml'))), 2 => array('sonata_classification_category_id' => array('json' => array(0 => 'sonata.classification.serializer.handler.category', 1 => 'deserializeObjectFromId'), 'xml' => array(0 => 'sonata.classification.serializer.handler.category', 1 => 'deserializeObjectFromId'), 'yml' => array(0 => 'sonata.classification.serializer.handler.category', 1 => 'deserializeObjectFromId')), 'sonata_classification_collection_id' => array('json' => array(0 => 'sonata.classification.serializer.handler.collection', 1 => 'deserializeObjectFromId'), 'xml' => array(0 => 'sonata.classification.serializer.handler.collection', 1 => 'deserializeObjectFromId'), 'yml' => array(0 => 'sonata.classification.serializer.handler.collection', 1 => 'deserializeObjectFromId')), 'sonata_classification_tag_id' => array('json' => array(0 => 'sonata.classification.serializer.handler.tag', 1 => 'deserializeObjectFromId'), 'xml' => array(0 => 'sonata.classification.serializer.handler.tag', 1 => 'deserializeObjectFromId'), 'yml' => array(0 => 'sonata.classification.serializer.handler.tag', 1 => 'deserializeObjectFromId')), 'sonata_classification_context_id' => array('json' => array(0 => 'sonata.classification.serializer.handler.context', 1 => 'deserializeObjectFromId'), 'xml' => array(0 => 'sonata.classification.serializer.handler.context', 1 => 'deserializeObjectFromId'), 'yml' => array(0 => 'sonata.classification.serializer.handler.context', 1 => 'deserializeObjectFromId')), 'sonata_media_media_id' => array('json' => array(0 => 'sonata.media.serializer.handler.media', 1 => 'deserializeObjectFromId'), 'xml' => array(0 => 'sonata.media.serializer.handler.media', 1 => 'deserializeObjectFromId'), 'yml' => array(0 => 'sonata.media.serializer.handler.media', 1 => 'deserializeObjectFromId')), 'sonata_media_gallery_id' => array('json' => array(0 => 'sonata.media.serializer.handler.gallery', 1 => 'deserializeObjectFromId'), 'xml' => array(0 => 'sonata.media.serializer.handler.gallery', 1 => 'deserializeObjectFromId'), 'yml' => array(0 => 'sonata.media.serializer.handler.gallery', 1 => 'deserializeObjectFromId')), 'DateTime' => array('json' => array(0 => 'jms_serializer.datetime_handler', 1 => 'deserializeDateTimeFromjson'), 'xml' => array(0 => 'jms_serializer.datetime_handler', 1 => 'deserializeDateTimeFromxml'), 'yml' => array(0 => 'jms_serializer.datetime_handler', 1 => 'deserializeDateTimeFromyml')), 'DateTimeImmutable' => array('json' => array(0 => 'jms_serializer.datetime_handler', 1 => 'deserializeDateTimeImmutableFromjson'), 'xml' => array(0 => 'jms_serializer.datetime_handler', 1 => 'deserializeDateTimeImmutableFromxml'), 'yml' => array(0 => 'jms_serializer.datetime_handler', 1 => 'deserializeDateTimeImmutableFromyml')), 'DateInterval' => array('json' => array(0 => 'jms_serializer.datetime_handler', 1 => 'deserializeDateIntervalFromjson'), 'xml' => array(0 => 'jms_serializer.datetime_handler', 1 => 'deserializeDateIntervalFromxml'), 'yml' => array(0 => 'jms_serializer.datetime_handler', 1 => 'deserializeDateIntervalFromyml')), 'ArrayCollection' => array('json' => array(0 => 'jms_serializer.array_collection_handler', 1 => 'deserializeCollection'), 'xml' => array(0 => 'jms_serializer.array_collection_handler', 1 => 'deserializeCollection'), 'yml' => array(0 => 'jms_serializer.array_collection_handler', 1 => 'deserializeCollection')), 'Doctrine\\Common\\Collections\\ArrayCollection' => array('json' => array(0 => 'jms_serializer.array_collection_handler', 1 => 'deserializeCollection'), 'xml' => array(0 => 'jms_serializer.array_collection_handler', 1 => 'deserializeCollection'), 'yml' => array(0 => 'jms_serializer.array_collection_handler', 1 => 'deserializeCollection')), 'Doctrine\\ORM\\PersistentCollection' => array('json' => array(0 => 'jms_serializer.array_collection_handler', 1 => 'deserializeCollection'), 'xml' => array(0 => 'jms_serializer.array_collection_handler', 1 => 'deserializeCollection'), 'yml' => array(0 => 'jms_serializer.array_collection_handler', 1 => 'deserializeCollection')), 'Doctrine\\ODM\\MongoDB\\PersistentCollection' => array('json' => array(0 => 'jms_serializer.array_collection_handler', 1 => 'deserializeCollection'), 'xml' => array(0 => 'jms_serializer.array_collection_handler', 1 => 'deserializeCollection'), 'yml' => array(0 => 'jms_serializer.array_collection_handler', 1 => 'deserializeCollection')), 'Doctrine\\ODM\\PHPCR\\PersistentCollection' => array('json' => array(0 => 'jms_serializer.array_collection_handler', 1 => 'deserializeCollection'), 'xml' => array(0 => 'jms_serializer.array_collection_handler', 1 => 'deserializeCollection'), 'yml' => array(0 => 'jms_serializer.array_collection_handler', 1 => 'deserializeCollection')), 'PhpCollection\\Sequence' => array('json' => array(0 => 'jms_serializer.php_collection_handler', 1 => 'deserializeSequence'), 'xml' => array(0 => 'jms_serializer.php_collection_handler', 1 => 'deserializeSequence'), 'yml' => array(0 => 'jms_serializer.php_collection_handler', 1 => 'deserializeSequence')), 'PhpCollection\\Map' => array('json' => array(0 => 'jms_serializer.php_collection_handler', 1 => 'deserializeMap'), 'xml' => array(0 => 'jms_serializer.php_collection_handler', 1 => 'deserializeMap'), 'yml' => array(0 => 'jms_serializer.php_collection_handler', 1 => 'deserializeMap')))));
     }
 
     /*
-     * Gets the 'jms_serializer.json_deserialization_visitor' service.
+     * Gets the public 'jms_serializer.json_deserialization_visitor' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return \JMS\Serializer\JsonDeserializationVisitor A JMS\Serializer\JsonDeserializationVisitor instance
+     * @return \JMS\Serializer\JsonDeserializationVisitor
      */
     protected function getJmsSerializer_JsonDeserializationVisitorService()
     {
@@ -2245,12 +1940,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'jms_serializer.json_serialization_visitor' service.
+     * Gets the public 'jms_serializer.json_serialization_visitor' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return \JMS\Serializer\JsonSerializationVisitor A JMS\Serializer\JsonSerializationVisitor instance
+     * @return \JMS\Serializer\JsonSerializationVisitor
      */
     protected function getJmsSerializer_JsonSerializationVisitorService()
     {
@@ -2262,27 +1954,21 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'jms_serializer.metadata_driver' service.
+     * Gets the public 'jms_serializer.metadata_driver' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return \JMS\Serializer\Metadata\Driver\DoctrineTypeDriver A JMS\Serializer\Metadata\Driver\DoctrineTypeDriver instance
+     * @return \JMS\Serializer\Metadata\Driver\DoctrineTypeDriver
      */
     protected function getJmsSerializer_MetadataDriverService()
     {
-        $a = new \Metadata\Driver\FileLocator(array('Symfony\\Bundle\\FrameworkBundle' => ($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Bundle\\FrameworkBundle/Resources/config/serializer'), 'Symfony\\Bundle\\SecurityBundle' => ($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Bundle\\SecurityBundle/Resources/config/serializer'), 'Symfony\\Bundle\\TwigBundle' => ($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Bundle\\TwigBundle/Resources/config/serializer'), 'Symfony\\Bundle\\MonologBundle' => ($this->targetDirs[3].'\\vendor\\symfony\\monolog-bundle/Resources/config/serializer'), 'Symfony\\Bundle\\SwiftmailerBundle' => ($this->targetDirs[3].'\\vendor\\symfony\\swiftmailer-bundle/Resources/config/serializer'), 'Doctrine\\Bundle\\DoctrineBundle' => ($this->targetDirs[3].'\\vendor\\doctrine\\doctrine-bundle/Resources/config/serializer'), 'Sensio\\Bundle\\FrameworkExtraBundle' => ($this->targetDirs[3].'\\vendor\\sensio\\framework-extra-bundle/Resources/config/serializer'), 'Sonata\\CoreBundle' => ($this->targetDirs[3].'\\vendor\\sonata-project\\core-bundle/Resources/config/serializer'), 'Sonata\\BlockBundle' => ($this->targetDirs[3].'\\vendor\\sonata-project\\block-bundle/Resources/config/serializer'), 'Knp\\Bundle\\MenuBundle' => ($this->targetDirs[3].'\\vendor\\knplabs\\knp-menu-bundle/Resources/config/serializer'), 'Sonata\\DoctrineORMAdminBundle' => ($this->targetDirs[3].'\\vendor\\sonata-project\\doctrine-orm-admin-bundle/Resources/config/serializer'), 'Sonata\\AdminBundle' => ($this->targetDirs[3].'\\vendor\\sonata-project\\admin-bundle/Resources/config/serializer'), 'FOS\\UserBundle' => ($this->targetDirs[3].'\\vendor\\friendsofsymfony\\user-bundle/Resources/config/serializer'), 'Sonata\\MediaBundle' => ($this->targetDirs[3].'\\vendor\\sonata-project\\media-bundle/Resources/config/serializer'), 'Sonata\\EasyExtendsBundle' => ($this->targetDirs[3].'\\vendor\\sonata-project\\easy-extends-bundle/Resources/config/serializer'), 'Application\\Sonata\\MediaBundle' => ($this->targetDirs[3].'\\src\\Application\\Sonata\\MediaBundle/Resources/config/serializer'), 'JMS\\SerializerBundle' => ($this->targetDirs[3].'\\vendor\\jms\\serializer-bundle\\JMS\\SerializerBundle/Resources/config/serializer'), 'AppBundle' => ($this->targetDirs[3].'\\src\\AppBundle/Resources/config/serializer'), 'BackendBundle' => ($this->targetDirs[3].'\\src\\BackendBundle/Resources/config/serializer'), 'Sonata\\ClassificationBundle' => ($this->targetDirs[3].'\\vendor\\sonata-project\\classification-bundle/Resources/config/serializer'), 'Application\\Sonata\\ClassificationBundle' => ($this->targetDirs[3].'\\src\\Application\\Sonata\\ClassificationBundle/Resources/config/serializer'), 'JavierEguiluz\\Bundle\\EasyAdminBundle' => ($this->targetDirs[3].'\\vendor\\javiereguiluz\\easyadmin-bundle/Resources/config/serializer')));
+        $a = new \Metadata\Driver\FileLocator(array('Sonata\\BlockBundle' => ($this->targetDirs[3].'\\vendor\\sonata-project\\block-bundle/Resources/config/serializer'), 'Sonata\\ClassificationBundle' => ($this->targetDirs[3].'\\vendor\\sonata-project\\classification-bundle/Resources/config/serializer'), 'Application\\Sonata\\ClassificationBundle' => ($this->targetDirs[3].'\\src\\Application\\Sonata\\ClassificationBundle/Resources/config/serializer'), 'Sonata\\MediaBundle' => ($this->targetDirs[3].'\\vendor\\sonata-project\\media-bundle/Resources/config/serializer'), 'Application\\Sonata\\MediaBundle' => ($this->targetDirs[3].'\\src\\Application\\Sonata\\MediaBundle/Resources/config/serializer')));
 
         return $this->services['jms_serializer.metadata_driver'] = new \JMS\Serializer\Metadata\Driver\DoctrineTypeDriver(new \Metadata\Driver\DriverChain(array(0 => new \JMS\Serializer\Metadata\Driver\YamlDriver($a), 1 => new \JMS\Serializer\Metadata\Driver\XmlDriver($a), 2 => new \JMS\Serializer\Metadata\Driver\PhpDriver($a), 3 => new \JMS\Serializer\Metadata\Driver\AnnotationDriver($this->get('annotation_reader')))), $this->get('doctrine'));
     }
 
     /*
-     * Gets the 'jms_serializer.naming_strategy' service.
+     * Gets the public 'jms_serializer.naming_strategy' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return \JMS\Serializer\Naming\CacheNamingStrategy A JMS\Serializer\Naming\CacheNamingStrategy instance
+     * @return \JMS\Serializer\Naming\CacheNamingStrategy
      */
     protected function getJmsSerializer_NamingStrategyService()
     {
@@ -2290,12 +1976,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'jms_serializer.object_constructor' service.
+     * Gets the public 'jms_serializer.object_constructor' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return \JMS\Serializer\Construction\DoctrineObjectConstructor A JMS\Serializer\Construction\DoctrineObjectConstructor instance
+     * @return \JMS\Serializer\Construction\DoctrineObjectConstructor
      */
     protected function getJmsSerializer_ObjectConstructorService()
     {
@@ -2303,12 +1986,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'jms_serializer.php_collection_handler' service.
+     * Gets the public 'jms_serializer.php_collection_handler' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return \JMS\Serializer\Handler\PhpCollectionHandler A JMS\Serializer\Handler\PhpCollectionHandler instance
+     * @return \JMS\Serializer\Handler\PhpCollectionHandler
      */
     protected function getJmsSerializer_PhpCollectionHandlerService()
     {
@@ -2316,12 +1996,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'jms_serializer.serialization_context_factory' service.
+     * Gets the public 'jms_serializer.serialization_context_factory' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return \JMS\SerializerBundle\ContextFactory\ConfiguredContextFactory A JMS\SerializerBundle\ContextFactory\ConfiguredContextFactory instance
+     * @return \JMS\SerializerBundle\ContextFactory\ConfiguredContextFactory
      */
     protected function getJmsSerializer_SerializationContextFactoryService()
     {
@@ -2329,12 +2006,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'jms_serializer.templating.helper.serializer' service.
+     * Gets the public 'jms_serializer.templating.helper.serializer' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return \JMS\SerializerBundle\Templating\SerializerHelper A JMS\SerializerBundle\Templating\SerializerHelper instance
+     * @return \JMS\SerializerBundle\Templating\SerializerHelper
      */
     protected function getJmsSerializer_Templating_Helper_SerializerService()
     {
@@ -2342,12 +2016,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'jms_serializer.xml_deserialization_visitor' service.
+     * Gets the public 'jms_serializer.xml_deserialization_visitor' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return \JMS\Serializer\XmlDeserializationVisitor A JMS\Serializer\XmlDeserializationVisitor instance
+     * @return \JMS\Serializer\XmlDeserializationVisitor
      */
     protected function getJmsSerializer_XmlDeserializationVisitorService()
     {
@@ -2359,12 +2030,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'jms_serializer.xml_serialization_visitor' service.
+     * Gets the public 'jms_serializer.xml_serialization_visitor' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return \JMS\Serializer\XmlSerializationVisitor A JMS\Serializer\XmlSerializationVisitor instance
+     * @return \JMS\Serializer\XmlSerializationVisitor
      */
     protected function getJmsSerializer_XmlSerializationVisitorService()
     {
@@ -2376,12 +2044,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'jms_serializer.yaml_serialization_visitor' service.
+     * Gets the public 'jms_serializer.yaml_serialization_visitor' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return \JMS\Serializer\YamlSerializationVisitor A JMS\Serializer\YamlSerializationVisitor instance
+     * @return \JMS\Serializer\YamlSerializationVisitor
      */
     protected function getJmsSerializer_YamlSerializationVisitorService()
     {
@@ -2389,10 +2054,7 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'kernel' service.
-     *
-     * This service is shared.
-     * This method always returns the same instance of the service.
+     * Gets the public 'kernel' shared service.
      *
      * @throws RuntimeException always since this service is expected to be injected dynamically
      */
@@ -2402,12 +2064,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'kernel.class_cache.cache_warmer' service.
+     * Gets the public 'kernel.class_cache.cache_warmer' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return \Symfony\Bundle\FrameworkBundle\CacheWarmer\ClassCacheCacheWarmer A Symfony\Bundle\FrameworkBundle\CacheWarmer\ClassCacheCacheWarmer instance
+     * @return \Symfony\Bundle\FrameworkBundle\CacheWarmer\ClassCacheCacheWarmer
      */
     protected function getKernel_ClassCache_CacheWarmerService()
     {
@@ -2415,12 +2074,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'knp_menu.factory' service.
+     * Gets the public 'knp_menu.factory' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return \Knp\Menu\MenuFactory A Knp\Menu\MenuFactory instance
+     * @return \Knp\Menu\MenuFactory
      */
     protected function getKnpMenu_FactoryService()
     {
@@ -2432,12 +2088,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'knp_menu.listener.voters' service.
+     * Gets the public 'knp_menu.listener.voters' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return \Knp\Bundle\MenuBundle\EventListener\VoterInitializerListener A Knp\Bundle\MenuBundle\EventListener\VoterInitializerListener instance
+     * @return \Knp\Bundle\MenuBundle\EventListener\VoterInitializerListener
      */
     protected function getKnpMenu_Listener_VotersService()
     {
@@ -2450,12 +2103,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'knp_menu.matcher' service.
+     * Gets the public 'knp_menu.matcher' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return \Knp\Menu\Matcher\Matcher A Knp\Menu\Matcher\Matcher instance
+     * @return \Knp\Menu\Matcher\Matcher
      */
     protected function getKnpMenu_MatcherService()
     {
@@ -2470,12 +2120,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'knp_menu.menu_provider' service.
+     * Gets the public 'knp_menu.menu_provider' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return \Knp\Menu\Provider\ChainProvider A Knp\Menu\Provider\ChainProvider instance
+     * @return \Knp\Menu\Provider\ChainProvider
      */
     protected function getKnpMenu_MenuProviderService()
     {
@@ -2485,12 +2132,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'knp_menu.renderer.list' service.
+     * Gets the public 'knp_menu.renderer.list' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return \Knp\Menu\Renderer\ListRenderer A Knp\Menu\Renderer\ListRenderer instance
+     * @return \Knp\Menu\Renderer\ListRenderer
      */
     protected function getKnpMenu_Renderer_ListService()
     {
@@ -2498,12 +2142,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'knp_menu.renderer.twig' service.
+     * Gets the public 'knp_menu.renderer.twig' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return \Knp\Menu\Renderer\TwigRenderer A Knp\Menu\Renderer\TwigRenderer instance
+     * @return \Knp\Menu\Renderer\TwigRenderer
      */
     protected function getKnpMenu_Renderer_TwigService()
     {
@@ -2511,12 +2152,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'knp_menu.renderer_provider' service.
+     * Gets the public 'knp_menu.renderer_provider' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return \Knp\Bundle\MenuBundle\Renderer\ContainerAwareProvider A Knp\Bundle\MenuBundle\Renderer\ContainerAwareProvider instance
+     * @return \Knp\Bundle\MenuBundle\Renderer\ContainerAwareProvider
      */
     protected function getKnpMenu_RendererProviderService()
     {
@@ -2524,12 +2162,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'knp_menu.voter.router' service.
+     * Gets the public 'knp_menu.voter.router' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return \Knp\Menu\Matcher\Voter\RouteVoter A Knp\Menu\Matcher\Voter\RouteVoter instance
+     * @return \Knp\Menu\Matcher\Voter\RouteVoter
      */
     protected function getKnpMenu_Voter_RouterService()
     {
@@ -2537,12 +2172,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'locale_listener' service.
+     * Gets the public 'locale_listener' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return \Symfony\Component\HttpKernel\EventListener\LocaleListener A Symfony\Component\HttpKernel\EventListener\LocaleListener instance
+     * @return \Symfony\Component\HttpKernel\EventListener\LocaleListener
      */
     protected function getLocaleListenerService()
     {
@@ -2550,12 +2182,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'logger' service.
+     * Gets the public 'logger' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return \Symfony\Bridge\Monolog\Logger A Symfony\Bridge\Monolog\Logger instance
+     * @return \Symfony\Bridge\Monolog\Logger
      */
     protected function getLoggerService()
     {
@@ -2569,12 +2198,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'monolog.activation_strategy.not_found' service.
+     * Gets the public 'monolog.activation_strategy.not_found' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return \Symfony\Bridge\Monolog\Handler\FingersCrossed\NotFoundActivationStrategy A Symfony\Bridge\Monolog\Handler\FingersCrossed\NotFoundActivationStrategy instance
+     * @return \Symfony\Bridge\Monolog\Handler\FingersCrossed\NotFoundActivationStrategy
      */
     protected function getMonolog_ActivationStrategy_NotFoundService()
     {
@@ -2582,12 +2208,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'monolog.handler.console' service.
+     * Gets the public 'monolog.handler.console' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return \Symfony\Bridge\Monolog\Handler\ConsoleHandler A Symfony\Bridge\Monolog\Handler\ConsoleHandler instance
+     * @return \Symfony\Bridge\Monolog\Handler\ConsoleHandler
      */
     protected function getMonolog_Handler_ConsoleService()
     {
@@ -2599,12 +2222,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'monolog.handler.fingers_crossed.error_level_activation_strategy' service.
+     * Gets the public 'monolog.handler.fingers_crossed.error_level_activation_strategy' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return \Monolog\Handler\FingersCrossed\ErrorLevelActivationStrategy A Monolog\Handler\FingersCrossed\ErrorLevelActivationStrategy instance
+     * @return \Monolog\Handler\FingersCrossed\ErrorLevelActivationStrategy
      */
     protected function getMonolog_Handler_FingersCrossed_ErrorLevelActivationStrategyService()
     {
@@ -2612,12 +2232,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'monolog.handler.main' service.
+     * Gets the public 'monolog.handler.main' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return \Monolog\Handler\FingersCrossedHandler A Monolog\Handler\FingersCrossedHandler instance
+     * @return \Monolog\Handler\FingersCrossedHandler
      */
     protected function getMonolog_Handler_MainService()
     {
@@ -2629,12 +2246,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'monolog.handler.nested' service.
+     * Gets the public 'monolog.handler.nested' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return \Monolog\Handler\StreamHandler A Monolog\Handler\StreamHandler instance
+     * @return \Monolog\Handler\StreamHandler
      */
     protected function getMonolog_Handler_NestedService()
     {
@@ -2646,12 +2260,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'monolog.handler.null_internal' service.
+     * Gets the public 'monolog.handler.null_internal' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return \Monolog\Handler\NullHandler A Monolog\Handler\NullHandler instance
+     * @return \Monolog\Handler\NullHandler
      */
     protected function getMonolog_Handler_NullInternalService()
     {
@@ -2659,12 +2270,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'monolog.logger.doctrine' service.
+     * Gets the public 'monolog.logger.doctrine' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return \Symfony\Bridge\Monolog\Logger A Symfony\Bridge\Monolog\Logger instance
+     * @return \Symfony\Bridge\Monolog\Logger
      */
     protected function getMonolog_Logger_DoctrineService()
     {
@@ -2677,12 +2285,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'monolog.logger.php' service.
+     * Gets the public 'monolog.logger.php' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return \Symfony\Bridge\Monolog\Logger A Symfony\Bridge\Monolog\Logger instance
+     * @return \Symfony\Bridge\Monolog\Logger
      */
     protected function getMonolog_Logger_PhpService()
     {
@@ -2695,12 +2300,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'monolog.logger.request' service.
+     * Gets the public 'monolog.logger.request' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return \Symfony\Bridge\Monolog\Logger A Symfony\Bridge\Monolog\Logger instance
+     * @return \Symfony\Bridge\Monolog\Logger
      */
     protected function getMonolog_Logger_RequestService()
     {
@@ -2713,12 +2315,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'monolog.logger.router' service.
+     * Gets the public 'monolog.logger.router' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return \Symfony\Bridge\Monolog\Logger A Symfony\Bridge\Monolog\Logger instance
+     * @return \Symfony\Bridge\Monolog\Logger
      */
     protected function getMonolog_Logger_RouterService()
     {
@@ -2731,12 +2330,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'monolog.logger.security' service.
+     * Gets the public 'monolog.logger.security' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return \Symfony\Bridge\Monolog\Logger A Symfony\Bridge\Monolog\Logger instance
+     * @return \Symfony\Bridge\Monolog\Logger
      */
     protected function getMonolog_Logger_SecurityService()
     {
@@ -2749,12 +2345,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'monolog.logger.translation' service.
+     * Gets the public 'monolog.logger.translation' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return \Symfony\Bridge\Monolog\Logger A Symfony\Bridge\Monolog\Logger instance
+     * @return \Symfony\Bridge\Monolog\Logger
      */
     protected function getMonolog_Logger_TranslationService()
     {
@@ -2767,12 +2360,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'property_accessor' service.
+     * Gets the public 'property_accessor' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return \Symfony\Component\PropertyAccess\PropertyAccessor A Symfony\Component\PropertyAccess\PropertyAccessor instance
+     * @return \Symfony\Component\PropertyAccess\PropertyAccessor
      */
     protected function getPropertyAccessorService()
     {
@@ -2780,10 +2370,7 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'request' service.
-     *
-     * This service is shared.
-     * This method always returns the same instance of the service.
+     * Gets the public 'request' shared service.
      *
      * @throws RuntimeException always since this service is expected to be injected dynamically
      * @throws InactiveScopeException when the 'request' service is requested while the 'request' scope is not active
@@ -2799,12 +2386,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'request_stack' service.
+     * Gets the public 'request_stack' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return \Symfony\Component\HttpFoundation\RequestStack A Symfony\Component\HttpFoundation\RequestStack instance
+     * @return \Symfony\Component\HttpFoundation\RequestStack
      */
     protected function getRequestStackService()
     {
@@ -2812,12 +2396,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'response_listener' service.
+     * Gets the public 'response_listener' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return \Symfony\Component\HttpKernel\EventListener\ResponseListener A Symfony\Component\HttpKernel\EventListener\ResponseListener instance
+     * @return \Symfony\Component\HttpKernel\EventListener\ResponseListener
      */
     protected function getResponseListenerService()
     {
@@ -2825,12 +2406,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'router' service.
+     * Gets the public 'router' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return \Symfony\Bundle\FrameworkBundle\Routing\Router A Symfony\Bundle\FrameworkBundle\Routing\Router instance
+     * @return \Symfony\Bundle\FrameworkBundle\Routing\Router
      */
     protected function getRouterService()
     {
@@ -2842,12 +2420,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'router_listener' service.
+     * Gets the public 'router_listener' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return \Symfony\Component\HttpKernel\EventListener\RouterListener A Symfony\Component\HttpKernel\EventListener\RouterListener instance
+     * @return \Symfony\Component\HttpKernel\EventListener\RouterListener
      */
     protected function getRouterListenerService()
     {
@@ -2855,12 +2430,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'routing.loader' service.
+     * Gets the public 'routing.loader' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return \Symfony\Bundle\FrameworkBundle\Routing\DelegatingLoader A Symfony\Bundle\FrameworkBundle\Routing\DelegatingLoader instance
+     * @return \Symfony\Bundle\FrameworkBundle\Routing\DelegatingLoader
      */
     protected function getRouting_LoaderService()
     {
@@ -2884,12 +2456,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'security.authentication.guard_handler' service.
+     * Gets the public 'security.authentication.guard_handler' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return \Symfony\Component\Security\Guard\GuardAuthenticatorHandler A Symfony\Component\Security\Guard\GuardAuthenticatorHandler instance
+     * @return \Symfony\Component\Security\Guard\GuardAuthenticatorHandler
      */
     protected function getSecurity_Authentication_GuardHandlerService()
     {
@@ -2897,12 +2466,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'security.authentication_utils' service.
+     * Gets the public 'security.authentication_utils' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return \Symfony\Component\Security\Http\Authentication\AuthenticationUtils A Symfony\Component\Security\Http\Authentication\AuthenticationUtils instance
+     * @return \Symfony\Component\Security\Http\Authentication\AuthenticationUtils
      */
     protected function getSecurity_AuthenticationUtilsService()
     {
@@ -2910,12 +2476,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'security.authorization_checker' service.
+     * Gets the public 'security.authorization_checker' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return \Symfony\Component\Security\Core\Authorization\AuthorizationChecker A Symfony\Component\Security\Core\Authorization\AuthorizationChecker instance
+     * @return \Symfony\Component\Security\Core\Authorization\AuthorizationChecker
      */
     protected function getSecurity_AuthorizationCheckerService()
     {
@@ -2923,12 +2486,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'security.context' service.
+     * Gets the public 'security.context' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return \Symfony\Component\Security\Core\SecurityContext A Symfony\Component\Security\Core\SecurityContext instance
+     * @return \Symfony\Component\Security\Core\SecurityContext
      *
      * @deprecated The "security.context" service is deprecated since Symfony 2.6 and will be removed in 3.0.
      */
@@ -2940,12 +2500,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'security.csrf.token_manager' service.
+     * Gets the public 'security.csrf.token_manager' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return \Symfony\Component\Security\Csrf\CsrfTokenManager A Symfony\Component\Security\Csrf\CsrfTokenManager instance
+     * @return \Symfony\Component\Security\Csrf\CsrfTokenManager
      */
     protected function getSecurity_Csrf_TokenManagerService()
     {
@@ -2953,12 +2510,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'security.encoder_factory' service.
+     * Gets the public 'security.encoder_factory' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return \Symfony\Component\Security\Core\Encoder\EncoderFactory A Symfony\Component\Security\Core\Encoder\EncoderFactory instance
+     * @return \Symfony\Component\Security\Core\Encoder\EncoderFactory
      */
     protected function getSecurity_EncoderFactoryService()
     {
@@ -2966,12 +2520,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'security.firewall' service.
+     * Gets the public 'security.firewall' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return \Symfony\Component\Security\Http\Firewall A Symfony\Component\Security\Http\Firewall instance
+     * @return \Symfony\Component\Security\Http\Firewall
      */
     protected function getSecurity_FirewallService()
     {
@@ -2979,12 +2530,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'security.firewall.map.context.dev' service.
+     * Gets the public 'security.firewall.map.context.dev' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return \Symfony\Bundle\SecurityBundle\Security\FirewallContext A Symfony\Bundle\SecurityBundle\Security\FirewallContext instance
+     * @return \Symfony\Bundle\SecurityBundle\Security\FirewallContext
      */
     protected function getSecurity_Firewall_Map_Context_DevService()
     {
@@ -2992,12 +2540,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'security.firewall.map.context.main' service.
+     * Gets the public 'security.firewall.map.context.main' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return \Symfony\Bundle\SecurityBundle\Security\FirewallContext A Symfony\Bundle\SecurityBundle\Security\FirewallContext instance
+     * @return \Symfony\Bundle\SecurityBundle\Security\FirewallContext
      */
     protected function getSecurity_Firewall_Map_Context_MainService()
     {
@@ -3046,16 +2591,13 @@ class appProdProjectContainer extends Container
         $t = new \Symfony\Component\Security\Http\Firewall\UsernamePasswordFormAuthenticationListener($b, $g, $h, $p, 'main', $r, $s, array('check_path' => '/login_check', 'use_forward' => false, 'require_previous_session' => true, 'username_parameter' => '_username', 'password_parameter' => '_password', 'csrf_parameter' => '_csrf_token', 'csrf_token_id' => 'authenticate', 'post_only' => true), $a, $c, $this->get('security.csrf.token_manager'));
         $t->setRememberMeServices($e);
 
-        return $this->services['security.firewall.map.context.main'] = new \Symfony\Bundle\SecurityBundle\Security\FirewallContext(array(0 => new \Symfony\Component\Security\Http\Firewall\ChannelListener($o, new \Symfony\Component\Security\Http\EntryPoint\RetryAuthenticationEntryPoint(80, 443), $a), 1 => new \Symfony\Component\Security\Http\Firewall\ContextListener($b, array(0 => $this->get('fos_user.user_provider.username')), 'main', $a, $c), 2 => $q, 3 => $t, 4 => new \Symfony\Component\Security\Http\Firewall\RememberMeListener($b, $e, $g, $a, $c, true, $h), 5 => new \Symfony\Component\Security\Http\Firewall\AnonymousAuthenticationListener($b, '598ae2a0903355.30946139', $a, $g), 6 => new \Symfony\Component\Security\Http\Firewall\AccessListener($b, $this->get('security.access.decision_manager'), $o, $g)), new \Symfony\Component\Security\Http\Firewall\ExceptionListener($b, $this->get('security.authentication.trust_resolver'), $p, 'main', new \Symfony\Component\Security\Http\EntryPoint\FormAuthenticationEntryPoint($f, $p, '/login', false), NULL, NULL, $a, false));
+        return $this->services['security.firewall.map.context.main'] = new \Symfony\Bundle\SecurityBundle\Security\FirewallContext(array(0 => new \Symfony\Component\Security\Http\Firewall\ChannelListener($o, new \Symfony\Component\Security\Http\EntryPoint\RetryAuthenticationEntryPoint(80, 443), $a), 1 => new \Symfony\Component\Security\Http\Firewall\ContextListener($b, array(0 => $this->get('fos_user.user_provider.username')), 'main', $a, $c), 2 => $q, 3 => $t, 4 => new \Symfony\Component\Security\Http\Firewall\RememberMeListener($b, $e, $g, $a, $c, true, $h), 5 => new \Symfony\Component\Security\Http\Firewall\AnonymousAuthenticationListener($b, '598c0fdbf18491.29709108', $a, $g), 6 => new \Symfony\Component\Security\Http\Firewall\AccessListener($b, $this->get('security.access.decision_manager'), $o, $g)), new \Symfony\Component\Security\Http\Firewall\ExceptionListener($b, $this->get('security.authentication.trust_resolver'), $p, 'main', new \Symfony\Component\Security\Http\EntryPoint\FormAuthenticationEntryPoint($f, $p, '/login', false), NULL, NULL, $a, false));
     }
 
     /*
-     * Gets the 'security.password_encoder' service.
+     * Gets the public 'security.password_encoder' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return \Symfony\Component\Security\Core\Encoder\UserPasswordEncoder A Symfony\Component\Security\Core\Encoder\UserPasswordEncoder instance
+     * @return \Symfony\Component\Security\Core\Encoder\UserPasswordEncoder
      */
     protected function getSecurity_PasswordEncoderService()
     {
@@ -3063,12 +2605,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'security.rememberme.response_listener' service.
+     * Gets the public 'security.rememberme.response_listener' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return \Symfony\Component\Security\Http\RememberMe\ResponseListener A Symfony\Component\Security\Http\RememberMe\ResponseListener instance
+     * @return \Symfony\Component\Security\Http\RememberMe\ResponseListener
      */
     protected function getSecurity_Rememberme_ResponseListenerService()
     {
@@ -3076,12 +2615,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'security.secure_random' service.
+     * Gets the public 'security.secure_random' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return \Symfony\Component\Security\Core\Util\SecureRandom A Symfony\Component\Security\Core\Util\SecureRandom instance
+     * @return \Symfony\Component\Security\Core\Util\SecureRandom
      *
      * @deprecated The "security.secure_random" service is deprecated since Symfony 2.8 and will be removed in 3.0. Use the random_bytes() function instead.
      */
@@ -3093,12 +2629,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'security.token_storage' service.
+     * Gets the public 'security.token_storage' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return \Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorage A Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorage instance
+     * @return \Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorage
      */
     protected function getSecurity_TokenStorageService()
     {
@@ -3106,12 +2639,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'security.user_checker.main' service.
+     * Gets the public 'security.user_checker.main' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return \Symfony\Component\Security\Core\User\UserChecker A Symfony\Component\Security\Core\User\UserChecker instance
+     * @return \Symfony\Component\Security\Core\User\UserChecker
      */
     protected function getSecurity_UserChecker_MainService()
     {
@@ -3119,12 +2649,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'security.validator.user_password' service.
+     * Gets the public 'security.validator.user_password' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return \Symfony\Component\Security\Core\Validator\Constraints\UserPasswordValidator A Symfony\Component\Security\Core\Validator\Constraints\UserPasswordValidator instance
+     * @return \Symfony\Component\Security\Core\Validator\Constraints\UserPasswordValidator
      */
     protected function getSecurity_Validator_UserPasswordService()
     {
@@ -3132,12 +2659,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'sensio_framework_extra.cache.listener' service.
+     * Gets the public 'sensio_framework_extra.cache.listener' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return \Sensio\Bundle\FrameworkExtraBundle\EventListener\HttpCacheListener A Sensio\Bundle\FrameworkExtraBundle\EventListener\HttpCacheListener instance
+     * @return \Sensio\Bundle\FrameworkExtraBundle\EventListener\HttpCacheListener
      */
     protected function getSensioFrameworkExtra_Cache_ListenerService()
     {
@@ -3145,12 +2669,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'sensio_framework_extra.controller.listener' service.
+     * Gets the public 'sensio_framework_extra.controller.listener' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return \Sensio\Bundle\FrameworkExtraBundle\EventListener\ControllerListener A Sensio\Bundle\FrameworkExtraBundle\EventListener\ControllerListener instance
+     * @return \Sensio\Bundle\FrameworkExtraBundle\EventListener\ControllerListener
      */
     protected function getSensioFrameworkExtra_Controller_ListenerService()
     {
@@ -3158,12 +2679,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'sensio_framework_extra.converter.datetime' service.
+     * Gets the public 'sensio_framework_extra.converter.datetime' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return \Sensio\Bundle\FrameworkExtraBundle\Request\ParamConverter\DateTimeParamConverter A Sensio\Bundle\FrameworkExtraBundle\Request\ParamConverter\DateTimeParamConverter instance
+     * @return \Sensio\Bundle\FrameworkExtraBundle\Request\ParamConverter\DateTimeParamConverter
      */
     protected function getSensioFrameworkExtra_Converter_DatetimeService()
     {
@@ -3171,12 +2689,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'sensio_framework_extra.converter.doctrine.orm' service.
+     * Gets the public 'sensio_framework_extra.converter.doctrine.orm' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return \Sensio\Bundle\FrameworkExtraBundle\Request\ParamConverter\DoctrineParamConverter A Sensio\Bundle\FrameworkExtraBundle\Request\ParamConverter\DoctrineParamConverter instance
+     * @return \Sensio\Bundle\FrameworkExtraBundle\Request\ParamConverter\DoctrineParamConverter
      */
     protected function getSensioFrameworkExtra_Converter_Doctrine_OrmService()
     {
@@ -3184,12 +2699,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'sensio_framework_extra.converter.listener' service.
+     * Gets the public 'sensio_framework_extra.converter.listener' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return \Sensio\Bundle\FrameworkExtraBundle\EventListener\ParamConverterListener A Sensio\Bundle\FrameworkExtraBundle\EventListener\ParamConverterListener instance
+     * @return \Sensio\Bundle\FrameworkExtraBundle\EventListener\ParamConverterListener
      */
     protected function getSensioFrameworkExtra_Converter_ListenerService()
     {
@@ -3197,12 +2709,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'sensio_framework_extra.converter.manager' service.
+     * Gets the public 'sensio_framework_extra.converter.manager' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return \Sensio\Bundle\FrameworkExtraBundle\Request\ParamConverter\ParamConverterManager A Sensio\Bundle\FrameworkExtraBundle\Request\ParamConverter\ParamConverterManager instance
+     * @return \Sensio\Bundle\FrameworkExtraBundle\Request\ParamConverter\ParamConverterManager
      */
     protected function getSensioFrameworkExtra_Converter_ManagerService()
     {
@@ -3215,12 +2724,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'sensio_framework_extra.security.listener' service.
+     * Gets the public 'sensio_framework_extra.security.listener' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return \Sensio\Bundle\FrameworkExtraBundle\EventListener\SecurityListener A Sensio\Bundle\FrameworkExtraBundle\EventListener\SecurityListener instance
+     * @return \Sensio\Bundle\FrameworkExtraBundle\EventListener\SecurityListener
      */
     protected function getSensioFrameworkExtra_Security_ListenerService()
     {
@@ -3228,12 +2734,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'sensio_framework_extra.view.guesser' service.
+     * Gets the public 'sensio_framework_extra.view.guesser' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return \Sensio\Bundle\FrameworkExtraBundle\Templating\TemplateGuesser A Sensio\Bundle\FrameworkExtraBundle\Templating\TemplateGuesser instance
+     * @return \Sensio\Bundle\FrameworkExtraBundle\Templating\TemplateGuesser
      */
     protected function getSensioFrameworkExtra_View_GuesserService()
     {
@@ -3241,12 +2744,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'sensio_framework_extra.view.listener' service.
+     * Gets the public 'sensio_framework_extra.view.listener' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return \Sensio\Bundle\FrameworkExtraBundle\EventListener\TemplateListener A Sensio\Bundle\FrameworkExtraBundle\EventListener\TemplateListener instance
+     * @return \Sensio\Bundle\FrameworkExtraBundle\EventListener\TemplateListener
      */
     protected function getSensioFrameworkExtra_View_ListenerService()
     {
@@ -3254,10 +2754,7 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'service_container' service.
-     *
-     * This service is shared.
-     * This method always returns the same instance of the service.
+     * Gets the public 'service_container' shared service.
      *
      * @throws RuntimeException always since this service is expected to be injected dynamically
      */
@@ -3267,12 +2764,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'session' service.
+     * Gets the public 'session' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return \Symfony\Component\HttpFoundation\Session\Session A Symfony\Component\HttpFoundation\Session\Session instance
+     * @return \Symfony\Component\HttpFoundation\Session\Session
      */
     protected function getSessionService()
     {
@@ -3280,12 +2774,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'session.save_listener' service.
+     * Gets the public 'session.save_listener' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return \Symfony\Component\HttpKernel\EventListener\SaveSessionListener A Symfony\Component\HttpKernel\EventListener\SaveSessionListener instance
+     * @return \Symfony\Component\HttpKernel\EventListener\SaveSessionListener
      */
     protected function getSession_SaveListenerService()
     {
@@ -3293,12 +2784,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'session.storage.filesystem' service.
+     * Gets the public 'session.storage.filesystem' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return \Symfony\Component\HttpFoundation\Session\Storage\MockFileSessionStorage A Symfony\Component\HttpFoundation\Session\Storage\MockFileSessionStorage instance
+     * @return \Symfony\Component\HttpFoundation\Session\Storage\MockFileSessionStorage
      */
     protected function getSession_Storage_FilesystemService()
     {
@@ -3306,12 +2794,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'session.storage.native' service.
+     * Gets the public 'session.storage.native' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return \Symfony\Component\HttpFoundation\Session\Storage\NativeSessionStorage A Symfony\Component\HttpFoundation\Session\Storage\NativeSessionStorage instance
+     * @return \Symfony\Component\HttpFoundation\Session\Storage\NativeSessionStorage
      */
     protected function getSession_Storage_NativeService()
     {
@@ -3319,12 +2804,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'session.storage.php_bridge' service.
+     * Gets the public 'session.storage.php_bridge' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return \Symfony\Component\HttpFoundation\Session\Storage\PhpBridgeSessionStorage A Symfony\Component\HttpFoundation\Session\Storage\PhpBridgeSessionStorage instance
+     * @return \Symfony\Component\HttpFoundation\Session\Storage\PhpBridgeSessionStorage
      */
     protected function getSession_Storage_PhpBridgeService()
     {
@@ -3332,12 +2814,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'session_listener' service.
+     * Gets the public 'session_listener' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return \Symfony\Bundle\FrameworkBundle\EventListener\SessionListener A Symfony\Bundle\FrameworkBundle\EventListener\SessionListener instance
+     * @return \Symfony\Bundle\FrameworkBundle\EventListener\SessionListener
      */
     protected function getSessionListenerService()
     {
@@ -3345,12 +2824,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'sonata.admin.audit.manager' service.
+     * Gets the public 'sonata.admin.audit.manager' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return \Sonata\AdminBundle\Model\AuditManager A Sonata\AdminBundle\Model\AuditManager instance
+     * @return \Sonata\AdminBundle\Model\AuditManager
      */
     protected function getSonata_Admin_Audit_ManagerService()
     {
@@ -3358,12 +2834,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'sonata.admin.block.admin_list' service.
+     * Gets the public 'sonata.admin.block.admin_list' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return \Sonata\AdminBundle\Block\AdminListBlockService A Sonata\AdminBundle\Block\AdminListBlockService instance
+     * @return \Sonata\AdminBundle\Block\AdminListBlockService
      */
     protected function getSonata_Admin_Block_AdminListService()
     {
@@ -3371,12 +2844,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'sonata.admin.block.search_result' service.
+     * Gets the public 'sonata.admin.block.search_result' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return \Sonata\AdminBundle\Block\AdminSearchBlockService A Sonata\AdminBundle\Block\AdminSearchBlockService instance
+     * @return \Sonata\AdminBundle\Block\AdminSearchBlockService
      */
     protected function getSonata_Admin_Block_SearchResultService()
     {
@@ -3384,12 +2854,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'sonata.admin.block.stats' service.
+     * Gets the public 'sonata.admin.block.stats' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return \Sonata\AdminBundle\Block\AdminStatsBlockService A Sonata\AdminBundle\Block\AdminStatsBlockService instance
+     * @return \Sonata\AdminBundle\Block\AdminStatsBlockService
      */
     protected function getSonata_Admin_Block_StatsService()
     {
@@ -3397,12 +2864,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'sonata.admin.breadcrumbs_builder' service.
+     * Gets the public 'sonata.admin.breadcrumbs_builder' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return \Sonata\AdminBundle\Admin\BreadcrumbsBuilder A Sonata\AdminBundle\Admin\BreadcrumbsBuilder instance
+     * @return \Sonata\AdminBundle\Admin\BreadcrumbsBuilder
      */
     protected function getSonata_Admin_BreadcrumbsBuilderService()
     {
@@ -3410,12 +2874,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'sonata.admin.builder.filter.factory' service.
+     * Gets the public 'sonata.admin.builder.filter.factory' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return \Sonata\AdminBundle\Filter\FilterFactory A Sonata\AdminBundle\Filter\FilterFactory instance
+     * @return \Sonata\AdminBundle\Filter\FilterFactory
      */
     protected function getSonata_Admin_Builder_Filter_FactoryService()
     {
@@ -3423,12 +2884,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'sonata.admin.builder.orm_datagrid' service.
+     * Gets the public 'sonata.admin.builder.orm_datagrid' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return \Sonata\DoctrineORMAdminBundle\Builder\DatagridBuilder A Sonata\DoctrineORMAdminBundle\Builder\DatagridBuilder instance
+     * @return \Sonata\DoctrineORMAdminBundle\Builder\DatagridBuilder
      */
     protected function getSonata_Admin_Builder_OrmDatagridService()
     {
@@ -3436,12 +2894,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'sonata.admin.builder.orm_form' service.
+     * Gets the public 'sonata.admin.builder.orm_form' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return \Sonata\DoctrineORMAdminBundle\Builder\FormContractor A Sonata\DoctrineORMAdminBundle\Builder\FormContractor instance
+     * @return \Sonata\DoctrineORMAdminBundle\Builder\FormContractor
      */
     protected function getSonata_Admin_Builder_OrmFormService()
     {
@@ -3449,12 +2904,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'sonata.admin.builder.orm_list' service.
+     * Gets the public 'sonata.admin.builder.orm_list' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return \Sonata\DoctrineORMAdminBundle\Builder\ListBuilder A Sonata\DoctrineORMAdminBundle\Builder\ListBuilder instance
+     * @return \Sonata\DoctrineORMAdminBundle\Builder\ListBuilder
      */
     protected function getSonata_Admin_Builder_OrmListService()
     {
@@ -3462,12 +2914,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'sonata.admin.builder.orm_show' service.
+     * Gets the public 'sonata.admin.builder.orm_show' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return \Sonata\DoctrineORMAdminBundle\Builder\ShowBuilder A Sonata\DoctrineORMAdminBundle\Builder\ShowBuilder instance
+     * @return \Sonata\DoctrineORMAdminBundle\Builder\ShowBuilder
      */
     protected function getSonata_Admin_Builder_OrmShowService()
     {
@@ -3475,12 +2924,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'sonata.admin.controller.admin' service.
+     * Gets the public 'sonata.admin.controller.admin' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return \Sonata\AdminBundle\Controller\HelperController A Sonata\AdminBundle\Controller\HelperController instance
+     * @return \Sonata\AdminBundle\Controller\HelperController
      */
     protected function getSonata_Admin_Controller_AdminService()
     {
@@ -3488,12 +2934,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'sonata.admin.doctrine_orm.form.type.choice_field_mask' service.
+     * Gets the public 'sonata.admin.doctrine_orm.form.type.choice_field_mask' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return \Sonata\AdminBundle\Form\Type\ChoiceFieldMaskType A Sonata\AdminBundle\Form\Type\ChoiceFieldMaskType instance
+     * @return \Sonata\AdminBundle\Form\Type\ChoiceFieldMaskType
      */
     protected function getSonata_Admin_DoctrineOrm_Form_Type_ChoiceFieldMaskService()
     {
@@ -3501,12 +2944,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'sonata.admin.event.extension' service.
+     * Gets the public 'sonata.admin.event.extension' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return \Sonata\AdminBundle\Event\AdminEventExtension A Sonata\AdminBundle\Event\AdminEventExtension instance
+     * @return \Sonata\AdminBundle\Event\AdminEventExtension
      */
     protected function getSonata_Admin_Event_ExtensionService()
     {
@@ -3514,12 +2954,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'sonata.admin.exporter' service.
+     * Gets the public 'sonata.admin.exporter' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return \Sonata\AdminBundle\Export\Exporter A Sonata\AdminBundle\Export\Exporter instance
+     * @return \Sonata\AdminBundle\Export\Exporter
      *
      * @deprecated The "sonata.admin.exporter" service is deprecated. You should stop using it, as it will soon be removed.
      */
@@ -3531,12 +2968,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'sonata.admin.form.extension.choice' service.
+     * Gets the public 'sonata.admin.form.extension.choice' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return \Sonata\AdminBundle\Form\Extension\ChoiceTypeExtension A Sonata\AdminBundle\Form\Extension\ChoiceTypeExtension instance
+     * @return \Sonata\AdminBundle\Form\Extension\ChoiceTypeExtension
      */
     protected function getSonata_Admin_Form_Extension_ChoiceService()
     {
@@ -3544,12 +2978,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'sonata.admin.form.extension.field' service.
+     * Gets the public 'sonata.admin.form.extension.field' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return \Sonata\AdminBundle\Form\Extension\Field\Type\FormTypeFieldExtension A Sonata\AdminBundle\Form\Extension\Field\Type\FormTypeFieldExtension instance
+     * @return \Sonata\AdminBundle\Form\Extension\Field\Type\FormTypeFieldExtension
      */
     protected function getSonata_Admin_Form_Extension_FieldService()
     {
@@ -3557,12 +2988,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'sonata.admin.form.extension.field.mopa' service.
+     * Gets the public 'sonata.admin.form.extension.field.mopa' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return \Sonata\AdminBundle\Form\Extension\Field\Type\MopaCompatibilityTypeFieldExtension A Sonata\AdminBundle\Form\Extension\Field\Type\MopaCompatibilityTypeFieldExtension instance
+     * @return \Sonata\AdminBundle\Form\Extension\Field\Type\MopaCompatibilityTypeFieldExtension
      */
     protected function getSonata_Admin_Form_Extension_Field_MopaService()
     {
@@ -3570,12 +2998,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'sonata.admin.form.filter.type.choice' service.
+     * Gets the public 'sonata.admin.form.filter.type.choice' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return \Sonata\AdminBundle\Form\Type\Filter\ChoiceType A Sonata\AdminBundle\Form\Type\Filter\ChoiceType instance
+     * @return \Sonata\AdminBundle\Form\Type\Filter\ChoiceType
      */
     protected function getSonata_Admin_Form_Filter_Type_ChoiceService()
     {
@@ -3583,12 +3008,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'sonata.admin.form.filter.type.date' service.
+     * Gets the public 'sonata.admin.form.filter.type.date' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return \Sonata\AdminBundle\Form\Type\Filter\DateType A Sonata\AdminBundle\Form\Type\Filter\DateType instance
+     * @return \Sonata\AdminBundle\Form\Type\Filter\DateType
      */
     protected function getSonata_Admin_Form_Filter_Type_DateService()
     {
@@ -3596,12 +3018,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'sonata.admin.form.filter.type.daterange' service.
+     * Gets the public 'sonata.admin.form.filter.type.daterange' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return \Sonata\AdminBundle\Form\Type\Filter\DateRangeType A Sonata\AdminBundle\Form\Type\Filter\DateRangeType instance
+     * @return \Sonata\AdminBundle\Form\Type\Filter\DateRangeType
      */
     protected function getSonata_Admin_Form_Filter_Type_DaterangeService()
     {
@@ -3609,12 +3028,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'sonata.admin.form.filter.type.datetime' service.
+     * Gets the public 'sonata.admin.form.filter.type.datetime' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return \Sonata\AdminBundle\Form\Type\Filter\DateTimeType A Sonata\AdminBundle\Form\Type\Filter\DateTimeType instance
+     * @return \Sonata\AdminBundle\Form\Type\Filter\DateTimeType
      */
     protected function getSonata_Admin_Form_Filter_Type_DatetimeService()
     {
@@ -3622,12 +3038,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'sonata.admin.form.filter.type.datetime_range' service.
+     * Gets the public 'sonata.admin.form.filter.type.datetime_range' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return \Sonata\AdminBundle\Form\Type\Filter\DateTimeRangeType A Sonata\AdminBundle\Form\Type\Filter\DateTimeRangeType instance
+     * @return \Sonata\AdminBundle\Form\Type\Filter\DateTimeRangeType
      */
     protected function getSonata_Admin_Form_Filter_Type_DatetimeRangeService()
     {
@@ -3635,12 +3048,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'sonata.admin.form.filter.type.default' service.
+     * Gets the public 'sonata.admin.form.filter.type.default' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return \Sonata\AdminBundle\Form\Type\Filter\DefaultType A Sonata\AdminBundle\Form\Type\Filter\DefaultType instance
+     * @return \Sonata\AdminBundle\Form\Type\Filter\DefaultType
      */
     protected function getSonata_Admin_Form_Filter_Type_DefaultService()
     {
@@ -3648,12 +3058,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'sonata.admin.form.filter.type.number' service.
+     * Gets the public 'sonata.admin.form.filter.type.number' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return \Sonata\AdminBundle\Form\Type\Filter\NumberType A Sonata\AdminBundle\Form\Type\Filter\NumberType instance
+     * @return \Sonata\AdminBundle\Form\Type\Filter\NumberType
      */
     protected function getSonata_Admin_Form_Filter_Type_NumberService()
     {
@@ -3661,12 +3068,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'sonata.admin.form.type.admin' service.
+     * Gets the public 'sonata.admin.form.type.admin' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return \Sonata\AdminBundle\Form\Type\AdminType A Sonata\AdminBundle\Form\Type\AdminType instance
+     * @return \Sonata\AdminBundle\Form\Type\AdminType
      */
     protected function getSonata_Admin_Form_Type_AdminService()
     {
@@ -3674,12 +3078,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'sonata.admin.form.type.collection' service.
+     * Gets the public 'sonata.admin.form.type.collection' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return \Sonata\AdminBundle\Form\Type\CollectionType A Sonata\AdminBundle\Form\Type\CollectionType instance
+     * @return \Sonata\AdminBundle\Form\Type\CollectionType
      */
     protected function getSonata_Admin_Form_Type_CollectionService()
     {
@@ -3687,12 +3088,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'sonata.admin.form.type.model_autocomplete' service.
+     * Gets the public 'sonata.admin.form.type.model_autocomplete' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return \Sonata\AdminBundle\Form\Type\ModelAutocompleteType A Sonata\AdminBundle\Form\Type\ModelAutocompleteType instance
+     * @return \Sonata\AdminBundle\Form\Type\ModelAutocompleteType
      */
     protected function getSonata_Admin_Form_Type_ModelAutocompleteService()
     {
@@ -3700,12 +3098,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'sonata.admin.form.type.model_choice' service.
+     * Gets the public 'sonata.admin.form.type.model_choice' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return \Sonata\AdminBundle\Form\Type\ModelType A Sonata\AdminBundle\Form\Type\ModelType instance
+     * @return \Sonata\AdminBundle\Form\Type\ModelType
      */
     protected function getSonata_Admin_Form_Type_ModelChoiceService()
     {
@@ -3713,12 +3108,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'sonata.admin.form.type.model_hidden' service.
+     * Gets the public 'sonata.admin.form.type.model_hidden' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return \Sonata\AdminBundle\Form\Type\ModelHiddenType A Sonata\AdminBundle\Form\Type\ModelHiddenType instance
+     * @return \Sonata\AdminBundle\Form\Type\ModelHiddenType
      */
     protected function getSonata_Admin_Form_Type_ModelHiddenService()
     {
@@ -3726,12 +3118,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'sonata.admin.form.type.model_list' service.
+     * Gets the public 'sonata.admin.form.type.model_list' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return \Sonata\AdminBundle\Form\Type\ModelListType A Sonata\AdminBundle\Form\Type\ModelListType instance
+     * @return \Sonata\AdminBundle\Form\Type\ModelListType
      */
     protected function getSonata_Admin_Form_Type_ModelListService()
     {
@@ -3739,12 +3128,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'sonata.admin.form.type.model_reference' service.
+     * Gets the public 'sonata.admin.form.type.model_reference' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return \Sonata\AdminBundle\Form\Type\ModelReferenceType A Sonata\AdminBundle\Form\Type\ModelReferenceType instance
+     * @return \Sonata\AdminBundle\Form\Type\ModelReferenceType
      */
     protected function getSonata_Admin_Form_Type_ModelReferenceService()
     {
@@ -3752,12 +3138,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'sonata.admin.guesser.orm_datagrid' service.
+     * Gets the public 'sonata.admin.guesser.orm_datagrid' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return \Sonata\DoctrineORMAdminBundle\Guesser\FilterTypeGuesser A Sonata\DoctrineORMAdminBundle\Guesser\FilterTypeGuesser instance
+     * @return \Sonata\DoctrineORMAdminBundle\Guesser\FilterTypeGuesser
      */
     protected function getSonata_Admin_Guesser_OrmDatagridService()
     {
@@ -3765,12 +3148,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'sonata.admin.guesser.orm_datagrid_chain' service.
+     * Gets the public 'sonata.admin.guesser.orm_datagrid_chain' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return \Sonata\AdminBundle\Guesser\TypeGuesserChain A Sonata\AdminBundle\Guesser\TypeGuesserChain instance
+     * @return \Sonata\AdminBundle\Guesser\TypeGuesserChain
      */
     protected function getSonata_Admin_Guesser_OrmDatagridChainService()
     {
@@ -3778,12 +3158,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'sonata.admin.guesser.orm_list' service.
+     * Gets the public 'sonata.admin.guesser.orm_list' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return \Sonata\DoctrineORMAdminBundle\Guesser\TypeGuesser A Sonata\DoctrineORMAdminBundle\Guesser\TypeGuesser instance
+     * @return \Sonata\DoctrineORMAdminBundle\Guesser\TypeGuesser
      */
     protected function getSonata_Admin_Guesser_OrmListService()
     {
@@ -3791,12 +3168,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'sonata.admin.guesser.orm_list_chain' service.
+     * Gets the public 'sonata.admin.guesser.orm_list_chain' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return \Sonata\AdminBundle\Guesser\TypeGuesserChain A Sonata\AdminBundle\Guesser\TypeGuesserChain instance
+     * @return \Sonata\AdminBundle\Guesser\TypeGuesserChain
      */
     protected function getSonata_Admin_Guesser_OrmListChainService()
     {
@@ -3804,12 +3178,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'sonata.admin.guesser.orm_show' service.
+     * Gets the public 'sonata.admin.guesser.orm_show' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return \Sonata\DoctrineORMAdminBundle\Guesser\TypeGuesser A Sonata\DoctrineORMAdminBundle\Guesser\TypeGuesser instance
+     * @return \Sonata\DoctrineORMAdminBundle\Guesser\TypeGuesser
      */
     protected function getSonata_Admin_Guesser_OrmShowService()
     {
@@ -3817,12 +3188,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'sonata.admin.guesser.orm_show_chain' service.
+     * Gets the public 'sonata.admin.guesser.orm_show_chain' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return \Sonata\AdminBundle\Guesser\TypeGuesserChain A Sonata\AdminBundle\Guesser\TypeGuesserChain instance
+     * @return \Sonata\AdminBundle\Guesser\TypeGuesserChain
      */
     protected function getSonata_Admin_Guesser_OrmShowChainService()
     {
@@ -3830,12 +3198,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'sonata.admin.helper' service.
+     * Gets the public 'sonata.admin.helper' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return \Sonata\AdminBundle\Admin\AdminHelper A Sonata\AdminBundle\Admin\AdminHelper instance
+     * @return \Sonata\AdminBundle\Admin\AdminHelper
      */
     protected function getSonata_Admin_HelperService()
     {
@@ -3843,12 +3208,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'sonata.admin.label.strategy.bc' service.
+     * Gets the public 'sonata.admin.label.strategy.bc' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return \Sonata\AdminBundle\Translator\BCLabelTranslatorStrategy A Sonata\AdminBundle\Translator\BCLabelTranslatorStrategy instance
+     * @return \Sonata\AdminBundle\Translator\BCLabelTranslatorStrategy
      */
     protected function getSonata_Admin_Label_Strategy_BcService()
     {
@@ -3856,12 +3218,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'sonata.admin.label.strategy.form_component' service.
+     * Gets the public 'sonata.admin.label.strategy.form_component' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return \Sonata\AdminBundle\Translator\FormLabelTranslatorStrategy A Sonata\AdminBundle\Translator\FormLabelTranslatorStrategy instance
+     * @return \Sonata\AdminBundle\Translator\FormLabelTranslatorStrategy
      */
     protected function getSonata_Admin_Label_Strategy_FormComponentService()
     {
@@ -3869,12 +3228,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'sonata.admin.label.strategy.native' service.
+     * Gets the public 'sonata.admin.label.strategy.native' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return \Sonata\AdminBundle\Translator\NativeLabelTranslatorStrategy A Sonata\AdminBundle\Translator\NativeLabelTranslatorStrategy instance
+     * @return \Sonata\AdminBundle\Translator\NativeLabelTranslatorStrategy
      */
     protected function getSonata_Admin_Label_Strategy_NativeService()
     {
@@ -3882,12 +3238,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'sonata.admin.label.strategy.noop' service.
+     * Gets the public 'sonata.admin.label.strategy.noop' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return \Sonata\AdminBundle\Translator\NoopLabelTranslatorStrategy A Sonata\AdminBundle\Translator\NoopLabelTranslatorStrategy instance
+     * @return \Sonata\AdminBundle\Translator\NoopLabelTranslatorStrategy
      */
     protected function getSonata_Admin_Label_Strategy_NoopService()
     {
@@ -3895,12 +3248,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'sonata.admin.label.strategy.underscore' service.
+     * Gets the public 'sonata.admin.label.strategy.underscore' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return \Sonata\AdminBundle\Translator\UnderscoreLabelTranslatorStrategy A Sonata\AdminBundle\Translator\UnderscoreLabelTranslatorStrategy instance
+     * @return \Sonata\AdminBundle\Translator\UnderscoreLabelTranslatorStrategy
      */
     protected function getSonata_Admin_Label_Strategy_UnderscoreService()
     {
@@ -3908,12 +3258,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'sonata.admin.manager.orm' service.
+     * Gets the public 'sonata.admin.manager.orm' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return \Sonata\DoctrineORMAdminBundle\Model\ModelManager A Sonata\DoctrineORMAdminBundle\Model\ModelManager instance
+     * @return \Sonata\DoctrineORMAdminBundle\Model\ModelManager
      */
     protected function getSonata_Admin_Manager_OrmService()
     {
@@ -3921,12 +3268,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'sonata.admin.manipulator.acl.admin' service.
+     * Gets the public 'sonata.admin.manipulator.acl.admin' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return \Sonata\AdminBundle\Util\AdminAclManipulator A Sonata\AdminBundle\Util\AdminAclManipulator instance
+     * @return \Sonata\AdminBundle\Util\AdminAclManipulator
      */
     protected function getSonata_Admin_Manipulator_Acl_AdminService()
     {
@@ -3934,12 +3278,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'sonata.admin.manipulator.acl.object.orm' service.
+     * Gets the public 'sonata.admin.manipulator.acl.object.orm' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return \Sonata\DoctrineORMAdminBundle\Util\ObjectAclManipulator A Sonata\DoctrineORMAdminBundle\Util\ObjectAclManipulator instance
+     * @return \Sonata\DoctrineORMAdminBundle\Util\ObjectAclManipulator
      */
     protected function getSonata_Admin_Manipulator_Acl_Object_OrmService()
     {
@@ -3947,12 +3288,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'sonata.admin.menu.matcher.voter.active' service.
+     * Gets the public 'sonata.admin.menu.matcher.voter.active' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return \Sonata\AdminBundle\Menu\Matcher\Voter\ActiveVoter A Sonata\AdminBundle\Menu\Matcher\Voter\ActiveVoter instance
+     * @return \Sonata\AdminBundle\Menu\Matcher\Voter\ActiveVoter
      */
     protected function getSonata_Admin_Menu_Matcher_Voter_ActiveService()
     {
@@ -3960,12 +3298,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'sonata.admin.menu.matcher.voter.admin' service.
+     * Gets the public 'sonata.admin.menu.matcher.voter.admin' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return \Sonata\AdminBundle\Menu\Matcher\Voter\AdminVoter A Sonata\AdminBundle\Menu\Matcher\Voter\AdminVoter instance
+     * @return \Sonata\AdminBundle\Menu\Matcher\Voter\AdminVoter
      */
     protected function getSonata_Admin_Menu_Matcher_Voter_AdminService()
     {
@@ -3973,12 +3308,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'sonata.admin.menu.matcher.voter.children' service.
+     * Gets the public 'sonata.admin.menu.matcher.voter.children' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return \Sonata\AdminBundle\Menu\Matcher\Voter\ChildrenVoter A Sonata\AdminBundle\Menu\Matcher\Voter\ChildrenVoter instance
+     * @return \Sonata\AdminBundle\Menu\Matcher\Voter\ChildrenVoter
      */
     protected function getSonata_Admin_Menu_Matcher_Voter_ChildrenService()
     {
@@ -3986,12 +3318,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'sonata.admin.menu_builder' service.
+     * Gets the public 'sonata.admin.menu_builder' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return \Sonata\AdminBundle\Menu\MenuBuilder A Sonata\AdminBundle\Menu\MenuBuilder instance
+     * @return \Sonata\AdminBundle\Menu\MenuBuilder
      */
     protected function getSonata_Admin_MenuBuilderService()
     {
@@ -3999,12 +3328,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'sonata.admin.object.manipulator.acl.admin' service.
+     * Gets the public 'sonata.admin.object.manipulator.acl.admin' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return \Sonata\AdminBundle\Util\AdminObjectAclManipulator A Sonata\AdminBundle\Util\AdminObjectAclManipulator instance
+     * @return \Sonata\AdminBundle\Util\AdminObjectAclManipulator
      */
     protected function getSonata_Admin_Object_Manipulator_Acl_AdminService()
     {
@@ -4012,9 +3338,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'sonata.admin.orm.filter.type.boolean' service.
+     * Gets the public 'sonata.admin.orm.filter.type.boolean' service.
      *
-     * @return \Sonata\DoctrineORMAdminBundle\Filter\BooleanFilter A Sonata\DoctrineORMAdminBundle\Filter\BooleanFilter instance
+     * @return \Sonata\DoctrineORMAdminBundle\Filter\BooleanFilter
      */
     protected function getSonata_Admin_Orm_Filter_Type_BooleanService()
     {
@@ -4022,9 +3348,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'sonata.admin.orm.filter.type.callback' service.
+     * Gets the public 'sonata.admin.orm.filter.type.callback' service.
      *
-     * @return \Sonata\DoctrineORMAdminBundle\Filter\CallbackFilter A Sonata\DoctrineORMAdminBundle\Filter\CallbackFilter instance
+     * @return \Sonata\DoctrineORMAdminBundle\Filter\CallbackFilter
      */
     protected function getSonata_Admin_Orm_Filter_Type_CallbackService()
     {
@@ -4032,9 +3358,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'sonata.admin.orm.filter.type.choice' service.
+     * Gets the public 'sonata.admin.orm.filter.type.choice' service.
      *
-     * @return \Sonata\DoctrineORMAdminBundle\Filter\ChoiceFilter A Sonata\DoctrineORMAdminBundle\Filter\ChoiceFilter instance
+     * @return \Sonata\DoctrineORMAdminBundle\Filter\ChoiceFilter
      */
     protected function getSonata_Admin_Orm_Filter_Type_ChoiceService()
     {
@@ -4042,9 +3368,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'sonata.admin.orm.filter.type.class' service.
+     * Gets the public 'sonata.admin.orm.filter.type.class' service.
      *
-     * @return \Sonata\DoctrineORMAdminBundle\Filter\ClassFilter A Sonata\DoctrineORMAdminBundle\Filter\ClassFilter instance
+     * @return \Sonata\DoctrineORMAdminBundle\Filter\ClassFilter
      */
     protected function getSonata_Admin_Orm_Filter_Type_ClassService()
     {
@@ -4052,9 +3378,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'sonata.admin.orm.filter.type.date' service.
+     * Gets the public 'sonata.admin.orm.filter.type.date' service.
      *
-     * @return \Sonata\DoctrineORMAdminBundle\Filter\DateFilter A Sonata\DoctrineORMAdminBundle\Filter\DateFilter instance
+     * @return \Sonata\DoctrineORMAdminBundle\Filter\DateFilter
      */
     protected function getSonata_Admin_Orm_Filter_Type_DateService()
     {
@@ -4062,9 +3388,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'sonata.admin.orm.filter.type.date_range' service.
+     * Gets the public 'sonata.admin.orm.filter.type.date_range' service.
      *
-     * @return \Sonata\DoctrineORMAdminBundle\Filter\DateRangeFilter A Sonata\DoctrineORMAdminBundle\Filter\DateRangeFilter instance
+     * @return \Sonata\DoctrineORMAdminBundle\Filter\DateRangeFilter
      */
     protected function getSonata_Admin_Orm_Filter_Type_DateRangeService()
     {
@@ -4072,9 +3398,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'sonata.admin.orm.filter.type.datetime' service.
+     * Gets the public 'sonata.admin.orm.filter.type.datetime' service.
      *
-     * @return \Sonata\DoctrineORMAdminBundle\Filter\DateTimeFilter A Sonata\DoctrineORMAdminBundle\Filter\DateTimeFilter instance
+     * @return \Sonata\DoctrineORMAdminBundle\Filter\DateTimeFilter
      */
     protected function getSonata_Admin_Orm_Filter_Type_DatetimeService()
     {
@@ -4082,9 +3408,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'sonata.admin.orm.filter.type.datetime_range' service.
+     * Gets the public 'sonata.admin.orm.filter.type.datetime_range' service.
      *
-     * @return \Sonata\DoctrineORMAdminBundle\Filter\DateTimeRangeFilter A Sonata\DoctrineORMAdminBundle\Filter\DateTimeRangeFilter instance
+     * @return \Sonata\DoctrineORMAdminBundle\Filter\DateTimeRangeFilter
      */
     protected function getSonata_Admin_Orm_Filter_Type_DatetimeRangeService()
     {
@@ -4092,9 +3418,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'sonata.admin.orm.filter.type.model' service.
+     * Gets the public 'sonata.admin.orm.filter.type.model' service.
      *
-     * @return \Sonata\DoctrineORMAdminBundle\Filter\ModelFilter A Sonata\DoctrineORMAdminBundle\Filter\ModelFilter instance
+     * @return \Sonata\DoctrineORMAdminBundle\Filter\ModelFilter
      */
     protected function getSonata_Admin_Orm_Filter_Type_ModelService()
     {
@@ -4102,9 +3428,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'sonata.admin.orm.filter.type.model_autocomplete' service.
+     * Gets the public 'sonata.admin.orm.filter.type.model_autocomplete' service.
      *
-     * @return \Sonata\DoctrineORMAdminBundle\Filter\ModelAutocompleteFilter A Sonata\DoctrineORMAdminBundle\Filter\ModelAutocompleteFilter instance
+     * @return \Sonata\DoctrineORMAdminBundle\Filter\ModelAutocompleteFilter
      */
     protected function getSonata_Admin_Orm_Filter_Type_ModelAutocompleteService()
     {
@@ -4112,9 +3438,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'sonata.admin.orm.filter.type.number' service.
+     * Gets the public 'sonata.admin.orm.filter.type.number' service.
      *
-     * @return \Sonata\DoctrineORMAdminBundle\Filter\NumberFilter A Sonata\DoctrineORMAdminBundle\Filter\NumberFilter instance
+     * @return \Sonata\DoctrineORMAdminBundle\Filter\NumberFilter
      */
     protected function getSonata_Admin_Orm_Filter_Type_NumberService()
     {
@@ -4122,9 +3448,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'sonata.admin.orm.filter.type.string' service.
+     * Gets the public 'sonata.admin.orm.filter.type.string' service.
      *
-     * @return \Sonata\DoctrineORMAdminBundle\Filter\StringFilter A Sonata\DoctrineORMAdminBundle\Filter\StringFilter instance
+     * @return \Sonata\DoctrineORMAdminBundle\Filter\StringFilter
      */
     protected function getSonata_Admin_Orm_Filter_Type_StringService()
     {
@@ -4132,9 +3458,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'sonata.admin.orm.filter.type.time' service.
+     * Gets the public 'sonata.admin.orm.filter.type.time' service.
      *
-     * @return \Sonata\DoctrineORMAdminBundle\Filter\TimeFilter A Sonata\DoctrineORMAdminBundle\Filter\TimeFilter instance
+     * @return \Sonata\DoctrineORMAdminBundle\Filter\TimeFilter
      */
     protected function getSonata_Admin_Orm_Filter_Type_TimeService()
     {
@@ -4142,32 +3468,26 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'sonata.admin.pool' service.
+     * Gets the public 'sonata.admin.pool' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return \Sonata\AdminBundle\Admin\Pool A Sonata\AdminBundle\Admin\Pool instance
+     * @return \Sonata\AdminBundle\Admin\Pool
      */
     protected function getSonata_Admin_PoolService()
     {
         $this->services['sonata.admin.pool'] = $instance = new \Sonata\AdminBundle\Admin\Pool($this, 'Sonata Admin', 'bundles/sonataadmin/logo_title.png', array('html5_validate' => true, 'sort_admins' => false, 'confirm_exit' => true, 'use_select2' => true, 'use_icheck' => true, 'use_bootlint' => false, 'use_stickyforms' => true, 'pager_links' => NULL, 'form_type' => 'standard', 'dropdown_number_groups_per_colums' => 2, 'title_mode' => 'both', 'lock_protection' => false, 'enable_jms_di_extra_autoregistration' => true, 'javascripts' => array(0 => 'bundles/sonatacore/vendor/jquery/dist/jquery.min.js', 1 => 'bundles/sonataadmin/vendor/jquery.scrollTo/jquery.scrollTo.min.js', 2 => 'bundles/sonatacore/vendor/moment/min/moment.min.js', 3 => 'bundles/sonataadmin/vendor/jqueryui/ui/minified/jquery-ui.min.js', 4 => 'bundles/sonataadmin/vendor/jqueryui/ui/minified/i18n/jquery-ui-i18n.min.js', 5 => 'bundles/sonatacore/vendor/bootstrap/dist/js/bootstrap.min.js', 6 => 'bundles/sonatacore/vendor/eonasdan-bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js', 7 => 'bundles/sonataadmin/vendor/jquery-form/jquery.form.js', 8 => 'bundles/sonataadmin/jquery/jquery.confirmExit.js', 9 => 'bundles/sonataadmin/vendor/x-editable/dist/bootstrap3-editable/js/bootstrap-editable.min.js', 10 => 'bundles/sonatacore/vendor/select2/select2.min.js', 11 => 'bundles/sonataadmin/vendor/admin-lte/dist/js/app.min.js', 12 => 'bundles/sonataadmin/vendor/iCheck/icheck.min.js', 13 => 'bundles/sonataadmin/vendor/slimScroll/jquery.slimscroll.min.js', 14 => 'bundles/sonataadmin/vendor/waypoints/lib/jquery.waypoints.min.js', 15 => 'bundles/sonataadmin/vendor/waypoints/lib/shortcuts/sticky.min.js', 16 => 'bundles/sonataadmin/vendor/readmore-js/readmore.min.js', 17 => 'bundles/sonataadmin/vendor/masonry/dist/masonry.pkgd.min.js', 18 => 'bundles/sonataadmin/Admin.js', 19 => 'bundles/sonataadmin/treeview.js'), 'stylesheets' => array(0 => 'bundles/sonatacore/vendor/bootstrap/dist/css/bootstrap.min.css', 1 => 'bundles/sonatacore/vendor/components-font-awesome/css/font-awesome.min.css', 2 => 'bundles/sonatacore/vendor/ionicons/css/ionicons.min.css', 3 => 'bundles/sonataadmin/vendor/admin-lte/dist/css/AdminLTE.min.css', 4 => 'bundles/sonataadmin/vendor/admin-lte/dist/css/skins/skin-black.min.css', 5 => 'bundles/sonataadmin/vendor/iCheck/skins/square/blue.css', 6 => 'bundles/sonatacore/vendor/eonasdan-bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.min.css', 7 => 'bundles/sonataadmin/vendor/jqueryui/themes/base/jquery-ui.css', 8 => 'bundles/sonatacore/vendor/select2/select2.css', 9 => 'bundles/sonatacore/vendor/select2-bootstrap-css/select2-bootstrap.min.css', 10 => 'bundles/sonataadmin/vendor/x-editable/dist/bootstrap3-editable/css/bootstrap-editable.css', 11 => 'bundles/sonataadmin/css/styles.css', 12 => 'bundles/sonataadmin/css/layout.css', 13 => 'bundles/sonataadmin/css/tree.css')), $this->get('property_accessor'));
 
         $instance->setTemplates(array('user_block' => 'SonataAdminBundle:Core:user_block.html.twig', 'add_block' => 'SonataAdminBundle:Core:add_block.html.twig', 'layout' => 'SonataAdminBundle::standard_layout.html.twig', 'ajax' => 'SonataAdminBundle::ajax_layout.html.twig', 'dashboard' => 'SonataAdminBundle:Core:dashboard.html.twig', 'search' => 'SonataAdminBundle:Core:search.html.twig', 'list' => 'SonataAdminBundle:CRUD:list.html.twig', 'filter' => 'SonataAdminBundle:Form:filter_admin_fields.html.twig', 'show' => 'SonataAdminBundle:CRUD:show.html.twig', 'show_compare' => 'SonataAdminBundle:CRUD:show_compare.html.twig', 'edit' => 'SonataAdminBundle:CRUD:edit.html.twig', 'preview' => 'SonataAdminBundle:CRUD:preview.html.twig', 'history' => 'SonataAdminBundle:CRUD:history.html.twig', 'acl' => 'SonataAdminBundle:CRUD:acl.html.twig', 'history_revision_timestamp' => 'SonataAdminBundle:CRUD:history_revision_timestamp.html.twig', 'action' => 'SonataAdminBundle:CRUD:action.html.twig', 'select' => 'SonataAdminBundle:CRUD:list__select.html.twig', 'list_block' => 'SonataAdminBundle:Block:block_admin_list.html.twig', 'search_result_block' => 'SonataAdminBundle:Block:block_search_result.html.twig', 'short_object_description' => 'SonataAdminBundle:Helper:short-object-description.html.twig', 'delete' => 'SonataAdminBundle:CRUD:delete.html.twig', 'batch' => 'SonataAdminBundle:CRUD:list__batch.html.twig', 'batch_confirmation' => 'SonataAdminBundle:CRUD:batch_confirmation.html.twig', 'inner_list_row' => 'SonataAdminBundle:CRUD:list_inner_row.html.twig', 'outer_list_rows_mosaic' => 'SonataAdminBundle:CRUD:list_outer_rows_mosaic.html.twig', 'outer_list_rows_list' => 'SonataAdminBundle:CRUD:list_outer_rows_list.html.twig', 'outer_list_rows_tree' => 'SonataAdminBundle:CRUD:list_outer_rows_tree.html.twig', 'base_list_field' => 'SonataAdminBundle:CRUD:base_list_field.html.twig', 'pager_links' => 'SonataAdminBundle:Pager:links.html.twig', 'pager_results' => 'SonataAdminBundle:Pager:results.html.twig', 'tab_menu_template' => 'SonataAdminBundle:Core:tab_menu_template.html.twig', 'knp_menu_template' => 'SonataAdminBundle:Menu:sonata_menu.html.twig', 'action_create' => 'SonataAdminBundle:CRUD:dashboard__action_create.html.twig', 'button_acl' => 'SonataAdminBundle:Button:acl_button.html.twig', 'button_create' => 'SonataAdminBundle:Button:create_button.html.twig', 'button_edit' => 'SonataAdminBundle:Button:edit_button.html.twig', 'button_history' => 'SonataAdminBundle:Button:history_button.html.twig', 'button_list' => 'SonataAdminBundle:Button:list_button.html.twig', 'button_show' => 'SonataAdminBundle:Button:show_button.html.twig'));
-        $instance->setAdminServiceIds(array(0 => 'sonata.media.admin.media', 1 => 'sonata.media.admin.gallery', 2 => 'sonata.media.admin.gallery_has_media', 3 => 'sonata.classification.admin.category', 4 => 'sonata.classification.admin.tag', 5 => 'sonata.classification.admin.collection', 6 => 'sonata.classification.admin.context'));
-        $instance->setAdminGroups(array('sonata_media' => array('label' => 'sonata_media', 'label_catalogue' => 'SonataMediaBundle', 'icon' => '<i class=\'fa fa-image\'></i>', 'roles' => array(), 'on_top' => false, 'keep_open' => false, 'items' => array(0 => array('admin' => 'sonata.media.admin.media', 'label' => 'media', 'route' => '', 'route_params' => array(), 'route_absolute' => true), 1 => array('admin' => 'sonata.media.admin.gallery', 'label' => 'gallery', 'route' => '', 'route_params' => array(), 'route_absolute' => true))), 'sonata_classification' => array('label' => 'sonata_classification', 'label_catalogue' => 'SonataClassificationBundle', 'icon' => '<i class=\'fa fa-tags\'></i>', 'roles' => array(), 'on_top' => false, 'keep_open' => false, 'items' => array(0 => array('admin' => 'sonata.classification.admin.category', 'label' => 'label_categories', 'route' => '', 'route_params' => array(), 'route_absolute' => true), 1 => array('admin' => 'sonata.classification.admin.tag', 'label' => 'label_tags', 'route' => '', 'route_params' => array(), 'route_absolute' => true), 2 => array('admin' => 'sonata.classification.admin.collection', 'label' => 'label_collections', 'route' => '', 'route_params' => array(), 'route_absolute' => true), 3 => array('admin' => 'sonata.classification.admin.context', 'label' => 'label_contexts', 'route' => '', 'route_params' => array(), 'route_absolute' => true)))));
-        $instance->setAdminClasses(array('Application\\Sonata\\MediaBundle\\Entity\\Media' => array(0 => 'sonata.media.admin.media'), 'Application\\Sonata\\MediaBundle\\Entity\\Gallery' => array(0 => 'sonata.media.admin.gallery'), 'Application\\Sonata\\MediaBundle\\Entity\\GalleryHasMedia' => array(0 => 'sonata.media.admin.gallery_has_media'), 'Application\\Sonata\\ClassificationBundle\\Entity\\Category' => array(0 => 'sonata.classification.admin.category'), 'Application\\Sonata\\ClassificationBundle\\Entity\\Tag' => array(0 => 'sonata.classification.admin.tag'), 'Application\\Sonata\\ClassificationBundle\\Entity\\Collection' => array(0 => 'sonata.classification.admin.collection'), 'Application\\Sonata\\ClassificationBundle\\Entity\\Context' => array(0 => 'sonata.classification.admin.context')));
+        $instance->setAdminServiceIds(array(0 => 'sonata.classification.admin.category', 1 => 'sonata.classification.admin.tag', 2 => 'sonata.classification.admin.collection', 3 => 'sonata.classification.admin.context', 4 => 'sonata.media.admin.media', 5 => 'sonata.media.admin.gallery', 6 => 'sonata.media.admin.gallery_has_media'));
+        $instance->setAdminGroups(array('sonata_classification' => array('label' => 'sonata_classification', 'label_catalogue' => 'SonataClassificationBundle', 'icon' => '<i class=\'fa fa-tags\'></i>', 'roles' => array(), 'on_top' => false, 'keep_open' => false, 'items' => array(0 => array('admin' => 'sonata.classification.admin.category', 'label' => 'label_categories', 'route' => '', 'route_params' => array(), 'route_absolute' => true), 1 => array('admin' => 'sonata.classification.admin.tag', 'label' => 'label_tags', 'route' => '', 'route_params' => array(), 'route_absolute' => true), 2 => array('admin' => 'sonata.classification.admin.collection', 'label' => 'label_collections', 'route' => '', 'route_params' => array(), 'route_absolute' => true), 3 => array('admin' => 'sonata.classification.admin.context', 'label' => 'label_contexts', 'route' => '', 'route_params' => array(), 'route_absolute' => true))), 'sonata_media' => array('label' => 'sonata_media', 'label_catalogue' => 'SonataMediaBundle', 'icon' => '<i class=\'fa fa-image\'></i>', 'roles' => array(), 'on_top' => false, 'keep_open' => false, 'items' => array(0 => array('admin' => 'sonata.media.admin.media', 'label' => 'media', 'route' => '', 'route_params' => array(), 'route_absolute' => true), 1 => array('admin' => 'sonata.media.admin.gallery', 'label' => 'gallery', 'route' => '', 'route_params' => array(), 'route_absolute' => true)))));
+        $instance->setAdminClasses(array('Application\\Sonata\\ClassificationBundle\\Entity\\Category' => array(0 => 'sonata.classification.admin.category'), 'Application\\Sonata\\ClassificationBundle\\Entity\\Tag' => array(0 => 'sonata.classification.admin.tag'), 'Application\\Sonata\\ClassificationBundle\\Entity\\Collection' => array(0 => 'sonata.classification.admin.collection'), 'Application\\Sonata\\ClassificationBundle\\Entity\\Context' => array(0 => 'sonata.classification.admin.context'), 'Application\\Sonata\\MediaBundle\\Entity\\Media' => array(0 => 'sonata.media.admin.media'), 'Application\\Sonata\\MediaBundle\\Entity\\Gallery' => array(0 => 'sonata.media.admin.gallery'), 'Application\\Sonata\\MediaBundle\\Entity\\GalleryHasMedia' => array(0 => 'sonata.media.admin.gallery_has_media')));
 
         return $instance;
     }
 
     /*
-     * Gets the 'sonata.admin.route.cache' service.
+     * Gets the public 'sonata.admin.route.cache' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return \Sonata\AdminBundle\Route\RoutesCache A Sonata\AdminBundle\Route\RoutesCache instance
+     * @return \Sonata\AdminBundle\Route\RoutesCache
      */
     protected function getSonata_Admin_Route_CacheService()
     {
@@ -4175,12 +3495,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'sonata.admin.route.cache_warmup' service.
+     * Gets the public 'sonata.admin.route.cache_warmup' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return \Sonata\AdminBundle\Route\RoutesCacheWarmUp A Sonata\AdminBundle\Route\RoutesCacheWarmUp instance
+     * @return \Sonata\AdminBundle\Route\RoutesCacheWarmUp
      */
     protected function getSonata_Admin_Route_CacheWarmupService()
     {
@@ -4188,12 +3505,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'sonata.admin.route.default_generator' service.
+     * Gets the public 'sonata.admin.route.default_generator' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return \Sonata\AdminBundle\Route\DefaultRouteGenerator A Sonata\AdminBundle\Route\DefaultRouteGenerator instance
+     * @return \Sonata\AdminBundle\Route\DefaultRouteGenerator
      */
     protected function getSonata_Admin_Route_DefaultGeneratorService()
     {
@@ -4201,12 +3515,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'sonata.admin.route.path_info' service.
+     * Gets the public 'sonata.admin.route.path_info' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return \Sonata\AdminBundle\Route\PathInfoBuilder A Sonata\AdminBundle\Route\PathInfoBuilder instance
+     * @return \Sonata\AdminBundle\Route\PathInfoBuilder
      */
     protected function getSonata_Admin_Route_PathInfoService()
     {
@@ -4214,12 +3525,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'sonata.admin.route.query_string' service.
+     * Gets the public 'sonata.admin.route.query_string' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return \Sonata\AdminBundle\Route\QueryStringBuilder A Sonata\AdminBundle\Route\QueryStringBuilder instance
+     * @return \Sonata\AdminBundle\Route\QueryStringBuilder
      */
     protected function getSonata_Admin_Route_QueryStringService()
     {
@@ -4227,25 +3535,19 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'sonata.admin.route_loader' service.
+     * Gets the public 'sonata.admin.route_loader' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return \Sonata\AdminBundle\Route\AdminPoolLoader A Sonata\AdminBundle\Route\AdminPoolLoader instance
+     * @return \Sonata\AdminBundle\Route\AdminPoolLoader
      */
     protected function getSonata_Admin_RouteLoaderService()
     {
-        return $this->services['sonata.admin.route_loader'] = new \Sonata\AdminBundle\Route\AdminPoolLoader($this->get('sonata.admin.pool'), array(0 => 'sonata.media.admin.media', 1 => 'sonata.media.admin.gallery', 2 => 'sonata.media.admin.gallery_has_media', 3 => 'sonata.classification.admin.category', 4 => 'sonata.classification.admin.tag', 5 => 'sonata.classification.admin.collection', 6 => 'sonata.classification.admin.context'), $this);
+        return $this->services['sonata.admin.route_loader'] = new \Sonata\AdminBundle\Route\AdminPoolLoader($this->get('sonata.admin.pool'), array(0 => 'sonata.classification.admin.category', 1 => 'sonata.classification.admin.tag', 2 => 'sonata.classification.admin.collection', 3 => 'sonata.classification.admin.context', 4 => 'sonata.media.admin.media', 5 => 'sonata.media.admin.gallery', 6 => 'sonata.media.admin.gallery_has_media'), $this);
     }
 
     /*
-     * Gets the 'sonata.admin.search.handler' service.
+     * Gets the public 'sonata.admin.search.handler' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return \Sonata\AdminBundle\Search\SearchHandler A Sonata\AdminBundle\Search\SearchHandler instance
+     * @return \Sonata\AdminBundle\Search\SearchHandler
      */
     protected function getSonata_Admin_Search_HandlerService()
     {
@@ -4253,12 +3555,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'sonata.admin.security.handler' service.
+     * Gets the public 'sonata.admin.security.handler' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return \Sonata\AdminBundle\Security\Handler\NoopSecurityHandler A Sonata\AdminBundle\Security\Handler\NoopSecurityHandler instance
+     * @return \Sonata\AdminBundle\Security\Handler\NoopSecurityHandler
      */
     protected function getSonata_Admin_Security_HandlerService()
     {
@@ -4266,12 +3565,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'sonata.admin.sidebar_menu' service.
+     * Gets the public 'sonata.admin.sidebar_menu' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return \Knp\Menu\MenuItem A Knp\Menu\MenuItem instance
+     * @return \Knp\Menu\MenuItem
      */
     protected function getSonata_Admin_SidebarMenuService()
     {
@@ -4279,12 +3575,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'sonata.admin.twig.extension' service.
+     * Gets the public 'sonata.admin.twig.extension' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return \Sonata\AdminBundle\Twig\Extension\SonataAdminExtension A Sonata\AdminBundle\Twig\Extension\SonataAdminExtension instance
+     * @return \Sonata\AdminBundle\Twig\Extension\SonataAdminExtension
      */
     protected function getSonata_Admin_Twig_ExtensionService()
     {
@@ -4296,12 +3589,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'sonata.admin.twig.global' service.
+     * Gets the public 'sonata.admin.twig.global' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return \Sonata\AdminBundle\Twig\GlobalVariables A Sonata\AdminBundle\Twig\GlobalVariables instance
+     * @return \Sonata\AdminBundle\Twig\GlobalVariables
      */
     protected function getSonata_Admin_Twig_GlobalService()
     {
@@ -4309,12 +3599,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'sonata.admin.validator.inline' service.
+     * Gets the public 'sonata.admin.validator.inline' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return \Sonata\CoreBundle\Validator\InlineValidator A Sonata\CoreBundle\Validator\InlineValidator instance
+     * @return \Sonata\CoreBundle\Validator\InlineValidator
      */
     protected function getSonata_Admin_Validator_InlineService()
     {
@@ -4322,12 +3609,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'sonata.block.cache.handler.default' service.
+     * Gets the public 'sonata.block.cache.handler.default' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return \Sonata\BlockBundle\Cache\HttpCacheHandler A Sonata\BlockBundle\Cache\HttpCacheHandler instance
+     * @return \Sonata\BlockBundle\Cache\HttpCacheHandler
      */
     protected function getSonata_Block_Cache_Handler_DefaultService()
     {
@@ -4335,12 +3619,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'sonata.block.cache.handler.noop' service.
+     * Gets the public 'sonata.block.cache.handler.noop' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return \Sonata\BlockBundle\Cache\NoopHttpCacheHandler A Sonata\BlockBundle\Cache\NoopHttpCacheHandler instance
+     * @return \Sonata\BlockBundle\Cache\NoopHttpCacheHandler
      */
     protected function getSonata_Block_Cache_Handler_NoopService()
     {
@@ -4348,12 +3629,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'sonata.block.context_manager.default' service.
+     * Gets the public 'sonata.block.context_manager.default' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return \Sonata\BlockBundle\Block\BlockContextManager A Sonata\BlockBundle\Block\BlockContextManager instance
+     * @return \Sonata\BlockBundle\Block\BlockContextManager
      */
     protected function getSonata_Block_ContextManager_DefaultService()
     {
@@ -4361,12 +3639,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'sonata.block.exception.filter.debug_only' service.
+     * Gets the public 'sonata.block.exception.filter.debug_only' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return \Sonata\BlockBundle\Exception\Filter\DebugOnlyFilter A Sonata\BlockBundle\Exception\Filter\DebugOnlyFilter instance
+     * @return \Sonata\BlockBundle\Exception\Filter\DebugOnlyFilter
      */
     protected function getSonata_Block_Exception_Filter_DebugOnlyService()
     {
@@ -4374,12 +3649,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'sonata.block.exception.filter.ignore_block_exception' service.
+     * Gets the public 'sonata.block.exception.filter.ignore_block_exception' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return \Sonata\BlockBundle\Exception\Filter\IgnoreClassFilter A Sonata\BlockBundle\Exception\Filter\IgnoreClassFilter instance
+     * @return \Sonata\BlockBundle\Exception\Filter\IgnoreClassFilter
      */
     protected function getSonata_Block_Exception_Filter_IgnoreBlockExceptionService()
     {
@@ -4387,12 +3659,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'sonata.block.exception.filter.keep_all' service.
+     * Gets the public 'sonata.block.exception.filter.keep_all' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return \Sonata\BlockBundle\Exception\Filter\KeepAllFilter A Sonata\BlockBundle\Exception\Filter\KeepAllFilter instance
+     * @return \Sonata\BlockBundle\Exception\Filter\KeepAllFilter
      */
     protected function getSonata_Block_Exception_Filter_KeepAllService()
     {
@@ -4400,12 +3669,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'sonata.block.exception.filter.keep_none' service.
+     * Gets the public 'sonata.block.exception.filter.keep_none' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return \Sonata\BlockBundle\Exception\Filter\KeepNoneFilter A Sonata\BlockBundle\Exception\Filter\KeepNoneFilter instance
+     * @return \Sonata\BlockBundle\Exception\Filter\KeepNoneFilter
      */
     protected function getSonata_Block_Exception_Filter_KeepNoneService()
     {
@@ -4413,12 +3679,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'sonata.block.exception.renderer.inline' service.
+     * Gets the public 'sonata.block.exception.renderer.inline' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return \Sonata\BlockBundle\Exception\Renderer\InlineRenderer A Sonata\BlockBundle\Exception\Renderer\InlineRenderer instance
+     * @return \Sonata\BlockBundle\Exception\Renderer\InlineRenderer
      */
     protected function getSonata_Block_Exception_Renderer_InlineService()
     {
@@ -4426,12 +3689,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'sonata.block.exception.renderer.inline_debug' service.
+     * Gets the public 'sonata.block.exception.renderer.inline_debug' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return \Sonata\BlockBundle\Exception\Renderer\InlineDebugRenderer A Sonata\BlockBundle\Exception\Renderer\InlineDebugRenderer instance
+     * @return \Sonata\BlockBundle\Exception\Renderer\InlineDebugRenderer
      */
     protected function getSonata_Block_Exception_Renderer_InlineDebugService()
     {
@@ -4439,12 +3699,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'sonata.block.exception.renderer.throw' service.
+     * Gets the public 'sonata.block.exception.renderer.throw' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return \Sonata\BlockBundle\Exception\Renderer\MonkeyThrowRenderer A Sonata\BlockBundle\Exception\Renderer\MonkeyThrowRenderer instance
+     * @return \Sonata\BlockBundle\Exception\Renderer\MonkeyThrowRenderer
      */
     protected function getSonata_Block_Exception_Renderer_ThrowService()
     {
@@ -4452,12 +3709,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'sonata.block.exception.strategy.manager' service.
+     * Gets the public 'sonata.block.exception.strategy.manager' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return \Sonata\BlockBundle\Exception\Strategy\StrategyManager A Sonata\BlockBundle\Exception\Strategy\StrategyManager instance
+     * @return \Sonata\BlockBundle\Exception\Strategy\StrategyManager
      */
     protected function getSonata_Block_Exception_Strategy_ManagerService()
     {
@@ -4470,12 +3724,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'sonata.block.form.type.block' service.
+     * Gets the public 'sonata.block.form.type.block' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return \Sonata\BlockBundle\Form\Type\ServiceListType A Sonata\BlockBundle\Form\Type\ServiceListType instance
+     * @return \Sonata\BlockBundle\Form\Type\ServiceListType
      */
     protected function getSonata_Block_Form_Type_BlockService()
     {
@@ -4483,12 +3734,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'sonata.block.form.type.container_template' service.
+     * Gets the public 'sonata.block.form.type.container_template' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return \Sonata\BlockBundle\Form\Type\ContainerTemplateType A Sonata\BlockBundle\Form\Type\ContainerTemplateType instance
+     * @return \Sonata\BlockBundle\Form\Type\ContainerTemplateType
      */
     protected function getSonata_Block_Form_Type_ContainerTemplateService()
     {
@@ -4496,12 +3744,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'sonata.block.loader.chain' service.
+     * Gets the public 'sonata.block.loader.chain' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return \Sonata\BlockBundle\Block\BlockLoaderChain A Sonata\BlockBundle\Block\BlockLoaderChain instance
+     * @return \Sonata\BlockBundle\Block\BlockLoaderChain
      */
     protected function getSonata_Block_Loader_ChainService()
     {
@@ -4509,12 +3754,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'sonata.block.loader.service' service.
+     * Gets the public 'sonata.block.loader.service' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return \Sonata\BlockBundle\Block\Loader\ServiceLoader A Sonata\BlockBundle\Block\Loader\ServiceLoader instance
+     * @return \Sonata\BlockBundle\Block\Loader\ServiceLoader
      */
     protected function getSonata_Block_Loader_ServiceService()
     {
@@ -4522,12 +3764,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'sonata.block.menu.registry' service.
+     * Gets the public 'sonata.block.menu.registry' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return \Sonata\BlockBundle\Menu\MenuRegistry A Sonata\BlockBundle\Menu\MenuRegistry instance
+     * @return \Sonata\BlockBundle\Menu\MenuRegistry
      */
     protected function getSonata_Block_Menu_RegistryService()
     {
@@ -4535,12 +3774,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'sonata.block.renderer.default' service.
+     * Gets the public 'sonata.block.renderer.default' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return \Sonata\BlockBundle\Block\BlockRenderer A Sonata\BlockBundle\Block\BlockRenderer instance
+     * @return \Sonata\BlockBundle\Block\BlockRenderer
      */
     protected function getSonata_Block_Renderer_DefaultService()
     {
@@ -4548,12 +3784,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'sonata.block.service.container' service.
+     * Gets the public 'sonata.block.service.container' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return \Sonata\BlockBundle\Block\Service\ContainerBlockService A Sonata\BlockBundle\Block\Service\ContainerBlockService instance
+     * @return \Sonata\BlockBundle\Block\Service\ContainerBlockService
      */
     protected function getSonata_Block_Service_ContainerService()
     {
@@ -4561,12 +3794,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'sonata.block.service.empty' service.
+     * Gets the public 'sonata.block.service.empty' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return \Sonata\BlockBundle\Block\Service\EmptyBlockService A Sonata\BlockBundle\Block\Service\EmptyBlockService instance
+     * @return \Sonata\BlockBundle\Block\Service\EmptyBlockService
      */
     protected function getSonata_Block_Service_EmptyService()
     {
@@ -4574,12 +3804,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'sonata.block.service.menu' service.
+     * Gets the public 'sonata.block.service.menu' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return \Sonata\BlockBundle\Block\Service\MenuBlockService A Sonata\BlockBundle\Block\Service\MenuBlockService instance
+     * @return \Sonata\BlockBundle\Block\Service\MenuBlockService
      */
     protected function getSonata_Block_Service_MenuService()
     {
@@ -4587,12 +3814,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'sonata.block.service.rss' service.
+     * Gets the public 'sonata.block.service.rss' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return \Sonata\BlockBundle\Block\Service\RssBlockService A Sonata\BlockBundle\Block\Service\RssBlockService instance
+     * @return \Sonata\BlockBundle\Block\Service\RssBlockService
      */
     protected function getSonata_Block_Service_RssService()
     {
@@ -4600,12 +3824,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'sonata.block.service.template' service.
+     * Gets the public 'sonata.block.service.template' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return \Sonata\BlockBundle\Block\Service\TemplateBlockService A Sonata\BlockBundle\Block\Service\TemplateBlockService instance
+     * @return \Sonata\BlockBundle\Block\Service\TemplateBlockService
      */
     protected function getSonata_Block_Service_TemplateService()
     {
@@ -4613,12 +3834,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'sonata.block.service.text' service.
+     * Gets the public 'sonata.block.service.text' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return \Sonata\BlockBundle\Block\Service\TextBlockService A Sonata\BlockBundle\Block\Service\TextBlockService instance
+     * @return \Sonata\BlockBundle\Block\Service\TextBlockService
      */
     protected function getSonata_Block_Service_TextService()
     {
@@ -4626,12 +3844,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'sonata.block.templating.helper' service.
+     * Gets the public 'sonata.block.templating.helper' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return \Sonata\BlockBundle\Templating\Helper\BlockHelper A Sonata\BlockBundle\Templating\Helper\BlockHelper instance
+     * @return \Sonata\BlockBundle\Templating\Helper\BlockHelper
      */
     protected function getSonata_Block_Templating_HelperService()
     {
@@ -4639,12 +3854,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'sonata.block.twig.global' service.
+     * Gets the public 'sonata.block.twig.global' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return \Sonata\BlockBundle\Twig\GlobalVariables A Sonata\BlockBundle\Twig\GlobalVariables instance
+     * @return \Sonata\BlockBundle\Twig\GlobalVariables
      */
     protected function getSonata_Block_Twig_GlobalService()
     {
@@ -4652,9 +3864,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'sonata.classification.admin.category' service.
+     * Gets the public 'sonata.classification.admin.category' service.
      *
-     * @return \Sonata\ClassificationBundle\Admin\CategoryAdmin A Sonata\ClassificationBundle\Admin\CategoryAdmin instance
+     * @return \Sonata\ClassificationBundle\Admin\CategoryAdmin
      */
     protected function getSonata_Classification_Admin_CategoryService()
     {
@@ -4690,9 +3902,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'sonata.classification.admin.collection' service.
+     * Gets the public 'sonata.classification.admin.collection' service.
      *
-     * @return \Sonata\ClassificationBundle\Admin\CollectionAdmin A Sonata\ClassificationBundle\Admin\CollectionAdmin instance
+     * @return \Sonata\ClassificationBundle\Admin\CollectionAdmin
      */
     protected function getSonata_Classification_Admin_CollectionService()
     {
@@ -4728,9 +3940,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'sonata.classification.admin.context' service.
+     * Gets the public 'sonata.classification.admin.context' service.
      *
-     * @return \Sonata\ClassificationBundle\Admin\ContextAdmin A Sonata\ClassificationBundle\Admin\ContextAdmin instance
+     * @return \Sonata\ClassificationBundle\Admin\ContextAdmin
      */
     protected function getSonata_Classification_Admin_ContextService()
     {
@@ -4766,9 +3978,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'sonata.classification.admin.tag' service.
+     * Gets the public 'sonata.classification.admin.tag' service.
      *
-     * @return \Sonata\ClassificationBundle\Admin\TagAdmin A Sonata\ClassificationBundle\Admin\TagAdmin instance
+     * @return \Sonata\ClassificationBundle\Admin\TagAdmin
      */
     protected function getSonata_Classification_Admin_TagService()
     {
@@ -4804,12 +4016,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'sonata.classification.form.type.category_selector' service.
+     * Gets the public 'sonata.classification.form.type.category_selector' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return \Sonata\ClassificationBundle\Form\Type\CategorySelectorType A Sonata\ClassificationBundle\Form\Type\CategorySelectorType instance
+     * @return \Sonata\ClassificationBundle\Form\Type\CategorySelectorType
      */
     protected function getSonata_Classification_Form_Type_CategorySelectorService()
     {
@@ -4817,12 +4026,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'sonata.classification.manager.category' service.
+     * Gets the public 'sonata.classification.manager.category' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return \Sonata\ClassificationBundle\Entity\CategoryManager A Sonata\ClassificationBundle\Entity\CategoryManager instance
+     * @return \Sonata\ClassificationBundle\Entity\CategoryManager
      */
     protected function getSonata_Classification_Manager_CategoryService()
     {
@@ -4830,12 +4036,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'sonata.classification.manager.collection' service.
+     * Gets the public 'sonata.classification.manager.collection' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return \Sonata\ClassificationBundle\Entity\CollectionManager A Sonata\ClassificationBundle\Entity\CollectionManager instance
+     * @return \Sonata\ClassificationBundle\Entity\CollectionManager
      */
     protected function getSonata_Classification_Manager_CollectionService()
     {
@@ -4843,12 +4046,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'sonata.classification.manager.context' service.
+     * Gets the public 'sonata.classification.manager.context' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return \Sonata\ClassificationBundle\Entity\ContextManager A Sonata\ClassificationBundle\Entity\ContextManager instance
+     * @return \Sonata\ClassificationBundle\Entity\ContextManager
      */
     protected function getSonata_Classification_Manager_ContextService()
     {
@@ -4856,12 +4056,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'sonata.classification.manager.tag' service.
+     * Gets the public 'sonata.classification.manager.tag' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return \Sonata\ClassificationBundle\Entity\TagManager A Sonata\ClassificationBundle\Entity\TagManager instance
+     * @return \Sonata\ClassificationBundle\Entity\TagManager
      */
     protected function getSonata_Classification_Manager_TagService()
     {
@@ -4869,12 +4066,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'sonata.classification.serializer.handler.category' service.
+     * Gets the public 'sonata.classification.serializer.handler.category' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return \Sonata\ClassificationBundle\Serializer\CategorySerializerHandler A Sonata\ClassificationBundle\Serializer\CategorySerializerHandler instance
+     * @return \Sonata\ClassificationBundle\Serializer\CategorySerializerHandler
      */
     protected function getSonata_Classification_Serializer_Handler_CategoryService()
     {
@@ -4882,12 +4076,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'sonata.classification.serializer.handler.collection' service.
+     * Gets the public 'sonata.classification.serializer.handler.collection' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return \Sonata\ClassificationBundle\Serializer\CollectionSerializerHandler A Sonata\ClassificationBundle\Serializer\CollectionSerializerHandler instance
+     * @return \Sonata\ClassificationBundle\Serializer\CollectionSerializerHandler
      */
     protected function getSonata_Classification_Serializer_Handler_CollectionService()
     {
@@ -4895,12 +4086,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'sonata.classification.serializer.handler.context' service.
+     * Gets the public 'sonata.classification.serializer.handler.context' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return \Sonata\ClassificationBundle\Serializer\ContextSerializerHandler A Sonata\ClassificationBundle\Serializer\ContextSerializerHandler instance
+     * @return \Sonata\ClassificationBundle\Serializer\ContextSerializerHandler
      */
     protected function getSonata_Classification_Serializer_Handler_ContextService()
     {
@@ -4908,12 +4096,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'sonata.classification.serializer.handler.tag' service.
+     * Gets the public 'sonata.classification.serializer.handler.tag' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return \Sonata\ClassificationBundle\Serializer\TagSerializerHandler A Sonata\ClassificationBundle\Serializer\TagSerializerHandler instance
+     * @return \Sonata\ClassificationBundle\Serializer\TagSerializerHandler
      */
     protected function getSonata_Classification_Serializer_Handler_TagService()
     {
@@ -4921,12 +4106,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'sonata.core.date.moment_format_converter' service.
+     * Gets the public 'sonata.core.date.moment_format_converter' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return \Sonata\CoreBundle\Date\MomentFormatConverter A Sonata\CoreBundle\Date\MomentFormatConverter instance
+     * @return \Sonata\CoreBundle\Date\MomentFormatConverter
      */
     protected function getSonata_Core_Date_MomentFormatConverterService()
     {
@@ -4934,12 +4116,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'sonata.core.flashmessage.manager' service.
+     * Gets the public 'sonata.core.flashmessage.manager' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return \Sonata\CoreBundle\FlashMessage\FlashManager A Sonata\CoreBundle\FlashMessage\FlashManager instance
+     * @return \Sonata\CoreBundle\FlashMessage\FlashManager
      */
     protected function getSonata_Core_Flashmessage_ManagerService()
     {
@@ -4947,12 +4126,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'sonata.core.flashmessage.twig.extension' service.
+     * Gets the public 'sonata.core.flashmessage.twig.extension' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return \Sonata\CoreBundle\Twig\Extension\FlashMessageExtension A Sonata\CoreBundle\Twig\Extension\FlashMessageExtension instance
+     * @return \Sonata\CoreBundle\Twig\Extension\FlashMessageExtension
      */
     protected function getSonata_Core_Flashmessage_Twig_ExtensionService()
     {
@@ -4960,12 +4136,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'sonata.core.form.type.array' service.
+     * Gets the public 'sonata.core.form.type.array' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return \Sonata\CoreBundle\Form\Type\ImmutableArrayType A Sonata\CoreBundle\Form\Type\ImmutableArrayType instance
+     * @return \Sonata\CoreBundle\Form\Type\ImmutableArrayType
      */
     protected function getSonata_Core_Form_Type_ArrayService()
     {
@@ -4973,12 +4146,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'sonata.core.form.type.boolean' service.
+     * Gets the public 'sonata.core.form.type.boolean' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return \Sonata\CoreBundle\Form\Type\BooleanType A Sonata\CoreBundle\Form\Type\BooleanType instance
+     * @return \Sonata\CoreBundle\Form\Type\BooleanType
      */
     protected function getSonata_Core_Form_Type_BooleanService()
     {
@@ -4986,12 +4156,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'sonata.core.form.type.collection' service.
+     * Gets the public 'sonata.core.form.type.collection' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return \Sonata\CoreBundle\Form\Type\CollectionType A Sonata\CoreBundle\Form\Type\CollectionType instance
+     * @return \Sonata\CoreBundle\Form\Type\CollectionType
      */
     protected function getSonata_Core_Form_Type_CollectionService()
     {
@@ -4999,12 +4166,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'sonata.core.form.type.color_selector' service.
+     * Gets the public 'sonata.core.form.type.color_selector' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return \Sonata\CoreBundle\Form\Type\ColorSelectorType A Sonata\CoreBundle\Form\Type\ColorSelectorType instance
+     * @return \Sonata\CoreBundle\Form\Type\ColorSelectorType
      */
     protected function getSonata_Core_Form_Type_ColorSelectorService()
     {
@@ -5012,12 +4176,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'sonata.core.form.type.date_picker' service.
+     * Gets the public 'sonata.core.form.type.date_picker' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return \Sonata\CoreBundle\Form\Type\DatePickerType A Sonata\CoreBundle\Form\Type\DatePickerType instance
+     * @return \Sonata\CoreBundle\Form\Type\DatePickerType
      */
     protected function getSonata_Core_Form_Type_DatePickerService()
     {
@@ -5025,12 +4186,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'sonata.core.form.type.date_range' service.
+     * Gets the public 'sonata.core.form.type.date_range' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return \Sonata\CoreBundle\Form\Type\DateRangeType A Sonata\CoreBundle\Form\Type\DateRangeType instance
+     * @return \Sonata\CoreBundle\Form\Type\DateRangeType
      */
     protected function getSonata_Core_Form_Type_DateRangeService()
     {
@@ -5038,12 +4196,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'sonata.core.form.type.date_range_picker' service.
+     * Gets the public 'sonata.core.form.type.date_range_picker' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return \Sonata\CoreBundle\Form\Type\DateRangePickerType A Sonata\CoreBundle\Form\Type\DateRangePickerType instance
+     * @return \Sonata\CoreBundle\Form\Type\DateRangePickerType
      */
     protected function getSonata_Core_Form_Type_DateRangePickerService()
     {
@@ -5051,12 +4206,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'sonata.core.form.type.datetime_picker' service.
+     * Gets the public 'sonata.core.form.type.datetime_picker' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return \Sonata\CoreBundle\Form\Type\DateTimePickerType A Sonata\CoreBundle\Form\Type\DateTimePickerType instance
+     * @return \Sonata\CoreBundle\Form\Type\DateTimePickerType
      */
     protected function getSonata_Core_Form_Type_DatetimePickerService()
     {
@@ -5064,12 +4216,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'sonata.core.form.type.datetime_range' service.
+     * Gets the public 'sonata.core.form.type.datetime_range' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return \Sonata\CoreBundle\Form\Type\DateTimeRangeType A Sonata\CoreBundle\Form\Type\DateTimeRangeType instance
+     * @return \Sonata\CoreBundle\Form\Type\DateTimeRangeType
      */
     protected function getSonata_Core_Form_Type_DatetimeRangeService()
     {
@@ -5077,12 +4226,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'sonata.core.form.type.datetime_range_picker' service.
+     * Gets the public 'sonata.core.form.type.datetime_range_picker' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return \Sonata\CoreBundle\Form\Type\DateTimeRangePickerType A Sonata\CoreBundle\Form\Type\DateTimeRangePickerType instance
+     * @return \Sonata\CoreBundle\Form\Type\DateTimeRangePickerType
      */
     protected function getSonata_Core_Form_Type_DatetimeRangePickerService()
     {
@@ -5090,12 +4236,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'sonata.core.form.type.equal' service.
+     * Gets the public 'sonata.core.form.type.equal' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return \Sonata\CoreBundle\Form\Type\EqualType A Sonata\CoreBundle\Form\Type\EqualType instance
+     * @return \Sonata\CoreBundle\Form\Type\EqualType
      */
     protected function getSonata_Core_Form_Type_EqualService()
     {
@@ -5103,12 +4246,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'sonata.core.form.type.translatable_choice' service.
+     * Gets the public 'sonata.core.form.type.translatable_choice' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return \Sonata\CoreBundle\Form\Type\TranslatableChoiceType A Sonata\CoreBundle\Form\Type\TranslatableChoiceType instance
+     * @return \Sonata\CoreBundle\Form\Type\TranslatableChoiceType
      */
     protected function getSonata_Core_Form_Type_TranslatableChoiceService()
     {
@@ -5116,12 +4256,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'sonata.core.model.adapter.chain' service.
+     * Gets the public 'sonata.core.model.adapter.chain' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return \Sonata\CoreBundle\Model\Adapter\AdapterChain A Sonata\CoreBundle\Model\Adapter\AdapterChain instance
+     * @return \Sonata\CoreBundle\Model\Adapter\AdapterChain
      */
     protected function getSonata_Core_Model_Adapter_ChainService()
     {
@@ -5133,12 +4270,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'sonata.core.slugify.cocur' service.
+     * Gets the public 'sonata.core.slugify.cocur' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return \Cocur\Slugify\Slugify A Cocur\Slugify\Slugify instance
+     * @return \Cocur\Slugify\Slugify
      *
      * @deprecated The "sonata.core.slugify.cocur" service is deprecated. You should stop using it, as it will soon be removed.
      */
@@ -5150,12 +4284,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'sonata.core.slugify.native' service.
+     * Gets the public 'sonata.core.slugify.native' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return \Sonata\CoreBundle\Component\NativeSlugify A Sonata\CoreBundle\Component\NativeSlugify instance
+     * @return \Sonata\CoreBundle\Component\NativeSlugify
      *
      * @deprecated The "sonata.core.slugify.native" service is deprecated. You should stop using it, as it will soon be removed.
      */
@@ -5167,12 +4298,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'sonata.core.twig.extension.text' service.
+     * Gets the public 'sonata.core.twig.extension.text' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return \Sonata\CoreBundle\Twig\Extension\DeprecatedTextExtension A Sonata\CoreBundle\Twig\Extension\DeprecatedTextExtension instance
+     * @return \Sonata\CoreBundle\Twig\Extension\DeprecatedTextExtension
      */
     protected function getSonata_Core_Twig_Extension_TextService()
     {
@@ -5180,12 +4308,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'sonata.core.twig.extension.wrapping' service.
+     * Gets the public 'sonata.core.twig.extension.wrapping' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return \Sonata\CoreBundle\Twig\Extension\FormTypeExtension A Sonata\CoreBundle\Twig\Extension\FormTypeExtension instance
+     * @return \Sonata\CoreBundle\Twig\Extension\FormTypeExtension
      */
     protected function getSonata_Core_Twig_Extension_WrappingService()
     {
@@ -5193,12 +4318,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'sonata.core.twig.status_extension' service.
+     * Gets the public 'sonata.core.twig.status_extension' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return \Sonata\CoreBundle\Twig\Extension\StatusExtension A Sonata\CoreBundle\Twig\Extension\StatusExtension instance
+     * @return \Sonata\CoreBundle\Twig\Extension\StatusExtension
      */
     protected function getSonata_Core_Twig_StatusExtensionService()
     {
@@ -5210,12 +4332,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'sonata.core.twig.template_extension' service.
+     * Gets the public 'sonata.core.twig.template_extension' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return \Sonata\CoreBundle\Twig\Extension\TemplateExtension A Sonata\CoreBundle\Twig\Extension\TemplateExtension instance
+     * @return \Sonata\CoreBundle\Twig\Extension\TemplateExtension
      */
     protected function getSonata_Core_Twig_TemplateExtensionService()
     {
@@ -5223,12 +4342,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'sonata.core.validator.inline' service.
+     * Gets the public 'sonata.core.validator.inline' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return \Sonata\CoreBundle\Validator\InlineValidator A Sonata\CoreBundle\Validator\InlineValidator instance
+     * @return \Sonata\CoreBundle\Validator\InlineValidator
      */
     protected function getSonata_Core_Validator_InlineService()
     {
@@ -5236,25 +4352,22 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'sonata.easy_extends.doctrine.mapper' service.
+     * Gets the public 'sonata.easy_extends.doctrine.mapper' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return \Sonata\EasyExtendsBundle\Mapper\DoctrineORMMapper A Sonata\EasyExtendsBundle\Mapper\DoctrineORMMapper instance
+     * @return \Sonata\EasyExtendsBundle\Mapper\DoctrineORMMapper
      */
     protected function getSonata_EasyExtends_Doctrine_MapperService()
     {
         $this->services['sonata.easy_extends.doctrine.mapper'] = $instance = new \Sonata\EasyExtendsBundle\Mapper\DoctrineORMMapper($this->get('doctrine'), array());
 
-        $instance->addAssociation('Application\\Sonata\\MediaBundle\\Entity\\Media', 'mapOneToMany', array(0 => array('fieldName' => 'galleryHasMedias', 'targetEntity' => 'Application\\Sonata\\MediaBundle\\Entity\\GalleryHasMedia', 'cascade' => array(0 => 'persist'), 'mappedBy' => 'media', 'orphanRemoval' => false)));
-        $instance->addAssociation('Application\\Sonata\\MediaBundle\\Entity\\Media', 'mapManyToOne', array(0 => array('fieldName' => 'category', 'targetEntity' => 'Application\\Sonata\\ClassificationBundle\\Entity\\Category', 'cascade' => array(0 => 'persist'), 'mappedBy' => NULL, 'inversedBy' => NULL, 'joinColumns' => array(0 => array('name' => 'category_id', 'referencedColumnName' => 'id', 'onDelete' => 'SET NULL')), 'orphanRemoval' => false)));
-        $instance->addAssociation('Application\\Sonata\\MediaBundle\\Entity\\GalleryHasMedia', 'mapManyToOne', array(0 => array('fieldName' => 'gallery', 'targetEntity' => 'Application\\Sonata\\MediaBundle\\Entity\\Gallery', 'cascade' => array(0 => 'persist'), 'mappedBy' => NULL, 'inversedBy' => 'galleryHasMedias', 'joinColumns' => array(0 => array('name' => 'gallery_id', 'referencedColumnName' => 'id')), 'orphanRemoval' => false), 1 => array('fieldName' => 'media', 'targetEntity' => 'Application\\Sonata\\MediaBundle\\Entity\\Media', 'cascade' => array(0 => 'persist'), 'mappedBy' => NULL, 'inversedBy' => 'galleryHasMedias', 'joinColumns' => array(0 => array('name' => 'media_id', 'referencedColumnName' => 'id')), 'orphanRemoval' => false)));
-        $instance->addAssociation('Application\\Sonata\\MediaBundle\\Entity\\Gallery', 'mapOneToMany', array(0 => array('fieldName' => 'galleryHasMedias', 'targetEntity' => 'Application\\Sonata\\MediaBundle\\Entity\\GalleryHasMedia', 'cascade' => array(0 => 'persist'), 'mappedBy' => 'gallery', 'orphanRemoval' => true, 'orderBy' => array('position' => 'ASC'))));
         $instance->addAssociation('Application\\Sonata\\ClassificationBundle\\Entity\\Category', 'mapOneToMany', array(0 => array('fieldName' => 'children', 'targetEntity' => 'Application\\Sonata\\ClassificationBundle\\Entity\\Category', 'cascade' => array(0 => 'persist'), 'mappedBy' => 'parent', 'orphanRemoval' => true, 'orderBy' => array('position' => 'ASC'))));
         $instance->addAssociation('Application\\Sonata\\ClassificationBundle\\Entity\\Category', 'mapManyToOne', array(0 => array('fieldName' => 'parent', 'targetEntity' => 'Application\\Sonata\\ClassificationBundle\\Entity\\Category', 'cascade' => array(0 => 'persist', 1 => 'refresh', 2 => 'merge', 3 => 'detach'), 'mappedBy' => NULL, 'inversedBy' => 'children', 'joinColumns' => array(0 => array('name' => 'parent_id', 'referencedColumnName' => 'id', 'onDelete' => 'CASCADE')), 'orphanRemoval' => false), 1 => array('fieldName' => 'context', 'targetEntity' => 'Application\\Sonata\\ClassificationBundle\\Entity\\Context', 'cascade' => array(0 => 'persist'), 'mappedBy' => NULL, 'inversedBy' => NULL, 'joinColumns' => array(0 => array('name' => 'context', 'referencedColumnName' => 'id')), 'orphanRemoval' => false), 2 => array('fieldName' => 'media', 'targetEntity' => 'Application\\Sonata\\MediaBundle\\Entity\\Media', 'cascade' => array(0 => 'persist'), 'mappedBy' => NULL, 'inversedBy' => NULL, 'joinColumns' => array(0 => array('name' => 'media_id', 'referencedColumnName' => 'id', 'onDelete' => 'SET NULL')), 'orphanRemoval' => false)));
         $instance->addAssociation('Application\\Sonata\\ClassificationBundle\\Entity\\Tag', 'mapManyToOne', array(0 => array('fieldName' => 'context', 'targetEntity' => 'Application\\Sonata\\ClassificationBundle\\Entity\\Context', 'cascade' => array(0 => 'persist'), 'mappedBy' => NULL, 'inversedBy' => NULL, 'joinColumns' => array(0 => array('name' => 'context', 'referencedColumnName' => 'id')), 'orphanRemoval' => false)));
         $instance->addAssociation('Application\\Sonata\\ClassificationBundle\\Entity\\Collection', 'mapManyToOne', array(0 => array('fieldName' => 'context', 'targetEntity' => 'Application\\Sonata\\ClassificationBundle\\Entity\\Context', 'cascade' => array(0 => 'persist'), 'mappedBy' => NULL, 'inversedBy' => NULL, 'joinColumns' => array(0 => array('name' => 'context', 'referencedColumnName' => 'id')), 'orphanRemoval' => false), 1 => array('fieldName' => 'media', 'targetEntity' => 'Application\\Sonata\\MediaBundle\\Entity\\Media', 'cascade' => array(0 => 'persist'), 'mappedBy' => NULL, 'inversedBy' => NULL, 'joinColumns' => array(0 => array('name' => 'media_id', 'referencedColumnName' => 'id', 'onDelete' => 'SET NULL')), 'orphanRemoval' => false)));
+        $instance->addAssociation('Application\\Sonata\\MediaBundle\\Entity\\Media', 'mapOneToMany', array(0 => array('fieldName' => 'galleryHasMedias', 'targetEntity' => 'Application\\Sonata\\MediaBundle\\Entity\\GalleryHasMedia', 'cascade' => array(0 => 'persist'), 'mappedBy' => 'media', 'orphanRemoval' => false)));
+        $instance->addAssociation('Application\\Sonata\\MediaBundle\\Entity\\Media', 'mapManyToOne', array(0 => array('fieldName' => 'category', 'targetEntity' => 'Application\\Sonata\\ClassificationBundle\\Entity\\Category', 'cascade' => array(0 => 'persist'), 'mappedBy' => NULL, 'inversedBy' => NULL, 'joinColumns' => array(0 => array('name' => 'category_id', 'referencedColumnName' => 'id', 'onDelete' => 'SET NULL')), 'orphanRemoval' => false)));
+        $instance->addAssociation('Application\\Sonata\\MediaBundle\\Entity\\GalleryHasMedia', 'mapManyToOne', array(0 => array('fieldName' => 'gallery', 'targetEntity' => 'Application\\Sonata\\MediaBundle\\Entity\\Gallery', 'cascade' => array(0 => 'persist'), 'mappedBy' => NULL, 'inversedBy' => 'galleryHasMedias', 'joinColumns' => array(0 => array('name' => 'gallery_id', 'referencedColumnName' => 'id')), 'orphanRemoval' => false), 1 => array('fieldName' => 'media', 'targetEntity' => 'Application\\Sonata\\MediaBundle\\Entity\\Media', 'cascade' => array(0 => 'persist'), 'mappedBy' => NULL, 'inversedBy' => 'galleryHasMedias', 'joinColumns' => array(0 => array('name' => 'media_id', 'referencedColumnName' => 'id')), 'orphanRemoval' => false)));
+        $instance->addAssociation('Application\\Sonata\\MediaBundle\\Entity\\Gallery', 'mapOneToMany', array(0 => array('fieldName' => 'galleryHasMedias', 'targetEntity' => 'Application\\Sonata\\MediaBundle\\Entity\\GalleryHasMedia', 'cascade' => array(0 => 'persist'), 'mappedBy' => 'gallery', 'orphanRemoval' => true, 'orderBy' => array('position' => 'ASC'))));
         $instance->addUnique('Application\\Sonata\\ClassificationBundle\\Entity\\Tag', 'tag_context', array(0 => 'slug', 1 => 'context'));
         $instance->addUnique('Application\\Sonata\\ClassificationBundle\\Entity\\Collection', 'tag_collection', array(0 => 'slug', 1 => 'context'));
 
@@ -5262,12 +4375,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'sonata.easy_extends.generator.bundle' service.
+     * Gets the public 'sonata.easy_extends.generator.bundle' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return \Sonata\EasyExtendsBundle\Generator\BundleGenerator A Sonata\EasyExtendsBundle\Generator\BundleGenerator instance
+     * @return \Sonata\EasyExtendsBundle\Generator\BundleGenerator
      */
     protected function getSonata_EasyExtends_Generator_BundleService()
     {
@@ -5275,12 +4385,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'sonata.easy_extends.generator.odm' service.
+     * Gets the public 'sonata.easy_extends.generator.odm' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return \Sonata\EasyExtendsBundle\Generator\OdmGenerator A Sonata\EasyExtendsBundle\Generator\OdmGenerator instance
+     * @return \Sonata\EasyExtendsBundle\Generator\OdmGenerator
      */
     protected function getSonata_EasyExtends_Generator_OdmService()
     {
@@ -5288,12 +4395,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'sonata.easy_extends.generator.orm' service.
+     * Gets the public 'sonata.easy_extends.generator.orm' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return \Sonata\EasyExtendsBundle\Generator\OrmGenerator A Sonata\EasyExtendsBundle\Generator\OrmGenerator instance
+     * @return \Sonata\EasyExtendsBundle\Generator\OrmGenerator
      */
     protected function getSonata_EasyExtends_Generator_OrmService()
     {
@@ -5301,12 +4405,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'sonata.easy_extends.generator.phpcr' service.
+     * Gets the public 'sonata.easy_extends.generator.phpcr' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return \Sonata\EasyExtendsBundle\Generator\PHPCRGenerator A Sonata\EasyExtendsBundle\Generator\PHPCRGenerator instance
+     * @return \Sonata\EasyExtendsBundle\Generator\PHPCRGenerator
      */
     protected function getSonata_EasyExtends_Generator_PhpcrService()
     {
@@ -5314,12 +4415,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'sonata.easy_extends.generator.serializer' service.
+     * Gets the public 'sonata.easy_extends.generator.serializer' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return \Sonata\EasyExtendsBundle\Generator\SerializerGenerator A Sonata\EasyExtendsBundle\Generator\SerializerGenerator instance
+     * @return \Sonata\EasyExtendsBundle\Generator\SerializerGenerator
      */
     protected function getSonata_EasyExtends_Generator_SerializerService()
     {
@@ -5327,12 +4425,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'sonata.media.adapter.filesystem.local' service.
+     * Gets the public 'sonata.media.adapter.filesystem.local' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return \Sonata\MediaBundle\Filesystem\Local A Sonata\MediaBundle\Filesystem\Local instance
+     * @return \Sonata\MediaBundle\Filesystem\Local
      */
     protected function getSonata_Media_Adapter_Filesystem_LocalService()
     {
@@ -5340,12 +4435,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'sonata.media.adapter.image.gd' service.
+     * Gets the public 'sonata.media.adapter.image.gd' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return \Imagine\Gd\Imagine A Imagine\Gd\Imagine instance
+     * @return \Imagine\Gd\Imagine
      */
     protected function getSonata_Media_Adapter_Image_GdService()
     {
@@ -5353,12 +4445,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'sonata.media.adapter.image.gmagick' service.
+     * Gets the public 'sonata.media.adapter.image.gmagick' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return \Imagine\Gmagick\Imagine A Imagine\Gmagick\Imagine instance
+     * @return \Imagine\Gmagick\Imagine
      */
     protected function getSonata_Media_Adapter_Image_GmagickService()
     {
@@ -5366,12 +4455,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'sonata.media.adapter.image.imagick' service.
+     * Gets the public 'sonata.media.adapter.image.imagick' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return \Imagine\Imagick\Imagine A Imagine\Imagick\Imagine instance
+     * @return \Imagine\Imagick\Imagine
      */
     protected function getSonata_Media_Adapter_Image_ImagickService()
     {
@@ -5379,12 +4465,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'sonata.media.adapter.service.s3' service.
+     * Gets the public 'sonata.media.adapter.service.s3' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return \Aws\S3\S3Client A Aws\S3\S3Client instance
+     * @return \Aws\S3\S3Client
      */
     protected function getSonata_Media_Adapter_Service_S3Service()
     {
@@ -5392,9 +4475,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'sonata.media.admin.gallery' service.
+     * Gets the public 'sonata.media.admin.gallery' service.
      *
-     * @return \Sonata\MediaBundle\Admin\GalleryAdmin A Sonata\MediaBundle\Admin\GalleryAdmin instance
+     * @return \Sonata\MediaBundle\Admin\GalleryAdmin
      */
     protected function getSonata_Media_Admin_GalleryService()
     {
@@ -5430,9 +4513,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'sonata.media.admin.gallery_has_media' service.
+     * Gets the public 'sonata.media.admin.gallery_has_media' service.
      *
-     * @return \Sonata\MediaBundle\Admin\GalleryHasMediaAdmin A Sonata\MediaBundle\Admin\GalleryHasMediaAdmin instance
+     * @return \Sonata\MediaBundle\Admin\GalleryHasMediaAdmin
      */
     protected function getSonata_Media_Admin_GalleryHasMediaService()
     {
@@ -5468,9 +4551,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'sonata.media.admin.media' service.
+     * Gets the public 'sonata.media.admin.media' service.
      *
-     * @return \Sonata\MediaBundle\Admin\ORM\MediaAdmin A Sonata\MediaBundle\Admin\ORM\MediaAdmin instance
+     * @return \Sonata\MediaBundle\Admin\ORM\MediaAdmin
      */
     protected function getSonata_Media_Admin_MediaService()
     {
@@ -5506,12 +4589,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'sonata.media.admin.media.manager' service.
+     * Gets the public 'sonata.media.admin.media.manager' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return \Sonata\DoctrineORMAdminBundle\Model\ModelManager A Sonata\DoctrineORMAdminBundle\Model\ModelManager instance
+     * @return \Sonata\DoctrineORMAdminBundle\Model\ModelManager
      */
     protected function getSonata_Media_Admin_Media_ManagerService()
     {
@@ -5519,12 +4599,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'sonata.media.block.feature_media' service.
+     * Gets the public 'sonata.media.block.feature_media' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return \Sonata\MediaBundle\Block\FeatureMediaBlockService A Sonata\MediaBundle\Block\FeatureMediaBlockService instance
+     * @return \Sonata\MediaBundle\Block\FeatureMediaBlockService
      */
     protected function getSonata_Media_Block_FeatureMediaService()
     {
@@ -5532,12 +4609,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'sonata.media.block.gallery' service.
+     * Gets the public 'sonata.media.block.gallery' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return \Sonata\MediaBundle\Block\GalleryBlockService A Sonata\MediaBundle\Block\GalleryBlockService instance
+     * @return \Sonata\MediaBundle\Block\GalleryBlockService
      */
     protected function getSonata_Media_Block_GalleryService()
     {
@@ -5545,12 +4619,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'sonata.media.block.gallery_list' service.
+     * Gets the public 'sonata.media.block.gallery_list' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return \Sonata\MediaBundle\Block\GalleryListBlockService A Sonata\MediaBundle\Block\GalleryListBlockService instance
+     * @return \Sonata\MediaBundle\Block\GalleryListBlockService
      */
     protected function getSonata_Media_Block_GalleryListService()
     {
@@ -5558,12 +4629,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'sonata.media.block.media' service.
+     * Gets the public 'sonata.media.block.media' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return \Sonata\MediaBundle\Block\MediaBlockService A Sonata\MediaBundle\Block\MediaBlockService instance
+     * @return \Sonata\MediaBundle\Block\MediaBlockService
      */
     protected function getSonata_Media_Block_MediaService()
     {
@@ -5571,12 +4639,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'sonata.media.buzz.browser' service.
+     * Gets the public 'sonata.media.buzz.browser' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return \Buzz\Browser A Buzz\Browser instance
+     * @return \Buzz\Browser
      */
     protected function getSonata_Media_Buzz_BrowserService()
     {
@@ -5584,12 +4649,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'sonata.media.buzz.connector.curl' service.
+     * Gets the public 'sonata.media.buzz.connector.curl' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return \Buzz\Client\Curl A Buzz\Client\Curl instance
+     * @return \Buzz\Client\Curl
      */
     protected function getSonata_Media_Buzz_Connector_CurlService()
     {
@@ -5605,12 +4667,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'sonata.media.buzz.connector.file_get_contents' service.
+     * Gets the public 'sonata.media.buzz.connector.file_get_contents' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return \Buzz\Client\FileGetContents A Buzz\Client\FileGetContents instance
+     * @return \Buzz\Client\FileGetContents
      */
     protected function getSonata_Media_Buzz_Connector_FileGetContentsService()
     {
@@ -5626,12 +4685,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'sonata.media.cdn.server' service.
+     * Gets the public 'sonata.media.cdn.server' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return \Sonata\MediaBundle\CDN\Server A Sonata\MediaBundle\CDN\Server instance
+     * @return \Sonata\MediaBundle\CDN\Server
      */
     protected function getSonata_Media_Cdn_ServerService()
     {
@@ -5639,12 +4695,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'sonata.media.doctrine.event_subscriber' service.
+     * Gets the public 'sonata.media.doctrine.event_subscriber' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return \Sonata\MediaBundle\Listener\ORM\MediaEventSubscriber A Sonata\MediaBundle\Listener\ORM\MediaEventSubscriber instance
+     * @return \Sonata\MediaBundle\Listener\ORM\MediaEventSubscriber
      */
     protected function getSonata_Media_Doctrine_EventSubscriberService()
     {
@@ -5652,12 +4705,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'sonata.media.filesystem.local' service.
+     * Gets the public 'sonata.media.filesystem.local' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return \Gaufrette\Filesystem A Gaufrette\Filesystem instance
+     * @return \Gaufrette\Filesystem
      */
     protected function getSonata_Media_Filesystem_LocalService()
     {
@@ -5665,25 +4715,25 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'sonata.media.form.type.media' service.
+     * Gets the public 'sonata.media.form.type.media' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return \Sonata\MediaBundle\Form\Type\MediaType A Sonata\MediaBundle\Form\Type\MediaType instance
+     * @return \Sonata\MediaBundle\Form\Type\MediaType
      */
     protected function getSonata_Media_Form_Type_MediaService()
     {
-        return $this->services['sonata.media.form.type.media'] = new \Sonata\MediaBundle\Form\Type\MediaType($this->get('sonata.media.pool'), 'Application\\Sonata\\MediaBundle\\Entity\\Media');
+        $this->services['sonata.media.form.type.media'] = $instance = new \Sonata\MediaBundle\Form\Type\MediaType($this->get('sonata.media.pool'), 'Application\\Sonata\\MediaBundle\\Entity\\Media');
+
+        if ($this->has('logger')) {
+            $instance->setLogger($this->get('logger', ContainerInterface::NULL_ON_INVALID_REFERENCE));
+        }
+
+        return $instance;
     }
 
     /*
-     * Gets the 'sonata.media.generator.default' service.
+     * Gets the public 'sonata.media.generator.default' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return \Sonata\MediaBundle\Generator\DefaultGenerator A Sonata\MediaBundle\Generator\DefaultGenerator instance
+     * @return \Sonata\MediaBundle\Generator\DefaultGenerator
      */
     protected function getSonata_Media_Generator_DefaultService()
     {
@@ -5691,12 +4741,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'sonata.media.manager.category.default' service.
+     * Gets the public 'sonata.media.manager.category.default' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return \Sonata\MediaBundle\Model\CategoryManager A Sonata\MediaBundle\Model\CategoryManager instance
+     * @return \Sonata\MediaBundle\Model\CategoryManager
      */
     protected function getSonata_Media_Manager_Category_DefaultService()
     {
@@ -5704,12 +4751,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'sonata.media.manager.gallery' service.
+     * Gets the public 'sonata.media.manager.gallery' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return \Sonata\MediaBundle\Entity\GalleryManager A Sonata\MediaBundle\Entity\GalleryManager instance
+     * @return \Sonata\MediaBundle\Entity\GalleryManager
      */
     protected function getSonata_Media_Manager_GalleryService()
     {
@@ -5717,12 +4761,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'sonata.media.manager.media' service.
+     * Gets the public 'sonata.media.manager.media' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return \Sonata\MediaBundle\Entity\MediaManager A Sonata\MediaBundle\Entity\MediaManager instance
+     * @return \Sonata\MediaBundle\Entity\MediaManager
      */
     protected function getSonata_Media_Manager_MediaService()
     {
@@ -5730,12 +4771,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'sonata.media.metadata.amazon' service.
+     * Gets the public 'sonata.media.metadata.amazon' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return \Sonata\MediaBundle\Metadata\AmazonMetadataBuilder A Sonata\MediaBundle\Metadata\AmazonMetadataBuilder instance
+     * @return \Sonata\MediaBundle\Metadata\AmazonMetadataBuilder
      */
     protected function getSonata_Media_Metadata_AmazonService()
     {
@@ -5743,12 +4781,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'sonata.media.metadata.noop' service.
+     * Gets the public 'sonata.media.metadata.noop' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return \Sonata\MediaBundle\Metadata\NoopMetadataBuilder A Sonata\MediaBundle\Metadata\NoopMetadataBuilder instance
+     * @return \Sonata\MediaBundle\Metadata\NoopMetadataBuilder
      */
     protected function getSonata_Media_Metadata_NoopService()
     {
@@ -5756,12 +4791,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'sonata.media.metadata.proxy' service.
+     * Gets the public 'sonata.media.metadata.proxy' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return \Sonata\MediaBundle\Metadata\ProxyMetadataBuilder A Sonata\MediaBundle\Metadata\ProxyMetadataBuilder instance
+     * @return \Sonata\MediaBundle\Metadata\ProxyMetadataBuilder
      */
     protected function getSonata_Media_Metadata_ProxyService()
     {
@@ -5769,12 +4801,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'sonata.media.pool' service.
+     * Gets the public 'sonata.media.pool' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return \Sonata\MediaBundle\Provider\Pool A Sonata\MediaBundle\Provider\Pool instance
+     * @return \Sonata\MediaBundle\Provider\Pool
      */
     protected function getSonata_Media_PoolService()
     {
@@ -5792,12 +4821,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'sonata.media.provider.dailymotion' service.
+     * Gets the public 'sonata.media.provider.dailymotion' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return \Sonata\MediaBundle\Provider\DailyMotionProvider A Sonata\MediaBundle\Provider\DailyMotionProvider instance
+     * @return \Sonata\MediaBundle\Provider\DailyMotionProvider
      */
     protected function getSonata_Media_Provider_DailymotionService()
     {
@@ -5815,12 +4841,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'sonata.media.provider.file' service.
+     * Gets the public 'sonata.media.provider.file' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return \Sonata\MediaBundle\Provider\FileProvider A Sonata\MediaBundle\Provider\FileProvider instance
+     * @return \Sonata\MediaBundle\Provider\FileProvider
      */
     protected function getSonata_Media_Provider_FileService()
     {
@@ -5837,12 +4860,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'sonata.media.provider.image' service.
+     * Gets the public 'sonata.media.provider.image' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return \Sonata\MediaBundle\Provider\ImageProvider A Sonata\MediaBundle\Provider\ImageProvider instance
+     * @return \Sonata\MediaBundle\Provider\ImageProvider
      */
     protected function getSonata_Media_Provider_ImageService()
     {
@@ -5860,12 +4880,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'sonata.media.provider.vimeo' service.
+     * Gets the public 'sonata.media.provider.vimeo' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return \Sonata\MediaBundle\Provider\VimeoProvider A Sonata\MediaBundle\Provider\VimeoProvider instance
+     * @return \Sonata\MediaBundle\Provider\VimeoProvider
      */
     protected function getSonata_Media_Provider_VimeoService()
     {
@@ -5883,12 +4900,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'sonata.media.provider.youtube' service.
+     * Gets the public 'sonata.media.provider.youtube' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return \Sonata\MediaBundle\Provider\YouTubeProvider A Sonata\MediaBundle\Provider\YouTubeProvider instance
+     * @return \Sonata\MediaBundle\Provider\YouTubeProvider
      */
     protected function getSonata_Media_Provider_YoutubeService()
     {
@@ -5906,12 +4920,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'sonata.media.resizer.simple' service.
+     * Gets the public 'sonata.media.resizer.simple' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return \Sonata\MediaBundle\Resizer\SimpleResizer A Sonata\MediaBundle\Resizer\SimpleResizer instance
+     * @return \Sonata\MediaBundle\Resizer\SimpleResizer
      */
     protected function getSonata_Media_Resizer_SimpleService()
     {
@@ -5919,12 +4930,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'sonata.media.resizer.square' service.
+     * Gets the public 'sonata.media.resizer.square' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return \Sonata\MediaBundle\Resizer\SquareResizer A Sonata\MediaBundle\Resizer\SquareResizer instance
+     * @return \Sonata\MediaBundle\Resizer\SquareResizer
      */
     protected function getSonata_Media_Resizer_SquareService()
     {
@@ -5932,12 +4940,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'sonata.media.security.connected_strategy' service.
+     * Gets the public 'sonata.media.security.connected_strategy' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return \Sonata\MediaBundle\Security\RolesDownloadStrategy A Sonata\MediaBundle\Security\RolesDownloadStrategy instance
+     * @return \Sonata\MediaBundle\Security\RolesDownloadStrategy
      */
     protected function getSonata_Media_Security_ConnectedStrategyService()
     {
@@ -5945,12 +4950,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'sonata.media.security.forbidden_strategy' service.
+     * Gets the public 'sonata.media.security.forbidden_strategy' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return \Sonata\MediaBundle\Security\ForbiddenDownloadStrategy A Sonata\MediaBundle\Security\ForbiddenDownloadStrategy instance
+     * @return \Sonata\MediaBundle\Security\ForbiddenDownloadStrategy
      */
     protected function getSonata_Media_Security_ForbiddenStrategyService()
     {
@@ -5958,12 +4960,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'sonata.media.security.public_strategy' service.
+     * Gets the public 'sonata.media.security.public_strategy' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return \Sonata\MediaBundle\Security\PublicDownloadStrategy A Sonata\MediaBundle\Security\PublicDownloadStrategy instance
+     * @return \Sonata\MediaBundle\Security\PublicDownloadStrategy
      */
     protected function getSonata_Media_Security_PublicStrategyService()
     {
@@ -5971,12 +4970,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'sonata.media.security.session_strategy' service.
+     * Gets the public 'sonata.media.security.session_strategy' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return \Sonata\MediaBundle\Security\SessionDownloadStrategy A Sonata\MediaBundle\Security\SessionDownloadStrategy instance
+     * @return \Sonata\MediaBundle\Security\SessionDownloadStrategy
      */
     protected function getSonata_Media_Security_SessionStrategyService()
     {
@@ -5984,12 +4980,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'sonata.media.security.superadmin_strategy' service.
+     * Gets the public 'sonata.media.security.superadmin_strategy' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return \Sonata\MediaBundle\Security\RolesDownloadStrategy A Sonata\MediaBundle\Security\RolesDownloadStrategy instance
+     * @return \Sonata\MediaBundle\Security\RolesDownloadStrategy
      */
     protected function getSonata_Media_Security_SuperadminStrategyService()
     {
@@ -5997,12 +4990,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'sonata.media.serializer.handler.gallery' service.
+     * Gets the public 'sonata.media.serializer.handler.gallery' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return \Sonata\MediaBundle\Serializer\GallerySerializerHandler A Sonata\MediaBundle\Serializer\GallerySerializerHandler instance
+     * @return \Sonata\MediaBundle\Serializer\GallerySerializerHandler
      */
     protected function getSonata_Media_Serializer_Handler_GalleryService()
     {
@@ -6010,12 +5000,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'sonata.media.serializer.handler.media' service.
+     * Gets the public 'sonata.media.serializer.handler.media' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return \Sonata\MediaBundle\Serializer\MediaSerializerHandler A Sonata\MediaBundle\Serializer\MediaSerializerHandler instance
+     * @return \Sonata\MediaBundle\Serializer\MediaSerializerHandler
      */
     protected function getSonata_Media_Serializer_Handler_MediaService()
     {
@@ -6023,12 +5010,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'sonata.media.thumbnail.format' service.
+     * Gets the public 'sonata.media.thumbnail.format' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return \Sonata\MediaBundle\Thumbnail\FormatThumbnail A Sonata\MediaBundle\Thumbnail\FormatThumbnail instance
+     * @return \Sonata\MediaBundle\Thumbnail\FormatThumbnail
      */
     protected function getSonata_Media_Thumbnail_FormatService()
     {
@@ -6036,12 +5020,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'sonata.media.twig.extension' service.
+     * Gets the public 'sonata.media.twig.extension' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return \Sonata\MediaBundle\Twig\Extension\MediaExtension A Sonata\MediaBundle\Twig\Extension\MediaExtension instance
+     * @return \Sonata\MediaBundle\Twig\Extension\MediaExtension
      */
     protected function getSonata_Media_Twig_ExtensionService()
     {
@@ -6049,12 +5030,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'sonata.media.twig.global' service.
+     * Gets the public 'sonata.media.twig.global' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return \Sonata\MediaBundle\Twig\GlobalVariables A Sonata\MediaBundle\Twig\GlobalVariables instance
+     * @return \Sonata\MediaBundle\Twig\GlobalVariables
      */
     protected function getSonata_Media_Twig_GlobalService()
     {
@@ -6062,12 +5040,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'sonata.media.validator.format' service.
+     * Gets the public 'sonata.media.validator.format' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return \Sonata\MediaBundle\Validator\FormatValidator A Sonata\MediaBundle\Validator\FormatValidator instance
+     * @return \Sonata\MediaBundle\Validator\FormatValidator
      */
     protected function getSonata_Media_Validator_FormatService()
     {
@@ -6075,12 +5050,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'streamed_response_listener' service.
+     * Gets the public 'streamed_response_listener' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return \Symfony\Component\HttpKernel\EventListener\StreamedResponseListener A Symfony\Component\HttpKernel\EventListener\StreamedResponseListener instance
+     * @return \Symfony\Component\HttpKernel\EventListener\StreamedResponseListener
      */
     protected function getStreamedResponseListenerService()
     {
@@ -6088,12 +5060,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'swiftmailer.email_sender.listener' service.
+     * Gets the public 'swiftmailer.email_sender.listener' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return \Symfony\Bundle\SwiftmailerBundle\EventListener\EmailSenderListener A Symfony\Bundle\SwiftmailerBundle\EventListener\EmailSenderListener instance
+     * @return \Symfony\Bundle\SwiftmailerBundle\EventListener\EmailSenderListener
      */
     protected function getSwiftmailer_EmailSender_ListenerService()
     {
@@ -6101,12 +5070,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'swiftmailer.mailer.default' service.
+     * Gets the public 'swiftmailer.mailer.default' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return \Swift_Mailer A Swift_Mailer instance
+     * @return \Swift_Mailer
      */
     protected function getSwiftmailer_Mailer_DefaultService()
     {
@@ -6114,12 +5080,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'swiftmailer.mailer.default.spool' service.
+     * Gets the public 'swiftmailer.mailer.default.spool' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return \Swift_MemorySpool A Swift_MemorySpool instance
+     * @return \Swift_MemorySpool
      */
     protected function getSwiftmailer_Mailer_Default_SpoolService()
     {
@@ -6127,12 +5090,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'swiftmailer.mailer.default.transport' service.
+     * Gets the public 'swiftmailer.mailer.default.transport' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return \Swift_Transport_SpoolTransport A Swift_Transport_SpoolTransport instance
+     * @return \Swift_Transport_SpoolTransport
      */
     protected function getSwiftmailer_Mailer_Default_TransportService()
     {
@@ -6140,12 +5100,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'swiftmailer.mailer.default.transport.real' service.
+     * Gets the public 'swiftmailer.mailer.default.transport.real' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return \Swift_Transport_EsmtpTransport A Swift_Transport_EsmtpTransport instance
+     * @return \Swift_Transport_EsmtpTransport
      */
     protected function getSwiftmailer_Mailer_Default_Transport_RealService()
     {
@@ -6167,12 +5124,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'templating' service.
+     * Gets the public 'templating' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return \Symfony\Bundle\TwigBundle\TwigEngine A Symfony\Bundle\TwigBundle\TwigEngine instance
+     * @return \Symfony\Bundle\TwigBundle\TwigEngine
      */
     protected function getTemplatingService()
     {
@@ -6180,12 +5134,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'templating.filename_parser' service.
+     * Gets the public 'templating.filename_parser' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return \Symfony\Bundle\FrameworkBundle\Templating\TemplateFilenameParser A Symfony\Bundle\FrameworkBundle\Templating\TemplateFilenameParser instance
+     * @return \Symfony\Bundle\FrameworkBundle\Templating\TemplateFilenameParser
      */
     protected function getTemplating_FilenameParserService()
     {
@@ -6193,12 +5144,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'templating.helper.assets' service.
+     * Gets the public 'templating.helper.assets' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return \Symfony\Bundle\FrameworkBundle\Templating\Helper\AssetsHelper A Symfony\Bundle\FrameworkBundle\Templating\Helper\AssetsHelper instance
+     * @return \Symfony\Bundle\FrameworkBundle\Templating\Helper\AssetsHelper
      */
     protected function getTemplating_Helper_AssetsService()
     {
@@ -6206,12 +5154,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'templating.helper.logout_url' service.
+     * Gets the public 'templating.helper.logout_url' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return \Symfony\Bundle\SecurityBundle\Templating\Helper\LogoutUrlHelper A Symfony\Bundle\SecurityBundle\Templating\Helper\LogoutUrlHelper instance
+     * @return \Symfony\Bundle\SecurityBundle\Templating\Helper\LogoutUrlHelper
      */
     protected function getTemplating_Helper_LogoutUrlService()
     {
@@ -6219,12 +5164,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'templating.helper.router' service.
+     * Gets the public 'templating.helper.router' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return \Symfony\Bundle\FrameworkBundle\Templating\Helper\RouterHelper A Symfony\Bundle\FrameworkBundle\Templating\Helper\RouterHelper instance
+     * @return \Symfony\Bundle\FrameworkBundle\Templating\Helper\RouterHelper
      */
     protected function getTemplating_Helper_RouterService()
     {
@@ -6232,12 +5174,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'templating.helper.security' service.
+     * Gets the public 'templating.helper.security' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return \Symfony\Bundle\SecurityBundle\Templating\Helper\SecurityHelper A Symfony\Bundle\SecurityBundle\Templating\Helper\SecurityHelper instance
+     * @return \Symfony\Bundle\SecurityBundle\Templating\Helper\SecurityHelper
      */
     protected function getTemplating_Helper_SecurityService()
     {
@@ -6245,12 +5184,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'templating.loader' service.
+     * Gets the public 'templating.loader' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return \Symfony\Bundle\FrameworkBundle\Templating\Loader\FilesystemLoader A Symfony\Bundle\FrameworkBundle\Templating\Loader\FilesystemLoader instance
+     * @return \Symfony\Bundle\FrameworkBundle\Templating\Loader\FilesystemLoader
      */
     protected function getTemplating_LoaderService()
     {
@@ -6258,12 +5194,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'templating.name_parser' service.
+     * Gets the public 'templating.name_parser' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return \Symfony\Bundle\FrameworkBundle\Templating\TemplateNameParser A Symfony\Bundle\FrameworkBundle\Templating\TemplateNameParser instance
+     * @return \Symfony\Bundle\FrameworkBundle\Templating\TemplateNameParser
      */
     protected function getTemplating_NameParserService()
     {
@@ -6271,12 +5204,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'translation.dumper.csv' service.
+     * Gets the public 'translation.dumper.csv' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return \Symfony\Component\Translation\Dumper\CsvFileDumper A Symfony\Component\Translation\Dumper\CsvFileDumper instance
+     * @return \Symfony\Component\Translation\Dumper\CsvFileDumper
      */
     protected function getTranslation_Dumper_CsvService()
     {
@@ -6284,12 +5214,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'translation.dumper.ini' service.
+     * Gets the public 'translation.dumper.ini' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return \Symfony\Component\Translation\Dumper\IniFileDumper A Symfony\Component\Translation\Dumper\IniFileDumper instance
+     * @return \Symfony\Component\Translation\Dumper\IniFileDumper
      */
     protected function getTranslation_Dumper_IniService()
     {
@@ -6297,12 +5224,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'translation.dumper.json' service.
+     * Gets the public 'translation.dumper.json' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return \Symfony\Component\Translation\Dumper\JsonFileDumper A Symfony\Component\Translation\Dumper\JsonFileDumper instance
+     * @return \Symfony\Component\Translation\Dumper\JsonFileDumper
      */
     protected function getTranslation_Dumper_JsonService()
     {
@@ -6310,12 +5234,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'translation.dumper.mo' service.
+     * Gets the public 'translation.dumper.mo' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return \Symfony\Component\Translation\Dumper\MoFileDumper A Symfony\Component\Translation\Dumper\MoFileDumper instance
+     * @return \Symfony\Component\Translation\Dumper\MoFileDumper
      */
     protected function getTranslation_Dumper_MoService()
     {
@@ -6323,12 +5244,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'translation.dumper.php' service.
+     * Gets the public 'translation.dumper.php' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return \Symfony\Component\Translation\Dumper\PhpFileDumper A Symfony\Component\Translation\Dumper\PhpFileDumper instance
+     * @return \Symfony\Component\Translation\Dumper\PhpFileDumper
      */
     protected function getTranslation_Dumper_PhpService()
     {
@@ -6336,12 +5254,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'translation.dumper.po' service.
+     * Gets the public 'translation.dumper.po' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return \Symfony\Component\Translation\Dumper\PoFileDumper A Symfony\Component\Translation\Dumper\PoFileDumper instance
+     * @return \Symfony\Component\Translation\Dumper\PoFileDumper
      */
     protected function getTranslation_Dumper_PoService()
     {
@@ -6349,12 +5264,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'translation.dumper.qt' service.
+     * Gets the public 'translation.dumper.qt' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return \Symfony\Component\Translation\Dumper\QtFileDumper A Symfony\Component\Translation\Dumper\QtFileDumper instance
+     * @return \Symfony\Component\Translation\Dumper\QtFileDumper
      */
     protected function getTranslation_Dumper_QtService()
     {
@@ -6362,12 +5274,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'translation.dumper.res' service.
+     * Gets the public 'translation.dumper.res' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return \Symfony\Component\Translation\Dumper\IcuResFileDumper A Symfony\Component\Translation\Dumper\IcuResFileDumper instance
+     * @return \Symfony\Component\Translation\Dumper\IcuResFileDumper
      */
     protected function getTranslation_Dumper_ResService()
     {
@@ -6375,12 +5284,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'translation.dumper.xliff' service.
+     * Gets the public 'translation.dumper.xliff' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return \Symfony\Component\Translation\Dumper\XliffFileDumper A Symfony\Component\Translation\Dumper\XliffFileDumper instance
+     * @return \Symfony\Component\Translation\Dumper\XliffFileDumper
      */
     protected function getTranslation_Dumper_XliffService()
     {
@@ -6388,12 +5294,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'translation.dumper.yml' service.
+     * Gets the public 'translation.dumper.yml' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return \Symfony\Component\Translation\Dumper\YamlFileDumper A Symfony\Component\Translation\Dumper\YamlFileDumper instance
+     * @return \Symfony\Component\Translation\Dumper\YamlFileDumper
      */
     protected function getTranslation_Dumper_YmlService()
     {
@@ -6401,12 +5304,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'translation.extractor' service.
+     * Gets the public 'translation.extractor' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return \Symfony\Component\Translation\Extractor\ChainExtractor A Symfony\Component\Translation\Extractor\ChainExtractor instance
+     * @return \Symfony\Component\Translation\Extractor\ChainExtractor
      */
     protected function getTranslation_ExtractorService()
     {
@@ -6419,12 +5319,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'translation.extractor.php' service.
+     * Gets the public 'translation.extractor.php' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return \Symfony\Bundle\FrameworkBundle\Translation\PhpExtractor A Symfony\Bundle\FrameworkBundle\Translation\PhpExtractor instance
+     * @return \Symfony\Bundle\FrameworkBundle\Translation\PhpExtractor
      */
     protected function getTranslation_Extractor_PhpService()
     {
@@ -6432,12 +5329,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'translation.loader' service.
+     * Gets the public 'translation.loader' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return \Symfony\Bundle\FrameworkBundle\Translation\TranslationLoader A Symfony\Bundle\FrameworkBundle\Translation\TranslationLoader instance
+     * @return \Symfony\Bundle\FrameworkBundle\Translation\TranslationLoader
      */
     protected function getTranslation_LoaderService()
     {
@@ -6462,12 +5356,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'translation.loader.csv' service.
+     * Gets the public 'translation.loader.csv' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return \Symfony\Component\Translation\Loader\CsvFileLoader A Symfony\Component\Translation\Loader\CsvFileLoader instance
+     * @return \Symfony\Component\Translation\Loader\CsvFileLoader
      */
     protected function getTranslation_Loader_CsvService()
     {
@@ -6475,12 +5366,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'translation.loader.dat' service.
+     * Gets the public 'translation.loader.dat' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return \Symfony\Component\Translation\Loader\IcuDatFileLoader A Symfony\Component\Translation\Loader\IcuDatFileLoader instance
+     * @return \Symfony\Component\Translation\Loader\IcuDatFileLoader
      */
     protected function getTranslation_Loader_DatService()
     {
@@ -6488,12 +5376,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'translation.loader.ini' service.
+     * Gets the public 'translation.loader.ini' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return \Symfony\Component\Translation\Loader\IniFileLoader A Symfony\Component\Translation\Loader\IniFileLoader instance
+     * @return \Symfony\Component\Translation\Loader\IniFileLoader
      */
     protected function getTranslation_Loader_IniService()
     {
@@ -6501,12 +5386,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'translation.loader.json' service.
+     * Gets the public 'translation.loader.json' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return \Symfony\Component\Translation\Loader\JsonFileLoader A Symfony\Component\Translation\Loader\JsonFileLoader instance
+     * @return \Symfony\Component\Translation\Loader\JsonFileLoader
      */
     protected function getTranslation_Loader_JsonService()
     {
@@ -6514,12 +5396,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'translation.loader.mo' service.
+     * Gets the public 'translation.loader.mo' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return \Symfony\Component\Translation\Loader\MoFileLoader A Symfony\Component\Translation\Loader\MoFileLoader instance
+     * @return \Symfony\Component\Translation\Loader\MoFileLoader
      */
     protected function getTranslation_Loader_MoService()
     {
@@ -6527,12 +5406,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'translation.loader.php' service.
+     * Gets the public 'translation.loader.php' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return \Symfony\Component\Translation\Loader\PhpFileLoader A Symfony\Component\Translation\Loader\PhpFileLoader instance
+     * @return \Symfony\Component\Translation\Loader\PhpFileLoader
      */
     protected function getTranslation_Loader_PhpService()
     {
@@ -6540,12 +5416,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'translation.loader.po' service.
+     * Gets the public 'translation.loader.po' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return \Symfony\Component\Translation\Loader\PoFileLoader A Symfony\Component\Translation\Loader\PoFileLoader instance
+     * @return \Symfony\Component\Translation\Loader\PoFileLoader
      */
     protected function getTranslation_Loader_PoService()
     {
@@ -6553,12 +5426,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'translation.loader.qt' service.
+     * Gets the public 'translation.loader.qt' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return \Symfony\Component\Translation\Loader\QtFileLoader A Symfony\Component\Translation\Loader\QtFileLoader instance
+     * @return \Symfony\Component\Translation\Loader\QtFileLoader
      */
     protected function getTranslation_Loader_QtService()
     {
@@ -6566,12 +5436,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'translation.loader.res' service.
+     * Gets the public 'translation.loader.res' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return \Symfony\Component\Translation\Loader\IcuResFileLoader A Symfony\Component\Translation\Loader\IcuResFileLoader instance
+     * @return \Symfony\Component\Translation\Loader\IcuResFileLoader
      */
     protected function getTranslation_Loader_ResService()
     {
@@ -6579,12 +5446,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'translation.loader.xliff' service.
+     * Gets the public 'translation.loader.xliff' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return \Symfony\Component\Translation\Loader\XliffFileLoader A Symfony\Component\Translation\Loader\XliffFileLoader instance
+     * @return \Symfony\Component\Translation\Loader\XliffFileLoader
      */
     protected function getTranslation_Loader_XliffService()
     {
@@ -6592,12 +5456,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'translation.loader.yml' service.
+     * Gets the public 'translation.loader.yml' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return \Symfony\Component\Translation\Loader\YamlFileLoader A Symfony\Component\Translation\Loader\YamlFileLoader instance
+     * @return \Symfony\Component\Translation\Loader\YamlFileLoader
      */
     protected function getTranslation_Loader_YmlService()
     {
@@ -6605,12 +5466,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'translation.writer' service.
+     * Gets the public 'translation.writer' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return \Symfony\Component\Translation\Writer\TranslationWriter A Symfony\Component\Translation\Writer\TranslationWriter instance
+     * @return \Symfony\Component\Translation\Writer\TranslationWriter
      */
     protected function getTranslation_WriterService()
     {
@@ -6631,16 +5489,13 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'translator.default' service.
+     * Gets the public 'translator.default' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return \Symfony\Bundle\FrameworkBundle\Translation\Translator A Symfony\Bundle\FrameworkBundle\Translation\Translator instance
+     * @return \Symfony\Bundle\FrameworkBundle\Translation\Translator
      */
     protected function getTranslator_DefaultService()
     {
-        $this->services['translator.default'] = $instance = new \Symfony\Bundle\FrameworkBundle\Translation\Translator($this, new \Symfony\Component\Translation\MessageSelector(), array('translation.loader.php' => array(0 => 'php'), 'translation.loader.yml' => array(0 => 'yml'), 'translation.loader.xliff' => array(0 => 'xlf', 1 => 'xliff'), 'translation.loader.po' => array(0 => 'po'), 'translation.loader.mo' => array(0 => 'mo'), 'translation.loader.qt' => array(0 => 'ts'), 'translation.loader.csv' => array(0 => 'csv'), 'translation.loader.res' => array(0 => 'res'), 'translation.loader.dat' => array(0 => 'dat'), 'translation.loader.ini' => array(0 => 'ini'), 'translation.loader.json' => array(0 => 'json')), array('cache_dir' => (__DIR__.'/translations'), 'debug' => false, 'resource_files' => array('af' => array(0 => ($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Validator/Resources/translations\\validators.af.xlf'), 1 => ($this->targetDirs[3].'\\vendor\\friendsofsymfony\\user-bundle/Resources/translations\\FOSUserBundle.af.yml')), 'ar' => array(0 => ($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Validator/Resources/translations\\validators.ar.xlf'), 1 => ($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Form/Resources/translations\\validators.ar.xlf'), 2 => ($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Security\\Core/Resources/translations\\security.ar.xlf'), 3 => ($this->targetDirs[3].'\\vendor\\sonata-project\\core-bundle/Resources/translations\\SonataCoreBundle.ar.xliff'), 4 => ($this->targetDirs[3].'\\vendor\\sonata-project\\admin-bundle/Resources/translations\\SonataAdminBundle.ar.xliff'), 5 => ($this->targetDirs[3].'\\vendor\\friendsofsymfony\\user-bundle/Resources/translations\\FOSUserBundle.ar.yml'), 6 => ($this->targetDirs[3].'\\vendor\\friendsofsymfony\\user-bundle/Resources/translations\\validators.ar.yml'), 7 => ($this->targetDirs[3].'\\vendor\\javiereguiluz\\easyadmin-bundle/Resources/translations\\EasyAdminBundle.ar.xlf'), 8 => ($this->targetDirs[3].'\\vendor\\javiereguiluz\\easyadmin-bundle/Resources/translations\\messages.ar.xlf')), 'az' => array(0 => ($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Validator/Resources/translations\\validators.az.xlf'), 1 => ($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Form/Resources/translations\\validators.az.xlf'), 2 => ($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Security\\Core/Resources/translations\\security.az.xlf')), 'bg' => array(0 => ($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Validator/Resources/translations\\validators.bg.xlf'), 1 => ($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Form/Resources/translations\\validators.bg.xlf'), 2 => ($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Security\\Core/Resources/translations\\security.bg.xlf'), 3 => ($this->targetDirs[3].'\\vendor\\sonata-project\\core-bundle/Resources/translations\\SonataCoreBundle.bg.xliff'), 4 => ($this->targetDirs[3].'\\vendor\\sonata-project\\admin-bundle/Resources/translations\\SonataAdminBundle.bg.xliff'), 5 => ($this->targetDirs[3].'\\vendor\\friendsofsymfony\\user-bundle/Resources/translations\\FOSUserBundle.bg.yml'), 6 => ($this->targetDirs[3].'\\vendor\\friendsofsymfony\\user-bundle/Resources/translations\\validators.bg.yml'), 7 => ($this->targetDirs[3].'\\vendor\\sonata-project\\media-bundle/Resources/translations\\SonataMediaBundle.bg.xliff'), 8 => ($this->targetDirs[3].'\\vendor\\javiereguiluz\\easyadmin-bundle/Resources/translations\\EasyAdminBundle.bg.xlf'), 9 => ($this->targetDirs[3].'\\vendor\\javiereguiluz\\easyadmin-bundle/Resources/translations\\messages.bg.xlf')), 'ca' => array(0 => ($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Validator/Resources/translations\\validators.ca.xlf'), 1 => ($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Form/Resources/translations\\validators.ca.xlf'), 2 => ($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Security\\Core/Resources/translations\\security.ca.xlf'), 3 => ($this->targetDirs[3].'\\vendor\\sonata-project\\core-bundle/Resources/translations\\SonataCoreBundle.ca.xliff'), 4 => ($this->targetDirs[3].'\\vendor\\sonata-project\\admin-bundle/Resources/translations\\SonataAdminBundle.ca.xliff'), 5 => ($this->targetDirs[3].'\\vendor\\friendsofsymfony\\user-bundle/Resources/translations\\FOSUserBundle.ca.yml'), 6 => ($this->targetDirs[3].'\\vendor\\friendsofsymfony\\user-bundle/Resources/translations\\validators.ca.yml'), 7 => ($this->targetDirs[3].'\\vendor\\javiereguiluz\\easyadmin-bundle/Resources/translations\\EasyAdminBundle.ca.xlf'), 8 => ($this->targetDirs[3].'\\vendor\\javiereguiluz\\easyadmin-bundle/Resources/translations\\messages.ca.xlf')), 'cs' => array(0 => ($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Validator/Resources/translations\\validators.cs.xlf'), 1 => ($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Form/Resources/translations\\validators.cs.xlf'), 2 => ($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Security\\Core/Resources/translations\\security.cs.xlf'), 3 => ($this->targetDirs[3].'\\vendor\\sonata-project\\core-bundle/Resources/translations\\SonataCoreBundle.cs.xliff'), 4 => ($this->targetDirs[3].'\\vendor\\sonata-project\\admin-bundle/Resources/translations\\SonataAdminBundle.cs.xliff'), 5 => ($this->targetDirs[3].'\\vendor\\friendsofsymfony\\user-bundle/Resources/translations\\FOSUserBundle.cs.yml'), 6 => ($this->targetDirs[3].'\\vendor\\friendsofsymfony\\user-bundle/Resources/translations\\validators.cs.yml'), 7 => ($this->targetDirs[3].'\\vendor\\javiereguiluz\\easyadmin-bundle/Resources/translations\\EasyAdminBundle.cs.xlf'), 8 => ($this->targetDirs[3].'\\vendor\\javiereguiluz\\easyadmin-bundle/Resources/translations\\messages.cs.xlf')), 'cy' => array(0 => ($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Validator/Resources/translations\\validators.cy.xlf')), 'da' => array(0 => ($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Validator/Resources/translations\\validators.da.xlf'), 1 => ($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Form/Resources/translations\\validators.da.xlf'), 2 => ($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Security\\Core/Resources/translations\\security.da.xlf'), 3 => ($this->targetDirs[3].'\\vendor\\friendsofsymfony\\user-bundle/Resources/translations\\FOSUserBundle.da.yml'), 4 => ($this->targetDirs[3].'\\vendor\\friendsofsymfony\\user-bundle/Resources/translations\\validators.da.yml')), 'de' => array(0 => ($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Validator/Resources/translations\\validators.de.xlf'), 1 => ($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Form/Resources/translations\\validators.de.xlf'), 2 => ($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Security\\Core/Resources/translations\\security.de.xlf'), 3 => ($this->targetDirs[3].'\\vendor\\sonata-project\\core-bundle/Resources/translations\\SonataCoreBundle.de.xliff'), 4 => ($this->targetDirs[3].'\\vendor\\sonata-project\\block-bundle/Resources/translations\\SonataBlockBundle.de.xliff'), 5 => ($this->targetDirs[3].'\\vendor\\sonata-project\\admin-bundle/Resources/translations\\SonataAdminBundle.de.xliff'), 6 => ($this->targetDirs[3].'\\vendor\\friendsofsymfony\\user-bundle/Resources/translations\\FOSUserBundle.de.yml'), 7 => ($this->targetDirs[3].'\\vendor\\friendsofsymfony\\user-bundle/Resources/translations\\validators.de.yml'), 8 => ($this->targetDirs[3].'\\vendor\\sonata-project\\media-bundle/Resources/translations\\SonataMediaBundle.de.xliff'), 9 => ($this->targetDirs[3].'\\vendor\\sonata-project\\classification-bundle/Resources/translations\\SonataClassificationBundle.de.xliff'), 10 => ($this->targetDirs[3].'\\vendor\\javiereguiluz\\easyadmin-bundle/Resources/translations\\EasyAdminBundle.de.xlf'), 11 => ($this->targetDirs[3].'\\vendor\\javiereguiluz\\easyadmin-bundle/Resources/translations\\messages.de.xlf')), 'el' => array(0 => ($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Validator/Resources/translations\\validators.el.xlf'), 1 => ($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Form/Resources/translations\\validators.el.xlf'), 2 => ($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Security\\Core/Resources/translations\\security.el.xlf'), 3 => ($this->targetDirs[3].'\\vendor\\friendsofsymfony\\user-bundle/Resources/translations\\FOSUserBundle.el.yml'), 4 => ($this->targetDirs[3].'\\vendor\\friendsofsymfony\\user-bundle/Resources/translations\\validators.el.yml')), 'en' => array(0 => ($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Validator/Resources/translations\\validators.en.xlf'), 1 => ($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Form/Resources/translations\\validators.en.xlf'), 2 => ($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Security\\Core/Resources/translations\\security.en.xlf'), 3 => ($this->targetDirs[3].'\\vendor\\sonata-project\\core-bundle/Resources/translations\\SonataCoreBundle.en.xliff'), 4 => ($this->targetDirs[3].'\\vendor\\sonata-project\\block-bundle/Resources/translations\\SonataBlockBundle.en.xliff'), 5 => ($this->targetDirs[3].'\\vendor\\sonata-project\\admin-bundle/Resources/translations\\SonataAdminBundle.en.xliff'), 6 => ($this->targetDirs[3].'\\vendor\\friendsofsymfony\\user-bundle/Resources/translations\\validators.en.yml'), 7 => ($this->targetDirs[3].'\\vendor\\sonata-project\\media-bundle/Resources/translations\\SonataMediaBundle.en.xliff'), 8 => ($this->targetDirs[3].'\\src\\BackendBundle/Resources/translations\\FOSUserBundle.en.yml'), 9 => ($this->targetDirs[3].'\\src\\BackendBundle/Resources/translations\\messages.en.yml'), 10 => ($this->targetDirs[3].'\\vendor\\sonata-project\\classification-bundle/Resources/translations\\SonataClassificationBundle.en.xliff'), 11 => ($this->targetDirs[3].'\\vendor\\javiereguiluz\\easyadmin-bundle/Resources/translations\\EasyAdminBundle.en.xlf'), 12 => ($this->targetDirs[3].'\\vendor\\javiereguiluz\\easyadmin-bundle/Resources/translations\\messages.en.xlf')), 'es' => array(0 => ($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Validator/Resources/translations\\validators.es.xlf'), 1 => ($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Form/Resources/translations\\validators.es.xlf'), 2 => ($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Security\\Core/Resources/translations\\security.es.xlf'), 3 => ($this->targetDirs[3].'\\vendor\\sonata-project\\core-bundle/Resources/translations\\SonataCoreBundle.es.xliff'), 4 => ($this->targetDirs[3].'\\vendor\\sonata-project\\admin-bundle/Resources/translations\\SonataAdminBundle.es.xliff'), 5 => ($this->targetDirs[3].'\\vendor\\friendsofsymfony\\user-bundle/Resources/translations\\validators.es.yml'), 6 => ($this->targetDirs[3].'\\vendor\\sonata-project\\media-bundle/Resources/translations\\SonataMediaBundle.es.xliff'), 7 => ($this->targetDirs[3].'\\src\\BackendBundle/Resources/translations\\FOSUserBundle.es.yml'), 8 => ($this->targetDirs[3].'\\src\\BackendBundle/Resources/translations\\messages.es.yml'), 9 => ($this->targetDirs[3].'\\vendor\\sonata-project\\classification-bundle/Resources/translations\\SonataClassificationBundle.es.xliff'), 10 => ($this->targetDirs[3].'\\vendor\\javiereguiluz\\easyadmin-bundle/Resources/translations\\EasyAdminBundle.es.xlf'), 11 => ($this->targetDirs[3].'\\vendor\\javiereguiluz\\easyadmin-bundle/Resources/translations\\messages.es.xlf')), 'et' => array(0 => ($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Validator/Resources/translations\\validators.et.xlf'), 1 => ($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Form/Resources/translations\\validators.et.xlf'), 2 => ($this->targetDirs[3].'\\vendor\\friendsofsymfony\\user-bundle/Resources/translations\\FOSUserBundle.et.yml')), 'eu' => array(0 => ($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Validator/Resources/translations\\validators.eu.xlf'), 1 => ($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Form/Resources/translations\\validators.eu.xlf'), 2 => ($this->targetDirs[3].'\\vendor\\sonata-project\\core-bundle/Resources/translations\\SonataCoreBundle.eu.xliff'), 3 => ($this->targetDirs[3].'\\vendor\\sonata-project\\admin-bundle/Resources/translations\\SonataAdminBundle.eu.xliff'), 4 => ($this->targetDirs[3].'\\vendor\\friendsofsymfony\\user-bundle/Resources/translations\\FOSUserBundle.eu.yml'), 5 => ($this->targetDirs[3].'\\vendor\\friendsofsymfony\\user-bundle/Resources/translations\\validators.eu.yml'), 6 => ($this->targetDirs[3].'\\vendor\\javiereguiluz\\easyadmin-bundle/Resources/translations\\EasyAdminBundle.eu.xlf'), 7 => ($this->targetDirs[3].'\\vendor\\javiereguiluz\\easyadmin-bundle/Resources/translations\\messages.eu.xlf')), 'fa' => array(0 => ($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Validator/Resources/translations\\validators.fa.xlf'), 1 => ($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Form/Resources/translations\\validators.fa.xlf'), 2 => ($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Security\\Core/Resources/translations\\security.fa.xlf'), 3 => ($this->targetDirs[3].'\\vendor\\sonata-project\\core-bundle/Resources/translations\\SonataCoreBundle.fa.xliff'), 4 => ($this->targetDirs[3].'\\vendor\\sonata-project\\admin-bundle/Resources/translations\\SonataAdminBundle.fa.xliff'), 5 => ($this->targetDirs[3].'\\vendor\\friendsofsymfony\\user-bundle/Resources/translations\\FOSUserBundle.fa.yml'), 6 => ($this->targetDirs[3].'\\vendor\\friendsofsymfony\\user-bundle/Resources/translations\\validators.fa.yml'), 7 => ($this->targetDirs[3].'\\vendor\\sonata-project\\media-bundle/Resources/translations\\SonataMediaBundle.fa.xliff'), 8 => ($this->targetDirs[3].'\\vendor\\sonata-project\\classification-bundle/Resources/translations\\SonataClassificationBundle.fa.xliff')), 'fi' => array(0 => ($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Validator/Resources/translations\\validators.fi.xlf'), 1 => ($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Form/Resources/translations\\validators.fi.xlf'), 2 => ($this->targetDirs[3].'\\vendor\\sonata-project\\core-bundle/Resources/translations\\SonataCoreBundle.fi.xliff'), 3 => ($this->targetDirs[3].'\\vendor\\friendsofsymfony\\user-bundle/Resources/translations\\FOSUserBundle.fi.yml'), 4 => ($this->targetDirs[3].'\\vendor\\friendsofsymfony\\user-bundle/Resources/translations\\validators.fi.yml'), 5 => ($this->targetDirs[3].'\\vendor\\sonata-project\\media-bundle/Resources/translations\\SonataMediaBundle.fi.xliff'), 6 => ($this->targetDirs[3].'\\vendor\\javiereguiluz\\easyadmin-bundle/Resources/translations\\EasyAdminBundle.fi.xlf'), 7 => ($this->targetDirs[3].'\\vendor\\javiereguiluz\\easyadmin-bundle/Resources/translations\\messages.fi.xlf')), 'fr' => array(0 => ($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Validator/Resources/translations\\validators.fr.xlf'), 1 => ($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Form/Resources/translations\\validators.fr.xlf'), 2 => ($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Security\\Core/Resources/translations\\security.fr.xlf'), 3 => ($this->targetDirs[3].'\\vendor\\sonata-project\\core-bundle/Resources/translations\\SonataCoreBundle.fr.xliff'), 4 => ($this->targetDirs[3].'\\vendor\\sonata-project\\block-bundle/Resources/translations\\SonataBlockBundle.fr.xliff'), 5 => ($this->targetDirs[3].'\\vendor\\sonata-project\\admin-bundle/Resources/translations\\SonataAdminBundle.fr.xliff'), 6 => ($this->targetDirs[3].'\\vendor\\friendsofsymfony\\user-bundle/Resources/translations\\FOSUserBundle.fr.yml'), 7 => ($this->targetDirs[3].'\\vendor\\friendsofsymfony\\user-bundle/Resources/translations\\validators.fr.yml'), 8 => ($this->targetDirs[3].'\\vendor\\sonata-project\\media-bundle/Resources/translations\\SonataMediaBundle.fr.xliff'), 9 => ($this->targetDirs[3].'\\vendor\\sonata-project\\classification-bundle/Resources/translations\\SonataClassificationBundle.fr.xliff'), 10 => ($this->targetDirs[3].'\\vendor\\javiereguiluz\\easyadmin-bundle/Resources/translations\\EasyAdminBundle.fr.xlf'), 11 => ($this->targetDirs[3].'\\vendor\\javiereguiluz\\easyadmin-bundle/Resources/translations\\messages.fr.xlf')), 'gl' => array(0 => ($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Validator/Resources/translations\\validators.gl.xlf'), 1 => ($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Form/Resources/translations\\validators.gl.xlf'), 2 => ($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Security\\Core/Resources/translations\\security.gl.xlf')), 'he' => array(0 => ($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Validator/Resources/translations\\validators.he.xlf'), 1 => ($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Form/Resources/translations\\validators.he.xlf'), 2 => ($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Security\\Core/Resources/translations\\security.he.xlf'), 3 => ($this->targetDirs[3].'\\vendor\\friendsofsymfony\\user-bundle/Resources/translations\\FOSUserBundle.he.yml'), 4 => ($this->targetDirs[3].'\\vendor\\friendsofsymfony\\user-bundle/Resources/translations\\validators.he.yml')), 'hr' => array(0 => ($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Validator/Resources/translations\\validators.hr.xlf'), 1 => ($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Form/Resources/translations\\validators.hr.xlf'), 2 => ($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Security\\Core/Resources/translations\\security.hr.xlf'), 3 => ($this->targetDirs[3].'\\vendor\\sonata-project\\core-bundle/Resources/translations\\SonataCoreBundle.hr.xliff'), 4 => ($this->targetDirs[3].'\\vendor\\sonata-project\\admin-bundle/Resources/translations\\SonataAdminBundle.hr.xliff'), 5 => ($this->targetDirs[3].'\\vendor\\friendsofsymfony\\user-bundle/Resources/translations\\FOSUserBundle.hr.yml'), 6 => ($this->targetDirs[3].'\\vendor\\friendsofsymfony\\user-bundle/Resources/translations\\validators.hr.yml')), 'hu' => array(0 => ($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Validator/Resources/translations\\validators.hu.xlf'), 1 => ($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Form/Resources/translations\\validators.hu.xlf'), 2 => ($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Security\\Core/Resources/translations\\security.hu.xlf'), 3 => ($this->targetDirs[3].'\\vendor\\sonata-project\\core-bundle/Resources/translations\\SonataCoreBundle.hu.xliff'), 4 => ($this->targetDirs[3].'\\vendor\\sonata-project\\block-bundle/Resources/translations\\SonataBlockBundle.hu.xliff'), 5 => ($this->targetDirs[3].'\\vendor\\sonata-project\\admin-bundle/Resources/translations\\SonataAdminBundle.hu.xliff'), 6 => ($this->targetDirs[3].'\\vendor\\friendsofsymfony\\user-bundle/Resources/translations\\FOSUserBundle.hu.yml'), 7 => ($this->targetDirs[3].'\\vendor\\friendsofsymfony\\user-bundle/Resources/translations\\validators.hu.yml'), 8 => ($this->targetDirs[3].'\\vendor\\sonata-project\\media-bundle/Resources/translations\\SonataMediaBundle.hu.xliff'), 9 => ($this->targetDirs[3].'\\vendor\\sonata-project\\classification-bundle/Resources/translations\\SonataClassificationBundle.hu.xliff')), 'hy' => array(0 => ($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Validator/Resources/translations\\validators.hy.xlf'), 1 => ($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Form/Resources/translations\\validators.hy.xlf')), 'id' => array(0 => ($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Validator/Resources/translations\\validators.id.xlf'), 1 => ($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Form/Resources/translations\\validators.id.xlf'), 2 => ($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Security\\Core/Resources/translations\\security.id.xlf'), 3 => ($this->targetDirs[3].'\\vendor\\friendsofsymfony\\user-bundle/Resources/translations\\FOSUserBundle.id.yml'), 4 => ($this->targetDirs[3].'\\vendor\\friendsofsymfony\\user-bundle/Resources/translations\\validators.id.yml')), 'it' => array(0 => ($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Validator/Resources/translations\\validators.it.xlf'), 1 => ($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Form/Resources/translations\\validators.it.xlf'), 2 => ($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Security\\Core/Resources/translations\\security.it.xlf'), 3 => ($this->targetDirs[3].'\\vendor\\sonata-project\\core-bundle/Resources/translations\\SonataCoreBundle.it.xliff'), 4 => ($this->targetDirs[3].'\\vendor\\sonata-project\\block-bundle/Resources/translations\\SonataBlockBundle.it.xliff'), 5 => ($this->targetDirs[3].'\\vendor\\sonata-project\\admin-bundle/Resources/translations\\SonataAdminBundle.it.xliff'), 6 => ($this->targetDirs[3].'\\vendor\\friendsofsymfony\\user-bundle/Resources/translations\\FOSUserBundle.it.yml'), 7 => ($this->targetDirs[3].'\\vendor\\friendsofsymfony\\user-bundle/Resources/translations\\validators.it.yml'), 8 => ($this->targetDirs[3].'\\vendor\\sonata-project\\media-bundle/Resources/translations\\SonataMediaBundle.it.xliff'), 9 => ($this->targetDirs[3].'\\vendor\\sonata-project\\classification-bundle/Resources/translations\\SonataClassificationBundle.it.xliff'), 10 => ($this->targetDirs[3].'\\vendor\\javiereguiluz\\easyadmin-bundle/Resources/translations\\EasyAdminBundle.it.xlf'), 11 => ($this->targetDirs[3].'\\vendor\\javiereguiluz\\easyadmin-bundle/Resources/translations\\messages.it.xlf')), 'ja' => array(0 => ($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Validator/Resources/translations\\validators.ja.xlf'), 1 => ($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Form/Resources/translations\\validators.ja.xlf'), 2 => ($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Security\\Core/Resources/translations\\security.ja.xlf'), 3 => ($this->targetDirs[3].'\\vendor\\sonata-project\\core-bundle/Resources/translations\\SonataCoreBundle.ja.xliff'), 4 => ($this->targetDirs[3].'\\vendor\\sonata-project\\admin-bundle/Resources/translations\\SonataAdminBundle.ja.xliff'), 5 => ($this->targetDirs[3].'\\vendor\\friendsofsymfony\\user-bundle/Resources/translations\\FOSUserBundle.ja.yml'), 6 => ($this->targetDirs[3].'\\vendor\\friendsofsymfony\\user-bundle/Resources/translations\\validators.ja.yml'), 7 => ($this->targetDirs[3].'\\vendor\\sonata-project\\media-bundle/Resources/translations\\SonataMediaBundle.ja.xliff'), 8 => ($this->targetDirs[3].'\\vendor\\sonata-project\\classification-bundle/Resources/translations\\SonataClassificationBundle.ja.xliff')), 'lb' => array(0 => ($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Validator/Resources/translations\\validators.lb.xlf'), 1 => ($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Form/Resources/translations\\validators.lb.xlf'), 2 => ($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Security\\Core/Resources/translations\\security.lb.xlf'), 3 => ($this->targetDirs[3].'\\vendor\\sonata-project\\core-bundle/Resources/translations\\SonataCoreBundle.lb.xliff'), 4 => ($this->targetDirs[3].'\\vendor\\sonata-project\\admin-bundle/Resources/translations\\SonataAdminBundle.lb.xliff'), 5 => ($this->targetDirs[3].'\\vendor\\friendsofsymfony\\user-bundle/Resources/translations\\FOSUserBundle.lb.yml')), 'lt' => array(0 => ($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Validator/Resources/translations\\validators.lt.xlf'), 1 => ($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Form/Resources/translations\\validators.lt.xlf'), 2 => ($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Security\\Core/Resources/translations\\security.lt.xlf'), 3 => ($this->targetDirs[3].'\\vendor\\sonata-project\\core-bundle/Resources/translations\\SonataCoreBundle.lt.xliff'), 4 => ($this->targetDirs[3].'\\vendor\\sonata-project\\admin-bundle/Resources/translations\\SonataAdminBundle.lt.xliff'), 5 => ($this->targetDirs[3].'\\vendor\\friendsofsymfony\\user-bundle/Resources/translations\\FOSUserBundle.lt.yml'), 6 => ($this->targetDirs[3].'\\vendor\\friendsofsymfony\\user-bundle/Resources/translations\\validators.lt.yml'), 7 => ($this->targetDirs[3].'\\vendor\\sonata-project\\media-bundle/Resources/translations\\SonataMediaBundle.lt.xliff')), 'lv' => array(0 => ($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Validator/Resources/translations\\validators.lv.xlf'), 1 => ($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Form/Resources/translations\\validators.lv.xlf'), 2 => ($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Security\\Core/Resources/translations\\security.lv.xlf'), 3 => ($this->targetDirs[3].'\\vendor\\friendsofsymfony\\user-bundle/Resources/translations\\FOSUserBundle.lv.yml'), 4 => ($this->targetDirs[3].'\\vendor\\friendsofsymfony\\user-bundle/Resources/translations\\validators.lv.yml')), 'mn' => array(0 => ($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Validator/Resources/translations\\validators.mn.xlf'), 1 => ($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Form/Resources/translations\\validators.mn.xlf')), 'nl' => array(0 => ($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Validator/Resources/translations\\validators.nl.xlf'), 1 => ($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Form/Resources/translations\\validators.nl.xlf'), 2 => ($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Security\\Core/Resources/translations\\security.nl.xlf'), 3 => ($this->targetDirs[3].'\\vendor\\sonata-project\\core-bundle/Resources/translations\\SonataCoreBundle.nl.xliff'), 4 => ($this->targetDirs[3].'\\vendor\\sonata-project\\admin-bundle/Resources/translations\\SonataAdminBundle.nl.xliff'), 5 => ($this->targetDirs[3].'\\vendor\\friendsofsymfony\\user-bundle/Resources/translations\\FOSUserBundle.nl.yml'), 6 => ($this->targetDirs[3].'\\vendor\\friendsofsymfony\\user-bundle/Resources/translations\\validators.nl.yml'), 7 => ($this->targetDirs[3].'\\vendor\\sonata-project\\media-bundle/Resources/translations\\SonataMediaBundle.nl.xliff'), 8 => ($this->targetDirs[3].'\\vendor\\sonata-project\\classification-bundle/Resources/translations\\SonataClassificationBundle.nl.xliff'), 9 => ($this->targetDirs[3].'\\vendor\\javiereguiluz\\easyadmin-bundle/Resources/translations\\EasyAdminBundle.nl.xlf'), 10 => ($this->targetDirs[3].'\\vendor\\javiereguiluz\\easyadmin-bundle/Resources/translations\\messages.nl.xlf')), 'nn' => array(0 => ($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Validator/Resources/translations\\validators.nn.xlf')), 'no' => array(0 => ($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Validator/Resources/translations\\validators.no.xlf'), 1 => ($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Form/Resources/translations\\validators.no.xlf'), 2 => ($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Security\\Core/Resources/translations\\security.no.xlf'), 3 => ($this->targetDirs[3].'\\vendor\\sonata-project\\admin-bundle/Resources/translations\\SonataAdminBundle.no.xliff')), 'pl' => array(0 => ($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Validator/Resources/translations\\validators.pl.xlf'), 1 => ($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Form/Resources/translations\\validators.pl.xlf'), 2 => ($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Security\\Core/Resources/translations\\security.pl.xlf'), 3 => ($this->targetDirs[3].'\\vendor\\sonata-project\\core-bundle/Resources/translations\\SonataCoreBundle.pl.xliff'), 4 => ($this->targetDirs[3].'\\vendor\\sonata-project\\admin-bundle/Resources/translations\\SonataAdminBundle.pl.xliff'), 5 => ($this->targetDirs[3].'\\vendor\\friendsofsymfony\\user-bundle/Resources/translations\\FOSUserBundle.pl.yml'), 6 => ($this->targetDirs[3].'\\vendor\\friendsofsymfony\\user-bundle/Resources/translations\\validators.pl.yml'), 7 => ($this->targetDirs[3].'\\vendor\\sonata-project\\media-bundle/Resources/translations\\SonataMediaBundle.pl.xliff'), 8 => ($this->targetDirs[3].'\\vendor\\javiereguiluz\\easyadmin-bundle/Resources/translations\\EasyAdminBundle.pl.xlf'), 9 => ($this->targetDirs[3].'\\vendor\\javiereguiluz\\easyadmin-bundle/Resources/translations\\messages.pl.xlf')), 'pt' => array(0 => ($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Validator/Resources/translations\\validators.pt.xlf'), 1 => ($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Form/Resources/translations\\validators.pt.xlf'), 2 => ($this->targetDirs[3].'\\vendor\\sonata-project\\core-bundle/Resources/translations\\SonataCoreBundle.pt.xliff'), 3 => ($this->targetDirs[3].'\\vendor\\sonata-project\\admin-bundle/Resources/translations\\SonataAdminBundle.pt.xliff'), 4 => ($this->targetDirs[3].'\\vendor\\friendsofsymfony\\user-bundle/Resources/translations\\FOSUserBundle.pt.yml'), 5 => ($this->targetDirs[3].'\\vendor\\friendsofsymfony\\user-bundle/Resources/translations\\validators.pt.yml'), 6 => ($this->targetDirs[3].'\\vendor\\javiereguiluz\\easyadmin-bundle/Resources/translations\\EasyAdminBundle.pt.xlf'), 7 => ($this->targetDirs[3].'\\vendor\\javiereguiluz\\easyadmin-bundle/Resources/translations\\messages.pt.xlf')), 'pt_BR' => array(0 => ($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Validator/Resources/translations\\validators.pt_BR.xlf'), 1 => ($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Form/Resources/translations\\validators.pt_BR.xlf'), 2 => ($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Security\\Core/Resources/translations\\security.pt_BR.xlf'), 3 => ($this->targetDirs[3].'\\vendor\\sonata-project\\core-bundle/Resources/translations\\SonataCoreBundle.pt_BR.xliff'), 4 => ($this->targetDirs[3].'\\vendor\\sonata-project\\admin-bundle/Resources/translations\\SonataAdminBundle.pt_BR.xliff'), 5 => ($this->targetDirs[3].'\\vendor\\friendsofsymfony\\user-bundle/Resources/translations\\FOSUserBundle.pt_BR.yml'), 6 => ($this->targetDirs[3].'\\vendor\\friendsofsymfony\\user-bundle/Resources/translations\\validators.pt_BR.yml'), 7 => ($this->targetDirs[3].'\\vendor\\sonata-project\\media-bundle/Resources/translations\\SonataMediaBundle.pt_BR.xliff'), 8 => ($this->targetDirs[3].'\\vendor\\sonata-project\\classification-bundle/Resources/translations\\SonataClassificationBundle.pt_BR.xliff')), 'ro' => array(0 => ($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Validator/Resources/translations\\validators.ro.xlf'), 1 => ($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Form/Resources/translations\\validators.ro.xlf'), 2 => ($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Security\\Core/Resources/translations\\security.ro.xlf'), 3 => ($this->targetDirs[3].'\\vendor\\sonata-project\\core-bundle/Resources/translations\\SonataCoreBundle.ro.xliff'), 4 => ($this->targetDirs[3].'\\vendor\\sonata-project\\admin-bundle/Resources/translations\\SonataAdminBundle.ro.xliff'), 5 => ($this->targetDirs[3].'\\vendor\\friendsofsymfony\\user-bundle/Resources/translations\\FOSUserBundle.ro.yml'), 6 => ($this->targetDirs[3].'\\vendor\\friendsofsymfony\\user-bundle/Resources/translations\\validators.ro.yml'), 7 => ($this->targetDirs[3].'\\vendor\\sonata-project\\media-bundle/Resources/translations\\SonataMediaBundle.ro.xliff'), 8 => ($this->targetDirs[3].'\\vendor\\sonata-project\\classification-bundle/Resources/translations\\SonataClassificationBundle.ro.xliff'), 9 => ($this->targetDirs[3].'\\vendor\\javiereguiluz\\easyadmin-bundle/Resources/translations\\EasyAdminBundle.ro.xlf'), 10 => ($this->targetDirs[3].'\\vendor\\javiereguiluz\\easyadmin-bundle/Resources/translations\\messages.ro.xlf')), 'ru' => array(0 => ($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Validator/Resources/translations\\validators.ru.xlf'), 1 => ($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Form/Resources/translations\\validators.ru.xlf'), 2 => ($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Security\\Core/Resources/translations\\security.ru.xlf'), 3 => ($this->targetDirs[3].'\\vendor\\sonata-project\\core-bundle/Resources/translations\\SonataCoreBundle.ru.xliff'), 4 => ($this->targetDirs[3].'\\vendor\\sonata-project\\admin-bundle/Resources/translations\\SonataAdminBundle.ru.xliff'), 5 => ($this->targetDirs[3].'\\vendor\\friendsofsymfony\\user-bundle/Resources/translations\\FOSUserBundle.ru.yml'), 6 => ($this->targetDirs[3].'\\vendor\\friendsofsymfony\\user-bundle/Resources/translations\\validators.ru.yml'), 7 => ($this->targetDirs[3].'\\vendor\\sonata-project\\media-bundle/Resources/translations\\SonataMediaBundle.ru.xliff'), 8 => ($this->targetDirs[3].'\\vendor\\sonata-project\\classification-bundle/Resources/translations\\SonataClassificationBundle.ru.xliff'), 9 => ($this->targetDirs[3].'\\vendor\\javiereguiluz\\easyadmin-bundle/Resources/translations\\EasyAdminBundle.ru.xlf'), 10 => ($this->targetDirs[3].'\\vendor\\javiereguiluz\\easyadmin-bundle/Resources/translations\\messages.ru.xlf')), 'sk' => array(0 => ($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Validator/Resources/translations\\validators.sk.xlf'), 1 => ($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Form/Resources/translations\\validators.sk.xlf'), 2 => ($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Security\\Core/Resources/translations\\security.sk.xlf'), 3 => ($this->targetDirs[3].'\\vendor\\sonata-project\\core-bundle/Resources/translations\\SonataCoreBundle.sk.xliff'), 4 => ($this->targetDirs[3].'\\vendor\\sonata-project\\admin-bundle/Resources/translations\\SonataAdminBundle.sk.xliff'), 5 => ($this->targetDirs[3].'\\vendor\\friendsofsymfony\\user-bundle/Resources/translations\\FOSUserBundle.sk.yml'), 6 => ($this->targetDirs[3].'\\vendor\\friendsofsymfony\\user-bundle/Resources/translations\\validators.sk.yml')), 'sl' => array(0 => ($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Validator/Resources/translations\\validators.sl.xlf'), 1 => ($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Form/Resources/translations\\validators.sl.xlf'), 2 => ($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Security\\Core/Resources/translations\\security.sl.xlf'), 3 => ($this->targetDirs[3].'\\vendor\\sonata-project\\core-bundle/Resources/translations\\SonataCoreBundle.sl.xliff'), 4 => ($this->targetDirs[3].'\\vendor\\sonata-project\\admin-bundle/Resources/translations\\SonataAdminBundle.sl.xliff'), 5 => ($this->targetDirs[3].'\\vendor\\friendsofsymfony\\user-bundle/Resources/translations\\FOSUserBundle.sl.yml'), 6 => ($this->targetDirs[3].'\\vendor\\friendsofsymfony\\user-bundle/Resources/translations\\validators.sl.yml'), 7 => ($this->targetDirs[3].'\\vendor\\sonata-project\\media-bundle/Resources/translations\\SonataMediaBundle.sl.xliff'), 8 => ($this->targetDirs[3].'\\vendor\\javiereguiluz\\easyadmin-bundle/Resources/translations\\EasyAdminBundle.sl.xlf'), 9 => ($this->targetDirs[3].'\\vendor\\javiereguiluz\\easyadmin-bundle/Resources/translations\\messages.sl.xlf')), 'sq' => array(0 => ($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Validator/Resources/translations\\validators.sq.xlf')), 'sr_Cyrl' => array(0 => ($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Validator/Resources/translations\\validators.sr_Cyrl.xlf'), 1 => ($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Form/Resources/translations\\validators.sr_Cyrl.xlf'), 2 => ($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Security\\Core/Resources/translations\\security.sr_Cyrl.xlf')), 'sr_Latn' => array(0 => ($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Validator/Resources/translations\\validators.sr_Latn.xlf'), 1 => ($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Form/Resources/translations\\validators.sr_Latn.xlf'), 2 => ($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Security\\Core/Resources/translations\\security.sr_Latn.xlf'), 3 => ($this->targetDirs[3].'\\vendor\\friendsofsymfony\\user-bundle/Resources/translations\\FOSUserBundle.sr_Latn.yml'), 4 => ($this->targetDirs[3].'\\vendor\\friendsofsymfony\\user-bundle/Resources/translations\\validators.sr_Latn.yml')), 'sv' => array(0 => ($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Validator/Resources/translations\\validators.sv.xlf'), 1 => ($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Form/Resources/translations\\validators.sv.xlf'), 2 => ($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Security\\Core/Resources/translations\\security.sv.xlf'), 3 => ($this->targetDirs[3].'\\vendor\\friendsofsymfony\\user-bundle/Resources/translations\\FOSUserBundle.sv.yml'), 4 => ($this->targetDirs[3].'\\vendor\\friendsofsymfony\\user-bundle/Resources/translations\\validators.sv.yml'), 5 => ($this->targetDirs[3].'\\vendor\\javiereguiluz\\easyadmin-bundle/Resources/translations\\EasyAdminBundle.sv.xlf'), 6 => ($this->targetDirs[3].'\\vendor\\javiereguiluz\\easyadmin-bundle/Resources/translations\\messages.sv.xlf')), 'th' => array(0 => ($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Validator/Resources/translations\\validators.th.xlf'), 1 => ($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Security\\Core/Resources/translations\\security.th.xlf'), 2 => ($this->targetDirs[3].'\\vendor\\friendsofsymfony\\user-bundle/Resources/translations\\FOSUserBundle.th.yml'), 3 => ($this->targetDirs[3].'\\vendor\\friendsofsymfony\\user-bundle/Resources/translations\\validators.th.yml')), 'tr' => array(0 => ($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Validator/Resources/translations\\validators.tr.xlf'), 1 => ($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Security\\Core/Resources/translations\\security.tr.xlf'), 2 => ($this->targetDirs[3].'\\vendor\\friendsofsymfony\\user-bundle/Resources/translations\\FOSUserBundle.tr.yml'), 3 => ($this->targetDirs[3].'\\vendor\\friendsofsymfony\\user-bundle/Resources/translations\\validators.tr.yml'), 4 => ($this->targetDirs[3].'\\vendor\\javiereguiluz\\easyadmin-bundle/Resources/translations\\EasyAdminBundle.tr.xlf'), 5 => ($this->targetDirs[3].'\\vendor\\javiereguiluz\\easyadmin-bundle/Resources/translations\\messages.tr.xlf')), 'uk' => array(0 => ($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Validator/Resources/translations\\validators.uk.xlf'), 1 => ($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Form/Resources/translations\\validators.uk.xlf'), 2 => ($this->targetDirs[3].'\\vendor\\sonata-project\\core-bundle/Resources/translations\\SonataCoreBundle.uk.xliff'), 3 => ($this->targetDirs[3].'\\vendor\\sonata-project\\admin-bundle/Resources/translations\\SonataAdminBundle.uk.xliff'), 4 => ($this->targetDirs[3].'\\vendor\\friendsofsymfony\\user-bundle/Resources/translations\\FOSUserBundle.uk.yml'), 5 => ($this->targetDirs[3].'\\vendor\\friendsofsymfony\\user-bundle/Resources/translations\\validators.uk.yml'), 6 => ($this->targetDirs[3].'\\vendor\\sonata-project\\media-bundle/Resources/translations\\SonataMediaBundle.uk.xliff'), 7 => ($this->targetDirs[3].'\\vendor\\javiereguiluz\\easyadmin-bundle/Resources/translations\\EasyAdminBundle.uk.xlf'), 8 => ($this->targetDirs[3].'\\vendor\\javiereguiluz\\easyadmin-bundle/Resources/translations\\messages.uk.xlf')), 'vi' => array(0 => ($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Validator/Resources/translations\\validators.vi.xlf'), 1 => ($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Security\\Core/Resources/translations\\security.vi.xlf'), 2 => ($this->targetDirs[3].'\\vendor\\friendsofsymfony\\user-bundle/Resources/translations\\FOSUserBundle.vi.yml'), 3 => ($this->targetDirs[3].'\\vendor\\friendsofsymfony\\user-bundle/Resources/translations\\validators.vi.yml')), 'zh_CN' => array(0 => ($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Validator/Resources/translations\\validators.zh_CN.xlf'), 1 => ($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Form/Resources/translations\\validators.zh_CN.xlf'), 2 => ($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Security\\Core/Resources/translations\\security.zh_CN.xlf'), 3 => ($this->targetDirs[3].'\\vendor\\sonata-project\\core-bundle/Resources/translations\\SonataCoreBundle.zh_CN.xliff'), 4 => ($this->targetDirs[3].'\\vendor\\sonata-project\\admin-bundle/Resources/translations\\SonataAdminBundle.zh_CN.xliff'), 5 => ($this->targetDirs[3].'\\vendor\\friendsofsymfony\\user-bundle/Resources/translations\\FOSUserBundle.zh_CN.yml'), 6 => ($this->targetDirs[3].'\\vendor\\friendsofsymfony\\user-bundle/Resources/translations\\validators.zh_CN.yml'), 7 => ($this->targetDirs[3].'\\vendor\\javiereguiluz\\easyadmin-bundle/Resources/translations\\EasyAdminBundle.zh_CN.xlf'), 8 => ($this->targetDirs[3].'\\vendor\\javiereguiluz\\easyadmin-bundle/Resources/translations\\messages.zh_CN.xlf')), 'zh_TW' => array(0 => ($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Validator/Resources/translations\\validators.zh_TW.xlf')), 'pt_PT' => array(0 => ($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Security\\Core/Resources/translations\\security.pt_PT.xlf')), 'ua' => array(0 => ($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Security\\Core/Resources/translations\\security.ua.xlf')), 'sv_SE' => array(0 => ($this->targetDirs[3].'\\vendor\\sonata-project\\admin-bundle/Resources/translations\\SonataAdminBundle.sv_SE.xliff')), 'eo' => array(0 => ($this->targetDirs[3].'\\vendor\\friendsofsymfony\\user-bundle/Resources/translations\\FOSUserBundle.eo.yml'), 1 => ($this->targetDirs[3].'\\vendor\\friendsofsymfony\\user-bundle/Resources/translations\\validators.eo.yml')), 'ky' => array(0 => ($this->targetDirs[3].'\\vendor\\friendsofsymfony\\user-bundle/Resources/translations\\FOSUserBundle.ky.yml'), 1 => ($this->targetDirs[3].'\\vendor\\friendsofsymfony\\user-bundle/Resources/translations\\validators.ky.yml')), 'nb' => array(0 => ($this->targetDirs[3].'\\vendor\\friendsofsymfony\\user-bundle/Resources/translations\\FOSUserBundle.nb.yml'), 1 => ($this->targetDirs[3].'\\vendor\\friendsofsymfony\\user-bundle/Resources/translations\\validators.nb.yml')))), array());
+        $this->services['translator.default'] = $instance = new \Symfony\Bundle\FrameworkBundle\Translation\Translator($this, new \Symfony\Component\Translation\MessageSelector(), array('translation.loader.php' => array(0 => 'php'), 'translation.loader.yml' => array(0 => 'yml'), 'translation.loader.xliff' => array(0 => 'xlf', 1 => 'xliff'), 'translation.loader.po' => array(0 => 'po'), 'translation.loader.mo' => array(0 => 'mo'), 'translation.loader.qt' => array(0 => 'ts'), 'translation.loader.csv' => array(0 => 'csv'), 'translation.loader.res' => array(0 => 'res'), 'translation.loader.dat' => array(0 => 'dat'), 'translation.loader.ini' => array(0 => 'ini'), 'translation.loader.json' => array(0 => 'json')), array('cache_dir' => (__DIR__.'/translations'), 'debug' => false, 'resource_files' => array('af' => array(0 => ($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Validator/Resources/translations\\validators.af.xlf'), 1 => ($this->targetDirs[3].'\\vendor\\friendsofsymfony\\user-bundle/Resources/translations\\FOSUserBundle.af.yml')), 'ar' => array(0 => ($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Validator/Resources/translations\\validators.ar.xlf'), 1 => ($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Form/Resources/translations\\validators.ar.xlf'), 2 => ($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Security\\Core/Resources/translations\\security.ar.xlf'), 3 => ($this->targetDirs[3].'\\vendor\\friendsofsymfony\\user-bundle/Resources/translations\\FOSUserBundle.ar.yml'), 4 => ($this->targetDirs[3].'\\vendor\\friendsofsymfony\\user-bundle/Resources/translations\\validators.ar.yml'), 5 => ($this->targetDirs[3].'\\vendor\\sonata-project\\core-bundle/Resources/translations\\SonataCoreBundle.ar.xliff'), 6 => ($this->targetDirs[3].'\\vendor\\sonata-project\\admin-bundle/Resources/translations\\SonataAdminBundle.ar.xliff'), 7 => ($this->targetDirs[3].'\\vendor\\javiereguiluz\\easyadmin-bundle/Resources/translations\\EasyAdminBundle.ar.xlf'), 8 => ($this->targetDirs[3].'\\vendor\\javiereguiluz\\easyadmin-bundle/Resources/translations\\messages.ar.xlf'), 9 => ($this->targetDirs[3].'\\vendor\\vich\\uploader-bundle/Resources/translations\\VichUploaderBundle.ar.yml')), 'az' => array(0 => ($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Validator/Resources/translations\\validators.az.xlf'), 1 => ($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Form/Resources/translations\\validators.az.xlf'), 2 => ($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Security\\Core/Resources/translations\\security.az.xlf')), 'bg' => array(0 => ($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Validator/Resources/translations\\validators.bg.xlf'), 1 => ($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Form/Resources/translations\\validators.bg.xlf'), 2 => ($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Security\\Core/Resources/translations\\security.bg.xlf'), 3 => ($this->targetDirs[3].'\\vendor\\friendsofsymfony\\user-bundle/Resources/translations\\FOSUserBundle.bg.yml'), 4 => ($this->targetDirs[3].'\\vendor\\friendsofsymfony\\user-bundle/Resources/translations\\validators.bg.yml'), 5 => ($this->targetDirs[3].'\\vendor\\sonata-project\\core-bundle/Resources/translations\\SonataCoreBundle.bg.xliff'), 6 => ($this->targetDirs[3].'\\vendor\\sonata-project\\admin-bundle/Resources/translations\\SonataAdminBundle.bg.xliff'), 7 => ($this->targetDirs[3].'\\vendor\\sonata-project\\media-bundle/Resources/translations\\SonataMediaBundle.bg.xliff'), 8 => ($this->targetDirs[3].'\\vendor\\javiereguiluz\\easyadmin-bundle/Resources/translations\\EasyAdminBundle.bg.xlf'), 9 => ($this->targetDirs[3].'\\vendor\\javiereguiluz\\easyadmin-bundle/Resources/translations\\messages.bg.xlf')), 'ca' => array(0 => ($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Validator/Resources/translations\\validators.ca.xlf'), 1 => ($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Form/Resources/translations\\validators.ca.xlf'), 2 => ($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Security\\Core/Resources/translations\\security.ca.xlf'), 3 => ($this->targetDirs[3].'\\vendor\\friendsofsymfony\\user-bundle/Resources/translations\\FOSUserBundle.ca.yml'), 4 => ($this->targetDirs[3].'\\vendor\\friendsofsymfony\\user-bundle/Resources/translations\\validators.ca.yml'), 5 => ($this->targetDirs[3].'\\vendor\\sonata-project\\core-bundle/Resources/translations\\SonataCoreBundle.ca.xliff'), 6 => ($this->targetDirs[3].'\\vendor\\sonata-project\\admin-bundle/Resources/translations\\SonataAdminBundle.ca.xliff'), 7 => ($this->targetDirs[3].'\\vendor\\javiereguiluz\\easyadmin-bundle/Resources/translations\\EasyAdminBundle.ca.xlf'), 8 => ($this->targetDirs[3].'\\vendor\\javiereguiluz\\easyadmin-bundle/Resources/translations\\messages.ca.xlf')), 'cs' => array(0 => ($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Validator/Resources/translations\\validators.cs.xlf'), 1 => ($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Form/Resources/translations\\validators.cs.xlf'), 2 => ($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Security\\Core/Resources/translations\\security.cs.xlf'), 3 => ($this->targetDirs[3].'\\vendor\\friendsofsymfony\\user-bundle/Resources/translations\\FOSUserBundle.cs.yml'), 4 => ($this->targetDirs[3].'\\vendor\\friendsofsymfony\\user-bundle/Resources/translations\\validators.cs.yml'), 5 => ($this->targetDirs[3].'\\vendor\\sonata-project\\core-bundle/Resources/translations\\SonataCoreBundle.cs.xliff'), 6 => ($this->targetDirs[3].'\\vendor\\sonata-project\\admin-bundle/Resources/translations\\SonataAdminBundle.cs.xliff'), 7 => ($this->targetDirs[3].'\\vendor\\javiereguiluz\\easyadmin-bundle/Resources/translations\\EasyAdminBundle.cs.xlf'), 8 => ($this->targetDirs[3].'\\vendor\\javiereguiluz\\easyadmin-bundle/Resources/translations\\messages.cs.xlf'), 9 => ($this->targetDirs[3].'\\vendor\\vich\\uploader-bundle/Resources/translations\\VichUploaderBundle.cs.yml')), 'cy' => array(0 => ($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Validator/Resources/translations\\validators.cy.xlf')), 'da' => array(0 => ($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Validator/Resources/translations\\validators.da.xlf'), 1 => ($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Form/Resources/translations\\validators.da.xlf'), 2 => ($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Security\\Core/Resources/translations\\security.da.xlf'), 3 => ($this->targetDirs[3].'\\vendor\\friendsofsymfony\\user-bundle/Resources/translations\\FOSUserBundle.da.yml'), 4 => ($this->targetDirs[3].'\\vendor\\friendsofsymfony\\user-bundle/Resources/translations\\validators.da.yml')), 'de' => array(0 => ($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Validator/Resources/translations\\validators.de.xlf'), 1 => ($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Form/Resources/translations\\validators.de.xlf'), 2 => ($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Security\\Core/Resources/translations\\security.de.xlf'), 3 => ($this->targetDirs[3].'\\vendor\\friendsofsymfony\\user-bundle/Resources/translations\\FOSUserBundle.de.yml'), 4 => ($this->targetDirs[3].'\\vendor\\friendsofsymfony\\user-bundle/Resources/translations\\validators.de.yml'), 5 => ($this->targetDirs[3].'\\vendor\\sonata-project\\core-bundle/Resources/translations\\SonataCoreBundle.de.xliff'), 6 => ($this->targetDirs[3].'\\vendor\\sonata-project\\block-bundle/Resources/translations\\SonataBlockBundle.de.xliff'), 7 => ($this->targetDirs[3].'\\vendor\\sonata-project\\classification-bundle/Resources/translations\\SonataClassificationBundle.de.xliff'), 8 => ($this->targetDirs[3].'\\vendor\\sonata-project\\admin-bundle/Resources/translations\\SonataAdminBundle.de.xliff'), 9 => ($this->targetDirs[3].'\\vendor\\sonata-project\\media-bundle/Resources/translations\\SonataMediaBundle.de.xliff'), 10 => ($this->targetDirs[3].'\\vendor\\javiereguiluz\\easyadmin-bundle/Resources/translations\\EasyAdminBundle.de.xlf'), 11 => ($this->targetDirs[3].'\\vendor\\javiereguiluz\\easyadmin-bundle/Resources/translations\\messages.de.xlf'), 12 => ($this->targetDirs[3].'\\vendor\\vich\\uploader-bundle/Resources/translations\\VichUploaderBundle.de.yml')), 'el' => array(0 => ($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Validator/Resources/translations\\validators.el.xlf'), 1 => ($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Form/Resources/translations\\validators.el.xlf'), 2 => ($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Security\\Core/Resources/translations\\security.el.xlf'), 3 => ($this->targetDirs[3].'\\vendor\\friendsofsymfony\\user-bundle/Resources/translations\\FOSUserBundle.el.yml'), 4 => ($this->targetDirs[3].'\\vendor\\friendsofsymfony\\user-bundle/Resources/translations\\validators.el.yml')), 'en' => array(0 => ($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Validator/Resources/translations\\validators.en.xlf'), 1 => ($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Form/Resources/translations\\validators.en.xlf'), 2 => ($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Security\\Core/Resources/translations\\security.en.xlf'), 3 => ($this->targetDirs[3].'\\vendor\\friendsofsymfony\\user-bundle/Resources/translations\\validators.en.yml'), 4 => ($this->targetDirs[3].'\\vendor\\sonata-project\\core-bundle/Resources/translations\\SonataCoreBundle.en.xliff'), 5 => ($this->targetDirs[3].'\\vendor\\sonata-project\\block-bundle/Resources/translations\\SonataBlockBundle.en.xliff'), 6 => ($this->targetDirs[3].'\\vendor\\sonata-project\\classification-bundle/Resources/translations\\SonataClassificationBundle.en.xliff'), 7 => ($this->targetDirs[3].'\\vendor\\sonata-project\\admin-bundle/Resources/translations\\SonataAdminBundle.en.xliff'), 8 => ($this->targetDirs[3].'\\vendor\\sonata-project\\media-bundle/Resources/translations\\SonataMediaBundle.en.xliff'), 9 => ($this->targetDirs[3].'\\vendor\\javiereguiluz\\easyadmin-bundle/Resources/translations\\EasyAdminBundle.en.xlf'), 10 => ($this->targetDirs[3].'\\vendor\\javiereguiluz\\easyadmin-bundle/Resources/translations\\messages.en.xlf'), 11 => ($this->targetDirs[3].'\\vendor\\vich\\uploader-bundle/Resources/translations\\VichUploaderBundle.en.yml'), 12 => ($this->targetDirs[3].'\\src\\BackendBundle/Resources/translations\\FOSUserBundle.en.yml'), 13 => ($this->targetDirs[3].'\\src\\BackendBundle/Resources/translations\\messages.en.yml')), 'es' => array(0 => ($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Validator/Resources/translations\\validators.es.xlf'), 1 => ($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Form/Resources/translations\\validators.es.xlf'), 2 => ($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Security\\Core/Resources/translations\\security.es.xlf'), 3 => ($this->targetDirs[3].'\\vendor\\friendsofsymfony\\user-bundle/Resources/translations\\validators.es.yml'), 4 => ($this->targetDirs[3].'\\vendor\\sonata-project\\core-bundle/Resources/translations\\SonataCoreBundle.es.xliff'), 5 => ($this->targetDirs[3].'\\vendor\\sonata-project\\classification-bundle/Resources/translations\\SonataClassificationBundle.es.xliff'), 6 => ($this->targetDirs[3].'\\vendor\\sonata-project\\admin-bundle/Resources/translations\\SonataAdminBundle.es.xliff'), 7 => ($this->targetDirs[3].'\\vendor\\sonata-project\\media-bundle/Resources/translations\\SonataMediaBundle.es.xliff'), 8 => ($this->targetDirs[3].'\\vendor\\javiereguiluz\\easyadmin-bundle/Resources/translations\\EasyAdminBundle.es.xlf'), 9 => ($this->targetDirs[3].'\\vendor\\javiereguiluz\\easyadmin-bundle/Resources/translations\\messages.es.xlf'), 10 => ($this->targetDirs[3].'\\vendor\\vich\\uploader-bundle/Resources/translations\\VichUploaderBundle.es.yml'), 11 => ($this->targetDirs[3].'\\src\\BackendBundle/Resources/translations\\FOSUserBundle.es.yml'), 12 => ($this->targetDirs[3].'\\src\\BackendBundle/Resources/translations\\messages.es.yml')), 'et' => array(0 => ($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Validator/Resources/translations\\validators.et.xlf'), 1 => ($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Form/Resources/translations\\validators.et.xlf'), 2 => ($this->targetDirs[3].'\\vendor\\friendsofsymfony\\user-bundle/Resources/translations\\FOSUserBundle.et.yml')), 'eu' => array(0 => ($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Validator/Resources/translations\\validators.eu.xlf'), 1 => ($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Form/Resources/translations\\validators.eu.xlf'), 2 => ($this->targetDirs[3].'\\vendor\\friendsofsymfony\\user-bundle/Resources/translations\\FOSUserBundle.eu.yml'), 3 => ($this->targetDirs[3].'\\vendor\\friendsofsymfony\\user-bundle/Resources/translations\\validators.eu.yml'), 4 => ($this->targetDirs[3].'\\vendor\\sonata-project\\core-bundle/Resources/translations\\SonataCoreBundle.eu.xliff'), 5 => ($this->targetDirs[3].'\\vendor\\sonata-project\\admin-bundle/Resources/translations\\SonataAdminBundle.eu.xliff'), 6 => ($this->targetDirs[3].'\\vendor\\javiereguiluz\\easyadmin-bundle/Resources/translations\\EasyAdminBundle.eu.xlf'), 7 => ($this->targetDirs[3].'\\vendor\\javiereguiluz\\easyadmin-bundle/Resources/translations\\messages.eu.xlf')), 'fa' => array(0 => ($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Validator/Resources/translations\\validators.fa.xlf'), 1 => ($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Form/Resources/translations\\validators.fa.xlf'), 2 => ($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Security\\Core/Resources/translations\\security.fa.xlf'), 3 => ($this->targetDirs[3].'\\vendor\\friendsofsymfony\\user-bundle/Resources/translations\\FOSUserBundle.fa.yml'), 4 => ($this->targetDirs[3].'\\vendor\\friendsofsymfony\\user-bundle/Resources/translations\\validators.fa.yml'), 5 => ($this->targetDirs[3].'\\vendor\\sonata-project\\core-bundle/Resources/translations\\SonataCoreBundle.fa.xliff'), 6 => ($this->targetDirs[3].'\\vendor\\sonata-project\\classification-bundle/Resources/translations\\SonataClassificationBundle.fa.xliff'), 7 => ($this->targetDirs[3].'\\vendor\\sonata-project\\admin-bundle/Resources/translations\\SonataAdminBundle.fa.xliff'), 8 => ($this->targetDirs[3].'\\vendor\\sonata-project\\media-bundle/Resources/translations\\SonataMediaBundle.fa.xliff')), 'fi' => array(0 => ($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Validator/Resources/translations\\validators.fi.xlf'), 1 => ($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Form/Resources/translations\\validators.fi.xlf'), 2 => ($this->targetDirs[3].'\\vendor\\friendsofsymfony\\user-bundle/Resources/translations\\FOSUserBundle.fi.yml'), 3 => ($this->targetDirs[3].'\\vendor\\friendsofsymfony\\user-bundle/Resources/translations\\validators.fi.yml'), 4 => ($this->targetDirs[3].'\\vendor\\sonata-project\\core-bundle/Resources/translations\\SonataCoreBundle.fi.xliff'), 5 => ($this->targetDirs[3].'\\vendor\\sonata-project\\media-bundle/Resources/translations\\SonataMediaBundle.fi.xliff'), 6 => ($this->targetDirs[3].'\\vendor\\javiereguiluz\\easyadmin-bundle/Resources/translations\\EasyAdminBundle.fi.xlf'), 7 => ($this->targetDirs[3].'\\vendor\\javiereguiluz\\easyadmin-bundle/Resources/translations\\messages.fi.xlf')), 'fr' => array(0 => ($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Validator/Resources/translations\\validators.fr.xlf'), 1 => ($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Form/Resources/translations\\validators.fr.xlf'), 2 => ($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Security\\Core/Resources/translations\\security.fr.xlf'), 3 => ($this->targetDirs[3].'\\vendor\\friendsofsymfony\\user-bundle/Resources/translations\\FOSUserBundle.fr.yml'), 4 => ($this->targetDirs[3].'\\vendor\\friendsofsymfony\\user-bundle/Resources/translations\\validators.fr.yml'), 5 => ($this->targetDirs[3].'\\vendor\\sonata-project\\core-bundle/Resources/translations\\SonataCoreBundle.fr.xliff'), 6 => ($this->targetDirs[3].'\\vendor\\sonata-project\\block-bundle/Resources/translations\\SonataBlockBundle.fr.xliff'), 7 => ($this->targetDirs[3].'\\vendor\\sonata-project\\classification-bundle/Resources/translations\\SonataClassificationBundle.fr.xliff'), 8 => ($this->targetDirs[3].'\\vendor\\sonata-project\\admin-bundle/Resources/translations\\SonataAdminBundle.fr.xliff'), 9 => ($this->targetDirs[3].'\\vendor\\sonata-project\\media-bundle/Resources/translations\\SonataMediaBundle.fr.xliff'), 10 => ($this->targetDirs[3].'\\vendor\\javiereguiluz\\easyadmin-bundle/Resources/translations\\EasyAdminBundle.fr.xlf'), 11 => ($this->targetDirs[3].'\\vendor\\javiereguiluz\\easyadmin-bundle/Resources/translations\\messages.fr.xlf'), 12 => ($this->targetDirs[3].'\\vendor\\vich\\uploader-bundle/Resources/translations\\VichUploaderBundle.fr.yml')), 'gl' => array(0 => ($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Validator/Resources/translations\\validators.gl.xlf'), 1 => ($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Form/Resources/translations\\validators.gl.xlf'), 2 => ($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Security\\Core/Resources/translations\\security.gl.xlf')), 'he' => array(0 => ($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Validator/Resources/translations\\validators.he.xlf'), 1 => ($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Form/Resources/translations\\validators.he.xlf'), 2 => ($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Security\\Core/Resources/translations\\security.he.xlf'), 3 => ($this->targetDirs[3].'\\vendor\\friendsofsymfony\\user-bundle/Resources/translations\\FOSUserBundle.he.yml'), 4 => ($this->targetDirs[3].'\\vendor\\friendsofsymfony\\user-bundle/Resources/translations\\validators.he.yml')), 'hr' => array(0 => ($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Validator/Resources/translations\\validators.hr.xlf'), 1 => ($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Form/Resources/translations\\validators.hr.xlf'), 2 => ($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Security\\Core/Resources/translations\\security.hr.xlf'), 3 => ($this->targetDirs[3].'\\vendor\\friendsofsymfony\\user-bundle/Resources/translations\\FOSUserBundle.hr.yml'), 4 => ($this->targetDirs[3].'\\vendor\\friendsofsymfony\\user-bundle/Resources/translations\\validators.hr.yml'), 5 => ($this->targetDirs[3].'\\vendor\\sonata-project\\core-bundle/Resources/translations\\SonataCoreBundle.hr.xliff'), 6 => ($this->targetDirs[3].'\\vendor\\sonata-project\\admin-bundle/Resources/translations\\SonataAdminBundle.hr.xliff')), 'hu' => array(0 => ($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Validator/Resources/translations\\validators.hu.xlf'), 1 => ($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Form/Resources/translations\\validators.hu.xlf'), 2 => ($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Security\\Core/Resources/translations\\security.hu.xlf'), 3 => ($this->targetDirs[3].'\\vendor\\friendsofsymfony\\user-bundle/Resources/translations\\FOSUserBundle.hu.yml'), 4 => ($this->targetDirs[3].'\\vendor\\friendsofsymfony\\user-bundle/Resources/translations\\validators.hu.yml'), 5 => ($this->targetDirs[3].'\\vendor\\sonata-project\\core-bundle/Resources/translations\\SonataCoreBundle.hu.xliff'), 6 => ($this->targetDirs[3].'\\vendor\\sonata-project\\block-bundle/Resources/translations\\SonataBlockBundle.hu.xliff'), 7 => ($this->targetDirs[3].'\\vendor\\sonata-project\\classification-bundle/Resources/translations\\SonataClassificationBundle.hu.xliff'), 8 => ($this->targetDirs[3].'\\vendor\\sonata-project\\admin-bundle/Resources/translations\\SonataAdminBundle.hu.xliff'), 9 => ($this->targetDirs[3].'\\vendor\\sonata-project\\media-bundle/Resources/translations\\SonataMediaBundle.hu.xliff'), 10 => ($this->targetDirs[3].'\\vendor\\javiereguiluz\\easyadmin-bundle/Resources/translations\\EasyAdminBundle.hu.xlf'), 11 => ($this->targetDirs[3].'\\vendor\\javiereguiluz\\easyadmin-bundle/Resources/translations\\messages.hu.xlf'), 12 => ($this->targetDirs[3].'\\vendor\\vich\\uploader-bundle/Resources/translations\\VichUploaderBundle.hu.yml')), 'hy' => array(0 => ($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Validator/Resources/translations\\validators.hy.xlf'), 1 => ($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Form/Resources/translations\\validators.hy.xlf')), 'id' => array(0 => ($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Validator/Resources/translations\\validators.id.xlf'), 1 => ($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Form/Resources/translations\\validators.id.xlf'), 2 => ($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Security\\Core/Resources/translations\\security.id.xlf'), 3 => ($this->targetDirs[3].'\\vendor\\friendsofsymfony\\user-bundle/Resources/translations\\FOSUserBundle.id.yml'), 4 => ($this->targetDirs[3].'\\vendor\\friendsofsymfony\\user-bundle/Resources/translations\\validators.id.yml')), 'it' => array(0 => ($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Validator/Resources/translations\\validators.it.xlf'), 1 => ($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Form/Resources/translations\\validators.it.xlf'), 2 => ($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Security\\Core/Resources/translations\\security.it.xlf'), 3 => ($this->targetDirs[3].'\\vendor\\friendsofsymfony\\user-bundle/Resources/translations\\FOSUserBundle.it.yml'), 4 => ($this->targetDirs[3].'\\vendor\\friendsofsymfony\\user-bundle/Resources/translations\\validators.it.yml'), 5 => ($this->targetDirs[3].'\\vendor\\sonata-project\\core-bundle/Resources/translations\\SonataCoreBundle.it.xliff'), 6 => ($this->targetDirs[3].'\\vendor\\sonata-project\\block-bundle/Resources/translations\\SonataBlockBundle.it.xliff'), 7 => ($this->targetDirs[3].'\\vendor\\sonata-project\\classification-bundle/Resources/translations\\SonataClassificationBundle.it.xliff'), 8 => ($this->targetDirs[3].'\\vendor\\sonata-project\\admin-bundle/Resources/translations\\SonataAdminBundle.it.xliff'), 9 => ($this->targetDirs[3].'\\vendor\\sonata-project\\media-bundle/Resources/translations\\SonataMediaBundle.it.xliff'), 10 => ($this->targetDirs[3].'\\vendor\\javiereguiluz\\easyadmin-bundle/Resources/translations\\EasyAdminBundle.it.xlf'), 11 => ($this->targetDirs[3].'\\vendor\\javiereguiluz\\easyadmin-bundle/Resources/translations\\messages.it.xlf'), 12 => ($this->targetDirs[3].'\\vendor\\vich\\uploader-bundle/Resources/translations\\VichUploaderBundle.it.yml')), 'ja' => array(0 => ($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Validator/Resources/translations\\validators.ja.xlf'), 1 => ($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Form/Resources/translations\\validators.ja.xlf'), 2 => ($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Security\\Core/Resources/translations\\security.ja.xlf'), 3 => ($this->targetDirs[3].'\\vendor\\friendsofsymfony\\user-bundle/Resources/translations\\FOSUserBundle.ja.yml'), 4 => ($this->targetDirs[3].'\\vendor\\friendsofsymfony\\user-bundle/Resources/translations\\validators.ja.yml'), 5 => ($this->targetDirs[3].'\\vendor\\sonata-project\\core-bundle/Resources/translations\\SonataCoreBundle.ja.xliff'), 6 => ($this->targetDirs[3].'\\vendor\\sonata-project\\classification-bundle/Resources/translations\\SonataClassificationBundle.ja.xliff'), 7 => ($this->targetDirs[3].'\\vendor\\sonata-project\\admin-bundle/Resources/translations\\SonataAdminBundle.ja.xliff'), 8 => ($this->targetDirs[3].'\\vendor\\sonata-project\\media-bundle/Resources/translations\\SonataMediaBundle.ja.xliff')), 'lb' => array(0 => ($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Validator/Resources/translations\\validators.lb.xlf'), 1 => ($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Form/Resources/translations\\validators.lb.xlf'), 2 => ($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Security\\Core/Resources/translations\\security.lb.xlf'), 3 => ($this->targetDirs[3].'\\vendor\\friendsofsymfony\\user-bundle/Resources/translations\\FOSUserBundle.lb.yml'), 4 => ($this->targetDirs[3].'\\vendor\\sonata-project\\core-bundle/Resources/translations\\SonataCoreBundle.lb.xliff'), 5 => ($this->targetDirs[3].'\\vendor\\sonata-project\\admin-bundle/Resources/translations\\SonataAdminBundle.lb.xliff')), 'lt' => array(0 => ($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Validator/Resources/translations\\validators.lt.xlf'), 1 => ($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Form/Resources/translations\\validators.lt.xlf'), 2 => ($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Security\\Core/Resources/translations\\security.lt.xlf'), 3 => ($this->targetDirs[3].'\\vendor\\friendsofsymfony\\user-bundle/Resources/translations\\FOSUserBundle.lt.yml'), 4 => ($this->targetDirs[3].'\\vendor\\friendsofsymfony\\user-bundle/Resources/translations\\validators.lt.yml'), 5 => ($this->targetDirs[3].'\\vendor\\sonata-project\\core-bundle/Resources/translations\\SonataCoreBundle.lt.xliff'), 6 => ($this->targetDirs[3].'\\vendor\\sonata-project\\admin-bundle/Resources/translations\\SonataAdminBundle.lt.xliff'), 7 => ($this->targetDirs[3].'\\vendor\\sonata-project\\media-bundle/Resources/translations\\SonataMediaBundle.lt.xliff')), 'lv' => array(0 => ($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Validator/Resources/translations\\validators.lv.xlf'), 1 => ($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Form/Resources/translations\\validators.lv.xlf'), 2 => ($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Security\\Core/Resources/translations\\security.lv.xlf'), 3 => ($this->targetDirs[3].'\\vendor\\friendsofsymfony\\user-bundle/Resources/translations\\FOSUserBundle.lv.yml'), 4 => ($this->targetDirs[3].'\\vendor\\friendsofsymfony\\user-bundle/Resources/translations\\validators.lv.yml')), 'mn' => array(0 => ($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Validator/Resources/translations\\validators.mn.xlf'), 1 => ($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Form/Resources/translations\\validators.mn.xlf')), 'nl' => array(0 => ($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Validator/Resources/translations\\validators.nl.xlf'), 1 => ($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Form/Resources/translations\\validators.nl.xlf'), 2 => ($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Security\\Core/Resources/translations\\security.nl.xlf'), 3 => ($this->targetDirs[3].'\\vendor\\friendsofsymfony\\user-bundle/Resources/translations\\FOSUserBundle.nl.yml'), 4 => ($this->targetDirs[3].'\\vendor\\friendsofsymfony\\user-bundle/Resources/translations\\validators.nl.yml'), 5 => ($this->targetDirs[3].'\\vendor\\sonata-project\\core-bundle/Resources/translations\\SonataCoreBundle.nl.xliff'), 6 => ($this->targetDirs[3].'\\vendor\\sonata-project\\classification-bundle/Resources/translations\\SonataClassificationBundle.nl.xliff'), 7 => ($this->targetDirs[3].'\\vendor\\sonata-project\\admin-bundle/Resources/translations\\SonataAdminBundle.nl.xliff'), 8 => ($this->targetDirs[3].'\\vendor\\sonata-project\\media-bundle/Resources/translations\\SonataMediaBundle.nl.xliff'), 9 => ($this->targetDirs[3].'\\vendor\\javiereguiluz\\easyadmin-bundle/Resources/translations\\EasyAdminBundle.nl.xlf'), 10 => ($this->targetDirs[3].'\\vendor\\javiereguiluz\\easyadmin-bundle/Resources/translations\\messages.nl.xlf')), 'nn' => array(0 => ($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Validator/Resources/translations\\validators.nn.xlf')), 'no' => array(0 => ($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Validator/Resources/translations\\validators.no.xlf'), 1 => ($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Form/Resources/translations\\validators.no.xlf'), 2 => ($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Security\\Core/Resources/translations\\security.no.xlf'), 3 => ($this->targetDirs[3].'\\vendor\\sonata-project\\admin-bundle/Resources/translations\\SonataAdminBundle.no.xliff')), 'pl' => array(0 => ($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Validator/Resources/translations\\validators.pl.xlf'), 1 => ($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Form/Resources/translations\\validators.pl.xlf'), 2 => ($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Security\\Core/Resources/translations\\security.pl.xlf'), 3 => ($this->targetDirs[3].'\\vendor\\friendsofsymfony\\user-bundle/Resources/translations\\FOSUserBundle.pl.yml'), 4 => ($this->targetDirs[3].'\\vendor\\friendsofsymfony\\user-bundle/Resources/translations\\validators.pl.yml'), 5 => ($this->targetDirs[3].'\\vendor\\sonata-project\\core-bundle/Resources/translations\\SonataCoreBundle.pl.xliff'), 6 => ($this->targetDirs[3].'\\vendor\\sonata-project\\admin-bundle/Resources/translations\\SonataAdminBundle.pl.xliff'), 7 => ($this->targetDirs[3].'\\vendor\\sonata-project\\media-bundle/Resources/translations\\SonataMediaBundle.pl.xliff'), 8 => ($this->targetDirs[3].'\\vendor\\javiereguiluz\\easyadmin-bundle/Resources/translations\\EasyAdminBundle.pl.xlf'), 9 => ($this->targetDirs[3].'\\vendor\\javiereguiluz\\easyadmin-bundle/Resources/translations\\messages.pl.xlf'), 10 => ($this->targetDirs[3].'\\vendor\\vich\\uploader-bundle/Resources/translations\\VichUploaderBundle.pl.yml')), 'pt' => array(0 => ($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Validator/Resources/translations\\validators.pt.xlf'), 1 => ($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Form/Resources/translations\\validators.pt.xlf'), 2 => ($this->targetDirs[3].'\\vendor\\friendsofsymfony\\user-bundle/Resources/translations\\FOSUserBundle.pt.yml'), 3 => ($this->targetDirs[3].'\\vendor\\friendsofsymfony\\user-bundle/Resources/translations\\validators.pt.yml'), 4 => ($this->targetDirs[3].'\\vendor\\sonata-project\\core-bundle/Resources/translations\\SonataCoreBundle.pt.xliff'), 5 => ($this->targetDirs[3].'\\vendor\\sonata-project\\admin-bundle/Resources/translations\\SonataAdminBundle.pt.xliff'), 6 => ($this->targetDirs[3].'\\vendor\\javiereguiluz\\easyadmin-bundle/Resources/translations\\EasyAdminBundle.pt.xlf'), 7 => ($this->targetDirs[3].'\\vendor\\javiereguiluz\\easyadmin-bundle/Resources/translations\\messages.pt.xlf'), 8 => ($this->targetDirs[3].'\\vendor\\vich\\uploader-bundle/Resources/translations\\VichUploaderBundle.pt.yml')), 'pt_BR' => array(0 => ($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Validator/Resources/translations\\validators.pt_BR.xlf'), 1 => ($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Form/Resources/translations\\validators.pt_BR.xlf'), 2 => ($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Security\\Core/Resources/translations\\security.pt_BR.xlf'), 3 => ($this->targetDirs[3].'\\vendor\\friendsofsymfony\\user-bundle/Resources/translations\\FOSUserBundle.pt_BR.yml'), 4 => ($this->targetDirs[3].'\\vendor\\friendsofsymfony\\user-bundle/Resources/translations\\validators.pt_BR.yml'), 5 => ($this->targetDirs[3].'\\vendor\\sonata-project\\core-bundle/Resources/translations\\SonataCoreBundle.pt_BR.xliff'), 6 => ($this->targetDirs[3].'\\vendor\\sonata-project\\classification-bundle/Resources/translations\\SonataClassificationBundle.pt_BR.xliff'), 7 => ($this->targetDirs[3].'\\vendor\\sonata-project\\admin-bundle/Resources/translations\\SonataAdminBundle.pt_BR.xliff'), 8 => ($this->targetDirs[3].'\\vendor\\sonata-project\\media-bundle/Resources/translations\\SonataMediaBundle.pt_BR.xliff')), 'ro' => array(0 => ($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Validator/Resources/translations\\validators.ro.xlf'), 1 => ($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Form/Resources/translations\\validators.ro.xlf'), 2 => ($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Security\\Core/Resources/translations\\security.ro.xlf'), 3 => ($this->targetDirs[3].'\\vendor\\friendsofsymfony\\user-bundle/Resources/translations\\FOSUserBundle.ro.yml'), 4 => ($this->targetDirs[3].'\\vendor\\friendsofsymfony\\user-bundle/Resources/translations\\validators.ro.yml'), 5 => ($this->targetDirs[3].'\\vendor\\sonata-project\\core-bundle/Resources/translations\\SonataCoreBundle.ro.xliff'), 6 => ($this->targetDirs[3].'\\vendor\\sonata-project\\classification-bundle/Resources/translations\\SonataClassificationBundle.ro.xliff'), 7 => ($this->targetDirs[3].'\\vendor\\sonata-project\\admin-bundle/Resources/translations\\SonataAdminBundle.ro.xliff'), 8 => ($this->targetDirs[3].'\\vendor\\sonata-project\\media-bundle/Resources/translations\\SonataMediaBundle.ro.xliff'), 9 => ($this->targetDirs[3].'\\vendor\\javiereguiluz\\easyadmin-bundle/Resources/translations\\EasyAdminBundle.ro.xlf'), 10 => ($this->targetDirs[3].'\\vendor\\javiereguiluz\\easyadmin-bundle/Resources/translations\\messages.ro.xlf')), 'ru' => array(0 => ($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Validator/Resources/translations\\validators.ru.xlf'), 1 => ($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Form/Resources/translations\\validators.ru.xlf'), 2 => ($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Security\\Core/Resources/translations\\security.ru.xlf'), 3 => ($this->targetDirs[3].'\\vendor\\friendsofsymfony\\user-bundle/Resources/translations\\FOSUserBundle.ru.yml'), 4 => ($this->targetDirs[3].'\\vendor\\friendsofsymfony\\user-bundle/Resources/translations\\validators.ru.yml'), 5 => ($this->targetDirs[3].'\\vendor\\sonata-project\\core-bundle/Resources/translations\\SonataCoreBundle.ru.xliff'), 6 => ($this->targetDirs[3].'\\vendor\\sonata-project\\classification-bundle/Resources/translations\\SonataClassificationBundle.ru.xliff'), 7 => ($this->targetDirs[3].'\\vendor\\sonata-project\\admin-bundle/Resources/translations\\SonataAdminBundle.ru.xliff'), 8 => ($this->targetDirs[3].'\\vendor\\sonata-project\\media-bundle/Resources/translations\\SonataMediaBundle.ru.xliff'), 9 => ($this->targetDirs[3].'\\vendor\\javiereguiluz\\easyadmin-bundle/Resources/translations\\EasyAdminBundle.ru.xlf'), 10 => ($this->targetDirs[3].'\\vendor\\javiereguiluz\\easyadmin-bundle/Resources/translations\\messages.ru.xlf'), 11 => ($this->targetDirs[3].'\\vendor\\vich\\uploader-bundle/Resources/translations\\VichUploaderBundle.ru.yml')), 'sk' => array(0 => ($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Validator/Resources/translations\\validators.sk.xlf'), 1 => ($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Form/Resources/translations\\validators.sk.xlf'), 2 => ($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Security\\Core/Resources/translations\\security.sk.xlf'), 3 => ($this->targetDirs[3].'\\vendor\\friendsofsymfony\\user-bundle/Resources/translations\\FOSUserBundle.sk.yml'), 4 => ($this->targetDirs[3].'\\vendor\\friendsofsymfony\\user-bundle/Resources/translations\\validators.sk.yml'), 5 => ($this->targetDirs[3].'\\vendor\\sonata-project\\core-bundle/Resources/translations\\SonataCoreBundle.sk.xliff'), 6 => ($this->targetDirs[3].'\\vendor\\sonata-project\\admin-bundle/Resources/translations\\SonataAdminBundle.sk.xliff')), 'sl' => array(0 => ($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Validator/Resources/translations\\validators.sl.xlf'), 1 => ($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Form/Resources/translations\\validators.sl.xlf'), 2 => ($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Security\\Core/Resources/translations\\security.sl.xlf'), 3 => ($this->targetDirs[3].'\\vendor\\friendsofsymfony\\user-bundle/Resources/translations\\FOSUserBundle.sl.yml'), 4 => ($this->targetDirs[3].'\\vendor\\friendsofsymfony\\user-bundle/Resources/translations\\validators.sl.yml'), 5 => ($this->targetDirs[3].'\\vendor\\sonata-project\\core-bundle/Resources/translations\\SonataCoreBundle.sl.xliff'), 6 => ($this->targetDirs[3].'\\vendor\\sonata-project\\admin-bundle/Resources/translations\\SonataAdminBundle.sl.xliff'), 7 => ($this->targetDirs[3].'\\vendor\\sonata-project\\media-bundle/Resources/translations\\SonataMediaBundle.sl.xliff'), 8 => ($this->targetDirs[3].'\\vendor\\javiereguiluz\\easyadmin-bundle/Resources/translations\\EasyAdminBundle.sl.xlf'), 9 => ($this->targetDirs[3].'\\vendor\\javiereguiluz\\easyadmin-bundle/Resources/translations\\messages.sl.xlf'), 10 => ($this->targetDirs[3].'\\vendor\\vich\\uploader-bundle/Resources/translations\\VichUploaderBundle.sl.yml')), 'sq' => array(0 => ($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Validator/Resources/translations\\validators.sq.xlf')), 'sr_Cyrl' => array(0 => ($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Validator/Resources/translations\\validators.sr_Cyrl.xlf'), 1 => ($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Form/Resources/translations\\validators.sr_Cyrl.xlf'), 2 => ($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Security\\Core/Resources/translations\\security.sr_Cyrl.xlf')), 'sr_Latn' => array(0 => ($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Validator/Resources/translations\\validators.sr_Latn.xlf'), 1 => ($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Form/Resources/translations\\validators.sr_Latn.xlf'), 2 => ($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Security\\Core/Resources/translations\\security.sr_Latn.xlf'), 3 => ($this->targetDirs[3].'\\vendor\\friendsofsymfony\\user-bundle/Resources/translations\\FOSUserBundle.sr_Latn.yml'), 4 => ($this->targetDirs[3].'\\vendor\\friendsofsymfony\\user-bundle/Resources/translations\\validators.sr_Latn.yml')), 'sv' => array(0 => ($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Validator/Resources/translations\\validators.sv.xlf'), 1 => ($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Form/Resources/translations\\validators.sv.xlf'), 2 => ($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Security\\Core/Resources/translations\\security.sv.xlf'), 3 => ($this->targetDirs[3].'\\vendor\\friendsofsymfony\\user-bundle/Resources/translations\\FOSUserBundle.sv.yml'), 4 => ($this->targetDirs[3].'\\vendor\\friendsofsymfony\\user-bundle/Resources/translations\\validators.sv.yml'), 5 => ($this->targetDirs[3].'\\vendor\\javiereguiluz\\easyadmin-bundle/Resources/translations\\EasyAdminBundle.sv.xlf'), 6 => ($this->targetDirs[3].'\\vendor\\javiereguiluz\\easyadmin-bundle/Resources/translations\\messages.sv.xlf')), 'th' => array(0 => ($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Validator/Resources/translations\\validators.th.xlf'), 1 => ($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Security\\Core/Resources/translations\\security.th.xlf'), 2 => ($this->targetDirs[3].'\\vendor\\friendsofsymfony\\user-bundle/Resources/translations\\FOSUserBundle.th.yml'), 3 => ($this->targetDirs[3].'\\vendor\\friendsofsymfony\\user-bundle/Resources/translations\\validators.th.yml')), 'tr' => array(0 => ($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Validator/Resources/translations\\validators.tr.xlf'), 1 => ($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Security\\Core/Resources/translations\\security.tr.xlf'), 2 => ($this->targetDirs[3].'\\vendor\\friendsofsymfony\\user-bundle/Resources/translations\\FOSUserBundle.tr.yml'), 3 => ($this->targetDirs[3].'\\vendor\\friendsofsymfony\\user-bundle/Resources/translations\\validators.tr.yml'), 4 => ($this->targetDirs[3].'\\vendor\\javiereguiluz\\easyadmin-bundle/Resources/translations\\EasyAdminBundle.tr.xlf'), 5 => ($this->targetDirs[3].'\\vendor\\javiereguiluz\\easyadmin-bundle/Resources/translations\\messages.tr.xlf'), 6 => ($this->targetDirs[3].'\\vendor\\vich\\uploader-bundle/Resources/translations\\VichUploaderBundle.tr.yml')), 'uk' => array(0 => ($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Validator/Resources/translations\\validators.uk.xlf'), 1 => ($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Form/Resources/translations\\validators.uk.xlf'), 2 => ($this->targetDirs[3].'\\vendor\\friendsofsymfony\\user-bundle/Resources/translations\\FOSUserBundle.uk.yml'), 3 => ($this->targetDirs[3].'\\vendor\\friendsofsymfony\\user-bundle/Resources/translations\\validators.uk.yml'), 4 => ($this->targetDirs[3].'\\vendor\\sonata-project\\core-bundle/Resources/translations\\SonataCoreBundle.uk.xliff'), 5 => ($this->targetDirs[3].'\\vendor\\sonata-project\\admin-bundle/Resources/translations\\SonataAdminBundle.uk.xliff'), 6 => ($this->targetDirs[3].'\\vendor\\sonata-project\\media-bundle/Resources/translations\\SonataMediaBundle.uk.xliff'), 7 => ($this->targetDirs[3].'\\vendor\\javiereguiluz\\easyadmin-bundle/Resources/translations\\EasyAdminBundle.uk.xlf'), 8 => ($this->targetDirs[3].'\\vendor\\javiereguiluz\\easyadmin-bundle/Resources/translations\\messages.uk.xlf'), 9 => ($this->targetDirs[3].'\\vendor\\vich\\uploader-bundle/Resources/translations\\VichUploaderBundle.uk.yml')), 'vi' => array(0 => ($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Validator/Resources/translations\\validators.vi.xlf'), 1 => ($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Security\\Core/Resources/translations\\security.vi.xlf'), 2 => ($this->targetDirs[3].'\\vendor\\friendsofsymfony\\user-bundle/Resources/translations\\FOSUserBundle.vi.yml'), 3 => ($this->targetDirs[3].'\\vendor\\friendsofsymfony\\user-bundle/Resources/translations\\validators.vi.yml')), 'zh_CN' => array(0 => ($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Validator/Resources/translations\\validators.zh_CN.xlf'), 1 => ($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Form/Resources/translations\\validators.zh_CN.xlf'), 2 => ($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Security\\Core/Resources/translations\\security.zh_CN.xlf'), 3 => ($this->targetDirs[3].'\\vendor\\friendsofsymfony\\user-bundle/Resources/translations\\FOSUserBundle.zh_CN.yml'), 4 => ($this->targetDirs[3].'\\vendor\\friendsofsymfony\\user-bundle/Resources/translations\\validators.zh_CN.yml'), 5 => ($this->targetDirs[3].'\\vendor\\sonata-project\\core-bundle/Resources/translations\\SonataCoreBundle.zh_CN.xliff'), 6 => ($this->targetDirs[3].'\\vendor\\sonata-project\\admin-bundle/Resources/translations\\SonataAdminBundle.zh_CN.xliff'), 7 => ($this->targetDirs[3].'\\vendor\\javiereguiluz\\easyadmin-bundle/Resources/translations\\EasyAdminBundle.zh_CN.xlf'), 8 => ($this->targetDirs[3].'\\vendor\\javiereguiluz\\easyadmin-bundle/Resources/translations\\messages.zh_CN.xlf')), 'zh_TW' => array(0 => ($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Validator/Resources/translations\\validators.zh_TW.xlf')), 'pt_PT' => array(0 => ($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Security\\Core/Resources/translations\\security.pt_PT.xlf')), 'ua' => array(0 => ($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Security\\Core/Resources/translations\\security.ua.xlf')), 'eo' => array(0 => ($this->targetDirs[3].'\\vendor\\friendsofsymfony\\user-bundle/Resources/translations\\FOSUserBundle.eo.yml'), 1 => ($this->targetDirs[3].'\\vendor\\friendsofsymfony\\user-bundle/Resources/translations\\validators.eo.yml')), 'ky' => array(0 => ($this->targetDirs[3].'\\vendor\\friendsofsymfony\\user-bundle/Resources/translations\\FOSUserBundle.ky.yml'), 1 => ($this->targetDirs[3].'\\vendor\\friendsofsymfony\\user-bundle/Resources/translations\\validators.ky.yml')), 'nb' => array(0 => ($this->targetDirs[3].'\\vendor\\friendsofsymfony\\user-bundle/Resources/translations\\FOSUserBundle.nb.yml'), 1 => ($this->targetDirs[3].'\\vendor\\friendsofsymfony\\user-bundle/Resources/translations\\validators.nb.yml')), 'sv_SE' => array(0 => ($this->targetDirs[3].'\\vendor\\sonata-project\\admin-bundle/Resources/translations\\SonataAdminBundle.sv_SE.xliff')))), array());
 
         $instance->setConfigCacheFactory($this->get('config_cache_factory'));
         $instance->setFallbackLocales(array(0 => 'es'));
@@ -6649,12 +5504,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'translator_listener' service.
+     * Gets the public 'translator_listener' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return \Symfony\Component\HttpKernel\EventListener\TranslatorListener A Symfony\Component\HttpKernel\EventListener\TranslatorListener instance
+     * @return \Symfony\Component\HttpKernel\EventListener\TranslatorListener
      */
     protected function getTranslatorListenerService()
     {
@@ -6662,12 +5514,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'twig' service.
+     * Gets the public 'twig' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return \Twig_Environment A Twig_Environment instance
+     * @return \Twig\Environment
      */
     protected function getTwigService()
     {
@@ -6692,7 +5541,7 @@ class appProdProjectContainer extends Container
         }
         $h->setContainer($this);
 
-        $this->services['twig'] = $instance = new \Twig_Environment($this->get('twig.loader'), array('debug' => false, 'strict_variables' => false, 'exception_controller' => 'twig.controller.exception:showAction', 'form_themes' => array(0 => 'form_div_layout.html.twig'), 'autoescape' => 'name', 'cache' => (__DIR__.'/twig'), 'charset' => 'UTF-8', 'paths' => array(), 'date' => array('format' => 'F j, Y H:i', 'interval_format' => '%d days', 'timezone' => NULL), 'number_format' => array('decimals' => 0, 'decimal_point' => '.', 'thousands_separator' => ',')));
+        $this->services['twig'] = $instance = new \Twig\Environment($this->get('twig.loader'), array('debug' => false, 'strict_variables' => false, 'exception_controller' => 'twig.controller.exception:showAction', 'form_themes' => array(0 => 'form_div_layout.html.twig'), 'autoescape' => 'name', 'cache' => (__DIR__.'/twig'), 'charset' => 'UTF-8', 'paths' => array(), 'date' => array('format' => 'F j, Y H:i', 'interval_format' => '%d days', 'timezone' => NULL), 'number_format' => array('decimals' => 0, 'decimal_point' => '.', 'thousands_separator' => ',')));
 
         $instance->addExtension(new \Symfony\Bridge\Twig\Extension\LogoutUrlExtension($a));
         $instance->addExtension(new \Symfony\Bridge\Twig\Extension\SecurityExtension($this->get('security.authorization_checker', ContainerInterface::NULL_ON_INVALID_REFERENCE)));
@@ -6706,7 +5555,7 @@ class appProdProjectContainer extends Container
         $instance->addExtension(new \Symfony\Bridge\Twig\Extension\ExpressionExtension());
         $instance->addExtension(new \Symfony\Bridge\Twig\Extension\HttpKernelExtension($d));
         $instance->addExtension($f);
-        $instance->addExtension(new \Symfony\Bridge\Twig\Extension\FormExtension(new \Symfony\Bridge\Twig\Form\TwigRenderer(new \Symfony\Bridge\Twig\Form\TwigRendererEngine(array(0 => 'form_div_layout.html.twig')), $this->get('security.csrf.token_manager', ContainerInterface::NULL_ON_INVALID_REFERENCE))));
+        $instance->addExtension(new \Symfony\Bridge\Twig\Extension\FormExtension(new \Symfony\Bridge\Twig\Form\TwigRenderer(new \Symfony\Bridge\Twig\Form\TwigRendererEngine(array(0 => '@VichUploader/Form/fields.html.twig', 1 => 'form_div_layout.html.twig')), $this->get('security.csrf.token_manager', ContainerInterface::NULL_ON_INVALID_REFERENCE))));
         $instance->addExtension(new \Doctrine\Bundle\DoctrineBundle\Twig\DoctrineExtension());
         $instance->addExtension($this->get('sonata.core.flashmessage.twig.extension'));
         $instance->addExtension($this->get('sonata.core.twig.extension.wrapping'));
@@ -6718,7 +5567,8 @@ class appProdProjectContainer extends Container
         $instance->addExtension($this->get('sonata.admin.twig.extension'));
         $instance->addExtension($this->get('sonata.media.twig.extension'));
         $instance->addExtension(new \JMS\Serializer\Twig\SerializerExtension($this->get('jms_serializer')));
-        $instance->addExtension(new \JavierEguiluz\Bundle\EasyAdminBundle\Twig\EasyAdminTwigExtension($this->get('easyadmin.config.manager'), $this->get('property_accessor'), false, $a));
+        $instance->addExtension(new \JavierEguiluz\Bundle\EasyAdminBundle\Twig\EasyAdminTwigExtension($this->get('easyadmin.config.manager'), $this->get('property_accessor'), $this->get('easyadmin.router'), false, $a));
+        $instance->addExtension(new \Vich\UploaderBundle\Twig\Extension\UploaderExtension($this->get('vich_uploader.templating.helper.uploader_helper')));
         $instance->addGlobal('app', $h);
         $instance->addGlobal('sonata_block', $this->get('sonata.block.twig.global'));
         $instance->addGlobal('sonata_admin', $this->get('sonata.admin.twig.global'));
@@ -6729,12 +5579,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'twig.controller.exception' service.
+     * Gets the public 'twig.controller.exception' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return \Symfony\Bundle\TwigBundle\Controller\ExceptionController A Symfony\Bundle\TwigBundle\Controller\ExceptionController instance
+     * @return \Symfony\Bundle\TwigBundle\Controller\ExceptionController
      */
     protected function getTwig_Controller_ExceptionService()
     {
@@ -6742,12 +5589,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'twig.controller.preview_error' service.
+     * Gets the public 'twig.controller.preview_error' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return \Symfony\Bundle\TwigBundle\Controller\PreviewErrorController A Symfony\Bundle\TwigBundle\Controller\PreviewErrorController instance
+     * @return \Symfony\Bundle\TwigBundle\Controller\PreviewErrorController
      */
     protected function getTwig_Controller_PreviewErrorService()
     {
@@ -6755,12 +5599,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'twig.exception_listener' service.
+     * Gets the public 'twig.exception_listener' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return \Symfony\Component\HttpKernel\EventListener\ExceptionListener A Symfony\Component\HttpKernel\EventListener\ExceptionListener instance
+     * @return \Symfony\Component\HttpKernel\EventListener\ExceptionListener
      */
     protected function getTwig_ExceptionListenerService()
     {
@@ -6768,12 +5609,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'twig.loader' service.
+     * Gets the public 'twig.loader' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return \Symfony\Bundle\TwigBundle\Loader\FilesystemLoader A Symfony\Bundle\TwigBundle\Loader\FilesystemLoader instance
+     * @return \Symfony\Bundle\TwigBundle\Loader\FilesystemLoader
      */
     protected function getTwig_LoaderService()
     {
@@ -6784,21 +5622,22 @@ class appProdProjectContainer extends Container
         $instance->addPath(($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Bundle\\TwigBundle/Resources/views'), 'Twig');
         $instance->addPath(($this->targetDirs[3].'\\vendor\\symfony\\swiftmailer-bundle/Resources/views'), 'Swiftmailer');
         $instance->addPath(($this->targetDirs[3].'\\vendor\\doctrine\\doctrine-bundle/Resources/views'), 'Doctrine');
+        $instance->addPath(($this->targetDirs[2].'/Resources/FOSUserBundle/views'), 'FOSUser');
+        $instance->addPath(($this->targetDirs[3].'\\vendor\\friendsofsymfony\\user-bundle/Resources/views'), 'FOSUser');
         $instance->addPath(($this->targetDirs[3].'\\vendor\\sonata-project\\core-bundle/Resources/views'), 'SonataCore');
         $instance->addPath(($this->targetDirs[3].'\\vendor\\sonata-project\\block-bundle/Resources/views'), 'SonataBlock');
         $instance->addPath(($this->targetDirs[3].'\\vendor\\knplabs\\knp-menu-bundle/Resources/views'), 'KnpMenu');
-        $instance->addPath(($this->targetDirs[3].'\\vendor\\sonata-project\\doctrine-orm-admin-bundle/Resources/views'), 'SonataDoctrineORMAdmin');
-        $instance->addPath(($this->targetDirs[3].'\\vendor\\sonata-project\\admin-bundle/Resources/views'), 'SonataAdmin');
-        $instance->addPath(($this->targetDirs[2].'/Resources/FOSUserBundle/views'), 'FOSUser');
-        $instance->addPath(($this->targetDirs[3].'\\vendor\\friendsofsymfony\\user-bundle/Resources/views'), 'FOSUser');
-        $instance->addPath(($this->targetDirs[3].'\\src\\Application\\Sonata\\MediaBundle/Resources/views'), 'SonataMedia');
-        $instance->addPath(($this->targetDirs[3].'\\vendor\\sonata-project\\media-bundle/Resources/views'), 'SonataMedia');
-        $instance->addPath(($this->targetDirs[3].'\\src\\Application\\Sonata\\MediaBundle/Resources/views'), 'ApplicationSonataMedia');
-        $instance->addPath(($this->targetDirs[3].'\\src\\BackendBundle/Resources/views'), 'Backend');
         $instance->addPath(($this->targetDirs[3].'\\src\\Application\\Sonata\\ClassificationBundle/Resources/views'), 'SonataClassification');
         $instance->addPath(($this->targetDirs[3].'\\vendor\\sonata-project\\classification-bundle/Resources/views'), 'SonataClassification');
         $instance->addPath(($this->targetDirs[3].'\\src\\Application\\Sonata\\ClassificationBundle/Resources/views'), 'ApplicationSonataClassification');
+        $instance->addPath(($this->targetDirs[3].'\\vendor\\sonata-project\\doctrine-orm-admin-bundle/Resources/views'), 'SonataDoctrineORMAdmin');
+        $instance->addPath(($this->targetDirs[3].'\\vendor\\sonata-project\\admin-bundle/Resources/views'), 'SonataAdmin');
+        $instance->addPath(($this->targetDirs[3].'\\src\\Application\\Sonata\\MediaBundle/Resources/views'), 'SonataMedia');
+        $instance->addPath(($this->targetDirs[3].'\\vendor\\sonata-project\\media-bundle/Resources/views'), 'SonataMedia');
+        $instance->addPath(($this->targetDirs[3].'\\src\\Application\\Sonata\\MediaBundle/Resources/views'), 'ApplicationSonataMedia');
         $instance->addPath(($this->targetDirs[3].'\\vendor\\javiereguiluz\\easyadmin-bundle/Resources/views'), 'EasyAdmin');
+        $instance->addPath(($this->targetDirs[3].'\\vendor\\vich\\uploader-bundle/Resources/views'), 'VichUploader');
+        $instance->addPath(($this->targetDirs[3].'\\src\\BackendBundle/Resources/views'), 'Backend');
         $instance->addPath(($this->targetDirs[2].'/Resources/views'));
         $instance->addPath(($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Bridge\\Twig/Resources/views/Form'));
         $instance->addPath(($this->targetDirs[3].'\\vendor\\knplabs\\knp-menu\\src\\Knp\\Menu/Resources/views'));
@@ -6807,25 +5646,19 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'twig.profile' service.
+     * Gets the public 'twig.profile' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return \Twig_Profiler_Profile A Twig_Profiler_Profile instance
+     * @return \Twig\Profiler\Profile
      */
     protected function getTwig_ProfileService()
     {
-        return $this->services['twig.profile'] = new \Twig_Profiler_Profile();
+        return $this->services['twig.profile'] = new \Twig\Profiler\Profile();
     }
 
     /*
-     * Gets the 'twig.translation.extractor' service.
+     * Gets the public 'twig.translation.extractor' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return \Symfony\Bridge\Twig\Translation\TwigExtractor A Symfony\Bridge\Twig\Translation\TwigExtractor instance
+     * @return \Symfony\Bridge\Twig\Translation\TwigExtractor
      */
     protected function getTwig_Translation_ExtractorService()
     {
@@ -6833,12 +5666,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'uri_signer' service.
+     * Gets the public 'uri_signer' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return \Symfony\Component\HttpKernel\UriSigner A Symfony\Component\HttpKernel\UriSigner instance
+     * @return \Symfony\Component\HttpKernel\UriSigner
      */
     protected function getUriSignerService()
     {
@@ -6846,12 +5676,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'validate_request_listener' service.
+     * Gets the public 'validate_request_listener' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return \Symfony\Component\HttpKernel\EventListener\ValidateRequestListener A Symfony\Component\HttpKernel\EventListener\ValidateRequestListener instance
+     * @return \Symfony\Component\HttpKernel\EventListener\ValidateRequestListener
      */
     protected function getValidateRequestListenerService()
     {
@@ -6859,12 +5686,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'validator' service.
+     * Gets the public 'validator' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return \Symfony\Component\Validator\Validator\ValidatorInterface A Symfony\Component\Validator\Validator\ValidatorInterface instance
+     * @return \Symfony\Component\Validator\Validator\ValidatorInterface
      */
     protected function getValidatorService()
     {
@@ -6872,12 +5696,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'validator.builder' service.
+     * Gets the public 'validator.builder' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return \Symfony\Component\Validator\ValidatorBuilderInterface A Symfony\Component\Validator\ValidatorBuilderInterface instance
+     * @return \Symfony\Component\Validator\ValidatorBuilderInterface
      */
     protected function getValidator_BuilderService()
     {
@@ -6886,7 +5707,7 @@ class appProdProjectContainer extends Container
         $instance->setConstraintValidatorFactory($this->get('validator.validator_factory'));
         $instance->setTranslator($this->get('translator.default'));
         $instance->setTranslationDomain('validators');
-        $instance->addXmlMappings(array(0 => ($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Form/Resources/config/validation.xml'), 1 => ($this->targetDirs[3].'\\vendor\\friendsofsymfony\\user-bundle/Resources/config/validation.xml'), 2 => ($this->targetDirs[3].'\\vendor\\sonata-project\\media-bundle/Resources/config/validation.xml'), 3 => ($this->targetDirs[3].'\\vendor\\sonata-project\\classification-bundle/Resources/config/validation.xml')));
+        $instance->addXmlMappings(array(0 => ($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Form/Resources/config/validation.xml'), 1 => ($this->targetDirs[3].'\\vendor\\friendsofsymfony\\user-bundle/Resources/config/validation.xml'), 2 => ($this->targetDirs[3].'\\vendor\\sonata-project\\classification-bundle/Resources/config/validation.xml'), 3 => ($this->targetDirs[3].'\\vendor\\sonata-project\\media-bundle/Resources/config/validation.xml')));
         $instance->enableAnnotationMapping($this->get('annotation_reader'));
         $instance->addMethodMapping('loadValidatorMetadata');
         $instance->addObjectInitializers(array(0 => $this->get('doctrine.orm.validator_initializer'), 1 => new \FOS\UserBundle\Validator\Initializer($this->get('fos_user.util.canonical_fields_updater'))));
@@ -6896,12 +5717,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'validator.email' service.
+     * Gets the public 'validator.email' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return \Symfony\Component\Validator\Constraints\EmailValidator A Symfony\Component\Validator\Constraints\EmailValidator instance
+     * @return \Symfony\Component\Validator\Constraints\EmailValidator
      */
     protected function getValidator_EmailService()
     {
@@ -6909,12 +5727,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'validator.expression' service.
+     * Gets the public 'validator.expression' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return \Symfony\Component\Validator\Constraints\ExpressionValidator A Symfony\Component\Validator\Constraints\ExpressionValidator instance
+     * @return \Symfony\Component\Validator\Constraints\ExpressionValidator
      */
     protected function getValidator_ExpressionService()
     {
@@ -6922,16 +5737,121 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'controller_name_converter' service.
+     * Gets the public 'vich_uploader.directory_namer_subdir' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
+     * @return \Vich\UploaderBundle\Naming\SubdirDirectoryNamer
+     */
+    protected function getVichUploader_DirectoryNamerSubdirService()
+    {
+        return $this->services['vich_uploader.directory_namer_subdir'] = new \Vich\UploaderBundle\Naming\SubdirDirectoryNamer();
+    }
+
+    /*
+     * Gets the public 'vich_uploader.download_handler' shared service.
      *
-     * This service is private.
-     * If you want to be able to request this service from the container directly,
-     * make it public, otherwise you might end up with broken code.
+     * @return \Vich\UploaderBundle\Handler\DownloadHandler
+     */
+    protected function getVichUploader_DownloadHandlerService()
+    {
+        return $this->services['vich_uploader.download_handler'] = new \Vich\UploaderBundle\Handler\DownloadHandler($this->get('vich_uploader.property_mapping_factory'), $this->get('vich_uploader.storage'));
+    }
+
+    /*
+     * Gets the public 'vich_uploader.form.type.file' shared service.
      *
-     * @return \Symfony\Bundle\FrameworkBundle\Controller\ControllerNameParser A Symfony\Bundle\FrameworkBundle\Controller\ControllerNameParser instance
+     * @return \Vich\UploaderBundle\Form\Type\VichFileType
+     */
+    protected function getVichUploader_Form_Type_FileService()
+    {
+        return $this->services['vich_uploader.form.type.file'] = new \Vich\UploaderBundle\Form\Type\VichFileType($this->get('vich_uploader.storage'), $this->get('vich_uploader.upload_handler'), $this->get('vich_uploader.property_mapping_factory'), $this->get('property_accessor'));
+    }
+
+    /*
+     * Gets the public 'vich_uploader.form.type.image' shared service.
+     *
+     * @return \Vich\UploaderBundle\Form\Type\VichImageType
+     */
+    protected function getVichUploader_Form_Type_ImageService()
+    {
+        return $this->services['vich_uploader.form.type.image'] = new \Vich\UploaderBundle\Form\Type\VichImageType($this->get('vich_uploader.storage'), $this->get('vich_uploader.upload_handler'), $this->get('vich_uploader.property_mapping_factory'), $this->get('property_accessor'), NULL);
+    }
+
+    /*
+     * Gets the public 'vich_uploader.namer_hash' shared service.
+     *
+     * @return \Vich\UploaderBundle\Naming\HashNamer
+     */
+    protected function getVichUploader_NamerHashService()
+    {
+        return $this->services['vich_uploader.namer_hash'] = new \Vich\UploaderBundle\Naming\HashNamer();
+    }
+
+    /*
+     * Gets the public 'vich_uploader.namer_origname' shared service.
+     *
+     * @return \Vich\UploaderBundle\Naming\OrignameNamer
+     */
+    protected function getVichUploader_NamerOrignameService()
+    {
+        return $this->services['vich_uploader.namer_origname'] = new \Vich\UploaderBundle\Naming\OrignameNamer();
+    }
+
+    /*
+     * Gets the public 'vich_uploader.namer_property' shared service.
+     *
+     * @return \Vich\UploaderBundle\Naming\PropertyNamer
+     */
+    protected function getVichUploader_NamerPropertyService()
+    {
+        return $this->services['vich_uploader.namer_property'] = new \Vich\UploaderBundle\Naming\PropertyNamer();
+    }
+
+    /*
+     * Gets the public 'vich_uploader.namer_uniqid' shared service.
+     *
+     * @return \Vich\UploaderBundle\Naming\UniqidNamer
+     */
+    protected function getVichUploader_NamerUniqidService()
+    {
+        return $this->services['vich_uploader.namer_uniqid'] = new \Vich\UploaderBundle\Naming\UniqidNamer();
+    }
+
+    /*
+     * Gets the public 'vich_uploader.storage' shared service.
+     *
+     * @return \Vich\UploaderBundle\Storage\FileSystemStorage
+     */
+    protected function getVichUploader_StorageService()
+    {
+        return $this->services['vich_uploader.storage'] = new \Vich\UploaderBundle\Storage\FileSystemStorage($this->get('vich_uploader.property_mapping_factory'));
+    }
+
+    /*
+     * Gets the public 'vich_uploader.templating.helper.uploader_helper' shared service.
+     *
+     * @return \Vich\UploaderBundle\Templating\Helper\UploaderHelper
+     */
+    protected function getVichUploader_Templating_Helper_UploaderHelperService()
+    {
+        return $this->services['vich_uploader.templating.helper.uploader_helper'] = new \Vich\UploaderBundle\Templating\Helper\UploaderHelper($this->get('vich_uploader.storage'));
+    }
+
+    /*
+     * Gets the public 'vich_uploader.upload_handler' shared service.
+     *
+     * @return \Vich\UploaderBundle\Handler\UploadHandler
+     */
+    protected function getVichUploader_UploadHandlerService()
+    {
+        $a = $this->get('vich_uploader.storage');
+
+        return $this->services['vich_uploader.upload_handler'] = new \Vich\UploaderBundle\Handler\UploadHandler($this->get('vich_uploader.property_mapping_factory'), $a, new \Vich\UploaderBundle\Injector\FileInjector($a), $this->get('event_dispatcher'));
+    }
+
+    /*
+     * Gets the private 'controller_name_converter' shared service.
+     *
+     * @return \Symfony\Bundle\FrameworkBundle\Controller\ControllerNameParser
      */
     protected function getControllerNameConverterService()
     {
@@ -6939,16 +5859,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'controller_resolver' service.
+     * Gets the private 'controller_resolver' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * This service is private.
-     * If you want to be able to request this service from the container directly,
-     * make it public, otherwise you might end up with broken code.
-     *
-     * @return \Symfony\Bundle\FrameworkBundle\Controller\ControllerResolver A Symfony\Bundle\FrameworkBundle\Controller\ControllerResolver instance
+     * @return \Symfony\Bundle\FrameworkBundle\Controller\ControllerResolver
      */
     protected function getControllerResolverService()
     {
@@ -6956,16 +5869,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'form.server_params' service.
+     * Gets the private 'form.server_params' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * This service is private.
-     * If you want to be able to request this service from the container directly,
-     * make it public, otherwise you might end up with broken code.
-     *
-     * @return \Symfony\Component\Form\Util\ServerParams A Symfony\Component\Form\Util\ServerParams instance
+     * @return \Symfony\Component\Form\Util\ServerParams
      */
     protected function getForm_ServerParamsService()
     {
@@ -6973,16 +5879,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'fos_user.user_provider.username' service.
+     * Gets the private 'fos_user.user_provider.username' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * This service is private.
-     * If you want to be able to request this service from the container directly,
-     * make it public, otherwise you might end up with broken code.
-     *
-     * @return \FOS\UserBundle\Security\UserProvider A FOS\UserBundle\Security\UserProvider instance
+     * @return \FOS\UserBundle\Security\UserProvider
      */
     protected function getFosUser_UserProvider_UsernameService()
     {
@@ -6990,16 +5889,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'fos_user.util.canonical_fields_updater' service.
+     * Gets the private 'fos_user.util.canonical_fields_updater' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * This service is private.
-     * If you want to be able to request this service from the container directly,
-     * make it public, otherwise you might end up with broken code.
-     *
-     * @return \FOS\UserBundle\Util\CanonicalFieldsUpdater A FOS\UserBundle\Util\CanonicalFieldsUpdater instance
+     * @return \FOS\UserBundle\Util\CanonicalFieldsUpdater
      */
     protected function getFosUser_Util_CanonicalFieldsUpdaterService()
     {
@@ -7009,16 +5901,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'fos_user.util.password_updater' service.
+     * Gets the private 'fos_user.util.password_updater' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * This service is private.
-     * If you want to be able to request this service from the container directly,
-     * make it public, otherwise you might end up with broken code.
-     *
-     * @return \FOS\UserBundle\Util\PasswordUpdater A FOS\UserBundle\Util\PasswordUpdater instance
+     * @return \FOS\UserBundle\Util\PasswordUpdater
      */
     protected function getFosUser_Util_PasswordUpdaterService()
     {
@@ -7026,16 +5911,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'jms_serializer.unserialize_object_constructor' service.
+     * Gets the private 'jms_serializer.unserialize_object_constructor' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * This service is private.
-     * If you want to be able to request this service from the container directly,
-     * make it public, otherwise you might end up with broken code.
-     *
-     * @return \JMS\Serializer\Construction\UnserializeObjectConstructor A JMS\Serializer\Construction\UnserializeObjectConstructor instance
+     * @return \JMS\Serializer\Construction\UnserializeObjectConstructor
      */
     protected function getJmsSerializer_UnserializeObjectConstructorService()
     {
@@ -7043,16 +5921,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'monolog.processor.psr_log_message' service.
+     * Gets the private 'monolog.processor.psr_log_message' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * This service is private.
-     * If you want to be able to request this service from the container directly,
-     * make it public, otherwise you might end up with broken code.
-     *
-     * @return \Monolog\Processor\PsrLogMessageProcessor A Monolog\Processor\PsrLogMessageProcessor instance
+     * @return \Monolog\Processor\PsrLogMessageProcessor
      */
     protected function getMonolog_Processor_PsrLogMessageService()
     {
@@ -7060,16 +5931,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'router.request_context' service.
+     * Gets the private 'router.request_context' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * This service is private.
-     * If you want to be able to request this service from the container directly,
-     * make it public, otherwise you might end up with broken code.
-     *
-     * @return \Symfony\Component\Routing\RequestContext A Symfony\Component\Routing\RequestContext instance
+     * @return \Symfony\Component\Routing\RequestContext
      */
     protected function getRouter_RequestContextService()
     {
@@ -7077,16 +5941,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'security.access.decision_manager' service.
+     * Gets the private 'security.access.decision_manager' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * This service is private.
-     * If you want to be able to request this service from the container directly,
-     * make it public, otherwise you might end up with broken code.
-     *
-     * @return \Symfony\Component\Security\Core\Authorization\AccessDecisionManager A Symfony\Component\Security\Core\Authorization\AccessDecisionManager instance
+     * @return \Symfony\Component\Security\Core\Authorization\AccessDecisionManager
      */
     protected function getSecurity_Access_DecisionManagerService()
     {
@@ -7101,22 +5958,15 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'security.authentication.manager' service.
+     * Gets the private 'security.authentication.manager' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * This service is private.
-     * If you want to be able to request this service from the container directly,
-     * make it public, otherwise you might end up with broken code.
-     *
-     * @return \Symfony\Component\Security\Core\Authentication\AuthenticationProviderManager A Symfony\Component\Security\Core\Authentication\AuthenticationProviderManager instance
+     * @return \Symfony\Component\Security\Core\Authentication\AuthenticationProviderManager
      */
     protected function getSecurity_Authentication_ManagerService()
     {
         $a = $this->get('security.user_checker.main');
 
-        $this->services['security.authentication.manager'] = $instance = new \Symfony\Component\Security\Core\Authentication\AuthenticationProviderManager(array(0 => new \Symfony\Component\Security\Core\Authentication\Provider\DaoAuthenticationProvider($this->get('fos_user.user_provider.username'), $a, 'main', $this->get('security.encoder_factory'), true), 1 => new \Symfony\Component\Security\Core\Authentication\Provider\RememberMeAuthenticationProvider($a, 'f874d7d915232cf50ab61e1e4e26e224ec70996a', 'main'), 2 => new \Symfony\Component\Security\Core\Authentication\Provider\AnonymousAuthenticationProvider('598ae2a0903355.30946139')), true);
+        $this->services['security.authentication.manager'] = $instance = new \Symfony\Component\Security\Core\Authentication\AuthenticationProviderManager(array(0 => new \Symfony\Component\Security\Core\Authentication\Provider\DaoAuthenticationProvider($this->get('fos_user.user_provider.username'), $a, 'main', $this->get('security.encoder_factory'), true), 1 => new \Symfony\Component\Security\Core\Authentication\Provider\RememberMeAuthenticationProvider($a, 'f874d7d915232cf50ab61e1e4e26e224ec70996a', 'main'), 2 => new \Symfony\Component\Security\Core\Authentication\Provider\AnonymousAuthenticationProvider('598c0fdbf18491.29709108')), true);
 
         $instance->setEventDispatcher($this->get('event_dispatcher'));
 
@@ -7124,16 +5974,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'security.authentication.rememberme.services.simplehash.main' service.
+     * Gets the private 'security.authentication.rememberme.services.simplehash.main' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * This service is private.
-     * If you want to be able to request this service from the container directly,
-     * make it public, otherwise you might end up with broken code.
-     *
-     * @return \Symfony\Component\Security\Http\RememberMe\TokenBasedRememberMeServices A Symfony\Component\Security\Http\RememberMe\TokenBasedRememberMeServices instance
+     * @return \Symfony\Component\Security\Http\RememberMe\TokenBasedRememberMeServices
      */
     protected function getSecurity_Authentication_Rememberme_Services_Simplehash_MainService()
     {
@@ -7141,16 +5984,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'security.authentication.session_strategy' service.
+     * Gets the private 'security.authentication.session_strategy' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * This service is private.
-     * If you want to be able to request this service from the container directly,
-     * make it public, otherwise you might end up with broken code.
-     *
-     * @return \Symfony\Component\Security\Http\Session\SessionAuthenticationStrategy A Symfony\Component\Security\Http\Session\SessionAuthenticationStrategy instance
+     * @return \Symfony\Component\Security\Http\Session\SessionAuthenticationStrategy
      */
     protected function getSecurity_Authentication_SessionStrategyService()
     {
@@ -7158,16 +5994,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'security.authentication.trust_resolver' service.
+     * Gets the private 'security.authentication.trust_resolver' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * This service is private.
-     * If you want to be able to request this service from the container directly,
-     * make it public, otherwise you might end up with broken code.
-     *
-     * @return \Symfony\Component\Security\Core\Authentication\AuthenticationTrustResolver A Symfony\Component\Security\Core\Authentication\AuthenticationTrustResolver instance
+     * @return \Symfony\Component\Security\Core\Authentication\AuthenticationTrustResolver
      */
     protected function getSecurity_Authentication_TrustResolverService()
     {
@@ -7175,16 +6004,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'security.logout_url_generator' service.
+     * Gets the private 'security.logout_url_generator' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * This service is private.
-     * If you want to be able to request this service from the container directly,
-     * make it public, otherwise you might end up with broken code.
-     *
-     * @return \Symfony\Component\Security\Http\Logout\LogoutUrlGenerator A Symfony\Component\Security\Http\Logout\LogoutUrlGenerator instance
+     * @return \Symfony\Component\Security\Http\Logout\LogoutUrlGenerator
      */
     protected function getSecurity_LogoutUrlGeneratorService()
     {
@@ -7196,16 +6018,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'security.role_hierarchy' service.
+     * Gets the private 'security.role_hierarchy' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * This service is private.
-     * If you want to be able to request this service from the container directly,
-     * make it public, otherwise you might end up with broken code.
-     *
-     * @return \Symfony\Component\Security\Core\Role\RoleHierarchy A Symfony\Component\Security\Core\Role\RoleHierarchy instance
+     * @return \Symfony\Component\Security\Core\Role\RoleHierarchy
      */
     protected function getSecurity_RoleHierarchyService()
     {
@@ -7213,16 +6028,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'session.storage.metadata_bag' service.
+     * Gets the private 'session.storage.metadata_bag' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * This service is private.
-     * If you want to be able to request this service from the container directly,
-     * make it public, otherwise you might end up with broken code.
-     *
-     * @return \Symfony\Component\HttpFoundation\Session\Storage\MetadataBag A Symfony\Component\HttpFoundation\Session\Storage\MetadataBag instance
+     * @return \Symfony\Component\HttpFoundation\Session\Storage\MetadataBag
      */
     protected function getSession_Storage_MetadataBagService()
     {
@@ -7230,16 +6038,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'sonata.block.manager' service.
+     * Gets the private 'sonata.block.manager' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * This service is private.
-     * If you want to be able to request this service from the container directly,
-     * make it public, otherwise you might end up with broken code.
-     *
-     * @return \Sonata\BlockBundle\Block\BlockServiceManager A Sonata\BlockBundle\Block\BlockServiceManager instance
+     * @return \Sonata\BlockBundle\Block\BlockServiceManager
      */
     protected function getSonata_Block_ManagerService()
     {
@@ -7263,16 +6064,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'swiftmailer.mailer.default.transport.eventdispatcher' service.
+     * Gets the private 'swiftmailer.mailer.default.transport.eventdispatcher' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * This service is private.
-     * If you want to be able to request this service from the container directly,
-     * make it public, otherwise you might end up with broken code.
-     *
-     * @return \Swift_Events_SimpleEventDispatcher A Swift_Events_SimpleEventDispatcher instance
+     * @return \Swift_Events_SimpleEventDispatcher
      */
     protected function getSwiftmailer_Mailer_Default_Transport_EventdispatcherService()
     {
@@ -7280,16 +6074,9 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'templating.locator' service.
+     * Gets the private 'templating.locator' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * This service is private.
-     * If you want to be able to request this service from the container directly,
-     * make it public, otherwise you might end up with broken code.
-     *
-     * @return \Symfony\Bundle\FrameworkBundle\Templating\Loader\TemplateLocator A Symfony\Bundle\FrameworkBundle\Templating\Loader\TemplateLocator instance
+     * @return \Symfony\Bundle\FrameworkBundle\Templating\Loader\TemplateLocator
      */
     protected function getTemplating_LocatorService()
     {
@@ -7297,20 +6084,38 @@ class appProdProjectContainer extends Container
     }
 
     /*
-     * Gets the 'validator.validator_factory' service.
+     * Gets the private 'validator.validator_factory' shared service.
      *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * This service is private.
-     * If you want to be able to request this service from the container directly,
-     * make it public, otherwise you might end up with broken code.
-     *
-     * @return \Symfony\Bundle\FrameworkBundle\Validator\ConstraintValidatorFactory A Symfony\Bundle\FrameworkBundle\Validator\ConstraintValidatorFactory instance
+     * @return \Symfony\Bundle\FrameworkBundle\Validator\ConstraintValidatorFactory
      */
     protected function getValidator_ValidatorFactoryService()
     {
         return $this->services['validator.validator_factory'] = new \Symfony\Bundle\FrameworkBundle\Validator\ConstraintValidatorFactory($this, array('validator.expression' => 'validator.expression', 'Symfony\\Component\\Validator\\Constraints\\ExpressionValidator' => 'validator.expression', 'Symfony\\Component\\Validator\\Constraints\\EmailValidator' => 'validator.email', 'security.validator.user_password' => 'security.validator.user_password', 'Symfony\\Component\\Security\\Core\\Validator\\Constraints\\UserPasswordValidator' => 'security.validator.user_password', 'doctrine.orm.validator.unique' => 'doctrine.orm.validator.unique', 'Symfony\\Bridge\\Doctrine\\Validator\\Constraints\\UniqueEntityValidator' => 'doctrine.orm.validator.unique', 'sonata.core.validator.inline' => 'sonata.core.validator.inline', 'Sonata\\CoreBundle\\Validator\\InlineValidator' => 'sonata.admin.validator.inline', 'sonata.admin.validator.inline' => 'sonata.admin.validator.inline', 'sonata.media.validator.format' => 'sonata.media.validator.format', 'Sonata\\MediaBundle\\Validator\\FormatValidator' => 'sonata.media.validator.format'));
+    }
+
+    /*
+     * Gets the private 'vich_uploader.metadata_reader' shared service.
+     *
+     * @return \Vich\UploaderBundle\Metadata\MetadataReader
+     */
+    protected function getVichUploader_MetadataReaderService()
+    {
+        $a = new \Metadata\Driver\FileLocator(array());
+
+        $b = new \Metadata\MetadataFactory(new \Metadata\Driver\DriverChain(array(0 => new \Vich\UploaderBundle\Metadata\Driver\AnnotationDriver($this->get('annotation_reader')), 1 => new \Vich\UploaderBundle\Metadata\Driver\YamlDriver($a), 2 => new \Vich\UploaderBundle\Metadata\Driver\XmlDriver($a))), 'Metadata\\ClassHierarchyMetadata', false);
+        $b->setCache(new \Metadata\Cache\FileCache((__DIR__.'/vich_uploader')));
+
+        return $this->services['vich_uploader.metadata_reader'] = new \Vich\UploaderBundle\Metadata\MetadataReader($b);
+    }
+
+    /*
+     * Gets the private 'vich_uploader.property_mapping_factory' shared service.
+     *
+     * @return \Vich\UploaderBundle\Mapping\PropertyMappingFactory
+     */
+    protected function getVichUploader_PropertyMappingFactoryService()
+    {
+        return $this->services['vich_uploader.property_mapping_factory'] = new \Vich\UploaderBundle\Mapping\PropertyMappingFactory($this, $this->get('vich_uploader.metadata_reader'), array('profile_image' => array('uri_prefix' => 'uploads/images/profile', 'upload_destination' => ($this->targetDirs[2].'/../web/uploads/images/profile'), 'namer' => array('service' => NULL, 'options' => NULL), 'directory_namer' => array('service' => NULL, 'options' => NULL), 'delete_on_remove' => true, 'delete_on_update' => true, 'inject_on_load' => false, 'db_driver' => 'orm')), '_name');
     }
 
     /*
@@ -7379,21 +6184,22 @@ class appProdProjectContainer extends Container
                 'SwiftmailerBundle' => 'Symfony\\Bundle\\SwiftmailerBundle\\SwiftmailerBundle',
                 'DoctrineBundle' => 'Doctrine\\Bundle\\DoctrineBundle\\DoctrineBundle',
                 'SensioFrameworkExtraBundle' => 'Sensio\\Bundle\\FrameworkExtraBundle\\SensioFrameworkExtraBundle',
+                'FOSUserBundle' => 'FOS\\UserBundle\\FOSUserBundle',
                 'SonataCoreBundle' => 'Sonata\\CoreBundle\\SonataCoreBundle',
                 'SonataBlockBundle' => 'Sonata\\BlockBundle\\SonataBlockBundle',
                 'KnpMenuBundle' => 'Knp\\Bundle\\MenuBundle\\KnpMenuBundle',
+                'SonataClassificationBundle' => 'Sonata\\ClassificationBundle\\SonataClassificationBundle',
+                'ApplicationSonataClassificationBundle' => 'Application\\Sonata\\ClassificationBundle\\ApplicationSonataClassificationBundle',
                 'SonataDoctrineORMAdminBundle' => 'Sonata\\DoctrineORMAdminBundle\\SonataDoctrineORMAdminBundle',
                 'SonataAdminBundle' => 'Sonata\\AdminBundle\\SonataAdminBundle',
-                'FOSUserBundle' => 'FOS\\UserBundle\\FOSUserBundle',
                 'SonataMediaBundle' => 'Sonata\\MediaBundle\\SonataMediaBundle',
                 'SonataEasyExtendsBundle' => 'Sonata\\EasyExtendsBundle\\SonataEasyExtendsBundle',
                 'ApplicationSonataMediaBundle' => 'Application\\Sonata\\MediaBundle\\ApplicationSonataMediaBundle',
                 'JMSSerializerBundle' => 'JMS\\SerializerBundle\\JMSSerializerBundle',
+                'EasyAdminBundle' => 'JavierEguiluz\\Bundle\\EasyAdminBundle\\EasyAdminBundle',
+                'VichUploaderBundle' => 'Vich\\UploaderBundle\\VichUploaderBundle',
                 'AppBundle' => 'AppBundle\\AppBundle',
                 'BackendBundle' => 'BackendBundle\\BackendBundle',
-                'SonataClassificationBundle' => 'Sonata\\ClassificationBundle\\SonataClassificationBundle',
-                'ApplicationSonataClassificationBundle' => 'Application\\Sonata\\ClassificationBundle\\ApplicationSonataClassificationBundle',
-                'EasyAdminBundle' => 'JavierEguiluz\\Bundle\\EasyAdminBundle\\EasyAdminBundle',
             ),
             'kernel.bundles_metadata' => array(
                 'FrameworkBundle' => array(
@@ -7431,6 +6237,11 @@ class appProdProjectContainer extends Container
                     'path' => ($this->targetDirs[3].'\\vendor\\sensio\\framework-extra-bundle'),
                     'namespace' => 'Sensio\\Bundle\\FrameworkExtraBundle',
                 ),
+                'FOSUserBundle' => array(
+                    'parent' => NULL,
+                    'path' => ($this->targetDirs[3].'\\vendor\\friendsofsymfony\\user-bundle'),
+                    'namespace' => 'FOS\\UserBundle',
+                ),
                 'SonataCoreBundle' => array(
                     'parent' => NULL,
                     'path' => ($this->targetDirs[3].'\\vendor\\sonata-project\\core-bundle'),
@@ -7446,6 +6257,16 @@ class appProdProjectContainer extends Container
                     'path' => ($this->targetDirs[3].'\\vendor\\knplabs\\knp-menu-bundle'),
                     'namespace' => 'Knp\\Bundle\\MenuBundle',
                 ),
+                'SonataClassificationBundle' => array(
+                    'parent' => NULL,
+                    'path' => ($this->targetDirs[3].'\\vendor\\sonata-project\\classification-bundle'),
+                    'namespace' => 'Sonata\\ClassificationBundle',
+                ),
+                'ApplicationSonataClassificationBundle' => array(
+                    'parent' => 'SonataClassificationBundle',
+                    'path' => ($this->targetDirs[3].'\\src\\Application\\Sonata\\ClassificationBundle'),
+                    'namespace' => 'Application\\Sonata\\ClassificationBundle',
+                ),
                 'SonataDoctrineORMAdminBundle' => array(
                     'parent' => NULL,
                     'path' => ($this->targetDirs[3].'\\vendor\\sonata-project\\doctrine-orm-admin-bundle'),
@@ -7455,11 +6276,6 @@ class appProdProjectContainer extends Container
                     'parent' => NULL,
                     'path' => ($this->targetDirs[3].'\\vendor\\sonata-project\\admin-bundle'),
                     'namespace' => 'Sonata\\AdminBundle',
-                ),
-                'FOSUserBundle' => array(
-                    'parent' => NULL,
-                    'path' => ($this->targetDirs[3].'\\vendor\\friendsofsymfony\\user-bundle'),
-                    'namespace' => 'FOS\\UserBundle',
                 ),
                 'SonataMediaBundle' => array(
                     'parent' => NULL,
@@ -7478,8 +6294,18 @@ class appProdProjectContainer extends Container
                 ),
                 'JMSSerializerBundle' => array(
                     'parent' => NULL,
-                    'path' => ($this->targetDirs[3].'\\vendor\\jms\\serializer-bundle\\JMS\\SerializerBundle'),
+                    'path' => ($this->targetDirs[3].'\\vendor\\jms\\serializer-bundle'),
                     'namespace' => 'JMS\\SerializerBundle',
+                ),
+                'EasyAdminBundle' => array(
+                    'parent' => NULL,
+                    'path' => ($this->targetDirs[3].'\\vendor\\javiereguiluz\\easyadmin-bundle'),
+                    'namespace' => 'JavierEguiluz\\Bundle\\EasyAdminBundle',
+                ),
+                'VichUploaderBundle' => array(
+                    'parent' => NULL,
+                    'path' => ($this->targetDirs[3].'\\vendor\\vich\\uploader-bundle'),
+                    'namespace' => 'Vich\\UploaderBundle',
                 ),
                 'AppBundle' => array(
                     'parent' => NULL,
@@ -7490,21 +6316,6 @@ class appProdProjectContainer extends Container
                     'parent' => NULL,
                     'path' => ($this->targetDirs[3].'\\src\\BackendBundle'),
                     'namespace' => 'BackendBundle',
-                ),
-                'SonataClassificationBundle' => array(
-                    'parent' => NULL,
-                    'path' => ($this->targetDirs[3].'\\vendor\\sonata-project\\classification-bundle'),
-                    'namespace' => 'Sonata\\ClassificationBundle',
-                ),
-                'ApplicationSonataClassificationBundle' => array(
-                    'parent' => 'SonataClassificationBundle',
-                    'path' => ($this->targetDirs[3].'\\src\\Application\\Sonata\\ClassificationBundle'),
-                    'namespace' => 'Application\\Sonata\\ClassificationBundle',
-                ),
-                'EasyAdminBundle' => array(
-                    'parent' => NULL,
-                    'path' => ($this->targetDirs[3].'\\vendor\\javiereguiluz\\easyadmin-bundle'),
-                    'namespace' => 'JavierEguiluz\\Bundle\\EasyAdminBundle',
                 ),
             ),
             'kernel.charset' => 'UTF-8',
@@ -7748,9 +6559,9 @@ class appProdProjectContainer extends Container
             'security.authentication.session_strategy.strategy' => 'migrate',
             'security.access.always_authenticate_before_granting' => false,
             'security.authentication.hide_user_not_found' => true,
-            'twig.class' => 'Twig_Environment',
+            'twig.class' => 'Twig\\Environment',
             'twig.loader.filesystem.class' => 'Symfony\\Bundle\\TwigBundle\\Loader\\FilesystemLoader',
-            'twig.loader.chain.class' => 'Twig_Loader_Chain',
+            'twig.loader.chain.class' => 'Twig\\Loader\\ChainLoader',
             'templating.engine.twig.class' => 'Symfony\\Bundle\\TwigBundle\\TwigEngine',
             'twig.cache_warmer.class' => 'Symfony\\Bundle\\TwigBundle\\CacheWarmer\\TemplateCacheCacheWarmer',
             'twig.extension.trans.class' => 'Symfony\\Bridge\\Twig\\Extension\\TranslationExtension',
@@ -7770,7 +6581,8 @@ class appProdProjectContainer extends Container
             'twig.controller.preview_error.class' => 'Symfony\\Bundle\\TwigBundle\\Controller\\PreviewErrorController',
             'twig.exception_listener.controller' => 'twig.controller.exception:showAction',
             'twig.form.resources' => array(
-                0 => 'form_div_layout.html.twig',
+                0 => '@VichUploader/Form/fields.html.twig',
+                1 => 'form_div_layout.html.twig',
             ),
             'monolog.use_microseconds' => true,
             'monolog.swift_mailer.handlers' => array(
@@ -7919,7 +6731,7 @@ class appProdProjectContainer extends Container
             'doctrine.orm.naming_strategy.underscore.class' => 'Doctrine\\ORM\\Mapping\\UnderscoreNamingStrategy',
             'doctrine.orm.quote_strategy.default.class' => 'Doctrine\\ORM\\Mapping\\DefaultQuoteStrategy',
             'doctrine.orm.quote_strategy.ansi.class' => 'Doctrine\\ORM\\Mapping\\AnsiQuoteStrategy',
-            'doctrine.orm.entity_listener_resolver.class' => 'Doctrine\\ORM\\Mapping\\DefaultEntityListenerResolver',
+            'doctrine.orm.entity_listener_resolver.class' => 'Doctrine\\Bundle\\DoctrineBundle\\Mapping\\ContainerAwareEntityListenerResolver',
             'doctrine.orm.second_level_cache.default_cache_factory.class' => 'Doctrine\\ORM\\Cache\\DefaultCacheFactory',
             'doctrine.orm.second_level_cache.default_region.class' => 'Doctrine\\ORM\\Cache\\Region\\DefaultRegion',
             'doctrine.orm.second_level_cache.filelock_region.class' => 'Doctrine\\ORM\\Cache\\Region\\FileLockRegion',
@@ -7940,6 +6752,48 @@ class appProdProjectContainer extends Container
             'sensio_framework_extra.converter.doctrine.class' => 'Sensio\\Bundle\\FrameworkExtraBundle\\Request\\ParamConverter\\DoctrineParamConverter',
             'sensio_framework_extra.converter.datetime.class' => 'Sensio\\Bundle\\FrameworkExtraBundle\\Request\\ParamConverter\\DateTimeParamConverter',
             'sensio_framework_extra.view.listener.class' => 'Sensio\\Bundle\\FrameworkExtraBundle\\EventListener\\TemplateListener',
+            'fos_user.backend_type_orm' => true,
+            'fos_user.security.interactive_login_listener.class' => 'FOS\\UserBundle\\EventListener\\LastLoginListener',
+            'fos_user.security.login_manager.class' => 'FOS\\UserBundle\\Security\\LoginManager',
+            'fos_user.resetting.email.template' => '@FOSUser/Resetting/email.txt.twig',
+            'fos_user.registration.confirmation.template' => '@FOSUser/Registration/email.txt.twig',
+            'fos_user.storage' => 'orm',
+            'fos_user.firewall_name' => 'main',
+            'fos_user.model_manager_name' => NULL,
+            'fos_user.model.user.class' => 'BackendBundle\\Entity\\User',
+            'fos_user.profile.form.type' => 'BackendBundle\\Form\\fos_user\\ProfileFormType',
+            'fos_user.profile.form.name' => 'fos_user_profile_form',
+            'fos_user.profile.form.validation_groups' => array(
+                0 => 'Profile',
+                1 => 'Default',
+            ),
+            'fos_user.registration.confirmation.from_email' => array(
+                'uno@cualquiera.es' => 'uno@cualquiera.es',
+            ),
+            'fos_user.registration.confirmation.enabled' => false,
+            'fos_user.registration.form.type' => 'BackendBundle\\Form\\fos_user\\RegistrationFormType',
+            'fos_user.registration.form.name' => 'fos_user_registration_form',
+            'fos_user.registration.form.validation_groups' => array(
+                0 => 'Registration',
+                1 => 'Default',
+            ),
+            'fos_user.change_password.form.type' => 'FOS\\UserBundle\\Form\\Type\\ChangePasswordFormType',
+            'fos_user.change_password.form.name' => 'fos_user_change_password_form',
+            'fos_user.change_password.form.validation_groups' => array(
+                0 => 'ChangePassword',
+                1 => 'Default',
+            ),
+            'fos_user.resetting.email.from_email' => array(
+                'uno@cualquiera.es' => 'uno@cualquiera.es',
+            ),
+            'fos_user.resetting.retry_ttl' => 7200,
+            'fos_user.resetting.token_ttl' => 86400,
+            'fos_user.resetting.form.type' => 'FOS\\UserBundle\\Form\\Type\\ResettingFormType',
+            'fos_user.resetting.form.name' => 'fos_user_resetting_form',
+            'fos_user.resetting.form.validation_groups' => array(
+                0 => 'ResetPassword',
+                1 => 'Default',
+            ),
             'sonata.core.flashmessage.manager.class' => 'Sonata\\CoreBundle\\FlashMessage\\FlashManager',
             'sonata.core.twig.extension.flashmessage.class' => 'Sonata\\CoreBundle\\Twig\\Extension\\FlashMessageExtension',
             'sonata.core.form_type' => 'standard',
@@ -8032,6 +6886,32 @@ class appProdProjectContainer extends Container
             ),
             'knp_menu.renderer.twig.template' => 'KnpMenuBundle::menu.html.twig',
             'knp_menu.default_renderer' => 'twig',
+            'sonata.classification.manager.category.class' => 'Sonata\\ClassificationBundle\\Entity\\CategoryManager',
+            'sonata.classification.manager.tag.class' => 'Sonata\\ClassificationBundle\\Entity\\TagManager',
+            'sonata.classification.manager.collection.class' => 'Sonata\\ClassificationBundle\\Entity\\CollectionManager',
+            'sonata.classification.manager.context.class' => 'Sonata\\ClassificationBundle\\Entity\\ContextManager',
+            'sonata.classification.admin.groupname' => 'sonata_classification',
+            'sonata.classification.admin.groupicon' => '<i class=\'fa fa-tags\'></i>',
+            'sonata.classification.admin.tag.entity' => 'Application\\Sonata\\ClassificationBundle\\Entity\\Tag',
+            'sonata.classification.admin.category.entity' => 'Application\\Sonata\\ClassificationBundle\\Entity\\Category',
+            'sonata.classification.admin.collection.entity' => 'Application\\Sonata\\ClassificationBundle\\Entity\\Collection',
+            'sonata.classification.admin.context.entity' => 'Application\\Sonata\\ClassificationBundle\\Entity\\Context',
+            'sonata.classification.manager.tag.entity' => 'Application\\Sonata\\ClassificationBundle\\Entity\\Tag',
+            'sonata.classification.manager.category.entity' => 'Application\\Sonata\\ClassificationBundle\\Entity\\Category',
+            'sonata.classification.manager.collection.entity' => 'Application\\Sonata\\ClassificationBundle\\Entity\\Collection',
+            'sonata.classification.manager.context.entity' => 'Application\\Sonata\\ClassificationBundle\\Entity\\Context',
+            'sonata.classification.admin.category.class' => 'Sonata\\ClassificationBundle\\Admin\\CategoryAdmin',
+            'sonata.classification.admin.category.controller' => 'SonataClassificationBundle:CategoryAdmin',
+            'sonata.classification.admin.category.translation_domain' => 'SonataClassificationBundle',
+            'sonata.classification.admin.tag.class' => 'Sonata\\ClassificationBundle\\Admin\\TagAdmin',
+            'sonata.classification.admin.tag.controller' => 'SonataAdminBundle:CRUD',
+            'sonata.classification.admin.tag.translation_domain' => 'SonataClassificationBundle',
+            'sonata.classification.admin.collection.class' => 'Sonata\\ClassificationBundle\\Admin\\CollectionAdmin',
+            'sonata.classification.admin.collection.controller' => 'SonataAdminBundle:CRUD',
+            'sonata.classification.admin.collection.translation_domain' => 'SonataClassificationBundle',
+            'sonata.classification.admin.context.class' => 'Sonata\\ClassificationBundle\\Admin\\ContextAdmin',
+            'sonata.classification.admin.context.controller' => 'SonataAdminBundle:CRUD',
+            'sonata.classification.admin.context.translation_domain' => 'SonataClassificationBundle',
             'sonata.admin.manipulator.acl.object.orm.class' => 'Sonata\\DoctrineORMAdminBundle\\Util\\ObjectAclManipulator',
             'sonata_doctrine_orm_admin.entity_manager' => NULL,
             'sonata_doctrine_orm_admin.templates' => array(
@@ -8218,48 +7098,6 @@ class appProdProjectContainer extends Container
             'sonata.admin.configuration.filters.persist' => false,
             'sonata.admin.configuration.show.mosaic.button' => true,
             'sonata.admin.configuration.translate_group_label' => false,
-            'fos_user.backend_type_orm' => true,
-            'fos_user.security.interactive_login_listener.class' => 'FOS\\UserBundle\\EventListener\\LastLoginListener',
-            'fos_user.security.login_manager.class' => 'FOS\\UserBundle\\Security\\LoginManager',
-            'fos_user.resetting.email.template' => '@FOSUser/Resetting/email.txt.twig',
-            'fos_user.registration.confirmation.template' => '@FOSUser/Registration/email.txt.twig',
-            'fos_user.storage' => 'orm',
-            'fos_user.firewall_name' => 'main',
-            'fos_user.model_manager_name' => NULL,
-            'fos_user.model.user.class' => 'BackendBundle\\Entity\\User',
-            'fos_user.profile.form.type' => 'BackendBundle\\Form\\fos_user\\ProfileFormType',
-            'fos_user.profile.form.name' => 'fos_user_profile_form',
-            'fos_user.profile.form.validation_groups' => array(
-                0 => 'Profile',
-                1 => 'Default',
-            ),
-            'fos_user.registration.confirmation.from_email' => array(
-                'uno@cualquiera.es' => 'uno@cualquiera.es',
-            ),
-            'fos_user.registration.confirmation.enabled' => false,
-            'fos_user.registration.form.type' => 'BackendBundle\\Form\\fos_user\\RegistrationFormType',
-            'fos_user.registration.form.name' => 'fos_user_registration_form',
-            'fos_user.registration.form.validation_groups' => array(
-                0 => 'Registration',
-                1 => 'Default',
-            ),
-            'fos_user.change_password.form.type' => 'FOS\\UserBundle\\Form\\Type\\ChangePasswordFormType',
-            'fos_user.change_password.form.name' => 'fos_user_change_password_form',
-            'fos_user.change_password.form.validation_groups' => array(
-                0 => 'ChangePassword',
-                1 => 'Default',
-            ),
-            'fos_user.resetting.email.from_email' => array(
-                'uno@cualquiera.es' => 'uno@cualquiera.es',
-            ),
-            'fos_user.resetting.retry_ttl' => 7200,
-            'fos_user.resetting.token_ttl' => 86400,
-            'fos_user.resetting.form.type' => 'FOS\\UserBundle\\Form\\Type\\ResettingFormType',
-            'fos_user.resetting.form.name' => 'fos_user_resetting_form',
-            'fos_user.resetting.form.validation_groups' => array(
-                0 => 'ResetPassword',
-                1 => 'Default',
-            ),
             'sonata.media.provider.image.class' => 'Sonata\\MediaBundle\\Provider\\ImageProvider',
             'sonata.media.provider.file.class' => 'Sonata\\MediaBundle\\Provider\\FileProvider',
             'sonata.media.provider.youtube.class' => 'Sonata\\MediaBundle\\Provider\\YouTubeProvider',
@@ -8357,32 +7195,6 @@ class appProdProjectContainer extends Container
             'jms_serializer.expression_language.function_provider.class' => 'JMS\\SerializerBundle\\ExpressionLanguage\\BasicSerializerFunctionsProvider',
             'jms_serializer.accessor_strategy.default.class' => 'JMS\\Serializer\\Accessor\\DefaultAccessorStrategy',
             'jms_serializer.accessor_strategy.expression.class' => 'JMS\\Serializer\\Accessor\\ExpressionAccessorStrategy',
-            'sonata.classification.manager.category.class' => 'Sonata\\ClassificationBundle\\Entity\\CategoryManager',
-            'sonata.classification.manager.tag.class' => 'Sonata\\ClassificationBundle\\Entity\\TagManager',
-            'sonata.classification.manager.collection.class' => 'Sonata\\ClassificationBundle\\Entity\\CollectionManager',
-            'sonata.classification.manager.context.class' => 'Sonata\\ClassificationBundle\\Entity\\ContextManager',
-            'sonata.classification.admin.groupname' => 'sonata_classification',
-            'sonata.classification.admin.groupicon' => '<i class=\'fa fa-tags\'></i>',
-            'sonata.classification.admin.tag.entity' => 'Application\\Sonata\\ClassificationBundle\\Entity\\Tag',
-            'sonata.classification.admin.category.entity' => 'Application\\Sonata\\ClassificationBundle\\Entity\\Category',
-            'sonata.classification.admin.collection.entity' => 'Application\\Sonata\\ClassificationBundle\\Entity\\Collection',
-            'sonata.classification.admin.context.entity' => 'Application\\Sonata\\ClassificationBundle\\Entity\\Context',
-            'sonata.classification.manager.tag.entity' => 'Application\\Sonata\\ClassificationBundle\\Entity\\Tag',
-            'sonata.classification.manager.category.entity' => 'Application\\Sonata\\ClassificationBundle\\Entity\\Category',
-            'sonata.classification.manager.collection.entity' => 'Application\\Sonata\\ClassificationBundle\\Entity\\Collection',
-            'sonata.classification.manager.context.entity' => 'Application\\Sonata\\ClassificationBundle\\Entity\\Context',
-            'sonata.classification.admin.category.class' => 'Sonata\\ClassificationBundle\\Admin\\CategoryAdmin',
-            'sonata.classification.admin.category.controller' => 'SonataClassificationBundle:CategoryAdmin',
-            'sonata.classification.admin.category.translation_domain' => 'SonataClassificationBundle',
-            'sonata.classification.admin.tag.class' => 'Sonata\\ClassificationBundle\\Admin\\TagAdmin',
-            'sonata.classification.admin.tag.controller' => 'SonataAdminBundle:CRUD',
-            'sonata.classification.admin.tag.translation_domain' => 'SonataClassificationBundle',
-            'sonata.classification.admin.collection.class' => 'Sonata\\ClassificationBundle\\Admin\\CollectionAdmin',
-            'sonata.classification.admin.collection.controller' => 'SonataAdminBundle:CRUD',
-            'sonata.classification.admin.collection.translation_domain' => 'SonataClassificationBundle',
-            'sonata.classification.admin.context.class' => 'Sonata\\ClassificationBundle\\Admin\\ContextAdmin',
-            'sonata.classification.admin.context.controller' => 'SonataAdminBundle:CRUD',
-            'sonata.classification.admin.context.translation_domain' => 'SonataClassificationBundle',
             'easyadmin.config' => array(
                 'site_name' => 'Eerbianbí',
                 'design' => array(
@@ -8512,6 +7324,27 @@ class appProdProjectContainer extends Container
                 ),
             ),
             'easyadmin.cache.dir' => (__DIR__.'/easy_admin'),
+            'easyadmin.templates_dir' => ($this->targetDirs[2].'/Resources/views'),
+            'vich_uploader.default_filename_attribute_suffix' => '_name',
+            'vich_uploader.mappings' => array(
+                'profile_image' => array(
+                    'uri_prefix' => 'uploads/images/profile',
+                    'upload_destination' => ($this->targetDirs[2].'/../web/uploads/images/profile'),
+                    'namer' => array(
+                        'service' => NULL,
+                        'options' => NULL,
+                    ),
+                    'directory_namer' => array(
+                        'service' => NULL,
+                        'options' => NULL,
+                    ),
+                    'delete_on_remove' => true,
+                    'delete_on_update' => true,
+                    'inject_on_load' => false,
+                    'db_driver' => 'orm',
+                ),
+            ),
+            'vich_uploader.file_injector.class' => 'Vich\\UploaderBundle\\Injector\\FileInjector',
             'console.command.ids' => array(
 
             ),
@@ -8550,47 +7383,49 @@ class appProdProjectContainer extends Container
                 31 => 'form.type.reset',
                 32 => 'form.type.currency',
                 33 => 'form.type.entity',
-                34 => 'sonata.core.form.type.array',
-                35 => 'sonata.core.form.type.boolean',
-                36 => 'sonata.core.form.type.collection',
-                37 => 'sonata.core.form.type.translatable_choice',
-                38 => 'sonata.core.form.type.date_range',
-                39 => 'sonata.core.form.type.datetime_range',
-                40 => 'sonata.core.form.type.date_picker',
-                41 => 'sonata.core.form.type.datetime_picker',
-                42 => 'sonata.core.form.type.date_range_picker',
-                43 => 'sonata.core.form.type.datetime_range_picker',
-                44 => 'sonata.core.form.type.equal',
-                45 => 'sonata.core.form.type.color_selector',
-                46 => 'sonata.block.form.type.block',
-                47 => 'sonata.block.form.type.container_template',
-                48 => 'sonata.admin.form.type.admin',
-                49 => 'sonata.admin.form.type.model_choice',
-                50 => 'sonata.admin.form.type.model_list',
-                51 => 'sonata.admin.form.type.model_reference',
-                52 => 'sonata.admin.form.type.model_hidden',
-                53 => 'sonata.admin.form.type.model_autocomplete',
-                54 => 'sonata.admin.form.type.collection',
-                55 => 'sonata.admin.doctrine_orm.form.type.choice_field_mask',
-                56 => 'sonata.admin.form.filter.type.number',
-                57 => 'sonata.admin.form.filter.type.choice',
-                58 => 'sonata.admin.form.filter.type.default',
-                59 => 'sonata.admin.form.filter.type.date',
-                60 => 'sonata.admin.form.filter.type.daterange',
-                61 => 'sonata.admin.form.filter.type.datetime',
-                62 => 'sonata.admin.form.filter.type.datetime_range',
-                63 => 'fos_user.username_form_type',
-                64 => 'fos_user.profile.form.type',
-                65 => 'fos_user.registration.form.type',
-                66 => 'fos_user.change_password.form.type',
-                67 => 'fos_user.resetting.form.type',
-                68 => 'sonata.media.form.type.media',
-                69 => 'sonata.classification.form.type.category_selector',
+                34 => 'fos_user.username_form_type',
+                35 => 'fos_user.profile.form.type',
+                36 => 'fos_user.registration.form.type',
+                37 => 'fos_user.change_password.form.type',
+                38 => 'fos_user.resetting.form.type',
+                39 => 'sonata.core.form.type.array',
+                40 => 'sonata.core.form.type.boolean',
+                41 => 'sonata.core.form.type.collection',
+                42 => 'sonata.core.form.type.translatable_choice',
+                43 => 'sonata.core.form.type.date_range',
+                44 => 'sonata.core.form.type.datetime_range',
+                45 => 'sonata.core.form.type.date_picker',
+                46 => 'sonata.core.form.type.datetime_picker',
+                47 => 'sonata.core.form.type.date_range_picker',
+                48 => 'sonata.core.form.type.datetime_range_picker',
+                49 => 'sonata.core.form.type.equal',
+                50 => 'sonata.core.form.type.color_selector',
+                51 => 'sonata.block.form.type.block',
+                52 => 'sonata.block.form.type.container_template',
+                53 => 'sonata.classification.form.type.category_selector',
+                54 => 'sonata.admin.form.type.admin',
+                55 => 'sonata.admin.form.type.model_choice',
+                56 => 'sonata.admin.form.type.model_list',
+                57 => 'sonata.admin.form.type.model_reference',
+                58 => 'sonata.admin.form.type.model_hidden',
+                59 => 'sonata.admin.form.type.model_autocomplete',
+                60 => 'sonata.admin.form.type.collection',
+                61 => 'sonata.admin.doctrine_orm.form.type.choice_field_mask',
+                62 => 'sonata.admin.form.filter.type.number',
+                63 => 'sonata.admin.form.filter.type.choice',
+                64 => 'sonata.admin.form.filter.type.default',
+                65 => 'sonata.admin.form.filter.type.date',
+                66 => 'sonata.admin.form.filter.type.daterange',
+                67 => 'sonata.admin.form.filter.type.datetime',
+                68 => 'sonata.admin.form.filter.type.datetime_range',
+                69 => 'sonata.media.form.type.media',
                 70 => 'easyadmin.form.type',
                 71 => 'easyadmin.form.type.autocomplete',
                 72 => 'easyadmin.form.type.divider',
                 73 => 'easyadmin.form.type.section',
                 74 => 'easyadmin.form.type.group',
+                75 => 'vich_uploader.form.type.file',
+                76 => 'vich_uploader.form.type.image',
             ),
             'sonata.core.form.type_extensions' => array(
                 0 => 'form.type_extension.form.http_foundation',

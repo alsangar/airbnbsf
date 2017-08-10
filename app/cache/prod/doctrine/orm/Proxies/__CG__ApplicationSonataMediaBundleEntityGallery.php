@@ -36,7 +36,7 @@ class Gallery extends \Application\Sonata\MediaBundle\Entity\Gallery implements 
      *
      * @see \Doctrine\Common\Persistence\Proxy::__getLazyProperties
      */
-    public static $lazyPropertiesDefaults = array();
+    public static $lazyPropertiesDefaults = [];
 
 
 
@@ -64,10 +64,10 @@ class Gallery extends \Application\Sonata\MediaBundle\Entity\Gallery implements 
     public function __sleep()
     {
         if ($this->__isInitialized__) {
-            return array('__isInitialized__', 'id', 'context', 'name', 'enabled', 'updatedAt', 'createdAt', 'defaultFormat', 'galleryHasMedias');
+            return ['__isInitialized__', 'id', 'context', 'name', 'enabled', 'updatedAt', 'createdAt', 'defaultFormat', 'galleryHasMedias'];
         }
 
-        return array('__isInitialized__', 'id', 'context', 'name', 'enabled', 'updatedAt', 'createdAt', 'defaultFormat', 'galleryHasMedias');
+        return ['__isInitialized__', 'id', 'context', 'name', 'enabled', 'updatedAt', 'createdAt', 'defaultFormat', 'galleryHasMedias'];
     }
 
     /**
@@ -97,7 +97,7 @@ class Gallery extends \Application\Sonata\MediaBundle\Entity\Gallery implements 
      */
     public function __clone()
     {
-        $this->__cloner__ && $this->__cloner__->__invoke($this, '__clone', array());
+        $this->__cloner__ && $this->__cloner__->__invoke($this, '__clone', []);
     }
 
     /**
@@ -105,7 +105,7 @@ class Gallery extends \Application\Sonata\MediaBundle\Entity\Gallery implements 
      */
     public function __load()
     {
-        $this->__initializer__ && $this->__initializer__->__invoke($this, '__load', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, '__load', []);
     }
 
     /**
@@ -183,7 +183,7 @@ class Gallery extends \Application\Sonata\MediaBundle\Entity\Gallery implements 
         }
 
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getId', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getId', []);
 
         return parent::getId();
     }
@@ -194,7 +194,7 @@ class Gallery extends \Application\Sonata\MediaBundle\Entity\Gallery implements 
     public function prePersist()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'prePersist', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'prePersist', []);
 
         return parent::prePersist();
     }
@@ -205,7 +205,7 @@ class Gallery extends \Application\Sonata\MediaBundle\Entity\Gallery implements 
     public function preUpdate()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'preUpdate', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'preUpdate', []);
 
         return parent::preUpdate();
     }
@@ -216,7 +216,7 @@ class Gallery extends \Application\Sonata\MediaBundle\Entity\Gallery implements 
     public function __toString()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, '__toString', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, '__toString', []);
 
         return parent::__toString();
     }
@@ -227,7 +227,7 @@ class Gallery extends \Application\Sonata\MediaBundle\Entity\Gallery implements 
     public function setName($name)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setName', array($name));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setName', [$name]);
 
         return parent::setName($name);
     }
@@ -238,7 +238,7 @@ class Gallery extends \Application\Sonata\MediaBundle\Entity\Gallery implements 
     public function getName()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getName', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getName', []);
 
         return parent::getName();
     }
@@ -249,7 +249,7 @@ class Gallery extends \Application\Sonata\MediaBundle\Entity\Gallery implements 
     public function setEnabled($enabled)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setEnabled', array($enabled));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setEnabled', [$enabled]);
 
         return parent::setEnabled($enabled);
     }
@@ -260,7 +260,7 @@ class Gallery extends \Application\Sonata\MediaBundle\Entity\Gallery implements 
     public function getEnabled()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getEnabled', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getEnabled', []);
 
         return parent::getEnabled();
     }
@@ -271,7 +271,7 @@ class Gallery extends \Application\Sonata\MediaBundle\Entity\Gallery implements 
     public function setUpdatedAt(\DateTime $updatedAt = NULL)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setUpdatedAt', array($updatedAt));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setUpdatedAt', [$updatedAt]);
 
         return parent::setUpdatedAt($updatedAt);
     }
@@ -282,7 +282,7 @@ class Gallery extends \Application\Sonata\MediaBundle\Entity\Gallery implements 
     public function getUpdatedAt()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getUpdatedAt', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getUpdatedAt', []);
 
         return parent::getUpdatedAt();
     }
@@ -293,7 +293,7 @@ class Gallery extends \Application\Sonata\MediaBundle\Entity\Gallery implements 
     public function setCreatedAt(\DateTime $createdAt = NULL)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setCreatedAt', array($createdAt));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setCreatedAt', [$createdAt]);
 
         return parent::setCreatedAt($createdAt);
     }
@@ -304,7 +304,7 @@ class Gallery extends \Application\Sonata\MediaBundle\Entity\Gallery implements 
     public function getCreatedAt()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getCreatedAt', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getCreatedAt', []);
 
         return parent::getCreatedAt();
     }
@@ -315,7 +315,7 @@ class Gallery extends \Application\Sonata\MediaBundle\Entity\Gallery implements 
     public function setDefaultFormat($defaultFormat)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setDefaultFormat', array($defaultFormat));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setDefaultFormat', [$defaultFormat]);
 
         return parent::setDefaultFormat($defaultFormat);
     }
@@ -326,7 +326,7 @@ class Gallery extends \Application\Sonata\MediaBundle\Entity\Gallery implements 
     public function getDefaultFormat()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getDefaultFormat', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getDefaultFormat', []);
 
         return parent::getDefaultFormat();
     }
@@ -337,7 +337,7 @@ class Gallery extends \Application\Sonata\MediaBundle\Entity\Gallery implements 
     public function setGalleryHasMedias($galleryHasMedias)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setGalleryHasMedias', array($galleryHasMedias));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setGalleryHasMedias', [$galleryHasMedias]);
 
         return parent::setGalleryHasMedias($galleryHasMedias);
     }
@@ -348,7 +348,7 @@ class Gallery extends \Application\Sonata\MediaBundle\Entity\Gallery implements 
     public function getGalleryHasMedias()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getGalleryHasMedias', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getGalleryHasMedias', []);
 
         return parent::getGalleryHasMedias();
     }
@@ -359,7 +359,7 @@ class Gallery extends \Application\Sonata\MediaBundle\Entity\Gallery implements 
     public function addGalleryHasMedias(\Sonata\MediaBundle\Model\GalleryHasMediaInterface $galleryHasMedia)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'addGalleryHasMedias', array($galleryHasMedia));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'addGalleryHasMedias', [$galleryHasMedia]);
 
         return parent::addGalleryHasMedias($galleryHasMedia);
     }
@@ -370,7 +370,7 @@ class Gallery extends \Application\Sonata\MediaBundle\Entity\Gallery implements 
     public function setContext($context)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setContext', array($context));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setContext', [$context]);
 
         return parent::setContext($context);
     }
@@ -381,7 +381,7 @@ class Gallery extends \Application\Sonata\MediaBundle\Entity\Gallery implements 
     public function getContext()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getContext', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getContext', []);
 
         return parent::getContext();
     }

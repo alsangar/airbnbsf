@@ -36,7 +36,7 @@ class ProductType extends \BackendBundle\Entity\ProductType implements \Doctrine
      *
      * @see \Doctrine\Common\Persistence\Proxy::__getLazyProperties
      */
-    public static $lazyPropertiesDefaults = array();
+    public static $lazyPropertiesDefaults = [];
 
 
 
@@ -64,10 +64,10 @@ class ProductType extends \BackendBundle\Entity\ProductType implements \Doctrine
     public function __sleep()
     {
         if ($this->__isInitialized__) {
-            return array('__isInitialized__', '' . "\0" . 'BackendBundle\\Entity\\ProductType' . "\0" . 'id', '' . "\0" . 'BackendBundle\\Entity\\ProductType' . "\0" . 'productType', '' . "\0" . 'BackendBundle\\Entity\\ProductType' . "\0" . 'active');
+            return ['__isInitialized__', '' . "\0" . 'BackendBundle\\Entity\\ProductType' . "\0" . 'id', '' . "\0" . 'BackendBundle\\Entity\\ProductType' . "\0" . 'productType', '' . "\0" . 'BackendBundle\\Entity\\ProductType' . "\0" . 'active'];
         }
 
-        return array('__isInitialized__', '' . "\0" . 'BackendBundle\\Entity\\ProductType' . "\0" . 'id', '' . "\0" . 'BackendBundle\\Entity\\ProductType' . "\0" . 'productType', '' . "\0" . 'BackendBundle\\Entity\\ProductType' . "\0" . 'active');
+        return ['__isInitialized__', '' . "\0" . 'BackendBundle\\Entity\\ProductType' . "\0" . 'id', '' . "\0" . 'BackendBundle\\Entity\\ProductType' . "\0" . 'productType', '' . "\0" . 'BackendBundle\\Entity\\ProductType' . "\0" . 'active'];
     }
 
     /**
@@ -97,7 +97,7 @@ class ProductType extends \BackendBundle\Entity\ProductType implements \Doctrine
      */
     public function __clone()
     {
-        $this->__cloner__ && $this->__cloner__->__invoke($this, '__clone', array());
+        $this->__cloner__ && $this->__cloner__->__invoke($this, '__clone', []);
     }
 
     /**
@@ -105,7 +105,7 @@ class ProductType extends \BackendBundle\Entity\ProductType implements \Doctrine
      */
     public function __load()
     {
-        $this->__initializer__ && $this->__initializer__->__invoke($this, '__load', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, '__load', []);
     }
 
     /**
@@ -183,7 +183,7 @@ class ProductType extends \BackendBundle\Entity\ProductType implements \Doctrine
         }
 
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getId', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getId', []);
 
         return parent::getId();
     }
@@ -194,7 +194,7 @@ class ProductType extends \BackendBundle\Entity\ProductType implements \Doctrine
     public function setProductType($productType)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setProductType', array($productType));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setProductType', [$productType]);
 
         return parent::setProductType($productType);
     }
@@ -205,7 +205,7 @@ class ProductType extends \BackendBundle\Entity\ProductType implements \Doctrine
     public function getProductType()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getProductType', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getProductType', []);
 
         return parent::getProductType();
     }
@@ -216,7 +216,7 @@ class ProductType extends \BackendBundle\Entity\ProductType implements \Doctrine
     public function setActive($active)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setActive', array($active));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setActive', [$active]);
 
         return parent::setActive($active);
     }
@@ -227,7 +227,7 @@ class ProductType extends \BackendBundle\Entity\ProductType implements \Doctrine
     public function getActive()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getActive', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getActive', []);
 
         return parent::getActive();
     }

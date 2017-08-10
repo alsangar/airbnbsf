@@ -36,7 +36,7 @@ class Location extends \BackendBundle\Entity\Location implements \Doctrine\ORM\P
      *
      * @see \Doctrine\Common\Persistence\Proxy::__getLazyProperties
      */
-    public static $lazyPropertiesDefaults = array();
+    public static $lazyPropertiesDefaults = [];
 
 
 
@@ -64,10 +64,10 @@ class Location extends \BackendBundle\Entity\Location implements \Doctrine\ORM\P
     public function __sleep()
     {
         if ($this->__isInitialized__) {
-            return array('__isInitialized__', '' . "\0" . 'BackendBundle\\Entity\\Location' . "\0" . 'id', '' . "\0" . 'BackendBundle\\Entity\\Location' . "\0" . 'name', '' . "\0" . 'BackendBundle\\Entity\\Location' . "\0" . 'canonicalName', '' . "\0" . 'BackendBundle\\Entity\\Location' . "\0" . 'address', '' . "\0" . 'BackendBundle\\Entity\\Location' . "\0" . 'number', '' . "\0" . 'BackendBundle\\Entity\\Location' . "\0" . 'other', '' . "\0" . 'BackendBundle\\Entity\\Location' . "\0" . 'zip', '' . "\0" . 'BackendBundle\\Entity\\Location' . "\0" . 'latitude', '' . "\0" . 'BackendBundle\\Entity\\Location' . "\0" . 'longitude', '' . "\0" . 'BackendBundle\\Entity\\Location' . "\0" . 'entreCalleUno', '' . "\0" . 'BackendBundle\\Entity\\Location' . "\0" . 'entreCalleDos', '' . "\0" . 'BackendBundle\\Entity\\Location' . "\0" . 'barrio', '' . "\0" . 'BackendBundle\\Entity\\Location' . "\0" . 'city');
+            return ['__isInitialized__', '' . "\0" . 'BackendBundle\\Entity\\Location' . "\0" . 'id', '' . "\0" . 'BackendBundle\\Entity\\Location' . "\0" . 'name', '' . "\0" . 'BackendBundle\\Entity\\Location' . "\0" . 'canonicalName', '' . "\0" . 'BackendBundle\\Entity\\Location' . "\0" . 'address', '' . "\0" . 'BackendBundle\\Entity\\Location' . "\0" . 'number', '' . "\0" . 'BackendBundle\\Entity\\Location' . "\0" . 'other', '' . "\0" . 'BackendBundle\\Entity\\Location' . "\0" . 'zip', '' . "\0" . 'BackendBundle\\Entity\\Location' . "\0" . 'latitude', '' . "\0" . 'BackendBundle\\Entity\\Location' . "\0" . 'longitude', '' . "\0" . 'BackendBundle\\Entity\\Location' . "\0" . 'entreCalleUno', '' . "\0" . 'BackendBundle\\Entity\\Location' . "\0" . 'entreCalleDos', '' . "\0" . 'BackendBundle\\Entity\\Location' . "\0" . 'barrio', '' . "\0" . 'BackendBundle\\Entity\\Location' . "\0" . 'city'];
         }
 
-        return array('__isInitialized__', '' . "\0" . 'BackendBundle\\Entity\\Location' . "\0" . 'id', '' . "\0" . 'BackendBundle\\Entity\\Location' . "\0" . 'name', '' . "\0" . 'BackendBundle\\Entity\\Location' . "\0" . 'canonicalName', '' . "\0" . 'BackendBundle\\Entity\\Location' . "\0" . 'address', '' . "\0" . 'BackendBundle\\Entity\\Location' . "\0" . 'number', '' . "\0" . 'BackendBundle\\Entity\\Location' . "\0" . 'other', '' . "\0" . 'BackendBundle\\Entity\\Location' . "\0" . 'zip', '' . "\0" . 'BackendBundle\\Entity\\Location' . "\0" . 'latitude', '' . "\0" . 'BackendBundle\\Entity\\Location' . "\0" . 'longitude', '' . "\0" . 'BackendBundle\\Entity\\Location' . "\0" . 'entreCalleUno', '' . "\0" . 'BackendBundle\\Entity\\Location' . "\0" . 'entreCalleDos', '' . "\0" . 'BackendBundle\\Entity\\Location' . "\0" . 'barrio', '' . "\0" . 'BackendBundle\\Entity\\Location' . "\0" . 'city');
+        return ['__isInitialized__', '' . "\0" . 'BackendBundle\\Entity\\Location' . "\0" . 'id', '' . "\0" . 'BackendBundle\\Entity\\Location' . "\0" . 'name', '' . "\0" . 'BackendBundle\\Entity\\Location' . "\0" . 'canonicalName', '' . "\0" . 'BackendBundle\\Entity\\Location' . "\0" . 'address', '' . "\0" . 'BackendBundle\\Entity\\Location' . "\0" . 'number', '' . "\0" . 'BackendBundle\\Entity\\Location' . "\0" . 'other', '' . "\0" . 'BackendBundle\\Entity\\Location' . "\0" . 'zip', '' . "\0" . 'BackendBundle\\Entity\\Location' . "\0" . 'latitude', '' . "\0" . 'BackendBundle\\Entity\\Location' . "\0" . 'longitude', '' . "\0" . 'BackendBundle\\Entity\\Location' . "\0" . 'entreCalleUno', '' . "\0" . 'BackendBundle\\Entity\\Location' . "\0" . 'entreCalleDos', '' . "\0" . 'BackendBundle\\Entity\\Location' . "\0" . 'barrio', '' . "\0" . 'BackendBundle\\Entity\\Location' . "\0" . 'city'];
     }
 
     /**
@@ -97,7 +97,7 @@ class Location extends \BackendBundle\Entity\Location implements \Doctrine\ORM\P
      */
     public function __clone()
     {
-        $this->__cloner__ && $this->__cloner__->__invoke($this, '__clone', array());
+        $this->__cloner__ && $this->__cloner__->__invoke($this, '__clone', []);
     }
 
     /**
@@ -105,7 +105,7 @@ class Location extends \BackendBundle\Entity\Location implements \Doctrine\ORM\P
      */
     public function __load()
     {
-        $this->__initializer__ && $this->__initializer__->__invoke($this, '__load', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, '__load', []);
     }
 
     /**
@@ -179,7 +179,7 @@ class Location extends \BackendBundle\Entity\Location implements \Doctrine\ORM\P
     public function __toString()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, '__toString', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, '__toString', []);
 
         return parent::__toString();
     }
@@ -194,7 +194,7 @@ class Location extends \BackendBundle\Entity\Location implements \Doctrine\ORM\P
         }
 
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getId', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getId', []);
 
         return parent::getId();
     }
@@ -205,7 +205,7 @@ class Location extends \BackendBundle\Entity\Location implements \Doctrine\ORM\P
     public function setName($name)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setName', array($name));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setName', [$name]);
 
         return parent::setName($name);
     }
@@ -216,7 +216,7 @@ class Location extends \BackendBundle\Entity\Location implements \Doctrine\ORM\P
     public function getName()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getName', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getName', []);
 
         return parent::getName();
     }
@@ -227,7 +227,7 @@ class Location extends \BackendBundle\Entity\Location implements \Doctrine\ORM\P
     public function setCanonicalName($canonicalName)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setCanonicalName', array($canonicalName));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setCanonicalName', [$canonicalName]);
 
         return parent::setCanonicalName($canonicalName);
     }
@@ -238,7 +238,7 @@ class Location extends \BackendBundle\Entity\Location implements \Doctrine\ORM\P
     public function getCanonicalName()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getCanonicalName', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getCanonicalName', []);
 
         return parent::getCanonicalName();
     }
@@ -249,7 +249,7 @@ class Location extends \BackendBundle\Entity\Location implements \Doctrine\ORM\P
     public function setAddress($address)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setAddress', array($address));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setAddress', [$address]);
 
         return parent::setAddress($address);
     }
@@ -260,7 +260,7 @@ class Location extends \BackendBundle\Entity\Location implements \Doctrine\ORM\P
     public function getAddress()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getAddress', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getAddress', []);
 
         return parent::getAddress();
     }
@@ -271,7 +271,7 @@ class Location extends \BackendBundle\Entity\Location implements \Doctrine\ORM\P
     public function setNumber($number)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setNumber', array($number));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setNumber', [$number]);
 
         return parent::setNumber($number);
     }
@@ -282,7 +282,7 @@ class Location extends \BackendBundle\Entity\Location implements \Doctrine\ORM\P
     public function getNumber()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getNumber', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getNumber', []);
 
         return parent::getNumber();
     }
@@ -293,7 +293,7 @@ class Location extends \BackendBundle\Entity\Location implements \Doctrine\ORM\P
     public function setOther($other)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setOther', array($other));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setOther', [$other]);
 
         return parent::setOther($other);
     }
@@ -304,7 +304,7 @@ class Location extends \BackendBundle\Entity\Location implements \Doctrine\ORM\P
     public function getOther()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getOther', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getOther', []);
 
         return parent::getOther();
     }
@@ -315,7 +315,7 @@ class Location extends \BackendBundle\Entity\Location implements \Doctrine\ORM\P
     public function setZip($zip)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setZip', array($zip));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setZip', [$zip]);
 
         return parent::setZip($zip);
     }
@@ -326,7 +326,7 @@ class Location extends \BackendBundle\Entity\Location implements \Doctrine\ORM\P
     public function getZip()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getZip', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getZip', []);
 
         return parent::getZip();
     }
@@ -337,7 +337,7 @@ class Location extends \BackendBundle\Entity\Location implements \Doctrine\ORM\P
     public function setLatitude($latitude)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setLatitude', array($latitude));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setLatitude', [$latitude]);
 
         return parent::setLatitude($latitude);
     }
@@ -348,7 +348,7 @@ class Location extends \BackendBundle\Entity\Location implements \Doctrine\ORM\P
     public function getLatitude()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getLatitude', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getLatitude', []);
 
         return parent::getLatitude();
     }
@@ -359,7 +359,7 @@ class Location extends \BackendBundle\Entity\Location implements \Doctrine\ORM\P
     public function setLongitude($longitude)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setLongitude', array($longitude));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setLongitude', [$longitude]);
 
         return parent::setLongitude($longitude);
     }
@@ -370,7 +370,7 @@ class Location extends \BackendBundle\Entity\Location implements \Doctrine\ORM\P
     public function getLongitude()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getLongitude', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getLongitude', []);
 
         return parent::getLongitude();
     }
@@ -381,7 +381,7 @@ class Location extends \BackendBundle\Entity\Location implements \Doctrine\ORM\P
     public function setEntreCalleUno($entreCalleUno)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setEntreCalleUno', array($entreCalleUno));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setEntreCalleUno', [$entreCalleUno]);
 
         return parent::setEntreCalleUno($entreCalleUno);
     }
@@ -392,7 +392,7 @@ class Location extends \BackendBundle\Entity\Location implements \Doctrine\ORM\P
     public function getEntreCalleUno()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getEntreCalleUno', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getEntreCalleUno', []);
 
         return parent::getEntreCalleUno();
     }
@@ -403,7 +403,7 @@ class Location extends \BackendBundle\Entity\Location implements \Doctrine\ORM\P
     public function setEntreCalleDos($entreCalleDos)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setEntreCalleDos', array($entreCalleDos));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setEntreCalleDos', [$entreCalleDos]);
 
         return parent::setEntreCalleDos($entreCalleDos);
     }
@@ -414,7 +414,7 @@ class Location extends \BackendBundle\Entity\Location implements \Doctrine\ORM\P
     public function getEntreCalleDos()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getEntreCalleDos', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getEntreCalleDos', []);
 
         return parent::getEntreCalleDos();
     }
@@ -425,7 +425,7 @@ class Location extends \BackendBundle\Entity\Location implements \Doctrine\ORM\P
     public function setBarrio($barrio)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setBarrio', array($barrio));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setBarrio', [$barrio]);
 
         return parent::setBarrio($barrio);
     }
@@ -436,7 +436,7 @@ class Location extends \BackendBundle\Entity\Location implements \Doctrine\ORM\P
     public function getBarrio()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getBarrio', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getBarrio', []);
 
         return parent::getBarrio();
     }
@@ -447,7 +447,7 @@ class Location extends \BackendBundle\Entity\Location implements \Doctrine\ORM\P
     public function setCity(\BackendBundle\Entity\City $city = NULL)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setCity', array($city));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setCity', [$city]);
 
         return parent::setCity($city);
     }
@@ -458,7 +458,7 @@ class Location extends \BackendBundle\Entity\Location implements \Doctrine\ORM\P
     public function getCity()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getCity', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getCity', []);
 
         return parent::getCity();
     }

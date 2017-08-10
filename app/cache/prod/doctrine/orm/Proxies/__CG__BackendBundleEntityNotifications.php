@@ -36,7 +36,7 @@ class Notifications extends \BackendBundle\Entity\Notifications implements \Doct
      *
      * @see \Doctrine\Common\Persistence\Proxy::__getLazyProperties
      */
-    public static $lazyPropertiesDefaults = array();
+    public static $lazyPropertiesDefaults = [];
 
 
 
@@ -64,10 +64,10 @@ class Notifications extends \BackendBundle\Entity\Notifications implements \Doct
     public function __sleep()
     {
         if ($this->__isInitialized__) {
-            return array('__isInitialized__', '' . "\0" . 'BackendBundle\\Entity\\Notifications' . "\0" . 'id', '' . "\0" . 'BackendBundle\\Entity\\Notifications' . "\0" . 'notification', '' . "\0" . 'BackendBundle\\Entity\\Notifications' . "\0" . 'link', '' . "\0" . 'BackendBundle\\Entity\\Notifications' . "\0" . 'dateadd', '' . "\0" . 'BackendBundle\\Entity\\Notifications' . "\0" . 'dateviewed', '' . "\0" . 'BackendBundle\\Entity\\Notifications' . "\0" . 'user');
+            return ['__isInitialized__', '' . "\0" . 'BackendBundle\\Entity\\Notifications' . "\0" . 'id', '' . "\0" . 'BackendBundle\\Entity\\Notifications' . "\0" . 'notification', '' . "\0" . 'BackendBundle\\Entity\\Notifications' . "\0" . 'link', '' . "\0" . 'BackendBundle\\Entity\\Notifications' . "\0" . 'dateadd', '' . "\0" . 'BackendBundle\\Entity\\Notifications' . "\0" . 'dateviewed', '' . "\0" . 'BackendBundle\\Entity\\Notifications' . "\0" . 'user'];
         }
 
-        return array('__isInitialized__', '' . "\0" . 'BackendBundle\\Entity\\Notifications' . "\0" . 'id', '' . "\0" . 'BackendBundle\\Entity\\Notifications' . "\0" . 'notification', '' . "\0" . 'BackendBundle\\Entity\\Notifications' . "\0" . 'link', '' . "\0" . 'BackendBundle\\Entity\\Notifications' . "\0" . 'dateadd', '' . "\0" . 'BackendBundle\\Entity\\Notifications' . "\0" . 'dateviewed', '' . "\0" . 'BackendBundle\\Entity\\Notifications' . "\0" . 'user');
+        return ['__isInitialized__', '' . "\0" . 'BackendBundle\\Entity\\Notifications' . "\0" . 'id', '' . "\0" . 'BackendBundle\\Entity\\Notifications' . "\0" . 'notification', '' . "\0" . 'BackendBundle\\Entity\\Notifications' . "\0" . 'link', '' . "\0" . 'BackendBundle\\Entity\\Notifications' . "\0" . 'dateadd', '' . "\0" . 'BackendBundle\\Entity\\Notifications' . "\0" . 'dateviewed', '' . "\0" . 'BackendBundle\\Entity\\Notifications' . "\0" . 'user'];
     }
 
     /**
@@ -97,7 +97,7 @@ class Notifications extends \BackendBundle\Entity\Notifications implements \Doct
      */
     public function __clone()
     {
-        $this->__cloner__ && $this->__cloner__->__invoke($this, '__clone', array());
+        $this->__cloner__ && $this->__cloner__->__invoke($this, '__clone', []);
     }
 
     /**
@@ -105,7 +105,7 @@ class Notifications extends \BackendBundle\Entity\Notifications implements \Doct
      */
     public function __load()
     {
-        $this->__initializer__ && $this->__initializer__->__invoke($this, '__load', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, '__load', []);
     }
 
     /**
@@ -183,7 +183,7 @@ class Notifications extends \BackendBundle\Entity\Notifications implements \Doct
         }
 
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getId', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getId', []);
 
         return parent::getId();
     }
@@ -194,7 +194,7 @@ class Notifications extends \BackendBundle\Entity\Notifications implements \Doct
     public function setNotification($notification)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setNotification', array($notification));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setNotification', [$notification]);
 
         return parent::setNotification($notification);
     }
@@ -205,7 +205,7 @@ class Notifications extends \BackendBundle\Entity\Notifications implements \Doct
     public function getNotification()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getNotification', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getNotification', []);
 
         return parent::getNotification();
     }
@@ -216,7 +216,7 @@ class Notifications extends \BackendBundle\Entity\Notifications implements \Doct
     public function setLink($link)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setLink', array($link));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setLink', [$link]);
 
         return parent::setLink($link);
     }
@@ -227,7 +227,7 @@ class Notifications extends \BackendBundle\Entity\Notifications implements \Doct
     public function getLink()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getLink', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getLink', []);
 
         return parent::getLink();
     }
@@ -238,7 +238,7 @@ class Notifications extends \BackendBundle\Entity\Notifications implements \Doct
     public function setDateadd($dateadd)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setDateadd', array($dateadd));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setDateadd', [$dateadd]);
 
         return parent::setDateadd($dateadd);
     }
@@ -249,7 +249,7 @@ class Notifications extends \BackendBundle\Entity\Notifications implements \Doct
     public function getDateadd()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getDateadd', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getDateadd', []);
 
         return parent::getDateadd();
     }
@@ -260,7 +260,7 @@ class Notifications extends \BackendBundle\Entity\Notifications implements \Doct
     public function setDateviewed($dateviewed)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setDateviewed', array($dateviewed));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setDateviewed', [$dateviewed]);
 
         return parent::setDateviewed($dateviewed);
     }
@@ -271,7 +271,7 @@ class Notifications extends \BackendBundle\Entity\Notifications implements \Doct
     public function getDateviewed()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getDateviewed', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getDateviewed', []);
 
         return parent::getDateviewed();
     }
@@ -282,7 +282,7 @@ class Notifications extends \BackendBundle\Entity\Notifications implements \Doct
     public function setUser(\BackendBundle\Entity\User $user = NULL)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setUser', array($user));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setUser', [$user]);
 
         return parent::setUser($user);
     }
@@ -293,7 +293,7 @@ class Notifications extends \BackendBundle\Entity\Notifications implements \Doct
     public function getUser()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getUser', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getUser', []);
 
         return parent::getUser();
     }

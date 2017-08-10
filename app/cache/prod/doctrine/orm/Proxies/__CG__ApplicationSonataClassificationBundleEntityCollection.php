@@ -36,7 +36,7 @@ class Collection extends \Application\Sonata\ClassificationBundle\Entity\Collect
      *
      * @see \Doctrine\Common\Persistence\Proxy::__getLazyProperties
      */
-    public static $lazyPropertiesDefaults = array();
+    public static $lazyPropertiesDefaults = [];
 
 
 
@@ -64,10 +64,10 @@ class Collection extends \Application\Sonata\ClassificationBundle\Entity\Collect
     public function __sleep()
     {
         if ($this->__isInitialized__) {
-            return array('__isInitialized__', 'id', 'name', 'slug', 'enabled', 'description', 'createdAt', 'updatedAt', 'media', 'context');
+            return ['__isInitialized__', 'id', 'name', 'slug', 'enabled', 'description', 'createdAt', 'updatedAt', 'media', 'context'];
         }
 
-        return array('__isInitialized__', 'id', 'name', 'slug', 'enabled', 'description', 'createdAt', 'updatedAt', 'media', 'context');
+        return ['__isInitialized__', 'id', 'name', 'slug', 'enabled', 'description', 'createdAt', 'updatedAt', 'media', 'context'];
     }
 
     /**
@@ -97,7 +97,7 @@ class Collection extends \Application\Sonata\ClassificationBundle\Entity\Collect
      */
     public function __clone()
     {
-        $this->__cloner__ && $this->__cloner__->__invoke($this, '__clone', array());
+        $this->__cloner__ && $this->__cloner__->__invoke($this, '__clone', []);
     }
 
     /**
@@ -105,7 +105,7 @@ class Collection extends \Application\Sonata\ClassificationBundle\Entity\Collect
      */
     public function __load()
     {
-        $this->__initializer__ && $this->__initializer__->__invoke($this, '__load', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, '__load', []);
     }
 
     /**
@@ -183,7 +183,7 @@ class Collection extends \Application\Sonata\ClassificationBundle\Entity\Collect
         }
 
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getId', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getId', []);
 
         return parent::getId();
     }
@@ -194,7 +194,7 @@ class Collection extends \Application\Sonata\ClassificationBundle\Entity\Collect
     public function __toString()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, '__toString', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, '__toString', []);
 
         return parent::__toString();
     }
@@ -205,7 +205,7 @@ class Collection extends \Application\Sonata\ClassificationBundle\Entity\Collect
     public function setName($name)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setName', array($name));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setName', [$name]);
 
         return parent::setName($name);
     }
@@ -216,7 +216,7 @@ class Collection extends \Application\Sonata\ClassificationBundle\Entity\Collect
     public function getName()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getName', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getName', []);
 
         return parent::getName();
     }
@@ -227,7 +227,7 @@ class Collection extends \Application\Sonata\ClassificationBundle\Entity\Collect
     public function setEnabled($enabled)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setEnabled', array($enabled));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setEnabled', [$enabled]);
 
         return parent::setEnabled($enabled);
     }
@@ -238,7 +238,7 @@ class Collection extends \Application\Sonata\ClassificationBundle\Entity\Collect
     public function getEnabled()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getEnabled', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getEnabled', []);
 
         return parent::getEnabled();
     }
@@ -249,7 +249,7 @@ class Collection extends \Application\Sonata\ClassificationBundle\Entity\Collect
     public function setSlug($slug)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setSlug', array($slug));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setSlug', [$slug]);
 
         return parent::setSlug($slug);
     }
@@ -260,7 +260,7 @@ class Collection extends \Application\Sonata\ClassificationBundle\Entity\Collect
     public function getSlug()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getSlug', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getSlug', []);
 
         return parent::getSlug();
     }
@@ -271,7 +271,7 @@ class Collection extends \Application\Sonata\ClassificationBundle\Entity\Collect
     public function setDescription($description)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setDescription', array($description));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setDescription', [$description]);
 
         return parent::setDescription($description);
     }
@@ -282,7 +282,7 @@ class Collection extends \Application\Sonata\ClassificationBundle\Entity\Collect
     public function getDescription()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getDescription', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getDescription', []);
 
         return parent::getDescription();
     }
@@ -293,7 +293,7 @@ class Collection extends \Application\Sonata\ClassificationBundle\Entity\Collect
     public function prePersist()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'prePersist', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'prePersist', []);
 
         return parent::prePersist();
     }
@@ -304,7 +304,7 @@ class Collection extends \Application\Sonata\ClassificationBundle\Entity\Collect
     public function preUpdate()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'preUpdate', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'preUpdate', []);
 
         return parent::preUpdate();
     }
@@ -315,7 +315,7 @@ class Collection extends \Application\Sonata\ClassificationBundle\Entity\Collect
     public function setCreatedAt(\DateTime $createdAt)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setCreatedAt', array($createdAt));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setCreatedAt', [$createdAt]);
 
         return parent::setCreatedAt($createdAt);
     }
@@ -326,7 +326,7 @@ class Collection extends \Application\Sonata\ClassificationBundle\Entity\Collect
     public function getCreatedAt()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getCreatedAt', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getCreatedAt', []);
 
         return parent::getCreatedAt();
     }
@@ -337,7 +337,7 @@ class Collection extends \Application\Sonata\ClassificationBundle\Entity\Collect
     public function setUpdatedAt(\DateTime $updatedAt)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setUpdatedAt', array($updatedAt));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setUpdatedAt', [$updatedAt]);
 
         return parent::setUpdatedAt($updatedAt);
     }
@@ -348,7 +348,7 @@ class Collection extends \Application\Sonata\ClassificationBundle\Entity\Collect
     public function getUpdatedAt()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getUpdatedAt', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getUpdatedAt', []);
 
         return parent::getUpdatedAt();
     }
@@ -359,7 +359,7 @@ class Collection extends \Application\Sonata\ClassificationBundle\Entity\Collect
     public function setMedia(\Sonata\MediaBundle\Model\MediaInterface $media = NULL)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setMedia', array($media));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setMedia', [$media]);
 
         return parent::setMedia($media);
     }
@@ -370,7 +370,7 @@ class Collection extends \Application\Sonata\ClassificationBundle\Entity\Collect
     public function getMedia()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getMedia', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getMedia', []);
 
         return parent::getMedia();
     }
@@ -381,7 +381,7 @@ class Collection extends \Application\Sonata\ClassificationBundle\Entity\Collect
     public function setContext(\Sonata\ClassificationBundle\Model\ContextInterface $context)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setContext', array($context));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setContext', [$context]);
 
         return parent::setContext($context);
     }
@@ -392,7 +392,7 @@ class Collection extends \Application\Sonata\ClassificationBundle\Entity\Collect
     public function getContext()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getContext', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getContext', []);
 
         return parent::getContext();
     }

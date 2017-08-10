@@ -36,7 +36,7 @@ class Languages extends \BackendBundle\Entity\Languages implements \Doctrine\ORM
      *
      * @see \Doctrine\Common\Persistence\Proxy::__getLazyProperties
      */
-    public static $lazyPropertiesDefaults = array();
+    public static $lazyPropertiesDefaults = [];
 
 
 
@@ -64,10 +64,10 @@ class Languages extends \BackendBundle\Entity\Languages implements \Doctrine\ORM
     public function __sleep()
     {
         if ($this->__isInitialized__) {
-            return array('__isInitialized__', '' . "\0" . 'BackendBundle\\Entity\\Languages' . "\0" . 'id', '' . "\0" . 'BackendBundle\\Entity\\Languages' . "\0" . 'language', '' . "\0" . 'BackendBundle\\Entity\\Languages' . "\0" . 'iso', '' . "\0" . 'BackendBundle\\Entity\\Languages' . "\0" . 'image', '' . "\0" . 'BackendBundle\\Entity\\Languages' . "\0" . 'active', 'langDescription');
+            return ['__isInitialized__', '' . "\0" . 'BackendBundle\\Entity\\Languages' . "\0" . 'id', '' . "\0" . 'BackendBundle\\Entity\\Languages' . "\0" . 'language', '' . "\0" . 'BackendBundle\\Entity\\Languages' . "\0" . 'iso', '' . "\0" . 'BackendBundle\\Entity\\Languages' . "\0" . 'image', '' . "\0" . 'BackendBundle\\Entity\\Languages' . "\0" . 'active', 'langDescription'];
         }
 
-        return array('__isInitialized__', '' . "\0" . 'BackendBundle\\Entity\\Languages' . "\0" . 'id', '' . "\0" . 'BackendBundle\\Entity\\Languages' . "\0" . 'language', '' . "\0" . 'BackendBundle\\Entity\\Languages' . "\0" . 'iso', '' . "\0" . 'BackendBundle\\Entity\\Languages' . "\0" . 'image', '' . "\0" . 'BackendBundle\\Entity\\Languages' . "\0" . 'active', 'langDescription');
+        return ['__isInitialized__', '' . "\0" . 'BackendBundle\\Entity\\Languages' . "\0" . 'id', '' . "\0" . 'BackendBundle\\Entity\\Languages' . "\0" . 'language', '' . "\0" . 'BackendBundle\\Entity\\Languages' . "\0" . 'iso', '' . "\0" . 'BackendBundle\\Entity\\Languages' . "\0" . 'image', '' . "\0" . 'BackendBundle\\Entity\\Languages' . "\0" . 'active', 'langDescription'];
     }
 
     /**
@@ -97,7 +97,7 @@ class Languages extends \BackendBundle\Entity\Languages implements \Doctrine\ORM
      */
     public function __clone()
     {
-        $this->__cloner__ && $this->__cloner__->__invoke($this, '__clone', array());
+        $this->__cloner__ && $this->__cloner__->__invoke($this, '__clone', []);
     }
 
     /**
@@ -105,7 +105,7 @@ class Languages extends \BackendBundle\Entity\Languages implements \Doctrine\ORM
      */
     public function __load()
     {
-        $this->__initializer__ && $this->__initializer__->__invoke($this, '__load', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, '__load', []);
     }
 
     /**
@@ -183,7 +183,7 @@ class Languages extends \BackendBundle\Entity\Languages implements \Doctrine\ORM
         }
 
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getId', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getId', []);
 
         return parent::getId();
     }
@@ -194,7 +194,7 @@ class Languages extends \BackendBundle\Entity\Languages implements \Doctrine\ORM
     public function setLanguage($language)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setLanguage', array($language));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setLanguage', [$language]);
 
         return parent::setLanguage($language);
     }
@@ -205,7 +205,7 @@ class Languages extends \BackendBundle\Entity\Languages implements \Doctrine\ORM
     public function getLanguage()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getLanguage', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getLanguage', []);
 
         return parent::getLanguage();
     }
@@ -216,7 +216,7 @@ class Languages extends \BackendBundle\Entity\Languages implements \Doctrine\ORM
     public function setIso($iso)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setIso', array($iso));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setIso', [$iso]);
 
         return parent::setIso($iso);
     }
@@ -227,7 +227,7 @@ class Languages extends \BackendBundle\Entity\Languages implements \Doctrine\ORM
     public function getIso()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getIso', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getIso', []);
 
         return parent::getIso();
     }
@@ -238,7 +238,7 @@ class Languages extends \BackendBundle\Entity\Languages implements \Doctrine\ORM
     public function setImage($image)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setImage', array($image));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setImage', [$image]);
 
         return parent::setImage($image);
     }
@@ -249,7 +249,7 @@ class Languages extends \BackendBundle\Entity\Languages implements \Doctrine\ORM
     public function getImage()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getImage', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getImage', []);
 
         return parent::getImage();
     }
@@ -260,7 +260,7 @@ class Languages extends \BackendBundle\Entity\Languages implements \Doctrine\ORM
     public function setActive($active)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setActive', array($active));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setActive', [$active]);
 
         return parent::setActive($active);
     }
@@ -271,7 +271,7 @@ class Languages extends \BackendBundle\Entity\Languages implements \Doctrine\ORM
     public function getActive()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getActive', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getActive', []);
 
         return parent::getActive();
     }
@@ -282,7 +282,7 @@ class Languages extends \BackendBundle\Entity\Languages implements \Doctrine\ORM
     public function addLangDescription(\BackendBundle\Entity\ProductDescription $langDescription)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'addLangDescription', array($langDescription));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'addLangDescription', [$langDescription]);
 
         return parent::addLangDescription($langDescription);
     }
@@ -293,7 +293,7 @@ class Languages extends \BackendBundle\Entity\Languages implements \Doctrine\ORM
     public function removeLangDescription(\BackendBundle\Entity\ProductDescription $langDescription)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'removeLangDescription', array($langDescription));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'removeLangDescription', [$langDescription]);
 
         return parent::removeLangDescription($langDescription);
     }
@@ -304,7 +304,7 @@ class Languages extends \BackendBundle\Entity\Languages implements \Doctrine\ORM
     public function getLangDescription()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getLangDescription', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getLangDescription', []);
 
         return parent::getLangDescription();
     }

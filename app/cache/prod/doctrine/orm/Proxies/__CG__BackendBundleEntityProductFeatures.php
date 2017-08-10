@@ -36,7 +36,7 @@ class ProductFeatures extends \BackendBundle\Entity\ProductFeatures implements \
      *
      * @see \Doctrine\Common\Persistence\Proxy::__getLazyProperties
      */
-    public static $lazyPropertiesDefaults = array();
+    public static $lazyPropertiesDefaults = [];
 
 
 
@@ -64,10 +64,10 @@ class ProductFeatures extends \BackendBundle\Entity\ProductFeatures implements \
     public function __sleep()
     {
         if ($this->__isInitialized__) {
-            return array('__isInitialized__', '' . "\0" . 'BackendBundle\\Entity\\ProductFeatures' . "\0" . 'id', '' . "\0" . 'BackendBundle\\Entity\\ProductFeatures' . "\0" . 'product', '' . "\0" . 'BackendBundle\\Entity\\ProductFeatures' . "\0" . 'feature');
+            return ['__isInitialized__', '' . "\0" . 'BackendBundle\\Entity\\ProductFeatures' . "\0" . 'id', '' . "\0" . 'BackendBundle\\Entity\\ProductFeatures' . "\0" . 'product', '' . "\0" . 'BackendBundle\\Entity\\ProductFeatures' . "\0" . 'feature'];
         }
 
-        return array('__isInitialized__', '' . "\0" . 'BackendBundle\\Entity\\ProductFeatures' . "\0" . 'id', '' . "\0" . 'BackendBundle\\Entity\\ProductFeatures' . "\0" . 'product', '' . "\0" . 'BackendBundle\\Entity\\ProductFeatures' . "\0" . 'feature');
+        return ['__isInitialized__', '' . "\0" . 'BackendBundle\\Entity\\ProductFeatures' . "\0" . 'id', '' . "\0" . 'BackendBundle\\Entity\\ProductFeatures' . "\0" . 'product', '' . "\0" . 'BackendBundle\\Entity\\ProductFeatures' . "\0" . 'feature'];
     }
 
     /**
@@ -97,7 +97,7 @@ class ProductFeatures extends \BackendBundle\Entity\ProductFeatures implements \
      */
     public function __clone()
     {
-        $this->__cloner__ && $this->__cloner__->__invoke($this, '__clone', array());
+        $this->__cloner__ && $this->__cloner__->__invoke($this, '__clone', []);
     }
 
     /**
@@ -105,7 +105,7 @@ class ProductFeatures extends \BackendBundle\Entity\ProductFeatures implements \
      */
     public function __load()
     {
-        $this->__initializer__ && $this->__initializer__->__invoke($this, '__load', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, '__load', []);
     }
 
     /**
@@ -183,7 +183,7 @@ class ProductFeatures extends \BackendBundle\Entity\ProductFeatures implements \
         }
 
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getId', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getId', []);
 
         return parent::getId();
     }
@@ -194,7 +194,7 @@ class ProductFeatures extends \BackendBundle\Entity\ProductFeatures implements \
     public function setProduct(\BackendBundle\Entity\Products $product = NULL)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setProduct', array($product));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setProduct', [$product]);
 
         return parent::setProduct($product);
     }
@@ -205,7 +205,7 @@ class ProductFeatures extends \BackendBundle\Entity\ProductFeatures implements \
     public function getProduct()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getProduct', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getProduct', []);
 
         return parent::getProduct();
     }
@@ -216,7 +216,7 @@ class ProductFeatures extends \BackendBundle\Entity\ProductFeatures implements \
     public function setFeature(\BackendBundle\Entity\Features $feature = NULL)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setFeature', array($feature));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setFeature', [$feature]);
 
         return parent::setFeature($feature);
     }
@@ -227,7 +227,7 @@ class ProductFeatures extends \BackendBundle\Entity\ProductFeatures implements \
     public function getFeature()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getFeature', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getFeature', []);
 
         return parent::getFeature();
     }
@@ -238,7 +238,7 @@ class ProductFeatures extends \BackendBundle\Entity\ProductFeatures implements \
     public function __toString()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, '__toString', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, '__toString', []);
 
         return parent::__toString();
     }

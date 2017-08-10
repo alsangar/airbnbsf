@@ -36,7 +36,7 @@ class Currencies extends \BackendBundle\Entity\Currencies implements \Doctrine\O
      *
      * @see \Doctrine\Common\Persistence\Proxy::__getLazyProperties
      */
-    public static $lazyPropertiesDefaults = array();
+    public static $lazyPropertiesDefaults = [];
 
 
 
@@ -64,10 +64,10 @@ class Currencies extends \BackendBundle\Entity\Currencies implements \Doctrine\O
     public function __sleep()
     {
         if ($this->__isInitialized__) {
-            return array('__isInitialized__', '' . "\0" . 'BackendBundle\\Entity\\Currencies' . "\0" . 'id', '' . "\0" . 'BackendBundle\\Entity\\Currencies' . "\0" . 'currency', '' . "\0" . 'BackendBundle\\Entity\\Currencies' . "\0" . 'iso', '' . "\0" . 'BackendBundle\\Entity\\Currencies' . "\0" . 'conversion', '' . "\0" . 'BackendBundle\\Entity\\Currencies' . "\0" . 'currencyDefault', '' . "\0" . 'BackendBundle\\Entity\\Currencies' . "\0" . 'active');
+            return ['__isInitialized__', '' . "\0" . 'BackendBundle\\Entity\\Currencies' . "\0" . 'id', '' . "\0" . 'BackendBundle\\Entity\\Currencies' . "\0" . 'currency', '' . "\0" . 'BackendBundle\\Entity\\Currencies' . "\0" . 'iso', '' . "\0" . 'BackendBundle\\Entity\\Currencies' . "\0" . 'conversion', '' . "\0" . 'BackendBundle\\Entity\\Currencies' . "\0" . 'currencyDefault', '' . "\0" . 'BackendBundle\\Entity\\Currencies' . "\0" . 'active'];
         }
 
-        return array('__isInitialized__', '' . "\0" . 'BackendBundle\\Entity\\Currencies' . "\0" . 'id', '' . "\0" . 'BackendBundle\\Entity\\Currencies' . "\0" . 'currency', '' . "\0" . 'BackendBundle\\Entity\\Currencies' . "\0" . 'iso', '' . "\0" . 'BackendBundle\\Entity\\Currencies' . "\0" . 'conversion', '' . "\0" . 'BackendBundle\\Entity\\Currencies' . "\0" . 'currencyDefault', '' . "\0" . 'BackendBundle\\Entity\\Currencies' . "\0" . 'active');
+        return ['__isInitialized__', '' . "\0" . 'BackendBundle\\Entity\\Currencies' . "\0" . 'id', '' . "\0" . 'BackendBundle\\Entity\\Currencies' . "\0" . 'currency', '' . "\0" . 'BackendBundle\\Entity\\Currencies' . "\0" . 'iso', '' . "\0" . 'BackendBundle\\Entity\\Currencies' . "\0" . 'conversion', '' . "\0" . 'BackendBundle\\Entity\\Currencies' . "\0" . 'currencyDefault', '' . "\0" . 'BackendBundle\\Entity\\Currencies' . "\0" . 'active'];
     }
 
     /**
@@ -97,7 +97,7 @@ class Currencies extends \BackendBundle\Entity\Currencies implements \Doctrine\O
      */
     public function __clone()
     {
-        $this->__cloner__ && $this->__cloner__->__invoke($this, '__clone', array());
+        $this->__cloner__ && $this->__cloner__->__invoke($this, '__clone', []);
     }
 
     /**
@@ -105,7 +105,7 @@ class Currencies extends \BackendBundle\Entity\Currencies implements \Doctrine\O
      */
     public function __load()
     {
-        $this->__initializer__ && $this->__initializer__->__invoke($this, '__load', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, '__load', []);
     }
 
     /**
@@ -183,7 +183,7 @@ class Currencies extends \BackendBundle\Entity\Currencies implements \Doctrine\O
         }
 
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getId', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getId', []);
 
         return parent::getId();
     }
@@ -194,7 +194,7 @@ class Currencies extends \BackendBundle\Entity\Currencies implements \Doctrine\O
     public function setCurrency($currency)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setCurrency', array($currency));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setCurrency', [$currency]);
 
         return parent::setCurrency($currency);
     }
@@ -205,7 +205,7 @@ class Currencies extends \BackendBundle\Entity\Currencies implements \Doctrine\O
     public function getCurrency()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getCurrency', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getCurrency', []);
 
         return parent::getCurrency();
     }
@@ -216,7 +216,7 @@ class Currencies extends \BackendBundle\Entity\Currencies implements \Doctrine\O
     public function setIso($iso)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setIso', array($iso));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setIso', [$iso]);
 
         return parent::setIso($iso);
     }
@@ -227,7 +227,7 @@ class Currencies extends \BackendBundle\Entity\Currencies implements \Doctrine\O
     public function getIso()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getIso', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getIso', []);
 
         return parent::getIso();
     }
@@ -238,7 +238,7 @@ class Currencies extends \BackendBundle\Entity\Currencies implements \Doctrine\O
     public function setConversion($conversion)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setConversion', array($conversion));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setConversion', [$conversion]);
 
         return parent::setConversion($conversion);
     }
@@ -249,7 +249,7 @@ class Currencies extends \BackendBundle\Entity\Currencies implements \Doctrine\O
     public function getConversion()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getConversion', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getConversion', []);
 
         return parent::getConversion();
     }
@@ -260,7 +260,7 @@ class Currencies extends \BackendBundle\Entity\Currencies implements \Doctrine\O
     public function setCurrencyDefault($currencyDefault)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setCurrencyDefault', array($currencyDefault));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setCurrencyDefault', [$currencyDefault]);
 
         return parent::setCurrencyDefault($currencyDefault);
     }
@@ -271,7 +271,7 @@ class Currencies extends \BackendBundle\Entity\Currencies implements \Doctrine\O
     public function getCurrencyDefault()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getCurrencyDefault', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getCurrencyDefault', []);
 
         return parent::getCurrencyDefault();
     }
@@ -282,7 +282,7 @@ class Currencies extends \BackendBundle\Entity\Currencies implements \Doctrine\O
     public function setActive($active)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setActive', array($active));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setActive', [$active]);
 
         return parent::setActive($active);
     }
@@ -293,7 +293,7 @@ class Currencies extends \BackendBundle\Entity\Currencies implements \Doctrine\O
     public function getActive()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getActive', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getActive', []);
 
         return parent::getActive();
     }

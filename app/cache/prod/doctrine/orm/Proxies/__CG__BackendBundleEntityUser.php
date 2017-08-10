@@ -36,7 +36,7 @@ class User extends \BackendBundle\Entity\User implements \Doctrine\ORM\Proxy\Pro
      *
      * @see \Doctrine\Common\Persistence\Proxy::__getLazyProperties
      */
-    public static $lazyPropertiesDefaults = array();
+    public static $lazyPropertiesDefaults = [];
 
 
 
@@ -64,10 +64,10 @@ class User extends \BackendBundle\Entity\User implements \Doctrine\ORM\Proxy\Pro
     public function __sleep()
     {
         if ($this->__isInitialized__) {
-            return array('__isInitialized__', 'id', 'firstName', 'lastName', 'phone', 'favorites', 'username', 'usernameCanonical', 'email', 'emailCanonical', 'enabled', 'salt', 'password', 'plainPassword', 'lastLogin', 'confirmationToken', 'passwordRequestedAt', 'groups', 'roles');
+            return ['__isInitialized__', 'id', 'firstName', 'lastName', 'phone', 'favorites', '' . "\0" . 'BackendBundle\\Entity\\User' . "\0" . 'imageFile', '' . "\0" . 'BackendBundle\\Entity\\User' . "\0" . 'imageName', '' . "\0" . 'BackendBundle\\Entity\\User' . "\0" . 'imageSize', '' . "\0" . 'BackendBundle\\Entity\\User' . "\0" . 'updatedAt', 'username', 'usernameCanonical', 'email', 'emailCanonical', 'enabled', 'salt', 'password', 'plainPassword', 'lastLogin', 'confirmationToken', 'passwordRequestedAt', 'groups', 'roles'];
         }
 
-        return array('__isInitialized__', 'id', 'firstName', 'lastName', 'phone', 'favorites', 'username', 'usernameCanonical', 'email', 'emailCanonical', 'enabled', 'salt', 'password', 'plainPassword', 'lastLogin', 'confirmationToken', 'passwordRequestedAt', 'groups', 'roles');
+        return ['__isInitialized__', 'id', 'firstName', 'lastName', 'phone', 'favorites', '' . "\0" . 'BackendBundle\\Entity\\User' . "\0" . 'imageFile', '' . "\0" . 'BackendBundle\\Entity\\User' . "\0" . 'imageName', '' . "\0" . 'BackendBundle\\Entity\\User' . "\0" . 'imageSize', '' . "\0" . 'BackendBundle\\Entity\\User' . "\0" . 'updatedAt', 'username', 'usernameCanonical', 'email', 'emailCanonical', 'enabled', 'salt', 'password', 'plainPassword', 'lastLogin', 'confirmationToken', 'passwordRequestedAt', 'groups', 'roles'];
     }
 
     /**
@@ -97,7 +97,7 @@ class User extends \BackendBundle\Entity\User implements \Doctrine\ORM\Proxy\Pro
      */
     public function __clone()
     {
-        $this->__cloner__ && $this->__cloner__->__invoke($this, '__clone', array());
+        $this->__cloner__ && $this->__cloner__->__invoke($this, '__clone', []);
     }
 
     /**
@@ -105,7 +105,7 @@ class User extends \BackendBundle\Entity\User implements \Doctrine\ORM\Proxy\Pro
      */
     public function __load()
     {
-        $this->__initializer__ && $this->__initializer__->__invoke($this, '__load', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, '__load', []);
     }
 
     /**
@@ -179,7 +179,7 @@ class User extends \BackendBundle\Entity\User implements \Doctrine\ORM\Proxy\Pro
     public function __toString()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, '__toString', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, '__toString', []);
 
         return parent::__toString();
     }
@@ -190,7 +190,7 @@ class User extends \BackendBundle\Entity\User implements \Doctrine\ORM\Proxy\Pro
     public function addFavorite(\BackendBundle\Entity\Favorites $favorites)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'addFavorite', array($favorites));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'addFavorite', [$favorites]);
 
         return parent::addFavorite($favorites);
     }
@@ -201,7 +201,7 @@ class User extends \BackendBundle\Entity\User implements \Doctrine\ORM\Proxy\Pro
     public function removeFavorite(\BackendBundle\Entity\Favorites $favorites)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'removeFavorite', array($favorites));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'removeFavorite', [$favorites]);
 
         return parent::removeFavorite($favorites);
     }
@@ -212,7 +212,7 @@ class User extends \BackendBundle\Entity\User implements \Doctrine\ORM\Proxy\Pro
     public function getFavorites()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getFavorites', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getFavorites', []);
 
         return parent::getFavorites();
     }
@@ -223,7 +223,7 @@ class User extends \BackendBundle\Entity\User implements \Doctrine\ORM\Proxy\Pro
     public function setFirstName($firstName)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setFirstName', array($firstName));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setFirstName', [$firstName]);
 
         return parent::setFirstName($firstName);
     }
@@ -234,7 +234,7 @@ class User extends \BackendBundle\Entity\User implements \Doctrine\ORM\Proxy\Pro
     public function getFirstName()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getFirstName', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getFirstName', []);
 
         return parent::getFirstName();
     }
@@ -245,7 +245,7 @@ class User extends \BackendBundle\Entity\User implements \Doctrine\ORM\Proxy\Pro
     public function setLastName($lastName)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setLastName', array($lastName));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setLastName', [$lastName]);
 
         return parent::setLastName($lastName);
     }
@@ -256,7 +256,7 @@ class User extends \BackendBundle\Entity\User implements \Doctrine\ORM\Proxy\Pro
     public function getLastName()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getLastName', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getLastName', []);
 
         return parent::getLastName();
     }
@@ -267,7 +267,7 @@ class User extends \BackendBundle\Entity\User implements \Doctrine\ORM\Proxy\Pro
     public function setPhone($phone)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setPhone', array($phone));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setPhone', [$phone]);
 
         return parent::setPhone($phone);
     }
@@ -278,9 +278,97 @@ class User extends \BackendBundle\Entity\User implements \Doctrine\ORM\Proxy\Pro
     public function getPhone()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getPhone', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getPhone', []);
 
         return parent::getPhone();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function setImageFile(\Symfony\Component\HttpFoundation\File\File $image = NULL)
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setImageFile', [$image]);
+
+        return parent::setImageFile($image);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function getImageFile()
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getImageFile', []);
+
+        return parent::getImageFile();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function setImageName($imageName)
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setImageName', [$imageName]);
+
+        return parent::setImageName($imageName);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function getImageName()
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getImageName', []);
+
+        return parent::getImageName();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function setImageSize($imageSize)
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setImageSize', [$imageSize]);
+
+        return parent::setImageSize($imageSize);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function getImageSize()
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getImageSize', []);
+
+        return parent::getImageSize();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function setUpdatedAt($updatedAt)
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setUpdatedAt', [$updatedAt]);
+
+        return parent::setUpdatedAt($updatedAt);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function getUpdatedAt()
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getUpdatedAt', []);
+
+        return parent::getUpdatedAt();
     }
 
     /**
@@ -289,7 +377,7 @@ class User extends \BackendBundle\Entity\User implements \Doctrine\ORM\Proxy\Pro
     public function addRole($role)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'addRole', array($role));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'addRole', [$role]);
 
         return parent::addRole($role);
     }
@@ -300,7 +388,7 @@ class User extends \BackendBundle\Entity\User implements \Doctrine\ORM\Proxy\Pro
     public function serialize()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'serialize', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'serialize', []);
 
         return parent::serialize();
     }
@@ -311,7 +399,7 @@ class User extends \BackendBundle\Entity\User implements \Doctrine\ORM\Proxy\Pro
     public function unserialize($serialized)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'unserialize', array($serialized));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'unserialize', [$serialized]);
 
         return parent::unserialize($serialized);
     }
@@ -322,7 +410,7 @@ class User extends \BackendBundle\Entity\User implements \Doctrine\ORM\Proxy\Pro
     public function eraseCredentials()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'eraseCredentials', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'eraseCredentials', []);
 
         return parent::eraseCredentials();
     }
@@ -337,7 +425,7 @@ class User extends \BackendBundle\Entity\User implements \Doctrine\ORM\Proxy\Pro
         }
 
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getId', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getId', []);
 
         return parent::getId();
     }
@@ -348,7 +436,7 @@ class User extends \BackendBundle\Entity\User implements \Doctrine\ORM\Proxy\Pro
     public function getUsername()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getUsername', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getUsername', []);
 
         return parent::getUsername();
     }
@@ -359,7 +447,7 @@ class User extends \BackendBundle\Entity\User implements \Doctrine\ORM\Proxy\Pro
     public function getUsernameCanonical()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getUsernameCanonical', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getUsernameCanonical', []);
 
         return parent::getUsernameCanonical();
     }
@@ -370,7 +458,7 @@ class User extends \BackendBundle\Entity\User implements \Doctrine\ORM\Proxy\Pro
     public function getSalt()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getSalt', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getSalt', []);
 
         return parent::getSalt();
     }
@@ -381,7 +469,7 @@ class User extends \BackendBundle\Entity\User implements \Doctrine\ORM\Proxy\Pro
     public function getEmail()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getEmail', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getEmail', []);
 
         return parent::getEmail();
     }
@@ -392,7 +480,7 @@ class User extends \BackendBundle\Entity\User implements \Doctrine\ORM\Proxy\Pro
     public function getEmailCanonical()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getEmailCanonical', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getEmailCanonical', []);
 
         return parent::getEmailCanonical();
     }
@@ -403,7 +491,7 @@ class User extends \BackendBundle\Entity\User implements \Doctrine\ORM\Proxy\Pro
     public function getPassword()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getPassword', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getPassword', []);
 
         return parent::getPassword();
     }
@@ -414,7 +502,7 @@ class User extends \BackendBundle\Entity\User implements \Doctrine\ORM\Proxy\Pro
     public function getPlainPassword()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getPlainPassword', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getPlainPassword', []);
 
         return parent::getPlainPassword();
     }
@@ -425,7 +513,7 @@ class User extends \BackendBundle\Entity\User implements \Doctrine\ORM\Proxy\Pro
     public function getLastLogin()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getLastLogin', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getLastLogin', []);
 
         return parent::getLastLogin();
     }
@@ -436,7 +524,7 @@ class User extends \BackendBundle\Entity\User implements \Doctrine\ORM\Proxy\Pro
     public function getConfirmationToken()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getConfirmationToken', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getConfirmationToken', []);
 
         return parent::getConfirmationToken();
     }
@@ -447,7 +535,7 @@ class User extends \BackendBundle\Entity\User implements \Doctrine\ORM\Proxy\Pro
     public function getRoles()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getRoles', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getRoles', []);
 
         return parent::getRoles();
     }
@@ -458,7 +546,7 @@ class User extends \BackendBundle\Entity\User implements \Doctrine\ORM\Proxy\Pro
     public function hasRole($role)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'hasRole', array($role));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'hasRole', [$role]);
 
         return parent::hasRole($role);
     }
@@ -469,7 +557,7 @@ class User extends \BackendBundle\Entity\User implements \Doctrine\ORM\Proxy\Pro
     public function isAccountNonExpired()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'isAccountNonExpired', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'isAccountNonExpired', []);
 
         return parent::isAccountNonExpired();
     }
@@ -480,7 +568,7 @@ class User extends \BackendBundle\Entity\User implements \Doctrine\ORM\Proxy\Pro
     public function isAccountNonLocked()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'isAccountNonLocked', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'isAccountNonLocked', []);
 
         return parent::isAccountNonLocked();
     }
@@ -491,7 +579,7 @@ class User extends \BackendBundle\Entity\User implements \Doctrine\ORM\Proxy\Pro
     public function isCredentialsNonExpired()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'isCredentialsNonExpired', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'isCredentialsNonExpired', []);
 
         return parent::isCredentialsNonExpired();
     }
@@ -502,7 +590,7 @@ class User extends \BackendBundle\Entity\User implements \Doctrine\ORM\Proxy\Pro
     public function isEnabled()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'isEnabled', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'isEnabled', []);
 
         return parent::isEnabled();
     }
@@ -513,7 +601,7 @@ class User extends \BackendBundle\Entity\User implements \Doctrine\ORM\Proxy\Pro
     public function isSuperAdmin()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'isSuperAdmin', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'isSuperAdmin', []);
 
         return parent::isSuperAdmin();
     }
@@ -524,7 +612,7 @@ class User extends \BackendBundle\Entity\User implements \Doctrine\ORM\Proxy\Pro
     public function removeRole($role)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'removeRole', array($role));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'removeRole', [$role]);
 
         return parent::removeRole($role);
     }
@@ -535,7 +623,7 @@ class User extends \BackendBundle\Entity\User implements \Doctrine\ORM\Proxy\Pro
     public function setUsername($username)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setUsername', array($username));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setUsername', [$username]);
 
         return parent::setUsername($username);
     }
@@ -546,7 +634,7 @@ class User extends \BackendBundle\Entity\User implements \Doctrine\ORM\Proxy\Pro
     public function setUsernameCanonical($usernameCanonical)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setUsernameCanonical', array($usernameCanonical));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setUsernameCanonical', [$usernameCanonical]);
 
         return parent::setUsernameCanonical($usernameCanonical);
     }
@@ -557,7 +645,7 @@ class User extends \BackendBundle\Entity\User implements \Doctrine\ORM\Proxy\Pro
     public function setSalt($salt)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setSalt', array($salt));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setSalt', [$salt]);
 
         return parent::setSalt($salt);
     }
@@ -568,7 +656,7 @@ class User extends \BackendBundle\Entity\User implements \Doctrine\ORM\Proxy\Pro
     public function setEmail($email)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setEmail', array($email));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setEmail', [$email]);
 
         return parent::setEmail($email);
     }
@@ -579,7 +667,7 @@ class User extends \BackendBundle\Entity\User implements \Doctrine\ORM\Proxy\Pro
     public function setEmailCanonical($emailCanonical)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setEmailCanonical', array($emailCanonical));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setEmailCanonical', [$emailCanonical]);
 
         return parent::setEmailCanonical($emailCanonical);
     }
@@ -590,7 +678,7 @@ class User extends \BackendBundle\Entity\User implements \Doctrine\ORM\Proxy\Pro
     public function setEnabled($boolean)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setEnabled', array($boolean));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setEnabled', [$boolean]);
 
         return parent::setEnabled($boolean);
     }
@@ -601,7 +689,7 @@ class User extends \BackendBundle\Entity\User implements \Doctrine\ORM\Proxy\Pro
     public function setPassword($password)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setPassword', array($password));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setPassword', [$password]);
 
         return parent::setPassword($password);
     }
@@ -612,7 +700,7 @@ class User extends \BackendBundle\Entity\User implements \Doctrine\ORM\Proxy\Pro
     public function setSuperAdmin($boolean)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setSuperAdmin', array($boolean));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setSuperAdmin', [$boolean]);
 
         return parent::setSuperAdmin($boolean);
     }
@@ -623,7 +711,7 @@ class User extends \BackendBundle\Entity\User implements \Doctrine\ORM\Proxy\Pro
     public function setPlainPassword($password)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setPlainPassword', array($password));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setPlainPassword', [$password]);
 
         return parent::setPlainPassword($password);
     }
@@ -634,7 +722,7 @@ class User extends \BackendBundle\Entity\User implements \Doctrine\ORM\Proxy\Pro
     public function setLastLogin(\DateTime $time = NULL)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setLastLogin', array($time));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setLastLogin', [$time]);
 
         return parent::setLastLogin($time);
     }
@@ -645,7 +733,7 @@ class User extends \BackendBundle\Entity\User implements \Doctrine\ORM\Proxy\Pro
     public function setConfirmationToken($confirmationToken)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setConfirmationToken', array($confirmationToken));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setConfirmationToken', [$confirmationToken]);
 
         return parent::setConfirmationToken($confirmationToken);
     }
@@ -656,7 +744,7 @@ class User extends \BackendBundle\Entity\User implements \Doctrine\ORM\Proxy\Pro
     public function setPasswordRequestedAt(\DateTime $date = NULL)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setPasswordRequestedAt', array($date));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setPasswordRequestedAt', [$date]);
 
         return parent::setPasswordRequestedAt($date);
     }
@@ -667,7 +755,7 @@ class User extends \BackendBundle\Entity\User implements \Doctrine\ORM\Proxy\Pro
     public function getPasswordRequestedAt()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getPasswordRequestedAt', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getPasswordRequestedAt', []);
 
         return parent::getPasswordRequestedAt();
     }
@@ -678,7 +766,7 @@ class User extends \BackendBundle\Entity\User implements \Doctrine\ORM\Proxy\Pro
     public function isPasswordRequestNonExpired($ttl)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'isPasswordRequestNonExpired', array($ttl));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'isPasswordRequestNonExpired', [$ttl]);
 
         return parent::isPasswordRequestNonExpired($ttl);
     }
@@ -689,7 +777,7 @@ class User extends \BackendBundle\Entity\User implements \Doctrine\ORM\Proxy\Pro
     public function setRoles(array $roles)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setRoles', array($roles));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setRoles', [$roles]);
 
         return parent::setRoles($roles);
     }
@@ -700,7 +788,7 @@ class User extends \BackendBundle\Entity\User implements \Doctrine\ORM\Proxy\Pro
     public function getGroups()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getGroups', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getGroups', []);
 
         return parent::getGroups();
     }
@@ -711,7 +799,7 @@ class User extends \BackendBundle\Entity\User implements \Doctrine\ORM\Proxy\Pro
     public function getGroupNames()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getGroupNames', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getGroupNames', []);
 
         return parent::getGroupNames();
     }
@@ -722,7 +810,7 @@ class User extends \BackendBundle\Entity\User implements \Doctrine\ORM\Proxy\Pro
     public function hasGroup($name)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'hasGroup', array($name));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'hasGroup', [$name]);
 
         return parent::hasGroup($name);
     }
@@ -733,7 +821,7 @@ class User extends \BackendBundle\Entity\User implements \Doctrine\ORM\Proxy\Pro
     public function addGroup(\FOS\UserBundle\Model\GroupInterface $group)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'addGroup', array($group));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'addGroup', [$group]);
 
         return parent::addGroup($group);
     }
@@ -744,7 +832,7 @@ class User extends \BackendBundle\Entity\User implements \Doctrine\ORM\Proxy\Pro
     public function removeGroup(\FOS\UserBundle\Model\GroupInterface $group)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'removeGroup', array($group));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'removeGroup', [$group]);
 
         return parent::removeGroup($group);
     }

@@ -36,7 +36,7 @@ class Visits extends \BackendBundle\Entity\Visits implements \Doctrine\ORM\Proxy
      *
      * @see \Doctrine\Common\Persistence\Proxy::__getLazyProperties
      */
-    public static $lazyPropertiesDefaults = array();
+    public static $lazyPropertiesDefaults = [];
 
 
 
@@ -64,10 +64,10 @@ class Visits extends \BackendBundle\Entity\Visits implements \Doctrine\ORM\Proxy
     public function __sleep()
     {
         if ($this->__isInitialized__) {
-            return array('__isInitialized__', '' . "\0" . 'BackendBundle\\Entity\\Visits' . "\0" . 'id', '' . "\0" . 'BackendBundle\\Entity\\Visits' . "\0" . 'datetime', '' . "\0" . 'BackendBundle\\Entity\\Visits' . "\0" . 'product');
+            return ['__isInitialized__', '' . "\0" . 'BackendBundle\\Entity\\Visits' . "\0" . 'id', '' . "\0" . 'BackendBundle\\Entity\\Visits' . "\0" . 'datetime', '' . "\0" . 'BackendBundle\\Entity\\Visits' . "\0" . 'product'];
         }
 
-        return array('__isInitialized__', '' . "\0" . 'BackendBundle\\Entity\\Visits' . "\0" . 'id', '' . "\0" . 'BackendBundle\\Entity\\Visits' . "\0" . 'datetime', '' . "\0" . 'BackendBundle\\Entity\\Visits' . "\0" . 'product');
+        return ['__isInitialized__', '' . "\0" . 'BackendBundle\\Entity\\Visits' . "\0" . 'id', '' . "\0" . 'BackendBundle\\Entity\\Visits' . "\0" . 'datetime', '' . "\0" . 'BackendBundle\\Entity\\Visits' . "\0" . 'product'];
     }
 
     /**
@@ -97,7 +97,7 @@ class Visits extends \BackendBundle\Entity\Visits implements \Doctrine\ORM\Proxy
      */
     public function __clone()
     {
-        $this->__cloner__ && $this->__cloner__->__invoke($this, '__clone', array());
+        $this->__cloner__ && $this->__cloner__->__invoke($this, '__clone', []);
     }
 
     /**
@@ -105,7 +105,7 @@ class Visits extends \BackendBundle\Entity\Visits implements \Doctrine\ORM\Proxy
      */
     public function __load()
     {
-        $this->__initializer__ && $this->__initializer__->__invoke($this, '__load', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, '__load', []);
     }
 
     /**
@@ -183,7 +183,7 @@ class Visits extends \BackendBundle\Entity\Visits implements \Doctrine\ORM\Proxy
         }
 
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getId', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getId', []);
 
         return parent::getId();
     }
@@ -194,7 +194,7 @@ class Visits extends \BackendBundle\Entity\Visits implements \Doctrine\ORM\Proxy
     public function setDatetime($datetime)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setDatetime', array($datetime));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setDatetime', [$datetime]);
 
         return parent::setDatetime($datetime);
     }
@@ -205,7 +205,7 @@ class Visits extends \BackendBundle\Entity\Visits implements \Doctrine\ORM\Proxy
     public function getDatetime()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getDatetime', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getDatetime', []);
 
         return parent::getDatetime();
     }
@@ -216,7 +216,7 @@ class Visits extends \BackendBundle\Entity\Visits implements \Doctrine\ORM\Proxy
     public function setProduct(\BackendBundle\Entity\Products $product = NULL)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setProduct', array($product));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setProduct', [$product]);
 
         return parent::setProduct($product);
     }
@@ -227,7 +227,7 @@ class Visits extends \BackendBundle\Entity\Visits implements \Doctrine\ORM\Proxy
     public function getProduct()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getProduct', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getProduct', []);
 
         return parent::getProduct();
     }

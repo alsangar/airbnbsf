@@ -17,27 +17,30 @@ class AppKernel extends Kernel {
             new Symfony\Bundle\SwiftmailerBundle\SwiftmailerBundle(),
             new Doctrine\Bundle\DoctrineBundle\DoctrineBundle(),
             new Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle(),
+            new FOS\UserBundle\FOSUserBundle(),
             // These are the other bundles the SonataAdminBundle relies on
             new Sonata\CoreBundle\SonataCoreBundle(),
             new Sonata\BlockBundle\SonataBlockBundle(),
             new Knp\Bundle\MenuBundle\KnpMenuBundle(),
+            new Sonata\ClassificationBundle\SonataClassificationBundle(),
+            new Application\Sonata\ClassificationBundle\ApplicationSonataClassificationBundle(),
             // And finally, the storage and SonataAdminBundle
             new Sonata\DoctrineORMAdminBundle\SonataDoctrineORMAdminBundle(),
             new Sonata\AdminBundle\SonataAdminBundle(),
-            new FOS\UserBundle\FOSUserBundle(),
             new Sonata\MediaBundle\SonataMediaBundle(),
             new Sonata\EasyExtendsBundle\SonataEasyExtendsBundle(),
             new Application\Sonata\MediaBundle\ApplicationSonataMediaBundle(),
             // You need to add this dependency to make media functional
             new JMS\SerializerBundle\JMSSerializerBundle(),
-            new AppBundle\AppBundle(),
-            new BackendBundle\BackendBundle(),
-            new Sonata\ClassificationBundle\SonataClassificationBundle(),
-            new Application\Sonata\ClassificationBundle\ApplicationSonataClassificationBundle(),
             //Backoffice bundle
             new JavierEguiluz\Bundle\EasyAdminBundle\EasyAdminBundle(),
-            //Bundle para sobreescribir formularios de FOSUserBundle
-            //new UserBundle\UserBundle(),
+            
+            //Bundle para Fileu Upload
+            new Vich\UploaderBundle\VichUploaderBundle(),
+            
+            //Mis bundles
+            new AppBundle\AppBundle(),
+            new BackendBundle\BackendBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'), true)) {

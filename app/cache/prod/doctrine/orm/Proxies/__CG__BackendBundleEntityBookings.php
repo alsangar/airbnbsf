@@ -36,7 +36,7 @@ class Bookings extends \BackendBundle\Entity\Bookings implements \Doctrine\ORM\P
      *
      * @see \Doctrine\Common\Persistence\Proxy::__getLazyProperties
      */
-    public static $lazyPropertiesDefaults = array();
+    public static $lazyPropertiesDefaults = [];
 
 
 
@@ -64,10 +64,10 @@ class Bookings extends \BackendBundle\Entity\Bookings implements \Doctrine\ORM\P
     public function __sleep()
     {
         if ($this->__isInitialized__) {
-            return array('__isInitialized__', '' . "\0" . 'BackendBundle\\Entity\\Bookings' . "\0" . 'id', '' . "\0" . 'BackendBundle\\Entity\\Bookings' . "\0" . 'customerName', '' . "\0" . 'BackendBundle\\Entity\\Bookings' . "\0" . 'customerLastname', '' . "\0" . 'BackendBundle\\Entity\\Bookings' . "\0" . 'customerPhone', '' . "\0" . 'BackendBundle\\Entity\\Bookings' . "\0" . 'customerEmail', '' . "\0" . 'BackendBundle\\Entity\\Bookings' . "\0" . 'productReference', '' . "\0" . 'BackendBundle\\Entity\\Bookings' . "\0" . 'productAddress', '' . "\0" . 'BackendBundle\\Entity\\Bookings' . "\0" . 'checkin', '' . "\0" . 'BackendBundle\\Entity\\Bookings' . "\0" . 'checkout', '' . "\0" . 'BackendBundle\\Entity\\Bookings' . "\0" . 'nights', '' . "\0" . 'BackendBundle\\Entity\\Bookings' . "\0" . 'priceNight', '' . "\0" . 'BackendBundle\\Entity\\Bookings' . "\0" . 'priceTotal', '' . "\0" . 'BackendBundle\\Entity\\Bookings' . "\0" . 'customerFee', '' . "\0" . 'BackendBundle\\Entity\\Bookings' . "\0" . 'anfitrionFee', '' . "\0" . 'BackendBundle\\Entity\\Bookings' . "\0" . 'bookDate', '' . "\0" . 'BackendBundle\\Entity\\Bookings' . "\0" . 'bookIp', '' . "\0" . 'BackendBundle\\Entity\\Bookings' . "\0" . 'bookConfirmed', '' . "\0" . 'BackendBundle\\Entity\\Bookings' . "\0" . 'pax', '' . "\0" . 'BackendBundle\\Entity\\Bookings' . "\0" . 'bookPayed', '' . "\0" . 'BackendBundle\\Entity\\Bookings' . "\0" . 'paymentType', '' . "\0" . 'BackendBundle\\Entity\\Bookings' . "\0" . 'paypalFee', '' . "\0" . 'BackendBundle\\Entity\\Bookings' . "\0" . 'useranfitrion', '' . "\0" . 'BackendBundle\\Entity\\Bookings' . "\0" . 'product', '' . "\0" . 'BackendBundle\\Entity\\Bookings' . "\0" . 'usercustomer');
+            return ['__isInitialized__', '' . "\0" . 'BackendBundle\\Entity\\Bookings' . "\0" . 'id', '' . "\0" . 'BackendBundle\\Entity\\Bookings' . "\0" . 'customerName', '' . "\0" . 'BackendBundle\\Entity\\Bookings' . "\0" . 'customerLastname', '' . "\0" . 'BackendBundle\\Entity\\Bookings' . "\0" . 'customerPhone', '' . "\0" . 'BackendBundle\\Entity\\Bookings' . "\0" . 'customerEmail', '' . "\0" . 'BackendBundle\\Entity\\Bookings' . "\0" . 'productReference', '' . "\0" . 'BackendBundle\\Entity\\Bookings' . "\0" . 'productAddress', '' . "\0" . 'BackendBundle\\Entity\\Bookings' . "\0" . 'checkin', '' . "\0" . 'BackendBundle\\Entity\\Bookings' . "\0" . 'checkout', '' . "\0" . 'BackendBundle\\Entity\\Bookings' . "\0" . 'nights', '' . "\0" . 'BackendBundle\\Entity\\Bookings' . "\0" . 'priceNight', '' . "\0" . 'BackendBundle\\Entity\\Bookings' . "\0" . 'priceTotal', '' . "\0" . 'BackendBundle\\Entity\\Bookings' . "\0" . 'customerFee', '' . "\0" . 'BackendBundle\\Entity\\Bookings' . "\0" . 'anfitrionFee', '' . "\0" . 'BackendBundle\\Entity\\Bookings' . "\0" . 'bookDate', '' . "\0" . 'BackendBundle\\Entity\\Bookings' . "\0" . 'bookIp', '' . "\0" . 'BackendBundle\\Entity\\Bookings' . "\0" . 'bookConfirmed', '' . "\0" . 'BackendBundle\\Entity\\Bookings' . "\0" . 'pax', '' . "\0" . 'BackendBundle\\Entity\\Bookings' . "\0" . 'bookPayed', '' . "\0" . 'BackendBundle\\Entity\\Bookings' . "\0" . 'paymentType', '' . "\0" . 'BackendBundle\\Entity\\Bookings' . "\0" . 'paypalFee', '' . "\0" . 'BackendBundle\\Entity\\Bookings' . "\0" . 'useranfitrion', '' . "\0" . 'BackendBundle\\Entity\\Bookings' . "\0" . 'product', '' . "\0" . 'BackendBundle\\Entity\\Bookings' . "\0" . 'usercustomer'];
         }
 
-        return array('__isInitialized__', '' . "\0" . 'BackendBundle\\Entity\\Bookings' . "\0" . 'id', '' . "\0" . 'BackendBundle\\Entity\\Bookings' . "\0" . 'customerName', '' . "\0" . 'BackendBundle\\Entity\\Bookings' . "\0" . 'customerLastname', '' . "\0" . 'BackendBundle\\Entity\\Bookings' . "\0" . 'customerPhone', '' . "\0" . 'BackendBundle\\Entity\\Bookings' . "\0" . 'customerEmail', '' . "\0" . 'BackendBundle\\Entity\\Bookings' . "\0" . 'productReference', '' . "\0" . 'BackendBundle\\Entity\\Bookings' . "\0" . 'productAddress', '' . "\0" . 'BackendBundle\\Entity\\Bookings' . "\0" . 'checkin', '' . "\0" . 'BackendBundle\\Entity\\Bookings' . "\0" . 'checkout', '' . "\0" . 'BackendBundle\\Entity\\Bookings' . "\0" . 'nights', '' . "\0" . 'BackendBundle\\Entity\\Bookings' . "\0" . 'priceNight', '' . "\0" . 'BackendBundle\\Entity\\Bookings' . "\0" . 'priceTotal', '' . "\0" . 'BackendBundle\\Entity\\Bookings' . "\0" . 'customerFee', '' . "\0" . 'BackendBundle\\Entity\\Bookings' . "\0" . 'anfitrionFee', '' . "\0" . 'BackendBundle\\Entity\\Bookings' . "\0" . 'bookDate', '' . "\0" . 'BackendBundle\\Entity\\Bookings' . "\0" . 'bookIp', '' . "\0" . 'BackendBundle\\Entity\\Bookings' . "\0" . 'bookConfirmed', '' . "\0" . 'BackendBundle\\Entity\\Bookings' . "\0" . 'pax', '' . "\0" . 'BackendBundle\\Entity\\Bookings' . "\0" . 'bookPayed', '' . "\0" . 'BackendBundle\\Entity\\Bookings' . "\0" . 'paymentType', '' . "\0" . 'BackendBundle\\Entity\\Bookings' . "\0" . 'paypalFee', '' . "\0" . 'BackendBundle\\Entity\\Bookings' . "\0" . 'useranfitrion', '' . "\0" . 'BackendBundle\\Entity\\Bookings' . "\0" . 'product', '' . "\0" . 'BackendBundle\\Entity\\Bookings' . "\0" . 'usercustomer');
+        return ['__isInitialized__', '' . "\0" . 'BackendBundle\\Entity\\Bookings' . "\0" . 'id', '' . "\0" . 'BackendBundle\\Entity\\Bookings' . "\0" . 'customerName', '' . "\0" . 'BackendBundle\\Entity\\Bookings' . "\0" . 'customerLastname', '' . "\0" . 'BackendBundle\\Entity\\Bookings' . "\0" . 'customerPhone', '' . "\0" . 'BackendBundle\\Entity\\Bookings' . "\0" . 'customerEmail', '' . "\0" . 'BackendBundle\\Entity\\Bookings' . "\0" . 'productReference', '' . "\0" . 'BackendBundle\\Entity\\Bookings' . "\0" . 'productAddress', '' . "\0" . 'BackendBundle\\Entity\\Bookings' . "\0" . 'checkin', '' . "\0" . 'BackendBundle\\Entity\\Bookings' . "\0" . 'checkout', '' . "\0" . 'BackendBundle\\Entity\\Bookings' . "\0" . 'nights', '' . "\0" . 'BackendBundle\\Entity\\Bookings' . "\0" . 'priceNight', '' . "\0" . 'BackendBundle\\Entity\\Bookings' . "\0" . 'priceTotal', '' . "\0" . 'BackendBundle\\Entity\\Bookings' . "\0" . 'customerFee', '' . "\0" . 'BackendBundle\\Entity\\Bookings' . "\0" . 'anfitrionFee', '' . "\0" . 'BackendBundle\\Entity\\Bookings' . "\0" . 'bookDate', '' . "\0" . 'BackendBundle\\Entity\\Bookings' . "\0" . 'bookIp', '' . "\0" . 'BackendBundle\\Entity\\Bookings' . "\0" . 'bookConfirmed', '' . "\0" . 'BackendBundle\\Entity\\Bookings' . "\0" . 'pax', '' . "\0" . 'BackendBundle\\Entity\\Bookings' . "\0" . 'bookPayed', '' . "\0" . 'BackendBundle\\Entity\\Bookings' . "\0" . 'paymentType', '' . "\0" . 'BackendBundle\\Entity\\Bookings' . "\0" . 'paypalFee', '' . "\0" . 'BackendBundle\\Entity\\Bookings' . "\0" . 'useranfitrion', '' . "\0" . 'BackendBundle\\Entity\\Bookings' . "\0" . 'product', '' . "\0" . 'BackendBundle\\Entity\\Bookings' . "\0" . 'usercustomer'];
     }
 
     /**
@@ -97,7 +97,7 @@ class Bookings extends \BackendBundle\Entity\Bookings implements \Doctrine\ORM\P
      */
     public function __clone()
     {
-        $this->__cloner__ && $this->__cloner__->__invoke($this, '__clone', array());
+        $this->__cloner__ && $this->__cloner__->__invoke($this, '__clone', []);
     }
 
     /**
@@ -105,7 +105,7 @@ class Bookings extends \BackendBundle\Entity\Bookings implements \Doctrine\ORM\P
      */
     public function __load()
     {
-        $this->__initializer__ && $this->__initializer__->__invoke($this, '__load', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, '__load', []);
     }
 
     /**
@@ -183,7 +183,7 @@ class Bookings extends \BackendBundle\Entity\Bookings implements \Doctrine\ORM\P
         }
 
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getId', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getId', []);
 
         return parent::getId();
     }
@@ -194,7 +194,7 @@ class Bookings extends \BackendBundle\Entity\Bookings implements \Doctrine\ORM\P
     public function setCustomerName($customerName)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setCustomerName', array($customerName));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setCustomerName', [$customerName]);
 
         return parent::setCustomerName($customerName);
     }
@@ -205,7 +205,7 @@ class Bookings extends \BackendBundle\Entity\Bookings implements \Doctrine\ORM\P
     public function getCustomerName()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getCustomerName', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getCustomerName', []);
 
         return parent::getCustomerName();
     }
@@ -216,7 +216,7 @@ class Bookings extends \BackendBundle\Entity\Bookings implements \Doctrine\ORM\P
     public function setCustomerLastname($customerLastname)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setCustomerLastname', array($customerLastname));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setCustomerLastname', [$customerLastname]);
 
         return parent::setCustomerLastname($customerLastname);
     }
@@ -227,7 +227,7 @@ class Bookings extends \BackendBundle\Entity\Bookings implements \Doctrine\ORM\P
     public function getCustomerLastname()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getCustomerLastname', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getCustomerLastname', []);
 
         return parent::getCustomerLastname();
     }
@@ -238,7 +238,7 @@ class Bookings extends \BackendBundle\Entity\Bookings implements \Doctrine\ORM\P
     public function setCustomerPhone($customerPhone)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setCustomerPhone', array($customerPhone));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setCustomerPhone', [$customerPhone]);
 
         return parent::setCustomerPhone($customerPhone);
     }
@@ -249,7 +249,7 @@ class Bookings extends \BackendBundle\Entity\Bookings implements \Doctrine\ORM\P
     public function getCustomerPhone()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getCustomerPhone', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getCustomerPhone', []);
 
         return parent::getCustomerPhone();
     }
@@ -260,7 +260,7 @@ class Bookings extends \BackendBundle\Entity\Bookings implements \Doctrine\ORM\P
     public function setCustomerEmail($customerEmail)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setCustomerEmail', array($customerEmail));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setCustomerEmail', [$customerEmail]);
 
         return parent::setCustomerEmail($customerEmail);
     }
@@ -271,7 +271,7 @@ class Bookings extends \BackendBundle\Entity\Bookings implements \Doctrine\ORM\P
     public function getCustomerEmail()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getCustomerEmail', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getCustomerEmail', []);
 
         return parent::getCustomerEmail();
     }
@@ -282,7 +282,7 @@ class Bookings extends \BackendBundle\Entity\Bookings implements \Doctrine\ORM\P
     public function setProductReference($productReference)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setProductReference', array($productReference));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setProductReference', [$productReference]);
 
         return parent::setProductReference($productReference);
     }
@@ -293,7 +293,7 @@ class Bookings extends \BackendBundle\Entity\Bookings implements \Doctrine\ORM\P
     public function getProductReference()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getProductReference', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getProductReference', []);
 
         return parent::getProductReference();
     }
@@ -304,7 +304,7 @@ class Bookings extends \BackendBundle\Entity\Bookings implements \Doctrine\ORM\P
     public function setProductAddress($productAddress)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setProductAddress', array($productAddress));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setProductAddress', [$productAddress]);
 
         return parent::setProductAddress($productAddress);
     }
@@ -315,7 +315,7 @@ class Bookings extends \BackendBundle\Entity\Bookings implements \Doctrine\ORM\P
     public function getProductAddress()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getProductAddress', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getProductAddress', []);
 
         return parent::getProductAddress();
     }
@@ -326,7 +326,7 @@ class Bookings extends \BackendBundle\Entity\Bookings implements \Doctrine\ORM\P
     public function setCheckin($checkin)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setCheckin', array($checkin));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setCheckin', [$checkin]);
 
         return parent::setCheckin($checkin);
     }
@@ -337,7 +337,7 @@ class Bookings extends \BackendBundle\Entity\Bookings implements \Doctrine\ORM\P
     public function getCheckin()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getCheckin', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getCheckin', []);
 
         return parent::getCheckin();
     }
@@ -348,7 +348,7 @@ class Bookings extends \BackendBundle\Entity\Bookings implements \Doctrine\ORM\P
     public function setCheckout($checkout)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setCheckout', array($checkout));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setCheckout', [$checkout]);
 
         return parent::setCheckout($checkout);
     }
@@ -359,7 +359,7 @@ class Bookings extends \BackendBundle\Entity\Bookings implements \Doctrine\ORM\P
     public function getCheckout()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getCheckout', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getCheckout', []);
 
         return parent::getCheckout();
     }
@@ -370,7 +370,7 @@ class Bookings extends \BackendBundle\Entity\Bookings implements \Doctrine\ORM\P
     public function setNights($nights)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setNights', array($nights));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setNights', [$nights]);
 
         return parent::setNights($nights);
     }
@@ -381,7 +381,7 @@ class Bookings extends \BackendBundle\Entity\Bookings implements \Doctrine\ORM\P
     public function getNights()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getNights', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getNights', []);
 
         return parent::getNights();
     }
@@ -392,7 +392,7 @@ class Bookings extends \BackendBundle\Entity\Bookings implements \Doctrine\ORM\P
     public function setPriceNight($priceNight)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setPriceNight', array($priceNight));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setPriceNight', [$priceNight]);
 
         return parent::setPriceNight($priceNight);
     }
@@ -403,7 +403,7 @@ class Bookings extends \BackendBundle\Entity\Bookings implements \Doctrine\ORM\P
     public function getPriceNight()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getPriceNight', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getPriceNight', []);
 
         return parent::getPriceNight();
     }
@@ -414,7 +414,7 @@ class Bookings extends \BackendBundle\Entity\Bookings implements \Doctrine\ORM\P
     public function setPriceTotal($priceTotal)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setPriceTotal', array($priceTotal));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setPriceTotal', [$priceTotal]);
 
         return parent::setPriceTotal($priceTotal);
     }
@@ -425,7 +425,7 @@ class Bookings extends \BackendBundle\Entity\Bookings implements \Doctrine\ORM\P
     public function getPriceTotal()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getPriceTotal', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getPriceTotal', []);
 
         return parent::getPriceTotal();
     }
@@ -436,7 +436,7 @@ class Bookings extends \BackendBundle\Entity\Bookings implements \Doctrine\ORM\P
     public function setCustomerFee($customerFee)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setCustomerFee', array($customerFee));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setCustomerFee', [$customerFee]);
 
         return parent::setCustomerFee($customerFee);
     }
@@ -447,7 +447,7 @@ class Bookings extends \BackendBundle\Entity\Bookings implements \Doctrine\ORM\P
     public function getCustomerFee()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getCustomerFee', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getCustomerFee', []);
 
         return parent::getCustomerFee();
     }
@@ -458,7 +458,7 @@ class Bookings extends \BackendBundle\Entity\Bookings implements \Doctrine\ORM\P
     public function setAnfitrionFee($anfitrionFee)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setAnfitrionFee', array($anfitrionFee));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setAnfitrionFee', [$anfitrionFee]);
 
         return parent::setAnfitrionFee($anfitrionFee);
     }
@@ -469,7 +469,7 @@ class Bookings extends \BackendBundle\Entity\Bookings implements \Doctrine\ORM\P
     public function getAnfitrionFee()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getAnfitrionFee', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getAnfitrionFee', []);
 
         return parent::getAnfitrionFee();
     }
@@ -480,7 +480,7 @@ class Bookings extends \BackendBundle\Entity\Bookings implements \Doctrine\ORM\P
     public function setUserName($userName)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setUserName', array($userName));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setUserName', [$userName]);
 
         return parent::setUserName($userName);
     }
@@ -491,7 +491,7 @@ class Bookings extends \BackendBundle\Entity\Bookings implements \Doctrine\ORM\P
     public function getUserName()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getUserName', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getUserName', []);
 
         return parent::getUserName();
     }
@@ -502,7 +502,7 @@ class Bookings extends \BackendBundle\Entity\Bookings implements \Doctrine\ORM\P
     public function setUserEmail($userEmail)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setUserEmail', array($userEmail));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setUserEmail', [$userEmail]);
 
         return parent::setUserEmail($userEmail);
     }
@@ -513,7 +513,7 @@ class Bookings extends \BackendBundle\Entity\Bookings implements \Doctrine\ORM\P
     public function getUserEmail()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getUserEmail', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getUserEmail', []);
 
         return parent::getUserEmail();
     }
@@ -524,7 +524,7 @@ class Bookings extends \BackendBundle\Entity\Bookings implements \Doctrine\ORM\P
     public function setUserPhone($userPhone)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setUserPhone', array($userPhone));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setUserPhone', [$userPhone]);
 
         return parent::setUserPhone($userPhone);
     }
@@ -535,7 +535,7 @@ class Bookings extends \BackendBundle\Entity\Bookings implements \Doctrine\ORM\P
     public function getUserPhone()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getUserPhone', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getUserPhone', []);
 
         return parent::getUserPhone();
     }
@@ -546,7 +546,7 @@ class Bookings extends \BackendBundle\Entity\Bookings implements \Doctrine\ORM\P
     public function setBookDate($bookDate)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setBookDate', array($bookDate));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setBookDate', [$bookDate]);
 
         return parent::setBookDate($bookDate);
     }
@@ -557,7 +557,7 @@ class Bookings extends \BackendBundle\Entity\Bookings implements \Doctrine\ORM\P
     public function getBookDate()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getBookDate', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getBookDate', []);
 
         return parent::getBookDate();
     }
@@ -568,7 +568,7 @@ class Bookings extends \BackendBundle\Entity\Bookings implements \Doctrine\ORM\P
     public function setBookIp($bookIp)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setBookIp', array($bookIp));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setBookIp', [$bookIp]);
 
         return parent::setBookIp($bookIp);
     }
@@ -579,7 +579,7 @@ class Bookings extends \BackendBundle\Entity\Bookings implements \Doctrine\ORM\P
     public function getBookIp()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getBookIp', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getBookIp', []);
 
         return parent::getBookIp();
     }
@@ -590,7 +590,7 @@ class Bookings extends \BackendBundle\Entity\Bookings implements \Doctrine\ORM\P
     public function setBookConfirmed($bookConfirmed)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setBookConfirmed', array($bookConfirmed));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setBookConfirmed', [$bookConfirmed]);
 
         return parent::setBookConfirmed($bookConfirmed);
     }
@@ -601,7 +601,7 @@ class Bookings extends \BackendBundle\Entity\Bookings implements \Doctrine\ORM\P
     public function getBookConfirmed()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getBookConfirmed', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getBookConfirmed', []);
 
         return parent::getBookConfirmed();
     }
@@ -612,7 +612,7 @@ class Bookings extends \BackendBundle\Entity\Bookings implements \Doctrine\ORM\P
     public function setPax($pax)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setPax', array($pax));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setPax', [$pax]);
 
         return parent::setPax($pax);
     }
@@ -623,7 +623,7 @@ class Bookings extends \BackendBundle\Entity\Bookings implements \Doctrine\ORM\P
     public function getPax()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getPax', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getPax', []);
 
         return parent::getPax();
     }
@@ -634,7 +634,7 @@ class Bookings extends \BackendBundle\Entity\Bookings implements \Doctrine\ORM\P
     public function setBookPayed($bookPayed)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setBookPayed', array($bookPayed));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setBookPayed', [$bookPayed]);
 
         return parent::setBookPayed($bookPayed);
     }
@@ -645,7 +645,7 @@ class Bookings extends \BackendBundle\Entity\Bookings implements \Doctrine\ORM\P
     public function getBookPayed()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getBookPayed', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getBookPayed', []);
 
         return parent::getBookPayed();
     }
@@ -656,7 +656,7 @@ class Bookings extends \BackendBundle\Entity\Bookings implements \Doctrine\ORM\P
     public function setUseranfitrion(\BackendBundle\Entity\User $useranfitrion = NULL)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setUseranfitrion', array($useranfitrion));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setUseranfitrion', [$useranfitrion]);
 
         return parent::setUseranfitrion($useranfitrion);
     }
@@ -667,7 +667,7 @@ class Bookings extends \BackendBundle\Entity\Bookings implements \Doctrine\ORM\P
     public function getUseranfitrion()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getUseranfitrion', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getUseranfitrion', []);
 
         return parent::getUseranfitrion();
     }
@@ -678,7 +678,7 @@ class Bookings extends \BackendBundle\Entity\Bookings implements \Doctrine\ORM\P
     public function setProduct(\BackendBundle\Entity\Products $product = NULL)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setProduct', array($product));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setProduct', [$product]);
 
         return parent::setProduct($product);
     }
@@ -689,7 +689,7 @@ class Bookings extends \BackendBundle\Entity\Bookings implements \Doctrine\ORM\P
     public function getProduct()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getProduct', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getProduct', []);
 
         return parent::getProduct();
     }
@@ -700,7 +700,7 @@ class Bookings extends \BackendBundle\Entity\Bookings implements \Doctrine\ORM\P
     public function setUsercustomer(\BackendBundle\Entity\User $usercustomer = NULL)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setUsercustomer', array($usercustomer));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setUsercustomer', [$usercustomer]);
 
         return parent::setUsercustomer($usercustomer);
     }
@@ -711,7 +711,7 @@ class Bookings extends \BackendBundle\Entity\Bookings implements \Doctrine\ORM\P
     public function getUsercustomer()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getUsercustomer', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getUsercustomer', []);
 
         return parent::getUsercustomer();
     }
@@ -722,7 +722,7 @@ class Bookings extends \BackendBundle\Entity\Bookings implements \Doctrine\ORM\P
     public function setPaymentType($paymentType)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setPaymentType', array($paymentType));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setPaymentType', [$paymentType]);
 
         return parent::setPaymentType($paymentType);
     }
@@ -733,7 +733,7 @@ class Bookings extends \BackendBundle\Entity\Bookings implements \Doctrine\ORM\P
     public function getPaymentType()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getPaymentType', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getPaymentType', []);
 
         return parent::getPaymentType();
     }
@@ -744,7 +744,7 @@ class Bookings extends \BackendBundle\Entity\Bookings implements \Doctrine\ORM\P
     public function setPaypalFee($paypalFee)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setPaypalFee', array($paypalFee));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setPaypalFee', [$paypalFee]);
 
         return parent::setPaypalFee($paypalFee);
     }
@@ -755,7 +755,7 @@ class Bookings extends \BackendBundle\Entity\Bookings implements \Doctrine\ORM\P
     public function getPaypalFee()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getPaypalFee', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getPaypalFee', []);
 
         return parent::getPaypalFee();
     }

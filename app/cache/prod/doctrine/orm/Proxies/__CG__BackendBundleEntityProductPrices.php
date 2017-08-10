@@ -36,7 +36,7 @@ class ProductPrices extends \BackendBundle\Entity\ProductPrices implements \Doct
      *
      * @see \Doctrine\Common\Persistence\Proxy::__getLazyProperties
      */
-    public static $lazyPropertiesDefaults = array();
+    public static $lazyPropertiesDefaults = [];
 
 
 
@@ -64,10 +64,10 @@ class ProductPrices extends \BackendBundle\Entity\ProductPrices implements \Doct
     public function __sleep()
     {
         if ($this->__isInitialized__) {
-            return array('__isInitialized__', '' . "\0" . 'BackendBundle\\Entity\\ProductPrices' . "\0" . 'id', '' . "\0" . 'BackendBundle\\Entity\\ProductPrices' . "\0" . 'dateFrom', '' . "\0" . 'BackendBundle\\Entity\\ProductPrices' . "\0" . 'dateTo', '' . "\0" . 'BackendBundle\\Entity\\ProductPrices' . "\0" . 'price', '' . "\0" . 'BackendBundle\\Entity\\ProductPrices' . "\0" . 'priceOutSeason', '' . "\0" . 'BackendBundle\\Entity\\ProductPrices' . "\0" . 'pax', '' . "\0" . 'BackendBundle\\Entity\\ProductPrices' . "\0" . 'product');
+            return ['__isInitialized__', '' . "\0" . 'BackendBundle\\Entity\\ProductPrices' . "\0" . 'id', '' . "\0" . 'BackendBundle\\Entity\\ProductPrices' . "\0" . 'dateFrom', '' . "\0" . 'BackendBundle\\Entity\\ProductPrices' . "\0" . 'dateTo', '' . "\0" . 'BackendBundle\\Entity\\ProductPrices' . "\0" . 'price', '' . "\0" . 'BackendBundle\\Entity\\ProductPrices' . "\0" . 'priceOutSeason', '' . "\0" . 'BackendBundle\\Entity\\ProductPrices' . "\0" . 'pax', '' . "\0" . 'BackendBundle\\Entity\\ProductPrices' . "\0" . 'product'];
         }
 
-        return array('__isInitialized__', '' . "\0" . 'BackendBundle\\Entity\\ProductPrices' . "\0" . 'id', '' . "\0" . 'BackendBundle\\Entity\\ProductPrices' . "\0" . 'dateFrom', '' . "\0" . 'BackendBundle\\Entity\\ProductPrices' . "\0" . 'dateTo', '' . "\0" . 'BackendBundle\\Entity\\ProductPrices' . "\0" . 'price', '' . "\0" . 'BackendBundle\\Entity\\ProductPrices' . "\0" . 'priceOutSeason', '' . "\0" . 'BackendBundle\\Entity\\ProductPrices' . "\0" . 'pax', '' . "\0" . 'BackendBundle\\Entity\\ProductPrices' . "\0" . 'product');
+        return ['__isInitialized__', '' . "\0" . 'BackendBundle\\Entity\\ProductPrices' . "\0" . 'id', '' . "\0" . 'BackendBundle\\Entity\\ProductPrices' . "\0" . 'dateFrom', '' . "\0" . 'BackendBundle\\Entity\\ProductPrices' . "\0" . 'dateTo', '' . "\0" . 'BackendBundle\\Entity\\ProductPrices' . "\0" . 'price', '' . "\0" . 'BackendBundle\\Entity\\ProductPrices' . "\0" . 'priceOutSeason', '' . "\0" . 'BackendBundle\\Entity\\ProductPrices' . "\0" . 'pax', '' . "\0" . 'BackendBundle\\Entity\\ProductPrices' . "\0" . 'product'];
     }
 
     /**
@@ -97,7 +97,7 @@ class ProductPrices extends \BackendBundle\Entity\ProductPrices implements \Doct
      */
     public function __clone()
     {
-        $this->__cloner__ && $this->__cloner__->__invoke($this, '__clone', array());
+        $this->__cloner__ && $this->__cloner__->__invoke($this, '__clone', []);
     }
 
     /**
@@ -105,7 +105,7 @@ class ProductPrices extends \BackendBundle\Entity\ProductPrices implements \Doct
      */
     public function __load()
     {
-        $this->__initializer__ && $this->__initializer__->__invoke($this, '__load', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, '__load', []);
     }
 
     /**
@@ -183,7 +183,7 @@ class ProductPrices extends \BackendBundle\Entity\ProductPrices implements \Doct
         }
 
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getId', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getId', []);
 
         return parent::getId();
     }
@@ -194,7 +194,7 @@ class ProductPrices extends \BackendBundle\Entity\ProductPrices implements \Doct
     public function setDateFrom($dateFrom)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setDateFrom', array($dateFrom));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setDateFrom', [$dateFrom]);
 
         return parent::setDateFrom($dateFrom);
     }
@@ -205,7 +205,7 @@ class ProductPrices extends \BackendBundle\Entity\ProductPrices implements \Doct
     public function getDateFrom()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getDateFrom', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getDateFrom', []);
 
         return parent::getDateFrom();
     }
@@ -216,7 +216,7 @@ class ProductPrices extends \BackendBundle\Entity\ProductPrices implements \Doct
     public function setDateTo($dateTo)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setDateTo', array($dateTo));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setDateTo', [$dateTo]);
 
         return parent::setDateTo($dateTo);
     }
@@ -227,7 +227,7 @@ class ProductPrices extends \BackendBundle\Entity\ProductPrices implements \Doct
     public function getDateTo()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getDateTo', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getDateTo', []);
 
         return parent::getDateTo();
     }
@@ -238,7 +238,7 @@ class ProductPrices extends \BackendBundle\Entity\ProductPrices implements \Doct
     public function setPrice($price)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setPrice', array($price));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setPrice', [$price]);
 
         return parent::setPrice($price);
     }
@@ -249,7 +249,7 @@ class ProductPrices extends \BackendBundle\Entity\ProductPrices implements \Doct
     public function getPrice()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getPrice', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getPrice', []);
 
         return parent::getPrice();
     }
@@ -260,7 +260,7 @@ class ProductPrices extends \BackendBundle\Entity\ProductPrices implements \Doct
     public function setPriceOutSeason($priceOutSeason)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setPriceOutSeason', array($priceOutSeason));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setPriceOutSeason', [$priceOutSeason]);
 
         return parent::setPriceOutSeason($priceOutSeason);
     }
@@ -271,7 +271,7 @@ class ProductPrices extends \BackendBundle\Entity\ProductPrices implements \Doct
     public function getPriceOutSeason()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getPriceOutSeason', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getPriceOutSeason', []);
 
         return parent::getPriceOutSeason();
     }
@@ -282,7 +282,7 @@ class ProductPrices extends \BackendBundle\Entity\ProductPrices implements \Doct
     public function setPax($pax)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setPax', array($pax));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setPax', [$pax]);
 
         return parent::setPax($pax);
     }
@@ -293,7 +293,7 @@ class ProductPrices extends \BackendBundle\Entity\ProductPrices implements \Doct
     public function getPax()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getPax', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getPax', []);
 
         return parent::getPax();
     }
@@ -304,7 +304,7 @@ class ProductPrices extends \BackendBundle\Entity\ProductPrices implements \Doct
     public function setProduct(\BackendBundle\Entity\Products $product = NULL)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setProduct', array($product));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setProduct', [$product]);
 
         return parent::setProduct($product);
     }
@@ -315,7 +315,7 @@ class ProductPrices extends \BackendBundle\Entity\ProductPrices implements \Doct
     public function getProduct()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getProduct', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getProduct', []);
 
         return parent::getProduct();
     }

@@ -36,7 +36,7 @@ class Complaints extends \BackendBundle\Entity\Complaints implements \Doctrine\O
      *
      * @see \Doctrine\Common\Persistence\Proxy::__getLazyProperties
      */
-    public static $lazyPropertiesDefaults = array();
+    public static $lazyPropertiesDefaults = [];
 
 
 
@@ -64,10 +64,10 @@ class Complaints extends \BackendBundle\Entity\Complaints implements \Doctrine\O
     public function __sleep()
     {
         if ($this->__isInitialized__) {
-            return array('__isInitialized__', '' . "\0" . 'BackendBundle\\Entity\\Complaints' . "\0" . 'id', '' . "\0" . 'BackendBundle\\Entity\\Complaints' . "\0" . 'dateadd', '' . "\0" . 'BackendBundle\\Entity\\Complaints' . "\0" . 'dateviewed', '' . "\0" . 'BackendBundle\\Entity\\Complaints' . "\0" . 'active', '' . "\0" . 'BackendBundle\\Entity\\Complaints' . "\0" . 'userfrom', '' . "\0" . 'BackendBundle\\Entity\\Complaints' . "\0" . 'product');
+            return ['__isInitialized__', '' . "\0" . 'BackendBundle\\Entity\\Complaints' . "\0" . 'id', '' . "\0" . 'BackendBundle\\Entity\\Complaints' . "\0" . 'dateadd', '' . "\0" . 'BackendBundle\\Entity\\Complaints' . "\0" . 'dateviewed', '' . "\0" . 'BackendBundle\\Entity\\Complaints' . "\0" . 'active', '' . "\0" . 'BackendBundle\\Entity\\Complaints' . "\0" . 'userfrom', '' . "\0" . 'BackendBundle\\Entity\\Complaints' . "\0" . 'product'];
         }
 
-        return array('__isInitialized__', '' . "\0" . 'BackendBundle\\Entity\\Complaints' . "\0" . 'id', '' . "\0" . 'BackendBundle\\Entity\\Complaints' . "\0" . 'dateadd', '' . "\0" . 'BackendBundle\\Entity\\Complaints' . "\0" . 'dateviewed', '' . "\0" . 'BackendBundle\\Entity\\Complaints' . "\0" . 'active', '' . "\0" . 'BackendBundle\\Entity\\Complaints' . "\0" . 'userfrom', '' . "\0" . 'BackendBundle\\Entity\\Complaints' . "\0" . 'product');
+        return ['__isInitialized__', '' . "\0" . 'BackendBundle\\Entity\\Complaints' . "\0" . 'id', '' . "\0" . 'BackendBundle\\Entity\\Complaints' . "\0" . 'dateadd', '' . "\0" . 'BackendBundle\\Entity\\Complaints' . "\0" . 'dateviewed', '' . "\0" . 'BackendBundle\\Entity\\Complaints' . "\0" . 'active', '' . "\0" . 'BackendBundle\\Entity\\Complaints' . "\0" . 'userfrom', '' . "\0" . 'BackendBundle\\Entity\\Complaints' . "\0" . 'product'];
     }
 
     /**
@@ -97,7 +97,7 @@ class Complaints extends \BackendBundle\Entity\Complaints implements \Doctrine\O
      */
     public function __clone()
     {
-        $this->__cloner__ && $this->__cloner__->__invoke($this, '__clone', array());
+        $this->__cloner__ && $this->__cloner__->__invoke($this, '__clone', []);
     }
 
     /**
@@ -105,7 +105,7 @@ class Complaints extends \BackendBundle\Entity\Complaints implements \Doctrine\O
      */
     public function __load()
     {
-        $this->__initializer__ && $this->__initializer__->__invoke($this, '__load', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, '__load', []);
     }
 
     /**
@@ -183,7 +183,7 @@ class Complaints extends \BackendBundle\Entity\Complaints implements \Doctrine\O
         }
 
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getId', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getId', []);
 
         return parent::getId();
     }
@@ -194,7 +194,7 @@ class Complaints extends \BackendBundle\Entity\Complaints implements \Doctrine\O
     public function setDateadd($dateadd)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setDateadd', array($dateadd));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setDateadd', [$dateadd]);
 
         return parent::setDateadd($dateadd);
     }
@@ -205,7 +205,7 @@ class Complaints extends \BackendBundle\Entity\Complaints implements \Doctrine\O
     public function getDateadd()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getDateadd', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getDateadd', []);
 
         return parent::getDateadd();
     }
@@ -216,7 +216,7 @@ class Complaints extends \BackendBundle\Entity\Complaints implements \Doctrine\O
     public function setDateviewed($dateviewed)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setDateviewed', array($dateviewed));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setDateviewed', [$dateviewed]);
 
         return parent::setDateviewed($dateviewed);
     }
@@ -227,7 +227,7 @@ class Complaints extends \BackendBundle\Entity\Complaints implements \Doctrine\O
     public function getDateviewed()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getDateviewed', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getDateviewed', []);
 
         return parent::getDateviewed();
     }
@@ -238,7 +238,7 @@ class Complaints extends \BackendBundle\Entity\Complaints implements \Doctrine\O
     public function setActive($active)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setActive', array($active));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setActive', [$active]);
 
         return parent::setActive($active);
     }
@@ -249,7 +249,7 @@ class Complaints extends \BackendBundle\Entity\Complaints implements \Doctrine\O
     public function getActive()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getActive', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getActive', []);
 
         return parent::getActive();
     }
@@ -260,7 +260,7 @@ class Complaints extends \BackendBundle\Entity\Complaints implements \Doctrine\O
     public function setUserfrom(\BackendBundle\Entity\User $userfrom = NULL)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setUserfrom', array($userfrom));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setUserfrom', [$userfrom]);
 
         return parent::setUserfrom($userfrom);
     }
@@ -271,7 +271,7 @@ class Complaints extends \BackendBundle\Entity\Complaints implements \Doctrine\O
     public function getUserfrom()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getUserfrom', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getUserfrom', []);
 
         return parent::getUserfrom();
     }
@@ -282,7 +282,7 @@ class Complaints extends \BackendBundle\Entity\Complaints implements \Doctrine\O
     public function setProduct(\BackendBundle\Entity\Products $product = NULL)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setProduct', array($product));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setProduct', [$product]);
 
         return parent::setProduct($product);
     }
@@ -293,7 +293,7 @@ class Complaints extends \BackendBundle\Entity\Complaints implements \Doctrine\O
     public function getProduct()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getProduct', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getProduct', []);
 
         return parent::getProduct();
     }

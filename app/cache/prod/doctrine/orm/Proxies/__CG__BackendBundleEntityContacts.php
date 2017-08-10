@@ -36,7 +36,7 @@ class Contacts extends \BackendBundle\Entity\Contacts implements \Doctrine\ORM\P
      *
      * @see \Doctrine\Common\Persistence\Proxy::__getLazyProperties
      */
-    public static $lazyPropertiesDefaults = array();
+    public static $lazyPropertiesDefaults = [];
 
 
 
@@ -64,10 +64,10 @@ class Contacts extends \BackendBundle\Entity\Contacts implements \Doctrine\ORM\P
     public function __sleep()
     {
         if ($this->__isInitialized__) {
-            return array('__isInitialized__', '' . "\0" . 'BackendBundle\\Entity\\Contacts' . "\0" . 'id', '' . "\0" . 'BackendBundle\\Entity\\Contacts' . "\0" . 'userFrom', '' . "\0" . 'BackendBundle\\Entity\\Contacts' . "\0" . 'nameFrom', '' . "\0" . 'BackendBundle\\Entity\\Contacts' . "\0" . 'emailFrom', '' . "\0" . 'BackendBundle\\Entity\\Contacts' . "\0" . 'phoneFrom', '' . "\0" . 'BackendBundle\\Entity\\Contacts' . "\0" . 'message', '' . "\0" . 'BackendBundle\\Entity\\Contacts' . "\0" . 'dateadd', '' . "\0" . 'BackendBundle\\Entity\\Contacts' . "\0" . 'dateviewed', '' . "\0" . 'BackendBundle\\Entity\\Contacts' . "\0" . 'product');
+            return ['__isInitialized__', '' . "\0" . 'BackendBundle\\Entity\\Contacts' . "\0" . 'id', '' . "\0" . 'BackendBundle\\Entity\\Contacts' . "\0" . 'userFrom', '' . "\0" . 'BackendBundle\\Entity\\Contacts' . "\0" . 'nameFrom', '' . "\0" . 'BackendBundle\\Entity\\Contacts' . "\0" . 'emailFrom', '' . "\0" . 'BackendBundle\\Entity\\Contacts' . "\0" . 'phoneFrom', '' . "\0" . 'BackendBundle\\Entity\\Contacts' . "\0" . 'message', '' . "\0" . 'BackendBundle\\Entity\\Contacts' . "\0" . 'dateadd', '' . "\0" . 'BackendBundle\\Entity\\Contacts' . "\0" . 'dateviewed', '' . "\0" . 'BackendBundle\\Entity\\Contacts' . "\0" . 'product'];
         }
 
-        return array('__isInitialized__', '' . "\0" . 'BackendBundle\\Entity\\Contacts' . "\0" . 'id', '' . "\0" . 'BackendBundle\\Entity\\Contacts' . "\0" . 'userFrom', '' . "\0" . 'BackendBundle\\Entity\\Contacts' . "\0" . 'nameFrom', '' . "\0" . 'BackendBundle\\Entity\\Contacts' . "\0" . 'emailFrom', '' . "\0" . 'BackendBundle\\Entity\\Contacts' . "\0" . 'phoneFrom', '' . "\0" . 'BackendBundle\\Entity\\Contacts' . "\0" . 'message', '' . "\0" . 'BackendBundle\\Entity\\Contacts' . "\0" . 'dateadd', '' . "\0" . 'BackendBundle\\Entity\\Contacts' . "\0" . 'dateviewed', '' . "\0" . 'BackendBundle\\Entity\\Contacts' . "\0" . 'product');
+        return ['__isInitialized__', '' . "\0" . 'BackendBundle\\Entity\\Contacts' . "\0" . 'id', '' . "\0" . 'BackendBundle\\Entity\\Contacts' . "\0" . 'userFrom', '' . "\0" . 'BackendBundle\\Entity\\Contacts' . "\0" . 'nameFrom', '' . "\0" . 'BackendBundle\\Entity\\Contacts' . "\0" . 'emailFrom', '' . "\0" . 'BackendBundle\\Entity\\Contacts' . "\0" . 'phoneFrom', '' . "\0" . 'BackendBundle\\Entity\\Contacts' . "\0" . 'message', '' . "\0" . 'BackendBundle\\Entity\\Contacts' . "\0" . 'dateadd', '' . "\0" . 'BackendBundle\\Entity\\Contacts' . "\0" . 'dateviewed', '' . "\0" . 'BackendBundle\\Entity\\Contacts' . "\0" . 'product'];
     }
 
     /**
@@ -97,7 +97,7 @@ class Contacts extends \BackendBundle\Entity\Contacts implements \Doctrine\ORM\P
      */
     public function __clone()
     {
-        $this->__cloner__ && $this->__cloner__->__invoke($this, '__clone', array());
+        $this->__cloner__ && $this->__cloner__->__invoke($this, '__clone', []);
     }
 
     /**
@@ -105,7 +105,7 @@ class Contacts extends \BackendBundle\Entity\Contacts implements \Doctrine\ORM\P
      */
     public function __load()
     {
-        $this->__initializer__ && $this->__initializer__->__invoke($this, '__load', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, '__load', []);
     }
 
     /**
@@ -183,7 +183,7 @@ class Contacts extends \BackendBundle\Entity\Contacts implements \Doctrine\ORM\P
         }
 
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getId', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getId', []);
 
         return parent::getId();
     }
@@ -194,7 +194,7 @@ class Contacts extends \BackendBundle\Entity\Contacts implements \Doctrine\ORM\P
     public function setUserFrom($userFrom)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setUserFrom', array($userFrom));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setUserFrom', [$userFrom]);
 
         return parent::setUserFrom($userFrom);
     }
@@ -205,7 +205,7 @@ class Contacts extends \BackendBundle\Entity\Contacts implements \Doctrine\ORM\P
     public function getUserFrom()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getUserFrom', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getUserFrom', []);
 
         return parent::getUserFrom();
     }
@@ -216,7 +216,7 @@ class Contacts extends \BackendBundle\Entity\Contacts implements \Doctrine\ORM\P
     public function setNameFrom($nameFrom)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setNameFrom', array($nameFrom));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setNameFrom', [$nameFrom]);
 
         return parent::setNameFrom($nameFrom);
     }
@@ -227,7 +227,7 @@ class Contacts extends \BackendBundle\Entity\Contacts implements \Doctrine\ORM\P
     public function getNameFrom()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getNameFrom', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getNameFrom', []);
 
         return parent::getNameFrom();
     }
@@ -238,7 +238,7 @@ class Contacts extends \BackendBundle\Entity\Contacts implements \Doctrine\ORM\P
     public function setEmailFrom($emailFrom)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setEmailFrom', array($emailFrom));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setEmailFrom', [$emailFrom]);
 
         return parent::setEmailFrom($emailFrom);
     }
@@ -249,7 +249,7 @@ class Contacts extends \BackendBundle\Entity\Contacts implements \Doctrine\ORM\P
     public function getEmailFrom()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getEmailFrom', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getEmailFrom', []);
 
         return parent::getEmailFrom();
     }
@@ -260,7 +260,7 @@ class Contacts extends \BackendBundle\Entity\Contacts implements \Doctrine\ORM\P
     public function setPhoneFrom($phoneFrom)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setPhoneFrom', array($phoneFrom));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setPhoneFrom', [$phoneFrom]);
 
         return parent::setPhoneFrom($phoneFrom);
     }
@@ -271,7 +271,7 @@ class Contacts extends \BackendBundle\Entity\Contacts implements \Doctrine\ORM\P
     public function getPhoneFrom()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getPhoneFrom', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getPhoneFrom', []);
 
         return parent::getPhoneFrom();
     }
@@ -282,7 +282,7 @@ class Contacts extends \BackendBundle\Entity\Contacts implements \Doctrine\ORM\P
     public function setMessage($message)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setMessage', array($message));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setMessage', [$message]);
 
         return parent::setMessage($message);
     }
@@ -293,7 +293,7 @@ class Contacts extends \BackendBundle\Entity\Contacts implements \Doctrine\ORM\P
     public function getMessage()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getMessage', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getMessage', []);
 
         return parent::getMessage();
     }
@@ -304,7 +304,7 @@ class Contacts extends \BackendBundle\Entity\Contacts implements \Doctrine\ORM\P
     public function setDateadd($dateadd)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setDateadd', array($dateadd));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setDateadd', [$dateadd]);
 
         return parent::setDateadd($dateadd);
     }
@@ -315,7 +315,7 @@ class Contacts extends \BackendBundle\Entity\Contacts implements \Doctrine\ORM\P
     public function getDateadd()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getDateadd', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getDateadd', []);
 
         return parent::getDateadd();
     }
@@ -326,7 +326,7 @@ class Contacts extends \BackendBundle\Entity\Contacts implements \Doctrine\ORM\P
     public function setDateviewed($dateviewed)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setDateviewed', array($dateviewed));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setDateviewed', [$dateviewed]);
 
         return parent::setDateviewed($dateviewed);
     }
@@ -337,7 +337,7 @@ class Contacts extends \BackendBundle\Entity\Contacts implements \Doctrine\ORM\P
     public function getDateviewed()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getDateviewed', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getDateviewed', []);
 
         return parent::getDateviewed();
     }
@@ -348,7 +348,7 @@ class Contacts extends \BackendBundle\Entity\Contacts implements \Doctrine\ORM\P
     public function setProduct(\BackendBundle\Entity\Products $product = NULL)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setProduct', array($product));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setProduct', [$product]);
 
         return parent::setProduct($product);
     }
@@ -359,7 +359,7 @@ class Contacts extends \BackendBundle\Entity\Contacts implements \Doctrine\ORM\P
     public function getProduct()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getProduct', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getProduct', []);
 
         return parent::getProduct();
     }

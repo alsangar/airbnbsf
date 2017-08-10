@@ -16,6 +16,8 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Security\Core\Validator\Constraints\UserPassword;
+use Symfony\Component\Form\Extension\Core\Type\FileType;
+use Vich\UploaderBundle\Form\Type\VichImageType;
 
 class ProfileFormType extends AbstractType {
 
@@ -62,6 +64,12 @@ class ProfileFormType extends AbstractType {
                 ->add('firstName', null, array('attr' => array('class' => 'form-control'), 'label' => 'form.firstName'))
                 ->add('lastName', null, array('attr' => array('class' => 'form-control'), 'label' => 'form.lastName'))
                 ->add('phone', null, array('attr' => array('class' => 'form-control'), 'label' => 'form.phone'))
+//                ->add('imageFile', FileType::class, array('label' => 'form.imageFile'))
+                ->add('imageFile', VichImageType::class, [
+                    'required' => false,                    
+                    'image_uri' => true,
+                    'label' => 'form.imageFile',
+                ])
         ;
     }
 
@@ -105,6 +113,7 @@ class ProfileFormType extends AbstractType {
                 ->add('firstName', null, array('attr' => array('class' => 'form-control'), 'label' => 'form.firstName'))
                 ->add('lastName', null, array('attr' => array('class' => 'form-control'), 'label' => 'form.lastName'))
                 ->add('phone', null, array('attr' => array('class' => 'form-control'), 'label' => 'form.phone'))
+                ->add('imageFile', FileType::class, array('label' => 'form.imageFile'))
         ;
     }
 

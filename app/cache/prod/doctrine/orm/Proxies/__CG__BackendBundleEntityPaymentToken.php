@@ -36,7 +36,7 @@ class PaymentToken extends \BackendBundle\Entity\PaymentToken implements \Doctri
      *
      * @see \Doctrine\Common\Persistence\Proxy::__getLazyProperties
      */
-    public static $lazyPropertiesDefaults = array();
+    public static $lazyPropertiesDefaults = [];
 
 
 
@@ -64,10 +64,10 @@ class PaymentToken extends \BackendBundle\Entity\PaymentToken implements \Doctri
     public function __sleep()
     {
         if ($this->__isInitialized__) {
-            return array('__isInitialized__', 'details', 'hash', 'afterUrl', 'targetUrl', 'gatewayName');
+            return ['__isInitialized__', 'details', 'hash', 'afterUrl', 'targetUrl', 'gatewayName'];
         }
 
-        return array('__isInitialized__', 'details', 'hash', 'afterUrl', 'targetUrl', 'gatewayName');
+        return ['__isInitialized__', 'details', 'hash', 'afterUrl', 'targetUrl', 'gatewayName'];
     }
 
     /**
@@ -97,7 +97,7 @@ class PaymentToken extends \BackendBundle\Entity\PaymentToken implements \Doctri
      */
     public function __clone()
     {
-        $this->__cloner__ && $this->__cloner__->__invoke($this, '__clone', array());
+        $this->__cloner__ && $this->__cloner__->__invoke($this, '__clone', []);
     }
 
     /**
@@ -105,7 +105,7 @@ class PaymentToken extends \BackendBundle\Entity\PaymentToken implements \Doctri
      */
     public function __load()
     {
-        $this->__initializer__ && $this->__initializer__->__invoke($this, '__load', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, '__load', []);
     }
 
     /**
@@ -179,7 +179,7 @@ class PaymentToken extends \BackendBundle\Entity\PaymentToken implements \Doctri
     public function getDetails()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getDetails', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getDetails', []);
 
         return parent::getDetails();
     }
@@ -190,7 +190,7 @@ class PaymentToken extends \BackendBundle\Entity\PaymentToken implements \Doctri
     public function setDetails($details)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setDetails', array($details));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setDetails', [$details]);
 
         return parent::setDetails($details);
     }
@@ -205,7 +205,7 @@ class PaymentToken extends \BackendBundle\Entity\PaymentToken implements \Doctri
         }
 
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getHash', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getHash', []);
 
         return parent::getHash();
     }
@@ -216,7 +216,7 @@ class PaymentToken extends \BackendBundle\Entity\PaymentToken implements \Doctri
     public function setHash($hash)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setHash', array($hash));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setHash', [$hash]);
 
         return parent::setHash($hash);
     }
@@ -227,7 +227,7 @@ class PaymentToken extends \BackendBundle\Entity\PaymentToken implements \Doctri
     public function getTargetUrl()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getTargetUrl', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getTargetUrl', []);
 
         return parent::getTargetUrl();
     }
@@ -238,7 +238,7 @@ class PaymentToken extends \BackendBundle\Entity\PaymentToken implements \Doctri
     public function setTargetUrl($targetUrl)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setTargetUrl', array($targetUrl));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setTargetUrl', [$targetUrl]);
 
         return parent::setTargetUrl($targetUrl);
     }
@@ -249,7 +249,7 @@ class PaymentToken extends \BackendBundle\Entity\PaymentToken implements \Doctri
     public function getAfterUrl()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getAfterUrl', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getAfterUrl', []);
 
         return parent::getAfterUrl();
     }
@@ -260,7 +260,7 @@ class PaymentToken extends \BackendBundle\Entity\PaymentToken implements \Doctri
     public function setAfterUrl($afterUrl)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setAfterUrl', array($afterUrl));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setAfterUrl', [$afterUrl]);
 
         return parent::setAfterUrl($afterUrl);
     }
@@ -271,7 +271,7 @@ class PaymentToken extends \BackendBundle\Entity\PaymentToken implements \Doctri
     public function getGatewayName()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getGatewayName', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getGatewayName', []);
 
         return parent::getGatewayName();
     }
@@ -282,7 +282,7 @@ class PaymentToken extends \BackendBundle\Entity\PaymentToken implements \Doctri
     public function setGatewayName($gatewayName)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setGatewayName', array($gatewayName));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setGatewayName', [$gatewayName]);
 
         return parent::setGatewayName($gatewayName);
     }

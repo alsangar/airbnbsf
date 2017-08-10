@@ -36,7 +36,7 @@ class Services extends \BackendBundle\Entity\Services implements \Doctrine\ORM\P
      *
      * @see \Doctrine\Common\Persistence\Proxy::__getLazyProperties
      */
-    public static $lazyPropertiesDefaults = array();
+    public static $lazyPropertiesDefaults = [];
 
 
 
@@ -64,10 +64,10 @@ class Services extends \BackendBundle\Entity\Services implements \Doctrine\ORM\P
     public function __sleep()
     {
         if ($this->__isInitialized__) {
-            return array('__isInitialized__', '' . "\0" . 'BackendBundle\\Entity\\Services' . "\0" . 'id', '' . "\0" . 'BackendBundle\\Entity\\Services' . "\0" . 'service', '' . "\0" . 'BackendBundle\\Entity\\Services' . "\0" . 'orderService', '' . "\0" . 'BackendBundle\\Entity\\Services' . "\0" . 'active');
+            return ['__isInitialized__', '' . "\0" . 'BackendBundle\\Entity\\Services' . "\0" . 'id', '' . "\0" . 'BackendBundle\\Entity\\Services' . "\0" . 'service', '' . "\0" . 'BackendBundle\\Entity\\Services' . "\0" . 'orderService', '' . "\0" . 'BackendBundle\\Entity\\Services' . "\0" . 'active'];
         }
 
-        return array('__isInitialized__', '' . "\0" . 'BackendBundle\\Entity\\Services' . "\0" . 'id', '' . "\0" . 'BackendBundle\\Entity\\Services' . "\0" . 'service', '' . "\0" . 'BackendBundle\\Entity\\Services' . "\0" . 'orderService', '' . "\0" . 'BackendBundle\\Entity\\Services' . "\0" . 'active');
+        return ['__isInitialized__', '' . "\0" . 'BackendBundle\\Entity\\Services' . "\0" . 'id', '' . "\0" . 'BackendBundle\\Entity\\Services' . "\0" . 'service', '' . "\0" . 'BackendBundle\\Entity\\Services' . "\0" . 'orderService', '' . "\0" . 'BackendBundle\\Entity\\Services' . "\0" . 'active'];
     }
 
     /**
@@ -97,7 +97,7 @@ class Services extends \BackendBundle\Entity\Services implements \Doctrine\ORM\P
      */
     public function __clone()
     {
-        $this->__cloner__ && $this->__cloner__->__invoke($this, '__clone', array());
+        $this->__cloner__ && $this->__cloner__->__invoke($this, '__clone', []);
     }
 
     /**
@@ -105,7 +105,7 @@ class Services extends \BackendBundle\Entity\Services implements \Doctrine\ORM\P
      */
     public function __load()
     {
-        $this->__initializer__ && $this->__initializer__->__invoke($this, '__load', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, '__load', []);
     }
 
     /**
@@ -183,7 +183,7 @@ class Services extends \BackendBundle\Entity\Services implements \Doctrine\ORM\P
         }
 
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getId', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getId', []);
 
         return parent::getId();
     }
@@ -194,7 +194,7 @@ class Services extends \BackendBundle\Entity\Services implements \Doctrine\ORM\P
     public function setService($service)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setService', array($service));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setService', [$service]);
 
         return parent::setService($service);
     }
@@ -205,7 +205,7 @@ class Services extends \BackendBundle\Entity\Services implements \Doctrine\ORM\P
     public function getService()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getService', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getService', []);
 
         return parent::getService();
     }
@@ -216,7 +216,7 @@ class Services extends \BackendBundle\Entity\Services implements \Doctrine\ORM\P
     public function setOrderService($orderService)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setOrderService', array($orderService));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setOrderService', [$orderService]);
 
         return parent::setOrderService($orderService);
     }
@@ -227,7 +227,7 @@ class Services extends \BackendBundle\Entity\Services implements \Doctrine\ORM\P
     public function getOrderService()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getOrderService', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getOrderService', []);
 
         return parent::getOrderService();
     }
@@ -238,7 +238,7 @@ class Services extends \BackendBundle\Entity\Services implements \Doctrine\ORM\P
     public function setActive($active)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setActive', array($active));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setActive', [$active]);
 
         return parent::setActive($active);
     }
@@ -249,7 +249,7 @@ class Services extends \BackendBundle\Entity\Services implements \Doctrine\ORM\P
     public function getActive()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getActive', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getActive', []);
 
         return parent::getActive();
     }

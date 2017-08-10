@@ -36,7 +36,7 @@ class Agents extends \BackendBundle\Entity\Agents implements \Doctrine\ORM\Proxy
      *
      * @see \Doctrine\Common\Persistence\Proxy::__getLazyProperties
      */
-    public static $lazyPropertiesDefaults = array();
+    public static $lazyPropertiesDefaults = [];
 
 
 
@@ -64,10 +64,10 @@ class Agents extends \BackendBundle\Entity\Agents implements \Doctrine\ORM\Proxy
     public function __sleep()
     {
         if ($this->__isInitialized__) {
-            return array('__isInitialized__', '' . "\0" . 'BackendBundle\\Entity\\Agents' . "\0" . 'id', '' . "\0" . 'BackendBundle\\Entity\\Agents' . "\0" . 'userIdAgent', '' . "\0" . 'BackendBundle\\Entity\\Agents' . "\0" . 'dateadd', '' . "\0" . 'BackendBundle\\Entity\\Agents' . "\0" . 'datedeleted', '' . "\0" . 'BackendBundle\\Entity\\Agents' . "\0" . 'agent', '' . "\0" . 'BackendBundle\\Entity\\Agents' . "\0" . 'user');
+            return ['__isInitialized__', '' . "\0" . 'BackendBundle\\Entity\\Agents' . "\0" . 'id', '' . "\0" . 'BackendBundle\\Entity\\Agents' . "\0" . 'userIdAgent', '' . "\0" . 'BackendBundle\\Entity\\Agents' . "\0" . 'dateadd', '' . "\0" . 'BackendBundle\\Entity\\Agents' . "\0" . 'datedeleted', '' . "\0" . 'BackendBundle\\Entity\\Agents' . "\0" . 'agent', '' . "\0" . 'BackendBundle\\Entity\\Agents' . "\0" . 'user'];
         }
 
-        return array('__isInitialized__', '' . "\0" . 'BackendBundle\\Entity\\Agents' . "\0" . 'id', '' . "\0" . 'BackendBundle\\Entity\\Agents' . "\0" . 'userIdAgent', '' . "\0" . 'BackendBundle\\Entity\\Agents' . "\0" . 'dateadd', '' . "\0" . 'BackendBundle\\Entity\\Agents' . "\0" . 'datedeleted', '' . "\0" . 'BackendBundle\\Entity\\Agents' . "\0" . 'agent', '' . "\0" . 'BackendBundle\\Entity\\Agents' . "\0" . 'user');
+        return ['__isInitialized__', '' . "\0" . 'BackendBundle\\Entity\\Agents' . "\0" . 'id', '' . "\0" . 'BackendBundle\\Entity\\Agents' . "\0" . 'userIdAgent', '' . "\0" . 'BackendBundle\\Entity\\Agents' . "\0" . 'dateadd', '' . "\0" . 'BackendBundle\\Entity\\Agents' . "\0" . 'datedeleted', '' . "\0" . 'BackendBundle\\Entity\\Agents' . "\0" . 'agent', '' . "\0" . 'BackendBundle\\Entity\\Agents' . "\0" . 'user'];
     }
 
     /**
@@ -97,7 +97,7 @@ class Agents extends \BackendBundle\Entity\Agents implements \Doctrine\ORM\Proxy
      */
     public function __clone()
     {
-        $this->__cloner__ && $this->__cloner__->__invoke($this, '__clone', array());
+        $this->__cloner__ && $this->__cloner__->__invoke($this, '__clone', []);
     }
 
     /**
@@ -105,7 +105,7 @@ class Agents extends \BackendBundle\Entity\Agents implements \Doctrine\ORM\Proxy
      */
     public function __load()
     {
-        $this->__initializer__ && $this->__initializer__->__invoke($this, '__load', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, '__load', []);
     }
 
     /**
@@ -183,7 +183,7 @@ class Agents extends \BackendBundle\Entity\Agents implements \Doctrine\ORM\Proxy
         }
 
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getId', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getId', []);
 
         return parent::getId();
     }
@@ -194,7 +194,7 @@ class Agents extends \BackendBundle\Entity\Agents implements \Doctrine\ORM\Proxy
     public function setUserIdAgent($userIdAgent)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setUserIdAgent', array($userIdAgent));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setUserIdAgent', [$userIdAgent]);
 
         return parent::setUserIdAgent($userIdAgent);
     }
@@ -205,7 +205,7 @@ class Agents extends \BackendBundle\Entity\Agents implements \Doctrine\ORM\Proxy
     public function getUserIdAgent()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getUserIdAgent', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getUserIdAgent', []);
 
         return parent::getUserIdAgent();
     }
@@ -216,7 +216,7 @@ class Agents extends \BackendBundle\Entity\Agents implements \Doctrine\ORM\Proxy
     public function setDateadd($dateadd)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setDateadd', array($dateadd));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setDateadd', [$dateadd]);
 
         return parent::setDateadd($dateadd);
     }
@@ -227,7 +227,7 @@ class Agents extends \BackendBundle\Entity\Agents implements \Doctrine\ORM\Proxy
     public function getDateadd()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getDateadd', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getDateadd', []);
 
         return parent::getDateadd();
     }
@@ -238,7 +238,7 @@ class Agents extends \BackendBundle\Entity\Agents implements \Doctrine\ORM\Proxy
     public function setDatedeleted($datedeleted)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setDatedeleted', array($datedeleted));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setDatedeleted', [$datedeleted]);
 
         return parent::setDatedeleted($datedeleted);
     }
@@ -249,7 +249,7 @@ class Agents extends \BackendBundle\Entity\Agents implements \Doctrine\ORM\Proxy
     public function getDatedeleted()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getDatedeleted', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getDatedeleted', []);
 
         return parent::getDatedeleted();
     }
@@ -260,7 +260,7 @@ class Agents extends \BackendBundle\Entity\Agents implements \Doctrine\ORM\Proxy
     public function setAgent(\BackendBundle\Entity\User $agent = NULL)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setAgent', array($agent));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setAgent', [$agent]);
 
         return parent::setAgent($agent);
     }
@@ -271,7 +271,7 @@ class Agents extends \BackendBundle\Entity\Agents implements \Doctrine\ORM\Proxy
     public function getAgent()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getAgent', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getAgent', []);
 
         return parent::getAgent();
     }
@@ -282,7 +282,7 @@ class Agents extends \BackendBundle\Entity\Agents implements \Doctrine\ORM\Proxy
     public function setUser(\BackendBundle\Entity\User $user = NULL)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setUser', array($user));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setUser', [$user]);
 
         return parent::setUser($user);
     }
@@ -293,7 +293,7 @@ class Agents extends \BackendBundle\Entity\Agents implements \Doctrine\ORM\Proxy
     public function getUser()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getUser', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getUser', []);
 
         return parent::getUser();
     }

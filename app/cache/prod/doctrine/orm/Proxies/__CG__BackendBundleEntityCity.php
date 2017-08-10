@@ -36,7 +36,7 @@ class City extends \BackendBundle\Entity\City implements \Doctrine\ORM\Proxy\Pro
      *
      * @see \Doctrine\Common\Persistence\Proxy::__getLazyProperties
      */
-    public static $lazyPropertiesDefaults = array();
+    public static $lazyPropertiesDefaults = [];
 
 
 
@@ -64,10 +64,10 @@ class City extends \BackendBundle\Entity\City implements \Doctrine\ORM\Proxy\Pro
     public function __sleep()
     {
         if ($this->__isInitialized__) {
-            return array('__isInitialized__', '' . "\0" . 'BackendBundle\\Entity\\City' . "\0" . 'id', '' . "\0" . 'BackendBundle\\Entity\\City' . "\0" . 'name', '' . "\0" . 'BackendBundle\\Entity\\City' . "\0" . 'canonicalName', '' . "\0" . 'BackendBundle\\Entity\\City' . "\0" . 'zip', '' . "\0" . 'BackendBundle\\Entity\\City' . "\0" . 'latitude', '' . "\0" . 'BackendBundle\\Entity\\City' . "\0" . 'longitude', '' . "\0" . 'BackendBundle\\Entity\\City' . "\0" . 'state', 'location');
+            return ['__isInitialized__', '' . "\0" . 'BackendBundle\\Entity\\City' . "\0" . 'id', '' . "\0" . 'BackendBundle\\Entity\\City' . "\0" . 'name', '' . "\0" . 'BackendBundle\\Entity\\City' . "\0" . 'canonicalName', '' . "\0" . 'BackendBundle\\Entity\\City' . "\0" . 'zip', '' . "\0" . 'BackendBundle\\Entity\\City' . "\0" . 'latitude', '' . "\0" . 'BackendBundle\\Entity\\City' . "\0" . 'longitude', '' . "\0" . 'BackendBundle\\Entity\\City' . "\0" . 'state', 'location'];
         }
 
-        return array('__isInitialized__', '' . "\0" . 'BackendBundle\\Entity\\City' . "\0" . 'id', '' . "\0" . 'BackendBundle\\Entity\\City' . "\0" . 'name', '' . "\0" . 'BackendBundle\\Entity\\City' . "\0" . 'canonicalName', '' . "\0" . 'BackendBundle\\Entity\\City' . "\0" . 'zip', '' . "\0" . 'BackendBundle\\Entity\\City' . "\0" . 'latitude', '' . "\0" . 'BackendBundle\\Entity\\City' . "\0" . 'longitude', '' . "\0" . 'BackendBundle\\Entity\\City' . "\0" . 'state', 'location');
+        return ['__isInitialized__', '' . "\0" . 'BackendBundle\\Entity\\City' . "\0" . 'id', '' . "\0" . 'BackendBundle\\Entity\\City' . "\0" . 'name', '' . "\0" . 'BackendBundle\\Entity\\City' . "\0" . 'canonicalName', '' . "\0" . 'BackendBundle\\Entity\\City' . "\0" . 'zip', '' . "\0" . 'BackendBundle\\Entity\\City' . "\0" . 'latitude', '' . "\0" . 'BackendBundle\\Entity\\City' . "\0" . 'longitude', '' . "\0" . 'BackendBundle\\Entity\\City' . "\0" . 'state', 'location'];
     }
 
     /**
@@ -97,7 +97,7 @@ class City extends \BackendBundle\Entity\City implements \Doctrine\ORM\Proxy\Pro
      */
     public function __clone()
     {
-        $this->__cloner__ && $this->__cloner__->__invoke($this, '__clone', array());
+        $this->__cloner__ && $this->__cloner__->__invoke($this, '__clone', []);
     }
 
     /**
@@ -105,7 +105,7 @@ class City extends \BackendBundle\Entity\City implements \Doctrine\ORM\Proxy\Pro
      */
     public function __load()
     {
-        $this->__initializer__ && $this->__initializer__->__invoke($this, '__load', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, '__load', []);
     }
 
     /**
@@ -179,7 +179,7 @@ class City extends \BackendBundle\Entity\City implements \Doctrine\ORM\Proxy\Pro
     public function __toString()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, '__toString', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, '__toString', []);
 
         return parent::__toString();
     }
@@ -194,7 +194,7 @@ class City extends \BackendBundle\Entity\City implements \Doctrine\ORM\Proxy\Pro
         }
 
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getId', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getId', []);
 
         return parent::getId();
     }
@@ -205,7 +205,7 @@ class City extends \BackendBundle\Entity\City implements \Doctrine\ORM\Proxy\Pro
     public function setName($name)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setName', array($name));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setName', [$name]);
 
         return parent::setName($name);
     }
@@ -216,7 +216,7 @@ class City extends \BackendBundle\Entity\City implements \Doctrine\ORM\Proxy\Pro
     public function getName()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getName', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getName', []);
 
         return parent::getName();
     }
@@ -227,7 +227,7 @@ class City extends \BackendBundle\Entity\City implements \Doctrine\ORM\Proxy\Pro
     public function setCanonicalName($canonicalName)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setCanonicalName', array($canonicalName));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setCanonicalName', [$canonicalName]);
 
         return parent::setCanonicalName($canonicalName);
     }
@@ -238,7 +238,7 @@ class City extends \BackendBundle\Entity\City implements \Doctrine\ORM\Proxy\Pro
     public function getCanonicalName()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getCanonicalName', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getCanonicalName', []);
 
         return parent::getCanonicalName();
     }
@@ -249,7 +249,7 @@ class City extends \BackendBundle\Entity\City implements \Doctrine\ORM\Proxy\Pro
     public function setZip($zip)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setZip', array($zip));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setZip', [$zip]);
 
         return parent::setZip($zip);
     }
@@ -260,7 +260,7 @@ class City extends \BackendBundle\Entity\City implements \Doctrine\ORM\Proxy\Pro
     public function getZip()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getZip', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getZip', []);
 
         return parent::getZip();
     }
@@ -271,7 +271,7 @@ class City extends \BackendBundle\Entity\City implements \Doctrine\ORM\Proxy\Pro
     public function setLatitude($latitude)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setLatitude', array($latitude));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setLatitude', [$latitude]);
 
         return parent::setLatitude($latitude);
     }
@@ -282,7 +282,7 @@ class City extends \BackendBundle\Entity\City implements \Doctrine\ORM\Proxy\Pro
     public function getLatitude()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getLatitude', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getLatitude', []);
 
         return parent::getLatitude();
     }
@@ -293,7 +293,7 @@ class City extends \BackendBundle\Entity\City implements \Doctrine\ORM\Proxy\Pro
     public function setLongitude($longitude)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setLongitude', array($longitude));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setLongitude', [$longitude]);
 
         return parent::setLongitude($longitude);
     }
@@ -304,7 +304,7 @@ class City extends \BackendBundle\Entity\City implements \Doctrine\ORM\Proxy\Pro
     public function getLongitude()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getLongitude', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getLongitude', []);
 
         return parent::getLongitude();
     }
@@ -315,7 +315,7 @@ class City extends \BackendBundle\Entity\City implements \Doctrine\ORM\Proxy\Pro
     public function setState(\BackendBundle\Entity\State $state = NULL)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setState', array($state));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setState', [$state]);
 
         return parent::setState($state);
     }
@@ -326,7 +326,7 @@ class City extends \BackendBundle\Entity\City implements \Doctrine\ORM\Proxy\Pro
     public function getState()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getState', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getState', []);
 
         return parent::getState();
     }
@@ -337,7 +337,7 @@ class City extends \BackendBundle\Entity\City implements \Doctrine\ORM\Proxy\Pro
     public function addLocation(\BackendBundle\Entity\Location $location)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'addLocation', array($location));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'addLocation', [$location]);
 
         return parent::addLocation($location);
     }
@@ -348,7 +348,7 @@ class City extends \BackendBundle\Entity\City implements \Doctrine\ORM\Proxy\Pro
     public function removeLocation(\BackendBundle\Entity\Location $location)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'removeLocation', array($location));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'removeLocation', [$location]);
 
         return parent::removeLocation($location);
     }
@@ -359,7 +359,7 @@ class City extends \BackendBundle\Entity\City implements \Doctrine\ORM\Proxy\Pro
     public function getLocation()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getLocation', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getLocation', []);
 
         return parent::getLocation();
     }

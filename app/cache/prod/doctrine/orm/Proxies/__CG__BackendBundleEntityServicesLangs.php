@@ -36,7 +36,7 @@ class ServicesLangs extends \BackendBundle\Entity\ServicesLangs implements \Doct
      *
      * @see \Doctrine\Common\Persistence\Proxy::__getLazyProperties
      */
-    public static $lazyPropertiesDefaults = array();
+    public static $lazyPropertiesDefaults = [];
 
 
 
@@ -64,10 +64,10 @@ class ServicesLangs extends \BackendBundle\Entity\ServicesLangs implements \Doct
     public function __sleep()
     {
         if ($this->__isInitialized__) {
-            return array('__isInitialized__', '' . "\0" . 'BackendBundle\\Entity\\ServicesLangs' . "\0" . 'id', '' . "\0" . 'BackendBundle\\Entity\\ServicesLangs' . "\0" . 'name', '' . "\0" . 'BackendBundle\\Entity\\ServicesLangs' . "\0" . 'language', '' . "\0" . 'BackendBundle\\Entity\\ServicesLangs' . "\0" . 'service');
+            return ['__isInitialized__', '' . "\0" . 'BackendBundle\\Entity\\ServicesLangs' . "\0" . 'id', '' . "\0" . 'BackendBundle\\Entity\\ServicesLangs' . "\0" . 'name', '' . "\0" . 'BackendBundle\\Entity\\ServicesLangs' . "\0" . 'language', '' . "\0" . 'BackendBundle\\Entity\\ServicesLangs' . "\0" . 'service'];
         }
 
-        return array('__isInitialized__', '' . "\0" . 'BackendBundle\\Entity\\ServicesLangs' . "\0" . 'id', '' . "\0" . 'BackendBundle\\Entity\\ServicesLangs' . "\0" . 'name', '' . "\0" . 'BackendBundle\\Entity\\ServicesLangs' . "\0" . 'language', '' . "\0" . 'BackendBundle\\Entity\\ServicesLangs' . "\0" . 'service');
+        return ['__isInitialized__', '' . "\0" . 'BackendBundle\\Entity\\ServicesLangs' . "\0" . 'id', '' . "\0" . 'BackendBundle\\Entity\\ServicesLangs' . "\0" . 'name', '' . "\0" . 'BackendBundle\\Entity\\ServicesLangs' . "\0" . 'language', '' . "\0" . 'BackendBundle\\Entity\\ServicesLangs' . "\0" . 'service'];
     }
 
     /**
@@ -97,7 +97,7 @@ class ServicesLangs extends \BackendBundle\Entity\ServicesLangs implements \Doct
      */
     public function __clone()
     {
-        $this->__cloner__ && $this->__cloner__->__invoke($this, '__clone', array());
+        $this->__cloner__ && $this->__cloner__->__invoke($this, '__clone', []);
     }
 
     /**
@@ -105,7 +105,7 @@ class ServicesLangs extends \BackendBundle\Entity\ServicesLangs implements \Doct
      */
     public function __load()
     {
-        $this->__initializer__ && $this->__initializer__->__invoke($this, '__load', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, '__load', []);
     }
 
     /**
@@ -183,7 +183,7 @@ class ServicesLangs extends \BackendBundle\Entity\ServicesLangs implements \Doct
         }
 
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getId', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getId', []);
 
         return parent::getId();
     }
@@ -194,7 +194,7 @@ class ServicesLangs extends \BackendBundle\Entity\ServicesLangs implements \Doct
     public function setName($name)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setName', array($name));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setName', [$name]);
 
         return parent::setName($name);
     }
@@ -205,7 +205,7 @@ class ServicesLangs extends \BackendBundle\Entity\ServicesLangs implements \Doct
     public function getName()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getName', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getName', []);
 
         return parent::getName();
     }
@@ -216,7 +216,7 @@ class ServicesLangs extends \BackendBundle\Entity\ServicesLangs implements \Doct
     public function setLanguage(\BackendBundle\Entity\Languages $language = NULL)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setLanguage', array($language));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setLanguage', [$language]);
 
         return parent::setLanguage($language);
     }
@@ -227,7 +227,7 @@ class ServicesLangs extends \BackendBundle\Entity\ServicesLangs implements \Doct
     public function getLanguage()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getLanguage', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getLanguage', []);
 
         return parent::getLanguage();
     }
@@ -238,7 +238,7 @@ class ServicesLangs extends \BackendBundle\Entity\ServicesLangs implements \Doct
     public function setService(\BackendBundle\Entity\Services $service = NULL)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setService', array($service));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setService', [$service]);
 
         return parent::setService($service);
     }
@@ -249,7 +249,7 @@ class ServicesLangs extends \BackendBundle\Entity\ServicesLangs implements \Doct
     public function getService()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getService', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getService', []);
 
         return parent::getService();
     }

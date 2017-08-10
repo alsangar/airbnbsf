@@ -36,7 +36,7 @@ class Messages extends \BackendBundle\Entity\Messages implements \Doctrine\ORM\P
      *
      * @see \Doctrine\Common\Persistence\Proxy::__getLazyProperties
      */
-    public static $lazyPropertiesDefaults = array();
+    public static $lazyPropertiesDefaults = [];
 
 
 
@@ -64,10 +64,10 @@ class Messages extends \BackendBundle\Entity\Messages implements \Doctrine\ORM\P
     public function __sleep()
     {
         if ($this->__isInitialized__) {
-            return array('__isInitialized__', '' . "\0" . 'BackendBundle\\Entity\\Messages' . "\0" . 'id', '' . "\0" . 'BackendBundle\\Entity\\Messages' . "\0" . 'message', '' . "\0" . 'BackendBundle\\Entity\\Messages' . "\0" . 'dateadd', '' . "\0" . 'BackendBundle\\Entity\\Messages' . "\0" . 'dateviewed', '' . "\0" . 'BackendBundle\\Entity\\Messages' . "\0" . 'userfrom', '' . "\0" . 'BackendBundle\\Entity\\Messages' . "\0" . 'userto');
+            return ['__isInitialized__', '' . "\0" . 'BackendBundle\\Entity\\Messages' . "\0" . 'id', '' . "\0" . 'BackendBundle\\Entity\\Messages' . "\0" . 'message', '' . "\0" . 'BackendBundle\\Entity\\Messages' . "\0" . 'dateadd', '' . "\0" . 'BackendBundle\\Entity\\Messages' . "\0" . 'dateviewed', '' . "\0" . 'BackendBundle\\Entity\\Messages' . "\0" . 'userfrom', '' . "\0" . 'BackendBundle\\Entity\\Messages' . "\0" . 'userto'];
         }
 
-        return array('__isInitialized__', '' . "\0" . 'BackendBundle\\Entity\\Messages' . "\0" . 'id', '' . "\0" . 'BackendBundle\\Entity\\Messages' . "\0" . 'message', '' . "\0" . 'BackendBundle\\Entity\\Messages' . "\0" . 'dateadd', '' . "\0" . 'BackendBundle\\Entity\\Messages' . "\0" . 'dateviewed', '' . "\0" . 'BackendBundle\\Entity\\Messages' . "\0" . 'userfrom', '' . "\0" . 'BackendBundle\\Entity\\Messages' . "\0" . 'userto');
+        return ['__isInitialized__', '' . "\0" . 'BackendBundle\\Entity\\Messages' . "\0" . 'id', '' . "\0" . 'BackendBundle\\Entity\\Messages' . "\0" . 'message', '' . "\0" . 'BackendBundle\\Entity\\Messages' . "\0" . 'dateadd', '' . "\0" . 'BackendBundle\\Entity\\Messages' . "\0" . 'dateviewed', '' . "\0" . 'BackendBundle\\Entity\\Messages' . "\0" . 'userfrom', '' . "\0" . 'BackendBundle\\Entity\\Messages' . "\0" . 'userto'];
     }
 
     /**
@@ -97,7 +97,7 @@ class Messages extends \BackendBundle\Entity\Messages implements \Doctrine\ORM\P
      */
     public function __clone()
     {
-        $this->__cloner__ && $this->__cloner__->__invoke($this, '__clone', array());
+        $this->__cloner__ && $this->__cloner__->__invoke($this, '__clone', []);
     }
 
     /**
@@ -105,7 +105,7 @@ class Messages extends \BackendBundle\Entity\Messages implements \Doctrine\ORM\P
      */
     public function __load()
     {
-        $this->__initializer__ && $this->__initializer__->__invoke($this, '__load', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, '__load', []);
     }
 
     /**
@@ -183,7 +183,7 @@ class Messages extends \BackendBundle\Entity\Messages implements \Doctrine\ORM\P
         }
 
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getId', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getId', []);
 
         return parent::getId();
     }
@@ -194,7 +194,7 @@ class Messages extends \BackendBundle\Entity\Messages implements \Doctrine\ORM\P
     public function setMessage($message)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setMessage', array($message));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setMessage', [$message]);
 
         return parent::setMessage($message);
     }
@@ -205,7 +205,7 @@ class Messages extends \BackendBundle\Entity\Messages implements \Doctrine\ORM\P
     public function getMessage()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getMessage', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getMessage', []);
 
         return parent::getMessage();
     }
@@ -216,7 +216,7 @@ class Messages extends \BackendBundle\Entity\Messages implements \Doctrine\ORM\P
     public function setDateadd($dateadd)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setDateadd', array($dateadd));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setDateadd', [$dateadd]);
 
         return parent::setDateadd($dateadd);
     }
@@ -227,7 +227,7 @@ class Messages extends \BackendBundle\Entity\Messages implements \Doctrine\ORM\P
     public function getDateadd()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getDateadd', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getDateadd', []);
 
         return parent::getDateadd();
     }
@@ -238,7 +238,7 @@ class Messages extends \BackendBundle\Entity\Messages implements \Doctrine\ORM\P
     public function setDateviewed($dateviewed)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setDateviewed', array($dateviewed));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setDateviewed', [$dateviewed]);
 
         return parent::setDateviewed($dateviewed);
     }
@@ -249,7 +249,7 @@ class Messages extends \BackendBundle\Entity\Messages implements \Doctrine\ORM\P
     public function getDateviewed()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getDateviewed', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getDateviewed', []);
 
         return parent::getDateviewed();
     }
@@ -260,7 +260,7 @@ class Messages extends \BackendBundle\Entity\Messages implements \Doctrine\ORM\P
     public function setUserfrom(\BackendBundle\Entity\User $userfrom = NULL)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setUserfrom', array($userfrom));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setUserfrom', [$userfrom]);
 
         return parent::setUserfrom($userfrom);
     }
@@ -271,7 +271,7 @@ class Messages extends \BackendBundle\Entity\Messages implements \Doctrine\ORM\P
     public function getUserfrom()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getUserfrom', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getUserfrom', []);
 
         return parent::getUserfrom();
     }
@@ -282,7 +282,7 @@ class Messages extends \BackendBundle\Entity\Messages implements \Doctrine\ORM\P
     public function setUserto(\BackendBundle\Entity\User $userto = NULL)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setUserto', array($userto));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setUserto', [$userto]);
 
         return parent::setUserto($userto);
     }
@@ -293,7 +293,7 @@ class Messages extends \BackendBundle\Entity\Messages implements \Doctrine\ORM\P
     public function getUserto()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getUserto', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getUserto', []);
 
         return parent::getUserto();
     }

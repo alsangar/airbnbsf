@@ -36,7 +36,7 @@ class Coupons extends \BackendBundle\Entity\Coupons implements \Doctrine\ORM\Pro
      *
      * @see \Doctrine\Common\Persistence\Proxy::__getLazyProperties
      */
-    public static $lazyPropertiesDefaults = array();
+    public static $lazyPropertiesDefaults = [];
 
 
 
@@ -64,10 +64,10 @@ class Coupons extends \BackendBundle\Entity\Coupons implements \Doctrine\ORM\Pro
     public function __sleep()
     {
         if ($this->__isInitialized__) {
-            return array('__isInitialized__', '' . "\0" . 'BackendBundle\\Entity\\Coupons' . "\0" . 'id', '' . "\0" . 'BackendBundle\\Entity\\Coupons' . "\0" . 'amount', '' . "\0" . 'BackendBundle\\Entity\\Coupons' . "\0" . 'isPercentage', '' . "\0" . 'BackendBundle\\Entity\\Coupons' . "\0" . 'isFixed', '' . "\0" . 'BackendBundle\\Entity\\Coupons' . "\0" . 'dateadd', '' . "\0" . 'BackendBundle\\Entity\\Coupons' . "\0" . 'dateused', '' . "\0" . 'BackendBundle\\Entity\\Coupons' . "\0" . 'validFrom', '' . "\0" . 'BackendBundle\\Entity\\Coupons' . "\0" . 'validTo', '' . "\0" . 'BackendBundle\\Entity\\Coupons' . "\0" . 'user');
+            return ['__isInitialized__', '' . "\0" . 'BackendBundle\\Entity\\Coupons' . "\0" . 'id', '' . "\0" . 'BackendBundle\\Entity\\Coupons' . "\0" . 'amount', '' . "\0" . 'BackendBundle\\Entity\\Coupons' . "\0" . 'isPercentage', '' . "\0" . 'BackendBundle\\Entity\\Coupons' . "\0" . 'isFixed', '' . "\0" . 'BackendBundle\\Entity\\Coupons' . "\0" . 'dateadd', '' . "\0" . 'BackendBundle\\Entity\\Coupons' . "\0" . 'dateused', '' . "\0" . 'BackendBundle\\Entity\\Coupons' . "\0" . 'validFrom', '' . "\0" . 'BackendBundle\\Entity\\Coupons' . "\0" . 'validTo', '' . "\0" . 'BackendBundle\\Entity\\Coupons' . "\0" . 'user'];
         }
 
-        return array('__isInitialized__', '' . "\0" . 'BackendBundle\\Entity\\Coupons' . "\0" . 'id', '' . "\0" . 'BackendBundle\\Entity\\Coupons' . "\0" . 'amount', '' . "\0" . 'BackendBundle\\Entity\\Coupons' . "\0" . 'isPercentage', '' . "\0" . 'BackendBundle\\Entity\\Coupons' . "\0" . 'isFixed', '' . "\0" . 'BackendBundle\\Entity\\Coupons' . "\0" . 'dateadd', '' . "\0" . 'BackendBundle\\Entity\\Coupons' . "\0" . 'dateused', '' . "\0" . 'BackendBundle\\Entity\\Coupons' . "\0" . 'validFrom', '' . "\0" . 'BackendBundle\\Entity\\Coupons' . "\0" . 'validTo', '' . "\0" . 'BackendBundle\\Entity\\Coupons' . "\0" . 'user');
+        return ['__isInitialized__', '' . "\0" . 'BackendBundle\\Entity\\Coupons' . "\0" . 'id', '' . "\0" . 'BackendBundle\\Entity\\Coupons' . "\0" . 'amount', '' . "\0" . 'BackendBundle\\Entity\\Coupons' . "\0" . 'isPercentage', '' . "\0" . 'BackendBundle\\Entity\\Coupons' . "\0" . 'isFixed', '' . "\0" . 'BackendBundle\\Entity\\Coupons' . "\0" . 'dateadd', '' . "\0" . 'BackendBundle\\Entity\\Coupons' . "\0" . 'dateused', '' . "\0" . 'BackendBundle\\Entity\\Coupons' . "\0" . 'validFrom', '' . "\0" . 'BackendBundle\\Entity\\Coupons' . "\0" . 'validTo', '' . "\0" . 'BackendBundle\\Entity\\Coupons' . "\0" . 'user'];
     }
 
     /**
@@ -97,7 +97,7 @@ class Coupons extends \BackendBundle\Entity\Coupons implements \Doctrine\ORM\Pro
      */
     public function __clone()
     {
-        $this->__cloner__ && $this->__cloner__->__invoke($this, '__clone', array());
+        $this->__cloner__ && $this->__cloner__->__invoke($this, '__clone', []);
     }
 
     /**
@@ -105,7 +105,7 @@ class Coupons extends \BackendBundle\Entity\Coupons implements \Doctrine\ORM\Pro
      */
     public function __load()
     {
-        $this->__initializer__ && $this->__initializer__->__invoke($this, '__load', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, '__load', []);
     }
 
     /**
@@ -183,7 +183,7 @@ class Coupons extends \BackendBundle\Entity\Coupons implements \Doctrine\ORM\Pro
         }
 
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getId', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getId', []);
 
         return parent::getId();
     }
@@ -194,7 +194,7 @@ class Coupons extends \BackendBundle\Entity\Coupons implements \Doctrine\ORM\Pro
     public function setAmount($amount)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setAmount', array($amount));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setAmount', [$amount]);
 
         return parent::setAmount($amount);
     }
@@ -205,7 +205,7 @@ class Coupons extends \BackendBundle\Entity\Coupons implements \Doctrine\ORM\Pro
     public function getAmount()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getAmount', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getAmount', []);
 
         return parent::getAmount();
     }
@@ -216,7 +216,7 @@ class Coupons extends \BackendBundle\Entity\Coupons implements \Doctrine\ORM\Pro
     public function setIsPercentage($isPercentage)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setIsPercentage', array($isPercentage));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setIsPercentage', [$isPercentage]);
 
         return parent::setIsPercentage($isPercentage);
     }
@@ -227,7 +227,7 @@ class Coupons extends \BackendBundle\Entity\Coupons implements \Doctrine\ORM\Pro
     public function getIsPercentage()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getIsPercentage', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getIsPercentage', []);
 
         return parent::getIsPercentage();
     }
@@ -238,7 +238,7 @@ class Coupons extends \BackendBundle\Entity\Coupons implements \Doctrine\ORM\Pro
     public function setIsFixed($isFixed)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setIsFixed', array($isFixed));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setIsFixed', [$isFixed]);
 
         return parent::setIsFixed($isFixed);
     }
@@ -249,7 +249,7 @@ class Coupons extends \BackendBundle\Entity\Coupons implements \Doctrine\ORM\Pro
     public function getIsFixed()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getIsFixed', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getIsFixed', []);
 
         return parent::getIsFixed();
     }
@@ -260,7 +260,7 @@ class Coupons extends \BackendBundle\Entity\Coupons implements \Doctrine\ORM\Pro
     public function setDateadd($dateadd)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setDateadd', array($dateadd));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setDateadd', [$dateadd]);
 
         return parent::setDateadd($dateadd);
     }
@@ -271,7 +271,7 @@ class Coupons extends \BackendBundle\Entity\Coupons implements \Doctrine\ORM\Pro
     public function getDateadd()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getDateadd', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getDateadd', []);
 
         return parent::getDateadd();
     }
@@ -282,7 +282,7 @@ class Coupons extends \BackendBundle\Entity\Coupons implements \Doctrine\ORM\Pro
     public function setDateused($dateused)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setDateused', array($dateused));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setDateused', [$dateused]);
 
         return parent::setDateused($dateused);
     }
@@ -293,7 +293,7 @@ class Coupons extends \BackendBundle\Entity\Coupons implements \Doctrine\ORM\Pro
     public function getDateused()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getDateused', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getDateused', []);
 
         return parent::getDateused();
     }
@@ -304,7 +304,7 @@ class Coupons extends \BackendBundle\Entity\Coupons implements \Doctrine\ORM\Pro
     public function setValidFrom($validFrom)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setValidFrom', array($validFrom));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setValidFrom', [$validFrom]);
 
         return parent::setValidFrom($validFrom);
     }
@@ -315,7 +315,7 @@ class Coupons extends \BackendBundle\Entity\Coupons implements \Doctrine\ORM\Pro
     public function getValidFrom()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getValidFrom', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getValidFrom', []);
 
         return parent::getValidFrom();
     }
@@ -326,7 +326,7 @@ class Coupons extends \BackendBundle\Entity\Coupons implements \Doctrine\ORM\Pro
     public function setValidTo($validTo)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setValidTo', array($validTo));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setValidTo', [$validTo]);
 
         return parent::setValidTo($validTo);
     }
@@ -337,7 +337,7 @@ class Coupons extends \BackendBundle\Entity\Coupons implements \Doctrine\ORM\Pro
     public function getValidTo()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getValidTo', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getValidTo', []);
 
         return parent::getValidTo();
     }
@@ -348,7 +348,7 @@ class Coupons extends \BackendBundle\Entity\Coupons implements \Doctrine\ORM\Pro
     public function setUser(\BackendBundle\Entity\User $user = NULL)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setUser', array($user));
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setUser', [$user]);
 
         return parent::setUser($user);
     }
@@ -359,7 +359,7 @@ class Coupons extends \BackendBundle\Entity\Coupons implements \Doctrine\ORM\Pro
     public function getUser()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getUser', array());
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getUser', []);
 
         return parent::getUser();
     }

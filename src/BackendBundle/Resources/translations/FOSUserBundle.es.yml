@@ -22,7 +22,7 @@ profile:
         firstName: Nombre
         lastName: Apellido
         phone: Teléfono
-    edit:
+    edit:        
         submit: 'Actualizar usuario'
     flash:
         updated: 'El perfil ha sido actualizado.'
@@ -78,6 +78,7 @@ layout:
     login: Entrar
     register: Registrar
     logged_in_as: 'Identificado como %username%'
+    
 form:
     group_name: 'Nombre de grupo'
     username: 'Nombre de usuario'
@@ -87,3 +88,4 @@ form:
     password_confirmation: 'Repita la contraseña'
     new_password: 'Nueva contraseña'
     new_password_confirmation: 'Repita la contraseña'
+    
