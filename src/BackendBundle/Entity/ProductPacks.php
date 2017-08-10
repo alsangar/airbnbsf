@@ -1,5 +1,4 @@
 <?php
-
 namespace BackendBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
@@ -12,6 +11,7 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class ProductPacks
 {
+
     /**
      * @var integer
      *
@@ -48,8 +48,6 @@ class ProductPacks
      * @ORM\Column(name="description", type="blob", nullable=true)
      */
     private $description;
-
-
 
     /**
      * Get id

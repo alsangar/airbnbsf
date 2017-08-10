@@ -1,5 +1,4 @@
 <?php
-
 namespace BackendBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
@@ -12,6 +11,7 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class City
 {
+
     /**
      * @var integer
      *
@@ -77,12 +77,11 @@ class City
         $this->location = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
-
     public function __toString()
     {
         $return = $this->name;
 
-        return (string)$return;
+        return (string) $return;
     }
 
     /**

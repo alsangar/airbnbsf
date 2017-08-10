@@ -1,5 +1,4 @@
 <?php
-
 namespace BackendBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
@@ -12,6 +11,7 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Country
 {
+
     /**
      * @var integer
      *
@@ -41,8 +41,6 @@ class Country
      * @ORM\Column(name="code", type="string", length=3, nullable=true)
      */
     private $code;
-
-
 
     /**
      * Get id

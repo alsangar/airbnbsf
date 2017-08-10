@@ -1,5 +1,4 @@
 <?php
-
 /**
  * This file is part of the <name> project.
  *
@@ -8,7 +7,6 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
-
 namespace Application\Sonata\ClassificationBundle\Entity;
 
 use Sonata\ClassificationBundle\Entity\BaseContext as BaseContext;
@@ -25,6 +23,7 @@ use Sonata\ClassificationBundle\Entity\BaseContext as BaseContext;
  */
 class Context extends BaseContext
 {
+
     /**
      * @var int $id
      */

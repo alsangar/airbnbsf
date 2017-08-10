@@ -1,5 +1,4 @@
 <?php
-
 namespace BackendBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
@@ -12,6 +11,7 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class ProductContacts
 {
+
     /**
      * @var integer
      *
@@ -58,8 +58,6 @@ class ProductContacts
      * })
      */
     private $product;
-
-
 
     /**
      * Get id

@@ -1,5 +1,4 @@
 <?php
-
 namespace BackendBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
@@ -12,6 +11,7 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Languages
 {
+
     /**
      * @var integer
      *
@@ -54,7 +54,6 @@ class Languages
      */
     protected $langDescription;
 
-
     /**
      * Constructor
      */
@@ -62,8 +61,6 @@ class Languages
     {
         $this->langDescription = new \Doctrine\Common\Collections\ArrayCollection();
     }
-
-
 
     /**
      * Get id

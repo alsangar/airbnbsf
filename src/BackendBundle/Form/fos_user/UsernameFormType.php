@@ -1,5 +1,4 @@
 <?php
-
 /*
  * This file is part of the FOSUserBundle package.
  *
@@ -8,7 +7,6 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
-
 namespace FOS\UserBundle\Form\Type;
 
 use FOS\UserBundle\Form\DataTransformer\UserToUsernameTransformer;
@@ -23,6 +21,7 @@ use Symfony\Component\Form\FormBuilderInterface;
  */
 class UsernameFormType extends AbstractType
 {
+
     /**
      * @var UserToUsernameTransformer
      */

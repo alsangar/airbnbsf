@@ -1,5 +1,4 @@
 <?php
-
 namespace BackendBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
@@ -12,6 +11,7 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Location
 {
+
     /**
      * @var integer
      *
@@ -106,14 +106,12 @@ class Location
      */
     private $city;
 
-
     public function __toString()
     {
-        $return = $this->name .' - '. $this->address . ' ' . $this->number . '. ' . $this->city;
+        $return = $this->name . ' - ' . $this->address . ' ' . $this->number . '. ' . $this->city;
 
-        return (string)$return;
+        return (string) $return;
     }
-
 
     /**
      * Get id

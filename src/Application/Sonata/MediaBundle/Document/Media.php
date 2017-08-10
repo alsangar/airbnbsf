@@ -1,5 +1,4 @@
 <?php
-
 /**
  * This file is part of the <name> project.
  *
@@ -8,7 +7,6 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
-
 namespace Application\Sonata\MediaBundle\Document;
 
 use Sonata\MediaBundle\Document\BaseMedia as BaseMedia;
@@ -23,6 +21,7 @@ use Sonata\MediaBundle\Document\BaseMedia as BaseMedia;
  */
 class Media extends BaseMedia
 {
+
     /**
      * @var integer $id
      */

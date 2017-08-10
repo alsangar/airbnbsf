@@ -1,5 +1,4 @@
 <?php
-
 namespace BackendBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
@@ -13,6 +12,7 @@ use Payum\Core\Model\Payment as BasePayment;
  */
 class Payments extends BasePayment
 {
+
     /**
      * @var integer
      *
@@ -70,8 +70,6 @@ class Payments extends BasePayment
      * @ORM\Column(name="dateadd", type="datetime", nullable=false)
      */
     private $dateadd;
-
-
 
     /**
      * Get id

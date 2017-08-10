@@ -1,5 +1,4 @@
 <?php
-
 namespace BackendBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
@@ -12,6 +11,7 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Invoices
 {
+
     /**
      * @var integer
      *
@@ -128,8 +128,6 @@ class Invoices
      * })
      */
     private $user;
-
-
 
     /**
      * Get id

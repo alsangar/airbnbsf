@@ -1,5 +1,4 @@
 <?php
-
 namespace BackendBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
@@ -12,6 +11,7 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Coupons
 {
+
     /**
      * @var integer
      *
@@ -79,8 +79,6 @@ class Coupons
      * })
      */
     private $user;
-
-
 
     /**
      * Get id

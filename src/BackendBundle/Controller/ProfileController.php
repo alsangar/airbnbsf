@@ -1,5 +1,4 @@
 <?php
-
 /*
  * This file is part of the FOSUserBundle package.
  *
@@ -8,7 +7,6 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
-
 namespace FOS\UserBundle\Controller;
 
 use FOS\UserBundle\Event\FilterUserResponseEvent;
@@ -30,19 +28,21 @@ use Symfony\Component\Security\Core\Exception\AccessDeniedException;
  *
  * @author Christophe Coevoet <stof@notk.org>
  */
-class ProfileController extends Controller {
+class ProfileController extends Controller
+{
 
     /**
      * Show the user.
      */
-    public function showAction() {
+    public function showAction()
+    {
         $user = $this->getUser();
         if (!is_object($user) || !$user instanceof UserInterface) {
             throw new AccessDeniedException('This user does not have access to this section.');
         }
 
         return $this->render('@FOSUser/Profile/show.html.twig', array(
-                    'user' => $user,
+                'user' => $user,
         ));
     }
 
@@ -53,7 +53,8 @@ class ProfileController extends Controller {
      *
      * @return Response
      */
-    public function editAction(Request $request) {
+    public function editAction(Request $request)
+    {
         $user = $this->getUser();
         if (!is_object($user) || !$user instanceof UserInterface) {
             throw new AccessDeniedException('This user does not have access to this section.');
@@ -96,14 +97,13 @@ class ProfileController extends Controller {
             return $response;
         } else {
             $request->getSession()
-                    ->getFlashBag()
-                    ->add('error', $form->getErrors(true))
+                ->getFlashBag()
+                ->add('error', $form->getErrors(true))
             ;
         }
 
         return $this->render('@FOSUser/Profile/edit.html.twig', array(
-                    'form' => $form->createView(),
+                'form' => $form->createView(),
         ));
     }
-
 }

@@ -1,5 +1,4 @@
 <?php
-
 namespace BackendBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
@@ -12,6 +11,7 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Favorites
 {
+
     /**
      * @var integer
      *
@@ -43,8 +43,6 @@ class Favorites
      * })
      */
     private $user;
-
-
 
     /**
      * Get id

@@ -5,9 +5,15 @@
         <div class="fos_user_user_show">
             <h3 class="mb">{{ user.username }}</h3>    
             <div class="col-lg-4 col-md-4 col-sm-4 col-md-offset-4 ">
-                
+
                 <div class="he-wrap tpl6">
-                    <img src="{{ app.request.scheme ~'://'~ app.request.httpHost ~ app.request.basePath ~'/' ~ vich_uploader_asset(user, 'imageFile') }}" alt="{{ user.username }}" class="img-responsive img-rounded">
+                    {% if vich_uploader_asset(user, 'imageFile') is null or vich_uploader_asset(user, 'imageFile') is empty %}
+                        <img src="{{ asset('uploads/images/profile/profileholder.png') }}" alt="{{ user.username }}" class="img-responsive img-rounded">
+                    {% else %}
+                        <img src="{{ app.request.scheme ~'://'~ app.request.httpHost ~ app.request.basePath ~'/' ~ vich_uploader_asset(user, 'imageFile') }}" alt="{{ user.username }}" class="img-responsive img-rounded">
+                        
+                    {% endif %}
+                    
                     <div class="he-view">
                         <div class="bg a0" data-animate="fadeIn">                            
                             <a href="#" class="dmbutton-profile a2" data-animate="fadeInUp"><i class="fa fa-edit fa-2x"></i></a>

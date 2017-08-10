@@ -1,5 +1,4 @@
 <?php
-
 /*
  * This file is part of the FOSUserBundle package.
  *
@@ -8,7 +7,6 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
-
 namespace BackendBundle\Form\fos_user;
 
 use FOS\UserBundle\Util\LegacyFormHelper;
@@ -19,7 +17,8 @@ use Symfony\Component\Security\Core\Validator\Constraints\UserPassword;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Vich\UploaderBundle\Form\Type\VichImageType;
 
-class ProfileFormType extends AbstractType {
+class ProfileFormType extends AbstractType
+{
 
     /**
      * @var string
@@ -29,11 +28,13 @@ class ProfileFormType extends AbstractType {
     /**
      * @param string $class The User class name
      */
-    public function __construct($class) {
+    public function __construct($class)
+    {
         $this->class = $class;
     }
 
-    public function getParent() {
+    public function getParent()
+    {
         return 'FOS\UserBundle\Form\Type\ProfileFormType';
 
         // Or for Symfony < 2.8
@@ -43,7 +44,8 @@ class ProfileFormType extends AbstractType {
     /**
      * {@inheritdoc}
      */
-    public function buildForm(FormBuilderInterface $builder, array $options) {
+    public function buildForm(FormBuilderInterface $builder, array $options)
+    {
         $this->buildUserForm($builder, $options);
 
         $constraintsOptions = array(
@@ -55,28 +57,29 @@ class ProfileFormType extends AbstractType {
         }
 
         $builder
-                ->add('current_password', LegacyFormHelper::getType('Symfony\Component\Form\Extension\Core\Type\PasswordType'), array(
-                    'label' => 'form.current_password',
-                    'translation_domain' => 'FOSUserBundle',
-                    'mapped' => false,
-                    'constraints' => new UserPassword($constraintsOptions),
-                ))
-                ->add('firstName', null, array('attr' => array('class' => 'form-control'), 'label' => 'form.firstName'))
-                ->add('lastName', null, array('attr' => array('class' => 'form-control'), 'label' => 'form.lastName'))
-                ->add('phone', null, array('attr' => array('class' => 'form-control'), 'label' => 'form.phone'))
+            ->add('current_password', LegacyFormHelper::getType('Symfony\Component\Form\Extension\Core\Type\PasswordType'), array(
+                'label' => 'form.current_password',
+                'translation_domain' => 'FOSUserBundle',
+                'mapped' => false,
+                'constraints' => new UserPassword($constraintsOptions),
+            ))
+            ->add('firstName', null, array('attr' => array('class' => 'form-control'), 'label' => 'form.firstName'))
+            ->add('lastName', null, array('attr' => array('class' => 'form-control'), 'label' => 'form.lastName'))
+            ->add('phone', null, array('attr' => array('class' => 'form-control'), 'label' => 'form.phone'))
 //                ->add('imageFile', FileType::class, array('label' => 'form.imageFile'))
-                ->add('imageFile', VichImageType::class, [
-                    'required' => false,                    
-                    'image_uri' => true,
-                    'label' => 'form.imageFile',
-                ])
+            ->add('imageFile', VichImageType::class, [
+                'required' => false,
+                'image_uri' => true,
+                'label' => 'form.imageFile',
+            ])
         ;
     }
 
     /**
      * {@inheritdoc}
      */
-    public function configureOptions(OptionsResolver $resolver) {
+    public function configureOptions(OptionsResolver $resolver)
+    {
         $resolver->setDefaults(array(
             'data_class' => $this->class,
             'csrf_token_id' => 'profile',
@@ -89,14 +92,16 @@ class ProfileFormType extends AbstractType {
     /**
      * {@inheritdoc}
      */
-    public function getName() {
+    public function getName()
+    {
         return $this->getBlockPrefix();
     }
 
     /**
      * {@inheritdoc}
      */
-    public function getBlockPrefix() {
+    public function getBlockPrefix()
+    {
         return 'fos_user_profile_edit';
     }
 
@@ -106,15 +111,15 @@ class ProfileFormType extends AbstractType {
      * @param FormBuilderInterface $builder
      * @param array                $options
      */
-    protected function buildUserForm(FormBuilderInterface $builder, array $options) {
+    protected function buildUserForm(FormBuilderInterface $builder, array $options)
+    {
         $builder
-                ->add('username', null, array('label' => 'form.username', 'translation_domain' => 'FOSUserBundle'))
-                ->add('email', LegacyFormHelper::getType('Symfony\Component\Form\Extension\Core\Type\EmailType'), array('label' => 'form.email', 'translation_domain' => 'FOSUserBundle'))
-                ->add('firstName', null, array('attr' => array('class' => 'form-control'), 'label' => 'form.firstName'))
-                ->add('lastName', null, array('attr' => array('class' => 'form-control'), 'label' => 'form.lastName'))
-                ->add('phone', null, array('attr' => array('class' => 'form-control'), 'label' => 'form.phone'))
-                ->add('imageFile', FileType::class, array('label' => 'form.imageFile'))
+            ->add('username', null, array('label' => 'form.username', 'translation_domain' => 'FOSUserBundle'))
+            ->add('email', LegacyFormHelper::getType('Symfony\Component\Form\Extension\Core\Type\EmailType'), array('label' => 'form.email', 'translation_domain' => 'FOSUserBundle'))
+            ->add('firstName', null, array('attr' => array('class' => 'form-control'), 'label' => 'form.firstName'))
+            ->add('lastName', null, array('attr' => array('class' => 'form-control'), 'label' => 'form.lastName'))
+            ->add('phone', null, array('attr' => array('class' => 'form-control'), 'label' => 'form.phone'))
+            ->add('imageFile', FileType::class, array('label' => 'form.imageFile'))
         ;
     }
-
 }

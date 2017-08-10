@@ -1,5 +1,4 @@
 <?php
-
 namespace BackendBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
@@ -10,7 +9,8 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table(name="product_features")
  * @ORM\Entity
  */
-class ProductFeatures {
+class ProductFeatures
+{
 
     /**
      * @var integer
@@ -42,7 +42,8 @@ class ProductFeatures {
      *
      * @return integer 
      */
-    public function getId() {
+    public function getId()
+    {
         return $this->id;
     }
 
@@ -52,7 +53,8 @@ class ProductFeatures {
      * @param \BackendBundle\Entity\Products $product
      * @return ProductFeatures
      */
-    public function setProduct(\BackendBundle\Entity\Products $product = null) {
+    public function setProduct(\BackendBundle\Entity\Products $product = null)
+    {
         $this->product = $product;
 
         return $this;
@@ -63,7 +65,8 @@ class ProductFeatures {
      *
      * @return \BackendBundle\Entity\Products 
      */
-    public function getProduct() {
+    public function getProduct()
+    {
         return $this->product;
     }
 
@@ -73,7 +76,8 @@ class ProductFeatures {
      * @param \BackendBundle\Entity\Features $feature
      * @return ProductFeatures
      */
-    public function setFeature(\BackendBundle\Entity\Features $feature = null) {
+    public function setFeature(\BackendBundle\Entity\Features $feature = null)
+    {
         $this->feature = $feature;
 
         return $this;
@@ -84,12 +88,13 @@ class ProductFeatures {
      *
      * @return \BackendBundle\Entity\Features 
      */
-    public function getFeature() {
+    public function getFeature()
+    {
         return $this->feature;
     }
 
-    public function __toString() {
+    public function __toString()
+    {
         return (string) $this->getFeature();
     }
-
 }

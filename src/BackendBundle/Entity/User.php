@@ -1,5 +1,4 @@
 <?php
-
 namespace BackendBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
@@ -14,7 +13,8 @@ use Symfony\Component\HttpFoundation\File\File;
  * @Vich\Uploadable
  * 
  */
-class User extends BaseUser {
+class User extends BaseUser
+{
 
     /**
      * @var int
@@ -115,13 +115,15 @@ class User extends BaseUser {
      */
     private $updatedAt;
 
-    public function __construct() {
+    public function __construct()
+    {
         parent::__construct();
 
         $this->favorites = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
-    public function __toString() {
+    public function __toString()
+    {
         return (string) $this->getUsername();
     }
 
@@ -131,7 +133,8 @@ class User extends BaseUser {
      * @param \BackendBundle\Entity\Favorites $favorites
      * @return User
      */
-    public function addFavorite(\BackendBundle\Entity\Favorites $favorites) {
+    public function addFavorite(\BackendBundle\Entity\Favorites $favorites)
+    {
         $this->favorites[] = $favorites;
 
         return $this;
@@ -142,7 +145,8 @@ class User extends BaseUser {
      *
      * @param \BackendBundle\Entity\Favorites $favorites
      */
-    public function removeFavorite(\BackendBundle\Entity\Favorites $favorites) {
+    public function removeFavorite(\BackendBundle\Entity\Favorites $favorites)
+    {
         $this->favorites->removeElement($favorites);
     }
 
@@ -151,7 +155,8 @@ class User extends BaseUser {
      *
      * @return \Doctrine\Common\Collections\Collection 
      */
-    public function getFavorites() {
+    public function getFavorites()
+    {
         return $this->favorites;
     }
 
@@ -162,7 +167,8 @@ class User extends BaseUser {
      *
      * @return User
      */
-    public function setFirstName($firstName) {
+    public function setFirstName($firstName)
+    {
         $this->firstName = $firstName;
 
         return $this;
@@ -173,7 +179,8 @@ class User extends BaseUser {
      *
      * @return string
      */
-    public function getFirstName() {
+    public function getFirstName()
+    {
         return $this->firstName;
     }
 
@@ -184,7 +191,8 @@ class User extends BaseUser {
      *
      * @return User
      */
-    public function setLastName($lastName) {
+    public function setLastName($lastName)
+    {
         $this->lastName = $lastName;
 
         return $this;
@@ -195,7 +203,8 @@ class User extends BaseUser {
      *
      * @return string
      */
-    public function getLastName() {
+    public function getLastName()
+    {
         return $this->lastName;
     }
 
@@ -206,7 +215,8 @@ class User extends BaseUser {
      *
      * @return User
      */
-    public function setPhone($phone) {
+    public function setPhone($phone)
+    {
         $this->phone = $phone;
 
         return $this;
@@ -217,7 +227,8 @@ class User extends BaseUser {
      *
      * @return integer
      */
-    public function getPhone() {
+    public function getPhone()
+    {
         return $this->phone;
     }
 
@@ -232,7 +243,8 @@ class User extends BaseUser {
      *
      * @return Product
      */
-    public function setImageFile(File $image = null) {
+    public function setImageFile(File $image = null)
+    {
         $this->imageFile = $image;
 
         if ($image) {
@@ -247,7 +259,8 @@ class User extends BaseUser {
     /**
      * @return File|null
      */
-    public function getImageFile() {
+    public function getImageFile()
+    {
         return $this->imageFile;
     }
 
@@ -258,7 +271,8 @@ class User extends BaseUser {
      *
      * @return User
      */
-    public function setImageName($imageName) {
+    public function setImageName($imageName)
+    {
         $this->imageName = $imageName;
 
         return $this;
@@ -269,7 +283,8 @@ class User extends BaseUser {
      *
      * @return string
      */
-    public function getImageName() {
+    public function getImageName()
+    {
         return $this->imageName;
     }
 
@@ -280,7 +295,8 @@ class User extends BaseUser {
      *
      * @return User
      */
-    public function setImageSize($imageSize) {
+    public function setImageSize($imageSize)
+    {
         $this->imageSize = $imageSize;
 
         return $this;
@@ -291,7 +307,8 @@ class User extends BaseUser {
      *
      * @return integer
      */
-    public function getImageSize() {
+    public function getImageSize()
+    {
         return $this->imageSize;
     }
 
@@ -302,7 +319,8 @@ class User extends BaseUser {
      *
      * @return User
      */
-    public function setUpdatedAt($updatedAt) {
+    public function setUpdatedAt($updatedAt)
+    {
         $this->updatedAt = $updatedAt;
 
         return $this;
@@ -313,8 +331,8 @@ class User extends BaseUser {
      *
      * @return \DateTime
      */
-    public function getUpdatedAt() {
+    public function getUpdatedAt()
+    {
         return $this->updatedAt;
     }
-
 }

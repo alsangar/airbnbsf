@@ -1,5 +1,4 @@
 <?php
-
 namespace BackendBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
@@ -12,6 +11,7 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Features
 {
+
     /**
      * @var integer
      *
@@ -41,8 +41,6 @@ class Features
      * @ORM\Column(name="active", type="boolean", nullable=false)
      */
     private $active;
-
-
 
     /**
      * Get id
@@ -122,8 +120,9 @@ class Features
     {
         return $this->active;
     }
-    
-    public function __toString(){
+
+    public function __toString()
+    {
         return (string) $this->getFeature();
     }
 }

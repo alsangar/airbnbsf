@@ -1,5 +1,4 @@
 <?php
-
 namespace BackendBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
@@ -12,6 +11,7 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Bookings
 {
+
     /**
      * @var integer
      *
@@ -196,7 +196,6 @@ class Bookings
         $this->anfitrionFee = 0;
         $this->paypalFee = 0;
     }
-
 
     /**
      * Get id

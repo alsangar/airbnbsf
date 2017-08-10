@@ -1,5 +1,4 @@
 <?php
-
 namespace BackendBundle\Repository;
 
 use Doctrine\ORM\EntityRepository;
@@ -12,4 +11,5 @@ use Doctrine\ORM\EntityRepository;
  */
 class ComplaintsRepository extends EntityRepository
 {
+    
 }

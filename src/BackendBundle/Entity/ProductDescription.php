@@ -1,5 +1,4 @@
 <?php
-
 namespace BackendBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
@@ -12,6 +11,7 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class ProductDescription
 {
+
     /**
      * @var integer
      *
@@ -64,8 +64,6 @@ class ProductDescription
      * })
      */
     private $language;
-
-
 
     /**
      * Get id
@@ -214,8 +212,9 @@ class ProductDescription
     {
         return $this->language;
     }
-    
-    public function __toString(){
+
+    public function __toString()
+    {
         return (string) $this->getTitle();
     }
 }

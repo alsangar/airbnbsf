@@ -1,5 +1,4 @@
 <?php
-
 namespace BackendBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
@@ -12,6 +11,7 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Properties
 {
+
     /**
      * @var integer
      *
@@ -270,7 +270,6 @@ class Properties
      */
     private $user;
 
-    
     /**
      * Get id
      *

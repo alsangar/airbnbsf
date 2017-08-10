@@ -1,5 +1,4 @@
 <?php
-
 namespace BackendBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
@@ -7,9 +6,11 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Respond;
 use Symfony\Component\HttpFoundation\JsonResponse;
 
-class RoomsController extends Controller {
+class RoomsController extends Controller
+{
 
-    function calculatePriceAction(Request $request) {
+    function calculatePriceAction(Request $request)
+    {
         $aux = $request->request->get('checkin');
         $checkin = date_create_from_format('d-m-Y', $aux);
         $aux = $request->request->get('checkout');
@@ -24,7 +25,7 @@ class RoomsController extends Controller {
 
         $total = 0;
         if ($nightPrice) {
-            $total = (double)$nightPrice['price'] * $nights;
+            $total = (double) $nightPrice['price'] * $nights;
         }
 
         $response = new JsonResponse();
@@ -39,5 +40,4 @@ class RoomsController extends Controller {
 
         return $response;
     }
-
 }

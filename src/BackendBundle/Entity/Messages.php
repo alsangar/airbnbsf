@@ -1,5 +1,4 @@
 <?php
-
 namespace BackendBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
@@ -12,6 +11,7 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Messages
 {
+
     /**
      * @var integer
      *
@@ -61,8 +61,6 @@ class Messages
      * })
      */
     private $userto;
-
-
 
     /**
      * Get id

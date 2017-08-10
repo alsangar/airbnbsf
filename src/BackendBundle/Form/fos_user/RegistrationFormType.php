@@ -1,5 +1,4 @@
 <?php
-
 /*
  * Aqui estoy machando y rehaciendo el forumlario entero cuando en realidad solo
  * quería agregar algunos campos al ya existente. Para hacer esto tendría que 
@@ -19,7 +18,6 @@
  * Más información en: https://knpuniversity.com/screencast/fosuserbundle/customize-forms
  * 
  */
-
 namespace BackendBundle\Form\fos_user;
 
 use FOS\UserBundle\Util\LegacyFormHelper;
@@ -27,7 +25,8 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
-class RegistrationFormType extends AbstractType {
+class RegistrationFormType extends AbstractType
+{
 
     /**
      * @var string
@@ -37,29 +36,31 @@ class RegistrationFormType extends AbstractType {
     /**
      * @param string $class The User class name
      */
-    public function __construct($class) {
+    public function __construct($class)
+    {
         $this->class = $class;
     }
 
     /**
      * {@inheritdoc}
      */
-    public function buildForm(FormBuilderInterface $builder, array $options) {
+    public function buildForm(FormBuilderInterface $builder, array $options)
+    {
 
 
         $builder
-                ->add('email', LegacyFormHelper::getType('Symfony\Component\Form\Extension\Core\Type\EmailType'), array('label' => 'form.email', 'translation_domain' => 'FOSUserBundle'))
-                ->add('username', null, array('label' => 'form.username', 'translation_domain' => 'FOSUserBundle'))
-                ->add('plainPassword', LegacyFormHelper::getType('Symfony\Component\Form\Extension\Core\Type\RepeatedType'), array(
-                    'type' => LegacyFormHelper::getType('Symfony\Component\Form\Extension\Core\Type\PasswordType'),
-                    'options' => array('translation_domain' => 'FOSUserBundle'),
-                    'first_options' => array('label' => 'form.password'),
-                    'second_options' => array('label' => 'form.password_confirmation'),
-                    'invalid_message' => 'fos_user.password.mismatch',
-                ))
-                ->add('firstName', null, array('attr' => array('class' => 'form-control'), 'label' => 'form.firstName'))
-                ->add('lastName', null, array('attr' => array('class' => 'form-control'), 'label' => 'form.lastName'))
-                ->add('phone', null, array('attr' => array('class' => 'form-control'), 'label' => 'form.phone'))
+            ->add('email', LegacyFormHelper::getType('Symfony\Component\Form\Extension\Core\Type\EmailType'), array('label' => 'form.email', 'translation_domain' => 'FOSUserBundle'))
+            ->add('username', null, array('label' => 'form.username', 'translation_domain' => 'FOSUserBundle'))
+            ->add('plainPassword', LegacyFormHelper::getType('Symfony\Component\Form\Extension\Core\Type\RepeatedType'), array(
+                'type' => LegacyFormHelper::getType('Symfony\Component\Form\Extension\Core\Type\PasswordType'),
+                'options' => array('translation_domain' => 'FOSUserBundle'),
+                'first_options' => array('label' => 'form.password'),
+                'second_options' => array('label' => 'form.password_confirmation'),
+                'invalid_message' => 'fos_user.password.mismatch',
+            ))
+            ->add('firstName', null, array('attr' => array('class' => 'form-control'), 'label' => 'form.firstName'))
+            ->add('lastName', null, array('attr' => array('class' => 'form-control'), 'label' => 'form.lastName'))
+            ->add('phone', null, array('attr' => array('class' => 'form-control'), 'label' => 'form.phone'))
 
         ;
     }
@@ -67,7 +68,8 @@ class RegistrationFormType extends AbstractType {
     /**
      * {@inheritdoc}
      */
-    public function configureOptions(OptionsResolver $resolver) {
+    public function configureOptions(OptionsResolver $resolver)
+    {
         $resolver->setDefaults(array(
             'data_class' => $this->class,
             'csrf_token_id' => 'registration',
@@ -80,15 +82,16 @@ class RegistrationFormType extends AbstractType {
     /**
      * {@inheritdoc}
      */
-    public function getName() {
+    public function getName()
+    {
         return $this->getBlockPrefix();
     }
 
     /**
      * {@inheritdoc}
      */
-    public function getBlockPrefix() {
+    public function getBlockPrefix()
+    {
         return 'fos_user_registration';
     }
-
 }

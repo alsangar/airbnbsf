@@ -1,5 +1,4 @@
 <?php
-
 /**
  * This file is part of the <name> project.
  *
@@ -8,7 +7,6 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
-
 namespace Application\Sonata\MediaBundle\PHPCR;
 
 use Sonata\MediaBundle\PHPCR\BaseGalleryHasMedia as BaseGalleryHasMedia;
@@ -23,6 +21,7 @@ use Sonata\MediaBundle\PHPCR\BaseGalleryHasMedia as BaseGalleryHasMedia;
  */
 class GalleryHasMedia extends BaseGalleryHasMedia
 {
+
     /**
      * @var integer $id
      */

@@ -1,5 +1,4 @@
 <?php
-
 namespace BackendBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
@@ -12,6 +11,7 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Notifications
 {
+
     /**
      * @var integer
      *
@@ -58,8 +58,6 @@ class Notifications
      * })
      */
     private $user;
-
-
 
     /**
      * Get id

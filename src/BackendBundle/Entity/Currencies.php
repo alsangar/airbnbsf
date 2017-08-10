@@ -1,5 +1,4 @@
 <?php
-
 namespace BackendBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
@@ -12,6 +11,7 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Currencies
 {
+
     /**
      * @var integer
      *
@@ -55,8 +55,6 @@ class Currencies
      * @ORM\Column(name="active", type="boolean", nullable=false)
      */
     private $active;
-
-
 
     /**
      * Get id

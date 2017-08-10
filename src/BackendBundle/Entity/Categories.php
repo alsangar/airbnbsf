@@ -1,5 +1,4 @@
 <?php
-
 namespace BackendBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
@@ -12,6 +11,7 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Categories
 {
+
     /**
      * @var integer
      *
@@ -41,8 +41,6 @@ class Categories
      * @ORM\Column(name="active", type="boolean", nullable=true)
      */
     private $active;
-
-
 
     /**
      * Get id

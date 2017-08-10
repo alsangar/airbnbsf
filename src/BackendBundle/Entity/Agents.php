@@ -1,5 +1,4 @@
 <?php
-
 namespace BackendBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
@@ -12,6 +11,7 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Agents
 {
+
     /**
      * @var integer
      *
@@ -57,8 +57,6 @@ class Agents
      * })
      */
     private $user;
-
-
 
     /**
      * Get id

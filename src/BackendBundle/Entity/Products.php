@@ -1,5 +1,4 @@
 <?php
-
 namespace BackendBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
@@ -12,6 +11,7 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Products
 {
+
     /**
      * @var integer
      *
@@ -191,7 +191,7 @@ class Products
     private $roomtype;
 
     /**
-    *
+     *
      * @ORM\ManyToOne(targetEntity="Application\Sonata\MediaBundle\Entity\Gallery")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="gallery_id", referencedColumnName="id")
@@ -223,7 +223,6 @@ class Products
         $this->service = new \Doctrine\Common\Collections\ArrayCollection();
         $this->feature = new \Doctrine\Common\Collections\ArrayCollection();
     }
-
 
     /**
      * Get id
@@ -866,8 +865,9 @@ class Products
     {
         return $this->feature;
     }
-    
-    public function __toString(){
+
+    public function __toString()
+    {
         return (string) $this->getTitle();
     }
 }

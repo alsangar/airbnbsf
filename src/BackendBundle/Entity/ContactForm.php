@@ -1,5 +1,4 @@
 <?php
-
 namespace BackendBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
@@ -12,6 +11,7 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class ContactForm
 {
+
     /**
      * @var integer
      *
@@ -69,8 +69,6 @@ class ContactForm
      * @ORM\Column(name="viewed", type="datetime", nullable=true)
      */
     private $viewed;
-
-
 
     /**
      * Get id
