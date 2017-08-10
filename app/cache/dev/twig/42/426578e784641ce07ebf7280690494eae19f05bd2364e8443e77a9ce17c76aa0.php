@@ -16,8 +16,8 @@ class __TwigTemplate_32a90c3e1d4bbf0f634863111bd33a3834dd2ecefdc467c0721ac8be5b5
 
     protected function doDisplay(array $context, array $blocks = array())
     {
-        $__internal_659a6fffe1c3d5f091411d6d5a77113118f9d5a7e11762b81d6e5c88f73053d7 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
-        $__internal_659a6fffe1c3d5f091411d6d5a77113118f9d5a7e11762b81d6e5c88f73053d7->enter($__internal_659a6fffe1c3d5f091411d6d5a77113118f9d5a7e11762b81d6e5c88f73053d7_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "FOSUserBundle::layout.html.twig"));
+        $__internal_3ae62cdad5597bb6c6946525ff5d5ff6be815ec9422498463a97483aeedfce13 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
+        $__internal_3ae62cdad5597bb6c6946525ff5d5ff6be815ec9422498463a97483aeedfce13->enter($__internal_3ae62cdad5597bb6c6946525ff5d5ff6be815ec9422498463a97483aeedfce13_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "FOSUserBundle::layout.html.twig"));
 
         // line 1
         echo "<!DOCTYPE html>
@@ -56,68 +56,69 @@ class __TwigTemplate_32a90c3e1d4bbf0f634863111bd33a3834dd2ecefdc467c0721ac8be5b5
         // line 16
         echo "        </div>
 
-        ";
-        // line 18
-        if (twig_get_attribute($this->env, $this->getSourceContext(), twig_get_attribute($this->env, $this->getSourceContext(), (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new Twig_Error_Runtime('Variable "app" does not exist.', 18, $this->getSourceContext()); })()), "request", array()), "hasPreviousSession", array())) {
-            // line 19
-            echo "            ";
+        <div class=\"col-xs-12 col-md-8\">
+            ";
+        // line 19
+        if (twig_get_attribute($this->env, $this->getSourceContext(), twig_get_attribute($this->env, $this->getSourceContext(), (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new Twig_Error_Runtime('Variable "app" does not exist.', 19, $this->getSourceContext()); })()), "request", array()), "hasPreviousSession", array())) {
+            // line 20
+            echo "                ";
             $context['_parent'] = $context;
-            $context['_seq'] = twig_ensure_traversable(twig_get_attribute($this->env, $this->getSourceContext(), twig_get_attribute($this->env, $this->getSourceContext(), twig_get_attribute($this->env, $this->getSourceContext(), (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new Twig_Error_Runtime('Variable "app" does not exist.', 19, $this->getSourceContext()); })()), "session", array()), "flashbag", array()), "all", array(), "method"));
+            $context['_seq'] = twig_ensure_traversable(twig_get_attribute($this->env, $this->getSourceContext(), twig_get_attribute($this->env, $this->getSourceContext(), twig_get_attribute($this->env, $this->getSourceContext(), (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new Twig_Error_Runtime('Variable "app" does not exist.', 20, $this->getSourceContext()); })()), "session", array()), "flashbag", array()), "all", array(), "method"));
             foreach ($context['_seq'] as $context["type"] => $context["messages"]) {
-                // line 20
-                echo "                ";
+                // line 21
+                echo "                    ";
                 $context['_parent'] = $context;
                 $context['_seq'] = twig_ensure_traversable($context["messages"]);
                 foreach ($context['_seq'] as $context["_key"] => $context["message"]) {
-                    // line 21
-                    echo "                    <div class=\"flash-";
+                    // line 22
+                    echo "                        <div class=\"flash-";
                     echo twig_escape_filter($this->env, $context["type"], "html", null, true);
                     echo "\">
-                        ";
-                    // line 22
+                            ";
+                    // line 23
                     echo twig_escape_filter($this->env, $context["message"], "html", null, true);
                     echo "
-                    </div>
-                ";
+                        </div>
+                    ";
                 }
                 $_parent = $context['_parent'];
                 unset($context['_seq'], $context['_iterated'], $context['_key'], $context['message'], $context['_parent'], $context['loop']);
                 $context = array_intersect_key($context, $_parent) + $_parent;
-                // line 25
-                echo "            ";
+                // line 26
+                echo "                ";
             }
             $_parent = $context['_parent'];
             unset($context['_seq'], $context['_iterated'], $context['type'], $context['messages'], $context['_parent'], $context['loop']);
             $context = array_intersect_key($context, $_parent) + $_parent;
-            // line 26
-            echo "        ";
+            // line 27
+            echo "            ";
         }
-        // line 27
-        echo "
+        // line 28
+        echo "        </div>
         <div>
             ";
-        // line 29
+        // line 30
         $this->displayBlock('fos_user_content', $context, $blocks);
-        // line 31
+        // line 32
         echo "        </div>
     </body>
 </html>
 ";
         
-        $__internal_659a6fffe1c3d5f091411d6d5a77113118f9d5a7e11762b81d6e5c88f73053d7->leave($__internal_659a6fffe1c3d5f091411d6d5a77113118f9d5a7e11762b81d6e5c88f73053d7_prof);
+        $__internal_3ae62cdad5597bb6c6946525ff5d5ff6be815ec9422498463a97483aeedfce13->leave($__internal_3ae62cdad5597bb6c6946525ff5d5ff6be815ec9422498463a97483aeedfce13_prof);
 
     }
 
-    // line 29
+    // line 30
     public function block_fos_user_content($context, array $blocks = array())
     {
-        $__internal_00adbcadb62b49c96a5029d3ce16400d76fce8d648407f37a57858ddae1e5fc7 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
-        $__internal_00adbcadb62b49c96a5029d3ce16400d76fce8d648407f37a57858ddae1e5fc7->enter($__internal_00adbcadb62b49c96a5029d3ce16400d76fce8d648407f37a57858ddae1e5fc7_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "fos_user_content"));
+        $__internal_427497f78a1d1ca842d2ab9600e74b8a95c7e4b8994b188796c2fee80e634df0 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
+        $__internal_427497f78a1d1ca842d2ab9600e74b8a95c7e4b8994b188796c2fee80e634df0->enter($__internal_427497f78a1d1ca842d2ab9600e74b8a95c7e4b8994b188796c2fee80e634df0_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "fos_user_content"));
 
-        // line 30
+        // line 31
         echo "            ";
         
-        $__internal_00adbcadb62b49c96a5029d3ce16400d76fce8d648407f37a57858ddae1e5fc7->leave($__internal_00adbcadb62b49c96a5029d3ce16400d76fce8d648407f37a57858ddae1e5fc7_prof);
+        $__internal_427497f78a1d1ca842d2ab9600e74b8a95c7e4b8994b188796c2fee80e634df0->leave($__internal_427497f78a1d1ca842d2ab9600e74b8a95c7e4b8994b188796c2fee80e634df0_prof);
 
     }
 
@@ -133,7 +134,7 @@ class __TwigTemplate_32a90c3e1d4bbf0f634863111bd33a3834dd2ecefdc467c0721ac8be5b5
 
     public function getDebugInfo()
     {
-        return array (  118 => 30,  112 => 29,  102 => 31,  100 => 29,  96 => 27,  93 => 26,  87 => 25,  78 => 22,  73 => 21,  68 => 20,  63 => 19,  61 => 18,  57 => 16,  49 => 14,  43 => 11,  39 => 10,  34 => 9,  32 => 8,  23 => 1,);
+        return array (  119 => 31,  113 => 30,  103 => 32,  101 => 30,  97 => 28,  94 => 27,  88 => 26,  79 => 23,  74 => 22,  69 => 21,  64 => 20,  62 => 19,  57 => 16,  49 => 14,  43 => 11,  39 => 10,  34 => 9,  32 => 8,  23 => 1,);
     }
 
     public function getSourceContext()
@@ -155,16 +156,17 @@ class __TwigTemplate_32a90c3e1d4bbf0f634863111bd33a3834dd2ecefdc467c0721ac8be5b5
             {% endif %}
         </div>
 
-        {% if app.request.hasPreviousSession %}
-            {% for type, messages in app.session.flashbag.all() %}
-                {% for message in messages %}
-                    <div class=\"flash-{{ type }}\">
-                        {{ message }}
-                    </div>
+        <div class=\"col-xs-12 col-md-8\">
+            {% if app.request.hasPreviousSession %}
+                {% for type, messages in app.session.flashbag.all() %}
+                    {% for message in messages %}
+                        <div class=\"flash-{{ type }}\">
+                            {{ message }}
+                        </div>
+                    {% endfor %}
                 {% endfor %}
-            {% endfor %}
-        {% endif %}
-
+            {% endif %}
+        </div>
         <div>
             {% block fos_user_content %}
             {% endblock fos_user_content %}

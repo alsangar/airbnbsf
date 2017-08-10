@@ -759,7 +759,7 @@ Atentamente,
 el Equipo.
 ',
     'resetting.check_email' => 'Un email ha sido enviado. Contiene un enlace de activación que debes presionar para restablecer tu contraseña.
- Nota: Solo se puede solicitar una nueva contraseña en periodos de %tokenLifetime% horas.
+Nota: Deben transcurrir %tokenLifetime% horas para solicitar una nueva contraseña.
 
 Si no recibes el correo electrónico, comprueba la carpeta de correo no deseado o inténtalo de nuevo.
 ',

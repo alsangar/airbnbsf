@@ -81,7 +81,7 @@ class User extends BaseUser {
     /**
      * NOTE: This is not a mapped field of entity metadata, just a simple property.
      * 
-     * @Vich\UploadableField(mapping="profile_image", fileNameProperty="imageName", size="imageSize")
+     * @Vich\UploadableField(mapping="profile_image", fileNameProperty="imageName", size="imageSize" )
      * 
      * @var File
      *  
@@ -95,14 +95,14 @@ class User extends BaseUser {
     private $imageFile;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=255, nullable=true)
      *
      * @var string
      */
     private $imageName;
 
     /**
-     * @ORM\Column(type="integer")
+     * @ORM\Column(type="integer", nullable=true)
      *
      * @var integer
      */

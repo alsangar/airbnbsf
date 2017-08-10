@@ -34,6 +34,23 @@ framework:
     fragments: ~
     http_method_override: true
 
+services:
+    app.form.profile:
+        class: BackendBundle\Form\fos_user\ProfileFormType
+        arguments: [%fos_user.model.user.class%]
+        tags:
+            - { name: form.type, alias: fos_user_profile_edit }
+    app.form.registration:
+        class: BackendBundle\Form\fos_user\RegistrationFormType
+        arguments: [%fos_user.model.user.class%]
+        tags:
+            - { name: form.type, alias: fos_user_registration }
+    app.redireccion_tras_registrar_usuario:
+        class: BackendBundle\EventListener\RedireccionTrasRegistrarUsuario        
+        autowire: true
+        tags:
+            - { name: kernel.event_subscriber }
+
 # Twig Configuration
 twig:
     debug: '%kernel.debug%'
@@ -143,18 +160,7 @@ easy_admin:
         - BackendBundle\Entity\Features
         - BackendBundle\Entity\Location
         - BackendBundle\Entity\User
-
-services:
-    app.form.profile:
-        class: BackendBundle\Form\fos_user\ProfileFormType
-        arguments: [%fos_user.model.user.class%]
-        tags:
-            - { name: form.type, alias: fos_user_profile_edit }
-    app.form.registration:
-        class: BackendBundle\Form\fos_user\RegistrationFormType
-        arguments: [%fos_user.model.user.class%]
-        tags:
-            - { name: form.type, alias: fos_user_registration }
+        
 fos_user:
     # ...
     registration:

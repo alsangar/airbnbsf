@@ -1,12 +1,23 @@
 <?php
 
 /*
- * This file is part of the FOSUserBundle package.
+ * Aqui estoy machando y rehaciendo el forumlario entero cuando en realidad solo
+ * quería agregar algunos campos al ya existente. Para hacer esto tendría que 
+ * hacer uso del formulario original con:
+ * use FOS\UserBundle\Form\Type\RegistrationFormType as BaseRegistrationFormType;
+ * 
+ * Despues tendría que definir el metodo getParent(()
+ * 
+ * public function getParent()
+ * {
+ *      return BaseRegistrationFormType::class;
+ * }
  *
- * (c) FriendsOfSymfony <http://friendsofsymfony.github.com/>
- *
- * For the full copyright and license information, please view the LICENSE
- * file that was distributed with this source code.
+ *  Para informar a FOSUserBundle de nuestro nuevo formulario, habría que definirlo
+ * como servicio (service.yml) y configurarlo (config.yml)
+ * 
+ * Más información en: https://knpuniversity.com/screencast/fosuserbundle/customize-forms
+ * 
  */
 
 namespace BackendBundle\Form\fos_user;

@@ -21,20 +21,20 @@ class __TwigTemplate_890f93aed6b0f57127db4d4d152ec200713cf579c6ea40970f246c0e1dd
 
     protected function doDisplay(array $context, array $blocks = array())
     {
-        $__internal_a41d66680f404ca47ed181402edfc108cfc63f20f0631a21b6915a388c46c73d = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
-        $__internal_a41d66680f404ca47ed181402edfc108cfc63f20f0631a21b6915a388c46c73d->enter($__internal_a41d66680f404ca47ed181402edfc108cfc63f20f0631a21b6915a388c46c73d_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "FOSUserBundle:Security:login_content.html.twig"));
+        $__internal_5af9f32c1f6d97f844ede56e4581aa90f12a562a682c711c831b1c3050f560d3 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
+        $__internal_5af9f32c1f6d97f844ede56e4581aa90f12a562a682c711c831b1c3050f560d3->enter($__internal_5af9f32c1f6d97f844ede56e4581aa90f12a562a682c711c831b1c3050f560d3_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "FOSUserBundle:Security:login_content.html.twig"));
 
         $this->parent->display($context, array_merge($this->blocks, $blocks));
         
-        $__internal_a41d66680f404ca47ed181402edfc108cfc63f20f0631a21b6915a388c46c73d->leave($__internal_a41d66680f404ca47ed181402edfc108cfc63f20f0631a21b6915a388c46c73d_prof);
+        $__internal_5af9f32c1f6d97f844ede56e4581aa90f12a562a682c711c831b1c3050f560d3->leave($__internal_5af9f32c1f6d97f844ede56e4581aa90f12a562a682c711c831b1c3050f560d3_prof);
 
     }
 
     // line 3
     public function block_fos_user_content($context, array $blocks = array())
     {
-        $__internal_14a612a84030927dcbd21c5cc45531f10463a858b4f7873a8014753f707390ad = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
-        $__internal_14a612a84030927dcbd21c5cc45531f10463a858b4f7873a8014753f707390ad->enter($__internal_14a612a84030927dcbd21c5cc45531f10463a858b4f7873a8014753f707390ad_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "fos_user_content"));
+        $__internal_64e1f11b8cd57ad7c0c42ed9e3378ab39db1c17c6b56b86d298413b2d4bb02dc = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
+        $__internal_64e1f11b8cd57ad7c0c42ed9e3378ab39db1c17c6b56b86d298413b2d4bb02dc->enter($__internal_64e1f11b8cd57ad7c0c42ed9e3378ab39db1c17c6b56b86d298413b2d4bb02dc_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "fos_user_content"));
 
         // line 4
         echo "    <form action=\"";
@@ -54,24 +54,23 @@ class __TwigTemplate_890f93aed6b0f57127db4d4d152ec200713cf579c6ea40970f246c0e1dd
         }
         // line 8
         echo "        
-        
         <input type=\"hidden\" name=\"_csrf_token\" value=\"";
-        // line 10
-        echo twig_escape_filter($this->env, (isset($context["csrf_token"]) || array_key_exists("csrf_token", $context) ? $context["csrf_token"] : (function () { throw new Twig_Error_Runtime('Variable "csrf_token" does not exist.', 10, $this->getSourceContext()); })()), "html", null, true);
+        // line 9
+        echo twig_escape_filter($this->env, (isset($context["csrf_token"]) || array_key_exists("csrf_token", $context) ? $context["csrf_token"] : (function () { throw new Twig_Error_Runtime('Variable "csrf_token" does not exist.', 9, $this->getSourceContext()); })()), "html", null, true);
         echo "\" />
         <div class=\"form-group\">
             <label for=\"username\">";
-        // line 12
+        // line 11
         echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\TranslationExtension')->trans("security.login.username", array(), "FOSUserBundle"), "html", null, true);
         echo "</label>
             <input type=\"text\" id=\"username\" name=\"_username\" value=\"";
-        // line 13
-        echo twig_escape_filter($this->env, (isset($context["last_username"]) || array_key_exists("last_username", $context) ? $context["last_username"] : (function () { throw new Twig_Error_Runtime('Variable "last_username" does not exist.', 13, $this->getSourceContext()); })()), "html", null, true);
+        // line 12
+        echo twig_escape_filter($this->env, (isset($context["last_username"]) || array_key_exists("last_username", $context) ? $context["last_username"] : (function () { throw new Twig_Error_Runtime('Variable "last_username" does not exist.', 12, $this->getSourceContext()); })()), "html", null, true);
         echo "\" class=\"form-control\" required=\"required\" />
         </div>
         <div class=\"form-group\">
             <label for=\"password\">";
-        // line 16
+        // line 15
         echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\TranslationExtension')->trans("security.login.password", array(), "FOSUserBundle"), "html", null, true);
         echo "</label>
             <input type=\"password\" id=\"password\" name=\"_password\" required=\"required\" class=\"form-control\"/>
@@ -79,21 +78,21 @@ class __TwigTemplate_890f93aed6b0f57127db4d4d152ec200713cf579c6ea40970f246c0e1dd
         <div class=\"form-group\">
             <input type=\"checkbox\" id=\"remember_me\" name=\"_remember_me\" value=\"on\" />
             <label for=\"remember_me\">";
-        // line 21
+        // line 20
         echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\TranslationExtension')->trans("security.login.remember_me", array(), "FOSUserBundle"), "html", null, true);
         echo "</label>
         </div>
         <input type=\"submit\" class=\"btn btn-theme btn-block\" id=\"_submit\" name=\"_submit\" value=\"";
-        // line 23
+        // line 22
         echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\TranslationExtension')->trans("security.login.submit", array(), "FOSUserBundle"), "html", null, true);
         echo "\" /> 
         <div class=\"form-group\">
             <p> <a href=\"";
-        // line 25
+        // line 24
         echo $this->env->getExtension('Symfony\Bridge\Twig\Extension\RoutingExtension')->getPath("fos_user_registration_register");
         echo "\">¡Regístrate!</a></p>
             <p><a href=\"";
-        // line 26
+        // line 25
         echo $this->env->getExtension('Symfony\Bridge\Twig\Extension\RoutingExtension')->getPath("fos_user_resetting_request");
         echo "\">¿Has olvidado tu contraseña?</a></p>
         </div>
@@ -101,7 +100,7 @@ class __TwigTemplate_890f93aed6b0f57127db4d4d152ec200713cf579c6ea40970f246c0e1dd
 
 ";
         
-        $__internal_14a612a84030927dcbd21c5cc45531f10463a858b4f7873a8014753f707390ad->leave($__internal_14a612a84030927dcbd21c5cc45531f10463a858b4f7873a8014753f707390ad_prof);
+        $__internal_64e1f11b8cd57ad7c0c42ed9e3378ab39db1c17c6b56b86d298413b2d4bb02dc->leave($__internal_64e1f11b8cd57ad7c0c42ed9e3378ab39db1c17c6b56b86d298413b2d4bb02dc_prof);
 
     }
 
@@ -117,7 +116,7 @@ class __TwigTemplate_890f93aed6b0f57127db4d4d152ec200713cf579c6ea40970f246c0e1dd
 
     public function getDebugInfo()
     {
-        return array (  97 => 26,  93 => 25,  88 => 23,  83 => 21,  75 => 16,  69 => 13,  65 => 12,  60 => 10,  56 => 8,  47 => 6,  45 => 5,  40 => 4,  34 => 3,  11 => 1,);
+        return array (  96 => 25,  92 => 24,  87 => 22,  82 => 20,  74 => 15,  68 => 12,  64 => 11,  59 => 9,  56 => 8,  47 => 6,  45 => 5,  40 => 4,  34 => 3,  11 => 1,);
     }
 
     public function getSourceContext()
@@ -129,7 +128,6 @@ class __TwigTemplate_890f93aed6b0f57127db4d4d152ec200713cf579c6ea40970f246c0e1dd
         {% if error is defined and error %}
             <div class=\"alert alert-danger\" role=\"alert\">{#{{ error|trans ({}, 'FOSUserBundle') }}#} {% trans %}login.error{% endtrans %}!</strong> {{ error.messageKey|trans ({}, 'messages') }}</div>
         {% endif %}
-        
         
         <input type=\"hidden\" name=\"_csrf_token\" value=\"{{ csrf_token }}\" />
         <div class=\"form-group\">

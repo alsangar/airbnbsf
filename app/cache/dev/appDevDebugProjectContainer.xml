@@ -12,10 +12,11 @@
       <parameter key="SecurityBundle">Symfony\Bundle\SecurityBundle\SecurityBundle</parameter>
       <parameter key="TwigBundle">Symfony\Bundle\TwigBundle\TwigBundle</parameter>
       <parameter key="MonologBundle">Symfony\Bundle\MonologBundle\MonologBundle</parameter>
-      <parameter key="SwiftmailerBundle">Symfony\Bundle\SwiftmailerBundle\SwiftmailerBundle</parameter>
       <parameter key="DoctrineBundle">Doctrine\Bundle\DoctrineBundle\DoctrineBundle</parameter>
+      <parameter key="DoctrineMigrationsBundle">Doctrine\Bundle\MigrationsBundle\DoctrineMigrationsBundle</parameter>
       <parameter key="SensioFrameworkExtraBundle">Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle</parameter>
       <parameter key="FOSUserBundle">FOS\UserBundle\FOSUserBundle</parameter>
+      <parameter key="SwiftmailerBundle">Symfony\Bundle\SwiftmailerBundle\SwiftmailerBundle</parameter>
       <parameter key="SonataCoreBundle">Sonata\CoreBundle\SonataCoreBundle</parameter>
       <parameter key="SonataBlockBundle">Sonata\BlockBundle\SonataBlockBundle</parameter>
       <parameter key="KnpMenuBundle">Knp\Bundle\MenuBundle\KnpMenuBundle</parameter>
@@ -29,6 +30,7 @@
       <parameter key="JMSSerializerBundle">JMS\SerializerBundle\JMSSerializerBundle</parameter>
       <parameter key="EasyAdminBundle">JavierEguiluz\Bundle\EasyAdminBundle\EasyAdminBundle</parameter>
       <parameter key="VichUploaderBundle">Vich\UploaderBundle\VichUploaderBundle</parameter>
+      <parameter key="GifExceptionBundle">Joli\GifExceptionBundle\GifExceptionBundle</parameter>
       <parameter key="AppBundle">AppBundle\AppBundle</parameter>
       <parameter key="BackendBundle">BackendBundle\BackendBundle</parameter>
       <parameter key="DebugBundle">Symfony\Bundle\DebugBundle\DebugBundle</parameter>
@@ -57,15 +59,15 @@
         <parameter key="path">C:\xampp\htdocs\airbnbsf\vendor\symfony\monolog-bundle</parameter>
         <parameter key="namespace">Symfony\Bundle\MonologBundle</parameter>
       </parameter>
-      <parameter key="SwiftmailerBundle" type="collection">
-        <parameter key="parent">null</parameter>
-        <parameter key="path">C:\xampp\htdocs\airbnbsf\vendor\symfony\swiftmailer-bundle</parameter>
-        <parameter key="namespace">Symfony\Bundle\SwiftmailerBundle</parameter>
-      </parameter>
       <parameter key="DoctrineBundle" type="collection">
         <parameter key="parent">null</parameter>
         <parameter key="path">C:\xampp\htdocs\airbnbsf\vendor\doctrine\doctrine-bundle</parameter>
         <parameter key="namespace">Doctrine\Bundle\DoctrineBundle</parameter>
+      </parameter>
+      <parameter key="DoctrineMigrationsBundle" type="collection">
+        <parameter key="parent">null</parameter>
+        <parameter key="path">C:\xampp\htdocs\airbnbsf\vendor\doctrine\doctrine-migrations-bundle</parameter>
+        <parameter key="namespace">Doctrine\Bundle\MigrationsBundle</parameter>
       </parameter>
       <parameter key="SensioFrameworkExtraBundle" type="collection">
         <parameter key="parent">null</parameter>
@@ -76,6 +78,11 @@
         <parameter key="parent">null</parameter>
         <parameter key="path">C:\xampp\htdocs\airbnbsf\vendor\friendsofsymfony\user-bundle</parameter>
         <parameter key="namespace">FOS\UserBundle</parameter>
+      </parameter>
+      <parameter key="SwiftmailerBundle" type="collection">
+        <parameter key="parent">null</parameter>
+        <parameter key="path">C:\xampp\htdocs\airbnbsf\vendor\symfony\swiftmailer-bundle</parameter>
+        <parameter key="namespace">Symfony\Bundle\SwiftmailerBundle</parameter>
       </parameter>
       <parameter key="SonataCoreBundle" type="collection">
         <parameter key="parent">null</parameter>
@@ -141,6 +148,11 @@
         <parameter key="parent">null</parameter>
         <parameter key="path">C:\xampp\htdocs\airbnbsf\vendor\vich\uploader-bundle</parameter>
         <parameter key="namespace">Vich\UploaderBundle</parameter>
+      </parameter>
+      <parameter key="GifExceptionBundle" type="collection">
+        <parameter key="parent">TwigBundle</parameter>
+        <parameter key="path">C:\xampp\htdocs\airbnbsf\vendor\jolicode\gif-exception-bundle</parameter>
+        <parameter key="namespace">Joli\GifExceptionBundle</parameter>
       </parameter>
       <parameter key="AppBundle" type="collection">
         <parameter key="parent">null</parameter>
@@ -472,42 +484,6 @@
         </parameter>
       </parameter>
     </parameter>
-    <parameter key="swiftmailer.class">Swift_Mailer</parameter>
-    <parameter key="swiftmailer.transport.sendmail.class">Swift_Transport_SendmailTransport</parameter>
-    <parameter key="swiftmailer.transport.mail.class">Swift_Transport_MailTransport</parameter>
-    <parameter key="swiftmailer.transport.failover.class">Swift_Transport_FailoverTransport</parameter>
-    <parameter key="swiftmailer.plugin.redirecting.class">Swift_Plugins_RedirectingPlugin</parameter>
-    <parameter key="swiftmailer.plugin.impersonate.class">Swift_Plugins_ImpersonatePlugin</parameter>
-    <parameter key="swiftmailer.plugin.messagelogger.class">Swift_Plugins_MessageLogger</parameter>
-    <parameter key="swiftmailer.plugin.antiflood.class">Swift_Plugins_AntiFloodPlugin</parameter>
-    <parameter key="swiftmailer.transport.smtp.class">Swift_Transport_EsmtpTransport</parameter>
-    <parameter key="swiftmailer.plugin.blackhole.class">Swift_Plugins_BlackholePlugin</parameter>
-    <parameter key="swiftmailer.spool.file.class">Swift_FileSpool</parameter>
-    <parameter key="swiftmailer.spool.memory.class">Swift_MemorySpool</parameter>
-    <parameter key="swiftmailer.email_sender.listener.class">Symfony\Bundle\SwiftmailerBundle\EventListener\EmailSenderListener</parameter>
-    <parameter key="swiftmailer.data_collector.class">Symfony\Bundle\SwiftmailerBundle\DataCollector\MessageDataCollector</parameter>
-    <parameter key="swiftmailer.mailer.default.transport.name">smtp</parameter>
-    <parameter key="swiftmailer.mailer.default.transport.smtp.encryption">null</parameter>
-    <parameter key="swiftmailer.mailer.default.transport.smtp.port">25</parameter>
-    <parameter key="swiftmailer.mailer.default.transport.smtp.host">127.0.0.1</parameter>
-    <parameter key="swiftmailer.mailer.default.transport.smtp.username">uno@cualquiera.es</parameter>
-    <parameter key="swiftmailer.mailer.default.transport.smtp.password">pass_de_palo</parameter>
-    <parameter key="swiftmailer.mailer.default.transport.smtp.auth_mode">null</parameter>
-    <parameter key="swiftmailer.mailer.default.transport.smtp.timeout">30</parameter>
-    <parameter key="swiftmailer.mailer.default.transport.smtp.source_ip">null</parameter>
-    <parameter key="swiftmailer.mailer.default.transport.smtp.local_domain">null</parameter>
-    <parameter key="swiftmailer.spool.default.memory.path">C:\xampp\htdocs\airbnbsf\app\cache\dev/swiftmailer/spool/default</parameter>
-    <parameter key="swiftmailer.mailer.default.spool.enabled">true</parameter>
-    <parameter key="swiftmailer.mailer.default.plugin.impersonate">null</parameter>
-    <parameter key="swiftmailer.mailer.default.single_address">null</parameter>
-    <parameter key="swiftmailer.mailer.default.delivery.enabled">true</parameter>
-    <parameter key="swiftmailer.spool.enabled">true</parameter>
-    <parameter key="swiftmailer.delivery.enabled">true</parameter>
-    <parameter key="swiftmailer.single_address">null</parameter>
-    <parameter key="swiftmailer.mailers" type="collection">
-      <parameter key="default">swiftmailer.mailer.default</parameter>
-    </parameter>
-    <parameter key="swiftmailer.default_mailer">default</parameter>
     <parameter key="doctrine_cache.apc.class">Doctrine\Common\Cache\ApcCache</parameter>
     <parameter key="doctrine_cache.apcu.class">Doctrine\Common\Cache\ApcuCache</parameter>
     <parameter key="doctrine_cache.array.class">Doctrine\Common\Cache\ArrayCache</parameter>
@@ -622,6 +598,11 @@
     <parameter key="doctrine.orm.auto_generate_proxy_classes">true</parameter>
     <parameter key="doctrine.orm.proxy_dir">C:\xampp\htdocs\airbnbsf\app\cache\dev/doctrine/orm/Proxies</parameter>
     <parameter key="doctrine.orm.proxy_namespace">Proxies</parameter>
+    <parameter key="doctrine_migrations.dir_name">C:\xampp\htdocs\airbnbsf\app/DoctrineMigrations</parameter>
+    <parameter key="doctrine_migrations.namespace">Application\Migrations</parameter>
+    <parameter key="doctrine_migrations.table_name">migration_versions</parameter>
+    <parameter key="doctrine_migrations.name">Application Migrations</parameter>
+    <parameter key="doctrine_migrations.organize_migrations">false</parameter>
     <parameter key="sensio_framework_extra.view.guesser.class">Sensio\Bundle\FrameworkExtraBundle\Templating\TemplateGuesser</parameter>
     <parameter key="sensio_framework_extra.controller.listener.class">Sensio\Bundle\FrameworkExtraBundle\EventListener\ControllerListener</parameter>
     <parameter key="sensio_framework_extra.routing.loader.annot_dir.class">Symfony\Component\Routing\Loader\AnnotationDirectoryLoader</parameter>
@@ -674,6 +655,42 @@
       <parameter>ResetPassword</parameter>
       <parameter>Default</parameter>
     </parameter>
+    <parameter key="swiftmailer.class">Swift_Mailer</parameter>
+    <parameter key="swiftmailer.transport.sendmail.class">Swift_Transport_SendmailTransport</parameter>
+    <parameter key="swiftmailer.transport.mail.class">Swift_Transport_MailTransport</parameter>
+    <parameter key="swiftmailer.transport.failover.class">Swift_Transport_FailoverTransport</parameter>
+    <parameter key="swiftmailer.plugin.redirecting.class">Swift_Plugins_RedirectingPlugin</parameter>
+    <parameter key="swiftmailer.plugin.impersonate.class">Swift_Plugins_ImpersonatePlugin</parameter>
+    <parameter key="swiftmailer.plugin.messagelogger.class">Swift_Plugins_MessageLogger</parameter>
+    <parameter key="swiftmailer.plugin.antiflood.class">Swift_Plugins_AntiFloodPlugin</parameter>
+    <parameter key="swiftmailer.transport.smtp.class">Swift_Transport_EsmtpTransport</parameter>
+    <parameter key="swiftmailer.plugin.blackhole.class">Swift_Plugins_BlackholePlugin</parameter>
+    <parameter key="swiftmailer.spool.file.class">Swift_FileSpool</parameter>
+    <parameter key="swiftmailer.spool.memory.class">Swift_MemorySpool</parameter>
+    <parameter key="swiftmailer.email_sender.listener.class">Symfony\Bundle\SwiftmailerBundle\EventListener\EmailSenderListener</parameter>
+    <parameter key="swiftmailer.data_collector.class">Symfony\Bundle\SwiftmailerBundle\DataCollector\MessageDataCollector</parameter>
+    <parameter key="swiftmailer.mailer.default.transport.name">smtp</parameter>
+    <parameter key="swiftmailer.mailer.default.transport.smtp.encryption">null</parameter>
+    <parameter key="swiftmailer.mailer.default.transport.smtp.port">25</parameter>
+    <parameter key="swiftmailer.mailer.default.transport.smtp.host">127.0.0.1</parameter>
+    <parameter key="swiftmailer.mailer.default.transport.smtp.username">uno@cualquiera.es</parameter>
+    <parameter key="swiftmailer.mailer.default.transport.smtp.password">pass_de_palo</parameter>
+    <parameter key="swiftmailer.mailer.default.transport.smtp.auth_mode">null</parameter>
+    <parameter key="swiftmailer.mailer.default.transport.smtp.timeout">30</parameter>
+    <parameter key="swiftmailer.mailer.default.transport.smtp.source_ip">null</parameter>
+    <parameter key="swiftmailer.mailer.default.transport.smtp.local_domain">null</parameter>
+    <parameter key="swiftmailer.spool.default.memory.path">C:\xampp\htdocs\airbnbsf\app\cache\dev/swiftmailer/spool/default</parameter>
+    <parameter key="swiftmailer.mailer.default.spool.enabled">true</parameter>
+    <parameter key="swiftmailer.mailer.default.plugin.impersonate">null</parameter>
+    <parameter key="swiftmailer.mailer.default.single_address">null</parameter>
+    <parameter key="swiftmailer.mailer.default.delivery.enabled">true</parameter>
+    <parameter key="swiftmailer.spool.enabled">true</parameter>
+    <parameter key="swiftmailer.delivery.enabled">true</parameter>
+    <parameter key="swiftmailer.single_address">null</parameter>
+    <parameter key="swiftmailer.mailers" type="collection">
+      <parameter key="default">swiftmailer.mailer.default</parameter>
+    </parameter>
+    <parameter key="swiftmailer.default_mailer">default</parameter>
     <parameter key="sonata.core.flashmessage.manager.class">Sonata\CoreBundle\FlashMessage\FlashManager</parameter>
     <parameter key="sonata.core.twig.extension.flashmessage.class">Sonata\CoreBundle\Twig\Extension\FlashMessageExtension</parameter>
     <parameter key="sonata.core.form_type">standard</parameter>
@@ -1357,6 +1374,10 @@
       <tag name="form.type" alias="fos_user_registration"/>
       <argument>BackendBundle\Entity\User</argument>
     </service>
+    <service id="app.redireccion_tras_registrar_usuario" class="BackendBundle\EventListener\RedireccionTrasRegistrarUsuario" autowire="true">
+      <tag name="kernel.event_subscriber"/>
+      <argument type="service" id="router"/>
+    </service>
     <service id="controller_name_converter" class="Symfony\Bundle\FrameworkBundle\Controller\ControllerNameParser" public="false">
       <tag name="monolog.logger" channel="request"/>
       <argument type="service" id="kernel"/>
@@ -1726,6 +1747,7 @@
             <argument>C:\xampp\htdocs\airbnbsf\vendor\vich\uploader-bundle/Resources/translations\VichUploaderBundle.es.yml</argument>
             <argument>C:\xampp\htdocs\airbnbsf\src\BackendBundle/Resources/translations\FOSUserBundle.es.yml</argument>
             <argument>C:\xampp\htdocs\airbnbsf\src\BackendBundle/Resources/translations\messages.es.yml</argument>
+            <argument>C:\xampp\htdocs\airbnbsf\src\BackendBundle/Resources/translations\VichUploaderBundle.es.yml</argument>
           </argument>
           <argument key="et" type="collection">
             <argument>C:\xampp\htdocs\airbnbsf\vendor\symfony\symfony\src\Symfony\Component\Validator/Resources/translations\validators.et.xlf</argument>
@@ -2914,6 +2936,18 @@
         </argument>
         <argument>0</argument>
       </call>
+      <call method="addListenerService">
+        <argument>kernel.response</argument>
+        <argument type="collection">
+          <argument>gif_exception.listener.replace_image</argument>
+          <argument>onKernelResponse</argument>
+        </argument>
+        <argument>-1000</argument>
+      </call>
+      <call method="addSubscriberService">
+        <argument>app.redireccion_tras_registrar_usuario</argument>
+        <argument>BackendBundle\EventListener\RedireccionTrasRegistrarUsuario</argument>
+      </call>
       <call method="addSubscriberService">
         <argument>response_listener</argument>
         <argument>Symfony\Component\HttpKernel\EventListener\ResponseListener</argument>
@@ -2979,10 +3013,6 @@
         <argument>Symfony\Bridge\Monolog\Handler\ConsoleHandler</argument>
       </call>
       <call method="addSubscriberService">
-        <argument>swiftmailer.email_sender.listener</argument>
-        <argument>Symfony\Bundle\SwiftmailerBundle\EventListener\EmailSenderListener</argument>
-      </call>
-      <call method="addSubscriberService">
         <argument>sensio_framework_extra.controller.listener</argument>
         <argument>Sensio\Bundle\FrameworkExtraBundle\EventListener\ControllerListener</argument>
       </call>
@@ -3017,6 +3047,10 @@
       <call method="addSubscriberService">
         <argument>fos_user.listener.resetting</argument>
         <argument>FOS\UserBundle\EventListener\ResettingListener</argument>
+      </call>
+      <call method="addSubscriberService">
+        <argument>swiftmailer.email_sender.listener</argument>
+        <argument>Symfony\Bundle\SwiftmailerBundle\EventListener\EmailSenderListener</argument>
       </call>
       <call method="addSubscriberService">
         <argument>debug.dump_listener</argument>
@@ -3063,7 +3097,7 @@
         </argument>
         <argument type="service">
           <service class="Symfony\Component\Security\Core\Authentication\Provider\AnonymousAuthenticationProvider" public="false">
-            <argument>598c0fba19add3.49332544</argument>
+            <argument>598c5607d4c3f4.79805579</argument>
           </service>
         </argument>
       </argument>
@@ -3418,7 +3452,7 @@
         <argument type="service">
           <service class="Symfony\Component\Security\Http\Firewall\AnonymousAuthenticationListener" public="false">
             <argument type="service" id="security.token_storage"/>
-            <argument>598c0fba19add3.49332544</argument>
+            <argument>598c5607d4c3f4.79805579</argument>
             <argument type="service" id="monolog.logger.security" on-invalid="null"/>
             <argument type="service" id="security.authentication.manager"/>
           </service>
@@ -3882,18 +3916,6 @@
       <call method="pushProcessor">
         <argument type="service" id="monolog.processor.psr_log_message"/>
       </call>
-    </service>
-    <service id="swiftmailer.email_sender.listener" class="Symfony\Bundle\SwiftmailerBundle\EventListener\EmailSenderListener">
-      <tag name="kernel.event_subscriber"/>
-      <argument type="service" id="service_container"/>
-      <argument type="service" id="logger" on-invalid="null"/>
-    </service>
-    <service id="swiftmailer.mailer.default.transport.eventdispatcher" class="Swift_Events_SimpleEventDispatcher" public="false"/>
-    <service id="swiftmailer.mailer.default" class="Swift_Mailer">
-      <argument type="service" id="swiftmailer.mailer.default.transport"/>
-    </service>
-    <service id="swiftmailer.mailer.default.plugin.messagelogger" class="Swift_Plugins_MessageLogger">
-      <tag name="swiftmailer.default.plugin"/>
     </service>
     <service id="doctrine.dbal.connection_factory" class="Doctrine\Bundle\DoctrineBundle\ConnectionFactory">
       <argument type="collection">
@@ -4403,6 +4425,18 @@
       <tag name="kernel.event_subscriber"/>
       <argument type="service" id="router"/>
       <argument>86400</argument>
+    </service>
+    <service id="swiftmailer.email_sender.listener" class="Symfony\Bundle\SwiftmailerBundle\EventListener\EmailSenderListener">
+      <tag name="kernel.event_subscriber"/>
+      <argument type="service" id="service_container"/>
+      <argument type="service" id="logger" on-invalid="null"/>
+    </service>
+    <service id="swiftmailer.mailer.default.transport.eventdispatcher" class="Swift_Events_SimpleEventDispatcher" public="false"/>
+    <service id="swiftmailer.mailer.default" class="Swift_Mailer">
+      <argument type="service" id="swiftmailer.mailer.default.transport"/>
+    </service>
+    <service id="swiftmailer.mailer.default.plugin.messagelogger" class="Swift_Plugins_MessageLogger">
+      <tag name="swiftmailer.default.plugin"/>
     </service>
     <service id="sonata.core.date.moment_format_converter" class="Sonata\CoreBundle\Date\MomentFormatConverter"/>
     <service id="sonata.core.flashmessage.manager" class="Sonata\CoreBundle\FlashMessage\FlashManager">
@@ -8251,6 +8285,78 @@
       </argument>
       <argument type="service" id="debug.event_dispatcher"/>
     </service>
+    <service id="gif_exception.listener.replace_image" class="Joli\GifExceptionBundle\EventListener\ReplaceImageListener">
+      <tag name="kernel.event_listener" event="kernel.response" priority="-1000"/>
+      <argument type="collection">
+        <argument key="403" type="collection">
+          <argument>cat-puppy.gif</argument>
+          <argument>dog-cat-stairs.gif</argument>
+          <argument>gandalf.gif</argument>
+          <argument>goat-motorbike.gif</argument>
+          <argument>men-in-black-flash.gif</argument>
+          <argument>netbook-horse.gif</argument>
+        </argument>
+        <argument key="404" type="collection">
+          <argument>confused-travolta.gif</argument>
+          <argument>looping-bird.gif</argument>
+          <argument>missing-stapler.gif</argument>
+          <argument>nothing-to-see-here.gif</argument>
+        </argument>
+        <argument key="503" type="collection">
+          <argument>swivel-chair.gif</argument>
+        </argument>
+        <argument key="other" type="collection">
+          <argument>athletic.gif</argument>
+          <argument>bottle.gif</argument>
+          <argument>captain-america.gif</argument>
+          <argument>car-accident.gif</argument>
+          <argument>carousel-fail-o.gif</argument>
+          <argument>castle.gif</argument>
+          <argument>facepalm.gif</argument>
+          <argument>garbage.gif</argument>
+          <argument>hitme.gif</argument>
+          <argument>karate.gif</argument>
+          <argument>life-sometimes.gif</argument>
+          <argument>nope.gif</argument>
+          <argument>panda.gif</argument>
+          <argument>pingou.gif</argument>
+          <argument>plane.gif</argument>
+          <argument>plouf.gif</argument>
+          <argument>pool.gif</argument>
+          <argument>truck-bridge.gif</argument>
+          <argument>try-fail-repeat.gif</argument>
+          <argument>tupper.gif</argument>
+          <argument>you-blew-it.gif</argument>
+          <argument>athletic.gif</argument>
+          <argument>bottle.gif</argument>
+          <argument>captain-america.gif</argument>
+          <argument>car-accident.gif</argument>
+          <argument>carousel-fail-o.gif</argument>
+          <argument>castle.gif</argument>
+          <argument>facepalm.gif</argument>
+          <argument>garbage.gif</argument>
+          <argument>hitme.gif</argument>
+          <argument>karate.gif</argument>
+          <argument>life-sometimes.gif</argument>
+          <argument>nope.gif</argument>
+          <argument>panda.gif</argument>
+          <argument>pingou.gif</argument>
+          <argument>plane.gif</argument>
+          <argument>plouf.gif</argument>
+          <argument>pool.gif</argument>
+          <argument>truck-bridge.gif</argument>
+          <argument>try-fail-repeat.gif</argument>
+          <argument>tupper.gif</argument>
+          <argument>you-blew-it.gif</argument>
+        </argument>
+      </argument>
+      <argument>twig.controller.exception:showAction</argument>
+      <argument type="service" id="assets.packages"/>
+      <argument>null</argument>
+      <argument>twig.controller.exception:showAction</argument>
+      <argument type="service" id="assets.packages"/>
+      <argument>null</argument>
+    </service>
     <service id="data_collector.dump" class="Symfony\Component\HttpKernel\DataCollector\DumpDataCollector">
       <tag name="data_collector" id="dump" template="@Debug/Profiler/dump.html.twig" priority="240"/>
       <argument type="service" id="debug.stopwatch" on-invalid="ignore"/>
@@ -8877,6 +8983,36 @@
       </call>
       <autowiring-type>Psr\Log\LoggerInterface</autowiring-type>
     </service>
+    <service id="fos_user.mailer" class="FOS\UserBundle\Mailer\Mailer">
+      <argument type="service" id="swiftmailer.mailer.default"/>
+      <argument type="service" id="router"/>
+      <argument type="service" id="templating"/>
+      <argument type="collection">
+        <argument key="confirmation.template">@FOSUser/Registration/email.txt.twig</argument>
+        <argument key="resetting.template">@FOSUser/Resetting/email.txt.twig</argument>
+        <argument key="from_email" type="collection">
+          <argument key="confirmation" type="collection">
+            <argument key="uno@cualquiera.es">uno@cualquiera.es</argument>
+          </argument>
+          <argument key="resetting" type="collection">
+            <argument key="uno@cualquiera.es">uno@cualquiera.es</argument>
+          </argument>
+        </argument>
+      </argument>
+    </service>
+    <service id="fos_user.util.email_canonicalizer" class="FOS\UserBundle\Util\Canonicalizer"/>
+    <service id="fos_user.util.token_generator" class="FOS\UserBundle\Util\TokenGenerator"/>
+    <service id="fos_user.user_manager" class="FOS\UserBundle\Doctrine\UserManager">
+      <argument type="service" id="fos_user.util.password_updater"/>
+      <argument type="service" id="fos_user.util.canonical_fields_updater"/>
+      <argument type="service">
+        <service class="Doctrine\Common\Persistence\ObjectManager" public="false">
+          <argument>null</argument>
+          <factory service="doctrine" method="getManager"/>
+        </service>
+      </argument>
+      <argument>BackendBundle\Entity\User</argument>
+    </service>
     <service id="swiftmailer.mailer.default.transport" class="Swift_Transport_SpoolTransport">
       <argument type="service" id="swiftmailer.mailer.default.transport.eventdispatcher"/>
       <argument type="service" id="swiftmailer.mailer.default.spool"/>
@@ -8941,36 +9077,6 @@
           <argument type="service" id="router.request_context" on-invalid="null"/>
         </service>
       </configurator>
-    </service>
-    <service id="fos_user.mailer" class="FOS\UserBundle\Mailer\Mailer">
-      <argument type="service" id="swiftmailer.mailer.default"/>
-      <argument type="service" id="router"/>
-      <argument type="service" id="templating"/>
-      <argument type="collection">
-        <argument key="confirmation.template">@FOSUser/Registration/email.txt.twig</argument>
-        <argument key="resetting.template">@FOSUser/Resetting/email.txt.twig</argument>
-        <argument key="from_email" type="collection">
-          <argument key="confirmation" type="collection">
-            <argument key="uno@cualquiera.es">uno@cualquiera.es</argument>
-          </argument>
-          <argument key="resetting" type="collection">
-            <argument key="uno@cualquiera.es">uno@cualquiera.es</argument>
-          </argument>
-        </argument>
-      </argument>
-    </service>
-    <service id="fos_user.util.email_canonicalizer" class="FOS\UserBundle\Util\Canonicalizer"/>
-    <service id="fos_user.util.token_generator" class="FOS\UserBundle\Util\TokenGenerator"/>
-    <service id="fos_user.user_manager" class="FOS\UserBundle\Doctrine\UserManager">
-      <argument type="service" id="fos_user.util.password_updater"/>
-      <argument type="service" id="fos_user.util.canonical_fields_updater"/>
-      <argument type="service">
-        <service class="Doctrine\Common\Persistence\ObjectManager" public="false">
-          <argument>null</argument>
-          <factory service="doctrine" method="getManager"/>
-        </service>
-      </argument>
-      <argument>BackendBundle\Entity\User</argument>
     </service>
     <service id="sonata.admin.security.handler" class="Sonata\AdminBundle\Security\Handler\NoopSecurityHandler"/>
     <service id="jms_serializer.metadata_driver" class="JMS\Serializer\Metadata\Driver\DoctrineTypeDriver">
@@ -9170,10 +9276,6 @@
         <argument>Twig</argument>
       </call>
       <call method="addPath">
-        <argument>C:\xampp\htdocs\airbnbsf\vendor\symfony\swiftmailer-bundle/Resources/views</argument>
-        <argument>Swiftmailer</argument>
-      </call>
-      <call method="addPath">
         <argument>C:\xampp\htdocs\airbnbsf\vendor\doctrine\doctrine-bundle/Resources/views</argument>
         <argument>Doctrine</argument>
       </call>
@@ -9184,6 +9286,10 @@
       <call method="addPath">
         <argument>C:\xampp\htdocs\airbnbsf\vendor\friendsofsymfony\user-bundle/Resources/views</argument>
         <argument>FOSUser</argument>
+      </call>
+      <call method="addPath">
+        <argument>C:\xampp\htdocs\airbnbsf\vendor\symfony\swiftmailer-bundle/Resources/views</argument>
+        <argument>Swiftmailer</argument>
       </call>
       <call method="addPath">
         <argument>C:\xampp\htdocs\airbnbsf\vendor\sonata-project\core-bundle/Resources/views</argument>
@@ -9301,18 +9407,18 @@
     </service>
     <service id="session.storage" alias="session.storage.native"/>
     <service id="event_dispatcher" alias="debug.event_dispatcher"/>
-    <service id="swiftmailer.spool" alias="swiftmailer.mailer.default.spool"/>
-    <service id="swiftmailer.transport.real" alias="swiftmailer.mailer.default.transport.real"/>
-    <service id="swiftmailer.plugin.messagelogger" alias="swiftmailer.mailer.default.plugin.messagelogger"/>
-    <service id="swiftmailer.mailer" alias="swiftmailer.mailer.default"/>
-    <service id="swiftmailer.transport" alias="swiftmailer.mailer.default.transport"/>
-    <service id="mailer" alias="swiftmailer.mailer.default"/>
     <service id="database_connection" alias="doctrine.dbal.default_connection"/>
     <service id="doctrine.orm.entity_manager" alias="doctrine.orm.default_entity_manager"/>
     <service id="doctrine.orm.default_metadata_cache" alias="doctrine_cache.providers.doctrine.orm.default_metadata_cache"/>
     <service id="doctrine.orm.default_result_cache" alias="doctrine_cache.providers.doctrine.orm.default_result_cache"/>
     <service id="doctrine.orm.default_query_cache" alias="doctrine_cache.providers.doctrine.orm.default_query_cache"/>
     <service id="fos_user.util.username_canonicalizer" alias="fos_user.util.email_canonicalizer"/>
+    <service id="swiftmailer.spool" alias="swiftmailer.mailer.default.spool"/>
+    <service id="swiftmailer.transport.real" alias="swiftmailer.mailer.default.transport.real"/>
+    <service id="swiftmailer.plugin.messagelogger" alias="swiftmailer.mailer.default.plugin.messagelogger"/>
+    <service id="swiftmailer.mailer" alias="swiftmailer.mailer.default"/>
+    <service id="swiftmailer.transport" alias="swiftmailer.mailer.default.transport"/>
+    <service id="mailer" alias="swiftmailer.mailer.default"/>
     <service id="sonata.block.context_manager" alias="sonata.block.context_manager.default"/>
     <service id="sonata.block.cache.handler" alias="sonata.block.cache.handler.default"/>
     <service id="sonata.block.renderer" alias="sonata.block.renderer.default"/>

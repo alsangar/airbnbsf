@@ -14,10 +14,11 @@ class AppKernel extends Kernel {
             new Symfony\Bundle\SecurityBundle\SecurityBundle(),
             new Symfony\Bundle\TwigBundle\TwigBundle(),
             new Symfony\Bundle\MonologBundle\MonologBundle(),
-            new Symfony\Bundle\SwiftmailerBundle\SwiftmailerBundle(),
             new Doctrine\Bundle\DoctrineBundle\DoctrineBundle(),
+            new Doctrine\Bundle\MigrationsBundle\DoctrineMigrationsBundle(),
             new Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle(),
             new FOS\UserBundle\FOSUserBundle(),
+            new Symfony\Bundle\SwiftmailerBundle\SwiftmailerBundle(),
             // These are the other bundles the SonataAdminBundle relies on
             new Sonata\CoreBundle\SonataCoreBundle(),
             new Sonata\BlockBundle\SonataBlockBundle(),
@@ -37,6 +38,9 @@ class AppKernel extends Kernel {
             
             //Bundle para Fileu Upload
             new Vich\UploaderBundle\VichUploaderBundle(),
+            
+            //Sustituye el fantasma de las excepciones por GIFs :p
+            new \Joli\GifExceptionBundle\GifExceptionBundle(),
             
             //Mis bundles
             new AppBundle\AppBundle(),
