@@ -35,20 +35,24 @@ class ComprobarDimensionesDeImagen
 
         $imagen = getimagesize($object->getImageFile());
 
-        if (250 >= $imagen[0] || 250 >= imagen[1]) {
+        if (250 > $imagen[0] || 250 > imagen[1]) {
             $request = $this->requestStack->getCurrentRequest();
             $session = $request->getSession();
 
             $event->stopPropagation();
             $session->getFlashBag()->add('error', "Dimensiones de imagen demasiado pequeñas. Dimensiones mínimas: 250x250 \n");
+            
             $url = $this->router->generate('fos_user_profile_edit');
-
+            /*
+             * Testing different methods of redirect
+             * 
+             * $response = new RedirectResponse($url);
+             * $event->setResponse($response);
+             */
+            
             $event->setController(function() use ($request) {
                 return new RedirectResponse($url);
-            });
-
-//            $response = new RedirectResponse($url);
-//            $event->setResponse($response);
+            });            
         }
     }
 }

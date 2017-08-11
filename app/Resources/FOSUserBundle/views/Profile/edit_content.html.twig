@@ -4,19 +4,7 @@
 
 <div class="container mtb">
     <div class="row centered">        
-        {% set flash_error = app.session.flashbag.get('error') %}
-        {% if flash_error %}
-            <div class="alert alert-danger">
-                <ul>
-                    {% for flash_message in flash_error %}
-                        <li>{{ flash_message }}</li>
-
-                    {% endfor %}
-
-                </ul>
-            </div>
-        {% endif %}
-
+      
         {{ form_start(form, { 'action': path('fos_user_profile_edit'),'method':'POST', 'name':'editProfile', 'attr': { 'class': 'fos_user_profile_edit form-horizontal' , 'id':'formEditProfile'} }) 
         }}
         {% if not form.vars.valid %}            

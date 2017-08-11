@@ -85,11 +85,15 @@ class User extends BaseUser
      * 
      * @var File
      *  
-     * @Assert\File(
-     *     maxSize = "5M",
+     * @Assert\Image(
+     *     maxSize = "1M",
      *     mimeTypes = {"image/jpeg", "image/gif", "image/png", "image/tiff"},
-     *     maxSizeMessage = "El tamaño de archivo máximo permitido es 5MB.",
-     *     mimeTypesMessage = "Solo se permiten ficheros de tipo imagen (jpeg, gif, png, tiff)"
+     *     minHeight = 250,
+     *     minWidth = 250,
+     *     maxSizeMessage = "El tamaño de archivo máximo permitido es 1MB.",
+     *     mimeTypesMessage = "Solo se permiten ficheros de tipo imagen (jpeg, gif, png, tiff)",
+     *     minHeightMessage = "El alto de la imagen es muy pequeño ({{ width }}px). Alto mínimo esperado 250px.",
+     *     minWidthMessage = "El ancho de la imagen es muy pequeño ({{ width }}px). Ancho mínimo esperado 250px."
      * )
      */
     private $imageFile;
@@ -239,9 +243,9 @@ class User extends BaseUser
      * must be able to accept an instance of 'File' as the bundle will inject one here
      * during Doctrine hydration.
      *
-     * @param File|\Symfony\Component\HttpFoundation\File\UploadedFile $image
+     * @param File\Symfony\Component\HttpFoundation\File\UploadedFile $image
      *
-     * @return Product
+     * @return User
      */
     public function setImageFile(File $image = null)
     {

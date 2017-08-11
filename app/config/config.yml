@@ -50,12 +50,6 @@ services:
         autowire: true
         tags:
             - { name: kernel.event_subscriber }
-    app.comprobar_dimensiones_de_imagen:
-        class: BackendBundle\EventListener\ComprobarDimensionesDeImagen
-        arguments: ['@request_stack']
-        autowire: true
-        tags:
-            - { name: kernel.event_listener, event: vich_uploader.pre_upload }
             
 # Twig Configuration
 twig:
